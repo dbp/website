@@ -13,6 +13,15 @@ actually based on a third, etc. Finding papers like this (vs. searching
 online) is also great because it naturally selects papers that were
 well written and/or influential.
 
+### April 2014
+
+- _FizzBuzz in Haskell by Embedding a Domain-Specific Language_. Maciej Pirog. 2014. [PDF](http://themonadreader.files.wordpress.com/2014/04/fizzbuzz.pdf).
+
+  > _A fun short paper about solving the classic interview question
+  > using languages / interpreters as a way of approaching the
+  > problem. The "trick" to the result is continuations, in order to
+  > implement control flow in the DSL.
+
 ### March 2014
 
 - _Scrap Your Boilerplate: A Practical Design Pattern for Generic Programming_. Ralf Lammel, Simon Peyton Jones. 2003. [PDF](http://www.ldpreload.com/p/syb/hmap.pdf).
