@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>dbpmail.net :: A Literate Ur/Web Adventure</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="navigation">
+            <a href="http://dbpmail.net">dbpmail.net</a>
+            <a href="#" title="site created with hakyll, http://jaspervdj.be/hakyll/">::</a>
+            <a href="../index.html">About</a>
+            <a href="../essays.html">Essays</a>
+            <a href="../reading.html">Reading</a>
+            <a href="../projects.html">Projects</a>
+            <a href="http://photo.dbpmail.net">Photos</a>
+        </div>
+        <h2>A Literate Ur/Web Adventure</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>May 21, 2013</strong></p>
+
+<p><a href="http://www.impredicative.com/ur/">Ur/Web</a> is a language / framework for web programming that both makes it really hard to write code with bugs / vulnerabilities and also makes it really easy to write reactive, client-side code, all from a single, simple, codebase. But it is built on some pretty deep type theory, and while it is an incredibly practical research project, some corners of it still show - like error messages that scroll pages off the screen. I’ve experimented with it before, and have written a small application that is beyond a demo, but still small enough to be digestible.</p>
+<p>For completeness and clarity, I present it here in complete literate style - all the files, interspersed with comments, are presented. They are split into sections by file, which are named in headings. All the text between the file name and the next file name that is not actual code is within comments (that is what the <code>#</code>, <code>(*</code> and <code>*)</code> are for), so you can copy the whole thing to the files and build the project. All the files should go into a single directory. It builds with the current version of Ur/Web. You can try out the application, as it currently exists (which might have been changed since writing this), at <a href="http://lab.dbpmail.net/dn">lab.dbpmail.net/dn</a>. The full source, with history, is available at <a href="http://hub.darcs.net/dbp/dnplayer">hub.darcs.net/dbp/dnplayer</a>.</p>
+<p>The application is a video player for the daily news program <a href="http://democracynow.org">Democracy Now!</a>. The main point of it is to remember where in the show you are, so you can stop and resume it, across devices. It should work on desktop and mobile applications - I have targetted Chrome on Android, Chrome on computers, and Safari on iPhones/iPads. The main reason for not supporting Firefox is that it does not support the (proprietary) video/audio codecs that are the only format that Democracy Now! provides.</p>
+<h2 id="dn.urp">dn.urp</h2>
+<pre><code># .urp files are project files, which describe various meta-data about
+# Ur/Web applications. They declare libraries (like random, which we'll
+# see later), information about the database (both what it is named and
+# where to generate the sql for the tables that the application is using).
+# They separate meta-data declarations from the modules in the project by
+# a single blank line, which is why we have comments on all blank lines
+# prior to the end.
+library random
+database dbname=dn
+sql dn.sql
+# 
+# They also allow you to rewrite urls. By default, urls are generated
+# consistently as Module/function_name, which means that the main
+# function inside Dn, our main module, is our root url. We can rewrite
+# one url to another, but if we leave off the second, that rewrites to
+# root. We can also strip prefixes from urls with a rewrite with a *.
+# 
+rewrite url Dn/main 
+rewrite url Dn/*
+# 
+# safeGet allows us to declare that a function is safe to generate urls
+# to, ie that it won't cause side effects. Along the same safety lines,
+# we declare the external urls that we will generate and scripts we will
+# include - making injecting resources hosted elsewhere hard (as Ur/Web
+# won't allow you to create urls to anything not declared here).
+#
+# 
+safeGet player
+allow url http://dncdn.dvlabs.com/ipod/*
+allow url http://traffic.libsyn.com/democracynow/*
+allow url http://dbpmail.net/css/default.css
+allow url http://dbpmail.net
+allow url http://hub.darcs.net/dbp/dnplayer
+allow url http://democracynow.org
+allow url http://lab.dbpmail.net/dn/main.css
+script http://lab.dbpmail.net/static/jquery-1.9.1.min.js
+# One odd thing - Ur/Web doesn't have a static file server of its own, so
+# you need to host any FFI javascript elsewhere. Here's where the javascript for
+# this application, presented later, is hosted. For trying it out, leaving
+# this the same is fine, though if you want to change the javascript, or
+# not depend on my copy being up, you should change this and the reference in
+# the application.
+script http://lab.dbpmail.net/dn/dn.js
+# 
+# Next, we declare that we have foreign functions in a module called dnjs. This
+# refers to a header file (.urs), and we furthermore declare what functions within
+# it we are using. We declare them as effectful so that they aren't called multiple
+# times (like Haskell, Ur/Web is purely functional, so normal, non-effectful functions are not
+# guaranteed to be called exactly once - they could be optimized away if the compiler
+# did not see you use the result of the function, and could be inlined (and thus
+# duplicated) if it would be more efficient).
+# 
+ffi dnjs
+jsFunc Dnjs.init=init
+effectful Dnjs.init
+jsFunc Dnjs.set_offset=set_offset
+effectful Dnjs.set_offset
+
+# The last thing we declare is the modules in our project. $/ is a prefix that means to
+# look in the standard library, as we are using the option type (Some/None in OCaml/ML,
+# Just/Nothing in Haskell, and very roughly a safe null in other languages). sourceL is
+# a helper for reactive programming (to be discussed later). And finally, our main module,
+# which should be last.
+#         
+$/option
+sourceL
+dn</code></pre>
+<h2 id="dn.urs">dn.urs</h2>
+<pre><code>(*</code></pre>
+<p><code>.urs</code> files are header files (signature files), which declare all the public functions in the module (in this case, the <code>Dn</code> module). We only export our <code>main</code> function here, but all functions that have urls that we generate within the applications are also implicitly exported.</p>
+<p>The type of main, <code>unit -&gt; transaction page</code>, means that it takes no input (<code>unit</code> is a value-less value, a placeholder for argumentless functions), and it produces a <code>page</code> (which is a collection of xml), within a <code>transaction</code>. <code>transaction</code>, like Haskell’s IO monad, is the way that Ur/Web handles IO in a safe way. If you aren’t familiar with IO in Haskell, you should go there and then come back.</p>
+<pre><code>*)
+val main : unit -&gt; transaction page</code></pre>
+<h2 id="random.urp">random.urp</h2>
+<pre><code># Random is a simple wrapper around librandom to provide us with random
+# strings, that we use for tokens. We included it above with the line
+# `library random`. Libraries are declared with separate package files,
+# and here we link against librandom.a, include the random header, and declare
+# that we are using functions declared in random.urs (that is the ffi line).
+# We also declare that all three functions are effectful, because they have
+# side effects
+#
+# NOTE: It has been pointed out that instead of doing this, we could either:
+#       A. use Ur/Web's builtin `rand` function, and construct the strings
+#          without using the FFI, or even easier:
+#       B. just use the integers than `rand` generates as tokens.
+#
+#       I didn't realize that `rand` existed when I wrote this, but I'm leaving
+#       it in because it is a (concise) introduction to the FFI, which, given
+#       the relatively small body of Ur/Web libraries, is probably something
+#       you'll end up using if you build any large applications.
+effectful Random.init
+effectful Random.str
+effectful Random.lower_str
+ffi random
+include random.h
+link librandom.a</code></pre>
+<h2 id="random.urs">random.urs</h2>
+<pre><code>(*</code></pre>
+<p>Like with main, we see that the signatures of these functions are ‘transaction unit’ and <code>int -&gt; transaction string</code>, which means the former takes no arguments, and the latter two take integers (lengths), and produce <code>string</code>s, within <code>transactions</code>. They are within <code>transaction</code> because they create side effects (ie, if you run them twice, you will likely not get the same result), and thus we want the compiler to treat them with care (as described earlier). Init seeds the random number generator, so it should be called before the other two are</p>
+<pre><code>*)
+val init: transaction unit
+val str : int -&gt; transaction string
+val lower_str : int -&gt; transaction string</code></pre>
+<h2 id="random.h">random.h</h2>
+<pre><code>/*</code></pre>
+<p>Here we have the header file for the C library, which declares the same signatures as above, but using the structs that Ur/Web uses, and the naming convention that it expects (uw_Module_name).</p>
+<pre><code>*/
+#include &quot;types.h&quot;
+
+uw_Basis_unit uw_Random_init(uw_context ctx);
+uw_Basis_string uw_Random_str(uw_context ctx, uw_Basis_int len);
+uw_Basis_string uw_Random_lower_str(uw_context ctx, uw_Basis_int len);</code></pre>
+<h2 id="random.c">random.c</h2>
+<pre><code>/*</code></pre>
+<p>And finally the C code to generate random strings.</p>
+<pre><code>*/
+#include &quot;random.h&quot;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt; 
+#include &quot;urweb.h&quot;
+
+/* Note: This is not cryptographically secure (bad PRNG) - do not
+   use in places where knowledge of the strings is a security issue.
+*/
+
+uw_Basis_unit uw_Random_init(uw_context ctx) {
+  srand((unsigned int)time(0));
+}
+
+uw_Basis_string uw_Random_str(uw_context ctx, uw_Basis_int len) {
+  uw_Basis_string s;
+  int i;
+
+  s = uw_malloc(ctx, len + 1);
+
+  for (i = 0; i &lt; len; i++) {
+    s[i] = rand() % 93 + 33; /* ASCII characters 33 to 126 */
+  }
+  s[i] = 0;
+
+  return s;
+}
+
+uw_Basis_string uw_Random_lower_str(uw_context ctx, uw_Basis_int len) {
+  uw_Basis_string s;
+  int i;
+
+  s = uw_malloc(ctx, len + 1);
+
+  for (i = 0; i &lt; len; i++) {
+    s[i] = rand() % 26 + 97; /* ASCII lowercase letters */
+  }
+  s[i] = 0;
+
+  return s;
+}</code></pre>
+<h2 id="dn.ur">dn.ur</h2>
+<pre><code>(*</code></pre>
+<p>We’ll now jump into the main web application, having seen a little bit about how the various files are combined together. The first thing we have is the data that we will be using - one database table, for our users, and one cookie. The tables are declared with Ur/Web’s record syntax, where <code>Token</code>, <code>Date</code>, and <code>Offset</code> are the names of fields, and <code>string</code>, <code>string</code>, and <code>float</code> are the types.</p>
+<p>All tables that are going to be used have to be declared, and Ur/Web will generate SQL to create them. This is, in my opinion, one weakness, as it means that Ur/Web doesn’t play well with others (as it needs the tables to be named uw_Module_name), and, even worse, if you rename modules, or refactor where the tables are stored, the names of the tables need to change - if you are just creating a toy, you can wipe out the database and re-initialize it, but obviously this isn’t an option for something that matters, and you just have to manually migrate the tables, based on the newly generated database schemas. Luckily the tables / columns are predictably named, but it still isn’t great.</p>
+<pre><code>*)
+(* Note: Date is the date string used in the urls, as the most
+   convenient serialization, Offset is seconds into the show *)
+table u : {Token : string, Date : string, Offset : float} PRIMARY KEY Token
+cookie c : string
+(*</code></pre>
+<p>Ur/Web provides a mechanism to run certain code at times other than requests, called <code>task</code>s. There are a couple categories, the simplest one being an initialization task, that is run once when the application starts up. We use this to initialize our random library.</p>
+<pre><code>*)
+task initialize = fn () =&gt; Random.init
+(*</code></pre>
+<p>Part of being a research project is that the standard libraries are pretty minimal, and one thing that is absent is date handling. You can format dates, add and subtract, and that’s about it. Since a bit of this application has to do with tracking what show is the current one, and whether you’ve already started watching it, I wrote a few functions to answer the couple date / time questions that I needed. These are all pure functions, and all the types are inferred.</p>
+<pre><code>*)
+val date_format = &quot;%Y-%m%d&quot;
+
+fun before_nine t =
+    case read (timef &quot;%H&quot; t) of
+        None =&gt; error &lt;xml&gt;Could not read Hour&lt;/xml&gt;
+      | Some h =&gt; h &lt; 9
+    
+fun recent_show t =
+   let val seconds_day = 24*60*60
+       val nt = (if before_nine t then (addSeconds t (-seconds_day)) else t)
+       val wd = timef &quot;%u&quot; nt in
+   case wd of
+       &quot;6&quot; =&gt; addSeconds nt (-seconds_day)
+     | &quot;7&quot; =&gt; addSeconds nt (-(2*seconds_day))
+     | _ =&gt; nt
+   end
+(*</code></pre>
+<p>The server that I have this application hosted on is in a different timezone than the show is broadcasted in (EST), so we have to adjust the current time so that we can tell if it is late enough in the day to get the current days broadcast. Depending on what timezone your computer is, this may need to be changed.</p>
+<pre><code>*)
+fun est_now () =
+    n &lt;- now;
+    return (addSeconds n (-(4*60*60)))
+
+(*</code></pre>
+<p>We track users by tokens - these are short random strings generated with our random library. The mechanism for syncing devices is to visit the url (with the token) on every device, so the tokens will need to be typed in. For that reason, I didn’t want to make the tokens very long, which means that collisions are a real possibility. To deal with this, I set the length to be 6 characters, plus the number of tokens, log_26 (since users are encoded with lower case letters, n users can be encoded with log_26 characters, so we use this as a baseline, and add several so that the collision probability is low).</p>
+<p>In this, we see how SQL queries work. You can embed SQL (a subset of SQL, defined in the manual), and this is translated into a query datatype, and there are many functions in the standard library to run those queries. We see here two: <code>oneRowE1</code>, which expects to get back just one row, and will extract 1 value from it. <code>E</code> means that it computes a single output expression. Note that it will error if there is no result, but since we are selecting the count, this should be fine. <code>hasRows</code> is an even simpler function; it simply runs the query and returns true iff there are rows.</p>
+<p>Also note that we refer to the table by name as declared above, and we refer to columns as record members of the table. To embed regular Ur/Web values within SQL queries, we use <code>{[value]}</code>. These queries will not type check if you try to select columns that don’t exist, and of course does escaping etc.</p>
+<pre><code>*)
+(* linking to cmath would be better, but since I only
+   need an approximation, this is fine *)
+fun log26_approx n c : int =
+    if c &lt; 26 then n else
+    log26_approx (n+1) (c / 26)
+
+
+(* Handlers for creating and persisting token *)
+fun new_token () : transaction string =
+    count &lt;- oneRowE1 (SELECT COUNT( * ) FROM u);
+    token &lt;- Random.lower_str (6 + (log26_approx 0 count));
+    used &lt;- hasRows (SELECT * FROM u WHERE u.Token = {[token]});
+    if used then new_token () else return token
+
+(*</code></pre>
+<p>We write small functions to set and clear the tokens. We do this so that after a user has visited the unique player url at least once on each device, they will only have to remember the application url, not their unique url. <code>now</code> is a value of type <code>transaction time</code>, which gives the current time, and <code>setCookie</code>/<code>clearCookie</code> should be self explanatory.</p>
+<pre><code>*)
+fun set_token token =
+    t &lt;- now;
+    setCookie c {Value = token,
+                 Expires = Some (addSeconds t (365*24*60*60)),
+                 Secure = False}
+    
+fun clear_token () =
+    clearCookie c
+
+(*</code></pre>
+<p>The next thing is a bunch of html fragments. Ur/Web doesn’t have a “templating” system, but it is perfectly possible to create one by defining functions that take the values to insert in. I’ve opted for a simpler option, and just defined common pieces. HTML is written in normal XML format, within <code>&lt;xml&gt;</code> tags, and like the SQL tags, these are typechecked - having attributes that shouldn’t exist, nesting tags that don’t belong, or not closing tags all cause the code not to compile.</p>
+<p>There are a couple rough edges - some tags are not defined (but you can define new ones in FFI modules), and some attributes can’t be used because they are keywords (hence <code>typ</code> instead of <code>type</code>), but overall it is a neat system, and works very well.</p>
+<pre><code>*)
+fun heading () = 
+    &lt;xml&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;/&gt;
+        &lt;link rel=&quot;stylesheet&quot; typ=&quot;text/css&quot; href=&quot;http://dbpmail.net/css/default.css&quot;/&gt;
+        &lt;link rel=&quot;stylesheet&quot; typ=&quot;text/css&quot; href=&quot;http://lab.dbpmail.net/dn/main.css&quot;/&gt;
+    &lt;/xml&gt;
+
+fun about () =
+    &lt;xml&gt;
+      &lt;p&gt;
+      This is a player for the news program
+      &lt;a href=&quot;http://democracynow.org&quot;&gt;Democracy Now!&lt;/a&gt;
+      that remembers how much you have watched.
+    &lt;/p&gt;
+    &lt;/xml&gt;
+    
+fun footer () =
+    &lt;xml&gt;
+      &lt;p&gt;Created by &lt;a href=&quot;http://dbpmail.net&quot;&gt;Daniel Patterson&lt;/a&gt;.
+        &lt;br/&gt;
+        View the &lt;a href=&quot;http://hub.darcs.net/dbp/dnplayer&quot;&gt;Source&lt;/a&gt;.&lt;/p&gt;
+    &lt;/xml&gt;
+
+(*</code></pre>
+<p>We now get to the web handlers. These are all url/form entry points, and do the bulk of the work. The first one, <code>main</code>, which we rewrote in <code>dn.urp</code> to be the root handler, is mostly HTML - the only catch being that if you have a cookie set, we just redirect you to the player.</p>
+<p><code>getCookie</code> returns an <code>option CookieType</code> where <code>CookieType</code> is the type of the cookie (in our case, it is a string). <code>redirect</code> takes a <code>url</code>, and urls can be created from handlers (ie, values of type <code>transaction page</code>) with the <code>url</code> function. So we apply <code>player</code> which is a handler we’ll define later, to the token value (as a token is the parameter that <code>player</code> expects), and grab a url for that.</p>
+<p>One catch to this is that Ur/Web doesn’t know that <code>player</code> isn’t going to cause side effects, which would mean that it shouldn’t have a url created for it (side effecting things should only be POSTed to), which was why we had to declare <code>player</code> as <code>safeGet</code> in <code>dn.urp</code></p>
+<p>We also see a form that submits to <code>create_player</code>, which is another handler that we will define. One thing to note is that <code>create_player</code> is a <code>unit -&gt; transaction page</code> function - and the action for the submit is just <code>create_page</code>, not <code>create_page ()</code> - the action of submitting passes that parameter.</p>
+<pre><code>*)
+fun main () =
+    mc &lt;- getCookie c;
+    case mc of
+        Some cv =&gt; redirect (url (player cv))
+      | None =&gt; 
+        return &lt;xml&gt;
+          &lt;head&gt;
+            {heading ()}
+          &lt;/head&gt;
+          &lt;body&gt;
+            &lt;h2&gt;&lt;a href=&quot;http://democracynow.org&quot;&gt;Democracy Now!&lt;/a&gt; Player&lt;/h2&gt;
+            {about ()}
+            &lt;p&gt;
+              You can listen to headlines on your way to work on your phone,
+              pick up the first segment during lunch on your computer at work, and
+              finish the show in the evening, without worrying what device you are
+              on or whether you have time to watch the whole thing.
+            &lt;/p&gt;
+            &lt;h3&gt;How it works&lt;/h3&gt;
+            &lt;ol&gt;
+              &lt;li&gt;
+                &lt;form&gt;
+                  To start, if you've not created a player on any device:
+                  &lt;submit action={create_player} value=&quot;Create Player&quot;/&gt;
+                &lt;/form&gt;
+              &lt;/li&gt;
+              &lt;li&gt;Otherwise, visit the url for the player you created (it should look like
+                something &lt;code&gt;http://.../player/hcegaoe&lt;/code&gt;) on this device
+                to synchronize your devices. You only need to do this once per device, after that
+                just visit the home page and we'll load your player.
+              &lt;/li&gt;
+            &lt;/ol&gt;
+
+            &lt;h3&gt;Compatibility&lt;/h3&gt;
+            &lt;p&gt;This currently works with Chrome (on computers and Android) and iPhones/iPads.&lt;/p&gt;  
+            {footer ()}
+          &lt;/body&gt;
+        &lt;/xml&gt;
+
+(*</code></pre>
+<p><code>create_player</code> is pretty straightforward, but it shows a different part of Ur/Web’s SQL support: dml supports INSERT, UPDATE, and DELETE, in the normal ways, with the same embedding as SQL queries (that <code>{[value]}</code> puts a normal Ur/Web value into SQL). We create a token, create a “user”, setting that they are on the current day’s show and at the beginning of it (offset 0.0), store the token, and then redirect to the player.</p>
+<pre><code>*)
+and create_player () =
+    n &lt;- est_now ();
+    token &lt;- new_token ();
+    dml (INSERT INTO u (Token, Date, Offset)
+         VALUES ({[token]}, {[timef date_format (recent_show n)]}, 0.0));
+    set_token token;
+    redirect (url (player token))
+
+(*</code></pre>
+<p>The next two functions encompass most of the player, which is the core of the application. The way that it is structured is a little odd, but with justification: Chrome on Android caches extremely aggressively, and doesn’t seem to pay attention to headers that say not to, which means that if you visited the application, and then a few days later open up Chrome again, it will seem like it is loading the page, but it is loading the cached HTML, it is not getting it from the server. This is really bad for us, because it means it will have both an old offset (in case you watched some of the show from another device), but worse, on subsequent days it will be trying to play the wrong day’s show! You can manually reload the page, but this is silly, so what we do is initially just load a blank page, and then immediately make a remote call to actually load the page. So what is cached is a little bit of HTML and some javascript that loads the page for real.</p>
+<p>We do all of this is functional reactive style: we declare a <code>source</code>, which is a place where values will be put, and it will cause parts of the page (that are <code>signal</code>ed) to update their values. Then we set an onload handler for the body, which, first, makes an <code>rpc</code> call to a server side function (which is just another function, like all of these handlers), and then set the <code>source</code> that we defined to be the result of rendering the player. <code>render</code> is a client-side function that just creates the appropriate forms / html.</p>
+<p>Finally, we will call a client-side function init, which will do some setup and then call into the javascipt ffi to the ffi <code>init</code> function, which will handle the HTML5 audio/video APIs (which Ur/Web doesn’t support, and are very browser specific anyway).</p>
+<p>One incredibly special thing that is going on is the <code>SourceL.set os</code> that is passed to javascript. If you remember from our <code>.urp</code> file, we imported sourceL. It is a special reactive construct that allows you to set up handlers that cause side effects (are transactions) when the value inside the <code>SourceL</code> changes. So what is happening is we have created one of these on the server, in <code>player_remote</code>, and sent it back to the client. The client then curries the <code>set</code> function with that source, producing a single argument function that just takes the value to be updated. We hand this function to javascript, so that in our FFI code, we can just set values into this, and it can reactively cause stuff to happen in our server-side code.</p>
+<p>The reactive component on the page is the <code>&lt;dyn&gt;</code> tag, which is a special construct that allows side-effect free operations on sources. <code>signal s</code> grabs the current value from the source <code>s</code>, and in this case we just return this, but we could do various things to it. The result of the block is what the value of the <code>&lt;dyn&gt;</code> tag is. In this case, we have just made a place where we can stick HTML, by calling <code>set s some_html</code>.</p>
+<pre><code>*)
+and player token =
+    s &lt;- source &lt;xml/&gt;;
+    return &lt;xml&gt;
+      &lt;head&gt;
+        {heading ()}
+      &lt;/head&gt;
+      &lt;body onload={v &lt;- rpc (player_remote token);
+                    set s (render token v.Player v.Show);
+                    init token v.Player v.Source (SourceL.set v.Source) v.Video v.Audio}&gt;
+        &lt;dyn signal={v &lt;- signal s; return v}/&gt;
+      &lt;/body&gt;
+      &lt;/xml&gt;
+(*</code></pre>
+<p>The remote component is where most of the logic of the player resides. By now, you should be able to read most of what’s going in. Some points to highlight are the place where we create the <code>SourceL</code> that we will pass back, and set its initial value to offset. Also, <code>fresh</code> is a way of generating identifiers to use within html. Our render function will use this identifier for the player, which is necessary for the javascript FFI to know where it is. Finally, <code>bless</code> is a function that will turn strings into urls, by checking against the policy outlined in the <code>.urp</code> file for the application.</p>
+<pre><code>*)
+and player_remote token =
+    n &lt;- est_now ();
+    op &lt;- oneOrNoRows1 (SELECT * FROM u WHERE (u.Token = {[token]}));
+    case op of
+        None =&gt;
+        clear_token ();
+        redirect (url (main ()))
+      | Some pi =&gt;
+        set_token token;
+        let val show = recent_show n
+            val fmtted_date = (timef date_format show) in
+            (if fmtted_date &lt;&gt; pi.Date then
+                (* Need to switch to new day *)
+                dml (UPDATE u SET Date = {[fmtted_date]}, Offset = 0.0 WHERE Token = {[token]})
+            else
+                return ());
+            let val offset = (if fmtted_date = pi.Date then pi.Offset else 0.0)
+                val video_url = bless (strcat &quot;http://dncdn.dvlabs.com/ipod/dn&quot;
+                                              (strcat fmtted_date &quot;.mp4&quot;))
+                val audio_url = bless (strcat &quot;http://traffic.libsyn.com/democracynow/dn&quot;
+                                              (strcat fmtted_date &quot;-1.mp3&quot;)) in
+            os &lt;- SourceL.create offset;
+            player_id &lt;- fresh;
+            
+            return {Player = player_id, Show = show, Offset = offset,
+                    Source = os, Video = video_url, Audio = audio_url}
+            end
+        end
+
+
+(*</code></pre>
+<p>The next three functions are simple - the first just renders the actual player. Note that we use the <code>player_id</code> we generated in <code>player_remote</code>. Then we provide a way to forget the player (if you want to unlink two devices, forget the player on one and create a new one), and due to some imperfections with how we keep the time in sync (mostly based on weirdness of different browsers implementations of the HTML5 video/audio APIs), to seek backwards, or start the show over, we need to tell the server explicitly, so we provide a handler to do that.</p>
+<pre><code>*)
+and render token player_id date =
+     &lt;xml&gt;&lt;h2&gt;
+       &lt;a href=&quot;http://democracynow.org&quot;&gt;Democracy Now!&lt;/a&gt; Player&lt;/h2&gt;
+       {about ()}
+       &lt;h3&gt;{[timef &quot;%A, %B %e, %Y&quot; date]}&lt;/h3&gt;
+       &lt;div id={player_id}&gt;&lt;/div&gt;
+       &lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+       &lt;form&gt;
+         &lt;submit action={start_over token} value=&quot;Start Show Over&quot;/&gt;
+       &lt;/form&gt;
+       &lt;form&gt;
+         &lt;submit action={forget} value=&quot;Forget This Device&quot;/&gt;
+       &lt;/form&gt;
+       {footer ()}
+     &lt;/xml&gt;
+
+(* Drop the cookie, so that client will not auto-redirect to player *)
+and forget () =
+    clear_token ();
+    redirect (url (main ()))
+
+(* Because of browser quirks, this is the only way to get to an earlier time, synchronized *)
+and start_over token () =
+    dml (UPDATE u SET Offset = 0.0 WHERE Token = {[token]});
+    redirect (url (player token))
+
+(*</code></pre>
+<p>Now we get to the last web handlers. The first one is a client side initializer. The main thing it sets up is a handler to <code>rpc</code> to the server whenever the offset <code>SourceL</code> changes. The call is to <code>update</code> (which we’ll define in a moment), and it optionally returns a new time to set the client to.</p>
+<p>This may sound a little odd, but the basic situation is that you play part of the way through the show on one device, then pause, watch some on another device, and now hit play on the first device. It will POST a new time, but the server will tell it that it should actually be at a later time, and so we use the javascript FFI function <code>set_offset</code> to set the offset.</p>
+<p>Finally we make it so that the client silently fails if the connection fails (this is bad behavior, but simple), and call the javascript FFI initialization function, which will set up the player and any HTML5 API related stuff.</p>
+<pre><code>*)
+and init token player_id os set_offset video_url audio_url =
+    SourceL.onChange os (fn offset =&gt; newt &lt;- rpc (update token offset);
+                                      case newt of
+                                          None =&gt; return ()
+                                        | Some time =&gt; Dnjs.set_offset time);
+    offset &lt;- SourceL.get os;
+    onConnectFail (return ());
+    Dnjs.init player_id offset set_offset video_url audio_url
+
+(*</code></pre>
+<p>The last function is the simple handler that we called when the offset <code>SourceL</code> changes. It updates the time if the time is greater than the recorded offset (this is why we need the <code>start_over</code> handler), and otherwise returns the recorded offset to be updated.</p>
+<pre><code>*)
+and update token offset =
+    op &lt;- oneOrNoRows1 (SELECT * FROM u WHERE (u.Token = {[token]}));
+    case op of
+         None =&gt; return None
+       | Some r =&gt; (if offset &gt; r.Offset then 
+                       dml (UPDATE u SET Offset = {[offset]}
+                            WHERE Token = {[token]} AND {[offset]} &gt; Offset);
+                       return None
+                   else return (Some r.Offset))</code></pre>
+<h2 id="sourcel.urs">sourceL.urs</h2>
+<pre><code>(*</code></pre>
+<p>This came from a supplemental standard library, and, as explained earlier, allows you to create <code>source</code>-like containers that call side-effecting handlers when their values change.</p>
+<pre><code>*)
+(* Reactive sources that accept change listeners *)
+
+con t :: Type -&gt; Type
+
+val create : a ::: Type -&gt; a -&gt; transaction (t a)
+
+val onChange : a ::: Type -&gt; t a -&gt; (a -&gt; transaction {}) -&gt; transaction {}
+
+val set : a ::: Type -&gt; t a -&gt; a -&gt; transaction {}
+val get : a ::: Type -&gt; t a -&gt; transaction a
+val value : a ::: Type -&gt; t a -&gt; signal a</code></pre>
+<h2 id="sourcel.ur">sourceL.ur</h2>
+<pre><code>(*</code></pre>
+<p>The <code>sourceL</code>s are built on top of normal <code>source</code>s, and just call the <code>OnSet</code> function when you call <code>set</code>.</p>
+<pre><code>*)
+
+con t a = {Source : source a,
+           OnSet : source (a -&gt; transaction {})}
+
+fun create [a] (i : a) =
+    s &lt;- source i;
+    f &lt;- source (fn _ =&gt; return ());
+
+    return {Source = s,
+            OnSet = f}
+
+fun onChange [a] (t : t a) f =
+    old &lt;- get t.OnSet;
+    set t.OnSet (fn x =&gt; (old x; f x))
+
+fun set [a] (t : t a) (v : a) =
+    Basis.set t.Source v;
+    f &lt;- get t.OnSet;
+    f v
+
+fun get [a] (t : t a) = Basis.get t.Source
+
+fun value [a] (t : t a) = signal t.Source</code></pre>
+<h2 id="dnjs.urs">dnjs.urs</h2>
+<pre><code>(*</code></pre>
+<p>This is the signature file for our javascript FFI. It declares what functions will be exported to be accessible within Ur/Web, and what types they have.</p>
+<pre><code>*)
+val init : id -&gt; (* id for player container *)
+           float -&gt; (* offset value *)
+           (float -&gt; transaction unit) -&gt; (* set function *)
+           url -&gt; (* video url *)
+           url -&gt; (* audio url *)
+           transaction unit
+
+val set_offset : float -&gt; transaction unit</code></pre>
+<h2 id="dn.js">dn.js</h2>
+<pre><code>/*</code></pre>
+<p>Since this is a adventure in Ur/Web, not Javascript, and there are plenty of places to learn about the quirks and features of HTML5 media APIs (and I don’t claim to be an expert), I’m just going to paste the code in without detailed commentary. The only points that are worth looking at are how we use <code>setter</code>, which you will remember is a curried function that will be updating a <code>SourceL</code>, causing rpcs to update the time. To call functions from the FFI, you use <code>execF</code>, and to force a transaction to actually occur, you have to apply the function (to anything), so we end up with double applications.</p>
+<p>Other than that, all that is here is some browser detection (as different browsers have different media behavior) and preferences about media type in localstorage.</p>
+<pre><code>*/
+function init(player, offset, setter, video_url, audio_url) {
+    // set up toggle functionality
+    $(&quot;#&quot;+player).after(&quot;&lt;button id='toggle'&gt;Switch to &quot; +
+                        (prefersVideo() ? &quot;audio&quot; : &quot;video&quot;) + &quot;&lt;/button&gt;&quot;);
+    $(&quot;#toggle&quot;).click(function () {
+        window.localStorage[&quot;dn-prefers-video&quot;] = !prefersVideo();
+        location.reload();
+    });
+
+    // put player on the page
+    if (canPlayVideo() &amp;&amp; prefersVideo()) {
+        $(&quot;#&quot;+player).html(&quot;&lt;video id='player' width='320' height='180' controls src='&quot; +
+                           video_url + &quot;'&gt;&lt;/video&gt;&quot;);
+    } else {
+        $(&quot;#&quot;+player).html(&quot;&lt;audio id='player' width='320' controls src='&quot; +
+                           audio_url + &quot;'&gt;&lt;/audio&gt;&quot;);
+    }
+
+    // seek / start the player, if applicable
+    if (isDesktopChrome()) {
+        $(&quot;#player&quot;).one(&quot;canplay&quot;, function () {
+            var player = this;
+            if (offset != 0) {
+                player.currentTime = offset;
+            }
+            player.play();
+            window.setInterval(update_time(setter), 1000);
+        });
+    } else if (isiOS() || isAndroidChrome()) {
+        // iOS doesn't let you seek till much later... and won't let you start automatically,
+        // so calling play() is pointless
+	$(&quot;#player&quot;).one(&quot;canplaythrough&quot;,function () {
+	    $(&quot;#player&quot;).one(&quot;progress&quot;, function () {
+		if (offset != 0) {
+                    $(&quot;#player&quot;)[0].currentTime = offset;
+                }
+                window.setInterval(update_time(setter), 1000);
+	    });
+	});   
+    } else {
+        $(&quot;#player&quot;).after(&quot;&lt;h3&gt;As of now, the player does not support your browser.&lt;/h3&gt;&quot;);
+    }
+}
+
+function set_offset(time) {
+    var player = $(&quot;#player&quot;)[0];
+    if (time &gt; player.currentTime) {
+        player.currentTime = time;
+    }
+    
+}
+
+// the function that grabs the time and updates it, if needed
+function update_time(setter) {
+    return function () {
+        var player = $(&quot;#player&quot;)[0];
+        if (!player.paused) {
+            // a transaction is a function from unit to value, hence the extra call
+            execF(execF(setter, player.currentTime), null)
+        }
+    };
+}
+
+// browser detection / preference storage
+
+function canPlayVideo() {
+    var v = document.createElement('video');
+    return (v.canPlayType &amp;&amp; v.canPlayType('video/mp4').replace(/no/, ''));
+}
+
+function prefersVideo() {
+    return (!window.localStorage[&quot;dn-prefers-video&quot;] || window.localStorage[&quot;dn-prefers-video&quot;] == &quot;true&quot;);
+}
+
+function isiOS() {
+    var ua = navigator.userAgent.toLowerCase();
+    return (ua.match(/(ipad|iphone|ipod)/) !== null);
+}
+
+function isDesktopChrome () {
+    var ua = navigator.userAgent.toLowerCase();
+    return (ua.match(/chrome/) !== null) &amp;&amp; (ua.match(/mobile/) == null);
+}
+
+function isAndroidChrome () {
+    var ua = navigator.userAgent.toLowerCase();
+    return (ua.match(/chrome/) !== null) &amp;&amp; (ua.match(/android/) !== null);
+}</code></pre>
+<h2 id="makefile">Makefile</h2>
+<p>To actually build our application, we have to first build our C library. Then we’ll build the app, using the sqlite backend. To get this running, we then need to do <code>sqlite3 dn.db &lt; dn.sql</code> (note you only need to do this once) and then start the server with <code>./dn.exe</code>. You can then visit the application at <code>http://localhost:8080</code>. This has been tested on current Debian Linux and Mac OSX.</p>
+<pre><code>all: app
+
+librandom.a: librandom.o
+	ar rcs $@ $&lt;
+
+librandom.o: random.c
+	gcc -I/usr/local/include/urweb -g -c -o $@ $&lt;
+
+app: dn.ur dn.urs dn.urp librandom.a
+	urweb -dbms sqlite -db dn.db dn
+
+.PHONY: clean
+
+clean:
+	rm -f librandom.a librandom.o</code></pre>
+
+        <div id="footer">
+            last modified: <a href="http://hub.darcs.net/dbp/dbpmail/changes">May 25, 2013</a> | <a href="../rss.xml">rss feed</a>
+        </div>
+    </body>
+</html>

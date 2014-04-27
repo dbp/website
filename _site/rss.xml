@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>dbpmail.net :: essays</title>
+        <link>http://dbpmail.net</link>
+        <description><![CDATA[writing on programming etc by daniel patterson]]></description>
+        <atom:link href="http://dbpmail.net/rss.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>Sun, 09 Feb 2014 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>TDD with Haskell and the Snap Web Framework</title>
+    <link>http://dbpmail.net/essays/2014-02-09-tdd-haskell-snap.html</link>
+    <description><![CDATA[<h2>TDD with Haskell and the Snap Web Framework</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>February  9, 2014</strong></p>
+
+<p>Test driven development is nothing new - people have been talking about it in various forms for at least 14 years<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Within the web development community, it is used most pervasively in dynamic languages, with Ruby probably being the best example, both in quality of libraries and pervasive use. And with good reason - without tests you really have no idea if the changes you’ve made have just broken your whole site. However, when I’m writing tests for Ruby code, most of what I’m writing is covering a lot more than just types, so while there are certainly lots of bugs that Haskell’s type system catches, types don’t catch everything. So I’m announcing a library that should make it a lot easier to write tests with Haskell and the Snap web framework - tests that involve the database, web requests, etc. The general design is inspired by RSpec, and the library is available on hackage at <a href="http://hackage.haskell.org/package/snap-testing">http://hackage.haskell.org/package/snap-testing</a>.</p>
+<h3 id="examples-and-preview-of-use">Examples and preview of use</h3>
+<p>Here are a few basic tests:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">name <span class="st">&quot;/ success&quot;</span> <span class="fu">$</span>
+  succeeds (get <span class="st">&quot;/&quot;</span>)
+name <span class="st">&quot;/foo/bar not found&quot;</span> <span class="fu">$</span>
+  notfound (get <span class="st">&quot;/foo/bar&quot;</span>)</code></pre>
+<p>The tests are hierarchical, with (optional) names on the nodes of the tree. There are simple functions to check against status codes, modification of state, response bodies, etc. For a more complicated example, consider:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">name <span class="st">&quot;/auth/new_user&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
+  name <span class="st">&quot;success&quot;</span> <span class="fu">$</span>
+    succeeds (get <span class="st">&quot;/auth/new_user&quot;</span>)
+  name <span class="st">&quot;creates a new account&quot;</span> <span class="fu">$</span>
+    cleanup clearAccounts <span class="fu">$</span>
+    changes (<span class="fu">+</span><span class="dv">1</span>) countAccounts (post <span class="st">&quot;/auth/new_user&quot;</span> <span class="fu">$</span> params
+                                [ (<span class="st">&quot;new_user.name&quot;</span>, <span class="st">&quot;Jane&quot;</span>)
+                                , (<span class="st">&quot;new_user.email&quot;</span>, <span class="st">&quot;jdoe@c.com&quot;</span>)
+                                , (<span class="st">&quot;new_user.password&quot;</span>, <span class="st">&quot;foobar&quot;</span>)])</code></pre>
+<p>We can also run arbitrary handlers to get data that is used later on in tests, like:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">token <span class="ot">&lt;-</span> fmap fromJust <span class="fu">$</span> eval (newToken site)
+<span class="fu">...</span>
+eval (invalidateToken token)
+name <span class="st">&quot;should not show invalidated tokens&quot;</span> <span class="fu">$</span>
+  notcontains (get site_url) (tokenText token)</code></pre>
+<p>Finally, it is (relatively) easy to add new utilities. For example, we can write an application specific utility (in my case, users have both a auth snaplet <code>AuthUser</code> and an application specific <code>Account</code>) to create a new user and log in as them:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">withUser ::</span> <span class="dt">SnapTesting</span> <span class="dt">App</span> a <span class="ot">-&gt;</span> <span class="dt">SnapTesting</span> <span class="dt">App</span> a
+withUser <span class="fu">=</span> modifySite <span class="fu">$</span> \site <span class="ot">-&gt;</span> <span class="kw">do</span>
+  (_, au) <span class="ot">&lt;-</span> fmap fromJust getRandomUser
+  with auth <span class="fu">$</span> forceLogin au
+  site</code></pre>
+<p>Where <code>getRandomUser</code> is a helper with signature:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">getRandomUser ::</span> <span class="dt">AppHandler</span> (<span class="dt">Maybe</span> (<span class="dt">Account</span>, <span class="dt">AuthUser</span>))</code></pre>
+<p>We can also get the random user using <code>eval</code> (shown above with the <code>token</code>) and then use that later with a helper like this:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">loginAs ::</span> <span class="dt">AuthUser</span> <span class="ot">-&gt;</span> <span class="dt">SnapTesting</span> <span class="dt">App</span> a <span class="ot">-&gt;</span> <span class="dt">SnapTesting</span> <span class="dt">App</span> a
+loginAs au <span class="fu">=</span> modifySite <span class="fu">$</span> \site <span class="ot">-&gt;</span> <span class="kw">do</span>
+  with auth <span class="fu">$</span> forceLogin au
+  site</code></pre>
+<p>For example:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">loginAs user <span class="fu">$</span> <span class="kw">do</span>
+  name <span class="st">&quot;success with right login&quot;</span> <span class="fu">$</span>
+    succeeds (get site_url)
+  name <span class="st">&quot;has site name in response&quot;</span> <span class="fu">$</span>
+    contains (get site_url) <span class="st">&quot;Some Site&quot;</span>
+  name <span class="st">&quot;/edit displays a page with a form on it&quot;</span> <span class="fu">$</span>
+    contains (get <span class="fu">$</span> B.append site_url <span class="st">&quot;/edit&quot;</span>) <span class="st">&quot;&lt;form&quot;</span></code></pre>
+<p>There are multiple possible report generators (and it is easy to write more) - currently two in the library - a report of the tree of tests printed to the console, and one that uses linux’s desktop-notification protocol to display whether the tests passed or failed (with counts). The console one looks like:</p>
+<pre><code>/ success
+  PASSED
+/foo/bar not found
+  PASSED
+/auth/new_user
+  success
+    PASSED
+  creates a new account
+    PASSED
+...</code></pre>
+<h3 id="api-description">API description</h3>
+<p>All the tests are run in the <code>SnapTesting</code> monad, which takes two parameters - one being what is usually called <code>App</code> - the main datastructure with the application state, and the second being the current value. To run tests, use the following function:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">runSnapTests ::</span> [[<span class="dt">TestResult</span>] <span class="ot">-&gt;</span> <span class="dt">IO</span> ()] <span class="ot">-&gt;</span> <span class="dt">Handler</span> b b ()
+             <span class="ot">-&gt;</span> <span class="dt">SnapletInit</span> b b <span class="ot">-&gt;</span> <span class="dt">SnapTesting</span> b () <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</code></pre>
+<p>This is a big signature, but easy to piece apart. The first argument is a list of repart generators - they take a list of <code>TestResult</code> and do something with them. <code>TestResult</code> is defined as:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">TestResult</span> <span class="fu">=</span> <span class="dt">ResultName</span> <span class="dt">Text</span> [<span class="dt">TestResult</span>] <span class="fu">|</span> <span class="dt">ResultPass</span> <span class="dt">Text</span> <span class="fu">|</span> <span class="dt">ResultFail</span> <span class="dt">Text</span></code></pre>
+<p>The second argument is the top level handler that all requests will be run against. It can be any handler, but it should probably be something like <code>route routes</code>, where <code>routes</code> is what you pass to <code>addRoutes</code> in your initializer. The third argument is the initializer for your application, and the final argument is the test block. Putting it all together, we get something like:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> runSnapTests [consoleReport, linuxDesktopReport] (route routes) app <span class="fu">$</span> <span class="kw">do</span>
+  name <span class="st">&quot;/ success&quot;</span> <span class="fu">$</span>
+    succeeds (get <span class="st">&quot;/&quot;</span>)
+  name <span class="st">&quot;/foo/bar not found&quot;</span> <span class="fu">$</span>
+    notfound (get <span class="st">&quot;/foo/bar&quot;</span>)
+<span class="fu">...</span></code></pre>
+<p>Which we can put in a file like <code>Test.hs</code> and run with runghc.</p>
+<p>There are many functions you can use in a <code>SnapTesting</code> block. You can look at the docs for signatures, or above for uses, but brief descriptions are:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">name <span class="co">-- add a named node to the test tree</span>
+succeeds <span class="co">-- assert that the given request (built by get or post) succeeds</span>
+notfound <span class="co">-- assert request 404s</span>
+redirects <span class="co">-- assert request redirects (status 3XX)</span>
+redirectsto <span class="co">-- assert request redirects to specific url</span>
+changes <span class="co">-- given a predicate and a monadic value, check difference before and after running request</span>
+contains <span class="co">-- assert response contains regular expression</span>
+notcontains <span class="co">-- assert response does not contain regular expression</span>
+cleanup <span class="co">-- run an action after a test block</span>
+eval <span class="co">-- evaluate an action, returning the value</span></code></pre>
+<p>Further, there are a couple functions for building requests:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">get <span class="co">-- creates a get request, given a url (no params)</span>
+post <span class="co">-- creates a post request, given a url and params map</span>
+params <span class="co">-- helper to turn tupled list into params map</span></code></pre>
+<p>And finally a helper for writing new utilities, that allows you to modify the top level handler (the entire site, essentially) for a block:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">modifySite</code></pre>
+<h3 id="future-improvements">Future Improvements</h3>
+<p>There are two major things that I’d like to improve:</p>
+<ul>
+<li>The first is to print reports incrementally, not just at the end.</li>
+<li>The second is to not pay the initialization cost for each request. Right now, the snaplet testing api (what this library uses) is designed to take an initializer and an action, and it runs the initializer and then the action. Ideally, this could be separated, as especially with sites with lots of templates, initialization takes a non-trivial amount of time.</li>
+</ul>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Extreme programming was published in 1999, giving a lower bound on the age.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+]]></description>
+    <pubDate>Sun, 09 Feb 2014 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2014-02-09-tdd-haskell-snap.html</guid>
+</item>
+<item>
+    <title>A Hacker's Replacement for GMail</title>
+    <link>http://dbpmail.net/essays/2013-06-29-hackers-replacement-for-gmail.html</link>
+    <description><![CDATA[<h2>A Hacker's Replacement for GMail</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>June 29, 2013</strong></p>
+
+<p><em>Note: Since writing this I’ve replaced Exim with Postfix and Courier with Dovecot. This is outlined in the Addendum, but the main text is unchanged. Please read the whole guide before starting, as you can skip some of the steps and go straight to the final system.</em></p>
+<h2 id="motivation">Motivation</h2>
+<p>I reluctantly switched to GMail about six months ago, after using many so-called “replacements for GMail” (the last of which was Fastmail). All of them were missing one or more features that I require of email:</p>
+<ol style="list-style-type: decimal">
+<li>Access to the same email on multiple machines (but, these can all be machines I control).</li>
+<li>Access to important email on my phone (Android). Sophisticated access not important - just a high-tech pager.</li>
+<li>Ability to organize messages by threads.</li>
+<li>Ability to categorize messages by tags (folders are <em>not</em> sufficient).</li>
+<li>Good search functionality.</li>
+</ol>
+<p>But, while GMail has all of these things, there were nagging reasons why I still wanted an alternative: handing an advertising company most of my personal and professional correspondance seems like a bad idea, having no (meaningful) way to either sign or encrypt email is unfortunate, and while it isn’t a true deal-breaker, having lightweight programmatic access to my email is a really nice thing (you can get a really rough approximation of this with the RSS feeds GMail provides). Furthermore, I’d be happy if I only get important email on my phone (ie, I want a whitelist on the phone - unexpected email is not something that I need to respond to all the time, and this allows me to elevate the notification for these messages, as they truly are important).</p>
+<p>Over the past several months, I gradually put together a mail system that provides all the required features, as well as the three bonuses (encryption, easy programmatic access, and phone whitelisting). I’m describing it as a “Hacker’s Replacement for GMail” as opposed to just a “Replacement for GMail” because it involves a good deal of familiarity with Unix (or at least, to set up and debug the whole system it did. Perhaps following along is easier). But, the end result is powerful enough that for me, it is worth it. I finally switched over to using it primarily recently, confirming that all works as expected. I wanted to share the instructions in case they prove useful to someone else setting up a similar system.</p>
+<p>This is somewhere between an outline and a HOWTO. I’ve organized it roughly in order of how I set things up, but some of the parts are more sketches than detailed instructions - supplement it with normal documentation. Most are based on notes from things as I did them, only a few parts were reconstructed. In general, I try to highlight the parts that were difficult / undocumented, and gloss over stuff that should be easy (and/or point to detailed docs). Without further ado:</p>
+<h2 id="overall-design">Overall Design</h2>
+<ul>
+<li>Debian GNU/Linux as mail server operating system (both Linux and Mac as clients, though Windows should be doable)</li>
+<li>Exim4 as the mail server</li>
+<li>Courier-IMAP for mobile usage</li>
+<li>Spamassassin (with Pyzor) for spam</li>
+<li><a href="http://notmuchmail.org/">notmuch</a> to manage the email database+tags+search</li>
+<li><a href="https://github.com/teythoon/afew">afew</a> for managing notmuch tagging/email moving</li>
+<li>Emacs client for notmuch on all computers</li>
+<li><a href="https://play.google.com/store/apps/details?id=com.fsck.k9">K9-Mail</a> on android (my phone)</li>
+</ul>
+<p>Mail is received by the mail server and put in a Archive subdirectory which is <em>not</em> configured for push in K9-Mail. The mail is processed and tagged by afew, and any messages with the tag “important” are moved into the Important subdirectory. This directory is set up for push in K9-Mail, so I get all important email right away. No further tagging can be done through the mobile device, but that wasn’t a requirement. read/unread status will be synced two-way to notmuch, which <em>is</em> important.</p>
+<h2 id="step-by-step-instructions">Step By Step Instructions</h2>
+<ol style="list-style-type: decimal">
+<li><p>The first and most important part is having a server. I’ve been really happy with VPSes I have from <a href="https://www.digitalocean.com/?refcode=93aab578a407">Digital Ocean</a> (warning: that’s a referral link. <a href="https://www.digitalocean.com">Here’s one without.</a>) - they provide big-enough VPSes for email and a simple website for $5/month. There are also many other providers. The important thing is to get a server, if you don’t already have one.</p></li>
+<li><p>The next thing you’ll need is a domain name. You can use a subdomain of one you already have, but the simplest thing is to just get a new one. This is $10-15/year. Once you have it, you want to set a few records (these are set in the “Zone File”, and should be easy to set up through the online control panel of whatever registrar you used):</p></li>
+</ol>
+<pre><code>A mydomain.com. IP.ADDR.OF.SERVER (mydomain.com. might be written @)
+MX 10 mydomain.com.</code></pre>
+<p>This sets the domain to point to your server, and sets the mail record to point to that domain name. You will also need to set up a PTR record, or reverse DNS. If you got the server through Digital Ocean, you can set up the DNS records through them, and they allow you to set the PTR record for each server easily. Whereever you set it up, it should point at mydomain.com. (Note trailing period. Otherwise it will resolve to mydomain.com.mydomain.com - not what you want!).</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Now set up the mail server itself. I use Debian, but it shouldn’t be terribly different with other distributions (but you should follow their instructions, not the ones I link to here, because I’m sure there are specifics that are dependent on how Debian sets things up). Since Debian uses Exim4 by default, I used that, and set up Courier as an IMAP server. I followed these instructions: <a href="http://blog.edseek.com/~jasonb/articles/exim4_courier/">blog.edseek.com/~jasonb/articles/exim4_courier/</a> (sections 2, 3, and 4). The only important thing I had to change was to force the hostname, by finding the line it <code>/etc/exim4/exim4.conf.template</code> that looks like:</li>
+</ol>
+<pre><code>.ifdef MAIN_HARDCODE_PRIMARY_HOSTNAME</code></pre>
+<p>And adding above it, <code>MAIN_HARDCODE_PRIMARY_HOSTNAME = mydomain.com</code> (no trailing period). This is so that the header that the mail server displays matches the domain. If this isn’t the case, some mail servers won’t deliver messages. At this point, you can test the mail server by sending yourself emails, using the <code>swaks</code> tool, or running it through an online testing tool like <a href="http://mxtoolbox.com/">MX Toolbox</a></p>
+<p>The last important thing is to set up spam filtering. When using a big email provider that spends a lot of effort filtering spam (and has huge data sets to do it), it’s easy to forget how much spam is actually sent. But, fortunately open source software is also capable of eliminating it. To set Spamassassin up, I generally followed the documentation on <a href="http://wiki.debian.org/Exim#Spam_scanning">the debian wiki</a>. I changed the last part of the configuration so that instead of changing the subject for spam messages to have “<code>***SPAM***</code>”, it adds the following header:</p>
+<pre><code>add_header = X-Spam-Flag: YES</code></pre>
+<p>This is the header that the default spam filter from <code>afew</code> will look for and tag messages as spam with. Once messages are tagged as spam, they won’t show up in searches, won’t ever end up in your inbox, etc. On the other hand, they aren’t ever deleted, so if something does end up there, you can always find it (you just have to use notmuch search with the <code>--exclude=false</code> parameter).</p>
+<p>That sets up basic Spamassassin, which works quite well. To make it work even better, we’ll install <a href="http://wiki.apache.org/spamassassin/UsingPyzor">Pyzor</a>, which is a service for collaborative spam filtering (sort of an open source system that gets you similar behavior to what GMail can do by having access to so many people’s email). It works by constructing a digest of the message and hashing it, and then sending that hash to a server to see if anyone has marked it as spam.</p>
+<p>Install pyzor with <code>aptitude install pyzor</code>, then run <code>pyzor discover</code> (as root), and at least on my system, I needed to run <code>chmod a+r /etc/mail/spamassassin/servers</code> (as root) in order to have it work (the following test command would report permission denied on that file if I didn’t). Now restart spamassassin (<code>/etc/init.d/spamassassin restart</code>) and test that it’s working, by running:</p>
+<pre><code>echo &quot;test&quot; | spamassassin -D pyzor 2&gt;&amp;1 | less</code></pre>
+<p>This should print (among other things):</p>
+<pre><code>Jun 29 16:31:53.026 [24982] dbg: pyzor: network tests on, attempting Pyzor
+Jun 29 16:31:54.640 [24982] dbg: pyzor: pyzor is available: /usr/bin/pyzor
+Jun 29 16:31:54.641 [24982] dbg: pyzor: opening pipe: /usr/bin/pyzor --homedir ...
+Jun 29 16:31:54.674 [24982] dbg: pyzor: [25043] finished: exit 1
+Jun 29 16:31:54.674 [24982] dbg: pyzor: check failed: no response</code></pre>
+<p>According to <a href="http://wiki.apache.org/spamassassin/UsingPyzor">the documentation</a>, this is expected, because “test” is not a valid message.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Now we want to set up our delivery. Create a <code>.forward</code> file in the home directory of the account on the server that is going to recieve mail. It should contain</li>
+</ol>
+<pre><code># Exim filter
+
+save Maildir/.Archive/</code></pre>
+<p>What this does is put all mail that is recieved into the Archive subdirectory (the dots are convention of the version of the Maildir format that Courier-IMAP uses).</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Next, we want to set up notmuch. You can install it and the python bindings (needed by afew) with:</li>
+</ol>
+<pre><code>aptitude install notmuch python-notmuch</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Run <code>notmuch setup</code> and put in your name, email, and make sure that the directory to your email archive is “/home/YOURUSER/Maildir”. Run <code>notmuch new</code> to have it create the directories and, if you tested the mail server by sending yourself messages, import those initial messages.</p></li>
+<li><p>Install afew from <a href="https://github.com/teythoon/afew">github.com/teythoon/afew</a>. You can start with the default configuration, and then add filters that will add the tag ‘important’, as well as any other automatic tagging you want to have. I commented out the ClassifyingFilter because it wasn’t working - and I wasn’t convinced I wanted it, so didn’t bother to figure out how te get it to work.</p></li>
+</ol>
+<p>Some simple filters look like:</p>
+<pre><code>[Filter.0]
+message = messages from someone
+query = from:someone.important@email.com
+tags = +important
+[Filter.1]
+message = messages I don&#39;t care about
+query = subject:Deal
+tags = -unread +deals</code></pre>
+<p>For the <code>[MailMover]</code> section, you want the configuration to look like:</p>
+<pre><code>[MailMover]
+folders = Archive Important
+max_age = 15
+
+# rules
+Archive = &#39;tag:important AND NOT tag:spam&#39;:.Important
+Important = &#39;NOT tag:important&#39;:.Archive &#39;tag:spam&#39;:.Archive</code></pre>
+<p>This says to take anything in Archive with the important tag and put it in important (but never spam). Note that the folders we are moving to are prefixed with a dot, but the names of the folders aren’t. Now we need to set everything up to run automatically.</p>
+<ol start="8" style="list-style-type: decimal">
+<li>We are going to use inotify, and specifically the tool <code>incron</code>, to watch for changes in our .Archive inbox and add files to the database, tag them, and move those that should be moved to .Important. On Debian, you can obtain <code>incron</code> with:</li>
+</ol>
+<pre><code>aptitude install incron</code></pre>
+<p>Now edit your incrontab (similar to crontab) with <code>incrontab -e</code> and put an entry like:</p>
+<pre><code>/home/MYUSER/Maildir/.Archive/new IN_MOVED_TO,IN_NO_LOOP /home/MYUSER/bin/my-notmuch-new.sh</code></pre>
+<p>This says that we want to watch for <code>IN_MOVED_TO</code> events, we don’t want to listen while the script is running (if something goes wrong with your importing script, you could cause an infinite spawning of processes, which will take down the server). If a message is delivered while the script is running, it might not get picked up until the next run, but for me that was fine (you may want to eliminate the <code>IN_NO_LOOP</code> option and see if it actually causes loops. In previous configurations, I crashed my server twice through process spawning loops, and didn’t want to do it again while debugging). When <code>IN_MOVED_TO</code> occurs, we call a script we’ve written. You can obviously put this anywhere, just make it executable:</p>
+<pre><code>#!/bin/bash
+/usr/local/bin/notmuch new &gt;&gt; /dev/null 2&gt;&amp;1
+/usr/local/bin/afew -nt &gt;&gt; /dev/null 2&gt;&amp;1
+/usr/local/bin/afew -m &gt;&gt; /dev/null 2&gt;&amp;1</code></pre>
+<p>It is intentionally being very quiet because output from cron jobs will trigger emails… and thus if there were a mistake, we could be in infinite loop land again. This means you should make sure the commands are working (ie, there aren’t mistakes in your config files), because you won’t see any debug output from them when they are run through this script.</p>
+<ol start="8" style="list-style-type: decimal">
+<li>Now let’s set up the mobile client. I’m not sure of a good way to do this on iOS (aside from just manually checking the Important folder), but perhaps a motivated person could figure it out. Since I have an Android phone, it wasn’t an issue. On Android, install K9-Mail, and set up your account with the incoming / outgoing mail server to be just ‘mydomain.com’. Click on the account, and it will show just Inbox (not helpful). Hit the menu button, then click folders, and check “display all folders”. Now hit the menu again and click folders and hit “refresh folders”.</li>
+</ol>
+<p>Provided at least one message has been put into Important and Archive, those should both show up now. Open the folder ‘Important’ and use the settings to enable push for it. Also add it to the Unified Inbox. Similarly, disable push on the Inbox (this latter doesn’t really matter, because we never deliver messages to the inbox). If you have trouble finding these settings (which I did for a while), note that the settings that are available are contingent upon the screen you are on. The folders settings only exist when you are looking at the list of folders (not the unified inbox / list of accounts, and not the contents of a folder).</p>
+<ol start="9" style="list-style-type: decimal">
+<li>Finally, the desktop client. I’m using the emacs client, because I spend most of my time inside emacs, but there are several other clients - one for vim, one called ‘bower’ that is curses based (that I’ve used before, but is less featureful than the emacs one), and a few others. <code>alot</code>, a python client, won’t work, because it assumes that the notmuch database is local (which is a really stupid assumption). The rest just assume that <code>notmuch</code> is in the path. This means that you can follow the instructions here: <a href="http://notmuchmail.org/remoteusage/">notmuchmail.org/remoteusage</a> to have the desktop use the mail database on the server. To test, run <code>notmuch count</code> on your local machine, and it should return the same thing (the total number of messages) as it does on the mail server.</li>
+</ol>
+<p>Once this is working, install notmuch locally, so that you get the emacs bindings (or, just download the source and put the contents of the emacs folder somewhere and include it in your .emacs). You should now be able to run <code>M-x notmuch</code> in emacs and get to your inbox. Setting up mail sending is a little trickier - most of the documentation I found didn’t work!</p>
+<p>The first thing to do, in case your ISP is like mine and blocks port 25, is to change the default listening port for the server. Open up <code>/etc/default/exim4</code> and set <code>SMTPLISTENEROPTIONS</code> equal to <code>-oX 25:587 -oP /var/run/exim4/exim.pid</code>. This will have it listen on both 25 and 587.</p>
+<p>Next, set up emacs to use your mail server to send mail, and to load notmuch. This incantation in your <code>.emacs</code> should do the trick:</p>
+<pre><code>;; If you opted to just stick the elisp files somewhere, add that path here:
+;; (add-to-list &#39;load-path &quot;~/path/folder/with/emacs-notmuch&quot;)
+(require &#39;notmuch)
+(setq smtpmail-starttls-credentials &#39;((&quot;mydomain.com&quot; 587 nil nil))
+      smtpmail-auth-credentials (expand-file-name &quot;~/.authinfo&quot;)
+      smtpmail-default-smtp-server &quot;mydomain.com&quot;
+      smtpmail-smtp-server &quot;mydomain.com&quot;
+      smtpmail-smtp-service 587)
+(require &#39;smtpmail)
+(setq message-send-mail-function &#39;smtpmail-send-it)
+(require &#39;starttls)</code></pre>
+<p>Now eval your .emacs (or restart emacs), and you are almost ready to send mail.</p>
+<p>You just need to put a line like this into <code>~/.authinfo</code>:</p>
+<pre><code>machine mydomain.com login MYUSERNAME password MYPASSWORD port 587</code></pre>
+<p>With appropriate permissions (<code>chmod 600 ~/.authinfo</code>).</p>
+<p>Now you can test this by typing <code>C-x m</code> or <code>M-x notmuch</code> and then from there, hit the ‘m’ key - both of these open the composition window. Type a message and who it is to, and then type <code>C-c C-c</code> to send it. It should take a second and then say it was sent at the bottom of the window.</p>
+<p>This should work as-is on Linux. Another machine I sometimes use is a mac, and things are a little more complicated. The main problem is that to send mail, we need starttls. You can install <code>gnutls</code> through Homebrew, Fink, or Macports, but the next problem is that if you are using Emacs installed from emacsformacosx.com (and thus it is a graphical application), it is not started from a shell, which means it doesn’t have the same path, and thus doesn’t know how to find gnutls. To fix this problem (which is more general), you can install a tiny Emacs package called <code>exec-path-from-shell</code> (this requires Emacs 24, which you should use - then <code>M-x package-install</code>) that interrogates a shell about what the path should be. Then, we just have to tell it to use <code>gnutls</code> and all should work. We can do this all in a platform specific way (so it won’t run on other platforms):</p>
+<pre><code>(when (memq window-system &#39;(mac ns))
+  (exec-path-from-shell-initialize)
+  (setq starttls-use-gnutls t)
+  (setq starttls-gnutls-program &quot;gnutls-cli&quot;)
+  (setq starttls-extra-arguments nil)
+  )</code></pre>
+<ol start="10" style="list-style-type: decimal">
+<li>Address lookup. It’s really nice to have an address book based on messages in your mailbox. An easy way to do this is to install addrlookup: get the source from <code>http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c</code>, build with</li>
+</ol>
+<pre><code>cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch</code></pre>
+<p>and move the resulting binary into your path (all of this on your server), and then create a similar wrapper as for notmuch:</p>
+<pre><code>~/bin/addrlookup:
+
+#!/bin/bash
+printf -v ARGS &quot;%q &quot; &quot;$@&quot;
+exec ssh your_server addrlookup ${ARGS}</code></pre>
+<p>And then add this to your <code>.emacs</code>:</p>
+<pre><code>(require &#39;notmuch-address)
+(setq notmuch-address-command &quot;/path/to/addrlookup&quot;)
+(notmuch-address-message-insinuate)</code></pre>
+<p>Now if you hit “TAB” after you start typing in an address, it will prompt you with completions (use up/down arrow to move between, hit enter to select).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You now have a mail system that is more powerful than GMail and completely controlled by you. And there is a lot more you can do. For example, to enable encryption (to start, just signing emails), install <code>gnupg</code>, create a key and associate it with your email address, and add the following line to your .emacs and all messages will be signed by default (it adds a line in the message that when you send it causes emacs to sign the email. Note that this line must be the first line, so add your message <em>below</em> it):</p>
+<pre><code>(add-hook &#39;message-setup-hook &#39;mml-secure-message-sign-pgpmime)</code></pre>
+<p>An unfortunate current limitation is that the keys are checked by the notmuch commandline, so you need to install public keys on the server. This is fine, except that the emacs client installs them locally when you click on an unknown key (hit $ when viewing a message to see the signatures). So, at least for now, you have to manually add keys to the server with <code>gpg --recv-key KEYID</code> before they will show up as verified on the client (signing/encrypting still works, because that is done locally). Hopefully this will be fixed soon.</p>
+<p><strong>Added July 9th, 2013:</strong></p>
+<h2 id="addendum">Addendum</h2>
+<p>Among the large amount of feedback I received on this post, many people recommended that I use Postfix and Dovecot over Exim and Courier. Postfix chosen because of security (Exim has a less than stellar history), and dovecot because it is simpler and faster than Courier (and more importantly, combined with Postfix frequently). Security is really important to me (as I want this system to be easy to mantain), so I decided to switch it. Since I’m not doing anything particularly complicated with the mail server / IMAP, the conversion was relatively straightforward. For people reading this, I’d suggest just doing this from the start (and substitute for the parts setting up Exim / Courier), but if you’ve already followed the instructions (as I have), here is what you should do to change. Note that I have gotten much of this information from guides at <a href="https://syslog.tv/">syslog.tv</a>, modified as needed.</p>
+<ol style="list-style-type: decimal">
+<li>Install postfix and dovecot with (accept the replacement policy):</li>
+</ol>
+<pre><code>sudo apt-get install dovecot-imapd postfix sasl2-bin libsasl2-2 libsasl2-modules procmail</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Add this to end of <code>/etc/postfix/main.cf</code>, to tell Postfix to use Maildir, sasl,</li>
+</ol>
+<pre><code>    home_mailbox = Maildir/
+
+    smtpd_sasl_type = dovecot
+    smtpd_sasl_path = private/auth
+    smtpd_sasl_auth_enable = yes
+    smtpd_sasl_security_options = noanonymous
+    smtpd_sasl_local_domain = $myhostname
+    broken_sasl_auth_clients = yes
+
+    smtpd_sender_restrictions = permit_sasl_authenticated,
+    permit_mynetworks,
+
+    smtpd_recipient_restrictions = permit_mynetworks,
+    permit_sasl_authenticated,
+    reject_unauth_destination,
+    reject_unknown_sender_domain,</code></pre>
+<p>Add this to the end of /etc/postfix/master.cf:</p>
+<pre><code>spamassassin unix - n n - - pipe
+  user=spamd argv=/usr/bin/spamc -f -e
+  /usr/sbin/sendmail -oi -f ${sender} ${recipient}</code></pre>
+<p><strong>NOTE</strong>: It’s been pointed out to me that you may not have a <code>spamd</code> user on your system, this won’t work. So check that, and add the user if it’s missing.</p>
+<p>And this at the beginning, right after the line <code>smpt inet n ...</code></p>
+<pre><code>   -o content_filter=spamassassin</code></pre>
+<p>And uncomment the line starting with ‘submission’ and put the following after it:</p>
+<pre><code>  -o syslog_name=postfix/submission
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_sasl_type=dovecot
+  -o smtpd_sasl_path=private/auth
+  -o smtpd_client_restrictions=permit_sasl_authenticated,reject
+  -o smtpd_recipient_restrictions=reject_non_fqdn_recipient,
+     reject_unknown_recipient_domain,permit_sasl_authenticated,reject</code></pre>
+<p>3. Change myhostname to be fully qualified if it isn’t. Confirm all is well with http://mxtoolbox.com</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Set up dovecot. Edit /etc/dovecot/conf.d/10-mail.conf and change mail_location to:</li>
+</ol>
+<pre><code>maildir:~/Maildir/</code></pre>
+<p>Edit /etc/dovecot/conf.d/10-master.conf and inside <code>service auth</code> comment the block that is there, and uncomment the one that is:</p>
+<pre><code>  unix_listener /var/spool/postfix/private/auth {
+    mode = 0666
+  }</code></pre>
+<p>Edit /etc/dovecot/conf.d/10-auth.conf and uncomment the line at the top:</p>
+<pre><code>disable_plaintext_auth = yes</code></pre>
+<p>Now to test that this is working, use <code>swaks</code> from a remote host, and run a command like:</p>
+<pre><code>swaks -a -tls -q HELO -s mydomain.com -au myuser -ap &quot;mypassword&quot; -p 587</code></pre>
+<p>And you should get a good response.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Filing mail with procmail.</li>
+</ol>
+<p>Delete <code>~/.forward</code> - we’ll be using procmail to put the mail in the Archive directory.</p>
+<p>Put this in /etc/procmailrc</p>
+<pre><code>DROPPRIVS=YES
+ORGMAIL=$HOME/Maildir/
+MAILDIR=$ORGMAIL
+DEFAULT=$ORGMAIL</code></pre>
+<p>Make ~/.procmailrc be:</p>
+<pre><code>:0 c
+.Archive/
+
+:0
+| /usr/local/bin/my-notmuch-new.sh</code></pre>
+<p>This says to copy the message to the archive and then run my-notmuch-new.sh (which is a shell script that used to be called by incron). Technically it pipes the message to the script, but the script ignores standard in, so it is equivalent to just calling the script. Now fix the ownership:</p>
+<pre><code>chmod 600 .procmailrc</code></pre>
+<p>Remove incron, which we aren’t using anymore.</p>
+<pre><code>sudo aptitude remove incron</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>Fix up spamassassin.</li>
+</ol>
+<p>Get the top of /etc/spamassassin/local.cf to look like:</p>
+<pre><code>rewrite_header Subject
+# just add good headers
+add_header spam Flag _YESNOCAPS_
+add_header all Status _YESNO_, score=_SCORE_ required=_REQD_ tests=_TESTS_ autolearn=_AUTOLEARN_ version=_VERSION_</code></pre>
+<p>This adds the proper headers so that <code>afew</code> recognizes and tags as spam accordingly. And that should be it!</p>
+<ol start="8" style="list-style-type: decimal">
+<li>I’m not sure of a way to tell K9Mail that the certificate on the IMAP server has changed, so I just deleted the account and recreated it.</li>
+</ol>
+<p>Note: if you find any mistakes in this, or parts that needed additional steps, <script type="text/javascript">
+<!--
+h='&#100;&#98;&#112;&#x6d;&#x61;&#x69;&#108;&#46;&#110;&#x65;&#116;';a='&#64;';n='&#100;&#98;&#112;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'let me know'+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#108;&#x65;&#116;&#32;&#x6d;&#x65;&#32;&#x6b;&#110;&#x6f;&#x77;&#32;&#40;&#100;&#98;&#112;&#32;&#x61;&#116;&#32;&#100;&#98;&#112;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#110;&#x65;&#116;&#x29;</noscript> and I’ll correct/add to this.</p>
+]]></description>
+    <pubDate>Sat, 29 Jun 2013 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2013-06-29-hackers-replacement-for-gmail.html</guid>
+</item>
+<item>
+    <title>A Literate Ur/Web Adventure</title>
+    <link>http://dbpmail.net/essays/2013-05-21-literate-urweb-adventure.html</link>
+    <description><![CDATA[<h2>A Literate Ur/Web Adventure</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>May 21, 2013</strong></p>
+
+<p><a href="http://www.impredicative.com/ur/">Ur/Web</a> is a language / framework for web programming that both makes it really hard to write code with bugs / vulnerabilities and also makes it really easy to write reactive, client-side code, all from a single, simple, codebase. But it is built on some pretty deep type theory, and while it is an incredibly practical research project, some corners of it still show - like error messages that scroll pages off the screen. I’ve experimented with it before, and have written a small application that is beyond a demo, but still small enough to be digestible.</p>
+<p>For completeness and clarity, I present it here in complete literate style - all the files, interspersed with comments, are presented. They are split into sections by file, which are named in headings. All the text between the file name and the next file name that is not actual code is within comments (that is what the <code>#</code>, <code>(*</code> and <code>*)</code> are for), so you can copy the whole thing to the files and build the project. All the files should go into a single directory. It builds with the current version of Ur/Web. You can try out the application, as it currently exists (which might have been changed since writing this), at <a href="http://lab.dbpmail.net/dn">lab.dbpmail.net/dn</a>. The full source, with history, is available at <a href="http://hub.darcs.net/dbp/dnplayer">hub.darcs.net/dbp/dnplayer</a>.</p>
+<p>The application is a video player for the daily news program <a href="http://democracynow.org">Democracy Now!</a>. The main point of it is to remember where in the show you are, so you can stop and resume it, across devices. It should work on desktop and mobile applications - I have targetted Chrome on Android, Chrome on computers, and Safari on iPhones/iPads. The main reason for not supporting Firefox is that it does not support the (proprietary) video/audio codecs that are the only format that Democracy Now! provides.</p>
+<h2 id="dn.urp">dn.urp</h2>
+<pre><code># .urp files are project files, which describe various meta-data about
+# Ur/Web applications. They declare libraries (like random, which we&#39;ll
+# see later), information about the database (both what it is named and
+# where to generate the sql for the tables that the application is using).
+# They separate meta-data declarations from the modules in the project by
+# a single blank line, which is why we have comments on all blank lines
+# prior to the end.
+library random
+database dbname=dn
+sql dn.sql
+# 
+# They also allow you to rewrite urls. By default, urls are generated
+# consistently as Module/function_name, which means that the main
+# function inside Dn, our main module, is our root url. We can rewrite
+# one url to another, but if we leave off the second, that rewrites to
+# root. We can also strip prefixes from urls with a rewrite with a *.
+# 
+rewrite url Dn/main 
+rewrite url Dn/*
+# 
+# safeGet allows us to declare that a function is safe to generate urls
+# to, ie that it won&#39;t cause side effects. Along the same safety lines,
+# we declare the external urls that we will generate and scripts we will
+# include - making injecting resources hosted elsewhere hard (as Ur/Web
+# won&#39;t allow you to create urls to anything not declared here).
+#
+# 
+safeGet player
+allow url http://dncdn.dvlabs.com/ipod/*
+allow url http://traffic.libsyn.com/democracynow/*
+allow url http://dbpmail.net/css/default.css
+allow url http://dbpmail.net
+allow url http://hub.darcs.net/dbp/dnplayer
+allow url http://democracynow.org
+allow url http://lab.dbpmail.net/dn/main.css
+script http://lab.dbpmail.net/static/jquery-1.9.1.min.js
+# One odd thing - Ur/Web doesn&#39;t have a static file server of its own, so
+# you need to host any FFI javascript elsewhere. Here&#39;s where the javascript for
+# this application, presented later, is hosted. For trying it out, leaving
+# this the same is fine, though if you want to change the javascript, or
+# not depend on my copy being up, you should change this and the reference in
+# the application.
+script http://lab.dbpmail.net/dn/dn.js
+# 
+# Next, we declare that we have foreign functions in a module called dnjs. This
+# refers to a header file (.urs), and we furthermore declare what functions within
+# it we are using. We declare them as effectful so that they aren&#39;t called multiple
+# times (like Haskell, Ur/Web is purely functional, so normal, non-effectful functions are not
+# guaranteed to be called exactly once - they could be optimized away if the compiler
+# did not see you use the result of the function, and could be inlined (and thus
+# duplicated) if it would be more efficient).
+# 
+ffi dnjs
+jsFunc Dnjs.init=init
+effectful Dnjs.init
+jsFunc Dnjs.set_offset=set_offset
+effectful Dnjs.set_offset
+
+# The last thing we declare is the modules in our project. $/ is a prefix that means to
+# look in the standard library, as we are using the option type (Some/None in OCaml/ML,
+# Just/Nothing in Haskell, and very roughly a safe null in other languages). sourceL is
+# a helper for reactive programming (to be discussed later). And finally, our main module,
+# which should be last.
+#         
+$/option
+sourceL
+dn</code></pre>
+<h2 id="dn.urs">dn.urs</h2>
+<pre><code>(*</code></pre>
+<p><code>.urs</code> files are header files (signature files), which declare all the public functions in the module (in this case, the <code>Dn</code> module). We only export our <code>main</code> function here, but all functions that have urls that we generate within the applications are also implicitly exported.</p>
+<p>The type of main, <code>unit -&gt; transaction page</code>, means that it takes no input (<code>unit</code> is a value-less value, a placeholder for argumentless functions), and it produces a <code>page</code> (which is a collection of xml), within a <code>transaction</code>. <code>transaction</code>, like Haskell’s IO monad, is the way that Ur/Web handles IO in a safe way. If you aren’t familiar with IO in Haskell, you should go there and then come back.</p>
+<pre><code>*)
+val main : unit -&gt; transaction page</code></pre>
+<h2 id="random.urp">random.urp</h2>
+<pre><code># Random is a simple wrapper around librandom to provide us with random
+# strings, that we use for tokens. We included it above with the line
+# `library random`. Libraries are declared with separate package files,
+# and here we link against librandom.a, include the random header, and declare
+# that we are using functions declared in random.urs (that is the ffi line).
+# We also declare that all three functions are effectful, because they have
+# side effects
+#
+# NOTE: It has been pointed out that instead of doing this, we could either:
+#       A. use Ur/Web&#39;s builtin `rand` function, and construct the strings
+#          without using the FFI, or even easier:
+#       B. just use the integers than `rand` generates as tokens.
+#
+#       I didn&#39;t realize that `rand` existed when I wrote this, but I&#39;m leaving
+#       it in because it is a (concise) introduction to the FFI, which, given
+#       the relatively small body of Ur/Web libraries, is probably something
+#       you&#39;ll end up using if you build any large applications.
+effectful Random.init
+effectful Random.str
+effectful Random.lower_str
+ffi random
+include random.h
+link librandom.a</code></pre>
+<h2 id="random.urs">random.urs</h2>
+<pre><code>(*</code></pre>
+<p>Like with main, we see that the signatures of these functions are ‘transaction unit’ and <code>int -&gt; transaction string</code>, which means the former takes no arguments, and the latter two take integers (lengths), and produce <code>string</code>s, within <code>transactions</code>. They are within <code>transaction</code> because they create side effects (ie, if you run them twice, you will likely not get the same result), and thus we want the compiler to treat them with care (as described earlier). Init seeds the random number generator, so it should be called before the other two are</p>
+<pre><code>*)
+val init: transaction unit
+val str : int -&gt; transaction string
+val lower_str : int -&gt; transaction string</code></pre>
+<h2 id="random.h">random.h</h2>
+<pre><code>/*</code></pre>
+<p>Here we have the header file for the C library, which declares the same signatures as above, but using the structs that Ur/Web uses, and the naming convention that it expects (uw_Module_name).</p>
+<pre><code>*/
+#include &quot;types.h&quot;
+
+uw_Basis_unit uw_Random_init(uw_context ctx);
+uw_Basis_string uw_Random_str(uw_context ctx, uw_Basis_int len);
+uw_Basis_string uw_Random_lower_str(uw_context ctx, uw_Basis_int len);</code></pre>
+<h2 id="random.c">random.c</h2>
+<pre><code>/*</code></pre>
+<p>And finally the C code to generate random strings.</p>
+<pre><code>*/
+#include &quot;random.h&quot;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt; 
+#include &quot;urweb.h&quot;
+
+/* Note: This is not cryptographically secure (bad PRNG) - do not
+   use in places where knowledge of the strings is a security issue.
+*/
+
+uw_Basis_unit uw_Random_init(uw_context ctx) {
+  srand((unsigned int)time(0));
+}
+
+uw_Basis_string uw_Random_str(uw_context ctx, uw_Basis_int len) {
+  uw_Basis_string s;
+  int i;
+
+  s = uw_malloc(ctx, len + 1);
+
+  for (i = 0; i &lt; len; i++) {
+    s[i] = rand() % 93 + 33; /* ASCII characters 33 to 126 */
+  }
+  s[i] = 0;
+
+  return s;
+}
+
+uw_Basis_string uw_Random_lower_str(uw_context ctx, uw_Basis_int len) {
+  uw_Basis_string s;
+  int i;
+
+  s = uw_malloc(ctx, len + 1);
+
+  for (i = 0; i &lt; len; i++) {
+    s[i] = rand() % 26 + 97; /* ASCII lowercase letters */
+  }
+  s[i] = 0;
+
+  return s;
+}</code></pre>
+<h2 id="dn.ur">dn.ur</h2>
+<pre><code>(*</code></pre>
+<p>We’ll now jump into the main web application, having seen a little bit about how the various files are combined together. The first thing we have is the data that we will be using - one database table, for our users, and one cookie. The tables are declared with Ur/Web’s record syntax, where <code>Token</code>, <code>Date</code>, and <code>Offset</code> are the names of fields, and <code>string</code>, <code>string</code>, and <code>float</code> are the types.</p>
+<p>All tables that are going to be used have to be declared, and Ur/Web will generate SQL to create them. This is, in my opinion, one weakness, as it means that Ur/Web doesn’t play well with others (as it needs the tables to be named uw_Module_name), and, even worse, if you rename modules, or refactor where the tables are stored, the names of the tables need to change - if you are just creating a toy, you can wipe out the database and re-initialize it, but obviously this isn’t an option for something that matters, and you just have to manually migrate the tables, based on the newly generated database schemas. Luckily the tables / columns are predictably named, but it still isn’t great.</p>
+<pre><code>*)
+(* Note: Date is the date string used in the urls, as the most
+   convenient serialization, Offset is seconds into the show *)
+table u : {Token : string, Date : string, Offset : float} PRIMARY KEY Token
+cookie c : string
+(*</code></pre>
+<p>Ur/Web provides a mechanism to run certain code at times other than requests, called <code>task</code>s. There are a couple categories, the simplest one being an initialization task, that is run once when the application starts up. We use this to initialize our random library.</p>
+<pre><code>*)
+task initialize = fn () =&gt; Random.init
+(*</code></pre>
+<p>Part of being a research project is that the standard libraries are pretty minimal, and one thing that is absent is date handling. You can format dates, add and subtract, and that’s about it. Since a bit of this application has to do with tracking what show is the current one, and whether you’ve already started watching it, I wrote a few functions to answer the couple date / time questions that I needed. These are all pure functions, and all the types are inferred.</p>
+<pre><code>*)
+val date_format = &quot;%Y-%m%d&quot;
+
+fun before_nine t =
+    case read (timef &quot;%H&quot; t) of
+        None =&gt; error &lt;xml&gt;Could not read Hour&lt;/xml&gt;
+      | Some h =&gt; h &lt; 9
+    
+fun recent_show t =
+   let val seconds_day = 24*60*60
+       val nt = (if before_nine t then (addSeconds t (-seconds_day)) else t)
+       val wd = timef &quot;%u&quot; nt in
+   case wd of
+       &quot;6&quot; =&gt; addSeconds nt (-seconds_day)
+     | &quot;7&quot; =&gt; addSeconds nt (-(2*seconds_day))
+     | _ =&gt; nt
+   end
+(*</code></pre>
+<p>The server that I have this application hosted on is in a different timezone than the show is broadcasted in (EST), so we have to adjust the current time so that we can tell if it is late enough in the day to get the current days broadcast. Depending on what timezone your computer is, this may need to be changed.</p>
+<pre><code>*)
+fun est_now () =
+    n &lt;- now;
+    return (addSeconds n (-(4*60*60)))
+
+(*</code></pre>
+<p>We track users by tokens - these are short random strings generated with our random library. The mechanism for syncing devices is to visit the url (with the token) on every device, so the tokens will need to be typed in. For that reason, I didn’t want to make the tokens very long, which means that collisions are a real possibility. To deal with this, I set the length to be 6 characters, plus the number of tokens, log_26 (since users are encoded with lower case letters, n users can be encoded with log_26 characters, so we use this as a baseline, and add several so that the collision probability is low).</p>
+<p>In this, we see how SQL queries work. You can embed SQL (a subset of SQL, defined in the manual), and this is translated into a query datatype, and there are many functions in the standard library to run those queries. We see here two: <code>oneRowE1</code>, which expects to get back just one row, and will extract 1 value from it. <code>E</code> means that it computes a single output expression. Note that it will error if there is no result, but since we are selecting the count, this should be fine. <code>hasRows</code> is an even simpler function; it simply runs the query and returns true iff there are rows.</p>
+<p>Also note that we refer to the table by name as declared above, and we refer to columns as record members of the table. To embed regular Ur/Web values within SQL queries, we use <code>{[value]}</code>. These queries will not type check if you try to select columns that don’t exist, and of course does escaping etc.</p>
+<pre><code>*)
+(* linking to cmath would be better, but since I only
+   need an approximation, this is fine *)
+fun log26_approx n c : int =
+    if c &lt; 26 then n else
+    log26_approx (n+1) (c / 26)
+
+
+(* Handlers for creating and persisting token *)
+fun new_token () : transaction string =
+    count &lt;- oneRowE1 (SELECT COUNT( * ) FROM u);
+    token &lt;- Random.lower_str (6 + (log26_approx 0 count));
+    used &lt;- hasRows (SELECT * FROM u WHERE u.Token = {[token]});
+    if used then new_token () else return token
+
+(*</code></pre>
+<p>We write small functions to set and clear the tokens. We do this so that after a user has visited the unique player url at least once on each device, they will only have to remember the application url, not their unique url. <code>now</code> is a value of type <code>transaction time</code>, which gives the current time, and <code>setCookie</code>/<code>clearCookie</code> should be self explanatory.</p>
+<pre><code>*)
+fun set_token token =
+    t &lt;- now;
+    setCookie c {Value = token,
+                 Expires = Some (addSeconds t (365*24*60*60)),
+                 Secure = False}
+    
+fun clear_token () =
+    clearCookie c
+
+(*</code></pre>
+<p>The next thing is a bunch of html fragments. Ur/Web doesn’t have a “templating” system, but it is perfectly possible to create one by defining functions that take the values to insert in. I’ve opted for a simpler option, and just defined common pieces. HTML is written in normal XML format, within <code>&lt;xml&gt;</code> tags, and like the SQL tags, these are typechecked - having attributes that shouldn’t exist, nesting tags that don’t belong, or not closing tags all cause the code not to compile.</p>
+<p>There are a couple rough edges - some tags are not defined (but you can define new ones in FFI modules), and some attributes can’t be used because they are keywords (hence <code>typ</code> instead of <code>type</code>), but overall it is a neat system, and works very well.</p>
+<pre><code>*)
+fun heading () = 
+    &lt;xml&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;/&gt;
+        &lt;link rel=&quot;stylesheet&quot; typ=&quot;text/css&quot; href=&quot;http://dbpmail.net/css/default.css&quot;/&gt;
+        &lt;link rel=&quot;stylesheet&quot; typ=&quot;text/css&quot; href=&quot;http://lab.dbpmail.net/dn/main.css&quot;/&gt;
+    &lt;/xml&gt;
+
+fun about () =
+    &lt;xml&gt;
+      &lt;p&gt;
+      This is a player for the news program
+      &lt;a href=&quot;http://democracynow.org&quot;&gt;Democracy Now!&lt;/a&gt;
+      that remembers how much you have watched.
+    &lt;/p&gt;
+    &lt;/xml&gt;
+    
+fun footer () =
+    &lt;xml&gt;
+      &lt;p&gt;Created by &lt;a href=&quot;http://dbpmail.net&quot;&gt;Daniel Patterson&lt;/a&gt;.
+        &lt;br/&gt;
+        View the &lt;a href=&quot;http://hub.darcs.net/dbp/dnplayer&quot;&gt;Source&lt;/a&gt;.&lt;/p&gt;
+    &lt;/xml&gt;
+
+(*</code></pre>
+<p>We now get to the web handlers. These are all url/form entry points, and do the bulk of the work. The first one, <code>main</code>, which we rewrote in <code>dn.urp</code> to be the root handler, is mostly HTML - the only catch being that if you have a cookie set, we just redirect you to the player.</p>
+<p><code>getCookie</code> returns an <code>option CookieType</code> where <code>CookieType</code> is the type of the cookie (in our case, it is a string). <code>redirect</code> takes a <code>url</code>, and urls can be created from handlers (ie, values of type <code>transaction page</code>) with the <code>url</code> function. So we apply <code>player</code> which is a handler we’ll define later, to the token value (as a token is the parameter that <code>player</code> expects), and grab a url for that.</p>
+<p>One catch to this is that Ur/Web doesn’t know that <code>player</code> isn’t going to cause side effects, which would mean that it shouldn’t have a url created for it (side effecting things should only be POSTed to), which was why we had to declare <code>player</code> as <code>safeGet</code> in <code>dn.urp</code></p>
+<p>We also see a form that submits to <code>create_player</code>, which is another handler that we will define. One thing to note is that <code>create_player</code> is a <code>unit -&gt; transaction page</code> function - and the action for the submit is just <code>create_page</code>, not <code>create_page ()</code> - the action of submitting passes that parameter.</p>
+<pre><code>*)
+fun main () =
+    mc &lt;- getCookie c;
+    case mc of
+        Some cv =&gt; redirect (url (player cv))
+      | None =&gt; 
+        return &lt;xml&gt;
+          &lt;head&gt;
+            {heading ()}
+          &lt;/head&gt;
+          &lt;body&gt;
+            &lt;h2&gt;&lt;a href=&quot;http://democracynow.org&quot;&gt;Democracy Now!&lt;/a&gt; Player&lt;/h2&gt;
+            {about ()}
+            &lt;p&gt;
+              You can listen to headlines on your way to work on your phone,
+              pick up the first segment during lunch on your computer at work, and
+              finish the show in the evening, without worrying what device you are
+              on or whether you have time to watch the whole thing.
+            &lt;/p&gt;
+            &lt;h3&gt;How it works&lt;/h3&gt;
+            &lt;ol&gt;
+              &lt;li&gt;
+                &lt;form&gt;
+                  To start, if you&#39;ve not created a player on any device:
+                  &lt;submit action={create_player} value=&quot;Create Player&quot;/&gt;
+                &lt;/form&gt;
+              &lt;/li&gt;
+              &lt;li&gt;Otherwise, visit the url for the player you created (it should look like
+                something &lt;code&gt;http://.../player/hcegaoe&lt;/code&gt;) on this device
+                to synchronize your devices. You only need to do this once per device, after that
+                just visit the home page and we&#39;ll load your player.
+              &lt;/li&gt;
+            &lt;/ol&gt;
+
+            &lt;h3&gt;Compatibility&lt;/h3&gt;
+            &lt;p&gt;This currently works with Chrome (on computers and Android) and iPhones/iPads.&lt;/p&gt;  
+            {footer ()}
+          &lt;/body&gt;
+        &lt;/xml&gt;
+
+(*</code></pre>
+<p><code>create_player</code> is pretty straightforward, but it shows a different part of Ur/Web’s SQL support: dml supports INSERT, UPDATE, and DELETE, in the normal ways, with the same embedding as SQL queries (that <code>{[value]}</code> puts a normal Ur/Web value into SQL). We create a token, create a “user”, setting that they are on the current day’s show and at the beginning of it (offset 0.0), store the token, and then redirect to the player.</p>
+<pre><code>*)
+and create_player () =
+    n &lt;- est_now ();
+    token &lt;- new_token ();
+    dml (INSERT INTO u (Token, Date, Offset)
+         VALUES ({[token]}, {[timef date_format (recent_show n)]}, 0.0));
+    set_token token;
+    redirect (url (player token))
+
+(*</code></pre>
+<p>The next two functions encompass most of the player, which is the core of the application. The way that it is structured is a little odd, but with justification: Chrome on Android caches extremely aggressively, and doesn’t seem to pay attention to headers that say not to, which means that if you visited the application, and then a few days later open up Chrome again, it will seem like it is loading the page, but it is loading the cached HTML, it is not getting it from the server. This is really bad for us, because it means it will have both an old offset (in case you watched some of the show from another device), but worse, on subsequent days it will be trying to play the wrong day’s show! You can manually reload the page, but this is silly, so what we do is initially just load a blank page, and then immediately make a remote call to actually load the page. So what is cached is a little bit of HTML and some javascript that loads the page for real.</p>
+<p>We do all of this is functional reactive style: we declare a <code>source</code>, which is a place where values will be put, and it will cause parts of the page (that are <code>signal</code>ed) to update their values. Then we set an onload handler for the body, which, first, makes an <code>rpc</code> call to a server side function (which is just another function, like all of these handlers), and then set the <code>source</code> that we defined to be the result of rendering the player. <code>render</code> is a client-side function that just creates the appropriate forms / html.</p>
+<p>Finally, we will call a client-side function init, which will do some setup and then call into the javascipt ffi to the ffi <code>init</code> function, which will handle the HTML5 audio/video APIs (which Ur/Web doesn’t support, and are very browser specific anyway).</p>
+<p>One incredibly special thing that is going on is the <code>SourceL.set os</code> that is passed to javascript. If you remember from our <code>.urp</code> file, we imported sourceL. It is a special reactive construct that allows you to set up handlers that cause side effects (are transactions) when the value inside the <code>SourceL</code> changes. So what is happening is we have created one of these on the server, in <code>player_remote</code>, and sent it back to the client. The client then curries the <code>set</code> function with that source, producing a single argument function that just takes the value to be updated. We hand this function to javascript, so that in our FFI code, we can just set values into this, and it can reactively cause stuff to happen in our server-side code.</p>
+<p>The reactive component on the page is the <code>&lt;dyn&gt;</code> tag, which is a special construct that allows side-effect free operations on sources. <code>signal s</code> grabs the current value from the source <code>s</code>, and in this case we just return this, but we could do various things to it. The result of the block is what the value of the <code>&lt;dyn&gt;</code> tag is. In this case, we have just made a place where we can stick HTML, by calling <code>set s some_html</code>.</p>
+<pre><code>*)
+and player token =
+    s &lt;- source &lt;xml/&gt;;
+    return &lt;xml&gt;
+      &lt;head&gt;
+        {heading ()}
+      &lt;/head&gt;
+      &lt;body onload={v &lt;- rpc (player_remote token);
+                    set s (render token v.Player v.Show);
+                    init token v.Player v.Source (SourceL.set v.Source) v.Video v.Audio}&gt;
+        &lt;dyn signal={v &lt;- signal s; return v}/&gt;
+      &lt;/body&gt;
+      &lt;/xml&gt;
+(*</code></pre>
+<p>The remote component is where most of the logic of the player resides. By now, you should be able to read most of what’s going in. Some points to highlight are the place where we create the <code>SourceL</code> that we will pass back, and set its initial value to offset. Also, <code>fresh</code> is a way of generating identifiers to use within html. Our render function will use this identifier for the player, which is necessary for the javascript FFI to know where it is. Finally, <code>bless</code> is a function that will turn strings into urls, by checking against the policy outlined in the <code>.urp</code> file for the application.</p>
+<pre><code>*)
+and player_remote token =
+    n &lt;- est_now ();
+    op &lt;- oneOrNoRows1 (SELECT * FROM u WHERE (u.Token = {[token]}));
+    case op of
+        None =&gt;
+        clear_token ();
+        redirect (url (main ()))
+      | Some pi =&gt;
+        set_token token;
+        let val show = recent_show n
+            val fmtted_date = (timef date_format show) in
+            (if fmtted_date &lt;&gt; pi.Date then
+                (* Need to switch to new day *)
+                dml (UPDATE u SET Date = {[fmtted_date]}, Offset = 0.0 WHERE Token = {[token]})
+            else
+                return ());
+            let val offset = (if fmtted_date = pi.Date then pi.Offset else 0.0)
+                val video_url = bless (strcat &quot;http://dncdn.dvlabs.com/ipod/dn&quot;
+                                              (strcat fmtted_date &quot;.mp4&quot;))
+                val audio_url = bless (strcat &quot;http://traffic.libsyn.com/democracynow/dn&quot;
+                                              (strcat fmtted_date &quot;-1.mp3&quot;)) in
+            os &lt;- SourceL.create offset;
+            player_id &lt;- fresh;
+            
+            return {Player = player_id, Show = show, Offset = offset,
+                    Source = os, Video = video_url, Audio = audio_url}
+            end
+        end
+
+
+(*</code></pre>
+<p>The next three functions are simple - the first just renders the actual player. Note that we use the <code>player_id</code> we generated in <code>player_remote</code>. Then we provide a way to forget the player (if you want to unlink two devices, forget the player on one and create a new one), and due to some imperfections with how we keep the time in sync (mostly based on weirdness of different browsers implementations of the HTML5 video/audio APIs), to seek backwards, or start the show over, we need to tell the server explicitly, so we provide a handler to do that.</p>
+<pre><code>*)
+and render token player_id date =
+     &lt;xml&gt;&lt;h2&gt;
+       &lt;a href=&quot;http://democracynow.org&quot;&gt;Democracy Now!&lt;/a&gt; Player&lt;/h2&gt;
+       {about ()}
+       &lt;h3&gt;{[timef &quot;%A, %B %e, %Y&quot; date]}&lt;/h3&gt;
+       &lt;div id={player_id}&gt;&lt;/div&gt;
+       &lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+       &lt;form&gt;
+         &lt;submit action={start_over token} value=&quot;Start Show Over&quot;/&gt;
+       &lt;/form&gt;
+       &lt;form&gt;
+         &lt;submit action={forget} value=&quot;Forget This Device&quot;/&gt;
+       &lt;/form&gt;
+       {footer ()}
+     &lt;/xml&gt;
+
+(* Drop the cookie, so that client will not auto-redirect to player *)
+and forget () =
+    clear_token ();
+    redirect (url (main ()))
+
+(* Because of browser quirks, this is the only way to get to an earlier time, synchronized *)
+and start_over token () =
+    dml (UPDATE u SET Offset = 0.0 WHERE Token = {[token]});
+    redirect (url (player token))
+
+(*</code></pre>
+<p>Now we get to the last web handlers. The first one is a client side initializer. The main thing it sets up is a handler to <code>rpc</code> to the server whenever the offset <code>SourceL</code> changes. The call is to <code>update</code> (which we’ll define in a moment), and it optionally returns a new time to set the client to.</p>
+<p>This may sound a little odd, but the basic situation is that you play part of the way through the show on one device, then pause, watch some on another device, and now hit play on the first device. It will POST a new time, but the server will tell it that it should actually be at a later time, and so we use the javascript FFI function <code>set_offset</code> to set the offset.</p>
+<p>Finally we make it so that the client silently fails if the connection fails (this is bad behavior, but simple), and call the javascript FFI initialization function, which will set up the player and any HTML5 API related stuff.</p>
+<pre><code>*)
+and init token player_id os set_offset video_url audio_url =
+    SourceL.onChange os (fn offset =&gt; newt &lt;- rpc (update token offset);
+                                      case newt of
+                                          None =&gt; return ()
+                                        | Some time =&gt; Dnjs.set_offset time);
+    offset &lt;- SourceL.get os;
+    onConnectFail (return ());
+    Dnjs.init player_id offset set_offset video_url audio_url
+
+(*</code></pre>
+<p>The last function is the simple handler that we called when the offset <code>SourceL</code> changes. It updates the time if the time is greater than the recorded offset (this is why we need the <code>start_over</code> handler), and otherwise returns the recorded offset to be updated.</p>
+<pre><code>*)
+and update token offset =
+    op &lt;- oneOrNoRows1 (SELECT * FROM u WHERE (u.Token = {[token]}));
+    case op of
+         None =&gt; return None
+       | Some r =&gt; (if offset &gt; r.Offset then 
+                       dml (UPDATE u SET Offset = {[offset]}
+                            WHERE Token = {[token]} AND {[offset]} &gt; Offset);
+                       return None
+                   else return (Some r.Offset))</code></pre>
+<h2 id="sourcel.urs">sourceL.urs</h2>
+<pre><code>(*</code></pre>
+<p>This came from a supplemental standard library, and, as explained earlier, allows you to create <code>source</code>-like containers that call side-effecting handlers when their values change.</p>
+<pre><code>*)
+(* Reactive sources that accept change listeners *)
+
+con t :: Type -&gt; Type
+
+val create : a ::: Type -&gt; a -&gt; transaction (t a)
+
+val onChange : a ::: Type -&gt; t a -&gt; (a -&gt; transaction {}) -&gt; transaction {}
+
+val set : a ::: Type -&gt; t a -&gt; a -&gt; transaction {}
+val get : a ::: Type -&gt; t a -&gt; transaction a
+val value : a ::: Type -&gt; t a -&gt; signal a</code></pre>
+<h2 id="sourcel.ur">sourceL.ur</h2>
+<pre><code>(*</code></pre>
+<p>The <code>sourceL</code>s are built on top of normal <code>source</code>s, and just call the <code>OnSet</code> function when you call <code>set</code>.</p>
+<pre><code>*)
+
+con t a = {Source : source a,
+           OnSet : source (a -&gt; transaction {})}
+
+fun create [a] (i : a) =
+    s &lt;- source i;
+    f &lt;- source (fn _ =&gt; return ());
+
+    return {Source = s,
+            OnSet = f}
+
+fun onChange [a] (t : t a) f =
+    old &lt;- get t.OnSet;
+    set t.OnSet (fn x =&gt; (old x; f x))
+
+fun set [a] (t : t a) (v : a) =
+    Basis.set t.Source v;
+    f &lt;- get t.OnSet;
+    f v
+
+fun get [a] (t : t a) = Basis.get t.Source
+
+fun value [a] (t : t a) = signal t.Source</code></pre>
+<h2 id="dnjs.urs">dnjs.urs</h2>
+<pre><code>(*</code></pre>
+<p>This is the signature file for our javascript FFI. It declares what functions will be exported to be accessible within Ur/Web, and what types they have.</p>
+<pre><code>*)
+val init : id -&gt; (* id for player container *)
+           float -&gt; (* offset value *)
+           (float -&gt; transaction unit) -&gt; (* set function *)
+           url -&gt; (* video url *)
+           url -&gt; (* audio url *)
+           transaction unit
+
+val set_offset : float -&gt; transaction unit</code></pre>
+<h2 id="dn.js">dn.js</h2>
+<pre><code>/*</code></pre>
+<p>Since this is a adventure in Ur/Web, not Javascript, and there are plenty of places to learn about the quirks and features of HTML5 media APIs (and I don’t claim to be an expert), I’m just going to paste the code in without detailed commentary. The only points that are worth looking at are how we use <code>setter</code>, which you will remember is a curried function that will be updating a <code>SourceL</code>, causing rpcs to update the time. To call functions from the FFI, you use <code>execF</code>, and to force a transaction to actually occur, you have to apply the function (to anything), so we end up with double applications.</p>
+<p>Other than that, all that is here is some browser detection (as different browsers have different media behavior) and preferences about media type in localstorage.</p>
+<pre><code>*/
+function init(player, offset, setter, video_url, audio_url) {
+    // set up toggle functionality
+    $(&quot;#&quot;+player).after(&quot;&lt;button id=&#39;toggle&#39;&gt;Switch to &quot; +
+                        (prefersVideo() ? &quot;audio&quot; : &quot;video&quot;) + &quot;&lt;/button&gt;&quot;);
+    $(&quot;#toggle&quot;).click(function () {
+        window.localStorage[&quot;dn-prefers-video&quot;] = !prefersVideo();
+        location.reload();
+    });
+
+    // put player on the page
+    if (canPlayVideo() &amp;&amp; prefersVideo()) {
+        $(&quot;#&quot;+player).html(&quot;&lt;video id=&#39;player&#39; width=&#39;320&#39; height=&#39;180&#39; controls src=&#39;&quot; +
+                           video_url + &quot;&#39;&gt;&lt;/video&gt;&quot;);
+    } else {
+        $(&quot;#&quot;+player).html(&quot;&lt;audio id=&#39;player&#39; width=&#39;320&#39; controls src=&#39;&quot; +
+                           audio_url + &quot;&#39;&gt;&lt;/audio&gt;&quot;);
+    }
+
+    // seek / start the player, if applicable
+    if (isDesktopChrome()) {
+        $(&quot;#player&quot;).one(&quot;canplay&quot;, function () {
+            var player = this;
+            if (offset != 0) {
+                player.currentTime = offset;
+            }
+            player.play();
+            window.setInterval(update_time(setter), 1000);
+        });
+    } else if (isiOS() || isAndroidChrome()) {
+        // iOS doesn&#39;t let you seek till much later... and won&#39;t let you start automatically,
+        // so calling play() is pointless
+	$(&quot;#player&quot;).one(&quot;canplaythrough&quot;,function () {
+	    $(&quot;#player&quot;).one(&quot;progress&quot;, function () {
+		if (offset != 0) {
+                    $(&quot;#player&quot;)[0].currentTime = offset;
+                }
+                window.setInterval(update_time(setter), 1000);
+	    });
+	});   
+    } else {
+        $(&quot;#player&quot;).after(&quot;&lt;h3&gt;As of now, the player does not support your browser.&lt;/h3&gt;&quot;);
+    }
+}
+
+function set_offset(time) {
+    var player = $(&quot;#player&quot;)[0];
+    if (time &gt; player.currentTime) {
+        player.currentTime = time;
+    }
+    
+}
+
+// the function that grabs the time and updates it, if needed
+function update_time(setter) {
+    return function () {
+        var player = $(&quot;#player&quot;)[0];
+        if (!player.paused) {
+            // a transaction is a function from unit to value, hence the extra call
+            execF(execF(setter, player.currentTime), null)
+        }
+    };
+}
+
+// browser detection / preference storage
+
+function canPlayVideo() {
+    var v = document.createElement(&#39;video&#39;);
+    return (v.canPlayType &amp;&amp; v.canPlayType(&#39;video/mp4&#39;).replace(/no/, &#39;&#39;));
+}
+
+function prefersVideo() {
+    return (!window.localStorage[&quot;dn-prefers-video&quot;] || window.localStorage[&quot;dn-prefers-video&quot;] == &quot;true&quot;);
+}
+
+function isiOS() {
+    var ua = navigator.userAgent.toLowerCase();
+    return (ua.match(/(ipad|iphone|ipod)/) !== null);
+}
+
+function isDesktopChrome () {
+    var ua = navigator.userAgent.toLowerCase();
+    return (ua.match(/chrome/) !== null) &amp;&amp; (ua.match(/mobile/) == null);
+}
+
+function isAndroidChrome () {
+    var ua = navigator.userAgent.toLowerCase();
+    return (ua.match(/chrome/) !== null) &amp;&amp; (ua.match(/android/) !== null);
+}</code></pre>
+<h2 id="makefile">Makefile</h2>
+<p>To actually build our application, we have to first build our C library. Then we’ll build the app, using the sqlite backend. To get this running, we then need to do <code>sqlite3 dn.db &lt; dn.sql</code> (note you only need to do this once) and then start the server with <code>./dn.exe</code>. You can then visit the application at <code>http://localhost:8080</code>. This has been tested on current Debian Linux and Mac OSX.</p>
+<pre><code>all: app
+
+librandom.a: librandom.o
+	ar rcs $@ $&lt;
+
+librandom.o: random.c
+	gcc -I/usr/local/include/urweb -g -c -o $@ $&lt;
+
+app: dn.ur dn.urs dn.urp librandom.a
+	urweb -dbms sqlite -db dn.db dn
+
+.PHONY: clean
+
+clean:
+	rm -f librandom.a librandom.o</code></pre>
+]]></description>
+    <pubDate>Tue, 21 May 2013 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2013-05-21-literate-urweb-adventure.html</guid>
+</item>
+<item>
+    <title>Programming as Literature</title>
+    <link>http://dbpmail.net/essays/2012-10-24-programming-literature.html</link>
+    <description><![CDATA[<h2>Programming as Literature</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>October 24, 2012</strong></p>
+
+<p>Sometimes I’m not sure how to explain what I study or why I study it. I tell people that I study theoretical computer science, or algorithms and programming languages, or math and computer science, and if they ask why? Let’s come back to that. First I want to talk about literacy.</p>
+<p>Literacy is about being able to understand the recorded thoughts of other people, and being able to share your own in a permanent medium. There are beautiful oral traditions, but most stories, much of human knowledge, is written down. Literacy allows one to tap into that sea of knowledge. In many ways, libraries are one of humanity’s greatest achievements; that one can walk into a building that contains the thoughts and discoveries of thousands of people, stretching back hundreds or thousands of years (and as long as you aren’t at an exclusive university, you can often access that information for free). Some knowledge is certainly more accessible than other knowledge, and languages of course complicate things, but the essential element of literacy is both the perception of the world around you and the ability to describe it and share that with others. We must be able to understand the thoughts of others and formulate our own so that others can understand them.</p>
+<p>The broader and perhaps more important aspect of literacy is that it allows you to contextualize your own life and perceptions in relation to others. In writing, you turn your own lived experience into something you can share. In reading, you realize that others have lived experiences that are in some ways similar and in others different from your own. In many ways, literacy is broader than reading and writing, it is rather about developing perspective on your own life and understanding of the lives of others. I can remember as a small child looking up at an airplane and realizing for the first time that there were people inside of it, in the middle of their own lives, with their own thoughts, hopes, dreams. For the first time I had an empathetic sense that I was not the center of the world (Descartes be damned).</p>
+<p>Now, you may be asking, with good reason, what does this have to do with computer science? I want to argue that one of the primary mediums of our lives is now something that most of us do not have literacy in. We communicate with one another with email, websites, cell phones, etc. We learn information by pushing a button on a piece of electronics that displays pictures to us that change as we touch them or use devices attached to it. Traffic lights and airline schedules are planned with computers, cars run with them, watches, microwave ovens. Most things we plug in or have batteries have computers in them. Much of our lives are carried out using computers that we don’t have more than a surface empirical understanding of. Now there have always been things that individuals don’t understand. Tax codes, foreign languages, specifics of geography, etc.</p>
+<p>But there are a couple interesting things about computers that distinguish them. The first is that they are all essentially the same. There is an underlying similarity between all computers, and indeed even among all possible devices that can compute. This means that it actually is possible to learn about all of these things.</p>
+<p>The second is that they are primarily designed as a way for humans to express their thoughts. We don’t think about computers in this sense very much, but it is what distinguishes them from most other machines - they are used so that one person can express how to do something and share it with others. They are a medium for talking about solving problems. The breadth of such problems that they can express is visible by looking at all the places that they are used now - and imagine, this is with only a small minority of the population thinking up ways to use them!</p>
+<p>There is a third dimension that is similarly interesting, and talked about more, which is that they are a way to expand our own mental capacities - if I am confronted with a task of sorting a few hundred (or thousand) documents, I can do it by hand, or, if I know how, I can write a program to do it and get a computer to carry out the work of sorting (and if I wanted the computer to do this sorting every day for the next year, I wouldn’t have to do any more work). What this means is that not only are they a way for me to share my ideas of how to solve a problem, they are also a way to automate that very problem solving.</p>
+<p>What is interesting and sad is that while the posession of computers is expanding rapidly, the knowledge of how to truly use them is not. People are sold devices that allow them to perform a set number of functions (all of which are simply repetitions of thoughts by the people working at the company who sold them the device), but they are not given the tools to express their own thoughts, to expand their own mental capacity in any way other than that already thought of by someone else. We have expanded the medium without expanding literacy. And indeed, there is a financial explanation for this. It’s hard to sell knowledge when people can create it themselves. Many technological “innovations” these days are trivial combinations of earlier ideas which would be unnecessary if people were able to carry out those kinds of compositions themselves.</p>
+<p>So why am I interested in computer science? I’m interested in it because I am interested in human thought. I am interested in how people solve problems, and seeing problems that others have solved. I am interesting in teaching people how to express themselves in this medium, and learning it myself. I study programming as literature, to read, to write, to share. I study it to figure out the world we live in, and imagine how else it could be.</p>
+]]></description>
+    <pubDate>Wed, 24 Oct 2012 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2012-10-24-programming-literature.html</guid>
+</item>
+<item>
+    <title>Haskell / Snap ecosystem is as productive as Ruby/Rails.</title>
+    <link>http://dbpmail.net/essays/2012-04-26-haskell-snap-productive.html</link>
+    <description><![CDATA[<h2>Haskell / Snap ecosystem is as productive as Ruby/Rails.</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>April 26, 2012</strong></p>
+
+<p>This may be controversial, and all of the usual disclaimers apply - this is based on my own experience using both of the languages/frameworks to do real work on real projects. Your mileage may vary. Because this is something that has the potential to spiral into vague comparisons, I am going to try to compare points directly, based on things that I’ve experienced. I am not going to say “I like Haskell better” or anything like that, because the point of this is not so much to convince people about the various merits of the languages involved, just to point out that I’ve found that they both are as productive (or that Snap feels more so). For Haskell programmers, this could be an indication to try out the web tools that you have available, especially if you are usually a Rails developer.</p>
+<p>As a note - some of this could also apply to other haskell web frameworks (in particular, most of this pertains to happstack, and some pertains to yesod), but since Snap is what I use, I want to keep it based on my own personal experience.</p>
+<p><code>1.</code> The number one productivity improvement is a smart strong type system. This is less of an issue for small projects, but as soon as you have at least a few thousand lines of code, adding new features or refactoring inevitably involves changes to multiple parts of the codebase. Having a compiler that will tell you all the places that you need to change things is an amazing productivity booster. This can be approximated in some ways with good test coverage, but it is really a different beast - tests often need to be changed as well, and if you aren’t very careful about this it is easy to change them in ways that don’t catch new bugs. Additionally, it is hard (or very tedious, if you do it wrong) to achieve high enough coverage to actually catch all of the bugs introduced in refactoring. This as compared to a compiler that is completely automated and will always be aware of all of the code you have and the ways that it interacts (at least to the extent that you actually use the type system - but if you are a good haskell programmer, you will).</p>
+<p>This alone wouldn’t be enough to suggest using Haskell/Snap over Ruby/Rails, as a type system isn’t worth much without supporting libraries, but as I switch between the ecosystems, this is the place where I notice the most drastic improvements in productivity, so I put it first.</p>
+<p><code>2.</code> Form libraries. There are many different libraries for dealing with forms in Rails, and there is the built in one as well. The general idea is that you define some validations on your models, and then use the DSLs from the form libraries to define forms, and can do validations, etc. In Haskell (in my opinion), the best form library is Digestive-Functors (thanks Jasper!), and the productivity difference is staggering in more complex use-cases. In the sort of vanilla examples that rails has, the validation system works quite well, and dynamic introspection allows you to write really short forms. This begins to break down when you start getting forms that don’t correspond in a simple way to models. I have forms that are sometimes a mix of two models, or forms that are a partial view into a data structure, or any number of other variations.</p>
+<p>With Digestive-Functors, I can define the forms that I need, and re-use components between multiple forms (forms are composable), and these validations are on the form, not on the underlying model. It is obviously useful to database level data integrity checks, but I find that having them being the main / only way of doing validations is really limiting - because sometimes there are special cases when you want the validation done one way and other times another.</p>
+<p>More generally, it is possible that the business logic of a specific form may have requirements that do not always have to hold for the datastore, and thus should not reside in the integrity checks. Having written a lot of forms (who hasn’t?), I find that getting the first form out is much faster with Rails, but inevitably when I need to change something it starts become difficult fast. Every time I am doing it I keep picturing an exponential curve - sure it starts out really small, but it gets really big really fast! It isn’t that I run into things that are not possible with Rails, but they end up being more difficult, more error prone, and generally reduce my productivity. With Digestive-Functors, I spend a little more time building the forms in the beginning, but I’ve never had requirements for a form that weren’t easily implemented (almost without thinking).</p>
+<p><code>3.</code> Routing is the next big one. This may be more of an opinion that the previous ones, but I have always thought that great care should be involved in designing the url structure of a site. In this sense, I guess I disagree with the idea of universally using REST - I think it is very useful when writing APIs, but when designing applications for people, I believe the urls should be meaningful to the people, not to machines. Usually, right after modeling the data of an application, I make a site-map - this is a high level view of what the site should look like. Instead, with Rails, I spend time thinking of how I can adapt what I want to the REST paradigm, and usually end up with something that is an incomplete/counterintuitive representation.</p>
+<p>More broadly, I think the idea of hierarchical routing is brilliant - the idea that you match routes by pieces. What this allows you to do is easily abstract out work that should be done for many different related requests. In Rails, this is approximated by :before_filters (ie, it a controller for a specific model, you might fetch the item from the id for many different handlers), but it is a poor substitute. For example I often have an “/admin” hierarchy, and to limit this, all I have to do is have one place (the adminRouter or something) that does the required work to ensure only administrators can access, and it can also fetch any data that is needed, and then it can pass back into the route parsing mode. Or if I want to do the rails-style pre-fetching, then I design the routes as “/item/id/action” and have a handler that matches “/item/id”, fetches the item, and then matches against the various actions. If I have nested pieces of data, this is just as easy. I could have “item/id/something/add” which adds a new “something” to the item with id “id”, This would all be in the same hierarchy, so the code to fetch the item would still only exist once.</p>
+<p>Not only is this very natural to program, it keeps the flow easy to follow when you are looking back at it, and allows backtracking in a great way: if, in a handler, you reach something that indicates that this cannot be matched, like if the path was “/item/id” but the id did not correspond to an actual item, you can simply “pass” and the route parser continues looking for things that will handle the request. If it finds nothing, it gives a 404.</p>
+<p>An example of how you could exploit things in a really clean way - if you are building a wiki-like site, then you first have a route that matches “/page/name” and looks up the page with name “name”. If it doesn’t find it, it passes, and the next handler can be the “new page” handler, that prompts the user to create the page. As with everything else, I’m not saying this cannot be done with Rails, simply that it is much more natural and easy to understand with Snap (and Happstack, where this routing system originated, at least in the Haskell world).</p>
+<p><code>4.</code> Quality of external libraries. Point 2 was a special case of this, since dealing with forms comes up so much, but I think the general quality of libraries in Haskell is superb. One example that I came up against was wanting to parse some semi-free-form CSV data into dates and times. Haskell has the very mature parsing library Parsec (which has ports into many languages, including Ruby) that makes it really easy to write parsers. I ported an ad-hoc parser to it, and found that not only was I able to write the code in a fraction of the time, but it was a lot more robust and easy to understand.</p>
+<p>For testing of algorithmic code, the QuickCheck library is pretty amazing - in it, you tell it how to construct domain data, and then certain invariants that should hold over function applications, and it will fuzz-test with random/pathological data. The first time you write some of these tests (and catch bugs!) you will wonder why you haven’t been testing like that before! I don’t really want to go into it here, but the other point is that many of these libraries are very very fast - there has been, over the last couple years, a massive push to have very performant libraries, with a lot of success. The Haskell web frameworks webservers regularly trounce most other webservers, and there are very high performant json, text processing, and parsing libraries (attoparsec is a version of parsec that is very fast).</p>
+<p><code>5.</code> Templating. In this, I want to directly compare the experience of using Heist (a templating system made by the Snap team) and Erb/Haml (I mostly use the latter, but in some things, like with javascript, I have to use the former). The first big difference is the idea of layouts/templates/partials in rails. I never really understood why there was this distinction when I first used it, and when comparing it to Heist (which has no distinction - any template can be applied to another, to achieve a layout like functionality, and any template can be included within another, to achieve a partial like functionality) it feels very limited.</p>
+<p>The other major difference is that the two templating languages in Ruby allow dynamic elements by embedding raw ruby code, whereas the former allows dynamic stuff by allowing you to define new xml tags (called splices) that you can then use in the templates. I have found this to be an extremely powerful idea, as it allows you to not only do all the regular stuff (insert values, iterate over lists of values and spit out html), but can even allow you to build custom vocabularies of elements that you want to use that are designed to go with javascript (so for example, I built an asynchronous framework on top of this, where I had a “<code>&lt;form-async&gt;</code>” tag and “<code>&lt;div-async&gt;</code>”s that would be replaced asynchronously by the responses from the form posts).</p>
+<p>It also adapts to being used with (trusted) user generated input - I’ve used it in multiple CMS systems so that, for example, all links to external sites are set to open in new tabs/windows (by overriding the “<code>&lt;a&gt;</code>” tag and adding the appropriate “target”) or allowing the users to gain certain dynamic stuff for their pages. Compared to this, the situation with Haml always seems hopelessly tied up with ruby spaghetti code - not that it always is (you can always be careful), but the split with Heist both feels like a cleaner separation AND more powerful, which is not something you get often, and I think is a sign that the metaphor that Heist created (which is based on a couple really simple primitives) is really something special.</p>
+<p><code>6.</code> This is sort of an extension of the first point, and I’m putting it towards the end because it is the most subjective of this already quite subjective comparison - I think that web applications built with Haskell/Snap are much easier to edit / add to than corresponding applications in Ruby/Rails. One of the biggest reasons for this is that there is much more boilerplate/code spread in ruby - some of it is auto-generated, other bits is manually generated, but there ends up being code scattered around. It is pretty easy to add new code, but when you want to edit / refactor existing code, it starts to get hard to figure out where everything is. A bit of this relies on conventions to a degree (which you learn), but there is simply less code in Snap, and usually everything pertaining to a specific function is in one place. This has a lot to do with the functional paradigm - there is no hidden state, so generally all the transformations that occur are very transparent, whereas with Rails it is possible for stuff from the ApplicationController being applied, or just various filters coming into play, or stuff from the model, etc. There is no obvious “starting point” if you want to see how a request travels through your application (candidates include the routes file, the controllers, etc), in the same way where with a Snap application, the code to start the web server is in one of the files you write! You can trace exactly what it is doing from there!</p>
+<p>In addition, there is also very little “convention” with Snap. It enforces nothing, which has the consequence (in addition to allowing you to make a mess!) of having the whole application conforming to exactly how you think it should be organized. I’ve found that this actually makes it much easier to add new things or modify existing functionality (fix bugs!), because the entire structure of the application, from how the requests are routed to how responses are generated, is based on code I wrote. This means that making a change anywhere in this process is usually very easy - it feels in some ways like the difference in making a change to an application you wrote from scratch and one that you picked up from someone else. There is also a potential downside to this - the first couple applications I built had drastically different organizational systems</p>
+<p>(Side note for anyone reading this who is curious: I’ve converged to the following method: all types for the application lives in a Types module or hierarchy, all code that pertains to the datastore lives in a State hierarchy or module in a small application, code for splices lives in a Splices hierarchy, forms live is a Forms hierarchy, and the web handlers live in a Handlers hierarchy. I also usually have a Utils module that collects some various things that are used in all sort of different places. Everything depends on Types and Utils. Splices, Forms, and State are all independent of one another, and Handlers depends on everything. And then of course there is an Application module and Main, according to the generated code from Snap).</p>
+<p>This is a major difference in how Snap even differs from some other Haskell web frameworks, that it seems more like a library with which to build a web application instead of a true framework, but in my experience this is actually a really powerful thing, and makes the whole process a lot more enjoyable, because I never feel like I’m trying to conform to how someone else thinks I should organize things.</p>
+<p><code>7.</code> I’m bundling the performance, security, etc all at once. Rails is a very stable framework, so lots of work has gone into this. But I think the recent vulnerabilities exposed on a lot of major sites (like GitHub) based on the common paradigm of mass-assignment sort of point out the negative side. Snap is much newer, but it was built with security in mind from the beginning, as far as I can tell, and most libraries that I have used have also mentioned ways that it comes up - the entire development community seems a lot more aware / concerned with it.</p>
+<p>I think part of this probably has to do with the host languages - ruby is a very dynamic language that has a history of experimentation (so generally, flexibility is preferred of correctness), whereas Haskell is a language where lots of static guarantees are valued, and security is usually lumped in with correctness. For performance, there is no question that Haskell will win hands down on any performance comparison (and on multithreading). Granted, a lot of web code is disk/database bound so this isn’t a huge deal, but it is nice to know that you aren’t needlessly wasting cycles (and can afford to run on smaller servers).</p>
+<p><code>8.</code> Now, as a counterpoint, I want to articulate what Rails really has over Snap. Number one, and this is huge, is the size of the community. There are a massive number of developers who know how to use Rails (how many are good at it is another question), and this also means that if you are trying to do something it is much more likely that a prebuilt solution exists. It also means that it will be easier to hire people to work on it, and easier to sell it as a platform to clients/bosses.</p>
+<p>The Haskell community is surprisingly productive given its size (and some of the tools it has produced are amazing - examples mentioned in this comparison are Parsec, QuickCheck, Digestive-Functors, etc), but there is some sense where they will always be at a disadvantage. This means that if you are doing any sort of common task with Rails, there will probably be a Gem that does it. The unfortunate part is that sometimes the Gem will be unmaintained, partially broken, incompatible, as the quality varies widely. This is a place where a lot of subjectivity comes in - I have found that most of what I need exists in the haskell ecosystem, and if stuff doesn’t it isn’t hard to write libraries, but this could be a big dealbreaker for some people.</p>
+<p>Cheers, and happy web programming.</p>
+]]></description>
+    <pubDate>Thu, 26 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2012-04-26-haskell-snap-productive.html</guid>
+</item>
+<item>
+    <title>Math/Science integrated with Scheme</title>
+    <link>http://dbpmail.net/essays/2011-12-06-science-scheme.html</link>
+    <description><![CDATA[<h2>Math/Science integrated with Scheme</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>December  6, 2011</strong></p>
+
+<p>I had an idea today, of an interactive homework assignment for a Chemistry class. It was a prompt, and you could type in queries and it would give responses. The basics would be:</p>
+<pre><code># (questions)
+=&gt; To Do: (1,2,3,4,5,6,7)
+   Complete: ()
+# (question-1)
+=&gt; 1. How many grams of Na are needed to make 28 grams of NaCl?
+# (periodic-table &#39;Na)
+=&gt; Sodium - Atomic Number 11 - Weight 22.98976928
+# (periodic-table &#39;Cl)
+=&gt; Chlorine - Atomic Number 17 - Weight 35.453
+# (* 22.98976928 (/ 28 (+ 22.98976928 35.453)))
+=&gt; 11.01
+# (answer-1 11.01)
+=&gt; Correct! Great job. 1/7 Questions completed.
+# (questions)
+=&gt; To Do: (2,3,4,5,6,7)
+   Complete: (1)</code></pre>
+<p>Now if you don’t know Scheme syntax, the line with the numeric calculation might be a little confusing, but once you realize that it is just pure prefix notation (the operator always comes first, every set of parenthesis wrap an operation) it should start making sense. I’m pretty sure I could explain Scheme to anyone who is taking high-school science in an hour, but the three sentence explanation is: Every expression is wrapped inside parenthesis. The first word inside the parenthesis is a function, the rest (there don’t have to be any) are arguments to the function, which can be be other expressions or basic items like numbers or strings. Arithmetic follows this pattern, which may seem a little unnatural at first, but this consistency means that you now know almost all there is to know about Scheme.</p>
+<p>But what I’ve described here isn’t actually much better than the web question and answer system that I saw today, that gave me this idea. It’s basically just an interactive text-based version of the same thing. What I started thinking of is having the capability to add things like this:</p>
+<pre><code># (assignment-equations)
+Arrhenius equation - k = Ae^(-Ea/RT)
+  provided versions:
+  (arrhenius-k frequency-factor activation-energy temperature)
+  (arrhenius-a reaction-coefficient activation-energy temperature)
+...
+# (arrhenius-k 1.01e11 13500 273)
+2.6375e8</code></pre>
+<p>Which would provide both references and ways to do some of the more boring rote work quickly. Descriptions of the equations could also exist, making it even more of an interactive learning project. But what would be even better would be to allow students to define new functions (or redefine old ones) on the fly. Let’s say there are a bunch of different calculations that require the same involved steps. I saw today I student working through two laborious calculations, which differed only in that the value for the activation energy. What would be amazing is if a student could do something like:</p>
+<pre><code># (define (my-arrh-eq act-energy)
+    (arrhenius-k (arrhenius-a 2.75e-2 act-energy 293) act-energy 333))
+=&gt; Defined new function my-arrh-eq!
+# (my-arrh-eq 14500)
+=&gt; 1.01</code></pre>
+<p>I don’t remember if that was the answer or even the value for the activation energy (it probably isn’t), but that was the general solution. Now the problem was that a rate coefficient (2.75e-2) was given for 20degrees celsius and and the problem asked what was the rate coefficient for 60degrees celsius (same reaction). The problem was posed with two different activation energies, and identical and reasonably involved calculations resulted - using the given 20degree setup to solve for the frequency factor and then plug that into the same equation this time using 60degrees.</p>
+<p>But what was interesting about this problem was the technique of solving one equation and using a part of that in the other - not actually doing out the arithmetic. It would be amazing if a student could build things like the function above, which clearly demonstrate an understanding of the technique, but also reveal a capacity to organize their thoughts and string together the pieces into higher level abstractions - a critical part of the type of thinking that underlies computer programming, and something that is going to become more and more important as time goes on.</p>
+<p>I think there is amazing potential to systems like this - where programming is built into the fabric of math and science work, because it will both teach students to program (which is a very helpful thing), but it will also focus their attention and mental efforts on understanding how to string together concepts and actually solve problems, not just how to do calculations. I think it could also have a motivating effect because when you start writing programs like this, you feel like you are somehow getting out of doing boring work (which you are), and that you must be cheating somehow (and that feels good!). Little do you know that you are actually learning the material better than the person who did the calculations out by hand, because you focused on what was really important and had to figure out the general solution.</p>
+<p>Now some of this is already happening - probably mostly using TI-BASIC on graphing calculators, but the system is reasonably unnatural (and no one is teaching students how to use it) and removed from basic work that I don’t think it is very widespread. I think a system that students would interact with that would allow them to build functions and use existing ones in the course of doing work would be a really amazing thing, both for their understanding of the subject itself and also to learn computer programming (or, more generally, “algorithmic thinking”).</p>
+]]></description>
+    <pubDate>Tue, 06 Dec 2011 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2011-12-06-science-scheme.html</guid>
+</item>
+<item>
+    <title>iOS is anti-UNIX and anti-programmer.</title>
+    <link>http://dbpmail.net/essays/2011-09-15-ios-anti-unix.html</link>
+    <description><![CDATA[<h2>iOS is anti-UNIX and anti-programmer.</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>September 15, 2011</strong></p>
+
+<p>When I was first learning about UNIX, and learning to use Linux, the most immediately powerful tool that I found was the shell’s pipe operator, ‘|’. Using the commandline (because at that point, linux GUI’s were not so well developed, and the few distros that tried to allow strictly graphical operation usually failed miserably) was at times difficult, and at times rewarding, but it was the pipe that opened up a whole world for me.</p>
+<p>I can remember looking through an online student directory in highschool that had names, email addresses, etc. For student government elections it had become popular (if incredibly time consuming) to copy and paste the hundreds of email addresses and send a message to the every student. For me, with my newfound skills, it amounted to something like:</p>
+<pre><code>cat directory.txt | grep @ | awk &#39;{print $3}&#39; | perl -pe &#39;s/\n/,/&#39;</code></pre>
+<p>It seemed like magic at the time, and in some ways, it still does. What the shell (and UNIX in general) offered was composability - it gave you simple (but powerful) tools, and a standard way of linking them together - text streams. By combining those together, it offered immeasurable power, much more than any single tool. The mathematics of combinations guarantees this.</p>
+<p>The more I use graphical interfaces (or anything that does not operate on text streams - commandline curses programs included), the more I am struck by how profound the loss of composability is - each program has to try to implement all the standard things (searching, sorting, transforming) that you might want to do with the information it has, and in that repetition lies inconsistencies and usually plain lack of power. The better ones share common libraries, and gain common functionality, but this only amounts to their least common denominator - two separate programs can not (easily) expose their higher functionality to each other (at least not it compiled languages) in the way that commandline stream processing programs can.</p>
+<p>What I realized the other day, is that iOS is the extreme example of that lack of flexibility, taken almost to the point of caricature - the only interaction that is possible is through single applications that for the most part can have no connection to other applications. People rejoiced when copy and paste was added, but that celebration hides a sad loss of the true power that computers have. The existence of files - the only real way that composability is achieved in GUI systems (ie, do one thing, save the file, open with another program, etc) - has been essentially eliminated, and applications must therefore do everything that a user might want to do with whatever data they have or will get from the user.</p>
+<p>I’d noticed before how frustrating it was for me to use iOS, but I wasn’t sure until recently exactly why that was, until I realized that it had effectively taken away the one thing that is so fundamental about computers, and why I am a programmer - the ability to compose. Every day I live and breath abstraction, and building things out of different levels of it, and the idea of not being able to combine various parts to make new things is so antithetical to that type of thinking that I almost can’t imagine that iOS was created by programmers. I remember looking at the technical specifications of the most recent iPhone and thinking - that is a full computer, and it’s small enough to fit in a pocket - that is a profound change in the way the world works. But it’s not a computer, it’s just a glorified palm pilot with a few bells and whistles.</p>
+]]></description>
+    <pubDate>Thu, 15 Sep 2011 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2011-09-15-ios-anti-unix.html</guid>
+</item>
+<item>
+    <title>Mercury tidbits - dependent types and file io</title>
+    <link>http://dbpmail.net/essays/2011-09-03-mercury-tidbits.html</link>
+    <description><![CDATA[<h2>Mercury tidbits - dependent types and file io</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>September  3, 2011</strong></p>
+
+<p><em>Note: this was originally posted as two separate parts, 1 week apart, and has been compressed for posterity</em></p>
+<p>I just started learning a functional/logic language called <a href="http://www.mercury.cs.mu.oz.au">Mercury</a>, which has features that make it feel (at least to my initial impressions) like a mix between Prolog and Haskell. It has all the features that make it a viable Prolog, but it also adds static typing (with full type inference) and purity (all side effects are dealt with by passing around the state of the world). Since I recently was interested in learning Prolog, but had no desire to give up static typing or purity, Mercury seemed like a neat thing to learn.</p>
+<p>While it is not very well known, the language has been around for over 15 years, and has a high quality self-hosting compiler.</p>
+<p>Getting to play around with logic/declarative programming is interesting (and indeed the main reason why I’m interested in learning it), but what seems even more interesting with Mercury is how they have incorporated typing to the logic programming (which, unless I’m mistaken, is a new thing). As a tiny code example:</p>
+<pre><code>:- pred head(list(T), T).
+:- mode head(in,    out) is semidet.
+:- mode head(in(non_empty_list), out) is det.
+head(Xs, X) :- Xs = [X | _].</code></pre>
+<p>The first line says that this is a predicate (logic statement) that has two parts, the first is a list of some type T (it is polymorphic), the second is an item of type T.</p>
+<p>The fourth line should be familiar to a prolog programmer, but briefly, the right side says that Xs is defined as X cons’d to an unnamed element. <code>head</code> can be seen as defining a relationship between Xs and X, where the specifics are that Xs is a list that has as it’s first element X.</p>
+<p>Now with regular prolog, only the fourth line would be necessary, and that definition allows some interesting generalization. Because <code>head([1,2,3],Y)</code> will bind <code>Y</code> to <code>1</code>, while <code>head([1,2,3],1)</code> will be true (or some truthy value), and if <code>head(X,Y)</code> were used in a set of other statements, together they would only yield a result if X (wherever it was bound, or unified, to a value) had as it’s first value Y, whatever Y was.</p>
+<p>Since Mercury is statically typed, it adds what it calls modes to predicates, which specify whether a certain argument (that’s probably not the right word!) is going to be given, or whether it is going to be figured out by the predicate. The other thing it has is specifications about whether the predicate is deterministic. There are a couple options, but the two that are relevant to this example are <code>det</code>, which means fully deterministic, for every input there is exactly one output, and <code>semidet</code>, which means for some inputs there is an output, for others there is not (ie, the unification fails). These allow the compiler to do really interesting things, like tell you if you are not covering all of the possible cases if you declare something as <code>det</code> (whereas the same code, as <code>semidet</code>, would not cause any errors).</p>
+<p>What is fascinating about this predicate head is that it has two modes defined, one being the obvious head that we know from Haskell etc:</p>
+<pre><code>:- mode head(in,    out) is semidet.</code></pre>
+<p>Which states that the first argument is the input (the list) and the second is the output (the element), and it is <code>semidet</code> because for an empty list it will fail. The next is more interesting:</p>
+<pre><code>:- mode head(in(non_empty_list), out) is det.</code></pre>
+<p>This says for an input that is a non_empty_list (defined in the standard libraries, and included below), the second argument is the output, and this is <code>det</code>, ie fully deterministic. What this basically means is that failure is incorporated into the type system, because something that is <code>semidet</code> can fail, but something that is <code>det</code> cannot (neat!). Now the standard modes are defined (something like):</p>
+<pre><code>:- mode in == (ground &gt;&gt; ground).
+:- mode out == (free    &gt;&gt; ground).</code></pre>
+<p>Ground is a something that is bound, and the <code>&gt;&gt;</code> is showing what is happening before and after the unification (the analog to function application). So something of mode <code>in</code> will be bound before and after, whereas something of mode <code>out</code> will not be bound before (that’s what <code>free</code> means) and it will be bound afterwards. That’s pretty straightforward.</p>
+<p>What get’s more interesting is something like <code>non_empty_list</code>, where <code>inst</code> stands for instantiation state, ie one of various states that a variable can be in (with ground and free being the most obvious ones):</p>
+<pre><code>:- inst non_empty_list == bound([ground | ground]).</code></pre>
+<p>What this means is that a <code>non_empty_list</code> is defined as one that has a ground element cons’d to another ground element. (I don’t know the syntax well enough to explain what <code>bound</code> means in this context, but it seems straightforward). What this should allow you to do is write programs that operate on things like non-empty-lists, and have the compiler check to make sure you are never using an empty list where you shouldn’t. Pretty cool!</p>
+<p>Obviously you can write data types in Haskell that also do not allow an empty list, like:</p>
+<pre><code>data NonEmptyList a = NonEmptyList a [a]</code></pre>
+<p>And could build functions to convert between them and normal lists, but the fact that it is so easy to build this kind of type checking on top of existing types with Mercury is really fascinating.</p>
+<p>This is (obviously) just scratching the surface of Mercury (and the reason all of this stuff actually works is probably more due to the theoretical underpinnings of logic programming than anything else), but seeing the definition of <code>head</code> gave me enough of an ‘aha!’ moment that it seemed worth sharing.</p>
+<p>If any of this piqued your interest, all of it comes out of the (wonderful) tutorial provided at the <a href="http://www.mercury.csse.unimelb.edu.au/information/documentation.html">Mercury Project Documentation</a> page. If there are any inaccuracies (which there probably are!) send them to <script type="text/javascript">
+<!--
+h='&#100;&#98;&#112;&#x61;&#116;&#116;&#x65;&#114;&#x73;&#x6f;&#110;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#100;&#x61;&#110;&#x69;&#x65;&#108;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#100;&#x61;&#110;&#x69;&#x65;&#108;&#32;&#x61;&#116;&#32;&#100;&#98;&#112;&#x61;&#116;&#116;&#x65;&#114;&#x73;&#x6f;&#110;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript>.</p>
+<hr/>
+
+<p><em>Note: this is the beginning of the second post</em></p>
+<p>The language that I’ve been learning recently is a pure (ie, side-effect free) logic/functional language named <a href="http://www.mercury.csse.unimelb.edu.au">Mercury</a>. There is a wonderful <a href="http://www.mercury.csse.unimelb.edu.au/information/papers/book.pdf">tutorial (PDF)</a> available, which explains the basics, but beyond that, the primary documentation is the <a href="http://www.mercury.csse.unimelb.edu.au/information/doc-release/mercury_ref/index.html">language reference</a> (which is well written, but reasonably dense) and Mercury’s <a href="http://www.mercury.csse.unimelb.edu.au/information/doc-release/mercury_library/index.html">standard library reference</a> (which is autogenerated and includes types and source comments, nothing else).</p>
+<p>Doing I/O in a pure language is a bit of a conundrum - Haskell solved this by forcing all I/O into a special monad that keeps track of sequencing (and has a mythical state of the world that it changes each time it does something, so as not to violate referential transparency). Mercury has a simpler (though equivalent) approach - every predicate that does IO must take an world state and must give back a new world state. Old world states can not be re-used (Mercury’s mode system keep track of that), and so the state of the world is manually threaded throughout the program. A simple example would be:</p>
+<pre><code>main(IO_0,IO_final) :- io.write_string(&quot;Hello World!&quot;,IO_0,IO_1),
+                       io.nl(IO_1,IO_final).</code></pre>
+<p>Where the first function consumes the <code>IO_0</code> state and produces <code>IO_1</code> (while printing “Hello World!”) and the second function consumes <code>IO_1</code> and produces <code>IO_final</code> (while printing a newline character).</p>
+<p>Of course, manually threading those could become pretty tedious, so they have a shorthand, where the same code above could be written as:</p>
+<pre><code>main(!IO) :- io.write_string(&quot;Hello World!&quot;,!IO),
+             io.nl(!IO).</code></pre>
+<p>This is just syntax sugar, and can work with any parameters that are dealt with in the same way (and naming it IO for io state is just convention). It definitely makes dealing with I/O more pleasant.</p>
+<p>The task that I set was to figure out how to read in a file. This is not covered in the tutorial, and I thought it would be a simple matter of looking through the library reference for the <a href="http://www.mercury.csse.unimelb.edu.au/information/doc-release/mercury_library/io.html">io library</a>. One of the first predicates looks promising:</p>
+<pre><code>:- pred io.read_file(io.maybe_partial_res(list(char))::out,
+                     io::di,
+                     io::uo) is det.</code></pre>
+<p>But on second thought, something seems to be missing. The second and third parameters are the world states (the type is io, the mode di stands for destructive-input, meaning the variable cannot be used again, uo means unique output, which means that no other variable in the program can have that value), and the first one is going to be the contents of the file itself. But where is the file name?</p>
+<p>The comment provides the necessary pointer:</p>
+<pre><code>% Reads all the characters from the current input stream until
+% eof or error.</code></pre>
+<p>Hmm. So all of these functions operate on whatever the current input stream is. How do we set that? <code>io.set_input_stream</code> looks pretty good:</p>
+<pre><code>% io.set_input_stream(NewStream, OldStream, !IO):
+% Changes the current input stream to the stream specified.
+% Returns the previous stream.
+%
+:- pred io.set_input_stream(io.input_stream::in,
+                            io.input_stream::out,
+                            io::di, io::uo) is det.</code></pre>
+<p>But even better is <code>io.see</code>, which will try to open a file and if successful, will set it to the current stream (the alternative is to use <code>io.open_input</code> and then <code>io.set_input_stream</code>):</p>
+<pre><code>% io.see(File, Result, !IO).
+% Attempts to open a file for input, and if successful,
+% sets the current input stream to the newly opened stream.
+% Result is either &#39;ok&#39; or &#39;error(ErrorCode)&#39;.
+%
+:- pred io.see(string::in, io.res::out, io::di, io::uo) is det.</code></pre>
+<p>With that in mind, let’s go ahead and implement a predicate to read files (much like I was expecting to find in the standard library, and what I put into a module of similar utilities I’ve started, titled, in tribute to Haskell, <code>prelude</code>):</p>
+<pre><code>:- pred prelude.read_file(string::in,
+                          maybe(string)::out,
+                          io::di,io::uo) is det.
+prelude.read_file(Path,Contents,!IO) :-
+  io.see(Path,Result,!IO),
+  ( Result = ok,
+    io.read_file_as_string(File,!IO),
+    io.seen(!IO),
+    (
+      File = ok(String),
+      Contents = yes(String)
+    ;
+      File = error(_,_),
+      Contents = no
+    )
+  ;
+    Result = error(_),
+    Contents = no
+  ).</code></pre>
+<p>To walk through what this code is doing, the type says that this is a predicate that does I/O (that’s what the last two arguments are for), that it takes in a string (the path) and give out a maybe(string), and that this whole thing is deterministic (ie, it always succeeds, which is accomplished by wrapping the failure into the return type: either yes(value) or no).</p>
+<p>The first line tries to open the file at the path and bind it as the current input stream. I then pattern match on the results of that - if it failed, just bind Contents (the return value) to no. Otherwise, we try to read the contents out of the file and then close the file and set the input stream to the default one again (that is what the predicate io.seen does). Similarly we handle (well, really don’t handle, at least not well) reading the file failing. If it succeeds, we set the return type to the contents of the file.</p>
+<p>What is interesting about this code is that while it is written in the form of logical statements, it feels very much like the way one does I/O in Haskell - probably a bit of that is my own bias (as a Haskell programmer, I am likely to write everything like I would write Haskell code, kind of how my python code always ends up with lambda’s and maps in it), but it also is probably a function of the fact that doing I/O in a statically type pure language is going to always be pretty similar - lots of dealing with error conditions, and not much else!</p>
+<p>Anyhow, this was just a tiny bit of code, but it is a predicate that is immediately useful, especially when trying to use Mercury for random scripting tasks (what I often do with new languages, regardless of their reputed ability for scripting).</p>
+]]></description>
+    <pubDate>Sat, 03 Sep 2011 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2011-09-03-mercury-tidbits.html</guid>
+</item>
+<item>
+    <title>Declarative ajax - imagining Heist-Async</title>
+    <link>http://dbpmail.net/essays/2011-06-08-heist-async.html</link>
+    <description><![CDATA[<h2>Declarative ajax - imagining Heist-Async</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>June  8, 2011</strong></p>
+
+<p>I’ve recently started working with Snap, the Haskell web framework, (http://snapframework.com), and one reason (among many) for my reason to switch from Ocsigen, a web framework written in OCaml (which I’ve written posts about before) was the desire to more flexibly handle ajax based websites. While it seems good in some ways, I eventually decided that Ocsigen’s emphasis on declaring services as having certain types (ie, a fragment of a page, a whole page, a redirect, etc) is in some ways at odds with the way the web works.</p>
+<p>After starting to work in Haskell again, and with the Snap team authored templating system Heist, I immediately began looking for ways to work with ajax content more flexibly than I had been doing before. Inspired by the work of Facebook on Primer (provided to the world at https://gist.github.com/376039 ), which is their base-line system for dynamic content - basically, event listeners waiting for onclick events on links that have a special attribute that says it should perform an ajax request, and event listeners for onsubmit events on forms that have a special attribute that indicates the forms should be serialized and submitted asynchronously. But even more interesting than that (to me) was the other half of their system (not, I believe, public, and regardless, written in PHP), which is that the server side response decides what client side div’s it should replace.</p>
+<p>At first that sounds a little dirty - it basically entails mixing (conceptually) server code and client code. But then it allows a different sort of methodology - that even with client side modifications, it is the server that ultimately has all control - including what to replace on the client. This is a fascinating idea, because clientside code is notoriously limited be being written in javascript (or with javascript libraries), and thinking about having to maintain clientside and serverside code seems to be a much dirtier solution than having the server, in short, control the client.</p>
+<p>Taking this idea, and bringing it into the world of Heist, which is (in my opinion) a fantastic templating system (more info at http://snapframework.com/docs/tutorials/heist ), ended up being quite straightforward, as Heist lends itself to the idea of extending the syntax of html, much like the facebook primer system did.</p>
+<p>At first I thought that there should be haskell code that would specify things like “replaceDivsWithSplices …” where div’s would be identified and corresponding splices (things that can be inserted into heist templates) would replace them, and then “replaceDivsWithTemplates”, etc, but the whole solution seemed a little off.</p>
+<p>And then I realized that the entire idea could be summed up with a single tag: “div-async”. The idea would be, this would be a special div that could foreseeably be replaced by an asychronous response. A template would have many divs that were marked this way, which in a non-async response would do nothing special, but when an async response came back, all div-async’s would replace corresponding tags on the page.</p>
+<p>The only things that remained were the two tags to start the async requests, which I named “a-async” and “form-async”, and a little javascript to make the moving parts work together. And so, heist-async was born. (for the impatient, the code exists at https://github.com/dbp/heist-async , and while I am using this code currently and it seems to work, it could change significantly as things are worked out)</p>
+<p>The basics of how this works should be obvious, but I can illustrate a basic example. On a page you have an announcements box. You want the user to be able to click a button and have the announcements box reload without reloading the whole page (new announcements may have occurred). So you have a page template that looks like this:</p>
+<pre><code>&lt;html&gt;&lt;body&gt;&lt;h1&gt;Some page&lt;/h1&gt;
+  &lt;apply template=&quot;announcements&gt;&lt;/apply&gt;
+  &lt;a-async href=&quot;/recent_announcements&quot;&gt;Reload&lt;/a-async&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+<p>And an announcements template that looks like this:</p>
+<pre><code>&lt;div-async name=&quot;announcements&quot;&gt;
+  &lt;announcements&gt;
+    &lt;text/&gt;
+  &lt;/announcements&gt;
+&lt;/div-async&gt;</code></pre>
+<p>Now to glue this together, all you need to do is serve the original page (with the proper splice set so that the <announcements> tag actually works), and, at the /recent_announcements url, you just serve the announcements template. Since it is the exact same template, it obviously has the same identifier for the div-async (which is just the attribute “name”), and will therefore replace the current anouncements box with the recently loaded one.</p>
+<p>Now that is pretty cool - what it means is that you can have one set of templating code, and the only change you need to do is separate any parts you want to be able to load asynchronously into separate templates, and make sure there is a div-async wrapper around it. (NOTE: since I didn’t mention it before, it might be helpful to now - div-async is just a regular div, so you can set all the regular things, like id, class, etc. Also feel free to take existing div’s and just add -async and set a name).</p>
+<p>At this point, I was pretty happy with this, and thought it was working pretty well, but of course the real world is much more complicated, and not everything is so simple - sometimes a single asynchronous request should mean a lot of different things on a page should change. In this case, it is possible that the simple template inheritance will not work, but with the addition of a template that is just for the response, that includes all the templates that should be updated, it seems to work pretty well. An example of one of these could be:</p>
+<pre><code>&lt;apply template=&quot;announcements&quot;&gt;&lt;/apply&gt;
+&lt;apply template=&quot;title&quot;&gt;&lt;/apply&gt;</code></pre>
+<p>In this case, there is still no duplication of formatting code, all that exists now is an explicit list of all the parts of the page that should be replaced by a given request.</p>
+<p>Other common things; to hide an element, sending back:</p>
+<pre><code>&lt;div-async name=&quot;something&quot; style=&quot;display:none&quot;&gt;&lt;/div-async&gt;</code></pre>
+<p>Should work. You could also put some empty placeholder div’s like that on a page, and later replace them with ones with actual content.</p>
+<p>What I noticed about this is that it makes dynamic page changes very explicit in the templates, which I think is a very good thing - and certainly makes it easier to reason about page changes.</p>
+<p>Getting to this point, I started using this to implement a bunch of parts of a new site I’m working on, and I was happily impressed by how it all seemed to be working. Using this, it seems like ajax can be thought of as just an aspect of the templating system - describe what should be replaced, and it will be, without ever having to worry about the clientside code (which is 12k of lightweight libraries and 60 significant lines of code of custom javascript. The 60 lines should easily be able to be translated to depend on common javascript libraries like jQuery, I just didn’t want to make that a requirement).</p>
+<p>I’m interested in feedback on the library, and ways that it can be improved. It is still very early software (a week ago, it did not exist), but it is something that I’ve found very powerful, and I’m kind of interested in where it can be taken / what people think about it.</p>
+]]></description>
+    <pubDate>Wed, 08 Jun 2011 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2011-06-08-heist-async.html</guid>
+</item>
+
+    </channel> 
+</rss>

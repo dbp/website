@@ -1,0 +1,6 @@
+*~
+_cache
+.cabal-sandbox
+*.hi
+*.o
+cabal.sandbox.config
