@@ -13,6 +13,38 @@ actually based on a third, etc. Finding papers like this (vs. searching
 online) is also great because it naturally selects papers that were
 well written and/or influential.
 
+### May 2014
+
+- _Interactive Theorem Proving and Program Development: Coq'Art: The Calculus of Inductive Constructions_. Yves Bertot. 2004. [Link](http://www.labri.fr/perso/casteran/CoqArt/) (no freely available version).
+
+    > _Another book (~500pgs), this one a pretty concrete tutorial /
+    > reference to the Coq theorem prover. Having taken a course based
+    > on the other main reference to learning Coq, "Software
+    > Foundations" (which IS freely available), I can say definitively
+    > that this book is a much better introduction. It starts from the
+    > basics, and explains a lot of the mechanics of the system while
+    > explaining the theory and method of proving theorems. It becomes
+    > pretty reference-like as you move through (indeed I only read
+    > closely the first half), but is extremely clear throughout. For
+    > getting to know Coq (which is still, at this point, the best
+    > supported automated theorem prover), this seems to be the best
+    > reference. I had heard that before, but had not been excited
+    > about the cover price (I'm so spoiled by CS people giving things
+    > away for free!). Let it be stated again - it's worth the price._
+
+### April 2014
+
+- _Type Theory and Functional Programming_. Simon Thompson. 1991. [PDF](http://www.cs.kent.ac.uk/people/staff/sjt/TTFP/ttfp.pdf).
+
+    > _This book (~400pgs) introduces type theory and then applies it
+    > to functional programming. I read the first half throughout
+    > April, (through Chapter 5). It's a very formal (perhaps
+    > obviously) presentation of first the typed lambda calculus, and
+    > then additions that get it more into dependently typed land. It
+    > became dense enough that I put it down for the time being, as I
+    > didn't feel that I was getting much (concrete) out of the
+    > presentation._
+
 ### March 2014
 
 - _Scrap Your Boilerplate: A Practical Design Pattern for Generic Programming_. Ralf Lammel, Simon Peyton Jones. 2003. [PDF](http://www.ldpreload.com/p/syb/hmap.pdf).
