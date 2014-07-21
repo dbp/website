@@ -1,11 +1,11 @@
 ## Projects
 
 * ### Pyret Programming Language
-  A research / teaching language being developed by a small team at Brown University. It's a scripting language that tries to learn from the best features that scripting languages have, but it also has serious functional roots (and wants to have types...). It's changing rapidly (it _is_ a research project), but you can learn more about it and try it out at [pyret.org](http://www.pyret.org).
+  A research / teaching language being developed by a small team at Brown University. It's a scripting language that tries to learn from the best features that scripting languages have, but it also has serious functional roots and optional types. [pyret.org](http://www.pyret.org).
 
 
 * ### Position Sites
-  A nacent platform for building dynamic websites that imposes no constraints on the shape of information you will be using. It is still pretty early, and not available to be tried (though the source is available at [github.com/dbp/positionsites](https://github.com/dbp/positionsites)). Descriptions of how some of it works are available at [positionsites.com/docs](http://positionsites.com/docs).
+  A platform for building dynamic websites that imposes no constraints on the shape of information you will be using. It is still pretty new, but is being used by clients currently, and the source is available at [github.com/dbp/positionsites](https://github.com/dbp/positionsites). Descriptions of how some of it works are available at [positionsites.com/docs](http://positionsites.com/docs).
 
 
 * ### Analyze
@@ -13,11 +13,10 @@
 
 
 * ### Democracy Now! Player
-  A simple player that automatically plays the current days show of the news program [Democracy Now!](http://democracynow.org). It remembers where you are automatically, and can synchronize that across devices (mobile, desktop, etc) through a lightweight mechanism. Try it out online at [lab.dbpmail.net/dn](http://lab.dbpmail.net/dn/), and check out the source / contribute patches at [github.com/dbp/dnplayer](https://github.com/dbp/dnplayer). Note: it is currently broken by iOS 7's treatment of video on web pages (an iPhone version is a work in progress).
-
+  A simple player that automatically plays the current days show of the news program [Democracy Now!](http://democracynow.org). It remembers where you are automatically, and can synchronize that across devices (mobile, desktop, etc) through a lightweight mechanism. Old version is available at [github.com/dbp/dnplayer](https://github.com/dbp/dnplayer), and the backend of a new, as-yet unreleased mobile version is available at [github.com/dbp/dnplayer_server](https://github.com/dbp/dnplayer_server).
 
 * ### Rustle
-  An api search for the [Rust](http://rust-lang.org) programming language that allows you to search for core functions by type (or by name). This is pretty outdated (and Rust is moving so quickly), but can be   read about at [github.com/dbp/rustle](http://github.com/dbp/rustle).
+  An api search for the [Rust](http://rust-lang.org) programming language that allows you to search for core functions by type (or by name). This is pretty outdated at this point, but can be  read about at [github.com/dbp/rustle](http://github.com/dbp/rustle).
 
 
 * ### WeShift

@@ -14,6 +14,12 @@ _CaptainTeach: Multi-Stage, In-Flow Peer Review for Programming Assignments._ Jo
 
 _Python: The Full Monty―A Tested Semantics for the Python Programming Language._ Joe Gibbs Politz, Alejandro Martinez, Matthew Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. OOPSLA 2013. [PDF](http://cs.brown.edu/research/plt/dl/lambda-py/lambda-py.pdf), [appendix](http://cs.brown.edu/research/plt/dl/lambda-py/appendix.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).
 
+
+## Resume
+
+A current resume is available in [PDF form](/static/resume.pdf).
+
+
 ## Links
 
 I have code at <a href="http://github.com/dbp">github.com/dbp</a> and <a href="http://hub.darcs.net/dbp">hub.darcs.net/dbp</a>.
