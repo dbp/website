@@ -34,6 +34,13 @@ well written and/or influential.
 
 ### April 2014
 
+- _FizzBuzz in Haskell by Embedding a Domain-Specific Language_. Maciej Pirog. 2014. [PDF](http://themonadreader.files.wordpress.com/2014/04/fizzbuzz.pdf).
+
+  > _A fun short paper about solving the classic interview question
+  > using languages / interpreters as a way of approaching the
+  > problem. The "trick" to the result is continuations, in order to
+  > implement control flow in the DSL.
+
 - _Type Theory and Functional Programming_. Simon Thompson. 1991. [PDF](http://www.cs.kent.ac.uk/people/staff/sjt/TTFP/ttfp.pdf).
 
     > _This book (~400pgs) introduces type theory and then applies it
