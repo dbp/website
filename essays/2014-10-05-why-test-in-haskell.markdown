@@ -229,7 +229,7 @@ some number of inputs and verify that the property holds for all of
 them.
 
 [^webfuzzing]: See, for example,
-http://www.squarefree.com/2014/02/03/fuzzers-love-assertions/.
+[www.squarefree.com/2014/02/03/fuzzers-love-assertions/](http://www.squarefree.com/2014/02/03/fuzzers-love-assertions/).
 
 [^hspec-snap]: This syntax is based on the
 [hspec-snap](http://hackage.haskell.org/package/hspec-snap) package,

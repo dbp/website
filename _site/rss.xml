@@ -65,7 +65,7 @@ lookupAndRenderFoo = undefined</code></pre>
 <hr />
 <ol>
 <li id="fn1"><p>For those who haven’t used Quickcheck, it allows you to specify properties that a function should satisfy, and possibly a way to generate random values of the input type (if your input is a standard type, it already knows how to do this), and it will generate some number of inputs and verify that the property holds for all of them.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>See, for example, http://www.squarefree.com/2014/02/03/fuzzers-love-assertions/.<a href="#fnref2">↩</a></p></li>
+<li id="fn2"><p>See, for example, <a href="http://www.squarefree.com/2014/02/03/fuzzers-love-assertions/">www.squarefree.com/2014/02/03/fuzzers-love-assertions/</a>.<a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p>This syntax is based on the <a href="http://hackage.haskell.org/package/hspec-snap">hspec-snap</a> package, which I chose because I’m familiar with it (and wrote it). The <code>create</code> line is from some not-yet-integrated-or-released, at least at time of publishing, work to add factory support to the library (sorry!). With that said, the advice should hold no matter what you’re doing.<a href="#fnref3">↩</a></p></li>
 <li id="fn4"><p>See Wadler’s “Theorems for Free”, 1989.<a href="#fnref4">↩</a></p></li>
 </ol>
