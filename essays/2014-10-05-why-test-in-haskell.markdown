@@ -16,7 +16,7 @@ and code that just isn't all that complicated.
 
 ## Quickcheck?
 
-A lot of the Haskell I'm writing is with the web framework Snap, and
+A lot  Haskell I'm writing these days is with the web framework Snap, and
 web handlers often have the type `Handler App App ()` - where
 `Handler` is a web monad (giving access to request information, and
 the ability to write response data), and `App` indicates access to
@@ -43,7 +43,7 @@ we wrote all these into properties, what are the elements in the
 database that it is choosing among? And in some senses we've now
 restricted too much, because we may want to see what the behavior is
 like for slightly invalid inputs. Say, integer id's that don't
-correspond to elements in the database. Which is all certainly
+correspond to elements in the database. This is all certainly
 possible, and may be worth doing, but it seems pretty difficult. Which
 is totally different from the experience of testing nice pure
 functions!
@@ -59,7 +59,7 @@ of which, again, is a massive space.
 But having massive input and output spaces is not necessarily a reason
 not to be using randomized testing. Indeed, this is exactly the kind
 of thing that fuzz-testing of web browsers, for example, has done with
-great effect. The problem in this case is that the size of the input and
+great effect[^webfuzzing]. The problem in this case is that the size of the input and
 output space is not at all in proportion to the complexity of the code.
 If we were writing an HTTP server, we may indeed want to be generating
 random requests, throwing them at the web server, and making sure it was
@@ -72,8 +72,9 @@ complicated. And can be tested manually pretty easily. And may change
 rapidly.
 
 Which means spending a lot of time setting up property based tests
-(which are necessarily going to be quite a bit more complicated than
-the examples like showing that `reverse . reverse = id`).
+(which in these sorts of cases are necessarily going to be quite a bit
+more complicated than quintessential Quickcheck examples like showing
+that `reverse . reverse = id`).
 
 But you're still writing code that has types that massively
 underspecify it's behavior. Which should make you nervous, at least a
@@ -85,10 +86,9 @@ details ellided, but should be reasonably easy to understand):
 
 ```
 f :: Handler App App ()
-f = path "/foo/:id" $
-      do i <- read <$> getParam "id"
-         res <- lookupAndRenderFoo (FooId i)
-         writeText res
+f = route [("/foo/:id", do i <- read <$> getParam "id"
+                           res <- lookupAndRenderFoo (FooId i)
+                           writeText res)]
 
 lookupAndRenderFoo :: FooId -> Handler App App Text
 lookupAndRenderFoo = undefined
@@ -140,7 +140,7 @@ Which is easy to test. With Snap, I'd write some tests for the above
 snippet like[^hspec-snap]:
 
 ```
-do f <- createFoo
+do f <- create ()
    let i = show . unFooId . fooId $ f
    get ("/foo/" ++ i) >>= should200
    get ("/foo/" ++ i) >>= shouldHaveText (fooDescription f)
@@ -176,30 +176,38 @@ of all the possible implementations, but still potentially a pretty
 large one (our example of a web handler certainly has this
 property).
 
-A single test, like one of the above, corresponds to another subset of
-all the possible implementations. For example, the first test
-corresponds to the subset that return success when passed the given
-url via GET request. Now thus far, this is true for untyped code and
-typed code. What we get since we're in Haskell is a guarantee that the
-set of implementations that fulfill the test is a (non)strict subset
-of the set of implementations that fulfill the type, as if this were
-not the case, it wouldn't type check. The problem with the first test,
-of course, is that there are all sorts of bogus implementations that
-fulfill it. For example, the handler that always returns success would
-match that test.
+This perspective gives us some intuition on why it is much easier to
+test simple, pure functions. There are only four possible
+implementations of a `Bool -> Bool` function, so testing `not` via
+sampling seems pretty tractable. To go even further, we get into the
+territory of "Theorems for Free"[^freetheorems], where there is only
+one implementation for an `(a,b) -> a` function, so testing `fst` is
+pointless.
 
-But, it is a strict subset of the implementations that fulfill the
+But returning to our case of massive spaces of well-typed
+implementations: A single test, like one of the above, corresponds to
+another subset of all the possible implementations. For example, the
+first test corresponds to the subset that return success when passed
+the given url via GET request. Since we're in Haskell, we also get a
+guarantee that the set of implementations that fulfill the test is a
+(non)strict subset of the set of implementations that fulfill the
+type, as if this were not the case, our test case wouldn't type
+check. The problem with the first test, of course, is that there are
+all sorts of bogus implementations that fulfill it. For example, the
+handler that always returns success would match that test.
+
+But even still, it _is_ a strict subset of the implementations that fulfill the
 type (for example, the handler that always returns 404 is not in this
 set), so we're guaranteed to have improved the chance that our code is
 correct, even with such a weak test (granted, it actually may not be
 that weak of a test - in one project, I have a menu generated from a
 data structure in code, and a test that iterates through all elements
 of the menu, checking that hitting each url results in a 200. And this
-has caught so many refactoring problems!).
+has caught many refactoring problems!).
 
 Where we really start to benefit is as we add a few more tests. The
 second test shows that the handler must somehow get an element out of
-the database (provided our `createFoo` test function is creating
+the database (provided our `create ()` test function is creating
 relatively unique field names), which is _another_ (strict) subset of
 the set of implementations that fulfill the type. And we now know that
 our implementation must be somewhere in the intersection of these two
@@ -220,7 +228,15 @@ standard type, it already knows how to do this), and it will generate
 some number of inputs and verify that the property holds for all of
 them.
 
+[^webfuzzing]: See, for example,
+http://www.squarefree.com/2014/02/03/fuzzers-love-assertions/.
+
 [^hspec-snap]: This syntax is based on the
 [hspec-snap](http://hackage.haskell.org/package/hspec-snap) package,
-which I chose because I'm familiar with it (and wrote it). The advice
-should hold no matter what you're doing, though.
+which I chose because I'm familiar with it (and wrote it). The
+`create` line is from some not-yet-integrated-or-released, at least at
+time of publishing, work to add factory support to the library
+(sorry!). With that said, the advice should hold no matter what you're
+doing.
+
+[^freetheorems]: See Wadler's "Theorems for Free", 1989.
