@@ -6,15 +6,80 @@
         <description><![CDATA[writing on programming etc by daniel patterson]]></description>
         <atom:link href="http://dbpmail.net/rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sun, 09 Feb 2014 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Oct 2014 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Why test in Haskell?</title>
+    <link>http://dbpmail.net/essays/2014-10-05-why-test-in-haskell.html</link>
+    <description><![CDATA[<h2>Why test in Haskell?</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>October  5, 2014</strong></p>
+
+<p>Every so often, the question comes up, should you test in Haskell, and if so, how should you do it?</p>
+<p>Most people agree that you should test pure, especially complicated, algorithmic code. Quickcheck<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> is a great way to do this, and most Haskellers have internalized this (Quickcheck was invented here, so it must provide value!). What’s less clear (or at least, more debated!) is whether you should be testing monadic code, glue code, and code that just isn’t all that complicated.</p>
+<h2 id="quickcheck">Quickcheck?</h2>
+<p>A lot of the Haskell I’m writing is with the web framework Snap, and web handlers often have the type <code>Handler App App ()</code> - where <code>Handler</code> is a web monad (giving access to request information, and the ability to write response data), and <code>App</code> indicates access to application specific state (like database connections, templates, etc).</p>
+<p>So the inputs (ie, how to run this action) include any HTTP request and any application state, and the only outputs are side effects (as all it returns is unit). Using Quickcheck here is… challenging. You could restrict the generated requests to have the right URL, and even have the right query parameters, but since the query parameters are just text, if they were supposed to be more structured (like an interger), the chance of actually generating text that was just a number is pretty low… And then if the number were supposed to be the id of an element in the database….</p>
+<p>But assume that we restrict it so that it’s only generating ids for elements in the database, what are the properties we are asserting? Let’s say that the handler looked up the element, and rendered it on the page. So then we want to assert something about the content of the response (which is wrapped up in the <code>Handler</code> monad). But maybe it should also increment a view count in the database. And assuming that we wrote all these into properties, what are the elements in the database that it is choosing among? And in some senses we’ve now restricted too much, because we may want to see what the behavior is like for slightly invalid inputs. Say, integer id’s that don’t correspond to elements in the database. Which is all certainly possible, and may be worth doing, but it seems pretty difficult. Which is totally different from the experience of testing nice pure functions!</p>
+<p>Let’s try to tease out a little bit of why testing this kind of code with Quickcheck is hard. One problem is that the input space, as determined by the type, is massive. And for most of the possible inputs, the result should be some version of a no-op. Another problem is the dependence on state, as the possible inputs are contingent on external state, and the outputs are primarily changes to state, each of which, again, is a massive space.</p>
+<p>But having massive input and output spaces is not necessarily a reason not to be using randomized testing. Indeed, this is exactly the kind of thing that fuzz-testing of web browsers, for example, has done with great effect. The problem in this case is that the size of the input and output space is not at all in proportion to the complexity of the code. If we were writing an HTTP server, we may indeed want to be generating random requests, throwing them at the web server, and making sure it was generating well-formed responses (404s being perfectly fine).</p>
+<h2 id="not-that-complicated">Not that complicated…</h2>
+<p>But we’re just writing a little bit of glue code. Which isn’t that complicated. And can be tested manually pretty easily. And may change rapidly.</p>
+<p>Which means spending a lot of time setting up property based tests (which are necessarily going to be quite a bit more complicated than the examples like showing that <code>reverse . reverse = id</code>).</p>
+<p>But you’re still writing code that has types that massively underspecify it’s behavior. Which should make you nervous, at least a little. Now granted, you should keep that underspecified code as thin as possible - validate the query parameters, the URL, etc, and then call a function with a type that much more clearly specifies what it is supposed to do. For example (this is coming from Snap code, with some details ellided, but should be reasonably easy to understand):</p>
+<pre><code>f :: Handler App App ()
+f = path &quot;/foo/:id&quot; $
+      do i &lt;- read &lt;$&gt; getParam &quot;id&quot;
+         res &lt;- lookupAndRenderFoo (FooId i)
+         writeText res
+
+lookupAndRenderFoo :: FooId -&gt; Handler App App Text
+lookupAndRenderFoo = undefined</code></pre>
+<p>And certainly, this is a good pattern to use. We went from a function that had as input space any HTTP request (and any application specific state), and as output any HTTP response (as well as any side effects in the <code>Handler</code> monad) and split it into two functions. One still has the same input and output as before, but is very short, and the other is a function with input the id of a specific element, and as output <code>Text</code>, but still can perform any side effects in and read any data from within the <code>Handler</code> monad.</p>
+<h2 id="increasing-complexity">Increasing complexity?</h2>
+<p>We could split that further, and write a function with type <code>Foo -&gt; Text</code>, but we would start getting in our own way, as if we wanted to render with a template, the templates exist within the context of the <code>Handler</code> monad, so we would have to look up a template first, and we would have ended up creating many new functions, as well as a bit of extra complexity, all for the sake of splitting our code up into layers, where the last one is pure and easy to test (the rest still have all the same problems).</p>
+<p>Depending on how complex that last layer is, this may totally be worth it. If your code is dealing with human lives or livelihoods, by all means, isolate that code into as small a portion as possible and test the hell out of it. But it makes coding harder, and makes you move slower. And if you want to change the logic, you may now have to change many different functions, instead of just one.</p>
+<p>Which is where we come to the argument that testing slows things down, and that for rapidly changing code, it just doesn’t matter.</p>
+<h2 id="what-about-just-not-sampling">What about just not sampling?</h2>
+<p>But if we step back a bit, we realize that what Quickcheck is trying to do is to sample representatively (well, with a bias towards edge cases) over the type of the input. And it’s easy to see why that’s appealing, as it gives you reasonable confidence that any use of the function behaves as desired. But if we forget about that, as we already know that our types completely underspecify the behavior, we realize all that we really care about is that the code does what we think it should do on a few example cases. That’s what we were going to manually verify after writing the code anyway.</p>
+<p>Which is easy to test. With Snap, I’d write some tests for the above snippet like<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>:</p>
+<pre><code>do f &lt;- createFoo
+   let i = show . unFooId . fooId $ f
+   get (&quot;/foo/&quot; ++ i) &gt;&gt;= should200
+   get (&quot;/foo/&quot; ++ i) &gt;&gt;= shouldHaveText (fooDescription f)
+   get (&quot;/foo/&quot; ++ show (1 + i)) &gt;&gt;= should404</code></pre>
+<p>And call it a day. This misses vasts swaths of inputs, and asserts very little about the outputs, but it also tells you a huge amount more about the correctness of the code than the fact that it typechecked did. And as you iterate and refactor your application, you get the assurance that this handler:</p>
+<ol style="list-style-type: decimal">
+<li>still exists.</li>
+<li>still looks up the element from the database.</li>
+<li>still puts the description somewhere on the page.</li>
+<li>doesn’t work for ids that don’t correspond to elements in the database.</li>
+</ol>
+<p>Which seems like a lot of assurance for a very small amount of work. And if your application is fast moving, this benefits you even more, as the faster you move, the more likely you are to break things (at least, that’s always been my experience!). If you do decide to rewrite this handler, fixing these tests is going to take a tiny amount of time (probably less time than you spend manually confirming that the change worked).</p>
+<h2 id="why-this-should-be-expected-to-work.">Why this should be expected to work.</h2>
+<p>To take it a little further, and perhaps justify from a somewhat theoretical point of view why these sorts of tests are so valuable, consider all possible implementations of any function (or monadic action). The possibly implementations with the given type are a subset of all the possible implementations, but still potentially a pretty large one (our example of a web handler certainly has this property).</p>
+<p>A single test, like one of the above, corresponds to another subset of all the possible implementations. For example, the first test corresponds to the subset that return success when passed the given url via GET request. Now thus far, this is true for untyped code and typed code. What we get since we’re in Haskell is a guarantee that the set of implementations that fulfill the test is a (non)strict subset of the set of implementations that fulfill the type, as if this were not the case, it wouldn’t type check. The problem with the first test, of course, is that there are all sorts of bogus implementations that fulfill it. For example, the handler that always returns success would match that test.</p>
+<p>But, it is a strict subset of the implementations that fulfill the type (for example, the handler that always returns 404 is not in this set), so we’re guaranteed to have improved the chance that our code is correct, even with such a weak test (granted, it actually may not be that weak of a test - in one project, I have a menu generated from a data structure in code, and a test that iterates through all elements of the menu, checking that hitting each url results in a 200. And this has caught so many refactoring problems!).</p>
+<p>Where we really start to benefit is as we add a few more tests. The second test shows that the handler must somehow get an element out of the database (provided our <code>createFoo</code> test function is creating relatively unique field names), which is <em>another</em> (strict) subset of the set of implementations that fulfill the type. And we now know that our implementation must be somewhere in the intersection of these two subsets.</p>
+<p>It shouldn’t be hard to convince yourself that through the process of just writing a few (well chosen) tests you can vastly reduce the possibility of writing incorrect implementations. Which, when we are writing relatively straightforward code, will probably be good enough to ensure that the code is actually correct. And will continue to verify that as the code evolves. Pretty good for a couple lines of code.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>For those who haven’t used Quickcheck, it allows you to specify properties that a function should satisfy, and possibly a way to generate random values of the input type (if your input is a standard type, it already knows how to do this), and it will generate some number of inputs and verify that the property holds for all of them.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>This syntax is based on the <a href="http://hackage.haskell.org/package/hspec-snap">hspec-snap</a> package, which I chose because I’m familiar with it (and wrote it). The advice should hold no matter what you’re doing, though.<a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+]]></description>
+    <pubDate>Sun, 05 Oct 2014 00:00:00 UT</pubDate>
+    <guid>http://dbpmail.net/essays/2014-10-05-why-test-in-haskell.html</guid>
+</item>
+<item>
     <title>TDD with Haskell and the Snap Web Framework</title>
     <link>http://dbpmail.net/essays/2014-02-09-tdd-haskell-snap.html</link>
     <description><![CDATA[<h2>TDD with Haskell and the Snap Web Framework</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>February  9, 2014</strong></p>
 
-<p>Test driven development is nothing new - people have been talking about it in various forms for at least 14 years<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Within the web development community, it is used most pervasively in dynamic languages, with Ruby probably being the best example, both in quality of libraries and pervasive use. And with good reason - without tests you really have no idea if the changes you’ve made have just broken your whole site. However, when I’m writing tests for Ruby code, most of what I’m writing is covering a lot more than just types, so while there are certainly lots of bugs that Haskell’s type system catches, types don’t catch everything. So I’m announcing a library that should make it a lot easier to write tests with Haskell and the Snap web framework - tests that involve the database, web requests, etc. The general design is inspired by RSpec, and the library is available on hackage at <a href="http://hackage.haskell.org/package/snap-testing">http://hackage.haskell.org/package/snap-testing</a>.</p>
+<p>Test driven development is nothing new - people have been talking about it in various forms for at least 14 years<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Within the web development community, it is used most pervasively in dynamic languages, with Ruby probably being the best example, both in quality of libraries and pervasive use. And with good reason - without tests you really have no idea if the changes you’ve made have just broken your whole site. However, when I’m writing tests for Ruby code, most of what I’m writing is covering a lot more than just types, so while there are certainly lots of bugs that Haskell’s type system catches, types don’t catch everything. So I’m announcing a library that should make it a lot easier to write tests with Haskell and the Snap web framework - tests that involve the database, web requests, etc. The general design is inspired by RSpec, and the library is available on hackage at <a href="http://hackage.haskell.org/package/snap-testing" class="uri">http://hackage.haskell.org/package/snap-testing</a>.</p>
 <h3 id="examples-and-preview-of-use">Examples and preview of use</h3>
 <p>Here are a few basic tests:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell">name <span class="st">&quot;/ success&quot;</span> <span class="fu">$</span>
@@ -314,9 +379,9 @@ exec ssh your_server addrlookup ${ARGS}</code></pre>
   -o smtpd_client_restrictions=permit_sasl_authenticated,reject
   -o smtpd_recipient_restrictions=reject_non_fqdn_recipient,
      reject_unknown_recipient_domain,permit_sasl_authenticated,reject</code></pre>
-<p>3. Change myhostname to be fully qualified if it isn’t. Confirm all is well with http://mxtoolbox.com</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Set up dovecot. Edit /etc/dovecot/conf.d/10-mail.conf and change mail_location to:</li>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Change myhostname to be fully qualified if it isn’t. Confirm all is well with http://mxtoolbox.com</p></li>
+<li><p>Set up dovecot. Edit /etc/dovecot/conf.d/10-mail.conf and change mail_location to:</p></li>
 </ol>
 <pre><code>maildir:~/Maildir/</code></pre>
 <p>Edit /etc/dovecot/conf.d/10-master.conf and inside <code>service auth</code> comment the block that is there, and uncomment the one that is:</p>
@@ -362,7 +427,7 @@ add_header all Status _YESNO_, score=_SCORE_ required=_REQD_ tests=_TESTS_ autol
 <p>Note: if you find any mistakes in this, or parts that needed additional steps, <script type="text/javascript">
 <!--
 h='&#100;&#98;&#112;&#x6d;&#x61;&#x69;&#108;&#46;&#110;&#x65;&#116;';a='&#64;';n='&#100;&#98;&#112;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'let me know'+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'let me know'+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#108;&#x65;&#116;&#32;&#x6d;&#x65;&#32;&#x6b;&#110;&#x6f;&#x77;&#32;&#40;&#100;&#98;&#112;&#32;&#x61;&#116;&#32;&#100;&#98;&#112;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#110;&#x65;&#116;&#x29;</noscript> and I’ll correct/add to this.</p>
 ]]></description>
@@ -1124,11 +1189,10 @@ head(Xs, X) :- Xs = [X | _].</code></pre>
 <p>If any of this piqued your interest, all of it comes out of the (wonderful) tutorial provided at the <a href="http://www.mercury.csse.unimelb.edu.au/information/documentation.html">Mercury Project Documentation</a> page. If there are any inaccuracies (which there probably are!) send them to <script type="text/javascript">
 <!--
 h='&#100;&#98;&#112;&#x61;&#116;&#116;&#x65;&#114;&#x73;&#x6f;&#110;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#100;&#x61;&#110;&#x69;&#x65;&#108;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#100;&#x61;&#110;&#x69;&#x65;&#108;&#32;&#x61;&#116;&#32;&#100;&#98;&#112;&#x61;&#116;&#116;&#x65;&#114;&#x73;&#x6f;&#110;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript>.</p>
 <hr/>
-
 <p><em>Note: this is the beginning of the second post</em></p>
 <p>The language that I’ve been learning recently is a pure (ie, side-effect free) logic/functional language named <a href="http://www.mercury.csse.unimelb.edu.au">Mercury</a>. There is a wonderful <a href="http://www.mercury.csse.unimelb.edu.au/information/papers/book.pdf">tutorial (PDF)</a> available, which explains the basics, but beyond that, the primary documentation is the <a href="http://www.mercury.csse.unimelb.edu.au/information/doc-release/mercury_ref/index.html">language reference</a> (which is well written, but reasonably dense) and Mercury’s <a href="http://www.mercury.csse.unimelb.edu.au/information/doc-release/mercury_library/index.html">standard library reference</a> (which is autogenerated and includes types and source comments, nothing else).</p>
 <p>Doing I/O in a pure language is a bit of a conundrum - Haskell solved this by forcing all I/O into a special monad that keeps track of sequencing (and has a mythical state of the world that it changes each time it does something, so as not to violate referential transparency). Mercury has a simpler (though equivalent) approach - every predicate that does IO must take an world state and must give back a new world state. Old world states can not be re-used (Mercury’s mode system keep track of that), and so the state of the world is manually threaded throughout the program. A simple example would be:</p>

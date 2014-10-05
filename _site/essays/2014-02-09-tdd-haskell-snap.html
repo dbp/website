@@ -19,7 +19,7 @@
 
 <p>by <em>Daniel Patterson</em> on <strong>February  9, 2014</strong></p>
 
-<p>Test driven development is nothing new - people have been talking about it in various forms for at least 14 years<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Within the web development community, it is used most pervasively in dynamic languages, with Ruby probably being the best example, both in quality of libraries and pervasive use. And with good reason - without tests you really have no idea if the changes you’ve made have just broken your whole site. However, when I’m writing tests for Ruby code, most of what I’m writing is covering a lot more than just types, so while there are certainly lots of bugs that Haskell’s type system catches, types don’t catch everything. So I’m announcing a library that should make it a lot easier to write tests with Haskell and the Snap web framework - tests that involve the database, web requests, etc. The general design is inspired by RSpec, and the library is available on hackage at <a href="http://hackage.haskell.org/package/snap-testing">http://hackage.haskell.org/package/snap-testing</a>.</p>
+<p>Test driven development is nothing new - people have been talking about it in various forms for at least 14 years<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Within the web development community, it is used most pervasively in dynamic languages, with Ruby probably being the best example, both in quality of libraries and pervasive use. And with good reason - without tests you really have no idea if the changes you’ve made have just broken your whole site. However, when I’m writing tests for Ruby code, most of what I’m writing is covering a lot more than just types, so while there are certainly lots of bugs that Haskell’s type system catches, types don’t catch everything. So I’m announcing a library that should make it a lot easier to write tests with Haskell and the Snap web framework - tests that involve the database, web requests, etc. The general design is inspired by RSpec, and the library is available on hackage at <a href="http://hackage.haskell.org/package/snap-testing" class="uri">http://hackage.haskell.org/package/snap-testing</a>.</p>
 <h3 id="examples-and-preview-of-use">Examples and preview of use</h3>
 <p>Here are a few basic tests:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell">name <span class="st">&quot;/ success&quot;</span> <span class="fu">$</span>
@@ -120,7 +120,7 @@ params <span class="co">-- helper to turn tupled list into params map</span></co
 </div>
 
         <div id="footer">
-            last modified: <a href="http://github.com/dbp/dbpmail/commits">February 10, 2014</a> | <a href="../rss.xml">rss feed</a>
+            last modified: <a href="http://github.com/dbp/dbpmail/commits">July 26, 2014</a> | <a href="../rss.xml">rss feed</a>
         </div>
     </body>
 </html>

@@ -209,9 +209,9 @@ exec ssh your_server addrlookup ${ARGS}</code></pre>
   -o smtpd_client_restrictions=permit_sasl_authenticated,reject
   -o smtpd_recipient_restrictions=reject_non_fqdn_recipient,
      reject_unknown_recipient_domain,permit_sasl_authenticated,reject</code></pre>
-<p>3. Change myhostname to be fully qualified if it isn’t. Confirm all is well with http://mxtoolbox.com</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Set up dovecot. Edit /etc/dovecot/conf.d/10-mail.conf and change mail_location to:</li>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Change myhostname to be fully qualified if it isn’t. Confirm all is well with http://mxtoolbox.com</p></li>
+<li><p>Set up dovecot. Edit /etc/dovecot/conf.d/10-mail.conf and change mail_location to:</p></li>
 </ol>
 <pre><code>maildir:~/Maildir/</code></pre>
 <p>Edit /etc/dovecot/conf.d/10-master.conf and inside <code>service auth</code> comment the block that is there, and uncomment the one that is:</p>
@@ -257,12 +257,12 @@ add_header all Status _YESNO_, score=_SCORE_ required=_REQD_ tests=_TESTS_ autol
 <p>Note: if you find any mistakes in this, or parts that needed additional steps, <script type="text/javascript">
 <!--
 h='&#100;&#98;&#112;&#x6d;&#x61;&#x69;&#108;&#46;&#110;&#x65;&#116;';a='&#64;';n='&#100;&#98;&#112;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'let me know'+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'let me know'+'<\/'+'a'+'>');
 // -->
 </script><noscript>let me know (dbp at dbpmail dot net)</noscript> and I’ll correct/add to this.</p>
 
         <div id="footer">
-            last modified: <a href="http://github.com/dbp/dbpmail/commits">March  8, 2014</a> | <a href="../rss.xml">rss feed</a>
+            last modified: <a href="http://github.com/dbp/dbpmail/commits">July 26, 2014</a> | <a href="../rss.xml">rss feed</a>
         </div>
     </body>
 </html>
