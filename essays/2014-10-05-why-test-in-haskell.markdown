@@ -171,7 +171,7 @@ that the change worked).
 To take it a little further, and perhaps justify from a somewhat
 theoretical point of view why these sorts of tests are so valuable,
 consider all possible implementations of any function (or monadic
-action). The possibly implementations with the given type are a subset
+action). The possible implementations with the given type are a subset
 of all the possible implementations, but still potentially a pretty
 large one (our example of a web handler certainly has this
 property).
