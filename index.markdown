@@ -22,7 +22,7 @@ A current resume is available in [PDF form](/static/resume.pdf).
 
 ## Links
 
-I have code at <a href="http://github.com/dbp">github.com/dbp</a> and <a href="http://hub.darcs.net/dbp">hub.darcs.net/dbp</a>.
+I have code at <a href="http://github.com/dbp">github.com/dbp</a>.
 
 My public key is <a href="/static/dbp.gpg">A98D4AF0</a>. Old keys are <a href="/static/dbp-old-2.gpg">9A0C792F</a>, <a href="/static/dbp-old-1.gpg">B5FF6961</a>.
 
