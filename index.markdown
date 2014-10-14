@@ -26,4 +26,4 @@ I have code at <a href="http://github.com/dbp">github.com/dbp</a>.
 
 My public key is <a href="/static/dbp.gpg">A98D4AF0</a>. Old keys are <a href="/static/dbp-old-2.gpg">9A0C792F</a>, <a href="/static/dbp-old-1.gpg">B5FF6961</a>.
 
-I'm part of <a href="http://positioncoop.com">Position Coop</a>, a small Haskell programming shop. We've worked on many things, like [Jacobin](http://jacobinmag.com).
+I'm part of <a href="http://positioncoop.com">Position Coop</a>, a small (mostly) Haskell programming shop. We've worked on many things, like [Jacobin](http://jacobinmag.com).
