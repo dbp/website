@@ -2,7 +2,7 @@
 
 ## Daniel Patterson
 
-I studied math and computer science at <a href="http://cs.brown.edu">Brown University</a>. I'm interested in algorithms, programming languages, and where they intersect with education. This is my personal website, with writing, reading, code, photos and contact information.
+I studied math and computer science at <a href="http://cs.brown.edu">Brown University</a>. I'm interested in algorithms, programming languages, and where they intersect with education. This is my personal website, with writing, code and contact information.
 
 ## Contact
 
@@ -22,8 +22,8 @@ A current resume is available in [PDF form](/static/resume.pdf).
 
 ## Links
 
-I have code at <a href="http://github.com/dbp">github.com/dbp</a>.
+I have code at [github.com/dbp](http://github.com/dbp).
 
-My public key is <a href="/static/dbp.gpg">A98D4AF0</a>. Old keys are <a href="/static/dbp-old-2.gpg">9A0C792F</a>, <a href="/static/dbp-old-1.gpg">B5FF6961</a>.
+My public key is [A98D4AF0](/static/dbp.gpg). Old keys are [9A0C792F](/static/dbp-old-2.gpg), [B5FF6961](/static/dbp-old-1.gpg). I'm at [keybase.io/dbp](https://keybase.io/dbp), if that's a easier.
 
-I'm part of <a href="http://positioncoop.com">Position Coop</a>, a small (mostly) Haskell programming shop. We've worked on many things, like [Jacobin](http://jacobinmag.com).
+I'm part of [Position Development](http://positiondev.com), a small (mostly) Haskell programming shop. We've worked on many things, like [Jacobin](http://jacobinmag.com).

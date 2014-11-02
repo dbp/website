@@ -1,12 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import Prelude hiding (id)
-import Control.Category (id)
-import Control.Monad (forM_)
-import Data.Monoid (mempty, mconcat, mappend)
+import           Control.Category (id)
+import           Control.Monad    (forM_)
+import           Data.Monoid      (mappend, mconcat, mempty)
+import           Prelude          hiding (id)
 
-import Hakyll
+import           Hakyll
 
 essayCtx :: Context String
 essayCtx = mconcat [modificationTimeField "modified" "%B %e, %Y",
@@ -67,6 +67,12 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" (pageCtx "projects")
             >>= relativizeUrls
 
+    match "404.markdown" $ do
+        route   $ setExtension ".html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" (pageCtx "not-found")
+            >>= relativizeUrls
+
     create ["rss.xml"] $ do
       route idRoute
       compile $ do
@@ -81,16 +87,15 @@ main = hakyllWith config $ do
 
 myFeedConfiguration :: FeedConfiguration
 myFeedConfiguration = FeedConfiguration
-    { feedTitle       = "dbpmail.net :: essays"
+    { feedTitle       = "dbp.io :: essays"
     , feedDescription = "writing on programming etc by daniel patterson"
     , feedAuthorName  = "Daniel Patterson"
     , feedAuthorEmail = "dbp@dbpmail.net"
-    , feedRoot        = "http://dbpmail.net"
+    , feedRoot        = "http://dbp.io"
     }
 
 config = defaultConfiguration
-    { deployCommand = "rsync --checksum -ave 'ssh ' \
-\_site/* host@dbpmail.net:dbpmail"
+    { deployCommand = "s3cmd -P sync _site/ s3://dbp.io"
     }
 
 essayList :: Compiler (String)

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>dbpmail.net :: essays</title>
-        <link>http://dbpmail.net</link>
+        <title>dbp.io :: essays</title>
+        <link>http://dbp.io</link>
         <description><![CDATA[writing on programming etc by daniel patterson]]></description>
-        <atom:link href="http://dbpmail.net/rss.xml" rel="self"
+        <atom:link href="http://dbp.io/rss.xml" rel="self"
                    type="application/rss+xml" />
         <lastBuildDate>Sun, 05 Oct 2014 00:00:00 UT</lastBuildDate>
         <item>
     <title>Why test in Haskell?</title>
-    <link>http://dbpmail.net/essays/2014-10-05-why-test-in-haskell.html</link>
+    <link>http://dbp.io/essays/2014-10-05-why-test-in-haskell.html</link>
     <description><![CDATA[<h2>Why test in Haskell?</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>October  5, 2014</strong></p>
@@ -72,11 +72,11 @@ lookupAndRenderFoo = undefined</code></pre>
 </div>
 ]]></description>
     <pubDate>Sun, 05 Oct 2014 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2014-10-05-why-test-in-haskell.html</guid>
+    <guid>http://dbp.io/essays/2014-10-05-why-test-in-haskell.html</guid>
 </item>
 <item>
     <title>A Hacker's Replacement for GMail</title>
-    <link>http://dbpmail.net/essays/2013-06-29-hackers-replacement-for-gmail.html</link>
+    <link>http://dbp.io/essays/2013-06-29-hackers-replacement-for-gmail.html</link>
     <description><![CDATA[<h2>A Hacker's Replacement for GMail</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>June 29, 2013</strong></p>
@@ -324,11 +324,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'let 
 </script><noscript>&#108;&#x65;&#116;&#32;&#x6d;&#x65;&#32;&#x6b;&#110;&#x6f;&#x77;&#32;&#40;&#100;&#98;&#112;&#32;&#x61;&#116;&#32;&#100;&#98;&#112;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#110;&#x65;&#116;&#x29;</noscript> and I’ll correct/add to this.</p>
 ]]></description>
     <pubDate>Sat, 29 Jun 2013 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2013-06-29-hackers-replacement-for-gmail.html</guid>
+    <guid>http://dbp.io/essays/2013-06-29-hackers-replacement-for-gmail.html</guid>
 </item>
 <item>
     <title>A Literate Ur/Web Adventure</title>
-    <link>http://dbpmail.net/essays/2013-05-21-literate-urweb-adventure.html</link>
+    <link>http://dbp.io/essays/2013-05-21-literate-urweb-adventure.html</link>
     <description><![CDATA[<h2>A Literate Ur/Web Adventure</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>May 21, 2013</strong></p>
@@ -920,11 +920,11 @@ clean:
 	rm -f librandom.a librandom.o</code></pre>
 ]]></description>
     <pubDate>Tue, 21 May 2013 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2013-05-21-literate-urweb-adventure.html</guid>
+    <guid>http://dbp.io/essays/2013-05-21-literate-urweb-adventure.html</guid>
 </item>
 <item>
     <title>Programming as Literature</title>
-    <link>http://dbpmail.net/essays/2012-10-24-programming-literature.html</link>
+    <link>http://dbp.io/essays/2012-10-24-programming-literature.html</link>
     <description><![CDATA[<h2>Programming as Literature</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>October 24, 2012</strong></p>
@@ -940,11 +940,11 @@ clean:
 <p>So why am I interested in computer science? I’m interested in it because I am interested in human thought. I am interested in how people solve problems, and seeing problems that others have solved. I am interesting in teaching people how to express themselves in this medium, and learning it myself. I study programming as literature, to read, to write, to share. I study it to figure out the world we live in, and imagine how else it could be.</p>
 ]]></description>
     <pubDate>Wed, 24 Oct 2012 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2012-10-24-programming-literature.html</guid>
+    <guid>http://dbp.io/essays/2012-10-24-programming-literature.html</guid>
 </item>
 <item>
     <title>Haskell / Snap ecosystem is as productive as Ruby/Rails.</title>
-    <link>http://dbpmail.net/essays/2012-04-26-haskell-snap-productive.html</link>
+    <link>http://dbp.io/essays/2012-04-26-haskell-snap-productive.html</link>
     <description><![CDATA[<h2>Haskell / Snap ecosystem is as productive as Ruby/Rails.</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>April 26, 2012</strong></p>
@@ -976,11 +976,11 @@ clean:
 <p>Cheers, and happy web programming.</p>
 ]]></description>
     <pubDate>Thu, 26 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2012-04-26-haskell-snap-productive.html</guid>
+    <guid>http://dbp.io/essays/2012-04-26-haskell-snap-productive.html</guid>
 </item>
 <item>
     <title>Math/Science integrated with Scheme</title>
-    <link>http://dbpmail.net/essays/2011-12-06-science-scheme.html</link>
+    <link>http://dbp.io/essays/2011-12-06-science-scheme.html</link>
     <description><![CDATA[<h2>Math/Science integrated with Scheme</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>December  6, 2011</strong></p>
@@ -1024,11 +1024,11 @@ Arrhenius equation - k = Ae^(-Ea/RT)
 <p>Now some of this is already happening - probably mostly using TI-BASIC on graphing calculators, but the system is reasonably unnatural (and no one is teaching students how to use it) and removed from basic work that I don’t think it is very widespread. I think a system that students would interact with that would allow them to build functions and use existing ones in the course of doing work would be a really amazing thing, both for their understanding of the subject itself and also to learn computer programming (or, more generally, “algorithmic thinking”).</p>
 ]]></description>
     <pubDate>Tue, 06 Dec 2011 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2011-12-06-science-scheme.html</guid>
+    <guid>http://dbp.io/essays/2011-12-06-science-scheme.html</guid>
 </item>
 <item>
     <title>iOS is anti-UNIX and anti-programmer.</title>
-    <link>http://dbpmail.net/essays/2011-09-15-ios-anti-unix.html</link>
+    <link>http://dbp.io/essays/2011-09-15-ios-anti-unix.html</link>
     <description><![CDATA[<h2>iOS is anti-UNIX and anti-programmer.</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>September 15, 2011</strong></p>
@@ -1042,11 +1042,11 @@ Arrhenius equation - k = Ae^(-Ea/RT)
 <p>I’d noticed before how frustrating it was for me to use iOS, but I wasn’t sure until recently exactly why that was, until I realized that it had effectively taken away the one thing that is so fundamental about computers, and why I am a programmer - the ability to compose. Every day I live and breath abstraction, and building things out of different levels of it, and the idea of not being able to combine various parts to make new things is so antithetical to that type of thinking that I almost can’t imagine that iOS was created by programmers. I remember looking at the technical specifications of the most recent iPhone and thinking - that is a full computer, and it’s small enough to fit in a pocket - that is a profound change in the way the world works. But it’s not a computer, it’s just a glorified palm pilot with a few bells and whistles.</p>
 ]]></description>
     <pubDate>Thu, 15 Sep 2011 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2011-09-15-ios-anti-unix.html</guid>
+    <guid>http://dbp.io/essays/2011-09-15-ios-anti-unix.html</guid>
 </item>
 <item>
     <title>Mercury tidbits - dependent types and file io</title>
-    <link>http://dbpmail.net/essays/2011-09-03-mercury-tidbits.html</link>
+    <link>http://dbp.io/essays/2011-09-03-mercury-tidbits.html</link>
     <description><![CDATA[<h2>Mercury tidbits - dependent types and file io</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>September  3, 2011</strong></p>
@@ -1144,11 +1144,11 @@ prelude.read_file(Path,Contents,!IO) :-
 <p>Anyhow, this was just a tiny bit of code, but it is a predicate that is immediately useful, especially when trying to use Mercury for random scripting tasks (what I often do with new languages, regardless of their reputed ability for scripting).</p>
 ]]></description>
     <pubDate>Sat, 03 Sep 2011 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2011-09-03-mercury-tidbits.html</guid>
+    <guid>http://dbp.io/essays/2011-09-03-mercury-tidbits.html</guid>
 </item>
 <item>
     <title>Declarative ajax - imagining Heist-Async</title>
-    <link>http://dbpmail.net/essays/2011-06-08-heist-async.html</link>
+    <link>http://dbp.io/essays/2011-06-08-heist-async.html</link>
     <description><![CDATA[<h2>Declarative ajax - imagining Heist-Async</h2>
 
 <p>by <em>Daniel Patterson</em> on <strong>June  8, 2011</strong></p>
@@ -1185,7 +1185,7 @@ prelude.read_file(Path,Contents,!IO) :-
 <p>I’m interested in feedback on the library, and ways that it can be improved. It is still very early software (a week ago, it did not exist), but it is something that I’ve found very powerful, and I’m kind of interested in where it can be taken / what people think about it.</p>
 ]]></description>
     <pubDate>Wed, 08 Jun 2011 00:00:00 UT</pubDate>
-    <guid>http://dbpmail.net/essays/2011-06-08-heist-async.html</guid>
+    <guid>http://dbp.io/essays/2011-06-08-heist-async.html</guid>
 </item>
 
     </channel> 
