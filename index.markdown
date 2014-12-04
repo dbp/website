@@ -14,6 +14,9 @@ _CaptainTeach: Multi-Stage, In-Flow Peer Review for Programming Assignments._ Jo
 
 _Python: The Full Monty―A Tested Semantics for the Python Programming Language._ Joe Gibbs Politz, Alejandro Martinez, Matthew Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. OOPSLA 2013. [PDF](http://cs.brown.edu/research/plt/dl/lambda-py/lambda-py.pdf), [appendix](http://cs.brown.edu/research/plt/dl/lambda-py/appendix.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).
 
+## Talks
+
+_Types and Testing in Haskell._ November 2014 at the New York Haskell Meetup. [slides](/static/types-testing-haskell-meetup-2014.pdf) and [video](https://www.youtube.com/watch?v=8_gjqN-VqeM).
 
 ## Resume
 
@@ -22,8 +25,8 @@ A current resume is available in [PDF form](/static/resume.pdf).
 
 ## Links
 
-I have code at [github.com/dbp](http://github.com/dbp).
+I have code at [github.com/dbp](http://github.com/dbp). I'm online at [twitter.com/dbp__](http://twitter.com/dbp__).
 
-My public key is [A98D4AF0](/static/dbp.gpg). Old keys are [9A0C792F](/static/dbp-old-2.gpg), [B5FF6961](/static/dbp-old-1.gpg). I'm at [keybase.io/dbp](https://keybase.io/dbp), if that's a easier.
+My public key is [A98D4AF0](/static/dbp.gpg). Old keys are [9A0C792F](/static/dbp-old-2.gpg), [B5FF6961](/static/dbp-old-1.gpg). I'm at [keybase.io/dbp](https://keybase.io/dbp), if that's easier.
 
 I'm part of [Position Development](http://positiondev.com), a small (mostly) Haskell programming shop. We've worked on many things, like [Jacobin](http://jacobinmag.com).
