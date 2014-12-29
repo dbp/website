@@ -29,4 +29,4 @@ I have code at [github.com/dbp](http://github.com/dbp). I'm online at [twitter.c
 
 My public key is [A98D4AF0](/static/dbp.gpg). Old keys are [9A0C792F](/static/dbp-old-2.gpg), [B5FF6961](/static/dbp-old-1.gpg). I'm at [keybase.io/dbp](https://keybase.io/dbp), if that's easier.
 
-I'm part of [Position Development](http://positiondev.com), a small (mostly) Haskell programming shop. We've worked on many things, like [Jacobin](http://jacobinmag.com).
+I'm part of [Position Studios](http://positionstudios.com), a small programming and design shop. We've worked on many things, like [Jacobin](http://jacobinmag.com).
