@@ -2,7 +2,7 @@
 
 ## Daniel Patterson
 
-I studied math and computer science at <a href="http://cs.brown.edu">Brown University</a>. I'm interested in algorithms, programming languages, and where they intersect with education. This is my personal website, with writing, code and contact information.
+I'm part of a small worker-owned software contracting company, [Position Development](http://positiondev.com). I studied math and computer science at <a href="http://cs.brown.edu">Brown University</a>. I'm interested in algorithms, programming languages, and where they intersect with education. This is my personal website, with writing, code and contact information.
 
 ## Contact
 
@@ -28,5 +28,3 @@ A current resume is available in [PDF form](/static/resume.pdf).
 I have code at [github.com/dbp](http://github.com/dbp). I'm online at [twitter.com/dbp__](http://twitter.com/dbp__).
 
 My public key is [A98D4AF0](/static/dbp.gpg). Old keys are [9A0C792F](/static/dbp-old-2.gpg), [B5FF6961](/static/dbp-old-1.gpg). I'm at [keybase.io/dbp](https://keybase.io/dbp), if that's easier.
-
-I'm part of [Position Studios](http://positionstudios.com), a small programming and design shop. We've worked on many things, like [Jacobin](http://jacobinmag.com).
