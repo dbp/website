@@ -15,8 +15,12 @@
         </div>
         <h2 id="projects">Projects</h2>
 <ul>
-<li><h3 id="rivet---a-project-tool-for-snap">Rivet - A Project Tool For Snap</h3>
-<p>Rivet is a tool to make doing web development with the Haskell web framework Snap easier. If you’re familiar with the Ruby on Rails ecosystem, it combines features from the ‘rails’ and ‘rake’ programs. It does database migrations, smart recompilation, can generate models, and is extensible both on a project-based, ad-hoc way, and through a libraries. <a href="https://github.com/dbp/rivet">github.com/dbp/rivet</a>.</p></li>
+<li><h3 id="fn---a-functional-web-framework.">Fn - A functional web framework.</h3>
+<p>Fn is a web framework written in the functional language Haskell, with the explicit goal of writing code in a more functional style - handlers to web requests are normal functions with arguments and return types (rather than monadic actions), and there are no monad transformers. In many ways it makes writing web code more like writing plain Haskell. <a href="https:/github.com/dbp/fn">github.com/dbp/fn</a>.</p></li>
+<li><h3 id="hworker---a-reliable-at-least-once-job-processor.">Hworker - A reliable at-least-once job processor.</h3>
+<p>Hworker is a Redis-backed background job processor written in Haskell. It handles running jobs that, for various reasons (usually that they take a while to complete), have to run in the background (sending email is a common example). It has a strong focus on reliability, in that once a job has been queued, it is guaranteed to run at least once. <a href="https://github.com/dbp/hworker">github.com/dbp/hworker</a>.</p></li>
+<li><h3 id="rivet---a-migration-tool.">Rivet - A migration tool.</h3>
+<p>Rivet is the beginning of a database migration tool for Haskell, that allows you to both write SQL migrations, but also ones that have to run arbitrary Haskell code. It’s pretty early, but is used in various projects. <a href="https://github.com/dbp/rivet">github.com/dbp/rivet</a>.</p></li>
 <li><h3 id="lexical-style-sheets-lss">Lexical Style Sheets (LSS)</h3>
 <p>LSS is an experiment in making CSS more maintainable. The main goal is that all styling is statically (or lexically) scoped to a specific part of the DOM tree, by attaching groups of styles to specific nodes. These groups are named and can be parametrized (so, for example, if you have a few different menus that share most styling in common, this is supported), and you can also define constants in your <code>.lss</code> files. It’s available to be used at <a href="https://github.com/dbp/lss">github.com/dbp/lss</a>.</p></li>
 <li><h3 id="pyret-programming-language">Pyret Programming Language</h3>

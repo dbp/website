@@ -1,13 +1,27 @@
 ## Projects
 
-* ### Rivet - A Project Tool For Snap
-  Rivet is a tool to make doing web development with the Haskell web
-  framework Snap easier. If you're familiar with the Ruby on Rails
-  ecosystem, it combines features from the 'rails' and 'rake'
-  programs. It does database migrations, smart recompilation, can
-  generate models, and is extensible both on a project-based, ad-hoc
-  way, and through a
-  libraries. [github.com/dbp/rivet](https://github.com/dbp/rivet).
+* ### Fn - A functional web framework.
+  Fn is a web framework written in the functional language Haskell,
+  with the explicit goal of writing code in a more functional style -
+  handlers to web requests are normal functions with arguments and
+  return types (rather than monadic actions), and there are no monad
+  transformers. In many ways it makes writing web code more like
+  writing plain Haskell. [github.com/dbp/fn](https:/github.com/dbp/fn).
+
+* ### Hworker - A reliable at-least-once job processor.
+  Hworker is a Redis-backed background job processor written in
+  Haskell. It handles running jobs that, for various reasons (usually
+  that they take a while to complete), have to run in the background
+  (sending email is a common example). It has a strong focus on
+  reliability, in that once a job has been queued, it is guaranteed to
+  run at least once. [github.com/dbp/hworker](https://github.com/dbp/hworker).
+
+* ### Rivet - A migration tool.
+  Rivet is the beginning of a database migration tool for Haskell,
+  that allows you to both write SQL migrations, but also ones that
+  have to run arbitrary Haskell code. It's pretty early, but is used
+  in various projects.
+  [github.com/dbp/rivet](https://github.com/dbp/rivet).
 
 * ### Lexical Style Sheets (LSS)
   LSS is an experiment in making CSS more maintainable. The main goal is that
