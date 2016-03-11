@@ -6,7 +6,7 @@
   handlers to web requests are normal functions with arguments and
   return types (rather than monadic actions), and there are no monad
   transformers. In many ways it makes writing web code more like
-  writing plain Haskell. [github.com/dbp/fn](https:/github.com/dbp/fn).
+  writing plain Haskell. [github.com/positiondev/fn](https:/github.com/positiondev/fn).
 
 * ### Hworker - A reliable at-least-once job processor.
   Hworker is a Redis-backed background job processor written in
