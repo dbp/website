@@ -18,6 +18,8 @@ _Python: The Full Monty―A Tested Semantics for the Python Programming Language
 
 _Types and Testing in Haskell._ November 2014 at the New York Haskell Meetup. [slides](/static/types-testing-haskell-meetup-2014.pdf) and [video](https://www.youtube.com/watch?v=8_gjqN-VqeM).
 
+_Typed routing with continuations._ April 2016 at the New York Haskell Meetup. [slides](/static/fn-continuations-haskell-meetup-2016.pdf) (or [with animations](/static/fn-continuations-transitions-haskell-meetup-2016.pdf), which may be helpful) and [video](https://www.youtube.com/watch?v=tQI2JJwD_ZY).
+
 ## Resume
 
 A current resume is available in [PDF form](/static/resume.pdf).
