@@ -2,7 +2,7 @@
 
 ## Daniel Patterson
 
-I'm currently part of a small worker-owned software contracting company, [Position Development](http://positiondev.com), that I helped start in 2014. As of September 2016, I'll be a graduate student at [Northeastern University](http://www.ccs.neu.edu) studying under [Amal Ahmed](http://www.ccs.neu.edu/home/amal/). I did math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a>. I'm interested in programming languages, education, and leftist politics. This is my personal website, with writing, code and contact information.
+I'm currently part of a small worker-owned software contracting company, [Position Development](http://positiondev.com), that I helped start in 2014. As of September 2016, I'll be a graduate student at [Northeastern University](http://www.ccs.neu.edu) studying under [Amal Ahmed](http://www.ccs.neu.edu/home/amal/). I did math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I studied with [Shriram Krishnamurthi](https://cs.brown.edu/~sk). I'm interested in programming languages, education, and leftist politics. This is my personal website, with writing, code and contact information.
 
 ## Contact
 
