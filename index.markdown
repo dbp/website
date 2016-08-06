@@ -2,11 +2,11 @@
 
 ## Daniel Patterson
 
-I'm currently a graduate student at [Northeastern University](http://www.ccs.neu.edu) studying programming languages and type systems with [Amal Ahmed](http://www.ccs.neu.edu/home/amal/). Previously, I helped start and worked at a worker-owned software contracting company, [Position Development](http://positiondev.com). I did math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I studied with [Shriram Krishnamurthi](https://cs.brown.edu/~sk). I'm interested in programming languages, education, and leftist politics. This is my personal website, with writing, code and contact information.
+I'm currently a graduate student at [Northeastern University](http://www.ccs.neu.edu) studying programming languages and type systems with [Amal Ahmed](http://www.ccs.neu.edu/home/amal/). Previously, I helped start and run a worker-owned software contracting company, [Position Development](http://positiondev.com). I did math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I studied with [Shriram Krishnamurthi](https://cs.brown.edu/~sk). I'm interested in programming languages, education, and leftist politics. This is my personal website, with writing, code and contact information.
 
 ## Contact
 
-The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>. Note that if you have another email address for me, it will probably work as well. I'm currently located in Brooklyn, NY.
+The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>. Note that if you have another email address for me, it will probably work as well. I'm currently located in Somerville, MA.
 
 ## Publications
 
