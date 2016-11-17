@@ -1,0 +1,9 @@
+# script to convert at https://gist.github.com/chitsaou/5319661
+
+/static/captainteach.pdf /pubs/2014/captainteach-iticse.pdf
+/static/lambda-py.pdf /pubs/2013/lambda-py-oopsla.pdf
+/static/lambda-py-appendix.pdf /pubs/2013/lambda-py-appendix-oopsla.pdf
+/static/types-testing-haskell-meetup-2014.pdf /talks/2014/types-testing-haskell-meetup.pdf
+/static/fn-continuations-haskell-meetup-2016.pdf /talks/2016/fn-continuations-haskell-meetup.pdf
+/static/fn-continuations-transitions-haskell-meetup-2016.pdf /talks/2016/fn-continuations-transitions-haskell-meetup.pdf
+/static/linking-types-poplsrc2017.pdf /pubs/2016/linking-types-poplsrc2017-proposal.pdf

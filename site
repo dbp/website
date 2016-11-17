@@ -31,6 +31,12 @@ main = hakyllWith config $ do
     match "static/**" $ do
       route   idRoute
       compile copyFileCompiler
+    match "talks/**" $ do
+      route   idRoute
+      compile copyFileCompiler
+    match "pubs/**" $ do
+      route   idRoute
+      compile copyFileCompiler
 
     -- Render posts
     match "essays/*" $ do
