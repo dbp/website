@@ -103,7 +103,7 @@ myFeedConfiguration = FeedConfiguration
     }
 
 config = defaultConfiguration
-    { deployCommand = "s3cmd -P sync _site/ s3://dbp.io"
+    { deployCommand = "aws s3 sync _site/ s3://dbp.io"
     }
 
 essayList :: Compiler (String)
