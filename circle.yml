@@ -1,0 +1,24 @@
+machine:
+  environment:
+    LANG: C.UTF-8
+
+dependencies:
+  cache_directories:
+    - "~/.stack"
+    - "~/website/.stack-work"
+  pre:
+    - wget https://github.com/commercialhaskell/stack/releases/download/v1.2.0/stack-1.2.0-linux-x86_64.tar.gz -O /tmp/stack.tar.gz
+    - tar xvzf /tmp/stack.tar.gz -C /tmp
+    - sudo mv /tmp/stack-1.2.0-linux-x86_64/stack /usr/bin/stack
+  override:
+    - ./site build
+
+test:
+  override:
+    - echo 0
+
+deployment:
+  aws:
+    branch: master
+    commands:
+      - ./site deploy
