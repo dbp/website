@@ -39,20 +39,29 @@ div#navigation {
     border-bottom: 1px solid #ccc;
 }
 
-div#navigation a {
+div#navigation .t {
     padding: 3px 5px;
     color: #000;
 }
 
+
 @media (max-width: 799px) {
-  div#navigation a {
+  div#navigation .t:first-child {
+    border-bottom: 1px solid #ccc;
+  }
+  div#navigation .t {
     margin: 0px;
+    display: block;
+    text-align: center;
+  }
+  div#navigation .h {
+    display: none;
   }
 }
 
 @media (min-width: 800px) {
-  div#navigation a {
-    margin: 0px 5px;
+  div#navigation .t {
+    margin: 0px 1px;
   }
 }
 
