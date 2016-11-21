@@ -10,7 +10,7 @@ dependencies:
     - wget https://github.com/commercialhaskell/stack/releases/download/v1.2.0/stack-1.2.0-linux-x86_64.tar.gz -O /tmp/stack.tar.gz
     - tar xvzf /tmp/stack.tar.gz -C /tmp
     - sudo mv /tmp/stack-1.2.0-linux-x86_64/stack /usr/bin/stack
-    - sudo pip install awscli
+    - sudo apt-get install awscli
   override:
     - ./site build
 
