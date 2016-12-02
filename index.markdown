@@ -4,6 +4,8 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 ### Publications
 
+_Linking Types: Specifying Safe Interoperability and Equivalences._ Daniel Patterson. POPL 2017 _Student Research Competition_ Extended Abstract. [PDF](/pubs/2016/linking-types-poplsrc2017-proposal.pdf).
+
 _CaptainTeach: Multi-Stage, In-Flow Peer Review for Programming Assignments._ Joe Gibbs Politz, Daniel Patterson, Kathi Fisler, and Shriram Krishnamurthi. ITiCSE 2014. [PDF](/pubs/2014/captainteach-iticse.pdf).
 
 _Python: The Full Monty―A Tested Semantics for the Python Programming Language._ Joe Gibbs Politz, Alejandro Martinez, Matthew Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. OOPSLA 2013. [PDF](/pubs/2013/lambda-py-oopsla.pdf), [appendix](/pubs/2013/lambda-py-appendix-oopsla.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).
