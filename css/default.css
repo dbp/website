@@ -53,6 +53,8 @@ div#navigation .b {
 @media (max-width: 799px) {
   div#navigation .t:first-child {
     border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
   }
   div#navigation .t {
     display: block;
