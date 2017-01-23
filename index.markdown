@@ -8,7 +8,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 _Linking Types for Multi-Language Software: Have Your Cake and Eat It Too._ Daniel Patteron and Amal Ahmed. Under Review for Publication at SNAPL 2017. [PDF](/pubs/2017/linking-types-snapl-submission.pdf).
 
-_Linking Types: Specifying Safe Interoperability and Equivalences._ Daniel Patterson. POPL 2017 _Student Research Competition_ Extended Abstract. [PDF](/pubs/2016/linking-types-poplsrc2017-proposal.pdf).
+<!-- _Linking Types: Specifying Safe Interoperability and Equivalences._ Daniel Patterson. POPL 2017 _Student Research Competition_ Extended Abstract. [PDF](/pubs/2016/linking-types-poplsrc2017-proposal.pdf). -->
 
 _CaptainTeach: Multi-Stage, In-Flow Peer Review for Programming Assignments._ Joe Gibbs Politz, Daniel Patterson, Kathi Fisler, and Shriram Krishnamurthi. ITiCSE 2014. [PDF](/pubs/2014/captainteach-iticse.pdf).
 
