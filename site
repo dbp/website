@@ -37,6 +37,10 @@ main = hakyllWith config $ do
     match "pubs/**" $ do
       route   idRoute
       compile copyFileCompiler
+    match "posters/**" $ do
+      route   idRoute
+      compile copyFileCompiler
+
 
     -- Render posts
     match "essays/*" $ do
