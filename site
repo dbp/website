@@ -3,10 +3,13 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import           Control.Category (id)
-import           Control.Monad    (forM_)
-import           Data.Monoid      (mappend, mconcat, mempty)
-import           Prelude          hiding (id)
+import           Control.Category     (id)
+import           Control.Monad        (forM_)
+import qualified Data.ByteString.Lazy as LBS
+import           Data.Monoid          (mappend, mconcat, mempty)
+import qualified Data.Text            as T
+import qualified Data.Text.Encoding   as TE
+import           Prelude              hiding (id)
 
 import           Hakyll
 
@@ -19,6 +22,13 @@ pageCtx :: String -> Context String
 pageCtx title = mconcat [constField "title" title,
                          constField "modified" "unknown",
                          defaultContext]
+
+gzip :: Item String -> Compiler (Item LBS.ByteString)
+gzip = withItemBody
+           (unixFilterLBS "gzip" ["--best"]
+           . LBS.fromStrict
+           . TE.encodeUtf8
+           . T.pack)
 
 main :: IO ()
 main = hakyllWith config $ do
@@ -40,7 +50,15 @@ main = hakyllWith config $ do
     match "posters/**" $ do
       route   idRoute
       compile copyFileCompiler
-
+    match "posters/**" $ do
+      route   idRoute
+      compile copyFileCompiler
+    match "artifacts/**/*.js" $ do
+      route idRoute
+      compile $ getResourceBody >>= gzip
+    match "artifacts/**" $ do
+      route idRoute
+      compile copyFileCompiler
 
     -- Render posts
     match "essays/*" $ do
@@ -107,7 +125,7 @@ myFeedConfiguration = FeedConfiguration
     }
 
 config = defaultConfiguration
-    { deployCommand = "aws s3 sync _site/ s3://dbp.io"
+    { deployCommand = "aws s3 sync --exclude \"artifacts/*/*.js\" _site/ s3://dbp.io && aws s3 sync --exclude \"*\" --include \"artifacts/*/*.js\" --content-type \"application/javascript\" --content-encoding \"gzip\" _site/ s3://dbp.io"
     }
 
 essayList :: Compiler (String)
