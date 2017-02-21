@@ -36,58 +36,63 @@
 
       <h2>Artifact: a FunTAL type-checker and small-step machine.</h2>
       <h3>Daniel Patterson and Gabriel Scherer.</h3>
+      <h4>Source code and build instructions: <a href="https://github.com/dbp/funtal">github.com/dbp/funtal</a></h4>
 
       <p>
-        We present a type-checker and small-step machine semantics for
-        FunTAL. We include <strong>well-typed, runnable examples from the
-          paper</strong>, as well as a few smaller examples to start with.
-      </p>
+        We present a type-checker and stepper for the FunTAL machine
+          semantics. We include <strong>well-typed, runnable examples
+          from
+          the <a href="https://dbp.io/pubs/2017/funtal.pdf">paper</a></strong>,
+        as well as a few smaller examples to start with. With our
+        artifact, you write programs and then type-check / load them
+        into a FunTAL machine. At each step, the machine shows the
+        registers, stack, and heap, as well as the redex and the
+        context.</p>
 
-      <p>With our artifact you write programs and then type-check /
-        load them into a FunTAL machine. The machine shows the
-        registers, stack, and heap. It is a small-step machine and
-        at each step shows the redex and the context.
+      <p>
+        <strong>Important:</strong> the programs entered
+        into the editor should be Fun programs at the top; a pure
+        TAL component <code>C</code>
+        can be embedded as <code>FT[t,?]C</code> where <code>t</code> is
+        the return type, as we see in examples below. We do this so
+        that all programs run through the stepper have a return value.
       </p>
 
       <p><strong>Note:</strong> there are some syntactic differences
-        from the presentation in the paper, primarily to reduce
-        ambiguity in the grammar, and secondarily to make the
-        type-checking algorithm syntax-directed. You can see these changes
-        in the examples as part of this artifact, but we summarize them
-        here for completeness:</p>
+        from the presentation in
+        the <a href="https://dbp.io/pubs/2017/funtal.pdf">paper</a>,
+        which nonetheless we expect will be the primary reference for
+        the language. These changes were made to eliminate the
+        necessity of unicode, reduce ambiguity in the grammar, and
+        make the type-checking algorithm syntax-directed. We summarize
+        these changes at the bottom of this page.</p>
 
+      <p>
+        <strong>Examples from <a href="https://dbp.io/pubs/2017/funtal.pdf">paper</a>:</strong>
+      </p>
       <ul>
-        <li>TAL components are a bracketed sequence of
-          instructions and a bracketed sequence of heap bindings,
-          i.e., <code>([instr; ...],[l -> h, ...])</code></li>
-        <li><code>FT</code> boundary terms use brackets to specify
-          types, rather than superscripts.</li>
-        <li><code>import</code> specifies types by ...</li>
-        <li><code>FT</code> terms must now specify the stack that
-          they expect when the TAL code within finishes. If the TAL
-          code will not modify the stack, you can
-          write <code>?</code>.</li>
-        <li>We restrict type variables (in Fun and TAL) to start
-          with <code>a</code>, stack variables to start
-          with <code>z</code> and return marker variables to start
-          with <code>e</code>.</li>
-        <li>More changes...</li>
+        <li><a href="#" id="call_to_call">Call to call</a> (Fig. 3 &amp; 4, pg. 6)</li>
+        <li><a href="#" id="higher_order">Higher order</a> (Fig. 11 &amp; 12, pg. 9)</li>
+        <li><a href="#" id="blocks_1">Blocks 1</a> (Fig. 16, top, pg. 11)</li>
+        <li><a href="#" id="blocks_2">Blocks 2</a> (Fig. 16, bottom, pg. 11)</li>
+        <li><a href="#" id="factorial_f">Factorial (functional)</a> (Fig. 17, top, pg. 12)</li>
+        <li><a href="#" id="factorial_t">Factorial (imperative)</a> (Fig. 17, bottom, pg. 12)</li>
       </ul>
 
       <p>
-        <strong>Examples from paper:</strong>
-        <a href="#" id="call_to_call">Call to call</a>
-        | <a href="#" id="higher_order">Higher Order</a>
-        | <a href="#" id="blocks_1">Blocks 1</a>
-        | <a href="#" id="blocks_2">Blocks 2</a>
-        | <a href="#" id="factorial_f">Factorial (functional)</a>
-        | <a href="#" id="factorial_t">Factorial (imperative)</a>
+        <strong>Additional examples:</strong>
+        <a href="#" id="import">Import</a>
+        | <a href="#" id="simple">Simple TAL</a>
+        | <a href="#" id="omega">Omega</a>
       </p>
 
       <p>
-        <strong>Additional examples:</strong>
-        <a href="#" id="simple">Simple TAL</a>
+        <strong>Examples with errors:</strong>
       </p>
+      <ul>
+        <li><a href="#" id="stack_error">Missing <code>sfree 1</code> after line 8</a></li>
+        <li><a href="#" id="call_error">Trying to <code>jmp ra</code> instead of <code>ret ra {r1}</code> on line 14</a></li>
+      </ul>
 
 
       <div class="box">
@@ -103,7 +108,7 @@
 
 
       <div class="box">
-        <div id="machine">
+        <div class="cm-s-default" id="machine">
           <div class="buttons left">
             <button title="one step backward" id="prev">Step &larr;</button>
             <button id="pc">&nbsp;</button>
@@ -111,17 +116,117 @@
             <button title="up to 100 steps" id="many">Step &rarr;*</button>
           </div>
           <hr/>
+          <h5>Registers:</h5>
           <pre id="registers"></pre>
           <hr/>
+          <h5>Stack:</h5>
           <pre id="stack"></pre>
           <hr/>
+          <h5>Redex:</h5>
           <pre id="focus"></pre>
           <hr/>
+          <h5>Context/Result:</h5>
           <pre id="context"></pre>
           <hr/>
+          <h5>Heap:</h5>
           <pre id="heap"></pre>
         </div>
       </div>
+
+      <br/><br/>
+
+      <h3>Syntactic differences from the <a href="https://dbp.io/pubs/2017/funtal.pdf">paper</a>:</h3>
+
+
+      <table>
+        <tr><th>Paper</th><th>Artifact</th><th>Description</th></tr>
+
+        <tr>
+          <td><code>(&iota;; ..., l &rarr; h, ...)</code></td>
+          <td><code>([instr; ...],[l -> h, ...])</code></td>
+          <td>TAL components use brackets around instructions and the heap fragment.</td>
+        </tr>
+
+        <tr>
+          <td><code><sup>&tau;</sup>FT e</code></td>
+          <td><code>FT[t,s] e</code></td>
+          <td><code>FT</code> (Fun outside, TAL inside) boundary
+          specifies the type s that the stack has after running e.</td>
+        </tr>
+
+        <tr>
+          <td><code><sup>&tau;</sup>FT e</code></td>
+          <td><code>FT[t,?] e</code></td>
+          <td><code>FT</code> boundaries can use <code>?</code> to indicate
+            that running <code>e</code> will not modify the type of
+            the stack (though values may be modified), allowing <code>s</code>
+            to be inferred.</td>
+        </tr>
+
+        <tr>
+          <td><code>import r,<sup>&sigma;</sup>TF<sup>&tau;</sup> e</code></td>
+          <td><code>import r1, z as s, t TF{e};</code></td>
+          <td><code>import</code> binds the stack <code>s</code> on
+          return as <code>z</code> with Fun expression <code>e</code> of
+          type <code>t</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>&alpha;, &zeta;, &epsilon;</code></td>
+          <td><code>a1, z21, e5</code></td>
+          <td>TAL type variables must begin with <code>a</code>, stack
+          variables with <code>z</code>, and return marker variables
+          with <code>e</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>&middot; | &tau; :: ... </code></td>
+          <td><code>:: | t :: ... ::</code></td>
+          <td>Empty stack prefixes (in protect, stack modifying
+          lambdas) are written as <code>::</code>, and stack prefixes
+          end with <code>::</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>&forall;, &mu;, &lambda;, &#8707;, &bullet;</code></td>
+          <td><code>forall, mu, lam, exists, *</code></td>
+          <td>Greek letters and quantifiers are replaced by english keywords.</td>
+        </tr>
+
+        <tr>
+          <td><code>&bullet;</code></td>
+          <td><code>*</code></td>
+          <td>The concrete stack symbol <code>&bullet;</code> is written <code>*</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>u[&omega;]</code></td>
+          <td><code>u[&omega;, &omega;...]</code></td>
+          <td>TAL instantiation is n-ary. (This was mentioned as syntactic sugar.)</td>
+        </tr>
+
+        <tr>
+          <td><code>{&chi;; &sigma;}<sup>q</sup></code></td>
+          <td><code>{&chi;; &sigma;} q</code></td>
+          <td>The return marker superscript is just written in line.</td>
+        </tr>
+
+        <tr>
+          <td><code>&lambda;<sup>&phi;</sup><sub>&phi;</sub>(x:&tau;...).t</code></td>
+          <td><code>lam[&phi;][&phi;](x:&tau;...).e</code>,
+              <code>(&tau;...) [&phi;] -> [&phi;] &tau;</code></td>
+          <td>The stack prefixes of stack-modifying functions are bracketed, in line.</td>
+        </tr>
+
+        <tr>
+          <td><code>unpack &lt;&alpha;, r<sub>d</sub>&gt; u</code></td>
+          <td><code>unpack &lt;&alpha;, r<sub>d</sub>&gt;, u</code></td>
+          <td>The TAL instruction <code>unpack</code> has comma-separated argument,
+            for consistency with other instructions.</td>
+        </tr>
+      </table>
+
+
       <div class="footer">
         Powered by OCaml and js_of_ocaml.
       </div>
@@ -129,41 +234,57 @@
     <script type="text/javascript" src="codemirror.js"></script>
     <script type="text/javascript" src="simple.js"></script>
     <script type="text/javascript" src="matchbrackets.js"></script>
+    <script type="text/javascript" src="runmode.js"></script>
     <script type="text/javascript">
-      CodeMirror.defineSimpleMode("funtal", {
-      start: [
-      {regex: /forall|code|box|ref|add|sub|mul|bnz|ld|st|ralloc|balloc|mv|unpack|unfold|salloc|sfree|sld|sst|jmp|call|ret|halt|protect|import|as|pack|fold|if0|pi|FT/, token: "keyword"},
-      {regex: /unit|int|exists|mu|\*|\:\:|end|out|r1|r2|r3|r4|r5|r6|r7|r8|r9|ra/, token: "atom"}
-      ],
-      meta:
-      { dontIndentStates: ["start"]
-        }});
+     CodeMirror.defineSimpleMode("funtal", {
+       start: [
+         {regex: /forall|code|box|ref|add|sub|mul|bnz|ld|st|ralloc|balloc|mv|unpack|unfold|salloc|sfree|sld|sst|jmp|call|ret|halt|protect|import|as|pack|fold|if0|pi|FT/, token: "keyword"},
+         {regex: /unit|int|exists|mu|\*|\:\:|end|out|r1|r2|r3|r4|r5|r6|r7|r8|r9|ra/, token: "atom"}
+       ],
+       meta:
+            { dontIndentStates: ["start"]
+            }});
 
-      window.codemirror = CodeMirror.fromTextArea(document.getElementById("input"), {
-      lineNumbers: true,
-      matchBrackets: true,
-      viewportMargin: Infinity,
-      gutters: ["CodeMirror-linenumbers","errors"],
-      mode: "funtal"
-      });
+     window.highlighted_lines = [];
 
-      window.seterror = function(line, msg) {
-      clearerrors();
-      if (line > 0) {
-      var n = document.createElement("div");
-      n.className = "error-marker";
-      n.setAttribute("title", msg);
-      window.codemirror.setGutterMarker(line-1, "errors", n);
-      }
+     window.codemirror = CodeMirror.fromTextArea(document.getElementById("input"), {
+       lineNumbers: true,
+       matchBrackets: true,
+       viewportMargin: Infinity,
+       gutters: ["CodeMirror-linenumbers","errors"],
+       mode: "funtal"
+     });
 
-      var holder = document.getElementById("error");
-      holder.innerHTML = "<div class='error-marker'></div><span>" + msg + "</span>";
-      };
+     window.seterror = function(line, msg) {
+       clearerrors();
+       if (line > 0) {
+         var n = document.createElement("div");
+         n.className = "error-marker";
+         n.setAttribute("title", msg);
+         window.codemirror.setGutterMarker(line-1, "errors", n);
+         window.codemirror.addLineClass(line-1, "wrap", "error-line");
+       }
 
-      window.clearerrors = function() {
-      window.codemirror.clearGutter("errors");
-      document.getElementById("error").innerHTML = "";
-      }
+       function esc(s) {
+         return s.replace(/\</g,"&langle;").replace(/\>/g,"&rangle;");
+       }
+       var holder = document.getElementById("error");
+       holder.innerHTML = "<div class='error-marker'></div><span>" + esc(msg) + "</span>";
+     };
+
+     window.clearerrors = function() {
+       window.codemirror.clearGutter("errors");
+       document.getElementById("error").innerHTML = "";
+       window.codemirror.eachLine(function (lh) {
+         window.codemirror.removeLineClass(lh,"wrap");
+       });
+     }
+
+     window.settext = function(i, t) {
+       var n = document.getElementById(i);
+       CodeMirror.runMode(t, "funtal", n);
+
+     }
     </script>
     <script type="text/javascript" src="web.js"></script>
   </body>

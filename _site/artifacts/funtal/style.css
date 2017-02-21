@@ -13,6 +13,17 @@ h4 {
   margin: 0;
 }
 
+h5 {
+  margin: 0;
+  margin-left: 5px;
+  padding: 0;
+  font-family: monospace;
+}
+
+pre {
+  margin: 5px;
+}
+
 p {
   max-width: 600px;
   margin: 10px auto;
@@ -23,6 +34,16 @@ ul {
   max-width: 600px;
   margin: 10px auto;
   line-height: 1.5em;
+}
+
+td,th {
+  padding: 5px;
+  vertical-align: top;
+  text-align: left;
+}
+
+td:last-child {
+  width: 300px;
 }
 
 hr {
@@ -64,7 +85,7 @@ code {
 }
 
 .error-line {
-  border-bottom: 1px solid #8B0000 !important;
+  background: rgba(255,0,0,0.1) !important;
 }
 
 .buttons {
