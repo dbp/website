@@ -5,7 +5,8 @@ body {
 }
 
 @media (max-width: 799px) {
-  h3, p {
+    h3, p, strong {
+        display: block;
     margin-left: 10px;
     margin-right: 10px;
   }
