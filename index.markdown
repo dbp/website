@@ -26,7 +26,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 ### Talks
 
 **Linking Types: Secure compilation of multi-language programs.**
-<div class="desc">Secure Compilation Meeting at POPL2017. [slides](/talks/2017/linking-types-scm.pdf) (no video).</div>
+<div class="desc">Secure Compilation Meeting at _POPL2017_. [slides](/talks/2017/linking-types-scm.pdf) (no video).</div>
 
 **Typed routing with continuations.**
 <div class="desc">New York Haskell Meetup April 2016. [slides](/talks/2016/fn-continuations-haskell-meetup.pdf) (or [with animations](/talks/2016/fn-continuations-transitions-haskell-meetup.pdf), which may be helpful) and [video](https://www.youtube.com/watch?v=tQI2JJwD_ZY).</div>
