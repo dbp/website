@@ -25,6 +25,9 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 ### Talks
 
+**Artifacts for Semantics: An OCaml Experiment.**
+<div class="desc">New England Programming Languages and Systems Symposium June 2017. [slides](/talks/2017/artifacts-nepls.pdf) (no video).</div>
+
 **Linking Types: Secure compilation of multi-language programs.**
 <div class="desc">Secure Compilation Meeting at _POPL2017_. [slides](/talks/2017/linking-types-scm.pdf) (no video).</div>
 
