@@ -9,7 +9,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 ### Publications
 
 [**FunTAL: Reasonably Mixing a Functional Language with Assembly.**](/pubs/2017/funtal.pdf)
-<div class="desc">Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed. <br/>To appear in _PLDI 2017_. [PDF](/pubs/2017/funtal.pdf) and [appendix](/pubs/2017/funtal-tr.pdf).</div>
+<div class="desc">Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed. <br/>_PLDI 2017_. [PDF](/pubs/2017/funtal.pdf) and [appendix](/pubs/2017/funtal-tr.pdf).</div>
 
 [**Linking Types for Multi-Language Software: Have Your Cake and Eat It Too.**](/pubs/2017/linking-types.pdf) 
 <div class="desc">Daniel Patteron and Amal Ahmed. <br/>To appear in _SNAPL 2017_. [PDF](/pubs/2017/linking-types.pdf).</div>
