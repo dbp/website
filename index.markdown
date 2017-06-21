@@ -46,6 +46,6 @@ A current resume is available in [PDF form](/static/resume.pdf).
 
 ### Links
 
-I'm at [github.com/dbp](https://github.com/dbp) (code), [twitter.com/dbp__](https://twitter.com/dbp__) (politics), and [instagram.com/dbp____](https://www.instagram.com/dbp____/) (food).
+I'm at [github.com/dbp](https://github.com/dbp) (code), [twitter.com/dbp__](https://twitter.com/dbp__) (politics), and [instagram.com/dbp____](https://www.instagram.com/dbp____/) (food & art).
 
 My public key is [A98D4AF0](/static/dbp.gpg). Old keys are [9A0C792F](/static/dbp-old-2.gpg), [B5FF6961](/static/dbp-old-1.gpg). I'm at [keybase.io/dbp](https://keybase.io/dbp), if that's easier. My ssh public key is [here](/static/ssh_key.pub).
