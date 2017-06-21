@@ -12,7 +12,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 <div class="desc">Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed. <br/>_PLDI 2017_. [PDF](/pubs/2017/funtal.pdf) and [appendix](/pubs/2017/funtal-tr.pdf).</div>
 
 [**Linking Types for Multi-Language Software: Have Your Cake and Eat It Too.**](/pubs/2017/linking-types.pdf) 
-<div class="desc">Daniel Patteron and Amal Ahmed. <br/>To appear in _SNAPL 2017_. [PDF](/pubs/2017/linking-types.pdf).</div>
+<div class="desc">Daniel Patteron and Amal Ahmed. <br/>_SNAPL 2017_. [PDF](/pubs/2017/linking-types.pdf).</div>
 
 [**Linking Types: Specifying Safe Interoperability and Equivalences.**](/pubs/2016/linking-types-poplsrc2017-proposal.pdf)
 <div class="desc">Daniel Patterson. <br/>_POPL 2017 Student Research Competition_. [Extended abstract](/pubs/2016/linking-types-poplsrc2017-proposal.pdf) and [poster](/posters/linking-types-popl2017-src.pdf).</div>
@@ -25,11 +25,14 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 ### Talks
 
+**FunTAL: Reasonably Mixing a Functional Language with Assembly.**
+<div class="desc">_PLDI 2017_. [slides](/talks/2017/funtal-pldi.pdf) (video forthcoming).</div>
+
 **Artifacts for Semantics: An OCaml Experiment.**
 <div class="desc">New England Programming Languages and Systems Symposium June 2017. [slides](/talks/2017/artifacts-nepls.pdf) (no video).</div>
 
 **Linking Types: Secure compilation of multi-language programs.**
-<div class="desc">Secure Compilation Meeting at _POPL2017_. [slides](/talks/2017/linking-types-scm.pdf) (no video).</div>
+<div class="desc">Secure Compilation Meeting at _POPL 2017_. [slides](/talks/2017/linking-types-scm.pdf) (no video).</div>
 
 **Typed routing with continuations.**
 <div class="desc">New York Haskell Meetup April 2016. [slides](/talks/2016/fn-continuations-haskell-meetup.pdf) (or [with animations](/talks/2016/fn-continuations-transitions-haskell-meetup.pdf), which may be helpful) and [video](https://www.youtube.com/watch?v=tQI2JJwD_ZY).</div>
