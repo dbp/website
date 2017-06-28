@@ -26,7 +26,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 ### Talks
 
 **FunTAL: Reasonably Mixing a Functional Language with Assembly.**
-<div class="desc">_PLDI 2017_. [slides](/talks/2017/funtal-pldi.pdf) (video forthcoming).</div>
+<div class="desc">_PLDI 2017_. [slides](/talks/2017/funtal-pldi.pdf) and [video](https://www.youtube.com/watch?v=5Py0l7CfQTo&index=25&list=PLMTm6Ln7vQZZv6sQ0I4R7iaIjvSVhHXod).</div>
 
 **Artifacts for Semantics: An OCaml Experiment.**
 <div class="desc">New England Programming Languages and Systems Symposium June 2017. [slides](/talks/2017/artifacts-nepls.pdf) (no video).</div>
