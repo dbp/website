@@ -91,10 +91,10 @@ main = hakyllWith config $ do
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" (pageCtx "reading")
             >>= relativizeUrls
-    match "projects.markdown" $ do
+    match "*.markdown" $ do
         route   $ setExtension ".html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" (pageCtx "projects")
+            >>= loadAndApplyTemplate "templates/default.html" (pageCtx "")
             >>= relativizeUrls
 
     match "404.markdown" $ do
