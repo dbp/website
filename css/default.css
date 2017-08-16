@@ -34,7 +34,7 @@ h3 {
 
 a {
     text-decoration: none;
-    color: #666;
+    color: #900;
 }
 
 a:hover {
@@ -43,7 +43,10 @@ a:hover {
 
 strong {
     color: #555;
+}
 
+a strong {
+    color: #900;
 }
 
 div.desc {
