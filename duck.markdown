@@ -128,6 +128,7 @@ needed are _not_ things that are available standard. And, even if they were,
 they would probably be so much more expensive. For example, I got 12" wide pine
 planks that were then ripped to get the 3/4" by 3/4" strips, the 3/4" by 1 3/4",
 etc.
+<div class="clear"></div>
 
 ![](/static/boat/boat-4.jpg) Marking side panels (first mistake is present in
 this photo -- third and possibly fourth clamp are not in the right place, and
@@ -135,21 +136,37 @@ the flexible wood batten was so flexible that I was able to make the shape. The
 bottom is supposed to be a smooth curve! All other panels marked to match this
 one, replicating the mistake.)
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-5.jpg) Making more side panels.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-6.jpg) Sanding all side panels to be identical. This was
 supposed to be done with a plane, but I couldn't get that to work. The sander
 worked though!
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-7.jpg) Cutting forward bulkhead.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-8.jpg) Epoxying rear transom & forward bulkhead.
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-9.jpg) Epoxying side panels, attaching framing.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-10.jpg) Sanding panels, transoms, bulkhead.
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-11.jpg) Boat is 3D! No bottom yet though.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-12.jpg) After long and hard day, added mast step /
 partner, epoxied bottom and with help of dad (**this would not have been
@@ -159,29 +176,49 @@ a lot more work to get the bottom to attach to the sides due to the mistake
 shaping the bottom; had to add more trim and screw through the bottom to get it
 to pull up to side panels.)
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-13.jpg) Dry fitting deck.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-14.jpg) Epoxying bottom of deck.
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-15.jpg) Adding fiberglass tape to seams, epoxying bottom
 of boat.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-16.jpg) Scarfing mast pieces together and cutting to
 length. (Though, not pictured here I narrowed them with a router, and messed up
 the narrowest part, so I think I'm going to switch to a lug sail which requires
 shorter masts, and thus I can cut off the mistake!)
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-17.jpg) Priming bottom of boat.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-18.jpg) Painted & flipped the boat (it's gotten heavy!
 Problem with getting plywood from a local lumberyard is that thinnest they had
 was 1/4", and I'm sure it's not the lightest stuff!)
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-19.jpg) Moved outside to paint top.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-20.jpg) Primed top and inside.
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-21.jpg) Painted top and inside.
+
+<div class="clear"></div>
 
 ![](/static/boat/boat-22.jpg) Some really crappy paddles made out of scrap ply,
 extra 3/4" square with some epoxy added and fiberglass tape wrapped around
@@ -190,5 +227,9 @@ tape is still very present. It also hadn't fully dried when we took it out the
 next day, so I wrapped duct tape around the handle and halfway down the shaft,
 so it wouldn't feel sticky!)
 
+<div class="clear"></div>
+
 ![](/static/boat/boat-23.jpg) Testing the hull out. Found a minor leak in the
 left side tank (I haven't cut the leeboard slot yet, so it isn't that).
+
+<div class="clear"></div>
