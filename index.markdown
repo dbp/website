@@ -1,6 +1,6 @@
 <div class="imgr"><img src="/static/dbp.jpg" alt="Daniel Patterson"/></div>
-
 I'm currently a graduate student at [Northeastern University](http://prl.ccs.neu.edu/) studying programming languages, type systems, and language interoperability with [Amal Ahmed](http://www.ccs.neu.edu/home/amal/). Previously, I helped start and run a worker-owned software contracting company, [Position Development](http://positiondev.com). I studied math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I worked with [Shriram Krishnamurthi](https://cs.brown.edu/~sk). I'm interested in programming languages, education, and leftist politics. This is my personal website.
+
 
 ### Contact
 
