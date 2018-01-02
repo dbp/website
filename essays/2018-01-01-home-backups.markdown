@@ -5,14 +5,16 @@ date: January 1st, 2017
 ---
 
 Backing things up is important. Some stuff, like code that lives in
-repositories, naturally ends up many places, so it perhaps is less important to
-explicitly back up. Other things, like photos, or personal documents, generally
-don't have a natural redundant home, so they need some backup story, and relying
-on various online services is both risky (what if they go out of business,
-"pivot", etc), potentially time-consuming to keep track of (services for photos
-may not allow videos, or at least not full resolution ones, etc), limited in
-various ways (max file sizes, storage allotments, etc), not to mention concerns
-about privacy. The requirements for the system I outline here are:
+repositories, may naturally end up in many places, so it perhaps is less
+important to explicitly back up. Other files, like photos, or personal
+documents, generally don't have a natural redundant home, so they need some
+backup story, and relying on various online services is risky (what if they go
+out of business, "pivot", etc), potentially time-consuming to keep track of
+(services for photos may not allow videos, or at least not full resolution ones,
+etc), limited in various ways (max file sizes, storage allotments, etc), not to
+mention bringing up serious privacy concerns. Different people need different
+things, but what I need, and have built (hence this post describing the system),
+fulfills the following requirements:
 
 1. (Home) scalable -- i.e., any reasonable amount of data that I could generate
    personally I should be able to dump in one place, and be confident that it
@@ -20,17 +22,19 @@ about privacy. The requirements for the system I outline here are:
    and video files. For me, this is currently about 1TB (+-0.5TB).
 2. Cheap. I'm willing to pay about $100-200/year total (including hardware). 
 3. Simple. There has to be _one_ place where I can dump files, it has to be
-   simple enough to recover from complete failure of a piece of hardware even if
-   I haven't touched it in a long time (because if it is working, I won't have
-   had to tweak it in months / years). Ideally it should be usable without
-   commandline familiarity, so it can serve my whole home.
+   simple enough to recover from complete failure of any given piece of hardware
+   even if I haven't touched it in a long time (because if it is working, I
+   won't have had to tweak it in months / years). Adding & organizing files
+   should be doable without commandline familiarity, so it can serve my whole
+   home.
 4. Safe. Anything that's not in my physical control should be encrypted.
 5. Reasonably reliable. Redundancy across hardware, geographic locations, etc.
    This is obviously balanced with other concerns (in particular, 2 and 3)!
 
 I've tried various solutions, but what I've ended up with seems to be working
-pretty well. It's a combination of some cheap hardware, inexpensive cloud
-storage, and decent backup software.
+pretty well (most of it has been running for about a year; some parts are more
+recent, and a few have been running for much longer). It's a combination of some
+cheap hardware, inexpensive cloud storage, and decent backup software.
 
 ### Why not an off-the-shelf NAS?
 
@@ -41,7 +45,7 @@ system used over 30watts, which is the same power that my similarly aged quad
 core workstation uses when idle!). Also, a critical element of this system for
 me is that there is an off-site component, so getting that software on it is
 extremely important, and I'd rather have a well-supported linux computer to deal
-with rather than something somewhat esoteric. Obviously this depends in the
+with rather than something esoteric. Obviously this depends in the
 particular NAS you get, but the system below is perfect _for me_. In particular,
 setting up and experimenting with the below was much cheaper than dropping
 hundreds more dollars on a new NAS that may not have worked any better than the
@@ -65,8 +69,10 @@ old one, and once I had it working, there was certainly no point in going back!
   seemed good in terms of heat dissipation, and have been running for a little
   over a year straight without a problem (note: this is actually one more than
   I'm using at any given time, to make it easier to rotate in new drives; BTRFS,
-  which I'm using, allows you to just remove a drive and add a new one, but the
-  preferred method is to have both attached, and issue a `replace` command).
+  which I'm using, allows you to just physically remove a drive and add a new
+  one, but the preferred method is to have both attached, and issue a `replace`
+  command. I'm not sure how much this matters, but for $25, I went with the
+  extra enclosure).
 
 - $170 - Two [2TB WD Red SATA drives](http://amzn.to/2C1lc3E). These are
   actually recent upgrades -- the server was been running on older 1TB Green
@@ -75,7 +81,7 @@ old one, and once I had it working, there was certainly no point in going back!
   check) so I replaced both. The cheaper blue drives probably would have been
   fine (the Greens that the Blues have replaced certainly have lasted well
   enough, running nearly 24/7 for years), but the "intended to run 24/7" Red
-  ones were still not that expensive so I thought I might as well spring for them.
+  ones were only $20 more each so I thought I might as well spring for them.
   
 ### Cloud
 
@@ -90,12 +96,12 @@ old one, and once I had it working, there was certainly no point in going back!
 ### Software
 
 - The Raspberry Pi is running Raspbian (Debian distributed for the Raspberry
-  Pi). This seems to be the best supported linux distribution, and I've used
+  Pi). This seems to be the best supported Linux distribution, and I've used
   Debian on servers & desktops for maybe 10 years now, so it's a no-brainer. The
   external hard drives are a RAID1 with BTRFS. If I were doing it from scratch,
   I would look into ZFS, but I've been migrating this same data over different
   drives and home servers (on the same file system) since ZFS was essentially
-  totally experimental on linux, and on linux, for RAID1, BTRFS seems totally
+  totally experimental on Linux, and on Linux, for RAID1, BTRFS seems totally
   stable (people do not say the same thing about RAID5/6). 
   
     The point is, you should use an advanced file system in RAID1 (on ZFS you
@@ -143,13 +149,14 @@ old one, and once I had it working, there was certainly no point in going back!
     `duplicacy backup -stats -threads 16`) -- the memory consumption seems to
     hover below 60%, which leaves a very healthy buffer for anything else that's
     going on (or periodic little jumps), and regardless, more threads don't seem
-    to get it to work faster. The documentation on how to use the command-line
-    version is a little sparse (there is a GUI version that costs money), but
-    once I figured out that to configure it to connect automatically to my B2
-    account I needed a file `.duplicacy/preferences` that looked like (see
-    `keys` section; the rest will probably be written out for you if you run
-    `duplicacy` first; alternatively, just put this file in place and everything
-    will be set up):
+    to get it to work faster. 
+    
+    The documentation on how to use the command-line version is a little sparse
+    (there is a GUI version that costs money), but once I figured out that to
+    configure it to connect automatically to my B2 account I needed a file
+    `.duplicacy/preferences` that looked like (see `keys` section; the rest will
+    probably be written out for you if you run `duplicacy` first; alternatively,
+    just put this file in place and everything will be set up):
   
     ```
     [
