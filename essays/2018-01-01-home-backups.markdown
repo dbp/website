@@ -37,14 +37,15 @@ storage, and decent backup software.
 In the past, I tried one (it was a Buffalo model). I wasn't impressed by the
 software (which was hard to upgrade, install other stuff on it, maintain, etc),
 the power consumption (this was several years ago, but _idle_ the two-drive
-system used over 30watts idle, which is the same power that my similarly aged
-quad core workstation uses idle!). Also, a critical element of this system for
+system used over 30watts, which is the same power that my similarly aged quad
+core workstation uses when idle!). Also, a critical element of this system for
 me is that there is an off-site component, so getting that software on it is
-critical, and I'd rather have a well-supported linux computer to deal with.
-Obviously this depends in the particular NAS you get, but the system below is
-perfect _for me_. Experimenting with the below was much cheaper than dropping
+extremely important, and I'd rather have a well-supported linux computer to deal
+with rather than something somewhat esoteric. Obviously this depends in the
+particular NAS you get, but the system below is perfect _for me_. In particular,
+setting up and experimenting with the below was much cheaper than dropping
 hundreds more dollars on a new NAS that may not have worked any better than the
-old one.
+old one, and once I had it working, there was certainly no point in going back!
 
 ### Hardware
 
@@ -89,22 +90,31 @@ old one.
 ### Software
 
 - The Raspberry Pi is running Raspbian (Debian distributed for the Raspberry
-  Pi). The external hard drives are a RAID1 with BTRFS. If I were doing it from
-  scratch, I would investigate ZFS, but I've been migrating this same data over
-  different drives and home servers since ZFS was essentially totally
-  experimental on linux, and on linux, for RAID1, BTRFS seems totally stable.
-  The point is, you should use an advanced file system in RAID1 (on ZFS you
-  could go higher, but I prefer simplicity and the power consumption of having
-  just two drives) that can detect&correct errors, lets you swap in new drives
-  and migrate out old ones, migrate to larger drives, etc. This is essentially
-  the feature-set that both ZFS and BTRFS have, but the former is considered to
-  be more stable and the latter has been in linux for longer.
+  Pi). This seems to be the best supported linux distribution, and I've used
+  Debian on servers & desktops for maybe 10 years now, so it's a no-brainer. The
+  external hard drives are a RAID1 with BTRFS. If I were doing it from scratch,
+  I would look into ZFS, but I've been migrating this same data over different
+  drives and home servers (on the same file system) since ZFS was essentially
+  totally experimental on linux, and on linux, for RAID1, BTRFS seems totally
+  stable (people do not say the same thing about RAID5/6). 
+  
+    The point is, you should use an advanced file system in RAID1 (on ZFS you
+    could go higher, but I prefer simplicity and the power consumption of having
+    just two drives, and can afford to pay for the wasted drive space) that can
+    detect&correct errors, lets you swap in new drives and migrate out old ones,
+    migrate to larger drives, etc. This is essentially the feature-set that both
+    ZFS and BTRFS have, but the former is considered to be more stable and the
+    latter has been in linux for longer.
+
 - For backups, I'm using [Duplicacy](https://github.com/gilbertchen/duplicacy),
-  which is annoyingly similarly named
-  to a much older backup tool called [Duplicity](http://duplicity.nongnu.org/). It's also
-  annoyingly _not_ free software, but for personal use, the command-line version
-  (which is the only version that I would be using) _is_ free. I actually settled
-  on this after trying and failing to use (actually open-source) competitors: 
+  which is annoyingly similarly named to a much older backup tool
+  called [Duplicity](http://duplicity.nongnu.org/) (there also seems to be
+  another tool called [Duplicati](https://github.com/duplicati/duplicati), which
+  I haven't tried. Couldn't backup tools get more creative? How about calling a
+  tool "albatross"?). It's also annoyingly _not_ free software, but for personal
+  use, the command-line version (which is the only version that I would be
+  using) _is_ free-as-in-beer. I actually settled on this after trying and
+  failing to use (actually open-source) competitors:
 
     First, I tried the aforementioned [Duplicity](http://duplicity.nongnu.org/)
     (using its friendly frontend [duply](http://duply.net/)). I actually was
@@ -118,12 +128,12 @@ old one.
     _shouldn't_ be acceptable for backup software, but...)
   
     I next tried a newer option, [restic](https://github.com/restic/restic).
-    This also had the same problem, though it wasn't even able to make a backup
-    (though that was probably a good thing, as I wasted less time!). They are
-    aware of it (see,
-    e.g., [this issue](https://github.com/restic/restic/issues/450), so maybe at
-    some point it'll be an option, but that issue is almost two years old so ho
-    hum...).
+    This has a more efficient backup format, but also had the same problem of
+    running out of memory, though it wasn't even able to make a backup (though
+    that was probably a good thing, as I wasted less time!). They are aware of
+    it (see, e.g., [this issue](https://github.com/restic/restic/issues/450), so
+    maybe at some point it'll be an option, but that issue is almost two years
+    old so ho hum...).
   
     So finally I went with the bizarrely sort-of-but-not-really open-source
     option, Duplicacy. I found other people talking about running it on a
@@ -134,11 +144,12 @@ old one.
     hover below 60%, which leaves a very healthy buffer for anything else that's
     going on (or periodic little jumps), and regardless, more threads don't seem
     to get it to work faster. The documentation on how to use the command-line
-    version is a little sparse, but once I figured out that to configure it to
-    connect automatically to my B2 account I needed a file
-    `.duplicacy/preferences` that looked like (see `keys` section; the rest will
-    probably be written out for you if you run `duplicacy` first; alternatively,
-    just put this file in place and everything will be set up):
+    version is a little sparse (there is a GUI version that costs money), but
+    once I figured out that to configure it to connect automatically to my B2
+    account I needed a file `.duplicacy/preferences` that looked like (see
+    `keys` section; the rest will probably be written out for you if you run
+    `duplicacy` first; alternatively, just put this file in place and everything
+    will be set up):
   
     ```
     [
@@ -163,41 +174,53 @@ old one.
     initial backup is quite slow. The Raspberry Pi 3 processor is certainly much
     faster than previous Raspberry Pis, and fast enough for this purpose, but it
     definitely still has to work hard! And my residential cable upstream is not
-    all that impressive. A couple days later though, the initial backup completed).
+    all that impressive. After a couple days though, the initial backup will
+    complete!).
     
     Periodic backups run with the same command, and intermediate ones can be
     pruned away as well (I use `duplicacy prune -keep 30:180 -keep 7:30 -keep
     1:1`, run after my daily backup, to keep monthly backups beyond 6 months,
     weekly beyond 1 month, and daily below that. I have a cron job that runs the
     backup daily, so the last is not strictly necessary, but if I do manual
-    backups it'll clean them up over time). To restore from total loss of the
-    Pi, you just need to put the config file above into `.duplicacy/preferences`
-    relative to the current directory and you can run `duplicacy restore`. You
-    can also grab individual files (which I tested on a different machine; I
-    haven't tested restoring a full backup) by creating the above mentioned file
-    and then running `duplicacy list -files -r N` (where N is the snapshot you
-    want to get the file from; run `duplicacy list` to find which one you want)
-    and then to get a file `duplicacy cat -r N path/to/file > where/to/put/it`.
+    backups it'll clean them up over time. Since I pretty much never delete
+    files that are put into this archive, pruning isn't really about saving
+    space, as barring some error on the server the latest backup should contain
+    every file, but it is nice to have the list of snapshots be more
+    manageable). 
+    
+    To restore from total loss of the Pi, you just need to put the config file
+    above into `.duplicacy/preferences` relative to the current directory on any
+    machine and you can run `duplicacy restore`. You can also grab individual
+    files (which I tested on a different machine; I haven't tested restoring a
+    full backup) by creating the above mentioned file and then running
+    `duplicacy list -files -r N` (where N is the snapshot you want to get the
+    file from; run `duplicacy list` to find which one you want) and then to get
+    a file `duplicacy cat -r N path/to/file > where/to/put/it`.
 
-- I'm still working out how to detect errors in the hard drives. I can see them
-  manually by running `sudo btrfs device stats /mntpoint`. When this shows that
-  a drive is failing (i.e., lots of errors), add a new drive to the spare
-  enclosure, format it, and then run `sudo btrfs replace start -f N /dev/sdX
-  /mntpoint` where N is the number of the device that is failing (when you run
-  `sudo btrfs fi show /mntpoint`) and `/dev/sdX` is the new drive. To check for
-  and correct errors in the file system (not the underlying drive), run `sudo
-  btrfs scrub start /mntpoint`. This will run in the background; if you care you
-  can check the status with `sudo btrfs scrub status /mntpoint`.
+- I'm still working out how to detect errors in the hard drives automatically. I
+  can see them manually by running `sudo btrfs device stats /mntpoint` (which I
+  do periodically). When this shows that a drive is failing (i.e., read/write
+  errors), add a new drive to the spare enclosure, format it, and then run `sudo
+  btrfs replace start -f N /dev/sdX /mntpoint` where N is the number of the
+  device that is failing (when you run `sudo btrfs fi show /mntpoint`) and
+  `/dev/sdX` is the new drive. To check for and correct errors in the file
+  system (not the underlying drive), run `sudo btrfs scrub start /mntpoint`.
+  This will run in the background; if you care you can check the status with
+  `sudo btrfs scrub status /mntpoint`. Based on recommendations, I have the
+  scrub process run monthly via a cron job.
 
 - If you want to expand the capacity of the disks, replace the drives as if they
   failed (see previous bullet) and then run `sudo btrfs fi resize N:max
   /mntpoint` for each `N` (run `sudo btrfs fi show` to see what your dev ids
   are). When you replace them, they stay at the same capacity -- this resize
-  expands the filesystem to the full device.
-- For tech people (i.e., who are comfortable with `scp`), this is enough -- just
-  get files onto the server, into the right directory, and it'll be all set. For
-  less tech-savvy people, you can install samba on the raspberry pi and then set
-  up a share like the following (put this at the bottom of
+  expands the filesystem to the full device. As I mentioned earlier, I did this
+  to replace 1TB WD Green drives with 2TB WD Red drives (so I replaced one, then
+  the next, then did the resize on both).
+  
+- For tech people (i.e., who are comfortable with `scp`), this setup is enough
+  -- just get files onto the server, into the right directory, and it'll be all
+  set. For less tech-savvy people, you can install samba on the raspberry pi and
+  then set up a share like the following (put this at the bottom of
   `/etc/samba/smb.conf`):
   
     ```
@@ -216,11 +239,11 @@ old one.
     
     Then set `pi`s password with `sudo smbpasswd -i pi`. Now restart the service
     with `sudo /etc/init.d/sambda restart` and then from a mac (and probably
-    windows) you can connect to the pi with the "Connect to Server"
-    interface, connect as the `pi` user with the password you set, and see the
-    share. Note that to be able to make changes, the `/mntpoint` (and what's in
-    it) needs to be writeable by the `pi` user. You can also use a different
-    user, set up samba differently, etc.
+    windows; not sure how as I don't have any in my house) you can connect to
+    the pi with the "Connect to Server" interface, connect as the `pi` user with
+    the password you set, and see the share. Note that to be able to make
+    changes, the `/mntpoint` (and what's in it) needs to be writeable by the
+    `pi` user. You can also use a different user, set up samba differently, etc.
 
 ### Summary
 
@@ -229,7 +252,7 @@ The system described above runs 24/7 in my home. It cost $325 in hardware
 drives rather than Red ones you can cut $65 -- i.e., $260 total), $1/month in
 electricity (I haven't measured this carefully, but that's what 10W costs where I
 live) and currently costs about $3/month in cloud storage, though that will go
-up over time, so to be more fair let's say $5/month. Assuming no hard drive
+up over time, so to be more fair let's say $5/month. Assuming no hardware
 replacements for three years (which is the warrantee on the hard drives I have,
 so a decent estimate), the total cost over that time is $325 + $54 + $170 =
 $549, or around $180 per year, which is squarely in the range that I wanted.
