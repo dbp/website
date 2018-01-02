@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack --resolver lts-8.22 --install-ghc runghc --package hakyll
+-- stack --resolver lts-8.22 --install-ghc runghc -j1 --package hakyll
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
