@@ -110,11 +110,11 @@ old one, and once I had it working, there was certainly no point in going back!
   which is annoyingly similarly named to a much older backup tool
   called [Duplicity](http://duplicity.nongnu.org/) (there also seems to be
   another tool called [Duplicati](https://github.com/duplicati/duplicati), which
-  I haven't tried. Couldn't backup tools get more creative? How about calling a
-  tool "albatross"?). It's also annoyingly _not_ free software, but for personal
-  use, the command-line version (which is the only version that I would be
-  using) _is_ free-as-in-beer. I actually settled on this after trying and
-  failing to use (actually open-source) competitors:
+  I haven't tried. Couldn't backup tools get more creative with names? How about
+  calling a tool "albatross"?). It's also annoyingly _not_ free software, but
+  for personal use, the command-line version (which is the only version that I
+  would be using) _is_ free-as-in-beer. I actually settled on this after trying
+  and failing to use (actually open-source) competitors:
 
     First, I tried the aforementioned [Duplicity](http://duplicity.nongnu.org/)
     (using its friendly frontend [duply](http://duply.net/)). I actually was
