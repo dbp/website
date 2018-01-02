@@ -43,6 +43,13 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 **Types and Testing in Haskell.**
 <div class="desc">New York Haskell Meetup November 2014. [slides](/talks/2014/types-testing-haskell-meetup.pdf) and [video](https://www.youtube.com/watch?v=8_gjqN-VqeM).</div>
 
+### Blog
+
+- [(Cheap) home backups](/essays/2018-01-01-home-backups.html) - January 1, 2018
+- [Why test in Haskell?](/essays/2014-10-05-why-test-in-haskell.html) - October 5, 2014
+- [A Hacker's Replacement for GMail](/essays/2013-06-29-hackers-replacement-for-gmail.html) - June 29, 2013
+- [Programming as Literature](/essays/2012-10-24-programming-literature.html) - October 24, 2012
+
 ### Resume
 
 A current resume is available in [PDF form](/static/resume.pdf).
