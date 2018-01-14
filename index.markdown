@@ -11,7 +11,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 [**FunTAL: Reasonably Mixing a Functional Language with Assembly.**](/pubs/2017/funtal.pdf)
 <div class="desc">Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed. <br/>_PLDI 2017_. [PDF](/pubs/2017/funtal.pdf) and [appendix](/pubs/2017/funtal-tr.pdf).</div>
 
-[**Linking Types for Multi-Language Software: Have Your Cake and Eat It Too.**](/pubs/2017/linking-types.pdf) 
+[**Linking Types for Multi-Language Software: Have Your Cake and Eat It Too.**](/pubs/2017/linking-types.pdf)
 <div class="desc">Daniel Patteron and Amal Ahmed. <br/>_SNAPL 2017_. [PDF](/pubs/2017/linking-types.pdf).</div>
 
 [**Linking Types: Specifying Safe Interoperability and Equivalences.**](/pubs/2016/linking-types-poplsrc2017-proposal.pdf)
@@ -24,6 +24,9 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 <div class="desc">Joe Gibbs Politz, Alejandro Martinez, Matthew Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. <br/>_OOPSLA 2013_. [PDF](/pubs/2013/lambda-py-oopsla.pdf), [appendix](/pubs/2013/lambda-py-appendix-oopsla.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).</div>
 
 ### Talks
+
+**On Compositional Compiler Correctness and Fully Abstract Compilation.**
+<div class="desc">Principles of Secure Compilation at _POPL 2017_. [slides](/talks/2018/ccc-prisc.pdf) (no video).</div>
 
 **FunTAL: Reasonably Mixing a Functional Language with Assembly.**
 <div class="desc">_PLDI 2017_. [slides](/talks/2017/funtal-pldi.pdf) and [video](https://www.youtube.com/watch?v=5Py0l7CfQTo&index=25&list=PLMTm6Ln7vQZZv6sQ0I4R7iaIjvSVhHXod).</div>
