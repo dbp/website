@@ -3,17 +3,18 @@ title: How to prove a complier correct
 author: Daniel Patterson
 ---
 
-At POPL'18 (Principles of Programming Languages) last week, I ended up in a
-conversation with someone who was talking about a very interesting DSL (domain
-specific language) they are working on. In particular, we were talking about
-software engineering, and the work that she was doing to test it and increase
-her confidence that the implementation was correct! The topic of how exactly one
-goes about proving a compiler correct came up, and I realized that I couldn't
-think of a high-level (but _concrete_) overview of what that might look like.
-Also, like many compilers, hers is implemented in Haskell, so it seemed like a
-good opportunity to try out the really cool work presented at the colocated
-conference CPP'18 (Certified Programs and Proofs) titled ["Total Haskell is
-Reasonable Coq" by Spector-Zabusky, Breitner, Rizkallah, and
+At POPL'18 (Principles of Programming Languages) last week, I ended up talking
+to [Annie Cherkaev](https://anniecherkaev.com) about her really cool DSL (domain
+specific language) [SweetPea](https://github.com/anniecherk/sweetpea), which is
+a "SAT-Sampler aided language for experimental design". In particular, we were
+talking about software engineering, and the work that Annie was doing to test
+SweetPea and increase her confidence that the implementation was correct! The
+topic of how exactly one goes about proving a compiler correct came up, and I
+realized that I couldn't think of a high-level (but _concrete_) overview of what
+that might look like. Also, like many compilers, hers is implemented in Haskell,
+so it seemed like a good opportunity to try out the really cool work presented
+at the colocated conference CPP'18 (Certified Programs and Proofs) titled
+["Total Haskell is Reasonable Coq" by Spector-Zabusky, Breitner, Rizkallah, and
 Weirich](https://arxiv.org/A's/1711.09286). They have a tool (`hs-to-coq`) that
 extracts Coq definitions from (certain) terminating Haskell programs (of which
 at least small compilers hopefully qualify).
