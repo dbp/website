@@ -227,7 +227,7 @@ Theorem compiler_correctness : forall a : Arith,
   eval nil (compile a) = Data.Either.Right (eval' a).
 ```
 
-I'm going to sketch out how this proof went. Proving stuff is complex, but this
+I'm going to sketch out how this proof went. Proving stuff can be complex, but this
 maybe gives a sense of some of the thinking that goes into it. To go further,
 you probably want to take a course if you can find one, or follow a book like:
 
@@ -255,7 +255,7 @@ Which, if we look at it for a little while, we realize two things:
 
 1. Our induction hypotheses really aren't going to work, intuitively because of
    the `Either` --- our program won't produce `Right` results for the subtrees,
-   so there probably won't be a way to rely on that fact.
+   so there probably won't be a way to rely on these hypotheses.
 2. On the other hand, what does look like a Lemma we should be able to prove has
    to do with evaluating a partial program. Rather than trying to induct on the
    entire statement, we instead try to prove that `eval`ing a `compile`d term

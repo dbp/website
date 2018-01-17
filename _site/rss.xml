@@ -82,7 +82,7 @@ eval&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> (eval&
 <p>And we can re-run <code>hs-to-coq</code> to get it added to our Coq development. We can now formally state the theorem we want to prove as:</p>
 <pre><code>Theorem compiler_correctness : forall a : Arith, 
   eval nil (compile a) = Data.Either.Right (eval&#39; a).</code></pre>
-<p>I’m going to sketch out how this proof went. Proving stuff is complex, but this maybe gives a sense of some of the thinking that goes into it. To go further, you probably want to take a course if you can find one, or follow a book like:</p>
+<p>I’m going to sketch out how this proof went. Proving stuff can be complex, but this maybe gives a sense of some of the thinking that goes into it. To go further, you probably want to take a course if you can find one, or follow a book like:</p>
 <ul>
 <li>Bertot and Casteron’s <a href="https://archive.org/details/springer_10.1007-978-3-662-07964-5">Coq’Art: Interactive Theorem Proving and Program Development</a>.</li>
 <li>Adam Chlipala’s <a href="http://adam.chlipala.net/cpdt/">Certified Programming with Dependent Types</a></li>
@@ -97,7 +97,7 @@ IHa2 : eval nil (compile a2) = Either.Right (eval&#39; a2)
 eval nil (compile a1 ++ compile a2 ++ SPlus :: nil) = Either.Right (eval&#39; a1 + eval&#39; a2)%Z</code></pre>
 <p>Which, if we look at it for a little while, we realize two things:</p>
 <ol style="list-style-type: decimal">
-<li>Our induction hypotheses really aren’t going to work, intuitively because of the <code>Either</code> — our program won’t produce <code>Right</code> results for the subtrees, so there probably won’t be a way to rely on that fact.</li>
+<li>Our induction hypotheses really aren’t going to work, intuitively because of the <code>Either</code> — our program won’t produce <code>Right</code> results for the subtrees, so there probably won’t be a way to rely on these hypotheses.</li>
 <li>On the other hand, what does look like a Lemma we should be able to prove has to do with evaluating a partial program. Rather than trying to induct on the entire statement, we instead try to prove that <code>eval</code>ing a <code>compile</code>d term will result in the <code>eval'</code>d term on the top of the stack. This is an instance of a more general pattern – that often the toplevel statement that you want has too much specificity, and you need to instead prove something that is more general and then use it for the specific case. So here’s the Lemma we want to prove:</li>
 </ol>
 <pre><code>Lemma eval_step : forall a : Arith, forall xs : list StackOp, 
