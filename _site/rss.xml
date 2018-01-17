@@ -7,8 +7,201 @@
         <description><![CDATA[writing on programming etc by daniel patterson]]></description>
         <atom:link href="http://dbp.io/rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Mon, 01 Jan 2018 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Jan 2018 00:00:00 UT</lastBuildDate>
         <item>
+    <title>How to prove a complier correct</title>
+    <link>http://dbp.io/essays/2018-01-16-how-to-prove-a-compiler-correct.html</link>
+    <description><![CDATA[<h2>How to prove a complier correct</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>January 16, 2018</strong></p>
+
+<p>At POPL’18 (Principles of Programming Languages) last week, I ended up in a conversation with someone who was talking about a very interesting DSL (domain specific language) they are working on. In particular, we were talking about software engineering, and the work that she was doing to test it and increase her confidence that the implementation was correct! The topic of proving the compiler correct came up, and I realized that I couldn’t think of a high-level (but <em>concrete</em>) overview of what that might look like. Also, like many compilers, hers was implemented in Haskell, so it seemed like a good opportunity to show the really cool work presented at the colocated conference CPP’18 (Certified Programs and Proofs) titled <a href="https://arxiv.org/A&#39;s/1711.09286">“Total Haskell is Reasonable Coq” by Spector-Zabusky, Breitner, Rizkallah, and Weirich</a>. They have a tool (<code>hs-to-coq</code>) that extracts Coq definitions from (certain) terminating Haskell programs (of which at least small compilers hopefully qualify).</p>
+<p>The intention of this post is twofold:</p>
+<ol style="list-style-type: decimal">
+<li>Show how to take a compiler (albeit a tiny one) that was built with no intention of verifying it and after the fact prove it correct. Part of the ability to do this in such a seamless way is the wonderful <code>hs-to-coq</code> tool mentioned above, though there is no reason in principle you couldn’t carry out this translation manually (in practice maintenance becomes an issue, hence realistic verified compilers relying on <em>extracting</em> programs out of theorem provers like Coq).</li>
+<li>Give a much more concrete sense of what exactly you need to show when you are proving a compiler correct. By necessity, this is a very simplified scenario without a lot of the subtleties that appear in real verification efforts (e.g., undefined behavior, multiple compiler passes, linking with code after compilation, etc). On the other hand, even this simplified scenario could cover many cases of DSLs, and understanding the subtleties that come up is much easier once you understand the basic case!</li>
+</ol>
+<blockquote>
+<p>All the code for this post is in the repository <a href="https://github.com/dbp/compcorrect" class="uri">https://github.com/dbp/compcorrect</a>.</p>
+</blockquote>
+<h3 id="dsl-compiler">DSL &amp; Compiler</h3>
+<p>To make this simple, my source language is arithmetic expressions with adding and multiplication. I represent this as an explicit data structure in Haskell:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">Arith</span> <span class="fu">=</span> <span class="dt">Num</span> <span class="dt">Int</span>
+           <span class="fu">|</span> <span class="dt">Plus</span> <span class="dt">Arith</span> <span class="dt">Arith</span>
+           <span class="fu">|</span> <span class="dt">Times</span> <span class="dt">Arith</span> <span class="dt">Arith</span></code></pre></div>
+<p>And a program is an <code>Arith</code>. For example, the source expression “1 + (2 * 4)” is represented as <code>Plus 1 (Times 2 4)</code>. The target of this is a sequence of instructions for a stack machine. The idea of the stack machine is that there is a stack of values that can be used by instructions. The target language expressions are:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">StackOp</span> <span class="fu">=</span> <span class="dt">SNum</span> <span class="dt">Int</span>
+             <span class="fu">|</span> <span class="dt">SPlus</span>
+             <span class="fu">|</span> <span class="dt">STimes</span>
+             <span class="kw">deriving</span> <span class="dt">Show</span></code></pre></div>
+<p>And a program is a <code>[StackOp]</code>. For example, the previous example “1 + (2 * 4)” could be represented as <code>[SNum 1, SNum 2, SNum 4, STimes, SPlus]</code>. The idea is that a number evaluates to pushing it onto the stack and plus/times evaluate by popping two numbers off the stack and pushing the sum/product respectively back on. But we can make this concrete by writing an <code>eval</code> function that takes an initial stack (which will probably be empty), a program, and either produces an integer (the top of the stack after all the instructions run) or an error (which, for debugging sake, is the state of the stack and rest of the program when it got stuck).</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">eval ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>] <span class="ot">-&gt;</span> <span class="dt">Either</span> ([<span class="dt">Int</span>], [<span class="dt">StackOp</span>]) <span class="dt">Int</span>
+eval (n<span class="fu">:</span>_) []               <span class="fu">=</span> <span class="dt">Right</span> n
+eval ns (<span class="dt">SNum</span> n<span class="fu">:</span>xs)         <span class="fu">=</span> eval (n<span class="fu">:</span>ns) xs
+eval (n2<span class="fu">:</span>n1<span class="fu">:</span>ns) (<span class="dt">SPlus</span><span class="fu">:</span>xs)  <span class="fu">=</span> eval (n1<span class="fu">+</span>n2<span class="fu">:</span>ns) xs
+eval (n2<span class="fu">:</span>n1<span class="fu">:</span>ns) (<span class="dt">STimes</span><span class="fu">:</span>xs) <span class="fu">=</span> eval (n1<span class="fu">*</span>n2<span class="fu">:</span>ns) xs
+eval vals instrs            <span class="fu">=</span> <span class="dt">Left</span> (vals, instrs)</code></pre></div>
+<p>Now that we have our source and target language, and know how the target works, we can implement our compiler. Part of why this is a good small example is that the compiler is very simple!</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">compile ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
+compile (<span class="dt">Num</span> n) <span class="fu">=</span> <span class="dt">SNum</span> n
+compile (<span class="dt">Plus</span> a1 a2) <span class="fu">=</span> compile a1 <span class="fu">++</span> compile a2 <span class="fu">++</span> <span class="dt">SPlus</span>
+compile (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> compile a1 <span class="fu">++</span> compile a2 <span class="fu">++</span> <span class="dt">STimes</span></code></pre></div>
+<p>The cases for plus/times are the cases that are slightly non-obvious, because they can contain further recursive expressions, but if you think about what the <code>eval</code> function is doing, once the stack machine <em>finishes</em> evaluating everything that <code>a1</code> compiled to, the number that the left branch evaluated to should be on the top of the stack. Then once it finishes evaluating what <code>a2</code> compiles to the number that the right branch evaluated to should be on the top of the stack. This means that evaluating <code>SPlus</code> or <code>STimes</code> will put the sum/product on the top of the stack, as expected. That’s a pretty informal argument about correctness, but we’ll have a chance to get a <em>lot</em> more formal later.</p>
+<h2 id="formalizing">Formalizing</h2>
+<p>Now that we have a Haskell compiler, we want to prove it correct! So what do we do? First, we want to convert this to Coq using the <a href="https://github.com/antalsz/hs-to-coq">hs-to-coq</a> tool. If you follow the instructions there and then run the tool on the file containing the above code you will get a Coq (.v) source file. You can then evaluate it using a Coq interactive mode (I use Proof General within Emacs using Company Coq).</p>
+<p>Side note: this example is so tiny we haven’t run into something that <em>will</em> be really common: imagine instead of the compile function above, we instead wanted to take <code>[Arith]</code>. This would still work, and would result in the list of results stored on the stack (so probably you would want to change <code>eval</code> to print everything that was on the stack at the end, not just the top). If you wrote this <code>compile</code>:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">compile ::</span> [<span class="dt">Arith</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
+compile [] <span class="fu">=</span> []
+compile (<span class="dt">Num</span> n<span class="fu">:</span>xs) <span class="fu">=</span> <span class="dt">SNum</span> n <span class="fu">:</span> compile xs
+compile (<span class="dt">Plus</span> a1 a2<span class="fu">:</span>xs) <span class="fu">=</span> compile [a1] <span class="fu">++</span> compile [a2] <span class="fu">++</span> <span class="dt">SPlus</span> <span class="fu">:</span> compile xs
+compile (<span class="dt">Times</span> a1 a2<span class="fu">:</span>xs) <span class="fu">=</span> compile [a1] <span class="fu">++</span> compile [a2] <span class="fu">++</span> <span class="dt">STimes</span> <span class="fu">:</span> compile xs</code></pre></div>
+<p>You would get an error! It says that the compile function is not terminating!</p>
+<p>This is good introduction into a (major) difference between Haskell and Coq: in Haskell, any term can run forever. For a programming language, this is an inconvenience, as you can end up with code that is perhaps difficult to debug if you didn’t want it to (it’s also useful if you happen to be writing a server that is supposed to run forever!). For a language intended to be used to <em>prove</em> things, this feature would be a non-starter, as it would make the logic unsound. The issue is that in Coq, (at a high level), a type is a theorem and the term that inhabits the type is a proof of that theorem. But in Haskell, you can write:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">anything ::</span> a
+anything <span class="fu">=</span> anything</code></pre></div>
+<p>i.e., for any type, you can provide a term with that type — that is, the term that simply never returns. If that were possible in Coq, you could prove any theorem, and the entire logic would be useless (or unsound, which technically means you can prove logical falsehood, but since falsehood allows you to prove anything, it’s the same thing).</p>
+<p>Returning to this (only slightly contrived) program, it isn’t actually that our program runs forever (and if you do want to prove things about programs that do, you’ll need to do much more work!), just that Coq can’t tell that it doesn’t. In general, it’s not possible to tell this for sufficiently powerful languages (this is what the Halting problem says for Turing machines, and thus holds for anything with similar expressivity). What Coq relies on is that some argument is inductively defined (which we have: both lists and <code>Arith</code> expressions) and that all recursive calls are to <em>structurally smaller</em> parts of the arguments. If that holds, we are guaranteed to terminate, as inductive types cannot be infinite (note: unlike Haskell, Coq is <em>not</em> lazy, which is another difference, but we’ll ignore that). If we look at our recursive call, we called <code>compile</code> with <code>[a1]</code>. While <code>a1</code> is structurally smaller, we put that inside a list and used that instead, which thus violates what Coq was expecting.</p>
+<p>There are various ways around this (like adding another argument whose purpose is to track termination, or adding more sophisticated measurements), but there is another option: adding a helper function <code>compile'</code> that does what our original <code>compile</code> did: compiles a single <code>Arith</code>. The intuition that leads to trying this is that in this new <code>compile</code> we are decreasing on both the length of the list and the structure of the <code>Arith</code>, but we are trying to do both at the same time. By separating things out, we eliminate the issue:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">compile ::</span> [<span class="dt">Arith</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
+compile []     <span class="fu">=</span> []
+compile (x<span class="fu">:</span>xs) <span class="fu">=</span> compile&#39; x <span class="fu">++</span> compile xs
+
+<span class="ot">compile&#39; ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
+compile&#39; (<span class="dt">Num</span> n)       <span class="fu">=</span> [<span class="dt">SNum</span> n]
+compile&#39; (<span class="dt">Plus</span> a1 a2)  <span class="fu">=</span> compile&#39; a1 <span class="fu">++</span> compile&#39; a2 <span class="fu">++</span> [<span class="dt">SPlus</span>]
+compile&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> compile&#39; a1 <span class="fu">++</span> compile&#39; a2 <span class="fu">++</span> [<span class="dt">STimes</span>]</code></pre></div>
+<h2 id="proving-things">Proving things</h2>
+<p>We now have a Coq version of our compiler, complete with our evaluation function. So we should be able to write down a theorem that we would like to prove. What should the theorem say? Well, there are various things you could prove, but the most basic theorem in compiler correctness says essentially that running the source program and the target program “do the same thing”. This is often stated as “semantics preservation” and is often formally proven by way of a backwards simulation: whatever the target program does, the source program also should do. In languages with ambiguity (nondeterminism, undefined behavior), this becomes much more complicated, but in our setting, we would state it as:</p>
+<blockquote>
+<p>Theorem. For all source arith expressions <code>A</code>, if <code>eval [] (compile A)</code> produces integer <code>N</code> then evaluating <code>A</code> should produce the same number <code>N</code>.</p>
+</blockquote>
+<p>The issue that’s immediately apparent is that we don’t actually have a way of directly evaluating the source expression. So we should add this function to our Haskell source. In a non-trivial DSL, this may be a significant part of the formalization process, but it is also incredibly important, because this is the part where you are actually specifying exactly what the source DSL means (otherwise, the only “meaning” it has is whatever the compiler happens to do). We can write this function as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">
+<span class="ot">eval&#39; ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+eval&#39; (<span class="dt">Num</span> n) <span class="fu">=</span> n
+eval&#39; (<span class="dt">Plus</span> a1 a2) <span class="fu">=</span> (eval&#39; a1) <span class="fu">+</span> (eval&#39; a2)
+eval&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> (eval&#39; a1) <span class="fu">*</span> (eval&#39; a2)</code></pre></div>
+<p>And we can re-run <code>hs-to-coq</code> to get it added to our Coq development. We can now formally state the theorem we want to prove as:</p>
+<pre><code>Theorem compiler_correctness : forall a : Arith, 
+  eval nil (compile a) = Data.Either.Right (eval&#39; a).</code></pre>
+<p>I’m going to sketch out how this proof went. Proving stuff is complex, but this maybe gives a sense of some of the thinking that goes into it. To go further, you probably want to take a course if you can find one, or follow a book like:</p>
+<ul>
+<li>Bertot and Casteron’s <a href="https://archive.org/details/springer_10.1007-978-3-662-07964-5">Coq’Art: Interactive Theorem Proving and Program Development</a>.</li>
+<li>Adam Chlipala’s <a href="http://adam.chlipala.net/cpdt/">Certified Programming with Dependent Types</a></li>
+<li>Pierce et. al.’s <a href="https://softwarefoundations.cis.upenn.edu/">Software Foundations</a></li>
+</ul>
+<p>If you were to prove this on paper, you would proceed by induction on the structure of the arithmetic expression, so let’s start that way. The base case goes away trivially and we can expand the case for plus using:</p>
+<pre><code>induction a; iauto; simpl.</code></pre>
+<p>We see:</p>
+<pre><code>IHa1 : eval nil (compile a1) = Either.Right (eval&#39; a1)
+IHa2 : eval nil (compile a2) = Either.Right (eval&#39; a2)
+============================
+eval nil (compile a1 ++ compile a2 ++ SPlus :: nil) = Either.Right (eval&#39; a1 + eval&#39; a2)%Z</code></pre>
+<p>Which, if we look at it for a little while, we realize two things:</p>
+<ol style="list-style-type: decimal">
+<li>Our induction hypotheses really aren’t going to work, intuitively because of the <code>Either</code> — our program won’t produce <code>Right</code> results for the subtrees, so there probably won’t be a way to rely on that fact.</li>
+<li>On the other hand, what does look like a Lemma we should be able to prove has to do with evaluating a partial program. Rather than trying to induct on the entire statement, we instead try to prove that <code>eval</code>ing a <code>compile</code>d term will result in the <code>eval'</code>d term on the top of the stack. This is an instance of a more general pattern – that often the toplevel statement that you want has too much specificity, and you need to instead prove something that is more general and then use it for the specific case. So here’s the Lemma we want to prove:</li>
+</ol>
+<pre><code>Lemma eval_step : forall a : Arith, forall xs : list StackOp, 
+        eval nil (compile a ++ xs) = eval (eval&#39; a :: nil) xs.</code></pre>
+<p>This is more general, and again we start by inducting on <code>a</code>, expanding and eliminating the base case:</p>
+<pre><code>induction a; intros; simpl; iauto.</code></pre>
+<p>We now end up with <em>better</em> inductive hypotheses:</p>
+<pre><code>  IHa1 : forall xs : list StackOp, eval nil (compile a1 ++ xs) = eval (eval&#39; a1 :: nil) xs
+  IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval&#39; a2 :: nil) xs
+  ============================
+  eval nil ((compile a1 ++ compile a2 ++ SPlus :: nil) ++ xs) =
+  eval ((eval&#39; a1 + eval&#39; a2)%Z :: nil) xs</code></pre>
+<p>We need to reshuffle the list associativity and then we can rewrite using the first hypotheses:</p>
+<pre><code>rewrite List.app_assoc_reverse. rewrite IHa1.</code></pre>
+<p>But now there is a problem (this is <em>common</em>, hence going over it!). We want to use our second hypothesis. Once we do that, we can reduce based on the definition of <code>eval</code> and we’ll be done (with this case, but multiplication is the same). The issue is that <code>IHa2</code> needs the stack to be empty, and the stack we have is <code>eval' a1 :: nil</code>, so it can’t be used:</p>
+<pre><code>  IHa1 : forall xs : list StackOp, eval nil (compile a1 ++ xs) = eval (eval&#39; a1 :: nil) xs
+  IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval&#39; a2 :: nil) xs
+  ============================
+  eval (eval&#39; a1 :: nil) ((compile a2 ++ SPlus :: nil) ++ xs) =
+  eval ((eval&#39; a1 + eval&#39; a2)%Z :: nil) xs</code></pre>
+<p>The solution is to go back to what our Lemma statement said and generalize it to arbitrary stacks, so that the inductive hypotheses are correspondingly stronger:</p>
+<pre><code>Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp, 
+        eval s (compile a ++ xs) = eval (eval&#39; a :: s) xs.</code></pre>
+<p>Now if we start the proof in the same way:</p>
+<pre><code>induction a; intros; simpl; iauto.</code></pre>
+<p>We run into an odd problem. We have a silly obligation:</p>
+<pre><code>  match s with
+  | nil =&gt; eval (i :: s) xs
+  | (_ :: nil)%list =&gt; eval (i :: s) xs
+  | (_ :: _ :: _)%list =&gt; eval (i :: s) xs
+  end = eval (i :: s) xs</code></pre>
+<p>Which will go away once we break apart the list <code>s</code> and simplify (if you look carefully, it has the same thing in all three branches of the match). There are a couple approaches to this:</p>
+<ol style="list-style-type: decimal">
+<li>We could just do it manually: <code>destruct s; simpl; eauto; destruct s; simpl;    eauto</code>. But it shows up multiple times in the proof, and that’s a mess and someone reading the proof script may be confused what is going on.</li>
+<li><p>We could write a tactic for the same thing:</p>
+<pre><code>try match goal with
+     |[l : list _ |- _ ] =&gt; solve [destruct l; simpl; eauto; destruct l; simpl; eauto]
+    end.</code></pre>
+This has the advantage that it doesn’t depend on the name, you can call it whenever (it won’t do anything if it isn’t able to discharge the goal), but where to call it is still somewhat messy (as it’ll be in the middle of the proofs). We could hint using this tactic (using <code>Hint Extern</code>) to have it handled automatically, but I generally dislike adding global hints for tactics (unless there is a very good reason!), as it can slow things down and make understanding why proofs worked more difficult.</li>
+<li><p>We can also write lemmas for these. There are actually two that come up, and both are solved trivially:</p>
+<pre><code>Lemma list_pointless_split : forall A B:Type, forall l : list A, forall x : B,
+    match l with | nil =&gt; x | (_ :: _)%list =&gt; x end = x.
+Proof.
+  destruct l; eauto.
+Qed.
+Lemma list_pointless_split&#39; : forall A B:Type, forall l : list A, forall x : B,
+        match l with | nil =&gt; x | (_ :: nil)%list =&gt; x | (_ :: _ :: _)%list =&gt; x end = x.
+Proof.
+  destruct l; intros; eauto. destruct l; eauto.
+Qed.</code></pre>
+<p>In this style, we can then hint using these lemmas locally to where they are needed.</p></li>
+</ol>
+<p>Now we know the proof should follow from list associativity, this pointless list splitting, and the inductive hypotheses. We can write this down formally (this relies on the <code>literatecoq</code> library, which is just a few tactics at this point) as:</p>
+<pre><code>Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp, 
+        eval s (compile a ++ xs) = eval (eval&#39; a :: s) xs.
+Proof.
+  hint_rewrite List.app_assoc_reverse.
+  hint_rewrite list_pointless_split, list_pointless_split&#39;.
+  
+  induction a; intros; simpl; iauto;
+    hint_rewrite IHa1, IHa2; iauto&#39;.
+Qed.</code></pre>
+<p>Which says that we know that we will need the associativity lemma and these list splitting lemmas somewhere. Then we proceed by induction, handle the base case, and then use the inductive hypotheses to handle the rest.</p>
+<p>We can then go back to our main theorem, and proceed in a similar style. We prove by induction, relying on the <code>eval_step</code> lemma, and in various places needing to simplify (for the observant reader, <code>iauto</code> and <code>iauto'</code> only differ in that <code>iauto'</code> does a deeper proof search).</p>
+<pre><code>Theorem compiler_correctness : forall a : Arith, 
+  eval nil (compile a) = Data.Either.Right (eval&#39; a).
+Proof.
+  hint_rewrite eval_step.
+  hint_simpl.
+  induction a; iauto&#39;.
+Qed.</code></pre>
+<p>We now have a proof that the compiler that we wrote in Haskell is correct, insofar as it preserves the meaning expressed in the source-level <code>eval'</code> function to the meaning in the <code>eval</code> function in the target. This isn’t, of course, the only theorem you could prove. Another one that would be interesting would be that no compiled program ever got stuck (i.e., never produces a <code>Left</code> error).</p>
+]]></description>
+    <pubDate>Tue, 16 Jan 2018 00:00:00 UT</pubDate>
+    <guid>http://dbp.io/essays/2018-01-16-how-to-prove-a-compiler-correct.html</guid>
+    <dc:creator>Daniel Patterson</dc:creator>
+</item>
+<item>
+    <title>Email for Hackers: Simplified</title>
+    <link>http://dbp.io/essays/2018-01-05-email-simplified.html</link>
+    <description><![CDATA[<h2>Email for Hackers: Simplified</h2>
+
+<p>by <em>Daniel Patterson</em> on <strong>January  5, 2018</strong></p>
+
+<p>Four and a half years ago I wrote a very popular guide titled <a href="/essays/2013-06-29-hackers-replacement-for-gmail.html">A Hacker’s Replacement for GMail</a> about my system for email based on <code>notmuch</code>, <code>emacs</code>, my own mail server, etc (it’s still the only thing I’ve written that’s gotten any amount of traffic). I ran that system for several years, but eventually one thing killed it: <strong>spam</strong>. Perhaps I never got the various services set up (not just learning from prior messages, but talking to services that told me about IP addresses that were deemed to be spammers, etc). I still would get at least several spam messages per day. I even tried using paid anti-spam services (so all mail filters through them, they forward on to your mail server, and your mail server only accepts messages from their servers). Unlike what I was led to believe, I never seemed to have trouble with deliverability (maybe I got lucky and the IP address my server was assigned had never spammed, but with DKIM, SPF, etc, everything worked!).</p>
+<p>I went back to GMail for a little while, still behind my own domain (note to the reader: if you take nothing else from this, seriously consider registering a domain and paying Google to host your email. The domain is ~$10-15/year, the email is ~$4/month, and the transition to switch addresses is certainly painful, but once you’ve done it Google doesn’t own your identity anymore. You can, in the future, without anyone noticing, switch to another company, or self-host. It’s worth it!), but I missed writing email in emacs.</p>
+<p>So, I started trying to figure out a better system. As usual, I started with requirements:</p>
+<ol style="list-style-type: decimal">
+<li>Be able to read, write, search email in Emacs.</li>
+<li>Push notifications on the computer.</li>
+<li>Be able to read, write, search email on iPhone (push notifications too).</li>
+<li>Have a single repository where email is stored, to make backup simpler.</li>
+<li>Keep mail organized into an Inbox and an everything else (Archive).</li>
+</ol>
+<p>Points 4&amp;5 led me to decide that, for my purposes, Maildir/IMAP is a perfectly fine authoritative source for my email. In my previous system, I was always a little worried about having to rely on the notmuch database, as it was an undocumented format (that changed with new versions) with a single client program. Realistically, aside from tags that can be automatically applied (<code>sent</code>, <code>unread</code>, mailing list ones), the only tag that I care about in <code>inbox</code>, and it seemed like I should be able to synchronize that to match where messages are in the Maildir folders.</p>
+<p>https://www.fastmail.com/?STKI=17129600</p>
+]]></description>
+    <pubDate>Fri, 05 Jan 2018 00:00:00 UT</pubDate>
+    <guid>http://dbp.io/essays/2018-01-05-email-simplified.html</guid>
+    <dc:creator>Daniel Patterson</dc:creator>
+</item>
+<item>
     <title>(Cheap) home backups</title>
     <link>http://dbp.io/essays/2018-01-01-home-backups.html</link>
     <description><![CDATA[<h2>(Cheap) home backups</h2>
@@ -1124,146 +1317,6 @@ Arrhenius equation - k = Ae^(-Ea/RT)
 ]]></description>
     <pubDate>Thu, 15 Sep 2011 00:00:00 UT</pubDate>
     <guid>http://dbp.io/essays/2011-09-15-ios-anti-unix.html</guid>
-    <dc:creator>Daniel Patterson</dc:creator>
-</item>
-<item>
-    <title>Mercury tidbits - dependent types and file io</title>
-    <link>http://dbp.io/essays/2011-09-03-mercury-tidbits.html</link>
-    <description><![CDATA[<h2>Mercury tidbits - dependent types and file io</h2>
-
-<p>by <em>Daniel Patterson</em> on <strong>September  3, 2011</strong></p>
-
-<p><em>Note: this was originally posted as two separate parts, 1 week apart, and has been compressed for posterity</em></p>
-<p>I just started learning a functional/logic language called <a href="http://www.mercury.cs.mu.oz.au">Mercury</a>, which has features that make it feel (at least to my initial impressions) like a mix between Prolog and Haskell. It has all the features that make it a viable Prolog, but it also adds static typing (with full type inference) and purity (all side effects are dealt with by passing around the state of the world). Since I recently was interested in learning Prolog, but had no desire to give up static typing or purity, Mercury seemed like a neat thing to learn.</p>
-<p>While it is not very well known, the language has been around for over 15 years, and has a high quality self-hosting compiler.</p>
-<p>Getting to play around with logic/declarative programming is interesting (and indeed the main reason why I’m interested in learning it), but what seems even more interesting with Mercury is how they have incorporated typing to the logic programming (which, unless I’m mistaken, is a new thing). As a tiny code example:</p>
-<pre><code>:- pred head(list(T), T).
-:- mode head(in,    out) is semidet.
-:- mode head(in(non_empty_list), out) is det.
-head(Xs, X) :- Xs = [X | _].</code></pre>
-<p>The first line says that this is a predicate (logic statement) that has two parts, the first is a list of some type T (it is polymorphic), the second is an item of type T.</p>
-<p>The fourth line should be familiar to a prolog programmer, but briefly, the right side says that Xs is defined as X cons’d to an unnamed element. <code>head</code> can be seen as defining a relationship between Xs and X, where the specifics are that Xs is a list that has as it’s first element X.</p>
-<p>Now with regular prolog, only the fourth line would be necessary, and that definition allows some interesting generalization. Because <code>head([1,2,3],Y)</code> will bind <code>Y</code> to <code>1</code>, while <code>head([1,2,3],1)</code> will be true (or some truthy value), and if <code>head(X,Y)</code> were used in a set of other statements, together they would only yield a result if X (wherever it was bound, or unified, to a value) had as it’s first value Y, whatever Y was.</p>
-<p>Since Mercury is statically typed, it adds what it calls modes to predicates, which specify whether a certain argument (that’s probably not the right word!) is going to be given, or whether it is going to be figured out by the predicate. The other thing it has is specifications about whether the predicate is deterministic. There are a couple options, but the two that are relevant to this example are <code>det</code>, which means fully deterministic, for every input there is exactly one output, and <code>semidet</code>, which means for some inputs there is an output, for others there is not (ie, the unification fails). These allow the compiler to do really interesting things, like tell you if you are not covering all of the possible cases if you declare something as <code>det</code> (whereas the same code, as <code>semidet</code>, would not cause any errors).</p>
-<p>What is fascinating about this predicate head is that it has two modes defined, one being the obvious head that we know from Haskell etc:</p>
-<pre><code>:- mode head(in,    out) is semidet.</code></pre>
-<p>Which states that the first argument is the input (the list) and the second is the output (the element), and it is <code>semidet</code> because for an empty list it will fail. The next is more interesting:</p>
-<pre><code>:- mode head(in(non_empty_list), out) is det.</code></pre>
-<p>This says for an input that is a non_empty_list (defined in the standard libraries, and included below), the second argument is the output, and this is <code>det</code>, ie fully deterministic. What this basically means is that failure is incorporated into the type system, because something that is <code>semidet</code> can fail, but something that is <code>det</code> cannot (neat!). Now the standard modes are defined (something like):</p>
-<pre><code>:- mode in == (ground &gt;&gt; ground).
-:- mode out == (free    &gt;&gt; ground).</code></pre>
-<p>Ground is a something that is bound, and the <code>&gt;&gt;</code> is showing what is happening before and after the unification (the analog to function application). So something of mode <code>in</code> will be bound before and after, whereas something of mode <code>out</code> will not be bound before (that’s what <code>free</code> means) and it will be bound afterwards. That’s pretty straightforward.</p>
-<p>What get’s more interesting is something like <code>non_empty_list</code>, where <code>inst</code> stands for instantiation state, ie one of various states that a variable can be in (with ground and free being the most obvious ones):</p>
-<pre><code>:- inst non_empty_list == bound([ground | ground]).</code></pre>
-<p>What this means is that a <code>non_empty_list</code> is defined as one that has a ground element cons’d to another ground element. (I don’t know the syntax well enough to explain what <code>bound</code> means in this context, but it seems straightforward). What this should allow you to do is write programs that operate on things like non-empty-lists, and have the compiler check to make sure you are never using an empty list where you shouldn’t. Pretty cool!</p>
-<p>Obviously you can write data types in Haskell that also do not allow an empty list, like:</p>
-<pre><code>data NonEmptyList a = NonEmptyList a [a]</code></pre>
-<p>And could build functions to convert between them and normal lists, but the fact that it is so easy to build this kind of type checking on top of existing types with Mercury is really fascinating.</p>
-<p>This is (obviously) just scratching the surface of Mercury (and the reason all of this stuff actually works is probably more due to the theoretical underpinnings of logic programming than anything else), but seeing the definition of <code>head</code> gave me enough of an ‘aha!’ moment that it seemed worth sharing.</p>
-<p>If any of this piqued your interest, all of it comes out of the (wonderful) tutorial provided at the <a href="http://www.mercury.csse.unimelb.edu.au/information/documentation.html">Mercury Project Documentation</a> page. If there are any inaccuracies (which there probably are!) send them to <a href="mailto:daniel@dbpatterson.com">daniel@dbpatterson.com</a>.</p>
-<hr/>
-<p><em>Note: this is the beginning of the second post</em></p>
-<p>The language that I’ve been learning recently is a pure (ie, side-effect free) logic/functional language named <a href="http://www.mercury.csse.unimelb.edu.au">Mercury</a>. There is a wonderful <a href="http://www.mercury.csse.unimelb.edu.au/information/papers/book.pdf">tutorial (PDF)</a> available, which explains the basics, but beyond that, the primary documentation is the <a href="http://www.mercury.csse.unimelb.edu.au/information/doc-release/mercury_ref/index.html">language reference</a> (which is well written, but reasonably dense) and Mercury’s <a href="http://www.mercury.csse.unimelb.edu.au/information/doc-release/mercury_library/index.html">standard library reference</a> (which is autogenerated and includes types and source comments, nothing else).</p>
-<p>Doing I/O in a pure language is a bit of a conundrum - Haskell solved this by forcing all I/O into a special monad that keeps track of sequencing (and has a mythical state of the world that it changes each time it does something, so as not to violate referential transparency). Mercury has a simpler (though equivalent) approach - every predicate that does IO must take an world state and must give back a new world state. Old world states can not be re-used (Mercury’s mode system keep track of that), and so the state of the world is manually threaded throughout the program. A simple example would be:</p>
-<pre><code>main(IO_0,IO_final) :- io.write_string(&quot;Hello World!&quot;,IO_0,IO_1),
-                       io.nl(IO_1,IO_final).</code></pre>
-<p>Where the first function consumes the <code>IO_0</code> state and produces <code>IO_1</code> (while printing “Hello World!”) and the second function consumes <code>IO_1</code> and produces <code>IO_final</code> (while printing a newline character).</p>
-<p>Of course, manually threading those could become pretty tedious, so they have a shorthand, where the same code above could be written as:</p>
-<pre><code>main(!IO) :- io.write_string(&quot;Hello World!&quot;,!IO),
-             io.nl(!IO).</code></pre>
-<p>This is just syntax sugar, and can work with any parameters that are dealt with in the same way (and naming it IO for io state is just convention). It definitely makes dealing with I/O more pleasant.</p>
-<p>The task that I set was to figure out how to read in a file. This is not covered in the tutorial, and I thought it would be a simple matter of looking through the library reference for the <a href="http://www.mercury.csse.unimelb.edu.au/information/doc-release/mercury_library/io.html">io library</a>. One of the first predicates looks promising:</p>
-<pre><code>:- pred io.read_file(io.maybe_partial_res(list(char))::out,
-                     io::di,
-                     io::uo) is det.</code></pre>
-<p>But on second thought, something seems to be missing. The second and third parameters are the world states (the type is io, the mode di stands for destructive-input, meaning the variable cannot be used again, uo means unique output, which means that no other variable in the program can have that value), and the first one is going to be the contents of the file itself. But where is the file name?</p>
-<p>The comment provides the necessary pointer:</p>
-<pre><code>% Reads all the characters from the current input stream until
-% eof or error.</code></pre>
-<p>Hmm. So all of these functions operate on whatever the current input stream is. How do we set that? <code>io.set_input_stream</code> looks pretty good:</p>
-<pre><code>% io.set_input_stream(NewStream, OldStream, !IO):
-% Changes the current input stream to the stream specified.
-% Returns the previous stream.
-%
-:- pred io.set_input_stream(io.input_stream::in,
-                            io.input_stream::out,
-                            io::di, io::uo) is det.</code></pre>
-<p>But even better is <code>io.see</code>, which will try to open a file and if successful, will set it to the current stream (the alternative is to use <code>io.open_input</code> and then <code>io.set_input_stream</code>):</p>
-<pre><code>% io.see(File, Result, !IO).
-% Attempts to open a file for input, and if successful,
-% sets the current input stream to the newly opened stream.
-% Result is either &#39;ok&#39; or &#39;error(ErrorCode)&#39;.
-%
-:- pred io.see(string::in, io.res::out, io::di, io::uo) is det.</code></pre>
-<p>With that in mind, let’s go ahead and implement a predicate to read files (much like I was expecting to find in the standard library, and what I put into a module of similar utilities I’ve started, titled, in tribute to Haskell, <code>prelude</code>):</p>
-<pre><code>:- pred prelude.read_file(string::in,
-                          maybe(string)::out,
-                          io::di,io::uo) is det.
-prelude.read_file(Path,Contents,!IO) :-
-  io.see(Path,Result,!IO),
-  ( Result = ok,
-    io.read_file_as_string(File,!IO),
-    io.seen(!IO),
-    (
-      File = ok(String),
-      Contents = yes(String)
-    ;
-      File = error(_,_),
-      Contents = no
-    )
-  ;
-    Result = error(_),
-    Contents = no
-  ).</code></pre>
-<p>To walk through what this code is doing, the type says that this is a predicate that does I/O (that’s what the last two arguments are for), that it takes in a string (the path) and give out a maybe(string), and that this whole thing is deterministic (ie, it always succeeds, which is accomplished by wrapping the failure into the return type: either yes(value) or no).</p>
-<p>The first line tries to open the file at the path and bind it as the current input stream. I then pattern match on the results of that - if it failed, just bind Contents (the return value) to no. Otherwise, we try to read the contents out of the file and then close the file and set the input stream to the default one again (that is what the predicate io.seen does). Similarly we handle (well, really don’t handle, at least not well) reading the file failing. If it succeeds, we set the return type to the contents of the file.</p>
-<p>What is interesting about this code is that while it is written in the form of logical statements, it feels very much like the way one does I/O in Haskell - probably a bit of that is my own bias (as a Haskell programmer, I am likely to write everything like I would write Haskell code, kind of how my python code always ends up with lambda’s and maps in it), but it also is probably a function of the fact that doing I/O in a statically type pure language is going to always be pretty similar - lots of dealing with error conditions, and not much else!</p>
-<p>Anyhow, this was just a tiny bit of code, but it is a predicate that is immediately useful, especially when trying to use Mercury for random scripting tasks (what I often do with new languages, regardless of their reputed ability for scripting).</p>
-]]></description>
-    <pubDate>Sat, 03 Sep 2011 00:00:00 UT</pubDate>
-    <guid>http://dbp.io/essays/2011-09-03-mercury-tidbits.html</guid>
-    <dc:creator>Daniel Patterson</dc:creator>
-</item>
-<item>
-    <title>Declarative ajax - imagining Heist-Async</title>
-    <link>http://dbp.io/essays/2011-06-08-heist-async.html</link>
-    <description><![CDATA[<h2>Declarative ajax - imagining Heist-Async</h2>
-
-<p>by <em>Daniel Patterson</em> on <strong>June  8, 2011</strong></p>
-
-<p>I’ve recently started working with Snap, the Haskell web framework, (http://snapframework.com), and one reason (among many) for my reason to switch from Ocsigen, a web framework written in OCaml (which I’ve written posts about before) was the desire to more flexibly handle ajax based websites. While it seems good in some ways, I eventually decided that Ocsigen’s emphasis on declaring services as having certain types (ie, a fragment of a page, a whole page, a redirect, etc) is in some ways at odds with the way the web works.</p>
-<p>After starting to work in Haskell again, and with the Snap team authored templating system Heist, I immediately began looking for ways to work with ajax content more flexibly than I had been doing before. Inspired by the work of Facebook on Primer (provided to the world at https://gist.github.com/376039 ), which is their base-line system for dynamic content - basically, event listeners waiting for onclick events on links that have a special attribute that says it should perform an ajax request, and event listeners for onsubmit events on forms that have a special attribute that indicates the forms should be serialized and submitted asynchronously. But even more interesting than that (to me) was the other half of their system (not, I believe, public, and regardless, written in PHP), which is that the server side response decides what client side div’s it should replace.</p>
-<p>At first that sounds a little dirty - it basically entails mixing (conceptually) server code and client code. But then it allows a different sort of methodology - that even with client side modifications, it is the server that ultimately has all control - including what to replace on the client. This is a fascinating idea, because clientside code is notoriously limited be being written in javascript (or with javascript libraries), and thinking about having to maintain clientside and serverside code seems to be a much dirtier solution than having the server, in short, control the client.</p>
-<p>Taking this idea, and bringing it into the world of Heist, which is (in my opinion) a fantastic templating system (more info at http://snapframework.com/docs/tutorials/heist ), ended up being quite straightforward, as Heist lends itself to the idea of extending the syntax of html, much like the facebook primer system did.</p>
-<p>At first I thought that there should be haskell code that would specify things like “replaceDivsWithSplices …” where div’s would be identified and corresponding splices (things that can be inserted into heist templates) would replace them, and then “replaceDivsWithTemplates”, etc, but the whole solution seemed a little off.</p>
-<p>And then I realized that the entire idea could be summed up with a single tag: “div-async”. The idea would be, this would be a special div that could foreseeably be replaced by an asychronous response. A template would have many divs that were marked this way, which in a non-async response would do nothing special, but when an async response came back, all div-async’s would replace corresponding tags on the page.</p>
-<p>The only things that remained were the two tags to start the async requests, which I named “a-async” and “form-async”, and a little javascript to make the moving parts work together. And so, heist-async was born. (for the impatient, the code exists at https://github.com/dbp/heist-async , and while I am using this code currently and it seems to work, it could change significantly as things are worked out)</p>
-<p>The basics of how this works should be obvious, but I can illustrate a basic example. On a page you have an announcements box. You want the user to be able to click a button and have the announcements box reload without reloading the whole page (new announcements may have occurred). So you have a page template that looks like this:</p>
-<pre><code>&lt;html&gt;&lt;body&gt;&lt;h1&gt;Some page&lt;/h1&gt;
-  &lt;apply template=&quot;announcements&gt;&lt;/apply&gt;
-  &lt;a-async href=&quot;/recent_announcements&quot;&gt;Reload&lt;/a-async&gt;
-&lt;/body&gt;&lt;/html&gt;</code></pre>
-<p>And an announcements template that looks like this:</p>
-<pre><code>&lt;div-async name=&quot;announcements&quot;&gt;
-  &lt;announcements&gt;
-    &lt;text/&gt;
-  &lt;/announcements&gt;
-&lt;/div-async&gt;</code></pre>
-<p>Now to glue this together, all you need to do is serve the original page (with the proper splice set so that the <announcements> tag actually works), and, at the /recent_announcements url, you just serve the announcements template. Since it is the exact same template, it obviously has the same identifier for the div-async (which is just the attribute “name”), and will therefore replace the current anouncements box with the recently loaded one.</p>
-<p>Now that is pretty cool - what it means is that you can have one set of templating code, and the only change you need to do is separate any parts you want to be able to load asynchronously into separate templates, and make sure there is a div-async wrapper around it. (NOTE: since I didn’t mention it before, it might be helpful to now - div-async is just a regular div, so you can set all the regular things, like id, class, etc. Also feel free to take existing div’s and just add -async and set a name).</p>
-<p>At this point, I was pretty happy with this, and thought it was working pretty well, but of course the real world is much more complicated, and not everything is so simple - sometimes a single asynchronous request should mean a lot of different things on a page should change. In this case, it is possible that the simple template inheritance will not work, but with the addition of a template that is just for the response, that includes all the templates that should be updated, it seems to work pretty well. An example of one of these could be:</p>
-<pre><code>&lt;apply template=&quot;announcements&quot;&gt;&lt;/apply&gt;
-&lt;apply template=&quot;title&quot;&gt;&lt;/apply&gt;</code></pre>
-<p>In this case, there is still no duplication of formatting code, all that exists now is an explicit list of all the parts of the page that should be replaced by a given request.</p>
-<p>Other common things; to hide an element, sending back:</p>
-<pre><code>&lt;div-async name=&quot;something&quot; style=&quot;display:none&quot;&gt;&lt;/div-async&gt;</code></pre>
-<p>Should work. You could also put some empty placeholder div’s like that on a page, and later replace them with ones with actual content.</p>
-<p>What I noticed about this is that it makes dynamic page changes very explicit in the templates, which I think is a very good thing - and certainly makes it easier to reason about page changes.</p>
-<p>Getting to this point, I started using this to implement a bunch of parts of a new site I’m working on, and I was happily impressed by how it all seemed to be working. Using this, it seems like ajax can be thought of as just an aspect of the templating system - describe what should be replaced, and it will be, without ever having to worry about the clientside code (which is 12k of lightweight libraries and 60 significant lines of code of custom javascript. The 60 lines should easily be able to be translated to depend on common javascript libraries like jQuery, I just didn’t want to make that a requirement).</p>
-<p>I’m interested in feedback on the library, and ways that it can be improved. It is still very early software (a week ago, it did not exist), but it is something that I’ve found very powerful, and I’m kind of interested in where it can be taken / what people think about it.</p>
-]]></description>
-    <pubDate>Wed, 08 Jun 2011 00:00:00 UT</pubDate>
-    <guid>http://dbp.io/essays/2011-06-08-heist-async.html</guid>
     <dc:creator>Daniel Patterson</dc:creator>
 </item>
 
