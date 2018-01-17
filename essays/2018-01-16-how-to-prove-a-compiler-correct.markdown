@@ -6,7 +6,7 @@ author: Daniel Patterson
 At POPL'18 (Principles of Programming Languages) last week, I ended up talking
 to [Annie Cherkaev](https://anniecherkaev.com) about her really cool DSL (domain
 specific language) [SweetPea](https://github.com/anniecherk/sweetpea), which is
-a "SAT-Sampler aided language for experimental design". In particular, we were
+a "SAT-Sampler aided language for experimental design, targeted for Psychology & Neuroscience ". In particular, we were
 talking about software engineering, and the work that Annie was doing to test
 SweetPea and increase her confidence that the implementation was correct! The
 topic of how exactly one goes about proving a compiler correct came up, and I
