@@ -158,3 +158,16 @@ table td, table th {
 tr:nth-child(even){
     background-color: #f2f2f2
 }
+
+blockquote {
+    border-left: 7px solid #900;
+    padding: 5px;
+    padding-left: 10px;
+    margin-left: 15px;
+    background-color: #efefef;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 0;
+}

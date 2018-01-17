@@ -7,16 +7,16 @@ At POPL'18 (Principles of Programming Languages) last week, I ended up in a
 conversation with someone who was talking about a very interesting DSL (domain
 specific language) they are working on. In particular, we were talking about
 software engineering, and the work that she was doing to test it and increase
-her confidence that the implementation was correct! The topic of proving the
-compiler correct came up, and I realized that I couldn't think of a high-level
-(but _concrete_) overview of what that might look like. Also, like many
-compilers, hers was implemented in Haskell, so it seemed like a good opportunity
-to show the really cool work presented at the colocated conference CPP'18
-(Certified Programs and Proofs) titled ["Total Haskell is Reasonable Coq" by
-Spector-Zabusky, Breitner, Rizkallah, and
-Weirich](https://arxiv.org/A's/1711.09286). They have a tool (`hs-to-coq`) that extracts Coq
-definitions from (certain) terminating Haskell programs (of which at least small
-compilers hopefully qualify). 
+her confidence that the implementation was correct! The topic of how exactly one
+goes about proving a compiler correct came up, and I realized that I couldn't
+think of a high-level (but _concrete_) overview of what that might look like.
+Also, like many compilers, hers is implemented in Haskell, so it seemed like a
+good opportunity to try out the really cool work presented at the colocated
+conference CPP'18 (Certified Programs and Proofs) titled ["Total Haskell is
+Reasonable Coq" by Spector-Zabusky, Breitner, Rizkallah, and
+Weirich](https://arxiv.org/A's/1711.09286). They have a tool (`hs-to-coq`) that
+extracts Coq definitions from (certain) terminating Haskell programs (of which
+at least small compilers hopefully qualify).
 
 The intention of this post is twofold:
 
@@ -25,18 +25,22 @@ The intention of this post is twofold:
    ability to do this in such a seamless way is the wonderful `hs-to-coq` tool
    mentioned above, though there is no reason in principle you couldn't carry
    out this translation manually (in practice maintenance becomes an issue,
-   hence realistic verified compilers relying on _extracting_ programs out of
-   theorem provers like Coq).
-2. Give a much more concrete sense of what exactly you need to show when you are
+   hence realistic verified compilers relying on writing their implementations
+   within theorem provers like Coq and then _extracting_ executable versions
+   automatically).
+2. Give a more concrete sense of what exactly you need to show when you are
    proving a compiler correct. By necessity, this is a very simplified scenario
    without a lot of the subtleties that appear in real verification efforts
    (e.g., undefined behavior, multiple compiler passes, linking with code after
    compilation, etc). On the other hand, even this simplified scenario could
-   cover many cases of DSLs, and understanding the subtleties that come up is
-   much easier once you understand the basic case!
+   cover many cases of DSLs, and understanding the subtleties that come up
+   should be much easier once you understand the basic case!
    
    
-> All the code for this post is in the repository [https://github.com/dbp/compcorrect](https://github.com/dbp/compcorrect).
+> All the code for this post, along with instructions to get it running, is in
+> the repository
+> [https://github.com/dbp/howtoproveacompiler](https://github.com/dbp/howtoproveacompiler). If
+> you have any trouble getting it going, open an issue on that repository.
    
 ### DSL & Compiler
 
@@ -195,8 +199,10 @@ also should do. In languages with ambiguity (nondeterminism, undefined
 behavior), this becomes much more complicated, but in our setting, we would
 state it as:
 
-> Theorem. For all source arith expressions `A`, if `eval [] (compile A)` produces
-> integer `N` then evaluating `A` should produce the same number `N`.
+```
+Theorem. For all source arith expressions A, if eval [] (compile A) produces
+  integer N then evaluating A should produce the same number N.
+```
 
 The issue that's immediately apparent is that we don't actually have a way of
 directly evaluating the source expression. So we should add this function to our
@@ -207,7 +213,6 @@ part where you are actually specifying exactly what the source DSL means
 We can write this function as:
 
 ``` haskell
-
 eval' :: Arith -> Int
 eval' (Num n) = n
 eval' (Plus a1 a2) = (eval' a1) + (eval' a2)
@@ -406,3 +411,9 @@ function to the meaning in the `eval` function in the target. This isn't, of
 course, the only theorem you could prove. Another one that would be interesting
 would be that no compiled program ever got stuck (i.e., never produces a `Left`
 error).
+
+
+> As stated at the top of the post, all the code in this post is available at
+> [https://github.com/dbp/howtoproveacompiler](https://github.com/dbp/howtoproveacompiler).
+> Hopefully next time someone talks about proving a compiler correct, you have a
+> better sense of what that means, at least at a high level!

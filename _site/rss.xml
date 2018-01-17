@@ -15,14 +15,14 @@
 
 <p>by <em>Daniel Patterson</em> on <strong>January 16, 2018</strong></p>
 
-<p>At POPL’18 (Principles of Programming Languages) last week, I ended up in a conversation with someone who was talking about a very interesting DSL (domain specific language) they are working on. In particular, we were talking about software engineering, and the work that she was doing to test it and increase her confidence that the implementation was correct! The topic of proving the compiler correct came up, and I realized that I couldn’t think of a high-level (but <em>concrete</em>) overview of what that might look like. Also, like many compilers, hers was implemented in Haskell, so it seemed like a good opportunity to show the really cool work presented at the colocated conference CPP’18 (Certified Programs and Proofs) titled <a href="https://arxiv.org/A&#39;s/1711.09286">“Total Haskell is Reasonable Coq” by Spector-Zabusky, Breitner, Rizkallah, and Weirich</a>. They have a tool (<code>hs-to-coq</code>) that extracts Coq definitions from (certain) terminating Haskell programs (of which at least small compilers hopefully qualify).</p>
+<p>At POPL’18 (Principles of Programming Languages) last week, I ended up in a conversation with someone who was talking about a very interesting DSL (domain specific language) they are working on. In particular, we were talking about software engineering, and the work that she was doing to test it and increase her confidence that the implementation was correct! The topic of how exactly one goes about proving a compiler correct came up, and I realized that I couldn’t think of a high-level (but <em>concrete</em>) overview of what that might look like. Also, like many compilers, hers is implemented in Haskell, so it seemed like a good opportunity to try out the really cool work presented at the colocated conference CPP’18 (Certified Programs and Proofs) titled <a href="https://arxiv.org/A&#39;s/1711.09286">“Total Haskell is Reasonable Coq” by Spector-Zabusky, Breitner, Rizkallah, and Weirich</a>. They have a tool (<code>hs-to-coq</code>) that extracts Coq definitions from (certain) terminating Haskell programs (of which at least small compilers hopefully qualify).</p>
 <p>The intention of this post is twofold:</p>
 <ol style="list-style-type: decimal">
-<li>Show how to take a compiler (albeit a tiny one) that was built with no intention of verifying it and after the fact prove it correct. Part of the ability to do this in such a seamless way is the wonderful <code>hs-to-coq</code> tool mentioned above, though there is no reason in principle you couldn’t carry out this translation manually (in practice maintenance becomes an issue, hence realistic verified compilers relying on <em>extracting</em> programs out of theorem provers like Coq).</li>
-<li>Give a much more concrete sense of what exactly you need to show when you are proving a compiler correct. By necessity, this is a very simplified scenario without a lot of the subtleties that appear in real verification efforts (e.g., undefined behavior, multiple compiler passes, linking with code after compilation, etc). On the other hand, even this simplified scenario could cover many cases of DSLs, and understanding the subtleties that come up is much easier once you understand the basic case!</li>
+<li>Show how to take a compiler (albeit a tiny one) that was built with no intention of verifying it and after the fact prove it correct. Part of the ability to do this in such a seamless way is the wonderful <code>hs-to-coq</code> tool mentioned above, though there is no reason in principle you couldn’t carry out this translation manually (in practice maintenance becomes an issue, hence realistic verified compilers relying on writing their implementations within theorem provers like Coq and then <em>extracting</em> executable versions automatically).</li>
+<li>Give a more concrete sense of what exactly you need to show when you are proving a compiler correct. By necessity, this is a very simplified scenario without a lot of the subtleties that appear in real verification efforts (e.g., undefined behavior, multiple compiler passes, linking with code after compilation, etc). On the other hand, even this simplified scenario could cover many cases of DSLs, and understanding the subtleties that come up should be much easier once you understand the basic case!</li>
 </ol>
 <blockquote>
-<p>All the code for this post is in the repository <a href="https://github.com/dbp/compcorrect" class="uri">https://github.com/dbp/compcorrect</a>.</p>
+<p>All the code for this post, along with instructions to get it running, is in the repository <a href="https://github.com/dbp/howtoproveacompiler" class="uri">https://github.com/dbp/howtoproveacompiler</a>. If you have any trouble getting it going, open an issue on that repository.</p>
 </blockquote>
 <h3 id="dsl-compiler">DSL &amp; Compiler</h3>
 <p>To make this simple, my source language is arithmetic expressions with adding and multiplication. I represent this as an explicit data structure in Haskell:</p>
@@ -72,12 +72,10 @@ compile&#39; (<span class="dt">Plus</span> a1 a2)  <span class="fu">=</span> com
 compile&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> compile&#39; a1 <span class="fu">++</span> compile&#39; a2 <span class="fu">++</span> [<span class="dt">STimes</span>]</code></pre></div>
 <h2 id="proving-things">Proving things</h2>
 <p>We now have a Coq version of our compiler, complete with our evaluation function. So we should be able to write down a theorem that we would like to prove. What should the theorem say? Well, there are various things you could prove, but the most basic theorem in compiler correctness says essentially that running the source program and the target program “do the same thing”. This is often stated as “semantics preservation” and is often formally proven by way of a backwards simulation: whatever the target program does, the source program also should do. In languages with ambiguity (nondeterminism, undefined behavior), this becomes much more complicated, but in our setting, we would state it as:</p>
-<blockquote>
-<p>Theorem. For all source arith expressions <code>A</code>, if <code>eval [] (compile A)</code> produces integer <code>N</code> then evaluating <code>A</code> should produce the same number <code>N</code>.</p>
-</blockquote>
+<pre><code>Theorem. For all source arith expressions A, if eval [] (compile A) produces
+  integer N then evaluating A should produce the same number N.</code></pre>
 <p>The issue that’s immediately apparent is that we don’t actually have a way of directly evaluating the source expression. So we should add this function to our Haskell source. In a non-trivial DSL, this may be a significant part of the formalization process, but it is also incredibly important, because this is the part where you are actually specifying exactly what the source DSL means (otherwise, the only “meaning” it has is whatever the compiler happens to do). We can write this function as:</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">
-<span class="ot">eval&#39; ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">eval&#39; ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
 eval&#39; (<span class="dt">Num</span> n) <span class="fu">=</span> n
 eval&#39; (<span class="dt">Plus</span> a1 a2) <span class="fu">=</span> (eval&#39; a1) <span class="fu">+</span> (eval&#39; a2)
 eval&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> (eval&#39; a1) <span class="fu">*</span> (eval&#39; a2)</code></pre></div>
@@ -172,6 +170,9 @@ Proof.
   induction a; iauto&#39;.
 Qed.</code></pre>
 <p>We now have a proof that the compiler that we wrote in Haskell is correct, insofar as it preserves the meaning expressed in the source-level <code>eval'</code> function to the meaning in the <code>eval</code> function in the target. This isn’t, of course, the only theorem you could prove. Another one that would be interesting would be that no compiled program ever got stuck (i.e., never produces a <code>Left</code> error).</p>
+<blockquote>
+<p>As stated at the top of the post, all the code in this post is available at <a href="https://github.com/dbp/howtoproveacompiler" class="uri">https://github.com/dbp/howtoproveacompiler</a>. Hopefully next time someone talks about proving a compiler correct, you have a better sense of what that means, at least at a high level!</p>
+</blockquote>
 ]]></description>
     <pubDate>Tue, 16 Jan 2018 00:00:00 UT</pubDate>
     <guid>http://dbp.io/essays/2018-01-16-how-to-prove-a-compiler-correct.html</guid>
