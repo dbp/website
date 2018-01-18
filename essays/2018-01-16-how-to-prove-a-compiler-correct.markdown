@@ -6,18 +6,21 @@ author: Daniel Patterson
 At POPL'18 (Principles of Programming Languages) last week, I ended up talking
 to [Annie Cherkaev](https://anniecherkaev.com) about her really cool DSL (domain
 specific language) [SweetPea](https://github.com/anniecherk/sweetpea), which is
-a "SAT-Sampler aided language for experimental design, targeted for Psychology & Neuroscience ". In particular, we were
-talking about software engineering, and the work that Annie was doing to test
-SweetPea and increase her confidence that the implementation is correct! The
-topic of how exactly one goes about proving a compiler correct came up, and I
-realized that I couldn't think of a high-level (but _concrete_) overview of what
-that might look like. Also, like many compilers, hers is implemented in Haskell,
-so it seemed like a good opportunity to try out the really cool work presented
-at the colocated conference CPP'18 (Certified Programs and Proofs) titled
-["Total Haskell is Reasonable Coq" by Spector-Zabusky, Breitner, Rizkallah, and
+a "SAT-Sampler aided language for experimental design, targeted for Psychology &
+Neuroscience ". In particular, we were talking about software engineering, and
+the work that Annie was doing to test SweetPea and increase her confidence that
+the implementation is correct! The topic of how exactly one goes about proving a
+compiler correct came up, and I realized that I couldn't think of a high-level
+(but _concrete_) overview of what that might look like. Also, like many
+compilers, hers is implemented in Haskell, so it seemed like a good opportunity
+to try out the really cool work presented at the colocated conference CPP'18
+(Certified Programs and Proofs) titled ["Total Haskell is Reasonable Coq" by
+Spector-Zabusky, Breitner, Rizkallah, and
 Weirich](https://arxiv.org/abs/1711.09286). They have a tool (`hs-to-coq`) that
 extracts Coq definitions from (certain) terminating Haskell programs (of which
-at least small compilers hopefully qualify).
+at least small compilers hopefully qualify). There are certainly limitations to
+this approach (see Addendum at the bottom of the page for some discussion), but
+it seems very promising from an engineering perspective.
 
 The intention of this post is twofold:
 
@@ -37,7 +40,9 @@ The intention of this post is twofold:
    this simplified scenario could cover many cases of DSLs, and understanding
    the subtleties that come up should be much easier once you understand the
    basic case!
-   
+
+**The intended audience is: people who know what compilers are (and may have
+implemented them!) but aren't sure what it means to prove one correct!**
    
 > All the code for this post, along with instructions to get it running, is in
 > the repository
