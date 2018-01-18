@@ -117,84 +117,24 @@ later.
 
 Now that we have a Haskell compiler, we want to prove it correct! So what do we
 do? First, we want to convert this to Coq using the
-[hs-to-coq](https://github.com/antalsz/hs-to-coq) tool. If you follow the
-instructions there and then run the tool on the file containing the above code
-you will get a Coq (.v) source file. You can then evaluate it using a Coq
-interactive mode (I use Proof General within Emacs using Company Coq).
+[hs-to-coq](https://github.com/antalsz/hs-to-coq) tool. There are full
+instructions at
+[https://github.com/dbp/howtoproveacompiler](https://github.com/dbp/howtoproveacompiler),
+but the main command that will convert `src/Compiler.hs` to `src/Compiler.v`:
 
-Side note: this example is so tiny we haven't run into something that _will_ be
-really common: imagine instead of the compile function above, we instead wanted
-to take `[Arith]`. This would still work, and would result in the list of
-results stored on the stack (so probably you would want to change `eval` to
-print everything that was on the stack at the end, not just the top). If you
-wrote this `compile`:
-
-``` haskell
-compile :: [Arith] -> [StackOp]
-compile []               = []
-compile (Num n:xs)       = SNum n : compile xs
-compile (Plus a1 a2:xs)  = compile [a2] ++ compile [a1] ++ SPlus : compile xs
-compile (Minus a1 a2:xs) = compile [a2] ++ compile [a1] ++ SMinus : compile xs
-compile (Times a1 a2:xs) = compile [a2] ++ compile [a1] ++ STimes : compile xs
+```
+STACK_YAML=hs-to-coq/stack.yaml stack exec hs-to-coq -- -o src/ src/Compiler.hs -e hs-to-coq/base/edits
 ```
 
-You would get an error! It says that the compile function is not terminating!
+You can now build the Coq code with 
 
-This is good introduction into a (major) difference between Haskell and Coq:
-in Haskell, any term can run forever. For a programming language, this is an
-inconvenience, as you can end up with code that is perhaps difficult to debug if
-you didn't want it to (it's also useful if you happen to be writing a server
-that is supposed to run forever!). For a language intended to be used to _prove_
-things, this feature would be a non-starter, as it would make the logic unsound.
-The issue is that in Coq, (at a high level), a type is a theorem and the term
-that inhabits the type is a proof of that theorem. But in Haskell, you can write:
-
-``` haskell
-anything :: a
-anything = anything
+```
+make
 ```
 
-i.e., for any type, you can provide a term with that type --- that is, the term
-that simply never returns. If that were possible in Coq, you could prove any
-theorem, and the entire logic would be useless (or unsound, which technically
-means you can prove logical falsehood, but since falsehood allows you to prove
-anything, it's the same thing).
-
-Returning to this (only slightly contrived) program, it isn't actually that our
-program runs forever (and if you do want to prove things about programs that do,
-you'll need to do much more work!), just that Coq can't tell that it doesn't. In
-general, it's not possible to tell this for sufficiently powerful languages
-(this is what the Halting problem says for Turing machines, and thus holds for
-anything with similar expressivity). What Coq relies on is that some argument is
-inductively defined (which we have: both lists and `Arith` expressions) and that
-all recursive calls are to _structurally smaller_ parts of the arguments. If
-that holds, we are guaranteed to terminate, as inductive types cannot be
-infinite (note: unlike Haskell, Coq is _not_ lazy, which is another difference,
-but we'll ignore that). If we look at our recursive call, we called `compile`
-with `[a1]`. While `a1` is structurally smaller, we put that inside a list and
-used that instead, which thus violates what Coq was expecting.
-
-There are various ways around this (like adding another argument whose purpose
-is to track termination, or adding more sophisticated measurements), but there
-is another option: adding a helper function `compile'` that does what our
-original `compile` did: compiles a single `Arith`. The intuition that leads
-to trying this is that in this new `compile` we are decreasing on both the length of
-the list and the structure of the `Arith`, but we are trying to do both at the
-same time. By separating things out, we eliminate the issue:
-
-``` haskell
-compile :: [Arith] -> [StackOp]
-compile []     = []
-compile (x:xs) = compile' x ++ compile xs
-
-compile' :: Arith -> [StackOp]
-compile' (Num n)       = [SNum n]
-compile' (Plus a1 a2)  = compile' a2 ++ compile' a1 ++ [SPlus]
-compile' (Minus a1 a2) = compile' a2 ++ compile' a1 ++ [SMinus]
-compile' (Times a1 a2) = compile' a2 ++ compile' a1 ++ [STimes]
-```
-
-But that's a digression --- back to the main task at hand.
+And open up `src/Proofs.v` using a
+Coq interactive mode (I use Proof General within Emacs; with Spacemacs, this is
+particularly easy: use the `coq` layer!).
 
 ## Proving things
 
@@ -444,3 +384,107 @@ error).
 > Lectures](https://xavierleroy.org/courses/Eugene-2012/) (videos are
 > [here](https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html),
 > scroll down to find them).
+
+<br/><br/>
+
+## Addendum: termination
+
+This example was so tiny we haven't run into something that _will_ be really
+common: imagine instead of the compile function shown above:
+
+``` haskell
+compile :: Arith -> [StackOp]
+compile (Num n)       = [SNum n]
+compile (Plus a1 a2)  = compile a2 ++ compile a1 ++ [SPlus]
+compile (Minus a1 a2) = compile a2 ++ compile a1 ++ [SMinus]
+compile (Times a1 a2) = compile a2 ++ compile a1 ++ [STimes]
+```
+
+We instead wanted to take `[Arith]`. This would still work, and would result in
+the list of results stored on the stack (so probably you would want to change
+`eval` to print everything that was on the stack at the end, not just the top).
+If you wrote this `compile`:
+
+``` haskell
+compile :: [Arith] -> [StackOp]
+compile []               = []
+compile (Num n:xs)       = SNum n : compile xs
+compile (Plus a1 a2:xs)  = compile [a2] ++ compile [a1] ++ SPlus : compile xs
+compile (Minus a1 a2:xs) = compile [a2] ++ compile [a1] ++ SMinus : compile xs
+compile (Times a1 a2:xs) = compile [a2] ++ compile [a1] ++ STimes : compile xs
+```
+
+You would get an error when you try to compile the output of `hs-to-coq`! Coq
+says that the compile function is not terminating!
+
+This is good introduction into a (major) difference between Haskell and Coq:
+in Haskell, any term can run forever. For a programming language, this is an
+inconvenience, as you can end up with code that is perhaps difficult to debug if
+you didn't want it to (it's also useful if you happen to be writing a server
+that is supposed to run forever!). For a language intended to be used to _prove_
+things, this feature would be a non-starter, as it would make the logic unsound.
+The issue is that in Coq, (at a high level), a type is a theorem and the term
+that inhabits the type is a proof of that theorem. But in Haskell, you can write:
+
+``` haskell
+anything :: a
+anything = anything
+```
+
+i.e., for any type, you can provide a term with that type --- that is, the term
+that simply never returns. If that were possible in Coq, you could prove any
+theorem, and the entire logic would be useless (or unsound, which technically
+means you can prove logical falsehood, but since falsehood allows you to prove
+anything, it's the same thing).
+
+Returning to this (only slightly contrived) program, it isn't actually that our
+program runs forever (and if you do want to prove things about programs that do,
+you'll need to do much more work!), just that Coq can't tell that it doesn't. In
+general, it's not possible to tell this for sufficiently powerful languages
+(this is what the Halting problem says for Turing machines, and thus holds for
+anything with similar expressivity). What Coq relies on is that some argument is
+inductively defined (which we have: both lists and `Arith` expressions) and that
+all recursive calls are to _structurally smaller_ parts of the arguments. If
+that holds, we are guaranteed to terminate, as inductive types cannot be
+infinite (note: unlike Haskell, Coq is _not_ lazy, which is another difference,
+but we'll ignore that). If we look at our recursive call, we called `compile`
+with `[a1]`. While `a1` is structurally smaller, we put that inside a list and
+used that instead, which thus violates what Coq was expecting.
+
+There are various ways around this (like adding another argument whose purpose
+is to track termination, or adding more sophisticated measurements), but there
+is another option: adding a helper function `compile'` that does what our
+original `compile` did: compiles a single `Arith`. The intuition that leads
+to trying this is that in this new `compile` we are decreasing on both the length of
+the list and the structure of the `Arith`, but we are trying to do both at the
+same time. By separating things out, we can eliminate the issue:
+
+``` haskell
+compile :: [Arith] -> [StackOp]
+compile []     = []
+compile (x:xs) = compile' x ++ compile xs
+
+compile' :: Arith -> [StackOp]
+compile' (Num n)       = [SNum n]
+compile' (Plus a1 a2)  = compile' a2 ++ compile' a1 ++ [SPlus]
+compile' (Minus a1 a2) = compile' a2 ++ compile' a1 ++ [SMinus]
+compile' (Times a1 a2) = compile' a2 ++ compile' a1 ++ [STimes]
+```
+
+
+## Addendum: do the proofs mean anything?
+
+There are limitations to the approach outlined in this post. In particular, what
+`hs-to-coq` does is syntactically translate similar constructs from Haskell to
+Coq, but constructs that have similar syntax don't necessarily have similar
+semantics. For example, data types in Haskell are lazy and thus infinite,
+whereas inductive types in Coq are definitely not infinite. This means that the
+proofs that you have made are about the version of the program as represented in
+Coq, not the original program. There are ways to make proofs about the precise
+semantics of a language (e.g., Arthur Charguéraud's
+[CFML](http://www.chargueraud.org/softs/cfml/)), but on the other hand, program
+extraction (which is a core part of verified compilers like
+[CompCert](http://compcert.inria.fr/)) has the same issue that the program being
+run has been converted via a similar process as `hs-to-coq` (from Coq to OCaml
+the distance is less than from Coq to Haskell, but in principle there are
+similar issues).
