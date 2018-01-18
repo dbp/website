@@ -8,7 +8,7 @@ to [Annie Cherkaev](https://anniecherkaev.com) about her really cool DSL (domain
 specific language) [SweetPea](https://github.com/anniecherk/sweetpea), which is
 a "SAT-Sampler aided language for experimental design, targeted for Psychology & Neuroscience ". In particular, we were
 talking about software engineering, and the work that Annie was doing to test
-SweetPea and increase her confidence that the implementation was correct! The
+SweetPea and increase her confidence that the implementation is correct! The
 topic of how exactly one goes about proving a compiler correct came up, and I
 realized that I couldn't think of a high-level (but _concrete_) overview of what
 that might look like. Also, like many compilers, hers is implemented in Haskell,
@@ -28,7 +28,8 @@ The intention of this post is twofold:
    out this translation manually (in practice maintenance becomes an issue,
    hence realistic verified compilers relying on writing their implementations
    within theorem provers like Coq and then _extracting_ executable versions
-   automatically).
+   automatically, at least in the past -- possibly `hs-to-coq` could change this
+   workflow).
 2. Give a more concrete sense of what exactly you need to show when you are
    proving a compiler correct. By necessity, this is a very simplified scenario
    without a lot of the subtleties that appear in real verification efforts
@@ -187,31 +188,43 @@ compile' (Plus a1 a2)  = compile' a1 ++ compile' a2 ++ [SPlus]
 compile' (Times a1 a2) = compile' a1 ++ compile' a2 ++ [STimes]
 ```
 
+But that's a digression --- back to the main task at hand.
+
 ## Proving things
 
 We now have a Coq version of our compiler, complete with our evaluation
 function. So we should be able to write down a theorem that we would like to
 prove. What should the theorem say? Well, there are various things you could
 prove, but the most basic theorem in compiler correctness says essentially that
-running the source program and the target program "do the same thing". This is
+running the source program and the target program "does the same thing". This is
 often stated as "semantics preservation" and is often formally proven by way of
 a backwards simulation: whatever the target program does, the source program
 also should do. In languages with ambiguity (nondeterminism, undefined
-behavior), this becomes much more complicated, but in our setting, we would
+behavior, this becomes much more complicated, but in our setting, we would
 state it as:
 
-```
-Theorem. For all source arith expressions A, if eval [] (compile A) produces
-  integer N then evaluating A should produce the same number N.
-```
+**Theorem (informal). For all source arith expressions A, if eval [] (compile A) produces
+  integer N then evaluating A should produce the same number N.**
+
 
 The issue that's immediately apparent is that we don't actually have a way of
-directly evaluating the source expression. So we should add this function to our
-Haskell source. In a non-trivial DSL, this may be a significant part of the
-formalization process, but it is also incredibly important, because this is the
-part where you are actually specifying exactly what the source DSL means
-(otherwise, the only "meaning" it has is whatever the compiler happens to do).
-We can write this function as:
+directly evaluating the source expression. The only thing we can do with our
+source expression is compile it, but if we do that, any statement we get has the
+behavior of the compiler baked into it (so if the compiler is wrong, we will
+just be proving stuff about our wrong compiler). 
+
+More philosophically, what does it even mean that the compiler is wrong? For it
+to be wrong, there has to be some external specification (likely, just in our
+head at this point) about what it was supposed to do, or in this case, about the
+behavior of the source language that the compiler was supposed to faithfully
+preserve. To prove things formally, we need to write that behavior down.
+
+So we should add this function to our Haskell source. In a non-trivial DSL, this
+may be a significant part of the formalization process, but it is also
+incredibly important, because this is the part where you are actually specifying
+exactly what the source DSL means (otherwise, the only "meaning" it has is
+whatever the compiler happens to do, bugs and all). In this example, we can
+write this function as:
 
 ``` haskell
 eval' :: Arith -> Int
@@ -244,7 +257,7 @@ goes away trivially and we can expand the case for plus using:
 induction a; iauto; simpl.
 ```
 
-We see:
+We see (above the line is assumptions, below what you need to prove):
 ```
 IHa1 : eval nil (compile a1) = Either.Right (eval' a1)
 IHa2 : eval nil (compile a2) = Either.Right (eval' a2)
@@ -263,8 +276,8 @@ Which, if we look at it for a little while, we realize two things:
    will result in the `eval'`d term on the top of the stack. This is an instance
    of a more general pattern -- that often the toplevel statement that you want
    has too much specificity, and you need to instead prove something that is
-   more general and then use it for the specific case. So here's the Lemma we
-   want to prove:
+   more general and then use it for the specific case. So here's (a first
+   attempt) at a Lemma we want to prove:
    
 ```
 Lemma eval_step : forall a : Arith, forall xs : list StackOp, 
@@ -298,7 +311,7 @@ But now there is a problem (this is _common_, hence going over it!). We want to
 use our second hypothesis. Once we do that, we can reduce based on the
 definition of `eval` and we'll be done (with this case, but multiplication is
 the same). The issue is that `IHa2` needs the stack to be empty, and the stack
-we have is `eval' a1 :: nil`, so it can't be used:
+we now have (since we used `IHa1`) is `eval' a1 :: nil`, so it can't be used:
 
 ```
   IHa1 : forall xs : list StackOp, eval nil (compile a1 ++ xs) = eval (eval' a1 :: nil) xs
@@ -308,8 +321,9 @@ we have is `eval' a1 :: nil`, so it can't be used:
   eval ((eval' a1 + eval' a2)%Z :: nil) xs
 ```
 
-The solution is to go back to what our Lemma statement said and generalize it to
-arbitrary stacks, so that the inductive hypotheses are correspondingly stronger:
+The solution is to go back to what our Lemma statement said and generalize it
+now to arbitrary stacks (so in this process we've now generalized twice!), so
+that the inductive hypotheses are correspondingly stronger:
 
 ```
 Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp, 
@@ -334,7 +348,7 @@ We run into an odd problem. We have a silly obligation:
 
 Which will go away once we break apart the list `s` and simplify (if you look
 carefully, it has the same thing in all three branches of the match). There are
-a couple approaches to this:
+(at least) a couple approaches to this:
 
 1. We could just do it manually: `destruct s; simpl; eauto; destruct s; simpl;
    eauto`. But it shows up multiple times in the proof, and that's a mess and
@@ -354,8 +368,8 @@ a couple approaches to this:
     handled automatically, but I generally dislike adding global hints for
     tactics (unless there is a very good reason!), as it can slow things down
     and make understanding why proofs worked more difficult.
-3. We can also write lemmas for these. There are actually two that come up, and
-   both are solved trivially:
+3. We can also write lemmas for these. There are actually two cases that come
+   up, and both are solved easily:
    
     ```
     Lemma list_pointless_split : forall A B:Type, forall l : list A, forall x : B,
@@ -409,7 +423,7 @@ Qed.
 We now have a proof that the compiler that we wrote in Haskell is correct,
 insofar as it preserves the meaning expressed in the source-level `eval'`
 function to the meaning in the `eval` function in the target. This isn't, of
-course, the only theorem you could prove. Another one that would be interesting
+course, the only theorem you could prove! Another one that would be interesting
 would be that no compiled program ever got stuck (i.e., never produces a `Left`
 error).
 
