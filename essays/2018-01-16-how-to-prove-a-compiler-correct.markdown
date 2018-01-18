@@ -30,13 +30,13 @@ The intention of this post is twofold:
    within theorem provers like Coq and then _extracting_ executable versions
    automatically, at least in the past -- possibly `hs-to-coq` could change this
    workflow).
-2. Give a more concrete sense of what exactly you need to show when you are
-   proving a compiler correct. By necessity, this is a very simplified scenario
-   without a lot of the subtleties that appear in real verification efforts
-   (e.g., undefined behavior, multiple compiler passes, linking with code after
-   compilation, etc). On the other hand, even this simplified scenario could
-   cover many cases of DSLs, and understanding the subtleties that come up
-   should be much easier once you understand the basic case!
+2. Give a concrete example of proving compiler correctness. By necessity, this
+   is a very simplified scenario without a lot of the subtleties that appear in
+   real verification efforts (e.g., undefined behavior, multiple compiler
+   passes, linking with code after compilation, etc). On the other hand, even
+   this simplified scenario could cover many cases of DSLs, and understanding
+   the subtleties that come up should be much easier once you understand the
+   basic case!
    
    
 > All the code for this post, along with instructions to get it running, is in
@@ -205,9 +205,11 @@ prove, but the most basic theorem in compiler correctness says essentially that
 running the source program and the target program "does the same thing". This is
 often stated as "semantics preservation" and is often formally proven by way of
 a backwards simulation: whatever the target program does, the source program
-also should do. In languages with ambiguity (nondeterminism, undefined
-behavior, this becomes much more complicated, but in our setting, we would
-state it as:
+also should do (for a much more thorough discussion of this, check out William
+Bowman's blog post, [What even is compiler
+correctness?](https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/)).
+In languages with ambiguity (nondeterminism, undefined behavior, this becomes
+much more complicated, but in our setting, we would state it as:
 
 **Theorem (informal). For all source arith expressions A, if eval [] (compile A) produces
   integer N then evaluating A should produce the same number N.**
@@ -437,5 +439,8 @@ error).
 
 > As stated at the top of the post, all the code in this post is available at
 > [https://github.com/dbp/howtoproveacompiler](https://github.com/dbp/howtoproveacompiler).
-> Hopefully next time someone talks about proving a compiler correct, you have a
-> better sense of what that means, at least at a high level!
+> If you are looking for more, check out [Xavier Leroy's Oregon Programming
+> Languages Summer School
+> Lectures](https://xavierleroy.org/courses/Eugene-2012/) (videos are
+> [here](https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html),
+> scroll down to find them).
