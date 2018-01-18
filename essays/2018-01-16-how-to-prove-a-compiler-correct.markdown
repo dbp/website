@@ -1,5 +1,5 @@
 ---
-title: How to prove a complier correct
+title: How to prove a compiler correct
 author: Daniel Patterson
 ---
 
@@ -15,7 +15,7 @@ that might look like. Also, like many compilers, hers is implemented in Haskell,
 so it seemed like a good opportunity to try out the really cool work presented
 at the colocated conference CPP'18 (Certified Programs and Proofs) titled
 ["Total Haskell is Reasonable Coq" by Spector-Zabusky, Breitner, Rizkallah, and
-Weirich](https://arxiv.org/A's/1711.09286). They have a tool (`hs-to-coq`) that
+Weirich](https://arxiv.org/abs/1711.09286). They have a tool (`hs-to-coq`) that
 extracts Coq definitions from (certain) terminating Haskell programs (of which
 at least small compilers hopefully qualify).
 
