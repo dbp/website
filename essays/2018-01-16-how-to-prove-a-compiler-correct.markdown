@@ -46,12 +46,14 @@ The intention of this post is twofold:
    
 ### DSL & Compiler
 
-To make this simple, my source language is arithmetic expressions with adding
-and multiplication. I represent this as an explicit data structure in Haskell:
+To make this simple, my source language is arithmetic expressions with adding,
+subtraction, and multiplication. I represent this as an explicit data structure
+in Haskell:
 
 ``` haskell
 data Arith = Num Int
            | Plus Arith Arith
+           | Minus Arith Arith
            | Times Arith Arith
 ```
 
@@ -64,8 +66,8 @@ expressions are:
 ``` haskell
 data StackOp = SNum Int
              | SPlus
+             | SMinus
              | STimes
-             deriving Show
 ```
 
 And a program is a `[StackOp]`. For example, the previous example "1 + (2 * 4)"
@@ -82,8 +84,9 @@ when it got stuck).
 eval :: [Int] -> [StackOp] -> Either ([Int], [StackOp]) Int
 eval (n:_) []               = Right n
 eval ns (SNum n:xs)         = eval (n:ns) xs
-eval (n2:n1:ns) (SPlus:xs)  = eval (n1+n2:ns) xs
-eval (n2:n1:ns) (STimes:xs) = eval (n1*n2:ns) xs
+eval (n1:n2:ns) (SPlus:xs)  = eval (n1+n2:ns) xs
+eval (n1:n2:ns) (SMinus:xs) = eval (n1-n2:ns) xs
+eval (n1:n2:ns) (STimes:xs) = eval (n1*n2:ns) xs
 eval vals instrs            = Left (vals, instrs)
 ```
 
@@ -93,20 +96,21 @@ the compiler is very simple!
 
 ``` haskell
 compile :: Arith -> [StackOp]
-compile (Num n) = SNum n
-compile (Plus a1 a2) = compile a1 ++ compile a2 ++ SPlus
-compile (Times a1 a2) = compile a1 ++ compile a2 ++ STimes
+compile (Num n)       = [SNum n]
+compile (Plus a1 a2)  = compile a2 ++ compile a1 ++ [SPlus]
+compile (Minus a1 a2) = compile a2 ++ compile a1 ++ [SMinus]
+compile (Times a1 a2) = compile a2 ++ compile a1 ++ [STimes]
 ```
 
-The cases for plus/times are the cases that are slightly non-obvious, because
-they can contain further recursive expressions, but if you think about what the
-`eval` function is doing, once the stack machine _finishes_ evaluating
+The cases for plus/minus/times are the cases that are slightly non-obvious,
+because they can contain further recursive expressions, but if you think about
+what the `eval` function is doing, once the stack machine _finishes_ evaluating
 everything that `a1` compiled to, the number that the left branch evaluated to
 should be on the top of the stack. Then once it finishes evaluating what `a2`
 compiles to the number that the right branch evaluated to should be on the top
-of the stack. This means that evaluating `SPlus` or `STimes` will put the
-sum/product on the top of the stack, as expected. That's a pretty informal
-argument about correctness, but we'll have a chance to get a _lot_ more formal
+of the stack. This means that evaluating e.g. `SPlus` will put the
+sum on the top of the stack, as expected. That's a pretty informal
+argument about correctness, but we'll have a chance to get more formal
 later.
 
 ## Formalizing
@@ -127,10 +131,11 @@ wrote this `compile`:
 
 ``` haskell
 compile :: [Arith] -> [StackOp]
-compile [] = []
-compile (Num n:xs) = SNum n : compile xs
-compile (Plus a1 a2:xs) = compile [a1] ++ compile [a2] ++ SPlus : compile xs
-compile (Times a1 a2:xs) = compile [a1] ++ compile [a2] ++ STimes : compile xs
+compile []               = []
+compile (Num n:xs)       = SNum n : compile xs
+compile (Plus a1 a2:xs)  = compile [a2] ++ compile [a1] ++ SPlus : compile xs
+compile (Minus a1 a2:xs) = compile [a2] ++ compile [a1] ++ SMinus : compile xs
+compile (Times a1 a2:xs) = compile [a2] ++ compile [a1] ++ STimes : compile xs
 ```
 
 You would get an error! It says that the compile function is not terminating!
@@ -184,8 +189,9 @@ compile (x:xs) = compile' x ++ compile xs
 
 compile' :: Arith -> [StackOp]
 compile' (Num n)       = [SNum n]
-compile' (Plus a1 a2)  = compile' a1 ++ compile' a2 ++ [SPlus]
-compile' (Times a1 a2) = compile' a1 ++ compile' a2 ++ [STimes]
+compile' (Plus a1 a2)  = compile' a2 ++ compile' a1 ++ [SPlus]
+compile' (Minus a1 a2) = compile' a2 ++ compile' a1 ++ [SMinus]
+compile' (Times a1 a2) = compile' a2 ++ compile' a1 ++ [STimes]
 ```
 
 But that's a digression --- back to the main task at hand.
@@ -228,8 +234,9 @@ write this function as:
 
 ``` haskell
 eval' :: Arith -> Int
-eval' (Num n) = n
-eval' (Plus a1 a2) = (eval' a1) + (eval' a2)
+eval' (Num n)       = n
+eval' (Plus a1 a2)  = (eval' a1) + (eval' a2)
+eval' (Minus a1 a2) = (eval' a1) - (eval' a2)
 eval' (Times a1 a2) = (eval' a1) * (eval' a2)
 ```
 
