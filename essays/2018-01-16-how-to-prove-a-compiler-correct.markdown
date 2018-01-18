@@ -494,13 +494,13 @@ run has been converted via a similar process as `hs-to-coq` (from Coq to OCaml
 the distance is less than from Coq to Haskell, but in principle there are
 similar issues). 
 
-I think that `hs-to-coq` has a real practical use, in particular when you have
-an existing Haskell codebase that you want to verify. You likely will need to
-refactor it to have `hs-to-coq` work, but that refactoring can be done within
-Haskell, while the program continues to work (and your existing tests continue
-to pass, etc). Eventually, once you finish conversion, you may decide that it makes
-more sense to take the converted version as ground truth (thus, you run
-`hs-to-coq` and throw out the original, relying on extraction after that point
-for an executable), but being able to do this gradual migration (from full
+And yet, I think that `hs-to-coq` has a real practical use, in particular when
+you have an existing Haskell codebase that you want to verify. You likely will
+need to refactor it to have `hs-to-coq` work, but that refactoring can be done
+within Haskell, while the program continues to work (and your existing tests
+continue to pass, etc). Eventually, once you finish conversion, you may decide
+that it makes more sense to take the converted version as ground truth (thus,
+you run `hs-to-coq` and throw out the original, relying on extraction after that
+point for an executable), but being able to do this gradual migration (from full
 Haskell to essentially a Gallina-like dialect of Haskell) seems incredibly
 valuable.
