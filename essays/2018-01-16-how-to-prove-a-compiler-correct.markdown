@@ -5,11 +5,11 @@ author: Daniel Patterson
 
 At POPL'18 (Principles of Programming Languages) last week, I ended up talking
 to [Annie Cherkaev](https://anniecherkaev.com) about her really cool DSL (domain
-specific language) [SweetPea](https://github.com/anniecherk/sweetpea), which is
+specific language) [SweetPea](https://github.com/anniecherk/sweetpea) (which she [presented](https://popl18.sigplan.org/event/obt-2018-sweetpea-a-language-for-designing-experiments) at Off the Beaten Track 18, a workshop colocated with POPL), which is
 a "SAT-Sampler aided language for experimental design, targeted for Psychology &
 Neuroscience ". In particular, we were talking about software engineering, and
 the work that Annie was doing to test SweetPea and increase her confidence that
-the implementation is correct! 
+the implementation is correct!
 
 The topic of how exactly one goes about proving a
 compiler correct came up, and I realized that I couldn't think of a high-level
@@ -45,12 +45,12 @@ The intention of this post is twofold:
 
 **The intended audience is: people who know what compilers are (and may have
 implemented them!) but aren't sure what it means to prove one correct!**
-   
+
 > All the code for this post, along with instructions to get it running, is in
 > the repository
 > [https://github.com/dbp/howtoproveacompiler](https://github.com/dbp/howtoproveacompiler). If
 > you have any trouble getting it going, open an issue on that repository.
-   
+
 ### DSL & Compiler
 
 To make this simple, my source language is arithmetic expressions with adding,
@@ -99,7 +99,7 @@ eval vals instrs            = Left (vals, instrs)
 
 Now that we have our source and target language, and know how the target works,
 we can implement our compiler. Part of why this is a good small example is that
-the compiler is very simple! 
+the compiler is very simple!
 
 ``` haskell
 compile :: Arith -> [StackOp]
@@ -133,7 +133,7 @@ but the main command that will convert `src/Compiler.hs` to `src/Compiler.v`:
 STACK_YAML=hs-to-coq/stack.yaml stack exec hs-to-coq -- -o src/ src/Compiler.hs -e hs-to-coq/base/edits
 ```
 
-You can now build the Coq code with 
+You can now build the Coq code with
 
 ```
 make
@@ -166,7 +166,7 @@ The issue that's immediately apparent is that we don't actually have a way of
 directly evaluating the source expression. The only thing we can do with our
 source expression is compile it, but if we do that, any statement we get has the
 behavior of the compiler baked into it (so if the compiler is wrong, we will
-just be proving stuff about our wrong compiler). 
+just be proving stuff about our wrong compiler).
 
 More philosophically, what does it even mean that the compiler is wrong? For it
 to be wrong, there has to be some external specification (likely, just in our
@@ -193,7 +193,7 @@ And we can re-run `hs-to-coq` to get it added to our Coq development. We can now
 formally state the theorem we want to prove as:
 
 ```
-Theorem compiler_correctness : forall a : Arith, 
+Theorem compiler_correctness : forall a : Arith,
   eval nil (compile a) = Data.Either.Right (eval' a).
 ```
 
@@ -234,9 +234,9 @@ Which, if we look at it for a little while, we realize two things:
    has too much specificity, and you need to instead prove something that is
    more general and then use it for the specific case. So here's (a first
    attempt) at a Lemma we want to prove:
-   
+
 ```
-Lemma eval_step : forall a : Arith, forall xs : list StackOp, 
+Lemma eval_step : forall a : Arith, forall xs : list StackOp,
         eval nil (compile a ++ xs) = eval (eval' a :: nil) xs.
 ```
 
@@ -282,7 +282,7 @@ now to arbitrary stacks (so in this process we've now generalized twice!), so
 that the inductive hypotheses are correspondingly stronger:
 
 ```
-Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp, 
+Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp,
         eval s (compile a ++ xs) = eval (eval' a :: s) xs.
 ```
 
@@ -310,13 +310,13 @@ carefully, it has the same thing in all three branches of the match). There are
    eauto`. But it shows up multiple times in the proof, and that's a mess and
    someone reading the proof script may be confused what is going on.
 2. We could write a tactic for the same thing:
-    
+
     ```
     try match goal with
          |[l : list _ |- _ ] => solve [destruct l; simpl; eauto; destruct l; simpl; eauto]
         end.
     ```
-    
+
     This has the advantage that it doesn't depend on the name, you can call it
     whenever (it won't do anything if it isn't able to discharge the goal), but
     where to call it is still somewhat messy (as it'll be in the middle of the
@@ -326,7 +326,7 @@ carefully, it has the same thing in all three branches of the match). There are
     and make understanding why proofs worked more difficult.
 3. We can also write lemmas for these. There are actually two cases that come
    up, and both are solved easily:
-   
+
     ```
     Lemma list_pointless_split : forall A B:Type, forall l : list A, forall x : B,
         match l with | nil => x | (_ :: _)%list => x end = x.
@@ -346,12 +346,12 @@ splitting, and the inductive hypotheses. We can write this down formally (this
 relies on the `literatecoq` library, which is just a few tactics at this point) as:
 
 ```
-Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp, 
+Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp,
         eval s (compile a ++ xs) = eval (eval' a :: s) xs.
 Proof.
   hint_rewrite List.app_assoc_reverse.
   hint_rewrite list_pointless_split, list_pointless_split'.
-  
+
   induction a; intros; simpl; iauto;
     hint_rewrite IHa1, IHa2; iauto'.
 Qed.
@@ -359,7 +359,7 @@ Qed.
 
 Which says that we know that we will need the associativity lemma and these list
 splitting lemmas somewhere. Then we proceed by induction, handle the base case,
-and then use the inductive hypotheses to handle the rest. 
+and then use the inductive hypotheses to handle the rest.
 
 We can then go back to our main theorem, and proceed in a similar style. We
 prove by induction, relying on the `eval_step` lemma, and in various places
@@ -367,7 +367,7 @@ needing to simplify (for the observant reader, `iauto` and `iauto'` only differ
 in that `iauto'` does a deeper proof search).
 
 ```
-Theorem compiler_correctness : forall a : Arith, 
+Theorem compiler_correctness : forall a : Arith,
   eval nil (compile a) = Data.Either.Right (eval' a).
 Proof.
   hint_rewrite eval_step.
@@ -501,7 +501,7 @@ extraction (which is a core part of verified compilers like
 [CompCert](http://compcert.inria.fr/)) has the same issue that the program being
 run has been converted via a similar process as `hs-to-coq` (from Coq to OCaml
 the distance is less than from Coq to Haskell, but in principle there are
-similar issues). 
+similar issues).
 
 And yet, I think that `hs-to-coq` has a real practical use, in particular when
 you have an existing Haskell codebase that you want to verify. You likely will
