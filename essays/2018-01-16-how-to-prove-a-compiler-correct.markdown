@@ -9,7 +9,9 @@ specific language) [SweetPea](https://github.com/anniecherk/sweetpea), which is
 a "SAT-Sampler aided language for experimental design, targeted for Psychology &
 Neuroscience ". In particular, we were talking about software engineering, and
 the work that Annie was doing to test SweetPea and increase her confidence that
-the implementation is correct! The topic of how exactly one goes about proving a
+the implementation is correct! 
+
+The topic of how exactly one goes about proving a
 compiler correct came up, and I realized that I couldn't think of a high-level
 (but _concrete_) overview of what that might look like. Also, like many
 compilers, hers is implemented in Haskell, so it seemed like a good opportunity
