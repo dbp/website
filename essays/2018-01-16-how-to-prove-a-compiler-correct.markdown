@@ -112,13 +112,13 @@ compile (Times a1 a2) = compile a2 ++ compile a1 ++ [STimes]
 The cases for plus/minus/times are the cases that are slightly non-obvious,
 because they can contain further recursive expressions, but if you think about
 what the `eval` function is doing, once the stack machine _finishes_ evaluating
-everything that `a1` compiled to, the number that the left branch evaluated to
-should be on the top of the stack. Then once it finishes evaluating what `a2`
+everything that `a2` compiled to, the number that the left branch evaluated to
+should be on the top of the stack. Then once it finishes evaluating what `a1`
 compiles to the number that the right branch evaluated to should be on the top
-of the stack. This means that evaluating e.g. `SPlus` will put the
-sum on the top of the stack, as expected. That's a pretty informal
-argument about correctness, but we'll have a chance to get more formal
-later.
+of the stack (the reversal is so that they are in the right order when popped
+off). This means that evaluating e.g. `SPlus` will put the sum on the top of the
+stack, as expected. That's a pretty informal argument about correctness, but
+we'll have a chance to get more formal later.
 
 ## Formalizing
 
