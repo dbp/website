@@ -48,6 +48,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 ### Blog
 
+- [How to prove a compiler correct](/essays/2018-01-16-how-to-prove-a-compiler-correct.html) - January 16, 2018
 - [(Cheap) home backups](/essays/2018-01-01-home-backups.html) - January 1, 2018
 - [Why test in Haskell?](/essays/2014-10-05-why-test-in-haskell.html) - October 5, 2014
 - [A Hacker's Replacement for GMail](/essays/2013-06-29-hackers-replacement-for-gmail.html) - June 29, 2013
