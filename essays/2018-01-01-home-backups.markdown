@@ -53,7 +53,7 @@ old one, and once I had it working, there was certainly no point in going back!
 
 ### Hardware
 
-- $70 - [Raspberry Pi 3](http://amzn.to/2zggJoh) (That's an affiliate link. Here's [one that isn't](https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B0778CZ97B/)). This consumes very little power (a little over 1W without the disks,
+- $70 - Raspberry Pi 3. This consumes very little power (a little over 1W without the disks,
   probably around 10W with them spinning, more like 3W when they are idling),
   takes up very little space, but seems plenty fast enough to act as a file
   server. That price includes a case, heat-sink, SD card, power adaptor, etc. If
@@ -64,7 +64,7 @@ old one, and once I had it working, there was certainly no point in going back!
   in these than in prior generations -- I think it's worth it (it's an amazingly
   capably computer for the size/price).
 
-- $75 - Three [external USB SATA hard drive enclosures](http://amzn.to/2BluHHj).
+- $75 - Three external USB SATA hard drive enclosures.
   You might be able to find these cheaper -- the ones I got were metal, which
   seemed good in terms of heat dissipation, and have been running for a little
   over a year straight without a problem (note: this is actually one more than
@@ -74,7 +74,7 @@ old one, and once I had it working, there was certainly no point in going back!
   command. I'm not sure how much this matters, but for $25, I went with the
   extra enclosure).
 
-- $170 - Two [2TB WD Red SATA drives](http://amzn.to/2C1lc3E). These are
+- $170 - Two 2TB WD Red SATA drives. These are
   actually recent upgrades -- the server was been running on older 1TB Green
   drives (four and five years old respectively), but one of them started
   reporting failures (I would speculate the older of the two, but I didn't

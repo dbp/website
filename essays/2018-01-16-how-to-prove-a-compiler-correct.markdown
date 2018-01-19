@@ -390,6 +390,13 @@ error).
 > [here](https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html),
 > scroll down to find them).
 
+<br/>
+
+ Thanks to current and former [PRL](http://prl.ccs.neu.edu) members, in
+ particular [Gabriel Scherer](http://gallium.inria.fr/~scherer/) and [William
+ Bowman](https://williamjbowman.com/), for providing useful feedback on drafts
+ of this post.
+
 <br/><br/>
 
 ## Addendum: termination
