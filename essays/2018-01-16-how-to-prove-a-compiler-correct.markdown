@@ -250,11 +250,11 @@ induction a; intros; simpl; iauto.
 We now end up with _better_ inductive hypotheses:
 
 ```
-  IHa1 : forall xs : list StackOp, eval nil (compile a1 ++ xs) = eval (eval' a1 :: nil) xs
-  IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval' a2 :: nil) xs
-  ============================
-  eval nil ((compile a1 ++ compile a2 ++ SPlus :: nil) ++ xs) =
-  eval ((eval' a1 + eval' a2)%Z :: nil) xs
+IHa1 : forall xs : list StackOp, eval nil (compile a1 ++ xs) = eval (eval' a1 :: nil) xs
+IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval' a2 :: nil) xs
+============================
+eval nil ((compile a1 ++ compile a2 ++ SPlus :: nil) ++ xs) =
+eval ((eval' a1 + eval' a2)%Z :: nil) xs
 ```
 
 We need to reshuffle the list associativity and then we can rewrite using the first hypotheses:
@@ -270,11 +270,11 @@ the same). The issue is that `IHa2` needs the stack to be empty, and the stack
 we now have (since we used `IHa1`) is `eval' a1 :: nil`, so it can't be used:
 
 ```
-  IHa1 : forall xs : list StackOp, eval nil (compile a1 ++ xs) = eval (eval' a1 :: nil) xs
-  IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval' a2 :: nil) xs
-  ============================
-  eval (eval' a1 :: nil) ((compile a2 ++ SPlus :: nil) ++ xs) =
-  eval ((eval' a1 + eval' a2)%Z :: nil) xs
+IHa1 : forall xs : list StackOp, eval nil (compile a1 ++ xs) = eval (eval' a1 :: nil) xs
+IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval' a2 :: nil) xs
+============================
+eval (eval' a1 :: nil) ((compile a2 ++ SPlus :: nil) ++ xs) =
+eval ((eval' a1 + eval' a2)%Z :: nil) xs
 ```
 
 The solution is to go back to what our Lemma statement said and generalize it
@@ -295,11 +295,11 @@ induction a; intros; simpl; iauto.
 We run into an odd problem. We have a silly obligation:
 
 ```
-  match s with
-  | nil => eval (i :: s) xs
-  | (_ :: nil)%list => eval (i :: s) xs
-  | (_ :: _ :: _)%list => eval (i :: s) xs
-  end = eval (i :: s) xs
+match s with
+| nil => eval (i :: s) xs
+| (_ :: nil)%list => eval (i :: s) xs
+| (_ :: _ :: _)%list => eval (i :: s) xs
+end = eval (i :: s) xs
 ```
 
 Which will go away once we break apart the list `s` and simplify (if you look

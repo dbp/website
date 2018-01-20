@@ -160,11 +160,18 @@ tr:nth-child(even){
 }
 
 blockquote {
-    border-left: 7px solid #900;
+    border-left: 10px solid #900;
     padding: 5px;
     padding-left: 10px;
     margin-left: 15px;
     background-color: #efefef;
+}
+
+pre {
+    border-left: 10px solid gray;
+    padding-left: 15px;
+    margin-left: 10px;
+}
 }
 
 blockquote p {
