@@ -1,0 +1,444 @@
+---
+title: How to prove a compiler fully abstract
+author: Daniel Patterson
+---
+
+A compiler that preserves and reflects equivalences is called a **fully
+abstract** compiler. This is a different but complimentary notion to the more
+common notion of [compiler
+correctness](/essays/2018-01-16-how-to-prove-a-compiler-correct.html). So what
+does it mean, and how do we prove it?
+
+Both **equivalence preservation** and **equivalence reflection** (what make a
+compiler fully abstract) relate to how the compiler treats program equivalences,
+which in this case I'm considering observational equivalence. Two programs `p1`
+and `p2` are **observationally equivalent** if you cannot make any external
+observations that can distinguish them.
+
+For example, if the only externally observable behavior about programs in your
+language that you can make is see what output they print, this means that the
+two programs print the same output, even if they are implemented in completely
+different ways. This type of equivalence is extremely useful, especially for
+compilers, which when optimizing may change how a particular program is
+implemented but should not change the observable behavior. But it is also useful
+for programmers, who commonly refactor code, which means they change how the
+code is implemented (to make it easier to maintain, or extend, or better support
+some future addition), without changing any functionality. Refactoring is an
+equivalence-preserving transformation. We write observational equivalence on
+programs formally as:
+
+```
+p1 ≈ p1
+```
+
+But we often also want to compile not just whole programs, but particular
+modules, or in the abstract sense, individual expressions, and in that case, we
+want an analogous notion of equivalence over components (whether they be
+modules, expressions, or whatever makes sense in the language) rather than whole
+programs. Two components are **contextual equivalent** if in all program
+contexts they produce the same observable behavior. In other words, if you have
+two modules, but any way you combine those modules with the rest of a program
+(so the rest is the same, but the modules differ), the result is the same, then
+those two modules are contextually equivalent. We will write this, overloading
+the `≈` for both observational and contextual equivalence, as:
+
+```
+e1 ≈ e1
+```
+
+As an example, if we consider a simple functional language and consider our
+components to be individual expressions, it should be clear that these two
+expressions are contextually equivalent:
+
+```
+λx. x * 2 ≈ λx. x + x
+```
+
+As while they are implemented differently, no matter how they are used, the
+result will always be the same. It's important to note that contextual
+equivalence always depends on what is observable within the language. For
+example, in Javascript, you can reflect over the syntax of functions, and so
+these two functions, written as:
+
+```javascript
+function(x){ return x * 2; } ≈ function(x){ return x + x; }
+```
+
+Would not be contextually equivalent, because there exists a program context
+that can distinguish them. What is that context? Well, if we imagine plugging in
+the functions above into the hole written as `[·]` below, the result will be
+different for the two functions! This is because the `toString()` method on
+functions in Javascript returns the source code of the function. 
+
+```javascript
+([·]).toString()
+```
+
+From the perspective of optimizations, this is troublesome, as you can't be sure
+that a transformation between the above programs was safe (assuming one was much
+faster than the other), as there could be code that relied upon the particular
+way that the source code had been written. There are more complicated things you
+can do (like optimizing speculatively and falling back to unoptimized versions
+when reflection was needed). In general, languages with that kind of reflection
+are both harder to write fast compilers for and harder to write secure compilers
+for, and I'm not going to say much more about it, just that it's always
+important to know _what program contexts can determine about components_.
+
+With that in mind, what does **equivalence reflection** and **equivalence
+preservation** for a compiler mean? Let's start with **equivalence reflection**,
+as that's the property that all your correct compilers already have. Equivalence
+reflection means that if two components, when compiled, are equivalent, then the
+source components must have been equivalent. We can write this more formally as
+(where we write `s ↠ t` to mean a component `s` is compiled to `t`):
+
+
+```
+∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ t1 ≈ t2 ⇒ s1 ≈ s2
+```
+
+What are the consequences of this definition? And why do correct compilers have
+this property? Well, the contrapositive is actually easier to understand: it
+says that if the source components weren't equivalent then the target components
+would have to be different, or more formally:
+
+```
+∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ s1 ≉ s2 ⇒ t1 ≉ t2
+```
+
+
+If this didn't hold, then the compiler could take different source components
+and compile them to the same target component! Which means you could have
+different source programs you wrote, which have observationally different
+behavior, and your compiler would produce the same target program! Any correct
+compiler has to preserve observational behavior, and it couldn't do that in this
+case, as the target program only has one behavior, so it can't have both the
+behavior of `s1` and `s2` (for pedants, not considering non-deterministic
+targets). 
+
+So equivalence reflection should be thought of as related to compiler
+correctness. Note, however, that equivalence reflection is _not_ the same as
+compiler correctness: as long as your compiler produced different target
+programs for different source programs, all would be fine -- your compiler could
+hash the source program and produce target programs that just printed the hash
+to the screen, and it would be equivalence reflecting, since it would produce
+different target programs not only for source programs that were observationally
+different, but even syntactically different! That would be a pretty bad
+compiler, and certainly not correct, but it would be equivalence reflecting.
+
+Equivalence preservation, on the other hand, is the hallmark of fully abstract
+compilers, and it is a property that even most correct compilers do not have,
+though it would certainly be great if they did. It says that if two source
+components are equivalent, then the compiled versions must still be equivalent.
+Or, more formally:
+
+
+```
+∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ s1 ≈ s2 ⇒ t1 ≈ t2
+```
+
+(See, I just reversed the implication. Need trick! But now it means something
+totally different). One place where this has been studied extensively is by
+security researchers, because what it tells you is that observers in the target
+can't make observations that aren't possible to distinguish in the source. Let's
+make that a lot more concrete, where we will also see why it's not frequently
+true, even of proven correct compilers. 
+
+Say your language has some information hiding feature, like a private field, and
+you have two source components that are identical except they have different
+values stored in the private field. If the compiler does not preserve the fact
+that it is private (because, for example, it translates the higher level object
+structure into a C struct or just a pile of memory accessed by assembly), then other
+target code could read the private values, and these two components will no
+longer be equivalent. 
+
+This also has implications for programmer refactoring and compiler
+optimizations: I (or my compiler) might think that it is safe to replace one
+version of the program with another, because I know that in my language these
+are equivalent, but what I don't know is that the compiler reveals
+distinguishing characteristics, and perhaps some target-level library that I'm
+linking with relies upon how the old code worked. If that's the case, I can have
+a working program, and make a change that does not change the meaning of the
+component _in my language_, but the whole program can no longer work.
+
+Proving a compiler fully abstract, therefore, is all about proving equivalence
+preservation. So how do we do it?
+
+Looking at what we have to prove, we see that given contextually equivalent
+source components `s1` and `s2`, we need to show that `t1` and `t2` are
+contextually equivalent. We can expand this to explicitly quantify over the
+contexts that combine with the components to make whole programs:
+
+```
+∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ (∀Cs. Cs[s1] ≈ Cs[s2]) ⇒ (∀Ct. Ct[t1] ≈ Ct[t2])
+```
+
+Noting that as mentioned above, I am overloading `≈` to now mean whole-program
+observational equivalence (so, running the program produces the same
+observations).
+
+First I'll outline how the proof will go in general, and then we'll consider an
+actual example compiler and do the proof for the concrete example. 
+
+We can see that in order to prove this, we need to consider an arbitrary target
+context `Ct` and show that `Ct[t1]` and `Ct[t2]` are observationally equivalent.
+We do this by showing that `Ct[t1]` is observationally equivalent to `Cs'[s1]`
+-- that is, we produce a source context `Cs'` that we claim is equivalent to
+`Ct`. We do this by way of a "back-translation", which will be a sort of
+compiler in reverse. Assuming that we can produce such a `Cs'` and that
+`Cs'[s1]` and `Ct[t1]` (and correspondingly `Cs'[s1] ≈ Ct[t1]`) are indeed
+observationally equivalent (noting that this relies upon a cross-language notion
+of observations), we can prove that `Ct[t1]` and `Ct[t2]` are observationally
+equivalent by instantiating our hypothesis `∀Cs. Cs[s1] ≈ Cs[s2]` with `Cs'`.
+This tells us that `Cs'[s1] ≈ Cs'[s2]`, and by transitivity, `Ct[t1] ≈ Ct[t2]`.
+
+It can be helpful to see it is a diagram, where the top line is given by the
+hypothesis and coming up with the back-translation and showing that `Ct` and
+`Cs'` are equivalent is the hard part of the proof.
+
+```
+Cs'[s1]  ≈  Cs'[s2]
+  ≈           ≈
+Ct[t1]   ?  Ct[t2]
+```
+
+Let's make this concrete with an example. This will be presented somewhat in english and some in Coq.
+
+Our source language is arithmetic expressions over integers with addition and
+subtraction:
+
+```
+e ::= n
+    | e + e
+    | e - e
+```
+
+This is written down in Coq as:
+
+```coq
+Inductive Expr : Set := 
+  | Num : Z -> Expr
+  | Plus : Expr -> Expr -> Expr 
+  | Minus : Expr -> Expr -> Expr.
+```
+
+Evaluation is standard (if you wanted to parse this, you would need to deal with
+left/right associativity, and probably add parenthesis to disambiguate, but we
+consider the point where you already have a tree structure, so it is
+unambiguous). We can write this evaluation relation as:
+
+```coq
+Fixpoint eval_Expr (e : Expr) : Z := 
+  match e with
+  | Num n => n                               
+  | Plus e1 e2 => eval_Expr e1 + eval_Expr e2
+  | Minus e1 e2 => eval_Expr e1 - eval_Expr e2
+```
+
+Our target language is a stack machine which uses a stack of integers to
+evaluate the sequence of instructions. In addition to having instructions to add
+and subtract, our stack machine has an extra instruction: `OpCount`. This
+instruction returns how many operations remain on the stack machine, and it puts
+that integer on the top of the stack. This is the simplest abstraction I could
+think of that will provide an interesting case study for problems of full
+abstraction, and is a stand-in for both reflection (as it allows the program to
+inspect other parts of the program), and also somewhat of a proxy for execution
+time (remaining).
+
+```coq
+Inductive Op : Set :=
+| Push : Z -> Op
+| Add : Op
+| Sub : Op
+| OpCount : Op.
+```
+              
+Let's see the compiler and the evaluation function. For the latter, we add a
+helper that fills in the initial instruction counter and empty stack.
+
+```coq
+Fixpoint compile_Expr (e : Expr) : list Op :=
+  match e with
+  | Num n => [Push n]
+  | Plus e1 e2 => compile_Expr e1 ++ compile_Expr e2 ++ [Add]
+  | Minus e1 e2 => compile_Expr e1 ++ compile_Expr e2 ++ [Sub]
+  end.
+
+
+Fixpoint eval_Op (s : list Z) (ops : list Op) : option Z :=
+  match (ops, s) with
+  | ([], n :: _) => Some n
+  | (Push z :: rest, _) => eval_Op (z :: s) rest 
+  | (Add :: rest, n1 :: n2 :: ns) => eval_Op (n1 + n2 :: ns)%Z rest
+  | (Sub :: rest, n1 :: n2 :: ns) => eval_Op (n1 - n2 :: ns)%Z rest
+  | (OpCount :: rest, _) => eval_Op (Z.of_nat (length rest) :: s) rest
+  | _ => None
+  end.
+```
+
+We can prove a basic compiler correctness result for this (for more detail on
+this type of result, see [this
+post](/essays/2018-01-16-how-to-prove-a-compiler-correct.html)), where first we
+prove a general `step` lemma and then use that to prove correctness (note: the
+`hint` and `hint_rewrite` tactics are from an experimental
+[literatecoq](https://github.com/dbp/literatecoq) library that adds support for
+proof-local hinting, as I think it may lead to proofs that are both relatively
+readable but also maintainable).
+
+```coq
+Lemma eval_step : forall a : Expr, forall s : list Z, forall xs : list Op,
+      eval_Op s (compile_Expr a ++ xs) = eval_Op (eval_Expr a :: s) xs.
+Proof.
+  hint_rewrite List.app_assoc_reverse.
+  induction a; intros; iauto; simpl;
+  hint_rewrite IHa2, IHa1;
+  iauto'.
+Qed.
+
+Theorem compiler_correctness : forall a : Expr,
+    eval_Op [] (compile_Expr a) = Some (eval_Expr a).
+Proof.
+  hint_rewrite eval_step.
+  hint_simpl.
+  induction a; iauto'.
+Qed.
+```
+
+Now, before we can state properties about equivalences, we need to define what
+we mean by equivalence for our source and target languages. Both produce no side
+effects, so the only observation is the end result. Thus, observational
+equivalence is pretty straightforward; it follows from evaluation:
+
+```coq
+Definition equiv_Expr (e1 e2 : Expr) : Prop := eval_Expr e1 = eval_Expr e2.
+Definition equiv_Op (p1 p2 : list Op) : Prop := eval_Op [] p1 = eval_Op [] p2.
+```
+
+But, we want to talk not just about whole programs, but about partial programs
+that can get linked with other parts to create whole programs. In order to do
+that, we create a new type of "evaluation context" for our `Expr`, that has a
+hole (typically written on paper as `[·]`). This is a program that is missing an
+expression, which must be filled into the hole. Given how simple our language
+is, any expression can be filled in to the hole and that will produce a valid
+program. We only want to have _one_ hole per partial program, so in the cases
+for `+` and `-`, one branch must be a normal `Expr` (so it contains no hole),
+and the other can contain one hole. Our `link_Expr` function takes a context and an
+expression and fills in the hole.
+
+```coq
+Inductive ExprCtxt : Set := 
+| Hole : ExprCtxt
+| Plus1 : ExprCtxt -> Expr -> ExprCtxt
+| Plus2 : Expr -> ExprCtxt -> ExprCtxt 
+| Minus1 : ExprCtxt -> Expr -> ExprCtxt
+| Minus2 : Expr -> ExprCtxt -> ExprCtxt.
+
+Fixpoint link_Expr (c : ExprCtxt) (e : Expr) : Expr :=
+  match c with
+  | Hole => e
+  | Plus1 c' e' => Plus (link_Expr c' e) e'
+  | Plus2 e' c' => Plus e' (link_Expr c' e)
+  | Minus1 c' e' => Minus (link_Expr c' e) e'
+  | Minus2 e' c' => Minus e' (link_Expr c' e)
+  end.
+```
+
+For our stack machine, partial programs are much easier, since a program is just
+a list of `Op`, which means that any program can be extended by adding new `Op`s
+on either end (or inserting in the middle). We could create something more
+explicit, but it's not necessary.
+
+With `ExprCtxt`, we can now define "contextual equivalence" for our source language: 
+
+```coq
+Definition ctxtequiv_Expr (e1 e2 : Expr) : Prop :=
+  forall c : ExprCtxt, eval_Expr (link_Expr c e1) = eval_Expr (link_Expr c e2).
+```
+
+We can do the same with our target, simplifying slightly and saying that we will
+allow adding arbitrary `Op`s before and after, but not in the middle, of an
+existing sequence of `Op`s.
+
+```coq
+Definition ctxtequiv_Op (p1 p2 : list Op) : Prop :=
+  forall c1 c2 : list Op, eval_Op [] (c1 ++ p1 ++ c2) = eval_Op [] (c1 ++ p2 ++ c2).
+```
+
+To prove our compiler fully abstract, remember we need to prove that it
+preserves and reflects equivalences. Since we already proved that it is correct,
+proving that it reflects equivalences should be relatively straightforward, so
+lets start there. The lemma we want is:
+
+```coq
+Lemma equivalence_reflection :
+  forall e1 e2 : Expr,
+  forall p1 p2 : list Op,
+  forall comp1 : compile_Expr e1 = p1,
+  forall comp2 : compile_Expr e2 = p2,
+  forall eqtarget : ctxtequiv_Op p1 p2,
+    ctxtequiv_Expr e1 e2.
+Proof.
+  unfold ctxtequiv_Expr, ctxtequiv_Op in *.
+  intros.
+  induction c; simpl; try solve [hint_rewrite IHc; iauto];
+    (* NOTE(dbp 2018-04-16): Only the base case, for Hole, remains *)
+    [idtac].
+  (* NOTE(dbp 2018-04-16): In the hole case, we specialize the target ctxt equiv hypothesis to empty *)
+  specialize (eqtarget [] []); simpl in eqtarget; repeat rewrite app_nil_r in eqtarget.
+
+  (* NOTE(dbp 2018-04-16): At this point, we know e1 -> p1, e2 -> p2, & p1 ≈ p2,
+  and want e1 ≈ e2, which follows from compiler correctness *)
+  rewrite <- comp1 in eqtarget. rewrite <- comp2 in eqtarget.
+  repeat rewrite compiler_correctness in eqtarget.
+  inversion eqtarget.
+  reflexivity.
+Qed.
+```
+
+This lemma is a little more involved, but not by much; we proceed by induction
+on the structure of the evaluation contexts, and in all but the case for `Hole`,
+the induction hypothesis gives us exactly what we need. In the base case, we
+need to appeal to the `compiler_correctness` lemma we proved earlier, but
+otherwise it follows easily.
+
+So what about equivalence preservation? We can state the lemma quite easily:
+
+```coq
+Lemma equivalence_preservation :
+  forall e1 e2 : Expr,
+  forall p1 p2 : list Op,
+  forall comp1 : compile_Expr e1 = p1,
+  forall comp2 : compile_Expr e2 = p2,
+  forall eqsource : ctxtequiv_Expr e1 e2,
+    ctxtequiv_Op p1 p2.
+```
+
+But proving it is another matter. In fact, it's not provable, because it's not
+true. We can come up with a counter-example, using that `OpCount` instruction we
+(surreptitiously) added to our target language. These two expressions are
+contextually equivalent in our source language (should be obvious, but putting a proof):
+
+```coq
+Example src_equiv : ctxtequiv_Expr (Plus (Num 1) (Num 1)) (Num 2).
+Proof.
+  unfold ctxtequiv_Expr.
+  induction c; simpl; try rewrite IHc; iauto.
+Qed.
+```
+
+But they are not contextually equivalent in the target; in particular, if we put
+the `OpCount` instruction before and then the `Add` instruction afterwards, the
+result will be the value plus the number of instructions it took to compute it:
+
+```coq
+Example target_not_equiv :
+  eval_Op [] (OpCount :: compile_Expr (Plus (Num 1) (Num 1)) ++ [Add]) <>
+  eval_Op [] (OpCount :: compile_Expr (Num 2) ++ [Add]).
+Proof.
+  simpl.
+  congruence.
+Qed.
+```
+
+The former evaluating to `6`, while the latter evaluates to `4`. This means that
+there is no way we are going to be able to prove equivalence preservation (as we
+have a counter-example!). 
