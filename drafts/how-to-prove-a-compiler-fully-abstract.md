@@ -4,10 +4,16 @@ author: Daniel Patterson
 ---
 
 A compiler that preserves and reflects equivalences is called a **fully
-abstract** compiler. This is a different but complimentary notion to the more
-common notion of [compiler
+abstract** compiler. This is a powerful property for a compiler that is
+different (but complimentary) to the more common notion of [compiler
 correctness](/essays/2018-01-16-how-to-prove-a-compiler-correct.html). So what
 does it mean, and how do we prove it?
+
+> All the code for this post, along with instructions to get it running, is in
+> the repository
+> [https://github.com/dbp/howtoprovefullabstraction](https://github.com/dbp/howtoprovefullabstraction).
+> If you have any trouble getting it going, open an issue on that repository.
+
 
 Both **equivalence preservation** and **equivalence reflection** (what make a
 compiler fully abstract) relate to how the compiler treats program equivalences,
@@ -18,13 +24,13 @@ observations that can distinguish them.
 For example, if the only externally observable behavior about programs in your
 language that you can make is see what output they print, this means that the
 two programs print the same output, even if they are implemented in completely
-different ways. This type of equivalence is extremely useful, especially for
+different ways. Observational equivalence is extremely useful, especially for
 compilers, which when optimizing may change how a particular program is
 implemented but should not change the observable behavior. But it is also useful
 for programmers, who commonly refactor code, which means they change how the
 code is implemented (to make it easier to maintain, or extend, or better support
-some future addition), without changing any functionality. Refactoring is an
-equivalence-preserving transformation. We write observational equivalence on
+some future addition), without changing any functionality. _Refactoring is an
+equivalence-preserving transformation._ We write observational equivalence on
 programs formally as:
 
 ```
@@ -32,10 +38,8 @@ p1 ≈ p1
 ```
 
 But we often also want to compile not just whole programs, but particular
-modules, or in the abstract sense, individual expressions, and in that case, we
-want an analogous notion of equivalence over components (whether they be
-modules, expressions, or whatever makes sense in the language) rather than whole
-programs. Two components are **contextual equivalent** if in all program
+modules, or expressions, or in the general sense, **components**, and in that case, we
+want an analogous notion of equivalence. Two components are **contextually equivalent** if in all program
 contexts they produce the same observable behavior. In other words, if you have
 two modules, but any way you combine those modules with the rest of a program
 (so the rest is the same, but the modules differ), the result is the same, then
@@ -55,10 +59,11 @@ expressions are contextually equivalent:
 ```
 
 As while they are implemented differently, no matter how they are used, the
-result will always be the same. It's important to note that contextual
-equivalence always depends on what is observable within the language. For
-example, in Javascript, you can reflect over the syntax of functions, and so
-these two functions, written as:
+result will always be the same (as the only thing we can do with the function is
+call it on an argument, and when we do, it will double its argument). It's
+important to note that contextual equivalence always depends on what is
+observable within the language. For example, in Javascript, you can reflect over
+the syntax of functions, and so the above two functions, written as:
 
 ```javascript
 function(x){ return x * 2; } ≈ function(x){ return x + x; }
@@ -66,7 +71,7 @@ function(x){ return x * 2; } ≈ function(x){ return x + x; }
 
 Would not be contextually equivalent, because there exists a program context
 that can distinguish them. What is that context? Well, if we imagine plugging in
-the functions above into the hole written as `[·]` below, the result will be
+the functions above into the "hole" written as `[·]` below, the result will be
 different for the two functions! This is because the `toString()` method on
 functions in Javascript returns the source code of the function. 
 
@@ -79,10 +84,11 @@ that a transformation between the above programs was safe (assuming one was much
 faster than the other), as there could be code that relied upon the particular
 way that the source code had been written. There are more complicated things you
 can do (like optimizing speculatively and falling back to unoptimized versions
-when reflection was needed). In general, languages with that kind of reflection
-are both harder to write fast compilers for and harder to write secure compilers
-for, and I'm not going to say much more about it, just that it's always
-important to know _what program contexts can determine about components_.
+when reflection was needed). In general though, languages with that kind of
+reflection are both harder to write fast compilers for and harder to write
+secure compilers for, and while it's not the topic of this post, it's always
+important to know what you mean by contextual equivalence, which usually means:
+_what can program contexts determine about components_.
 
 With that in mind, what does **equivalence reflection** and **equivalence
 preservation** for a compiler mean? Let's start with **equivalence reflection**,
@@ -232,6 +238,7 @@ Fixpoint eval_Expr (e : Expr) : Z :=
   | Num n => n                               
   | Plus e1 e2 => eval_Expr e1 + eval_Expr e2
   | Minus e1 e2 => eval_Expr e1 - eval_Expr e2
+  end.
 ```
 
 Our target language is a stack machine which uses a stack of integers to
@@ -242,7 +249,8 @@ that integer on the top of the stack. This is the simplest abstraction I could
 think of that will provide an interesting case study for problems of full
 abstraction, and is a stand-in for both reflection (as it allows the program to
 inspect other parts of the program), and also somewhat of a proxy for execution
-time (remaining).
+time (remaining). Our stack machine requires that the stack be empty at the end
+of execution.
 
 ```coq
 Inductive Op : Set :=
@@ -252,8 +260,7 @@ Inductive Op : Set :=
 | OpCount : Op.
 ```
               
-Let's see the compiler and the evaluation function. For the latter, we add a
-helper that fills in the initial instruction counter and empty stack.
+Let's see the compiler and the evaluation function.
 
 ```coq
 Fixpoint compile_Expr (e : Expr) : list Op :=
@@ -263,10 +270,9 @@ Fixpoint compile_Expr (e : Expr) : list Op :=
   | Minus e1 e2 => compile_Expr e1 ++ compile_Expr e2 ++ [Sub]
   end.
 
-
 Fixpoint eval_Op (s : list Z) (ops : list Op) : option Z :=
   match (ops, s) with
-  | ([], n :: _) => Some n
+  | ([], [n]) => Some n
   | (Push z :: rest, _) => eval_Op (z :: s) rest 
   | (Add :: rest, n1 :: n2 :: ns) => eval_Op (n1 + n2 :: ns)%Z rest
   | (Sub :: rest, n1 :: n2 :: ns) => eval_Op (n1 - n2 :: ns)%Z rest
@@ -275,14 +281,14 @@ Fixpoint eval_Op (s : list Z) (ops : list Op) : option Z :=
   end.
 ```
 
-We can prove a basic compiler correctness result for this (for more detail on
-this type of result, see [this
+We can prove a basic (_whole programs_) compiler correctness result for this
+(for more detail on this type of result, see [this
 post](/essays/2018-01-16-how-to-prove-a-compiler-correct.html)), where first we
 prove a general `step` lemma and then use that to prove correctness (note: the
 `hint` and `hint_rewrite` tactics are from an experimental
 [literatecoq](https://github.com/dbp/literatecoq) library that adds support for
-proof-local hinting, as I think it may lead to proofs that are both relatively
-readable but also maintainable).
+proof-local hinting, which some might think is a hack but I think makes the
+proofs much more readable/maintainable).
 
 ```coq
 Lemma eval_step : forall a : Expr, forall s : list Z, forall xs : list Op,
@@ -344,8 +350,7 @@ Fixpoint link_Expr (c : ExprCtxt) (e : Expr) : Expr :=
 
 For our stack machine, partial programs are much easier, since a program is just
 a list of `Op`, which means that any program can be extended by adding new `Op`s
-on either end (or inserting in the middle). We could create something more
-explicit, but it's not necessary.
+on either end (or inserting in the middle). 
 
 With `ExprCtxt`, we can now define "contextual equivalence" for our source language: 
 
@@ -410,6 +415,8 @@ Lemma equivalence_preservation :
   forall comp2 : compile_Expr e2 = p2,
   forall eqsource : ctxtequiv_Expr e1 e2,
     ctxtequiv_Op p1 p2.
+Proof.
+Abort.
 ```
 
 But proving it is another matter. In fact, it's not provable, because it's not
@@ -442,3 +449,149 @@ Qed.
 The former evaluating to `6`, while the latter evaluates to `4`. This means that
 there is no way we are going to be able to prove equivalence preservation (as we
 have a counter-example!). 
+
+So what do we do? Well, this scenario is not uncommon, and it's the reason why
+many, even correct, compilers are not fully abstract. It's also related to why
+many of these compilers may still have security problems! The solution is to
+somehow protect the compiled code from having the equivalences disrupted. If
+this were a real machine, we might want to have some flag on instructions that
+meant that they should not be counted, and `OpCount` would just not return
+anything if it saw any of those (or would count them as 0). Alternately, we
+might give our target language a type system that is able to rule out linking
+with code that uses the `OpCount` instruction, or perhaps restricts how it can
+be used.
+
+Because this is a blog-post sized example, and I wanted to keep the proofs as
+short as possible, and the unstructured and untyped nature of our target (which,
+indeed, is much less structured than our source language, which is the reason
+why our whole-program correctness result was so easy!) will mean the proofs get
+relatively complex (or require us to add various auxiliary definitions), so the
+solution I'm going to take is somewhat extreme. Rather than, say, restricting
+how `OpCount` is used, or even ruling out linking with `OpCount`, we're going to
+highly restrict what we can link with in general. This is very artificial, and
+done entirely so that the proofs can fit into a few lines. In this case, rather
+than a list, we are going to allow one `Op` before and one `Op` after our
+compiled program, neither of which can be `OpCount`, and further, we still want
+the resulting program to be well-formed (i.e., no errors, only one number on
+stack at end), so either there should be nothing before and after, or there is a
+`Push n` before and either `Add` or `Sub` after.
+
+We can define these possible linking contexts and a helper to combine them with
+programs as the following:
+
+```coq
+Inductive OpCtxt : Set :=
+| PushAdd : Z -> OpCtxt
+| PushSub : Z -> OpCtxt
+| Empty : OpCtxt.
+
+Definition link_Op  (c : OpCtxt) (p : list Op) : list Op :=
+  match c with
+  | PushAdd n => Push n :: p ++ [Add]
+  | PushSub n => Push n :: p ++ [Sub]
+  | Empty => p
+  end.
+```
+
+Using that, we can redefine contextual equivalence for our target language, only
+permitting these contexts:
+
+```coq
+Definition ctxtequiv_Op (p1 p2 : list Op) : Prop :=
+  forall c : OpCtxt, eval_Op [] (link_Op c p1) = eval_Op [] (link_Op c p2).
+
+```
+
+The only change to our proof of equivalence reflection is on one line, to
+change our specialization of the target contexts, now to the `Empty` context:
+
+```coq
+specialize (eqtarget Empty) (* Empty rather than [] [] *)
+```
+
+With that change, we now believe that our compiler, when linked against these
+restricted contexts, is indeed fully abstract. So let's prove it. If you recall
+from earlier in this post, proving equivalence preservation means proving
+that the bottom line implies the top, in the following diagram:
+
+```
+Cs'[s1]  ≈  Cs'[s2]
+  ≈           ≈
+Ct[t1]   ?  Ct[t2]
+```
+
+In order to do that, we rely upon a backtranslation to get from `Ct` to `Cs'`,
+where `Ct` is a target context, in this tiny example our restricted `OpCtxt`. We
+can write that backtranslation as:
+
+```coq
+Definition backtranslate (c : OpCtxt) : ExprCtxt :=
+  match c with
+  | PushAdd n => Plus1 Hole (Num n)
+  | PushSub n => Minus1 Hole (Num n)
+  | Empty => Hole
+  end.
+```
+
+The second part of the proof is showing that the vertical equivalences hold ---
+that is, that if `s1` is compiled to `t1` and `Ct` is backtranslated to `Cs'`
+then `Ct[t1]` is equivalent to `Cs'[s1]`. We can state and prove that as the
+following lemma, which follows from straightforward case analysis on the
+structure of our target context and backtranslation (using our `eval_step`
+lemmas):
+
+```coq
+Lemma back_translation_equiv :
+  forall c : OpCtxt,
+  forall p : list Op,
+  forall e : Expr,
+  forall c' : ExprCtxt, 
+    compile_Expr e = p ->
+    backtranslate c = c' ->
+    eval_Op [] (link_Op c p) = Some (eval_Expr (link_Expr c' e)).
+Proof.
+  hint_rewrite eval_step, eval_step'.
+  intros.
+  match goal with
+  | [ c : OpCtxt |- _] => destruct c
+  end; 
+    match goal with
+    | [ H : backtranslate _ = _ |- _] => invert H
+    end; simpl; iauto. 
+Qed.
+```
+
+Once we have those lemmas, we can prove equivalence preservation directly. We do
+this by doing case analysis on the target context we are given, backtranslating
+it and then using the lemma we just proved to get the equivalence that we need.
+
+```coq
+Lemma equivalence_preservation :
+  forall e1 e2 : Expr,
+  forall p1 p2 : list Op,
+  forall comp1 : compile_Expr e1 = p1,
+  forall comp2 : compile_Expr e2 = p2,
+  forall eqsource : ctxtequiv_Expr e1 e2,
+    ctxtequiv_Op p1 p2.
+Proof.
+  unfold ctxtequiv_Expr, ctxtequiv_Op in *.
+  intros.
+
+  remember (backtranslate c) as c'.
+  destruct c; iauto;
+
+  erewrite back_translation_equiv with (e := e1) (c' := c'); iauto;
+  erewrite back_translation_equiv with (e := e2) (c' := c'); iauto;
+  specialize (eqsource c'); simpl in *; congruence.
+Qed.
+```
+
+This was obviously a very tiny language and a very restrictive linker that only
+allowed very restrictive contexts, which was done primarily to make the proofs
+very short, but the general shape of the proof is the same as that used in more
+realistic languages published in research conferences today!
+
+
+> As stated at the top of the post, all the code in this post is available at
+> [https://github.com/dbp/howtoprovefullabstraction](https://github.com/dbp/howtoprovefullabstraction). 
+> If you have any trouble getting it going, open an issue on that repository.
