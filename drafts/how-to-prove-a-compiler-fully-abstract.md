@@ -37,6 +37,8 @@ programs formally as:
 p1 ≈ p1
 ```
 
+### Contextual equivalence
+
 But we often also want to compile not just whole programs, but particular
 modules, or expressions, or in the general sense, **components**, and in that case, we
 want an analogous notion of equivalence. Two components are **contextually equivalent** if in all program
@@ -90,6 +92,8 @@ secure compilers for, and while it's not the topic of this post, it's always
 important to know what you mean by contextual equivalence, which usually means:
 _what can program contexts determine about components_.
 
+### Part 1. Equivalence reflection
+
 With that in mind, what does **equivalence reflection** and **equivalence
 preservation** for a compiler mean? Let's start with **equivalence reflection**,
 as that's the property that all your correct compilers already have. Equivalence
@@ -131,6 +135,8 @@ different target programs not only for source programs that were observationally
 different, but even syntactically different! That would be a pretty bad
 compiler, and certainly not correct, but it would be equivalence reflecting.
 
+### Part 2. Equivalence preservation
+
 Equivalence preservation, on the other hand, is the hallmark of fully abstract
 compilers, and it is a property that even most correct compilers do not have,
 though it would certainly be great if they did. It says that if two source
@@ -168,6 +174,8 @@ component _in my language_, but the whole program can no longer work.
 
 Proving a compiler fully abstract, therefore, is all about proving equivalence
 preservation. So how do we do it?
+
+### How to prove equivalence preservation
 
 Looking at what we have to prove, we see that given contextually equivalent
 source components `s1` and `s2`, we need to show that `t1` and `t2` are
@@ -207,6 +215,8 @@ Cs'[s1]  ≈  Cs'[s2]
 Ct[t1]   ?  Ct[t2]
 ```
 
+### Concrete example of languages, compiler, & proof of full abstraction
+
 Let's make this concrete with an example. This will be presented somewhat in english and some in Coq.
 
 Our source language is arithmetic expressions over integers with addition and
@@ -230,7 +240,7 @@ Inductive Expr : Set :=
 Evaluation is standard (if you wanted to parse this, you would need to deal with
 left/right associativity, and probably add parenthesis to disambiguate, but we
 consider the point where you already have a tree structure, so it is
-unambiguous). We can write this evaluation relation as:
+unambiguous). We can write the evaluation function as:
 
 ```coq
 Fixpoint eval_Expr (e : Expr) : Z := 
@@ -590,6 +600,11 @@ This was obviously a very tiny language and a very restrictive linker that only
 allowed very restrictive contexts, which was done primarily to make the proofs
 very short, but the general shape of the proof is the same as that used in more
 realistic languages published in research conferences today!
+
+So next time you see a result about a correct (or even hoped to be correct), ask
+if it is fully abstract! And if it's not, are the violations of equivalences
+something that could be exploited? Or something that would invalidate
+optimizations?
 
 
 > As stated at the top of the post, all the code in this post is available at
