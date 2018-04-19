@@ -60,7 +60,7 @@ expressions are contextually equivalent:
 λx. x * 2 ≈ λx. x + x
 ```
 
-As while they are implemented differently, no matter how they are used, the
+While they are implemented differently, no matter how they are used, the
 result will always be the same (as the only thing we can do with the function is
 call it on an argument, and when we do, it will double its argument). It's
 important to note that contextual equivalence always depends on what is
