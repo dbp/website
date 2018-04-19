@@ -30,17 +30,17 @@
 
 <p>A compiler that preserves and reflects equivalences is called a <strong>fully abstract</strong> compiler. This is a powerful property for a compiler that is different (but complimentary) to the more common notion of <a href="../essays/2018-01-16-how-to-prove-a-compiler-correct.html">compiler correctness</a>. So what does it mean, and how do we prove it?</p>
 <blockquote>
-<p>All the code for this post, along with instructions to get it running, is in the repository <a href="https://github.com/dbp/howtoprovefullabstraction" class="uri">https://github.com/dbp/howtoprovefullabstraction</a>. If you have any trouble getting it going, open an issue on that repository.</p>
+<p>All the code for this post, along with instructions to get it running, is in the repository <a href="https://github.com/dbp/howtoprovefullabstraction" class="uri">https://github.com/dbp/howtoprovefullabstraction</a>. If you have any trouble getting it going, please open an issue on that repository and I’ll help figure it out with you.</p>
 </blockquote>
 <p>Both <strong>equivalence preservation</strong> and <strong>equivalence reflection</strong> (what make a compiler fully abstract) relate to how the compiler treats program equivalences, which in this case I’m considering observational equivalence. Two programs <code>p1</code> and <code>p2</code> are <strong>observationally equivalent</strong> if you cannot make any external observations that can distinguish them.</p>
 <p>For example, if the only externally observable behavior about programs in your language that you can make is see what output they print, this means that the two programs print the same output, even if they are implemented in completely different ways. Observational equivalence is extremely useful, especially for compilers, which when optimizing may change how a particular program is implemented but should not change the observable behavior. But it is also useful for programmers, who commonly refactor code, which means they change how the code is implemented (to make it easier to maintain, or extend, or better support some future addition), without changing any functionality. <em>Refactoring is an equivalence-preserving transformation.</em> We write observational equivalence on programs formally as:</p>
 <pre><code>p1 ≈ p1</code></pre>
 <h3 id="contextual-equivalence">Contextual equivalence</h3>
-<p>But we often also want to compile not just whole programs, but particular modules, or expressions, or in the general sense, <strong>components</strong>, and in that case, we want an analogous notion of equivalence. Two components are <strong>contextually equivalent</strong> if in all program contexts they produce the same observable behavior. In other words, if you have two modules, but any way you combine those modules with the rest of a program (so the rest is the same, but the modules differ), the result is the same, then those two modules are contextually equivalent. We will write this, overloading the <code>≈</code> for both observational and contextual equivalence, as:</p>
+<p>But we often also want to compile not just whole programs, but particular modules, expressions, or in the general sense, <strong>components</strong>, and in that case, we want an analogous notion of equivalence. Two components are <strong>contextually equivalent</strong> if in all program contexts they produce the same observable behavior. In other words, if you have two modules, but any way you combine those modules with the rest of a program (so the rest is the same, but the modules differ), the result is the same, then those two modules are contextually equivalent. We will write this, overloading the <code>≈</code> for both observational and contextual equivalence, as:</p>
 <pre><code>e1 ≈ e1</code></pre>
 <p>As an example, if we consider a simple functional language and consider our components to be individual expressions, it should be clear that these two expressions are contextually equivalent:</p>
 <pre><code>λx. x * 2 ≈ λx. x + x</code></pre>
-<p>While they are implemented differently, no matter how they are used, the result will always be the same (as the only thing we can do with the function is call it on an argument, and when we do, it will double its argument). It’s important to note that contextual equivalence always depends on what is observable within the language. For example, in Javascript, you can reflect over the syntax of functions, and so the above two functions, written as:</p>
+<p>While they are implemented differently, no matter how they are used, the result will always be the same (as the only thing we can do with these functions is call them on an argument, and when we do, each will double its argument, even though in a different way). It’s important to note that contextual equivalence always depends on what is observable within the language. For example, in Javascript, you can reflect over the syntax of functions, and so the above two functions, written as:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span>(x)<span class="op">{</span> <span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span> <span class="op">}</span> ≈ <span class="kw">function</span>(x)<span class="op">{</span> <span class="cf">return</span> x <span class="op">+</span> x<span class="op">;</span> <span class="op">}</span></code></pre></div>
 <p>Would not be contextually equivalent, because there exists a program context that can distinguish them. What is that context? Well, if we imagine plugging in the functions above into the “hole” written as <code>[·]</code> below, the result will be different for the two functions! This is because the <code>toString()</code> method on functions in Javascript returns the source code of the function.</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">([·]).<span class="at">toString</span>()</code></pre></div>
@@ -57,20 +57,20 @@
 <pre><code>∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ s1 ≈ s2 ⇒ t1 ≈ t2</code></pre>
 <p>(See, I just reversed the implication. Need trick! But now it means something totally different). One place where this has been studied extensively is by security researchers, because what it tells you is that observers in the target can’t make observations that aren’t possible to distinguish in the source. Let’s make that a lot more concrete, where we will also see why it’s not frequently true, even of proven correct compilers.</p>
 <p>Say your language has some information hiding feature, like a private field, and you have two source components that are identical except they have different values stored in the private field. If the compiler does not preserve the fact that it is private (because, for example, it translates the higher level object structure into a C struct or just a pile of memory accessed by assembly), then other target code could read the private values, and these two components will no longer be equivalent.</p>
-<p>This also has implications for programmer refactoring and compiler optimizations: I (or my compiler) might think that it is safe to replace one version of the program with another, because I know that in my language these are equivalent, but what I don’t know is that the compiler reveals distinguishing characteristics, and perhaps some target-level library that I’m linking with relies upon how the old code worked. If that’s the case, I can have a working program, and make a change that does not change the meaning of the component <em>in my language</em>, but the whole program can no longer work.</p>
+<p>This also has implications for programmer refactoring and compiler optimizations: I (or my compiler) might think that it is safe to replace one version of the program with another, because I know that in my language these are equivalent, but what I don’t know is that the compiler reveals distinguishing characteristics, and perhaps some target-level library that I’m linking with relies upon details (that were supposed to be hidden) of how the old code worked. If that’s the case, I can have a working program, and make a change that does not change the meaning of the component <em>in my language</em>, but the whole program can no longer work.</p>
 <p>Proving a compiler fully abstract, therefore, is all about proving equivalence preservation. So how do we do it?</p>
 <h3 id="how-to-prove-equivalence-preservation">How to prove equivalence preservation</h3>
 <p>Looking at what we have to prove, we see that given contextually equivalent source components <code>s1</code> and <code>s2</code>, we need to show that <code>t1</code> and <code>t2</code> are contextually equivalent. We can expand this to explicitly quantify over the contexts that combine with the components to make whole programs:</p>
 <pre><code>∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ (∀Cs. Cs[s1] ≈ Cs[s2]) ⇒ (∀Ct. Ct[t1] ≈ Ct[t2])</code></pre>
 <p>Noting that as mentioned above, I am overloading <code>≈</code> to now mean whole-program observational equivalence (so, running the program produces the same observations).</p>
 <p>First I’ll outline how the proof will go in general, and then we’ll consider an actual example compiler and do the proof for the concrete example.</p>
-<p>We can see that in order to prove this, we need to consider an arbitrary target context <code>Ct</code> and show that <code>Ct[t1]</code> and <code>Ct[t2]</code> are observationally equivalent. We do this by showing that <code>Ct[t1]</code> is observationally equivalent to <code>Cs'[s1]</code> – that is, we produce a source context <code>Cs'</code> that we claim is equivalent to <code>Ct</code>. We do this by way of a “back-translation”, which will be a sort of compiler in reverse. Assuming that we can produce such a <code>Cs'</code> and that <code>Cs'[s1]</code> and <code>Ct[t1]</code> (and correspondingly <code>Cs'[s1] ≈ Ct[t1]</code>) are indeed observationally equivalent (noting that this relies upon a cross-language notion of observations), we can prove that <code>Ct[t1]</code> and <code>Ct[t2]</code> are observationally equivalent by instantiating our hypothesis <code>∀Cs. Cs[s1] ≈ Cs[s2]</code> with <code>Cs'</code>. This tells us that <code>Cs'[s1] ≈ Cs'[s2]</code>, and by transitivity, <code>Ct[t1] ≈ Ct[t2]</code>.</p>
-<p>It can be helpful to see it is a diagram, where the top line is given by the hypothesis and coming up with the back-translation and showing that <code>Ct</code> and <code>Cs'</code> are equivalent is the hard part of the proof.</p>
+<p>We can see that in order to prove this, we need to consider an arbitrary target context <code>Ct</code> and show that <code>Ct[t1]</code> and <code>Ct[t2]</code> are observationally equivalent. We do this by showing that <code>Ct[t1]</code> is observationally equivalent to <code>Cs'[s1]</code> – that is, we produce a source context <code>Cs'</code> that we claim is equivalent to <code>Ct</code>. We do this by way of a “back-translation”, which will be a sort of compiler in reverse. Assuming that we can produce such a <code>Cs'</code> and that <code>Cs'[s1]</code> and <code>Ct[t1]</code> (and correspondingly <code>Cs'[s2]</code> and <code>Ct[t2]</code>) are indeed observationally equivalent (noting that this relies upon a cross-language notion of observations), we can prove that <code>Ct[t1]</code> and <code>Ct[t2]</code> are observationally equivalent by instantiating our hypothesis <code>∀Cs. Cs[s1] ≈ Cs[s2]</code> with <code>Cs'</code>. This tells us that <code>Cs'[s1] ≈ Cs'[s2]</code>, and by transitivity, <code>Ct[t1] ≈ Ct[t2]</code>.</p>
+<p>It can be helpful to see it is a diagram, where the top line is given by the hypothesis (once instantiated with the source context we come up with by way of backtranslation) and coming up with the back-translation and showing that <code>Ct</code> and <code>Cs'</code> are equivalent is the hard part of the proof.</p>
 <pre><code>Cs'[s1]  ≈  Cs'[s2]
   ≈           ≈
 Ct[t1]   ?  Ct[t2]</code></pre>
 <h3 id="concrete-example-of-languages-compiler-proof-of-full-abstraction">Concrete example of languages, compiler, &amp; proof of full abstraction</h3>
-<p>Let’s make this concrete with an example. This will be presented somewhat in english and some in Coq.</p>
+<p>Let’s make this concrete with an example. This will be presented some in english and some in the proof assistant Coq. This post isn’t an introduction to Coq; for that, see e.g., Bertot and Casteron’s Coq’Art, Chlipala’s CPDT, or Pierce et al’s Software Foundations.</p>
 <p>Our source language is arithmetic expressions over integers with addition and subtraction:</p>
 <pre><code>e ::= n
     | e + e
@@ -93,7 +93,7 @@ Ct[t1]   ?  Ct[t2]</code></pre>
 | Add : Op
 | Sub : Op
 | OpCount : Op.</code></pre>
-<p>Let’s see the compiler and the evaluation function.</p>
+<p>Let’s see the compiler and the evaluation function (note that we reverse the order when we pop values off the stack from when we put them on in the compiler).</p>
 <pre class="coq"><code>Fixpoint compile_Expr (e : Expr) : list Op :=
   match e with
   | Num n =&gt; [Push n]
@@ -105,12 +105,12 @@ Fixpoint eval_Op (s : list Z) (ops : list Op) : option Z :=
   match (ops, s) with
   | ([], [n]) =&gt; Some n
   | (Push z :: rest, _) =&gt; eval_Op (z :: s) rest 
-  | (Add :: rest, n1 :: n2 :: ns) =&gt; eval_Op (n1 + n2 :: ns)%Z rest
-  | (Sub :: rest, n1 :: n2 :: ns) =&gt; eval_Op (n1 - n2 :: ns)%Z rest
+  | (Add :: rest, n2 :: n1 :: ns) =&gt; eval_Op (n1 + n2 :: ns)%Z rest
+  | (Sub :: rest, n2 :: n1 :: ns) =&gt; eval_Op (n1 - n2 :: ns)%Z rest
   | (OpCount :: rest, _) =&gt; eval_Op (Z.of_nat (length rest) :: s) rest
   | _ =&gt; None
   end.</code></pre>
-<p>We can prove a basic (<em>whole programs</em>) compiler correctness result for this (for more detail on this type of result, see <a href="../essays/2018-01-16-how-to-prove-a-compiler-correct.html">this post</a>), where first we prove a general <code>step</code> lemma and then use that to prove correctness (note: the <code>hint</code> and <code>hint_rewrite</code> tactics are from an experimental <a href="https://github.com/dbp/literatecoq">literatecoq</a> library that adds support for proof-local hinting, which some might think is a hack but I think makes the proofs much more readable/maintainable).</p>
+<p>We can prove a basic (<em>whole program</em>) compiler correctness result for this (for more detail on this type of result, see <a href="../essays/2018-01-16-how-to-prove-a-compiler-correct.html">this post</a>), where first we prove a general <code>eval_step</code> lemma and then use that to prove correctness (note: the <code>hint</code> and <code>hint_rewrite</code> tactics are from an experimental <a href="https://github.com/dbp/literatecoq">literatecoq</a> library that adds support for proof-local hinting, which some might think is a hack but I think makes the proofs much more readable/maintainable).</p>
 <pre class="coq"><code>Lemma eval_step : forall a : Expr, forall s : list Z, forall xs : list Op,
       eval_Op s (compile_Expr a ++ xs) = eval_Op (eval_Expr a :: s) xs.
 Proof.
@@ -167,7 +167,7 @@ Proof.
   induction c; simpl; try solve [hint_rewrite IHc; iauto];
     (* NOTE(dbp 2018-04-16): Only the base case, for Hole, remains *)
     [idtac].
-  (* NOTE(dbp 2018-04-16): In the hole case, we specialize the target ctxt equiv hypothesis to empty *)
+  (* NOTE(dbp 2018-04-16): In the hole case, specialize the target ctxt equiv hypothesis to empty *)
   specialize (eqtarget [] []); simpl in eqtarget; repeat rewrite app_nil_r in eqtarget.
 
   (* NOTE(dbp 2018-04-16): At this point, we know e1 -&gt; p1, e2 -&gt; p2, &amp; p1 ≈ p2,
@@ -204,7 +204,7 @@ Proof.
 Qed.</code></pre>
 <p>The former evaluating to <code>6</code>, while the latter evaluates to <code>4</code>. This means that there is no way we are going to be able to prove equivalence preservation (as we have a counter-example!).</p>
 <p>So what do we do? Well, this scenario is not uncommon, and it’s the reason why many, even correct, compilers are not fully abstract. It’s also related to why many of these compilers may still have security problems! The solution is to somehow protect the compiled code from having the equivalences disrupted. If this were a real machine, we might want to have some flag on instructions that meant that they should not be counted, and <code>OpCount</code> would just not return anything if it saw any of those (or would count them as 0). Alternately, we might give our target language a type system that is able to rule out linking with code that uses the <code>OpCount</code> instruction, or perhaps restricts how it can be used.</p>
-<p>Because this is a blog-post sized example, and I wanted to keep the proofs as short as possible, and the unstructured and untyped nature of our target (which, indeed, is much less structured than our source language, which is the reason why our whole-program correctness result was so easy!) will mean the proofs get relatively complex (or require us to add various auxiliary definitions), so the solution I’m going to take is somewhat extreme. Rather than, say, restricting how <code>OpCount</code> is used, or even ruling out linking with <code>OpCount</code>, we’re going to highly restrict what we can link with in general. This is very artificial, and done entirely so that the proofs can fit into a few lines. In this case, rather than a list, we are going to allow one <code>Op</code> before and one <code>Op</code> after our compiled program, neither of which can be <code>OpCount</code>, and further, we still want the resulting program to be well-formed (i.e., no errors, only one number on stack at end), so either there should be nothing before and after, or there is a <code>Push n</code> before and either <code>Add</code> or <code>Sub</code> after.</p>
+<p>Because this is a blog-post sized example, and I wanted to keep the proofs as short as possible, and the unstructured and untyped nature of our target (which, indeed, is much less structured than our source language; the fact that the source is so well-structured is why our whole-program correctness result was so easy!) will mean the proofs get relatively complex (or require us to add various auxiliary definitions), so the solution I’m going to take is somewhat extreme. Rather than, say, restricting how <code>OpCount</code> is used, or even ruling out linking with <code>OpCount</code>, we’re going to highly restrict what we can link with. This is very artificial, and done entirely so that the proofs can fit into a few lines. In this case, rather than a list, we are going to allow one <code>Op</code> before and one <code>Op</code> after our compiled program, neither of which can be <code>OpCount</code>, and further, we still want the resulting program to be well-formed (i.e., no errors, only one number on stack at end), so either there should be nothing before and after, or there is a <code>Push n</code> before and either <code>Add</code> or <code>Sub</code> after. (You should be able to verify that no other combination of <code>Op</code> before or after will fulfill our requirement).</p>
 <p>We can define these possible linking contexts and a helper to combine them with programs as the following:</p>
 <pre class="coq"><code>Inductive OpCtxt : Set :=
 | PushAdd : Z -&gt; OpCtxt
@@ -230,11 +230,11 @@ Ct[t1]   ?  Ct[t2]</code></pre>
 <p>In order to do that, we rely upon a backtranslation to get from <code>Ct</code> to <code>Cs'</code>, where <code>Ct</code> is a target context, in this tiny example our restricted <code>OpCtxt</code>. We can write that backtranslation as:</p>
 <pre class="coq"><code>Definition backtranslate (c : OpCtxt) : ExprCtxt :=
   match c with
-  | PushAdd n =&gt; Plus1 Hole (Num n)
-  | PushSub n =&gt; Minus1 Hole (Num n)
+  | PushAdd n =&gt; Plus2 (Num n) Hole
+  | PushSub n =&gt; Minus2 (Num n) Hole
   | Empty =&gt; Hole
   end.</code></pre>
-<p>The second part of the proof is showing that the vertical equivalences hold — that is, that if <code>s1</code> is compiled to <code>t1</code> and <code>Ct</code> is backtranslated to <code>Cs'</code> then <code>Ct[t1]</code> is equivalent to <code>Cs'[s1]</code>. We can state and prove that as the following lemma, which follows from straightforward case analysis on the structure of our target context and backtranslation (using our <code>eval_step</code> lemmas):</p>
+<p>The second part of the proof is showing that the vertical equivalences in the diagram hold — that is, that if <code>s1</code> is compiled to <code>t1</code> and <code>Ct</code> is backtranslated to <code>Cs'</code> then <code>Ct[t1]</code> is equivalent to <code>Cs'[s1]</code>. We can state and prove that as the following lemma, which follows from straightforward case analysis on the structure of our target context and backtranslation (using our <code>eval_step</code> lemmas):</p>
 <pre class="coq"><code>Lemma back_translation_equiv :
   forall c : OpCtxt,
   forall p : list Op,
@@ -253,7 +253,7 @@ Proof.
     | [ H : backtranslate _ = _ |- _] =&gt; invert H
     end; simpl; iauto. 
 Qed.</code></pre>
-<p>Once we have those lemmas, we can prove equivalence preservation directly. We do this by doing case analysis on the target context we are given, backtranslating it and then using the lemma we just proved to get the equivalence that we need.</p>
+<p>Once we have that lemma, we can prove equivalence preservation directly. We do this by doing case analysis on the target context we are given, backtranslating it and then using the lemma we just proved to get the equivalence that we need.</p>
 <pre class="coq"><code>Lemma equivalence_preservation :
   forall e1 e2 : Expr,
   forall p1 p2 : list Op,
@@ -272,10 +272,10 @@ Proof.
   erewrite back_translation_equiv with (e := e2) (c' := c'); iauto;
   specialize (eqsource c'); simpl in *; congruence.
 Qed.</code></pre>
-<p>This was obviously a very tiny language and a very restrictive linker that only allowed very restrictive contexts, which was done primarily to make the proofs very short, but the general shape of the proof is the same as that used in more realistic languages published in research conferences today!</p>
-<p>So next time you see a result about a correct (or even hoped to be correct), ask if it is fully abstract! And if it’s not, are the violations of equivalences something that could be exploited? Or something that would invalidate optimizations?</p>
+<p>This was obviously a very tiny language and a very restrictive linker that only allowed very restrictive contexts, but the general shape of the proof is the same as that used in more realistic languages published in research conferences today!</p>
+<p>So next time you see a result about a correct (or even hoped to be correct) compiler, ask if it is fully abstract! And if it’s not, are the violations of equivalences something that could be exploited? Or something that would invalidate optimizations?</p>
 <blockquote>
-<p>As stated at the top of the post, all the code in this post is available at <a href="https://github.com/dbp/howtoprovefullabstraction" class="uri">https://github.com/dbp/howtoprovefullabstraction</a>. If you have any trouble getting it going, open an issue on that repository.</p>
+<p>As stated at the top of the post, all the code in this post is available at <a href="https://github.com/dbp/howtoprovefullabstraction" class="uri">https://github.com/dbp/howtoprovefullabstraction</a>. If you have any trouble getting it going, please open an issue on that repository and I’ll help figure it out with you.</p>
 </blockquote>
 
     </body>

@@ -12,7 +12,8 @@ does it mean, and how do we prove it?
 > All the code for this post, along with instructions to get it running, is in
 > the repository
 > [https://github.com/dbp/howtoprovefullabstraction](https://github.com/dbp/howtoprovefullabstraction).
-> If you have any trouble getting it going, open an issue on that repository.
+> If you have any trouble getting it going, please open an issue on that
+> repository and I'll help figure it out with you.
 
 
 Both **equivalence preservation** and **equivalence reflection** (what make a
@@ -40,7 +41,7 @@ p1 ≈ p1
 ### Contextual equivalence
 
 But we often also want to compile not just whole programs, but particular
-modules, or expressions, or in the general sense, **components**, and in that case, we
+modules, expressions, or in the general sense, **components**, and in that case, we
 want an analogous notion of equivalence. Two components are **contextually equivalent** if in all program
 contexts they produce the same observable behavior. In other words, if you have
 two modules, but any way you combine those modules with the rest of a program
@@ -60,12 +61,13 @@ expressions are contextually equivalent:
 λx. x * 2 ≈ λx. x + x
 ```
 
-While they are implemented differently, no matter how they are used, the
-result will always be the same (as the only thing we can do with the function is
-call it on an argument, and when we do, it will double its argument). It's
-important to note that contextual equivalence always depends on what is
-observable within the language. For example, in Javascript, you can reflect over
-the syntax of functions, and so the above two functions, written as:
+While they are implemented differently, no matter how they are used, the result
+will always be the same (as the only thing we can do with these functions is
+call them on an argument, and when we do, each will double its argument, even
+though in a different way). It's important to note that contextual equivalence
+always depends on what is observable within the language. For example, in
+Javascript, you can reflect over the syntax of functions, and so the above two
+functions, written as:
 
 ```javascript
 function(x){ return x * 2; } ≈ function(x){ return x + x; }
@@ -168,9 +170,10 @@ optimizations: I (or my compiler) might think that it is safe to replace one
 version of the program with another, because I know that in my language these
 are equivalent, but what I don't know is that the compiler reveals
 distinguishing characteristics, and perhaps some target-level library that I'm
-linking with relies upon how the old code worked. If that's the case, I can have
-a working program, and make a change that does not change the meaning of the
-component _in my language_, but the whole program can no longer work.
+linking with relies upon details (that were supposed to be hidden) of how the
+old code worked. If that's the case, I can have a working program, and make a
+change that does not change the meaning of the component _in my language_, but
+the whole program can no longer work.
 
 Proving a compiler fully abstract, therefore, is all about proving equivalence
 preservation. So how do we do it?
@@ -199,15 +202,16 @@ We do this by showing that `Ct[t1]` is observationally equivalent to `Cs'[s1]`
 -- that is, we produce a source context `Cs'` that we claim is equivalent to
 `Ct`. We do this by way of a "back-translation", which will be a sort of
 compiler in reverse. Assuming that we can produce such a `Cs'` and that
-`Cs'[s1]` and `Ct[t1]` (and correspondingly `Cs'[s1] ≈ Ct[t1]`) are indeed
+`Cs'[s1]` and `Ct[t1]` (and correspondingly `Cs'[s2]` and `Ct[t2]`) are indeed
 observationally equivalent (noting that this relies upon a cross-language notion
 of observations), we can prove that `Ct[t1]` and `Ct[t2]` are observationally
 equivalent by instantiating our hypothesis `∀Cs. Cs[s1] ≈ Cs[s2]` with `Cs'`.
 This tells us that `Cs'[s1] ≈ Cs'[s2]`, and by transitivity, `Ct[t1] ≈ Ct[t2]`.
 
 It can be helpful to see it is a diagram, where the top line is given by the
-hypothesis and coming up with the back-translation and showing that `Ct` and
-`Cs'` are equivalent is the hard part of the proof.
+hypothesis (once instantiated with the source context we come up with by way of
+backtranslation) and coming up with the back-translation and showing that `Ct`
+and `Cs'` are equivalent is the hard part of the proof.
 
 ```
 Cs'[s1]  ≈  Cs'[s2]
@@ -217,7 +221,10 @@ Ct[t1]   ?  Ct[t2]
 
 ### Concrete example of languages, compiler, & proof of full abstraction
 
-Let's make this concrete with an example. This will be presented somewhat in english and some in Coq.
+Let's make this concrete with an example. This will be presented some in english
+and some in the proof assistant Coq. This post isn't an introduction to Coq; for
+that, see e.g., Bertot and Casteron's Coq'Art, Chlipala's CPDT, or Pierce et
+al's Software Foundations.
 
 Our source language is arithmetic expressions over integers with addition and
 subtraction:
@@ -270,7 +277,8 @@ Inductive Op : Set :=
 | OpCount : Op.
 ```
               
-Let's see the compiler and the evaluation function.
+Let's see the compiler and the evaluation function (note that we reverse the
+order when we pop values off the stack from when we put them on in the compiler).
 
 ```coq
 Fixpoint compile_Expr (e : Expr) : list Op :=
@@ -284,17 +292,17 @@ Fixpoint eval_Op (s : list Z) (ops : list Op) : option Z :=
   match (ops, s) with
   | ([], [n]) => Some n
   | (Push z :: rest, _) => eval_Op (z :: s) rest 
-  | (Add :: rest, n1 :: n2 :: ns) => eval_Op (n1 + n2 :: ns)%Z rest
-  | (Sub :: rest, n1 :: n2 :: ns) => eval_Op (n1 - n2 :: ns)%Z rest
+  | (Add :: rest, n2 :: n1 :: ns) => eval_Op (n1 + n2 :: ns)%Z rest
+  | (Sub :: rest, n2 :: n1 :: ns) => eval_Op (n1 - n2 :: ns)%Z rest
   | (OpCount :: rest, _) => eval_Op (Z.of_nat (length rest) :: s) rest
   | _ => None
   end.
 ```
 
-We can prove a basic (_whole programs_) compiler correctness result for this
+We can prove a basic (_whole program_) compiler correctness result for this
 (for more detail on this type of result, see [this
 post](/essays/2018-01-16-how-to-prove-a-compiler-correct.html)), where first we
-prove a general `step` lemma and then use that to prove correctness (note: the
+prove a general `eval_step` lemma and then use that to prove correctness (note: the
 `hint` and `hint_rewrite` tactics are from an experimental
 [literatecoq](https://github.com/dbp/literatecoq) library that adds support for
 proof-local hinting, which some might think is a hack but I think makes the
@@ -397,7 +405,7 @@ Proof.
   induction c; simpl; try solve [hint_rewrite IHc; iauto];
     (* NOTE(dbp 2018-04-16): Only the base case, for Hole, remains *)
     [idtac].
-  (* NOTE(dbp 2018-04-16): In the hole case, we specialize the target ctxt equiv hypothesis to empty *)
+  (* NOTE(dbp 2018-04-16): In the hole case, specialize the target ctxt equiv hypothesis to empty *)
   specialize (eqtarget [] []); simpl in eqtarget; repeat rewrite app_nil_r in eqtarget.
 
   (* NOTE(dbp 2018-04-16): At this point, we know e1 -> p1, e2 -> p2, & p1 ≈ p2,
@@ -473,18 +481,20 @@ be used.
 
 Because this is a blog-post sized example, and I wanted to keep the proofs as
 short as possible, and the unstructured and untyped nature of our target (which,
-indeed, is much less structured than our source language, which is the reason
-why our whole-program correctness result was so easy!) will mean the proofs get
-relatively complex (or require us to add various auxiliary definitions), so the
-solution I'm going to take is somewhat extreme. Rather than, say, restricting
-how `OpCount` is used, or even ruling out linking with `OpCount`, we're going to
-highly restrict what we can link with in general. This is very artificial, and
-done entirely so that the proofs can fit into a few lines. In this case, rather
-than a list, we are going to allow one `Op` before and one `Op` after our
-compiled program, neither of which can be `OpCount`, and further, we still want
-the resulting program to be well-formed (i.e., no errors, only one number on
-stack at end), so either there should be nothing before and after, or there is a
-`Push n` before and either `Add` or `Sub` after.
+indeed, is much less structured than our source language; the fact that the
+source is so well-structured is why our whole-program correctness result was so
+easy!) will mean the proofs get relatively complex (or require us to add various
+auxiliary definitions), so the solution I'm going to take is somewhat extreme.
+Rather than, say, restricting how `OpCount` is used, or even ruling out linking
+with `OpCount`, we're going to highly restrict what we can link with. This is
+very artificial, and done entirely so that the proofs can fit into a few lines.
+In this case, rather than a list, we are going to allow one `Op` before and one
+`Op` after our compiled program, neither of which can be `OpCount`, and further,
+we still want the resulting program to be well-formed (i.e., no errors, only one
+number on stack at end), so either there should be nothing before and after, or
+there is a `Push n` before and either `Add` or `Sub` after. (You should be able
+to verify that no other combination of `Op` before or after will fulfill our
+requirement).
 
 We can define these possible linking contexts and a helper to combine them with
 programs as the following:
@@ -537,18 +547,18 @@ can write that backtranslation as:
 ```coq
 Definition backtranslate (c : OpCtxt) : ExprCtxt :=
   match c with
-  | PushAdd n => Plus1 Hole (Num n)
-  | PushSub n => Minus1 Hole (Num n)
+  | PushAdd n => Plus2 (Num n) Hole
+  | PushSub n => Minus2 (Num n) Hole
   | Empty => Hole
   end.
 ```
 
-The second part of the proof is showing that the vertical equivalences hold ---
-that is, that if `s1` is compiled to `t1` and `Ct` is backtranslated to `Cs'`
-then `Ct[t1]` is equivalent to `Cs'[s1]`. We can state and prove that as the
-following lemma, which follows from straightforward case analysis on the
-structure of our target context and backtranslation (using our `eval_step`
-lemmas):
+The second part of the proof is showing that the vertical equivalences in the
+diagram hold --- that is, that if `s1` is compiled to `t1` and `Ct` is
+backtranslated to `Cs'` then `Ct[t1]` is equivalent to `Cs'[s1]`. We can state
+and prove that as the following lemma, which follows from straightforward case
+analysis on the structure of our target context and backtranslation (using our
+`eval_step` lemmas):
 
 ```coq
 Lemma back_translation_equiv :
@@ -571,7 +581,7 @@ Proof.
 Qed.
 ```
 
-Once we have those lemmas, we can prove equivalence preservation directly. We do
+Once we have that lemma, we can prove equivalence preservation directly. We do
 this by doing case analysis on the target context we are given, backtranslating
 it and then using the lemma we just proved to get the equivalence that we need.
 
@@ -597,16 +607,17 @@ Qed.
 ```
 
 This was obviously a very tiny language and a very restrictive linker that only
-allowed very restrictive contexts, which was done primarily to make the proofs
-very short, but the general shape of the proof is the same as that used in more
-realistic languages published in research conferences today!
+allowed very restrictive contexts, but the general shape of the proof is the
+same as that used in more realistic languages published in research conferences
+today!
 
-So next time you see a result about a correct (or even hoped to be correct), ask
-if it is fully abstract! And if it's not, are the violations of equivalences
-something that could be exploited? Or something that would invalidate
-optimizations?
+So next time you see a result about a correct (or even hoped to be correct)
+compiler, ask if it is fully abstract! And if it's not, are the violations of
+equivalences something that could be exploited? Or something that would
+invalidate optimizations?
 
 
 > As stated at the top of the post, all the code in this post is available at
 > [https://github.com/dbp/howtoprovefullabstraction](https://github.com/dbp/howtoprovefullabstraction). 
-> If you have any trouble getting it going, open an issue on that repository.
+> If you have any trouble getting it going, please open an issue on that
+> repository and I'll help figure it out with you.
