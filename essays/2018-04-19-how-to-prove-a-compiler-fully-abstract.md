@@ -19,12 +19,12 @@ does it mean, and how do we prove it?
 Both **equivalence preservation** and **equivalence reflection** (what make a
 compiler fully abstract) relate to how the compiler treats program equivalences,
 which in this case I'm considering observational equivalence. Two programs `p1`
-and `p2` are **observationally equivalent** if you cannot make any external
-observations that can distinguish them.
+and `p2` are **observationally equivalent** if you cannot tell any difference
+between the result of running them, including any side effects.
 
-For example, if the only externally observable behavior about programs in your
-language that you can make is see what output they print, this means that the
-two programs print the same output, even if they are implemented in completely
+For example, if the only observable behavior about programs in your language
+that you can make is see what output they print, this means that the two
+programs print the same output, even if they are implemented in completely
 different ways. Observational equivalence is extremely useful, especially for
 compilers, which when optimizing may change how a particular program is
 implemented but should not change the observable behavior. But it is also useful
@@ -41,13 +41,14 @@ p1 ≈ p1
 ### Contextual equivalence
 
 But we often also want to compile not just whole programs, but particular
-modules, expressions, or in the general sense, **components**, and in that case, we
-want an analogous notion of equivalence. Two components are **contextually equivalent** if in all program
-contexts they produce the same observable behavior. In other words, if you have
-two modules, but any way you combine those modules with the rest of a program
-(so the rest is the same, but the modules differ), the result is the same, then
-those two modules are contextually equivalent. We will write this, overloading
-the `≈` for both observational and contextual equivalence, as:
+modules, expressions, or in the general sense, **components**, and in that case,
+we want an analogous notion of equivalence. Two components are **contextually
+equivalent** if in all program contexts they produce the same observable
+behavior. In other words, if you have two modules, but any way you combine those
+modules with the rest of a program (so the rest is syntactically identical, but
+the modules differ), the results are observationally equivalent, then those two modules are
+contextually equivalent. We will write this, overloading the `≈` for both
+observational and contextual equivalence, as:
 
 ```
 e1 ≈ e1
@@ -150,7 +151,7 @@ Or, more formally:
 ∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ s1 ≈ s2 ⇒ t1 ≈ t2
 ```
 
-(See, I just reversed the implication. Need trick! But now it means something
+(See, I just reversed the implication. Neat trick! But now it means something
 totally different). One place where this has been studied extensively is by
 security researchers, because what it tells you is that observers in the target
 can't make observations that aren't possible to distinguish in the source. Let's
@@ -615,6 +616,13 @@ So next time you see a result about a correct (or even hoped to be correct)
 compiler, ask if it is fully abstract! And if it's not, are the violations of
 equivalences something that could be exploited? Or something that would
 invalidate optimizations?
+
+Some recent conference publications include Devriese et al, [Fully-abstract
+compilation by approximate
+back-translation](https://lirias.kuleuven.be/bitstream/123456789/570054/2/logrel-for-facomp-authorversion.pdf)
+published in POPL'16 and New at al, [Fully Abstract Compilation via Universal
+Embedding](http://www.ccs.neu.edu/home/amal/papers/fabcc.pdf), published in
+ICFP'16.
 
 
 > As stated at the top of the post, all the code in this post is available at
