@@ -106,7 +106,7 @@ source components must have been equivalent. We can write this more formally as
 
 
 ```
-∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ t1 ≈ t2 ⇒ s1 ≈ s2
+∀ s1 s2 t1 t2. s1 ↠ t1 ∧ s2 ↠ t2 ∧ t1 ≈ t2 ⇒ s1 ≈ s2
 ```
 
 What are the consequences of this definition? And why do correct compilers have
@@ -115,7 +115,7 @@ says that if the source components weren't equivalent then the target components
 would have to be different, or more formally:
 
 ```
-∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ s1 ≉ s2 ⇒ t1 ≉ t2
+∀ s1 s2 t1 t2. s1 ↠ t1 ∧ s2 ↠ t2 ∧ s1 ≉ s2 ⇒ t1 ≉ t2
 ```
 
 
@@ -148,7 +148,7 @@ Or, more formally:
 
 
 ```
-∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ s1 ≈ s2 ⇒ t1 ≈ t2
+∀ s1 s2 t1 t2. s1 ↠ t1 ∧ s2 ↠ t2 ∧ s1 ≈ s2 ⇒ t1 ≈ t2
 ```
 
 (See, I just reversed the implication. Neat trick! But now it means something
@@ -187,7 +187,7 @@ contextually equivalent. We can expand this to explicitly quantify over the
 contexts that combine with the components to make whole programs:
 
 ```
-∀ s1 s2 t1 t2. s1 ↠ t1 ∧ t2 ↠ s2 ∧ (∀Cs. Cs[s1] ≈ Cs[s2]) ⇒ (∀Ct. Ct[t1] ≈ Ct[t2])
+∀ s1 s2 t1 t2. s1 ↠ t1 ∧ s2 ↠ t2 ∧ (∀Cs. Cs[s1] ≈ Cs[s2]) ⇒ (∀Ct. Ct[t1] ≈ Ct[t2])
 ```
 
 Noting that as mentioned above, I am overloading `≈` to now mean whole-program
