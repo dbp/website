@@ -24,15 +24,15 @@ between the result of running them, including any side effects.
 
 For example, if the only observable behavior about programs in your language
 that you can make is see what output they print, this means that the two
-programs print the same output, even if they are implemented in completely
-different ways. Observational equivalence is extremely useful, especially for
-compilers, which when optimizing may change how a particular program is
-implemented but should not change the observable behavior. But it is also useful
-for programmers, who commonly refactor code, which means they change how the
-code is implemented (to make it easier to maintain, or extend, or better support
-some future addition), without changing any functionality. _Refactoring is an
-equivalence-preserving transformation._ We write observational equivalence on
-programs formally as:
+programs that print the same output, even if they are implemented in completely
+different ways are equivalent. Observational equivalence is extremely useful,
+especially for compilers, which when optimizing may change how a particular
+program is implemented but should not change the observable behavior. But it is
+also useful for programmers, who commonly refactor code, which means they change
+how the code is implemented (to make it easier to maintain, or extend, or better
+support some future addition), without changing any functionality. _Refactoring
+is an equivalence-preserving transformation._ We write observational equivalence
+on programs formally as:
 
 ```
 p1 ≈ p1
@@ -209,7 +209,7 @@ of observations), we can prove that `Ct[t1]` and `Ct[t2]` are observationally
 equivalent by instantiating our hypothesis `∀Cs. Cs[s1] ≈ Cs[s2]` with `Cs'`.
 This tells us that `Cs'[s1] ≈ Cs'[s2]`, and by transitivity, `Ct[t1] ≈ Ct[t2]`.
 
-It can be helpful to see it is a diagram, where the top line is given by the
+It can be helpful to see it in a diagram, where the top line is given by the
 hypothesis (once instantiated with the source context we come up with by way of
 backtranslation) and coming up with the back-translation and showing that `Ct`
 and `Cs'` are equivalent is the hard part of the proof.
@@ -533,7 +533,7 @@ specialize (eqtarget Empty) (* Empty rather than [] [] *)
 With that change, we now believe that our compiler, when linked against these
 restricted contexts, is indeed fully abstract. So let's prove it. If you recall
 from earlier in this post, proving equivalence preservation means proving
-that the bottom line implies the top, in the following diagram:
+that the top line implies the bottom, in the following diagram:
 
 ```
 Cs'[s1]  ≈  Cs'[s2]
