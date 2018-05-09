@@ -7,7 +7,7 @@ I'm currently a graduate student at [Northeastern University](http://prl.ccs.neu
 The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>. Note that if you have another email address for me, it will probably work as well. I'm currently located in Somerville, MA.
 
 ### Publications
-
+<div class="pubs">
 [**FunTAL: Reasonably Mixing a Functional Language with Assembly.**](/pubs/2017/funtal.pdf)
 <div class="desc">Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed. <br/>_PLDI 2017_. [PDF](/pubs/2017/funtal.pdf) and [appendix](/pubs/2017/funtal-tr.pdf).</div>
 
@@ -22,9 +22,11 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 [**Python: The Full Monty―A Tested Semantics for the Python Programming Language.**](/pubs/2013/lambda-py-oopsla.pdf)
 <div class="desc">Joe Gibbs Politz, Alejandro Martinez, Matthew Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. <br/>_OOPSLA 2013_. [PDF](/pubs/2013/lambda-py-oopsla.pdf), [appendix](/pubs/2013/lambda-py-appendix-oopsla.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).</div>
+</div>
 
 ### Talks
 
+<div class="pubs">
 **On Compositional Compiler Correctness and Fully Abstract Compilation.**
 <div class="desc">Principles of Secure Compilation at _POPL 2017_. [slides](/talks/2018/ccc-prisc.pdf) (no video).</div>
 
@@ -45,6 +47,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 **Types and Testing in Haskell.**
 <div class="desc">New York Haskell Meetup November 2014. [slides](/talks/2014/types-testing-haskell-meetup.pdf) and [video](https://www.youtube.com/watch?v=8_gjqN-VqeM).</div>
+</div>
 
 ### Blog
 

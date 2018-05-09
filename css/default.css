@@ -9,11 +9,16 @@ body {
 }
 
 @media (max-width: 799px) {
-    h3, p, strong {
+    h3, p {
         display: block;
     margin-left: 10px;
     margin-right: 10px;
   }
+    .pubs strong {
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 @media (min-width: 800px) {
