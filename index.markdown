@@ -8,6 +8,9 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 ### Publications
 <div class="pubs">
+[**Rust Distilled: An Expressive Tower of Languages.**](/pubs/2018/rust-distilled.pdf)
+<div class="desc">Aaron Weiss, Daniel Patterson, and Amal Ahmed. <br/>_ML 2018_. [PDF](/pubs/2018/rust-distilled.pdf).</div>
+
 [**FunTAL: Reasonably Mixing a Functional Language with Assembly.**](/pubs/2017/funtal.pdf)
 <div class="desc">Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed. <br/>_PLDI 2017_. [PDF](/pubs/2017/funtal.pdf) and [appendix](/pubs/2017/funtal-tr.pdf).</div>
 
