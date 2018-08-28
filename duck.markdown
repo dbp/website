@@ -53,14 +53,19 @@ makes the wood a lot stronger). I then sanded the panels before they got glued t
 - Orbital Sander
 - Router
 - Table saw -- to rip lumber to the right dimensions (done all at once the first
-  day, as I don't own one)
+  day, as I didn't own one when I started this)
+- Electric plane
+- Hand plane
+- Thickness planer (to get the foil blanks to right thickness)
 
-Note: I did not use a hand plane, even though it's one of the primary tools in
-the plans. I bought one, but it was crappy and the sharpening guide I bought
-didn't fit it, and I wasn't able to sharpen it free-hand, and eventually gave up
-and used the jig saw / belt sander instead (cutting down to close, using sander
-for the rest), with the exception of narrowing the mast pieces which I used the
-router for.
+Note: I barely used a hand plane, even though it's one of the primary tools in
+the plans. The one I bought was crappy and the sharpening guide I bought didn't
+fit it, so sharpening was hard. So I used the jig saw / belt sander for most
+things (cutting down to close, using sander for the rest), and for narrowing the
+mast pieces which I used the router. For making the foils, however, I ended up
+using the hand plane for the leading edge. For the trailing edge, I used an
+electric hand plane, but to get the curve on the leading edge, even the not
+great hand plane worked much better, with a sander used to clean it up.
 
 ### Cost
 
@@ -74,7 +79,8 @@ $55         Amazon            Wood glue, grommets, painters tape, duct tape, hea
 ~$150       Home depot        Plastic drop cloth, disposable gloves, sand paper (belt & discs), rollers (pant & adhesive), brushes, tack cloth, silicone glue, etc. Some of these weren't used up.
 $38.01      Tarpsnow.com      16'x20' white tarp
 $42.09      Duckworks         Rudder hardware (from Duckworks, RL-390-GW, fasteners, shipping)
-Total:       **$987.83**
+$57.70      Duckworks         Oar hardware, cleats, 70' of line
+Total:       **$1045.53**
 
 This was quite a bit more than I was expecting (which, based on things I had
 read, made me think it'd be about $500). Part of that is probably that I got
@@ -91,33 +97,72 @@ $100, and there really wasn't that much other lumber necessary) and a lot of
 miscellaneous things (like $8.65 for seam tape for the sail, $5 for high quality
 thread, etc) account for the "extra".
 
+#### Extra cost
+
+The initial paint job I did both didn't come out well (I think it was way too
+hot when I painted it, especially the top, which I did outside in the sun!), and
+I realized that the color on top really didn't look right. So I decided to
+scrape/sand off the paint and repaint it. Since this was turning into a much
+longer term project, I decided to spend more time researching and decided to
+paint it with old-school marine paint from the local shop Kirby paints (which
+has been operating continuously since 1846). It's a bit more expensive than the
+original stuff I got, but the colors are a lot nicer. Getting a couple quarts,
+plus thinner, and
+some brushes was about another $100.
+
 ### Work log
 
-- **7/31 (6.5h)** 11am-5:30pm getting&stripping wood
-- **8/1 (6.5h)** 10:30am-5pm cutting first side, various rectangular 
-- **8/2 (7h)** 9:30am-2pm finish cutting main pieces, start sanding sides to be identical 4pm-6:30pm finish sides, cut out front bulkhead
-- **8/3 (8h)** 10am-6pm epoxy and attach frames to bulkheads and sides 
-- **8/4 (5.5h)** 11:30am-5pm epoxying reverse sides, building & epoxying inside of leeboard case
-- **8/6 (2h)** 1:45pm-3:45 sand sides/bulkheads, glue together 
-- **8/7 (7.75h)** 8:30am-4:15pm mast partner and step
-- **8/8 (7h)** 11:30am-6:30pm put in leecase and put on bottom
-- **8/9 (6h)** 10:30am-4:30pm join decks, scarf narrow mast parts, glue foil staves
-- **8/10 (6h)** 9am-1pm, 3:30pm-5:30pm glass bottom seams, scarf wide mast pieces, epoxy deck
-- **8/11 (5h)** 10am-2pm, 4:30-5:30pm epoxy & attach deck, sand and prime bottom&sides, shape narrow mast pieces
-- **8/12 (0.5h)** 6pm-6:30pm paint bottom
-- **8/13 (0.5h)** 2pm-2:30pm remove deck screws, fill holes
-- **8/14 (5.5h)** 9am-2:30pm sand top, prime, paint, make two paddles
-- **8/15 (2h)** 9:30am-11:30am install tank hatches, route one mast hole
-- **8/16 (1hr)** 10:30am-11:30am find hole in left tank, patch it.
+- **2017/7/31 (6.5h)** 11am-5:30pm getting&stripping wood
+- **2017/8/1 (6.5h)** 10:30am-5pm cutting first side, various rectangular 
+- **2017/8/2 (7h)** 9:30am-2pm finish cutting main pieces, start sanding sides to be identical 4pm-6:30pm finish sides, cut out front bulkhead
+- **2017/8/3 (8h)** 10am-6pm epoxy and attach frames to bulkheads and sides 
+- **2017/8/4 (5.5h)** 11:30am-5pm epoxying reverse sides, building & epoxying inside of leeboard case
+- **2017/8/6 (2h)** 1:45pm-3:45 sand sides/bulkheads, glue together 
+- **2017/8/7 (7.75h)** 8:30am-4:15pm mast partner and step
+- **2017/8/8 (7h)** 11:30am-6:30pm put in leecase and put on bottom
+- **2017/8/9 (6h)** 10:30am-4:30pm join decks, scarf narrow mast parts, glue foil staves
+- **2017/8/10 (6h)** 9am-1pm, 3:30pm-5:30pm glass bottom seams, scarf wide mast pieces, epoxy deck
+- **2017/8/11 (5h)** 10am-2pm, 4:30-5:30pm epoxy & attach deck, sand and prime bottom&sides, shape narrow mast pieces
+- **2017/8/12 (0.5h)** 6pm-6:30pm paint bottom
+- **2017/8/13 (0.5h)** 2pm-2:30pm remove deck screws, fill holes
+- **2017/8/14 (5.5h)** 9am-2:30pm sand top, prime, paint, make two paddles
+- **2017/8/15 (2h)** 9:30am-11:30am install tank hatches, route one mast hole
+- **2017/8/16 (1hr)** 10:30am-11:30am find hole in left tank, patch it.
 
-Total: **76.75 hours**
+2017 Subtotal: **76.75 hours**
 
-### Progress at this point
-
-Thus far, I've built / painted the main hull, and started on the foils (gluing
-together the blanks, make part of jig for shaping them) and the mast (scarfing
-them to full length, shaping the narrow sides). Probably the rest can be done in
-about five more days (i.e., 40 more hours) -- we'll see when I have more time!
+- **2018/5/24 (2hr)** 4:30pm-5:30pm cut mast hole, start cutting leeboard hole, scrape out unset epoxy
+- **2018/5/25 (1.75hr)** 8:30am-10:15am, 2pm-5pm cut leeboard holes, sand whole boat, sand next to leeboard, prep for glassing, three coats of epoxy on leeboard edge glass, epoxy on various wood, finish scraping and redo fillets that were bad, measure and cut sail
+- **2018/5/26 (6hr)** 10am-12pm, 1pm-2pm, 3pm-6pm another coat on leeboard edge, fill gap between case and hull, cut patches for sail, tape on sail patches, 
+- **2018/5/27 (3.75hr)** 9:30am-12pm, 12:45pm-2pm trim overhanging side tank benches, sewing sewing sewing finally finishing entire sail, adding grommets to sail
+- **2018/7/18 (1hr)** 7pm-8pm plane foil blank to 19mm (as my centerboard case is only 22mm! Oops!)
+- **2018/7/28 (1.75hr)** 2:30pm-4:15pm cut internal mast blocks, glue narrow mast, print and adjust foil template
+- **2018/7/29 (1hr)** 11am-12pm epoxy on wide mast parts 
+- **2018/7/30 (1hr)** 6pm-7pm sand / plane down mast
+- **2018/8/1 (1.5hr)** 6:30pm-8pm fill gaps in mast, cut rudderbox pieces, cut foils
+- **2018/8/2 (0.75hr)** 6pm-6:45pm taper bottom of mast
+- **2018/8/3 (2hr)** 4:30pm-6:30pm shape rudder
+- **2018/8/4 (2hr)** 12:30pm-2:30pm shape centerboard
+- **2018/8/5 (0.75hr)** 5:45-6:30 scrape / sand off old paint
+- **2018/8/6 (0.5hr)** 8:45-9:15 scrape old paint
+- **2018/8/8 (1hr)** 5:30-6:30 scrape paint, rip 1x4 in half for yard
+- **2018/8/9 (3.25hr)** 5-6pm, 7pm-9:15pm cut glass for foils and glass tips of foils, finish scraping / sanding bottom, scrape floor
+- **2018/8/10 (3.5hr)** 9:45am-11:15am, 3-4:30, 6:15-6:45 another fill on foil tips, install handles, glass and epoxy mast, add bow eye
+- **2018/8/11 (1.25hr)** 12-1, 8:15-8:30 sand foil tips, glass w first coat epoxy one side, second coat epoxy mast, second epoxy on foils, third on mast
+- **2018/8/12 (0.5hr)** 2:30-2:45, 5:15-5:30 third touch up coat on foils, glue yard pieces together
+- **2018/8/13 (1hr)** 8:15am-8:45am, 6:00pm-6:30pm, sand centerboard, cut glass, start sanding mast, first coat other side foils 
+- **2018/8/14 (1.5hr)** 9am-10:30am finish sanding hull, second coat of epoxy on foils
+- **2018/8/15 (2.5hr)** 6am-8:30am paint bottom of boat
+- **2018/8/18 (2.5hr)** 11:15am-3:15pm, 4:00pm-4:30pm shape boom ends, round corners, narrow yard, round yard
+- **2018/8/20 (1.75hr)** 7:15am-9:00am second coat on bottom 
+- **2018/8/21 (2hr)** 9:30am-10:30am, 3:00pm-3:30pm, 6:30pm-7:00pm glass and epoxy boom and yard 
+- **2018/8/23 (4hr)** 7:15am-9:30am, 5:45pm-6:30pm, 7:45-8:45pm first coat paint on top, sand foils, mast, boom, yard
+- **2018/8/24 (4.25hr)** 7:30-9:15, 3:00-5:30 varnish foils, mast, boom, yard, cut all pieces for rudder&box, cut & glue oar blanks
+- **2018/8/25 (6.5hr)** 8:00am-9:45am, 12:30-2:30, 7pm-8pm, 8:30-10:15pm second coat paint on top, two coats epoxy on inside of rudder box & glue box together,  start shaping oars
+- **2018/8/26 (0.5hr)** 2:30pm-3pm more oar shaping
+- **2018/8/27 (1.5hr)** 5pm-6pm, 7:15pm-7:45pm keep shaping oars 
+- **2018/8/28 (0.75hr)** 8am-8:45am finish shaping oats and first coat of 50% dilute varnish
+2018 Subtotal: **64 hours**
 
 ### Photos of progress
 
@@ -177,7 +222,7 @@ shaping the bottom; had to add more trim and screw through the bottom to get it
 to pull up to side panels.)
 
 <div class="clear"></div>
-
+p
 ![](/static/boat/boat-13.jpg) Dry fitting deck.
 
 <div class="clear"></div>
@@ -230,6 +275,32 @@ so it wouldn't feel sticky!)
 <div class="clear"></div>
 
 ![](/static/boat/boat-23.jpg) Testing the hull out. Found a minor leak in the
-left side tank (I haven't cut the leeboard slot yet, so it isn't that).
+left side tank (I hadn't cut the leeboard slot yet, so it wasn't that). It ended
+up being at the end.
 
 <div class="clear"></div>
+
+
+![](/static/boat/boat-24.jpg) Cut top of leeboard slot, and added fiberglass along edge.
+
+<div class="clear"></div>
+
+![](/static/boat/boat-25.jpg) Cut bottom of leeboard slot. I noticed what looked
+like slight gaps at some points around the leeboard case. I'm not sure if they
+go all the way through to the tank, but I added some thickened epoxy. I'll have
+to test the watertightness by dumping water into the tank and see if any comes
+out!
+
+<div class="clear"></div>
+
+![](/static/boat/boat-26.jpg) Sewing the sail. This took a long time and a _lot_ of sewing! But the result seemed to come out pretty well, modulo some mistakes (i.e., the tall reinforcing panel that runs most of the way through this photo should have gone higher so the curve at the top hit the top edge of the sail a bit higher than it did).
+
+<div class="clear"></div>
+
+![](/static/boat/boat-27.jpg) Planing foils. This would have been much easier if
+my hand plane was better, but I made do by using it on the leading edge (just
+for the actual curve, which had very narrow shavings that it did better on) and
+the electric hand planer on the rest, and on the trailing edge. They probably aren't perfect, but they look pretty good!
+
+<div class="clear"></div>
+
