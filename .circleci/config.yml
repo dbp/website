@@ -6,15 +6,15 @@ jobs:
       - checkout
       - restore-cache:
           keys:
-            - stack-{{ checksum “stack.yaml” }}
+            - {{ checksum "site" }}
       - run: wget https://github.com/commercialhaskell/stack/releases/download/v1.6.1/stack-1.6.1-linux-x86_64.tar.gz -O /tmp/stack.tar.gz
       - run: sudo mkdir /tmp/stack-download
       - run: sudo tar -xzf /tmp/stack.tar.gz -C /tmp/stack-download
       - run: sudo chmod +x /tmp/stack-download/stack-1.6.1-linux-x86_64/stack
       - run: sudo mv /tmp/stack-download/stack-1.6.1-linux-x86_64/stack /usr/bin/stack
-      - run: stack --install-ghc runghc -j1 site build
+      - run: ./site build
       - save-cache:
-          key: stack-{{ checksum “stack.yaml” }}
+          key: {{ checksum "site" }}
           paths:
             - “~/.stack”
             - “.stack-work”
@@ -22,7 +22,7 @@ jobs:
     machine: true
     steps:
       - run: sudo apt-get update -yy && sudo apt-get install awscli
-      - run: stack --install-ghc runghc -j1 site deploy
+      - run: ./site deploy
 
           
 workflows:
