@@ -16,8 +16,8 @@ jobs:
       - save-cache:
           key: site-{{ checksum "site" }}
           paths:
-            - “~/.stack”
-            - “.stack-work”
+            - "~/.stack"
+            - ".stack-work"
   deploy:
     machine: true
     steps:
