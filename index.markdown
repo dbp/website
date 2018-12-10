@@ -8,6 +8,11 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 ### Publications
 <div class="pubs">
+
+[**Phantom Contracts for Better Linking.**](/pubs/2018/phantom-contracts-src.pdf)
+<div class="desc">Daniel Patterson. <br/>_POPL 2019 Student Research Competition_. [Extended abstract](/pubs/2018/phantom-contracts-src.pdf).</div>
+
+
 [**Rust Distilled: An Expressive Tower of Languages.**](/pubs/2018/rust-distilled.pdf)
 <div class="desc">Aaron Weiss, Daniel Patterson, and Amal Ahmed. <br/>_ML 2018_. [PDF](/pubs/2018/rust-distilled.pdf).</div>
 
