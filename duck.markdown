@@ -9,21 +9,27 @@ like a lot of people have made them. In particular, I had no idea how long I
 should expect it to take (and I underestimated how long it would take -- the
 only number I saw was 10 days, which perhaps a professional, or someone with a
 helper, could do, but not me!). So this page is an attempt to give more
-information that might be useful to someone taking on this project. My current
-estimate (based on thinking that I may be 2/3rds done) is that, for a single
-person who is new to boat building and has only done basic carpentry, this
-project could be completed in **~120 hours** (or about 3 weeks full-time) (I
-think the hours are probably right, though the weeks might be a little off, as
-there are lots of things that have to dry, and I may be underestimating the
-delays needed in the remaining parts that I haven't done yet).
+information that might be useful to someone taking on this project. In the end,
+with every step, including a bunch of time spent stripping off poorly adhered
+paint and repainting (probably around 15hrs lost), to a rigged boat ready to
+launch, it took **150.75 hours**. As a total amateur.
+
 
 Also, the plans are pretty detailed, but they aren't perfect -- there are places
 where they are incomplete, or misleading (e.g., they suggest gluing in the mast
-step at two different places in the plans -- I chose the first one arbitrarily!)
-So read everything and try to understand how things fit together -- it's not a
-matter of just following the instructions in order. However, I am confident that
-they include enough information that a complete novice (like me) can end up with
-a boat!
+step at two different places in the plans -- I chose the first one arbitrarily!
+Even worse, the rudder box instructions say, counter to the pictures, you should
+glue the framing on _after_ gluing the box together. But if you do that, it's
+impossible to drill a countersunk hole on the _inside_ of the rudderbox. So the
+proposed assembly instructions are essentially impossible) So read everything
+and try to understand how things fit together -- it's not a matter of just
+following the instructions in order. However, I am confident that they include
+enough information that a complete novice (like me) can end up with a boat, but
+it probably won't match what is describe exactly, because I don't think what is
+describe is actually consistent. Somewhat frustrating, especially given how much
+love people give to the plan author (as an engineering spec, at least the type I
+would expect from my entirely different background as a software engineering, I
+would give it a C-).
 
 Another unclear part is when you should be epoxying things! In the appendix, the
 author says that they strongly prefer coating surfaces at the point that they
@@ -54,18 +60,20 @@ makes the wood a lot stronger). I then sanded the panels before they got glued t
 - Router
 - Table saw -- to rip lumber to the right dimensions (done all at once the first
   day, as I didn't own one when I started this)
-- Electric plane
 - Hand plane
 - Thickness planer (to get the foil blanks to right thickness)
+- Electric plane
 
-Note: I barely used a hand plane, even though it's one of the primary tools in
-the plans. The one I bought was crappy and the sharpening guide I bought didn't
-fit it, so sharpening was hard. So I used the jig saw / belt sander for most
-things (cutting down to close, using sander for the rest), and for narrowing the
-mast pieces which I used the router. For making the foils, however, I ended up
-using the hand plane for the leading edge. For the trailing edge, I used an
-electric hand plane, but to get the curve on the leading edge, even the not
-great hand plane worked much better, with a sander used to clean it up.
+Note: I ended up not using the hand plane for any of the initial steps, even
+though the plans had you using it all the time. The one I bought was crappy and
+the sharpening guide I bought didn't fit it, so sharpening was hard. So I used
+the jig saw / belt sander for most things (cutting down to close, using sander
+for the rest), and for narrowing the mast pieces which I used the router. For
+making the foils, however, I ended up using the hand plane for the leading edge.
+For the trailing edge, I used an electric hand plane, but to get the curve on
+the leading edge, even the not great hand plane worked much better, with a
+sander used to clean it up. And then for rounding the yard and shaping the oars,
+I used it, crappy as it was (lots of tear-out cleaned up by sanding), a LOT.
 
 ### Cost
 
@@ -80,6 +88,8 @@ $55         Amazon            Wood glue, grommets, painters tape, duct tape, hea
 $38.01      Tarpsnow.com      16'x20' white tarp
 $42.09      Duckworks         Rudder hardware (from Duckworks, RL-390-GW, fasteners, shipping)
 $57.70      Duckworks         Oar hardware, cleats, 70' of line
+~$15.00     Home depot        8' 2x8 doug fir for oars
+~$15.00     Home depot        12' 1x4 select pine to rip/glue for yard
 Total:       **$1045.53**
 
 This was quite a bit more than I was expecting (which, based on things I had
@@ -161,8 +171,16 @@ some brushes was about another $100.
 - **2018/8/25 (6.5hr)** 8:00am-9:45am, 12:30-2:30, 7pm-8pm, 8:30-10:15pm second coat paint on top, two coats epoxy on inside of rudder box & glue box together,  start shaping oars
 - **2018/8/26 (0.5hr)** 2:30pm-3pm more oar shaping
 - **2018/8/27 (1.5hr)** 5pm-6pm, 7:15pm-7:45pm keep shaping oars 
-- **2018/8/28 (0.75hr)** 8am-8:45am finish shaping oats and first coat of 50% dilute varnish
-2018 Subtotal: **64 hours**
+- **2018/8/28 (2.75hr)** 8am-8:45am, 5:45pm-7:00pm, 7:30-8:15pm finish shaping oats and first coat of 50% dilute varnish, glue rudder together, drill holes in spars, fit mast to boat 
+- **2018/8/30 (3.25hr)** 8:45am-10am, 6:45pm-8:45pm install padlocks, deckeye, glue together rudderbox w framing and tiller, tie sail to spars, cut bottom of mast, epoxy rudder&box, mast partner, mast bottom, test hull for leaks, build rowing seat
+- **2018/8/31 (2hr)** 8:45am-9am, 7pm-8:45pm epoxy mast partner, mast bottom, rudder box, patch leak on outside, work on installing rudder hardware
+- **2018/9/1 (1.75hr)** 2:15pm-3:00pm, 4:30pm-5:30pm finish rudder hardware, work on rigging
+- **2018/9/2 (1hr)** 8:30am-9:30am retie boom sail, rig completely! LAUNCH DAY! It works!
+
+2018 Subtotal: **74 hours**
+
+
+Total: **150.75 hours**
 
 ### Photos of progress
 

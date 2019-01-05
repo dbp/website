@@ -14,7 +14,7 @@ periodically scan through this memory.
 This seems like exactly the type of thing that should be solvable, or at least
 improvable, by modern technologies: in particular, smart phones, which are
 perfectly capable of capturing things at any time, notifying at precise times (&
-locations, to a point), and filtering/sorting in sophisticated ways. 
+locations, to a point), and filtering/sorting in sophisticated ways.
 
 I want to argue that we are maybe 75% of the way to a system that is complete
 enough to significantly reduce this mental strain, and that there is no
@@ -25,8 +25,9 @@ have to think about it at all, whereas even if it is 90% perfect, you still have
 to think about it frequently, as that 10% still matters. The system that I'm
 using (which I'll talk about in more detail) is the app GoodTask on iOS which
 relies on the built-in Calendar and Reminders (note: the app is not free --
-though it has a 2 week trial). There may be better tools, but I haven't found
-them yet, though not for lack of trying...
+though it has a 2 week trial). There may be better tools, but either they
+require hardware I don't have or I haven't found them yet (not for lack of
+trying)...
 
 ### Calendar events vs Tasks
 
@@ -50,17 +51,17 @@ scheduled time, that's it. If there was a meeting you were supposed to go to but
 you didn't go to it, too bad, it's done. Calendar events are never marked as
 done, they don't become overdue, they simply become in the past.
 
-Calendar events are also much simpler (and better supported by software). Since
-they have a concrete time, it's clear where they should show up in the "what
-should I do now" (or tomorrow, next week) displays, and provided they have a
-location, notifications are pretty easy too, as they can be given based on
-travel time to get there. There are some subtleties there (what is the mode of
-transit, etc), but in general this is pretty well developed and getting better.
-On iOS (and maybe Android), recurring events will even learn locations if you
-don't input them, which is great. You can, of course, just hard-code
-notification times on events (which is pretty much what you have to do now). As
-a rule, all calendar events should have notification times, as otherwise, why is
-the event in your calendar?
+Calendar events are also much simpler (and that's probably why they are much
+better supported by software). Since they have a concrete time, it's clear where
+they should show up in the "what should I do now" (or tomorrow, next week)
+displays, and provided they have a location, notifications are pretty easy too,
+as they can be given based on travel time to get there. There are some
+subtleties there (what is the mode of transit, etc), but in general this is
+pretty well developed and getting better. On iOS (and maybe Android), recurring
+events will even learn locations if you don't input them, which is great. You
+can, of course, just hard-code notification times on events (which is pretty
+much what you have to do now). As a rule, all calendar events should have
+notification times, as otherwise, why is the event in your calendar?
 
 ### Tasks
 
@@ -69,8 +70,7 @@ same treatment as calendars (those facts are probably related). Another
 explanation of this is that calendar events can be seen as a special case of a
 task that has a particular duration and that gets automatically marked done at
 the point when it is scheduled. In this sense, a particularly useful and common
-type of task is well supported, but not more general varieties. Regardless,
-general tasks are more subtle.
+type of task is well supported, but not more general varieties.
 
 While there are dozens (or hundreds?) of task apps (as well as the ones built in
 to phones), most of them treat tasks alternately as pretty shopping lists (i.e.,
@@ -97,11 +97,11 @@ contact Z about research they are doing, buy train tickets) to things you need
 to do in the next month or two (etc, you get the point), and you can imagine
 that if you start piling up all of these together you would have an unmanageable
 list. There are also further complications: some tasks are repeating but have
-deadlines (bills!), others repeat but without clear deadlines (e.g., vacuuming
-should happen maybe weekly, but it's not particularly urgent if it doesn't), and
-some only make sense to do in certain places (i.e., even if it is the day when
-the recycling is put out, if I'm not at home, there isn't much point in telling
-me that). 
+deadlines (medicines, bills, etc), others repeat but without clear deadlines
+(e.g., vacuuming should happen maybe weekly, but it's not particularly urgent if
+it doesn't), and some only make sense to do in certain places (i.e., even if it
+is the day when the recycling is put out, if I'm not at home, there isn't much
+point in telling me that).
 
 Ideally, when adding tasks you could put down specific _or vague_ times when
 they should happen, where they make sense to happen (or where they don't make
@@ -128,7 +128,7 @@ around now, it bumps it out by a week or so. If it has already been
 deprioritized, maybe it pushes it further out. There are probably other ways
 this could get more sophisticated, and it would probably be worth it! The point
 is, figuring out what is relevant to show (and notify about) is perhaps subtle,
-but if done well potentially has a high payoff! 
+but if done well potentially has a high payoff!
 
 ### Current systems
 
@@ -139,14 +139,14 @@ patterns, and it does an great job of integrating the calendar (you have to go
 to the settings->preferences and uncheck "separate calendar events"; the default
 keeps them separate, which is particularly broken for the week view).
 
-The single day view shows overdue tasks, unscheduled tasks, tasks that are due
-today, and calendar events. It uses the built-in Reminders for data storage
-(though, unlike Reminders, it doesn't show you everything, thankfully -- but
-using this data store has upsides: it means, for example, you can input
-reminders by voice) and Calendar (which is great). The location feature is
-limited to what the Reminders app does: you should be able to get notifications
-when you enter or leave a given location (though it's been unreliable for me).
-This isn't exactly what I want (as I'd rather have the tasks be _filtered_ by
+The single day view shows overdue tasks, tasks that are due today, and calendar
+events. It uses the built-in Reminders for data storage (though, unlike
+Reminders, it doesn't show you everything, thankfully -- but using this data
+store has upsides: it means, for example, you can input reminders by voice) and
+Calendar (which is great). The location feature is limited to what the Reminders
+app does: you should be able to get notifications when you enter or leave a
+given location (though it's been unreliable for me, so I don't use it). This
+isn't exactly what I want (as I'd rather have the tasks be _filtered_ by
 location, like they are filtered by date). It has a nice subtask feature (but,
 it's minimal -- no sub-subtasks), which I've ended up using more than I would
 have thought (as I might have a list of things I need to do before leaving home
@@ -161,7 +161,7 @@ is an overwhelming mess, so more realistically I'll scatter them throughout the
 first couple days of the week. And then on Monday if I decide not to do a task,
 I'll bump it a few days forward. It works okay. And then if I want something to
 be hidden for a while, I need to put it as due the date when I want it to first
-reappear (as it will be totally invisible until that point). 
+reappear (as it will be totally invisible until that point).
 
 Because of the lack of location filtering, I don't actually find the
 notifications all that useful, as trying to figure out when to put notifications
@@ -175,7 +175,9 @@ notifications. As a result, I primarily rely on the app badge number, which is
 the number of overdue tasks, and I open up the app periodically throughout the
 day. Having to do that is another reason why re-scheduling tasks (and making
 sure tasks that are not going to be done today are not there) is so important.
-By the end of the day, there should be nothing that hasn't been done.
+By the end of the day, there should be nothing that hasn't been done. Even if
+that means, towards the end of the day, bumping things I thought I'd get done to
+the next morning.
 
 GoodTask has a mechanism to filter task by various lists, but I've never used
 it. It's actually a pretty misleading aspect of their screenshots, as it makes
@@ -186,18 +188,19 @@ forget I'm looking at a particular list.
 
 ### Summary
 
-I've been using this system for a couple months and it works pretty well --
+I've been using this system for maybe six months and it works pretty well --
 certainly better than not using it! There are some lingering flaws in GoodTask,
 but overall, I think it is working well enough that I've been spending less time
-worrying about whether I'm forgetting things. In general, I think this space has
-had surpisingly little attention paid to it by the big three (Google, Amazon,
-Apple), given that it seems to play so well into their "personal assistant"
-marketing and the technical aspects don't actually seem terribly hard (less
-difficult than voice recognition, anyway!). Each of them can handle basic
-"remind me to do X at Y" (i.e., create the basic reminders they support), but
-seemingly have spent little energy figuring out when and how to present these
-tasks to the person that created them. Which makes them come off as cute
-technical demos: working when you create 5 reminders, not so much when you
-create 500. If they put a lot more effort into this, maybe calling them
-"personal assistants" may not be so silly after all (though since they are
-intended primarily as advertising devices, maybe I shouldn't hold out hope).
+worrying about whether I'm forgetting things (and, I'm pretty sure I'm actually
+getting the things done more quickly). In general, I think this space has had
+surpisingly little attention paid to it by big tech companies, given that it
+seems to play so well into their "personal assistant" marketing and the
+technical aspects don't actually seem terribly hard (less difficult than voice
+recognition, anyway!). Each of them can handle basic "remind me to do X at Y"
+(i.e., create the basic reminders they support), but seemingly have spent little
+energy figuring out when and how to present these tasks to the person that
+created them. Which makes them come off as cute technical demos: working when
+you create 5 reminders, not so much when you create 500. If they put a lot more
+effort into this, maybe calling them "personal assistants" may not be so silly
+after all (though since they are intended primarily as advertising devices,
+maybe I shouldn't hold out hope).

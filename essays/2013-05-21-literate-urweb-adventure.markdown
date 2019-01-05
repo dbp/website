@@ -25,7 +25,7 @@ with the current version of Ur/Web. You can try out the application,
 as it currently exists (which might have been changed since writing
 this), at [lab.dbpmail.net/dn](http://lab.dbpmail.net/dn). The full
 source, with history, is available at
-[hub.darcs.net/dbp/dnplayer](http://hub.darcs.net/dbp/dnplayer).
+[github.com/dbp/dnplayer](https://github.com/dbp/dnplayer).
 
 The application is a video player for the daily news program
 [Democracy Now!](http://democracynow.org). The main point of it is to remember
