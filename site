@@ -7,9 +7,12 @@ import           Control.Category     (id)
 import           Control.Monad        (forM_)
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Monoid          (mappend, mconcat, mempty, (<>))
+import qualified Data.Set             as Set
 import qualified Data.Text            as T
 import qualified Data.Text.Encoding   as TE
 import           Prelude              hiding (id)
+import           Text.Pandoc.Options  (Extension (Ext_simple_tables),
+                                       readerExtensions)
 
 import           Hakyll
 
@@ -29,6 +32,8 @@ gzip = withItemBody
            . LBS.fromStrict
            . TE.encodeUtf8
            . T.pack)
+
+pandoc = pandocCompilerWith defaultHakyllReaderOptions {readerExtensions = Set.singleton Ext_simple_tables} defaultHakyllWriterOptions
 
 main :: IO ()
 main = hakyllWith config $ do
@@ -77,6 +82,12 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" essayCtx
             >>= relativizeUrls
 
+    match "courses/*.markdown" $ do
+        route (customRoute $ \ident -> let url = reverse (drop (length (".markdown" :: String)) (reverse (toFilePath ident))) in
+                                       url <> "/index.html")
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/course.html" defaultContext
+            >>= relativizeUrls
 
     -- Render essays list
     create ["essays.html"] $ do
@@ -88,6 +99,7 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/essays.html" ctx
             >>= loadAndApplyTemplate "templates/default.html" ctx
             >>= relativizeUrls
+
 
     -- Render static pages
     match "index.markdown" $ do
