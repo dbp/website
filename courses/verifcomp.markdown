@@ -10,15 +10,16 @@ Instructor    Daniel Patterson ([dbp@dbpmail.net](mailto:dbp@dbpmail.net))
 Office        WVH 308
 --------      ------
 
+
+### Why this course?
+
 > “Can you trust your compiler?” 
 > &mdash; Xavier Leroy, developer of the Compcert verified C compiler
 
-
-### Why this course?
 Software is written in a variety of languages, and in many cases, in order to
 run, it must be compiled down to some lower-level target. **But what if that
 compiler isn't correct?** Compilers are some of the trickier pieces of software
-we build, and yet bugs in them can be insidious, as bugs in compilers means that
+we build, and yet bugs in them can be insidious, as bugs in compilers mean that
 one of our most basic debugging strategies, reading source code, may not be
 helpful, since the source may have been miscompiled. 
 
@@ -37,13 +38,13 @@ compilers, and proving them correct**.
 
 ### How will the course be structured?
 **Part 1.** We want to produce verified compilers, and so we will use one of the
-state-of-the-art tools: the Coq proof assistant. This system allows us to write
-functional programs and prove properties about them; afterwards we can extract
-runnable versions of the verified programs. The first section of the course will
-be dedicated to learning Coq and becoming familiar with the process of
-_mechanized_ proof -- that is, proofs that are checked by a machine. The text
-that we will use for this section of the course is ["Programs and Proofs" by
-Ilya Sergey](https://ilyasergey.net/pnp).
+state-of-the-art tools used for this: the [Coq proof assistant](https://coq.inria.fr/). This system
+allows us to write functional programs and prove properties about them;
+afterwards we can extract runnable versions of the verified programs. The first
+section of the course will be dedicated to learning Coq and becoming familiar
+with the process of _mechanized_ proof -- that is, proofs that are checked by a
+machine. The text that we will use for this section of the course is ["Programs
+and Proofs" by Ilya Sergey](https://ilyasergey.net/pnp).
 
 **Part 2.** This part of the course will involve designing, in groups, different
 source languages. These will all likely be simple functional languages, and we
