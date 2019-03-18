@@ -35,33 +35,24 @@
 </tr>
 </tbody>
 </table>
-<h3 id="why-this-course">Why this course?</h3>
+<h3 id="why-this-course"><strong>Why this course?</strong></h3>
 <blockquote>
 <p>“Can you trust your compiler?” — Xavier Leroy, developer of the Compcert verified C compiler</p>
 </blockquote>
-<p>Software is written in a variety of languages, and in many cases, in order to run, it must be compiled down to some lower-level target. <strong>But what if that compiler isn’t correct?</strong> Compilers are some of the trickier pieces of software we build, and yet bugs in them can be insidious, as bugs in compilers mean that one of our most basic debugging strategies, reading source code, may not be helpful, since the source may have been miscompiled.</p>
-<p>We want, essentially, the compiler to be invisible. But it can only truly be invisible if we can be sure that it does exactly what we expect: if we have proved it correct. Colliding with the field of verified compilation is the question of how different languages should be able to interact – that interaction, or linking, happens after compilation, in the lower-level target language. But the goal is to write source-level programs, not thinking about how our various languages compile, and so again, we want the compiler to be invisible.</p>
-<p>These are our high-level motivations. The course itself, while motivated with these problems, will be quite low-level: we will be <strong>building languages, compilers, and proving them correct</strong>.</p>
-<h3 id="how-will-the-course-be-structured">How will the course be structured?</h3>
-<p><strong>Part 1.</strong> We want to produce verified compilers, and so we will use one of the state-of-the-art tools used for this: the <a href="https://coq.inria.fr/">Coq proof assistant</a>. This system allows us to write functional programs and prove properties about them; afterwards we can extract runnable versions of the verified programs. The first section of the course will be dedicated to learning Coq and becoming familiar with the process of <em>mechanized</em> proof – that is, proofs that are checked by a machine. The text that we will use for this section of the course is <a href="https://ilyasergey.net/pnp">“Programs and Proofs” by Ilya Sergey</a>.</p>
+<p>Software is written in a variety of languages, and in most cases, in order to run, it must be compiled down to some lower-level target. <strong>But what if that compiler isn’t correct?</strong> Compilers are some of the trickier pieces of software we build, and yet bugs in them are insidious: bugs in compilers mean that one of our most basic debugging strategies, reading source code, may not be helpful, since what ran may not correspond to that source code!</p>
+<p>In this setting, we must worry about what the compiler does and how our programs are translated to the target. Much better if the compiler were, essentially, invisible — if the source code fully specified what would happen. But a compiler can only truly be invisible if we can be sure that it does exactly what we expect: if we are sure it is correct. To be absolutely sure, we must prove it correct, and build a <em>verified</em> compiler.</p>
+<p>Colliding with the field of verified compilation is the question of how different languages should be able to interact – that interaction, or linking, happens after compilation, in the lower-level target language. But the goal is to write source-level programs, not think about how our various languages compile, and so again, we are left wanting an invisible compiler, a verified compiler.</p>
+<p>These are our high-level motivations. The course itself, while motivated with these problems, will be very grounded: we will be <strong>building languages, compilers, and proving them correct</strong>.</p>
+<h3 id="how-will-the-course-be-structured"><strong>How will the course be structured?</strong></h3>
+<p><strong>Part 1.</strong> We want to produce verified compilers, and so we will use one of the state-of-the-art tools used for this: the <a href="https://coq.inria.fr/">Coq proof assistant</a>. This system allows us to write functional programs, like compilers, and prove properties about them; afterwards we can extract runnable versions of the verified programs. The first section of the course will be dedicated to learning Coq and becoming familiar with the process of <em>mechanized</em> proof — that is, proofs that are checked by a machine. The text that we will use for this section of the course is <a href="https://ilyasergey.net/pnp">“Programs and Proofs” by Ilya Sergey</a>.</p>
 <p><strong>Part 2.</strong> This part of the course will involve designing, in groups, different source languages. These will all likely be simple functional languages, and we will do plenty of design review to ensure that the language design you pick will not cause too much difficulty later on.</p>
 <p><strong>Part 3.</strong> The final part will involve building and proving correct compilers from your language to a common low-level target language. All the languages will compile to the same target language, and so once we have compilers, and concurrent with the verification effort, you will experiment building small programs that use a mixture of different student languages.</p>
-<h3 id="a-note-on-collaboration">A note on collaboration</h3>
-<p>This will be a highly collaborative course. For the first section, the actual assignments will be done individually, to ensure that you get sufficient practice with theorem-proving, as proof assistants like Coq are not something you can learn without using. Even so, we <em>expect and encourage people to work together throughout the course</em>, provided that the actual work they submit is their own. Once the first section ends, the course will truly become a large collaboration. All of our compilers will be worked on in a shared repository, and while you will be assessed on and be responsible for understanding your own compiler, all are welcome to help any of their classmates. We will do also do group reviews or reviews of one group by another.</p>
-<h3 id="requirements">Requirements</h3>
+<h3 id="a-note-on-collaboration"><strong>A note on collaboration</strong></h3>
+<p>This will be a highly collaborative course. For the first section, the actual assignments will be done individually, to ensure that you get sufficient practice with theorem-proving, as proof assistants like Coq are not something you can learn without using. Even so, we <em>expect and encourage people to work together throughout the course</em>, beyond just the teams you are working in, provided that the actual work you submit is you own. Once the first section ends, the course will truly become a large collaboration. All of our compilers will be worked on in a shared repository, and while you will be assessed on and be responsible for understanding your own compiler, all are welcome to help any of your classmates. We will do also do group reviews or reviews of one group by another.</p>
+<h3 id="requirements"><strong>Requirements</strong></h3>
 <p>Intended for advanced undergraduates, you would be well prepared by either having taken CS4400 (programming languages) or CS4410 (compilers). However, if you are interested and haven’t taken either, <strong>please reach out to the instructor</strong>. Additionally, familiarity with typed functional languages (e.g., Scala, Haskell, or OCaml) would be helpful, as would any exposure to formal proof in mathematics.</p>
-<h3 id="other-question-something-not-clear">Other question? Something not clear?</h3>
-<p>Please reach out to the instructor:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td>Daniel Patterson</td>
-</tr>
-<tr class="even">
-<td><a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a></td>
-</tr>
-</tbody>
-</table>
+<h3 id="other-question-something-not-clear"><strong>Other question? Something not clear?</strong></h3>
+<p>Please reach out to the instructor: Daniel Patterson (<a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>)</p>
 <p><br /><br /></p>
 
   </body>
