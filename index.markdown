@@ -31,6 +31,10 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 <div class="desc">Joe Gibbs Politz, Alejandro Martinez, Matthew Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. <br/>_OOPSLA 2013_. [PDF](/pubs/2013/lambda-py-oopsla.pdf), [appendix](/pubs/2013/lambda-py-appendix-oopsla.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).</div>
 </div>
 
+### Teaching
+
+**Fall 2019: ** [CS4910: Verified Compilers and Multi-Language Software](/courses/verifcomp)
+
 ### Talks
 
 <div class="pubs">
