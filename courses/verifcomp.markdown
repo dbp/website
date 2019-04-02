@@ -3,7 +3,7 @@ title: "Verified Compilers and Multi-Language Software"
 ---
 
 -------       -------
-Course        CS4910: Verified Compilers and Multi-Language Software
+Course        CS4910 (CRN 17946): Verified Compilers and Multi-Language Software
 Semester      Fall 2019
 Meeting       Monday/Thursday, 11:45AM-1:25PM
 Instructor    Daniel Patterson ([dbp@dbpmail.net](mailto:dbp@dbpmail.net))
