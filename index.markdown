@@ -9,6 +9,9 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 ### Publications
 <div class="pubs">
 
+[**The Next 700 Compiler Correctness Theorems (Functional Pearl)**](/pubs/2019/ccc.pdf)
+<div class="desc">Daniel Patterson and Amal Ahmed. <br/>_ICFP 2019_. [PDF](/pubs/2019/ccc.pdf).</div>
+
 [**Phantom Contracts for Better Linking.**](/pubs/2018/phantom-contracts-src.pdf)
 <div class="desc">Daniel Patterson. <br/>_POPL 2019 Student Research Competition_. [Extended abstract](/pubs/2018/phantom-contracts-src.pdf) and [poster](/posters/phantom-contracts-popl2019-src.pdf).</div>
 
