@@ -4,7 +4,7 @@ I'm currently a graduate student at [Northeastern University](http://prl.ccs.neu
 
 ### Contact
 
-The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>. Note that if you have another email address for me, it will probably work as well. I'm currently located in Somerville, MA.
+The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>. Note that if you have another email address for me, it will probably work as well. I'm currently located in Boston, MA.
 
 ### Publications
 <div class="pubs">
