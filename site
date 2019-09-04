@@ -1,18 +1,19 @@
 #!/usr/bin/env stack
--- stack --resolver lts-9.21 --install-ghc runghc -j1 --package hakyll
+-- stack --resolver lts-14.0 --install-ghc runghc -j1 --package hakyll
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import           Control.Category     (id)
-import           Control.Monad        (forM_)
-import qualified Data.ByteString.Lazy as LBS
-import           Data.Monoid          (mappend, mconcat, mempty, (<>))
-import qualified Data.Set             as Set
-import qualified Data.Text            as T
-import qualified Data.Text.Encoding   as TE
-import           Prelude              hiding (id)
-import           Text.Pandoc.Options  (Extension (Ext_simple_tables),
-                                       readerExtensions)
+import           Control.Category       (id)
+import           Control.Monad          (forM_)
+import qualified Data.ByteString.Lazy   as LBS
+import           Data.Monoid            (mappend, mconcat, mempty, (<>))
+import qualified Data.Set               as Set
+import qualified Data.Text              as T
+import qualified Data.Text.Encoding     as TE
+import           Prelude                hiding (id)
+import           Text.Pandoc.Extensions (Extension (Ext_simple_tables),
+                                         extensionsFromList)
+import           Text.Pandoc.Options    (readerExtensions)
 
 import           Hakyll
 
@@ -33,7 +34,7 @@ gzip = withItemBody
            . TE.encodeUtf8
            . T.pack)
 
-pandoc = pandocCompilerWith defaultHakyllReaderOptions {readerExtensions = Set.singleton Ext_simple_tables} defaultHakyllWriterOptions
+pandoc = pandocCompilerWith defaultHakyllReaderOptions {readerExtensions = extensionsFromList [Ext_simple_tables]} defaultHakyllWriterOptions
 
 main :: IO ()
 main = hakyllWith config $ do

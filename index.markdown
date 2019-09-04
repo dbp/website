@@ -36,7 +36,7 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 
 ### Teaching
 
-**Fall 2019: ** [CS4910: Verified Compilers and Multi-Language Software](/courses/verifcomp)
+**Fall 2019: ** [CS4910: Verified Compilers and Multi-Language Software](https://verifcomp.dbp.io)
 
 ### Talks
 
