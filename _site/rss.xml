@@ -17,7 +17,7 @@
 
 <p>A compiler that preserves and reflects equivalences is called a <strong>fully abstract</strong> compiler. This is a powerful property for a compiler that is different (but complimentary) to the more common notion of <a href="/essays/2018-01-16-how-to-prove-a-compiler-correct.html">compiler correctness</a>. So what does it mean, and how do we prove it?</p>
 <blockquote>
-<p>All the code for this post, along with instructions to get it running, is in the repository <a href="https://github.com/dbp/howtoprovefullabstraction" class="uri">https://github.com/dbp/howtoprovefullabstraction</a>. If you have any trouble getting it going, please open an issue on that repository and I’ll help figure it out with you.</p>
+<p>All the code for this post, along with instructions to get it running, is in the repository <a href="https://github.com/dbp/howtoprovefullabstraction">https://github.com/dbp/howtoprovefullabstraction</a>. If you have any trouble getting it going, please open an issue on that repository and I’ll help figure it out with you.</p>
 </blockquote>
 <p>Both <strong>equivalence preservation</strong> and <strong>equivalence reflection</strong> (what make a compiler fully abstract) relate to how the compiler treats program equivalences, which in this case I’m considering observational equivalence. Two programs <code>p1</code> and <code>p2</code> are <strong>observationally equivalent</strong> if you cannot tell any difference between the result of running them, including any side effects.</p>
 <p>For example, if the only observable behavior about programs in your language that you can make is see what output they print, this means that the two programs that print the same output, even if they are implemented in completely different ways are equivalent. Observational equivalence is extremely useful, especially for compilers, which when optimizing may change how a particular program is implemented but should not change the observable behavior. But it is also useful for programmers, who commonly refactor code, which means they change how the code is implemented (to make it easier to maintain, or extend, or better support some future addition), without changing any functionality. <em>Refactoring is an equivalence-preserving transformation.</em> We write observational equivalence on programs formally as:</p>
@@ -28,9 +28,9 @@
 <p>As an example, if we consider a simple functional language and consider our components to be individual expressions, it should be clear that these two expressions are contextually equivalent:</p>
 <pre><code>λx. x * 2 ≈ λx. x + x</code></pre>
 <p>While they are implemented differently, no matter how they are used, the result will always be the same (as the only thing we can do with these functions is call them on an argument, and when we do, each will double its argument, even though in a different way). It’s important to note that contextual equivalence always depends on what is observable within the language. For example, in Javascript, you can reflect over the syntax of functions, and so the above two functions, written as:</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span>(x)<span class="op">{</span> <span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span> <span class="op">}</span> ≈ <span class="kw">function</span>(x)<span class="op">{</span> <span class="cf">return</span> x <span class="op">+</span> x<span class="op">;</span> <span class="op">}</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">function</span>(x)<span class="op">{</span> <span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span> <span class="op">}</span> ≈ <span class="kw">function</span>(x)<span class="op">{</span> <span class="cf">return</span> x <span class="op">+</span> x<span class="op">;</span> <span class="op">}</span></span></code></pre></div>
 <p>Would not be contextually equivalent, because there exists a program context that can distinguish them. What is that context? Well, if we imagine plugging in the functions above into the “hole” written as <code>[·]</code> below, the result will be different for the two functions! This is because the <code>toString()</code> method on functions in Javascript returns the source code of the function.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">([·]).<span class="at">toString</span>()</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a>([·]).<span class="at">toString</span>()</span></code></pre></div>
 <p>From the perspective of optimizations, this is troublesome, as you can’t be sure that a transformation between the above programs was safe (assuming one was much faster than the other), as there could be code that relied upon the particular way that the source code had been written. There are more complicated things you can do (like optimizing speculatively and falling back to unoptimized versions when reflection was needed). In general though, languages with that kind of reflection are both harder to write fast compilers for and harder to write secure compilers for, and while it’s not the topic of this post, it’s always important to know what you mean by contextual equivalence, which usually means: <em>what can program contexts determine about components</em>.</p>
 <h3 id="part-1.-equivalence-reflection">Part 1. Equivalence reflection</h3>
 <p>With that in mind, what does <strong>equivalence reflection</strong> and <strong>equivalence preservation</strong> for a compiler mean? Let’s start with <strong>equivalence reflection</strong>, as that’s the property that all your correct compilers already have. Equivalence reflection means that if two components, when compiled, are equivalent, then the source components must have been equivalent. We can write this more formally as (where we write <code>s ↠ t</code> to mean a component <code>s</code> is compiled to <code>t</code>):</p>
@@ -263,7 +263,7 @@ Qed.</code></pre>
 <p>So next time you see a result about a correct (or even hoped to be correct) compiler, ask if it is fully abstract! And if it’s not, are the violations of equivalences something that could be exploited? Or something that would invalidate optimizations?</p>
 <p>Some recent conference publications include Devriese et al, <a href="https://lirias.kuleuven.be/bitstream/123456789/570054/2/logrel-for-facomp-authorversion.pdf">Fully-abstract compilation by approximate back-translation</a> published in POPL’16 and New at al, <a href="http://www.ccs.neu.edu/home/amal/papers/fabcc.pdf">Fully Abstract Compilation via Universal Embedding</a>, published in ICFP’16.</p>
 <blockquote>
-<p>As stated at the top of the post, all the code in this post is available at <a href="https://github.com/dbp/howtoprovefullabstraction" class="uri">https://github.com/dbp/howtoprovefullabstraction</a>. If you have any trouble getting it going, please open an issue on that repository and I’ll help figure it out with you.</p>
+<p>As stated at the top of the post, all the code in this post is available at <a href="https://github.com/dbp/howtoprovefullabstraction">https://github.com/dbp/howtoprovefullabstraction</a>. If you have any trouble getting it going, please open an issue on that repository and I’ll help figure it out with you.</p>
 </blockquote>
 ]]></description>
     <pubDate>Thu, 19 Apr 2018 00:00:00 UT</pubDate>
@@ -280,42 +280,42 @@ Qed.</code></pre>
 <p>At POPL’18 (Principles of Programming Languages) last week, I ended up talking to <a href="https://anniecherkaev.com">Annie Cherkaev</a> about her really cool DSL (domain specific language) <a href="https://github.com/anniecherk/sweetpea">SweetPea</a> (which she <a href="https://popl18.sigplan.org/event/obt-2018-sweetpea-a-language-for-designing-experiments">presented</a> at Off the Beaten Track 18, a workshop colocated with POPL), which is a “SAT-Sampler aided language for experimental design, targeted for Psychology &amp; Neuroscience”. In particular, we were talking about software engineering, and the work that Annie was doing to test SweetPea and increase her confidence that the implementation is correct!</p>
 <p>The topic of how exactly one goes about proving a compiler correct came up, and I realized that I couldn’t think of a high-level (but <em>concrete</em>) overview of what that might look like. Also, like many compilers, hers is implemented in Haskell, so it seemed like a good opportunity to try out the really cool work presented at the colocated conference CPP’18 (Certified Programs and Proofs) titled <a href="https://arxiv.org/abs/1711.09286">“Total Haskell is Reasonable Coq” by Spector-Zabusky, Breitner, Rizkallah, and Weirich</a>. They have a tool (<code>hs-to-coq</code>) that extracts Coq definitions from (certain) terminating Haskell programs (of which at least small compilers hopefully qualify). There are certainly limitations to this approach (see Addendum at the bottom of the page for some discussion), but it seems very promising from an engineering perspective.</p>
 <p>The intention of this post is twofold:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Show how to take a compiler (albeit a tiny one) that was built with no intention of verifying it and after the fact prove it correct. Part of the ability to do this in such a seamless way is the wonderful <code>hs-to-coq</code> tool mentioned above, though there is no reason in principle you couldn’t carry out this translation manually (in practice maintenance becomes an issue, hence realistic verified compilers relying on writing their implementations within theorem provers like Coq and then <em>extracting</em> executable versions automatically, at least in the past – possibly <code>hs-to-coq</code> could change this workflow).</li>
 <li>Give a concrete example of proving compiler correctness. By necessity, this is a very simplified scenario without a lot of the subtleties that appear in real verification efforts (e.g., undefined behavior, multiple compiler passes, linking with code after compilation, etc). On the other hand, even this simplified scenario could cover many cases of DSLs, and understanding the subtleties that come up should be much easier once you understand the basic case!</li>
 </ol>
 <p><strong>The intended audience is: people who know what compilers are (and may have implemented them!) but aren’t sure what it means to prove one correct!</strong></p>
 <blockquote>
-<p>All the code for this post, along with instructions to get it running, is in the repository <a href="https://github.com/dbp/howtoproveacompiler" class="uri">https://github.com/dbp/howtoproveacompiler</a>. If you have any trouble getting it going, open an issue on that repository.</p>
+<p>All the code for this post, along with instructions to get it running, is in the repository <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>. If you have any trouble getting it going, open an issue on that repository.</p>
 </blockquote>
 <h3 id="dsl-compiler">DSL &amp; Compiler</h3>
 <p>To make this simple, my source language is arithmetic expressions with adding, subtraction, and multiplication. I represent this as an explicit data structure in Haskell:</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">Arith</span> <span class="fu">=</span> <span class="dt">Num</span> <span class="dt">Int</span>
-           <span class="fu">|</span> <span class="dt">Plus</span> <span class="dt">Arith</span> <span class="dt">Arith</span>
-           <span class="fu">|</span> <span class="dt">Minus</span> <span class="dt">Arith</span> <span class="dt">Arith</span>
-           <span class="fu">|</span> <span class="dt">Times</span> <span class="dt">Arith</span> <span class="dt">Arith</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">data</span> <span class="dt">Arith</span> <span class="ot">=</span> <span class="dt">Num</span> <span class="dt">Int</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>           <span class="op">|</span> <span class="dt">Plus</span> <span class="dt">Arith</span> <span class="dt">Arith</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>           <span class="op">|</span> <span class="dt">Minus</span> <span class="dt">Arith</span> <span class="dt">Arith</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>           <span class="op">|</span> <span class="dt">Times</span> <span class="dt">Arith</span> <span class="dt">Arith</span></span></code></pre></div>
 <p>And a program is an <code>Arith</code>. For example, the source expression “1 + (2 * 4)” is represented as <code>Plus 1 (Times 2 4)</code>. The target of this is a sequence of instructions for a stack machine. The idea of the stack machine is that there is a stack of values that can be used by instructions. The target language expressions are:</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">StackOp</span> <span class="fu">=</span> <span class="dt">SNum</span> <span class="dt">Int</span>
-             <span class="fu">|</span> <span class="dt">SPlus</span>
-             <span class="fu">|</span> <span class="dt">SMinus</span>
-             <span class="fu">|</span> <span class="dt">STimes</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">data</span> <span class="dt">StackOp</span> <span class="ot">=</span> <span class="dt">SNum</span> <span class="dt">Int</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>             <span class="op">|</span> <span class="dt">SPlus</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>             <span class="op">|</span> <span class="dt">SMinus</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>             <span class="op">|</span> <span class="dt">STimes</span></span></code></pre></div>
 <p>And a program is a <code>[StackOp]</code>. For example, the previous example “1 + (2 * 4)” could be represented as <code>[SNum 1, SNum 2, SNum 4, STimes, SPlus]</code>. The idea is that a number evaluates to pushing it onto the stack and plus/times evaluate by popping two numbers off the stack and pushing the sum/product respectively back on. But we can make this concrete by writing an <code>eval</code> function that takes an initial stack (which will probably be empty), a program, and either produces an integer (the top of the stack after all the instructions run) or an error (which, for debugging sake, is the state of the stack and rest of the program when it got stuck).</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">eval ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>] <span class="ot">-&gt;</span> <span class="dt">Either</span> ([<span class="dt">Int</span>], [<span class="dt">StackOp</span>]) <span class="dt">Int</span>
-eval (n<span class="fu">:</span>_) []               <span class="fu">=</span> <span class="dt">Right</span> n
-eval ns (<span class="dt">SNum</span> n<span class="fu">:</span>xs)         <span class="fu">=</span> eval (n<span class="fu">:</span>ns) xs
-eval (n1<span class="fu">:</span>n2<span class="fu">:</span>ns) (<span class="dt">SPlus</span><span class="fu">:</span>xs)  <span class="fu">=</span> eval (n1<span class="fu">+</span>n2<span class="fu">:</span>ns) xs
-eval (n1<span class="fu">:</span>n2<span class="fu">:</span>ns) (<span class="dt">SMinus</span><span class="fu">:</span>xs) <span class="fu">=</span> eval (n1<span class="fu">-</span>n2<span class="fu">:</span>ns) xs
-eval (n1<span class="fu">:</span>n2<span class="fu">:</span>ns) (<span class="dt">STimes</span><span class="fu">:</span>xs) <span class="fu">=</span> eval (n1<span class="fu">*</span>n2<span class="fu">:</span>ns) xs
-eval vals instrs            <span class="fu">=</span> <span class="dt">Left</span> (vals, instrs)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1"></a><span class="ot">eval ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>] <span class="ot">-&gt;</span> <span class="dt">Either</span> ([<span class="dt">Int</span>], [<span class="dt">StackOp</span>]) <span class="dt">Int</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>eval (n<span class="op">:</span>_) []               <span class="ot">=</span> <span class="dt">Right</span> n</span>
+<span id="cb3-3"><a href="#cb3-3"></a>eval ns (<span class="dt">SNum</span> n<span class="op">:</span>xs)         <span class="ot">=</span> eval (n<span class="op">:</span>ns) xs</span>
+<span id="cb3-4"><a href="#cb3-4"></a>eval (n1<span class="op">:</span>n2<span class="op">:</span>ns) (<span class="dt">SPlus</span><span class="op">:</span>xs)  <span class="ot">=</span> eval (n1<span class="op">+</span>n2<span class="op">:</span>ns) xs</span>
+<span id="cb3-5"><a href="#cb3-5"></a>eval (n1<span class="op">:</span>n2<span class="op">:</span>ns) (<span class="dt">SMinus</span><span class="op">:</span>xs) <span class="ot">=</span> eval (n1<span class="op">-</span>n2<span class="op">:</span>ns) xs</span>
+<span id="cb3-6"><a href="#cb3-6"></a>eval (n1<span class="op">:</span>n2<span class="op">:</span>ns) (<span class="dt">STimes</span><span class="op">:</span>xs) <span class="ot">=</span> eval (n1<span class="op">*</span>n2<span class="op">:</span>ns) xs</span>
+<span id="cb3-7"><a href="#cb3-7"></a>eval vals instrs            <span class="ot">=</span> <span class="dt">Left</span> (vals, instrs)</span></code></pre></div>
 <p>Now that we have our source and target language, and know how the target works, we can implement our compiler. Part of why this is a good small example is that the compiler is very simple!</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">compile ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
-compile (<span class="dt">Num</span> n)       <span class="fu">=</span> [<span class="dt">SNum</span> n]
-compile (<span class="dt">Plus</span> a1 a2)  <span class="fu">=</span> compile a2 <span class="fu">++</span> compile a1 <span class="fu">++</span> [<span class="dt">SPlus</span>]
-compile (<span class="dt">Minus</span> a1 a2) <span class="fu">=</span> compile a2 <span class="fu">++</span> compile a1 <span class="fu">++</span> [<span class="dt">SMinus</span>]
-compile (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> compile a2 <span class="fu">++</span> compile a1 <span class="fu">++</span> [<span class="dt">STimes</span>]</code></pre></div>
-<p>The cases for plus/minus/times are the cases that are slightly non-obvious, because they can contain further recursive expressions, but if you think about what the <code>eval</code> function is doing, once the stack machine <em>finishes</em> evaluating everything that <code>a2</code> compiled to, the number that the left branch evaluated to should be on the top of the stack. Then once it finishes evaluating what <code>a1</code> compiles to the number that the right branch evaluated to should be on the top of the stack (the reversal is so that they are in the right order when popped off). This means that evaluating e.g. <code>SPlus</code> will put the sum on the top of the stack, as expected. That’s a pretty informal argument about correctness, but we’ll have a chance to get more formal later.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1"></a><span class="ot">compile ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a>compile (<span class="dt">Num</span> n)       <span class="ot">=</span> [<span class="dt">SNum</span> n]</span>
+<span id="cb4-3"><a href="#cb4-3"></a>compile (<span class="dt">Plus</span> a1 a2)  <span class="ot">=</span> compile a2 <span class="op">++</span> compile a1 <span class="op">++</span> [<span class="dt">SPlus</span>]</span>
+<span id="cb4-4"><a href="#cb4-4"></a>compile (<span class="dt">Minus</span> a1 a2) <span class="ot">=</span> compile a2 <span class="op">++</span> compile a1 <span class="op">++</span> [<span class="dt">SMinus</span>]</span>
+<span id="cb4-5"><a href="#cb4-5"></a>compile (<span class="dt">Times</span> a1 a2) <span class="ot">=</span> compile a2 <span class="op">++</span> compile a1 <span class="op">++</span> [<span class="dt">STimes</span>]</span></code></pre></div>
+<p>The cases for plus/minus/times are the cases that are slightly non-obvious, because they can contain further recursive expressions, but if you think about what the <code>eval</code> function is doing, once the stack machine <em>finishes</em> evaluating everything that <code>a2</code> compiled to, the number that the left branch evaluated to should be on the top of the stack. Then once it finishes evaluating what <code>a1</code> compiles to the number that the right branch evaluated to should be on the top of the stack (the reversal is so that they are in the right order when popped off). This means that evaluating e.g. <code>SPlus</code> will put the sum on the top of the stack, as expected. That’s a pretty informal argument about correctness, but we’ll have a chance to get more formal later.</p>
 <h2 id="formalizing">Formalizing</h2>
-<p>Now that we have a Haskell compiler, we want to prove it correct! So what do we do? First, we want to convert this to Coq using the <a href="https://github.com/antalsz/hs-to-coq">hs-to-coq</a> tool. There are full instructions at <a href="https://github.com/dbp/howtoproveacompiler" class="uri">https://github.com/dbp/howtoproveacompiler</a>, but the main command that will convert <code>src/Compiler.hs</code> to <code>src/Compiler.v</code>:</p>
+<p>Now that we have a Haskell compiler, we want to prove it correct! So what do we do? First, we want to convert this to Coq using the <a href="https://github.com/antalsz/hs-to-coq">hs-to-coq</a> tool. There are full instructions at <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>, but the main command that will convert <code>src/Compiler.hs</code> to <code>src/Compiler.v</code>:</p>
 <pre><code>STACK_YAML=hs-to-coq/stack.yaml stack exec hs-to-coq -- -o src/ src/Compiler.hs -e hs-to-coq/base/edits</code></pre>
 <p>You can now build the Coq code with</p>
 <pre><code>make</code></pre>
@@ -326,11 +326,11 @@ compile (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> compile 
 <p>The issue that’s immediately apparent is that we don’t actually have a way of directly evaluating the source expression. The only thing we can do with our source expression is compile it, but if we do that, any statement we get has the behavior of the compiler baked into it (so if the compiler is wrong, we will just be proving stuff about our wrong compiler).</p>
 <p>More philosophically, what does it even mean that the compiler is wrong? For it to be wrong, there has to be some external specification (likely, just in our head at this point) about what it was supposed to do, or in this case, about the behavior of the source language that the compiler was supposed to faithfully preserve. To prove things formally, we need to write that behavior down.</p>
 <p>So we should add this function to our Haskell source. In a non-trivial DSL, this may be a significant part of the formalization process, but it is also incredibly important, because this is the part where you are actually specifying exactly what the source DSL means (otherwise, the only “meaning” it has is whatever the compiler happens to do, bugs and all). In this example, we can write this function as:</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">eval&#39; ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
-eval&#39; (<span class="dt">Num</span> n)       <span class="fu">=</span> n
-eval&#39; (<span class="dt">Plus</span> a1 a2)  <span class="fu">=</span> (eval&#39; a1) <span class="fu">+</span> (eval&#39; a2)
-eval&#39; (<span class="dt">Minus</span> a1 a2) <span class="fu">=</span> (eval&#39; a1) <span class="fu">-</span> (eval&#39; a2)
-eval&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> (eval&#39; a1) <span class="fu">*</span> (eval&#39; a2)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1"></a><span class="ot">eval&#39; ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>eval&#39; (<span class="dt">Num</span> n)       <span class="ot">=</span> n</span>
+<span id="cb7-3"><a href="#cb7-3"></a>eval&#39; (<span class="dt">Plus</span> a1 a2)  <span class="ot">=</span> (eval&#39; a1) <span class="op">+</span> (eval&#39; a2)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>eval&#39; (<span class="dt">Minus</span> a1 a2) <span class="ot">=</span> (eval&#39; a1) <span class="op">-</span> (eval&#39; a2)</span>
+<span id="cb7-5"><a href="#cb7-5"></a>eval&#39; (<span class="dt">Times</span> a1 a2) <span class="ot">=</span> (eval&#39; a1) <span class="op">*</span> (eval&#39; a2)</span></code></pre></div>
 <p>And we can re-run <code>hs-to-coq</code> to get it added to our Coq development. We can now formally state the theorem we want to prove as:</p>
 <pre><code>Theorem compiler_correctness : forall a : Arith,
   eval nil (compile a) = Data.Either.Right (eval&#39; a).</code></pre>
@@ -348,7 +348,7 @@ IHa2 : eval nil (compile a2) = Either.Right (eval&#39; a2)
 ============================
 eval nil (compile a1 ++ compile a2 ++ SPlus :: nil) = Either.Right (eval&#39; a1 + eval&#39; a2)%Z</code></pre>
 <p>Which, if we look at it for a little while, we realize two things:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Our induction hypotheses really aren’t going to work, intuitively because of the <code>Either</code> — our program won’t produce <code>Right</code> results for the subtrees, so there probably won’t be a way to rely on these hypotheses.</li>
 <li>On the other hand, what does look like a Lemma we should be able to prove has to do with evaluating a partial program. Rather than trying to induct on the entire statement, we instead try to prove that <code>eval</code>ing a <code>compile</code>d term will result in the <code>eval'</code>d term on the top of the stack. This is an instance of a more general pattern – that often the toplevel statement that you want has too much specificity, and you need to instead prove something that is more general and then use it for the specific case. So here’s (a first attempt) at a Lemma we want to prove:</li>
 </ol>
@@ -382,13 +382,13 @@ eval ((eval&#39; a1 + eval&#39; a2)%Z :: nil) xs</code></pre>
 | (_ :: _ :: _)%list =&gt; eval (i :: s) xs
 end = eval (i :: s) xs</code></pre>
 <p>Which will go away once we break apart the list <code>s</code> and simplify (if you look carefully, it has the same thing in all three branches of the match). There are (at least) a couple approaches to this:</p>
-<ol style="list-style-type: decimal">
-<li>We could just do it manually: <code>destruct s; simpl; eauto; destruct s; simpl;    eauto</code>. But it shows up multiple times in the proof, and that’s a mess and someone reading the proof script may be confused what is going on.</li>
+<ol type="1">
+<li><p>We could just do it manually: <code>destruct s; simpl; eauto; destruct s; simpl; eauto</code>. But it shows up multiple times in the proof, and that’s a mess and someone reading the proof script may be confused what is going on.</p></li>
 <li><p>We could write a tactic for the same thing:</p>
 <pre><code>try match goal with
      |[l : list _ |- _ ] =&gt; solve [destruct l; simpl; eauto; destruct l; simpl; eauto]
     end.</code></pre>
-This has the advantage that it doesn’t depend on the name, you can call it whenever (it won’t do anything if it isn’t able to discharge the goal), but where to call it is still somewhat messy (as it’ll be in the middle of the proofs). We could hint using this tactic (using <code>Hint Extern</code>) to have it handled automatically, but I generally dislike adding global hints for tactics (unless there is a very good reason!), as it can slow things down and make understanding why proofs worked more difficult.</li>
+<p>This has the advantage that it doesn’t depend on the name, you can call it whenever (it won’t do anything if it isn’t able to discharge the goal), but where to call it is still somewhat messy (as it’ll be in the middle of the proofs). We could hint using this tactic (using <code>Hint Extern</code>) to have it handled automatically, but I generally dislike adding global hints for tactics (unless there is a very good reason!), as it can slow things down and make understanding why proofs worked more difficult.</p></li>
 <li><p>We can also write lemmas for these. There are actually two cases that come up, and both are solved easily:</p>
 <pre><code>Lemma list_pointless_split : forall A B:Type, forall l : list A, forall x : B,
     match l with | nil =&gt; x | (_ :: _)%list =&gt; x end = x.
@@ -423,41 +423,41 @@ Proof.
 Qed.</code></pre>
 <p>We now have a proof that the compiler that we wrote in Haskell is correct, insofar as it preserves the meaning expressed in the source-level <code>eval'</code> function to the meaning in the <code>eval</code> function in the target. This isn’t, of course, the only theorem you could prove! Another one that would be interesting would be that no compiled program ever got stuck (i.e., never produces a <code>Left</code> error).</p>
 <blockquote>
-<p>As stated at the top of the post, all the code in this post is available at <a href="https://github.com/dbp/howtoproveacompiler" class="uri">https://github.com/dbp/howtoproveacompiler</a>. If you are looking for more, check out <a href="https://xavierleroy.org/courses/Eugene-2012/">Xavier Leroy’s Oregon Programming Languages Summer School Lectures</a> (videos are <a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html">here</a>, scroll down to find them).</p>
+<p>As stated at the top of the post, all the code in this post is available at <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>. If you are looking for more, check out <a href="https://xavierleroy.org/courses/Eugene-2012/">Xavier Leroy’s Oregon Programming Languages Summer School Lectures</a> (videos are <a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html">here</a>, scroll down to find them).</p>
 </blockquote>
 <p><br/></p>
 <p>Thanks to current and former <a href="http://prl.ccs.neu.edu">PRL</a> members, in particular <a href="http://gallium.inria.fr/~scherer/">Gabriel Scherer</a> and <a href="https://williamjbowman.com/">William Bowman</a>, for providing useful feedback on drafts of this post.</p>
 <p><br/><br/></p>
 <h2 id="addendum-termination">Addendum: termination</h2>
 <p>This example was so tiny we haven’t run into something that <em>will</em> be really common: imagine instead of the compile function shown above:</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">compile ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
-compile (<span class="dt">Num</span> n)       <span class="fu">=</span> [<span class="dt">SNum</span> n]
-compile (<span class="dt">Plus</span> a1 a2)  <span class="fu">=</span> compile a2 <span class="fu">++</span> compile a1 <span class="fu">++</span> [<span class="dt">SPlus</span>]
-compile (<span class="dt">Minus</span> a1 a2) <span class="fu">=</span> compile a2 <span class="fu">++</span> compile a1 <span class="fu">++</span> [<span class="dt">SMinus</span>]
-compile (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> compile a2 <span class="fu">++</span> compile a1 <span class="fu">++</span> [<span class="dt">STimes</span>]</code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb23-1"><a href="#cb23-1"></a><span class="ot">compile ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
+<span id="cb23-2"><a href="#cb23-2"></a>compile (<span class="dt">Num</span> n)       <span class="ot">=</span> [<span class="dt">SNum</span> n]</span>
+<span id="cb23-3"><a href="#cb23-3"></a>compile (<span class="dt">Plus</span> a1 a2)  <span class="ot">=</span> compile a2 <span class="op">++</span> compile a1 <span class="op">++</span> [<span class="dt">SPlus</span>]</span>
+<span id="cb23-4"><a href="#cb23-4"></a>compile (<span class="dt">Minus</span> a1 a2) <span class="ot">=</span> compile a2 <span class="op">++</span> compile a1 <span class="op">++</span> [<span class="dt">SMinus</span>]</span>
+<span id="cb23-5"><a href="#cb23-5"></a>compile (<span class="dt">Times</span> a1 a2) <span class="ot">=</span> compile a2 <span class="op">++</span> compile a1 <span class="op">++</span> [<span class="dt">STimes</span>]</span></code></pre></div>
 <p>We instead wanted to take <code>[Arith]</code>. This would still work, and would result in the list of results stored on the stack (so probably you would want to change <code>eval</code> to print everything that was on the stack at the end, not just the top). If you wrote this <code>compile</code>:</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">compile ::</span> [<span class="dt">Arith</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
-compile []               <span class="fu">=</span> []
-compile (<span class="dt">Num</span> n<span class="fu">:</span>xs)       <span class="fu">=</span> <span class="dt">SNum</span> n <span class="fu">:</span> compile xs
-compile (<span class="dt">Plus</span> a1 a2<span class="fu">:</span>xs)  <span class="fu">=</span> compile [a2] <span class="fu">++</span> compile [a1] <span class="fu">++</span> <span class="dt">SPlus</span> <span class="fu">:</span> compile xs
-compile (<span class="dt">Minus</span> a1 a2<span class="fu">:</span>xs) <span class="fu">=</span> compile [a2] <span class="fu">++</span> compile [a1] <span class="fu">++</span> <span class="dt">SMinus</span> <span class="fu">:</span> compile xs
-compile (<span class="dt">Times</span> a1 a2<span class="fu">:</span>xs) <span class="fu">=</span> compile [a2] <span class="fu">++</span> compile [a1] <span class="fu">++</span> <span class="dt">STimes</span> <span class="fu">:</span> compile xs</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb24-1"><a href="#cb24-1"></a><span class="ot">compile ::</span> [<span class="dt">Arith</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
+<span id="cb24-2"><a href="#cb24-2"></a>compile []               <span class="ot">=</span> []</span>
+<span id="cb24-3"><a href="#cb24-3"></a>compile (<span class="dt">Num</span> n<span class="op">:</span>xs)       <span class="ot">=</span> <span class="dt">SNum</span> n <span class="op">:</span> compile xs</span>
+<span id="cb24-4"><a href="#cb24-4"></a>compile (<span class="dt">Plus</span> a1 a2<span class="op">:</span>xs)  <span class="ot">=</span> compile [a2] <span class="op">++</span> compile [a1] <span class="op">++</span> <span class="dt">SPlus</span> <span class="op">:</span> compile xs</span>
+<span id="cb24-5"><a href="#cb24-5"></a>compile (<span class="dt">Minus</span> a1 a2<span class="op">:</span>xs) <span class="ot">=</span> compile [a2] <span class="op">++</span> compile [a1] <span class="op">++</span> <span class="dt">SMinus</span> <span class="op">:</span> compile xs</span>
+<span id="cb24-6"><a href="#cb24-6"></a>compile (<span class="dt">Times</span> a1 a2<span class="op">:</span>xs) <span class="ot">=</span> compile [a2] <span class="op">++</span> compile [a1] <span class="op">++</span> <span class="dt">STimes</span> <span class="op">:</span> compile xs</span></code></pre></div>
 <p>You would get an error when you try to compile the output of <code>hs-to-coq</code>! Coq says that the compile function is not terminating!</p>
 <p>This is good introduction into a (major) difference between Haskell and Coq: in Haskell, any term can run forever. For a programming language, this is an inconvenience, as you can end up with code that is perhaps difficult to debug if you didn’t want it to (it’s also useful if you happen to be writing a server that is supposed to run forever!). For a language intended to be used to <em>prove</em> things, this feature would be a non-starter, as it would make the logic unsound. The issue is that in Coq, (at a high level), a type is a theorem and the term that inhabits the type is a proof of that theorem. But in Haskell, you can write:</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">anything ::</span> a
-anything <span class="fu">=</span> anything</code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb25-1"><a href="#cb25-1"></a><span class="ot">anything ::</span> a</span>
+<span id="cb25-2"><a href="#cb25-2"></a>anything <span class="ot">=</span> anything</span></code></pre></div>
 <p>i.e., for any type, you can provide a term with that type — that is, the term that simply never returns. If that were possible in Coq, you could prove any theorem, and the entire logic would be useless (or unsound, which technically means you can prove logical falsehood, but since falsehood allows you to prove anything, it’s the same thing).</p>
 <p>Returning to this (only slightly contrived) program, it isn’t actually that our program runs forever (and if you do want to prove things about programs that do, you’ll need to do much more work!), just that Coq can’t tell that it doesn’t. In general, it’s not possible to tell this for sufficiently powerful languages (this is what the Halting problem says for Turing machines, and thus holds for anything with similar expressivity). What Coq relies on is that some argument is inductively defined (which we have: both lists and <code>Arith</code> expressions) and that all recursive calls are to <em>structurally smaller</em> parts of the arguments. If that holds, we are guaranteed to terminate, as inductive types cannot be infinite (note: unlike Haskell, Coq is <em>not</em> lazy, which is another difference, but we’ll ignore that). If we look at our recursive call, we called <code>compile</code> with <code>[a1]</code>. While <code>a1</code> is structurally smaller, we put that inside a list and used that instead, which thus violates what Coq was expecting.</p>
 <p>There are various ways around this (like adding another argument whose purpose is to track termination, or adding more sophisticated measurements), but there is another option: adding a helper function <code>compile'</code> that does what our original <code>compile</code> did: compiles a single <code>Arith</code>. The intuition that leads to trying this is that in this new <code>compile</code> we are decreasing on both the length of the list and the structure of the <code>Arith</code>, but we are trying to do both at the same time. By separating things out, we can eliminate the issue:</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">compile ::</span> [<span class="dt">Arith</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
-compile []     <span class="fu">=</span> []
-compile (x<span class="fu">:</span>xs) <span class="fu">=</span> compile&#39; x <span class="fu">++</span> compile xs
-
-<span class="ot">compile&#39; ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]
-compile&#39; (<span class="dt">Num</span> n)       <span class="fu">=</span> [<span class="dt">SNum</span> n]
-compile&#39; (<span class="dt">Plus</span> a1 a2)  <span class="fu">=</span> compile&#39; a2 <span class="fu">++</span> compile&#39; a1 <span class="fu">++</span> [<span class="dt">SPlus</span>]
-compile&#39; (<span class="dt">Minus</span> a1 a2) <span class="fu">=</span> compile&#39; a2 <span class="fu">++</span> compile&#39; a1 <span class="fu">++</span> [<span class="dt">SMinus</span>]
-compile&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> compile&#39; a2 <span class="fu">++</span> compile&#39; a1 <span class="fu">++</span> [<span class="dt">STimes</span>]</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb26-1"><a href="#cb26-1"></a><span class="ot">compile ::</span> [<span class="dt">Arith</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
+<span id="cb26-2"><a href="#cb26-2"></a>compile []     <span class="ot">=</span> []</span>
+<span id="cb26-3"><a href="#cb26-3"></a>compile (x<span class="op">:</span>xs) <span class="ot">=</span> compile&#39; x <span class="op">++</span> compile xs</span>
+<span id="cb26-4"><a href="#cb26-4"></a></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="ot">compile&#39; ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
+<span id="cb26-6"><a href="#cb26-6"></a>compile&#39; (<span class="dt">Num</span> n)       <span class="ot">=</span> [<span class="dt">SNum</span> n]</span>
+<span id="cb26-7"><a href="#cb26-7"></a>compile&#39; (<span class="dt">Plus</span> a1 a2)  <span class="ot">=</span> compile&#39; a2 <span class="op">++</span> compile&#39; a1 <span class="op">++</span> [<span class="dt">SPlus</span>]</span>
+<span id="cb26-8"><a href="#cb26-8"></a>compile&#39; (<span class="dt">Minus</span> a1 a2) <span class="ot">=</span> compile&#39; a2 <span class="op">++</span> compile&#39; a1 <span class="op">++</span> [<span class="dt">SMinus</span>]</span>
+<span id="cb26-9"><a href="#cb26-9"></a>compile&#39; (<span class="dt">Times</span> a1 a2) <span class="ot">=</span> compile&#39; a2 <span class="op">++</span> compile&#39; a1 <span class="op">++</span> [<span class="dt">STimes</span>]</span></code></pre></div>
 <h2 id="addendum-do-the-proofs-mean-anything">Addendum: do the proofs mean anything?</h2>
 <p>There are limitations to the approach outlined in this post. In particular, what <code>hs-to-coq</code> does is syntactically translate similar constructs from Haskell to Coq, but constructs that have similar syntax don’t necessarily have similar semantics. For example, data types in Haskell are lazy and thus infinite, whereas inductive types in Coq are definitely not infinite. This means that the proofs that you have made are about the version of the program as represented in Coq, not the original program. There are ways to make proofs about the precise semantics of a language (e.g., Arthur Charguéraud’s <a href="http://www.chargueraud.org/softs/cfml/">CFML</a>), but on the other hand, program extraction (which is a core part of verified compilers like <a href="http://compcert.inria.fr/">CompCert</a>) has the same issue that the program being run has been converted via a similar process as <code>hs-to-coq</code> (from Coq to OCaml the distance is less than from Coq to Haskell, but in principle there are similar issues).</p>
 <p>And yet, I think that <code>hs-to-coq</code> has a real practical use, in particular when you have an existing Haskell codebase that you want to verify. You likely will need to refactor it to have <code>hs-to-coq</code> work, but that refactoring can be done within Haskell, while the program continues to work (and your existing tests continue to pass, etc). Eventually, once you finish conversion, you may decide that it makes more sense to take the converted version as ground truth (thus, you run <code>hs-to-coq</code> and throw out the original, relying on extraction after that point for an executable), but being able to do this gradual migration (from full Haskell to essentially a Gallina-like dialect of Haskell) seems incredibly valuable.</p>
@@ -474,7 +474,7 @@ compile&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> com
 <p>by <em>Daniel Patterson</em> on <strong>January  1, 2018</strong></p>
 
 <p>Backing things up is important. Some stuff, like code that lives in repositories, may naturally end up in many places, so it perhaps is less important to explicitly back up. Other files, like photos, or personal documents, generally don’t have a natural redundant home, so they need some backup story, and relying on various online services is risky (what if they go out of business, “pivot”, etc), potentially time-consuming to keep track of (services for photos may not allow videos, or at least not full resolution ones, etc), limited in various ways (max file sizes, storage allotments, etc), not to mention bringing up serious privacy concerns. Different people need different things, but what I need, and have built (hence this post describing the system), fulfills the following requirements:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>(Home) scalable – i.e., any reasonable amount of data that I could generate personally I should be able to dump in one place, and be confident that it won’t go away. What makes up the bulk is photos, some music, and some audio and video files. For me, this is currently about 1TB (+-0.5TB).</li>
 <li>Cheap. I’m willing to pay about $100-200/year total (including hardware).</li>
 <li>Simple. There has to be <em>one</em> place where I can dump files, it has to be simple enough to recover from complete failure of any given piece of hardware even if I haven’t touched it in a long time (because if it is working, I won’t have had to tweak it in months / years). Adding &amp; organizing files should be doable without commandline familiarity, so it can serve my whole home.</li>
@@ -520,10 +520,10 @@ compile&#39; (<span class="dt">Times</span> a1 a2) <span class="fu">=</span> com
   }
 ]</code></pre>
 <p>Everything else was pretty much smooth sailing (though, as per usual, the initial backup is quite slow. The Raspberry Pi 3 processor is certainly much faster than previous Raspberry Pis, and fast enough for this purpose, but it definitely still has to work hard! And my residential cable upstream is not all that impressive. After a couple days though, the initial backup will complete!).</p>
-<p>Periodic backups run with the same command, and intermediate ones can be pruned away as well (I use <code>duplicacy prune -keep 30:180 -keep 7:30 -keep 1:1</code>, run after my daily backup, to keep monthly backups beyond 6 months, weekly beyond 1 month, and daily below that. I have a cron job that runs the backup daily, so the last is not strictly necessary, but if I do manual backups it’ll clean them up over time. Since I pretty much never delete files that are put into this archive, pruning isn’t really about saving space, as barring some error on the server the latest backup should contain every file, but it is nice to have the list of snapshots be more manageable).</p>
+<p>Periodic backups run with the same command, and intermediate ones can be pruned away as well (I use <code>duplicacy prune -keep 30:180 -keep 7:30 -keep   1:1</code>, run after my daily backup, to keep monthly backups beyond 6 months, weekly beyond 1 month, and daily below that. I have a cron job that runs the backup daily, so the last is not strictly necessary, but if I do manual backups it’ll clean them up over time. Since I pretty much never delete files that are put into this archive, pruning isn’t really about saving space, as barring some error on the server the latest backup should contain every file, but it is nice to have the list of snapshots be more manageable).</p>
 <p>To restore from total loss of the Pi, you just need to put the config file above into <code>.duplicacy/preferences</code> relative to the current directory on any machine and you can run <code>duplicacy restore</code>. You can also grab individual files (which I tested on a different machine; I haven’t tested restoring a full backup) by creating the above mentioned file and then running <code>duplicacy list -files -r N</code> (where N is the snapshot you want to get the file from; run <code>duplicacy list</code> to find which one you want) and then to get a file <code>duplicacy cat -r N path/to/file &gt; where/to/put/it</code>.</p></li>
-<li><p>I’m still working out how to detect errors in the hard drives automatically. I can see them manually by running <code>sudo btrfs device stats /mntpoint</code> (which I do periodically). When this shows that a drive is failing (i.e., read/write errors), add a new drive to the spare enclosure, format it, and then run <code>sudo   btrfs replace start -f N /dev/sdX /mntpoint</code> where N is the number of the device that is failing (when you run <code>sudo btrfs fi show /mntpoint</code>) and <code>/dev/sdX</code> is the new drive. To check for and correct errors in the file system (not the underlying drive), run <code>sudo btrfs scrub start /mntpoint</code>. This will run in the background; if you care you can check the status with <code>sudo btrfs scrub status /mntpoint</code>. Based on recommendations, I have the scrub process run monthly via a cron job.</p></li>
-<li><p>If you want to expand the capacity of the disks, replace the drives as if they failed (see previous bullet) and then run <code>sudo btrfs fi resize N:max   /mntpoint</code> for each <code>N</code> (run <code>sudo btrfs fi show</code> to see what your dev ids are). When you replace them, they stay at the same capacity – this resize expands the filesystem to the full device. As I mentioned earlier, I did this to replace 1TB WD Green drives with 2TB WD Red drives (so I replaced one, then the next, then did the resize on both).</p></li>
+<li><p>I’m still working out how to detect errors in the hard drives automatically. I can see them manually by running <code>sudo btrfs device stats /mntpoint</code> (which I do periodically). When this shows that a drive is failing (i.e., read/write errors), add a new drive to the spare enclosure, format it, and then run <code>sudo btrfs replace start -f N /dev/sdX /mntpoint</code> where N is the number of the device that is failing (when you run <code>sudo btrfs fi show /mntpoint</code>) and <code>/dev/sdX</code> is the new drive. To check for and correct errors in the file system (not the underlying drive), run <code>sudo btrfs scrub start /mntpoint</code>. This will run in the background; if you care you can check the status with <code>sudo btrfs scrub status /mntpoint</code>. Based on recommendations, I have the scrub process run monthly via a cron job.</p></li>
+<li><p>If you want to expand the capacity of the disks, replace the drives as if they failed (see previous bullet) and then run <code>sudo btrfs fi resize N:max /mntpoint</code> for each <code>N</code> (run <code>sudo btrfs fi show</code> to see what your dev ids are). When you replace them, they stay at the same capacity – this resize expands the filesystem to the full device. As I mentioned earlier, I did this to replace 1TB WD Green drives with 2TB WD Red drives (so I replaced one, then the next, then did the resize on both).</p></li>
 <li><p>For tech people (i.e., who are comfortable with <code>scp</code>), this setup is enough – just get files onto the server, into the right directory, and it’ll be all set. For less tech-savvy people, you can install samba on the raspberry pi and then set up a share like the following (put this at the bottom of <code>/etc/samba/smb.conf</code>):</p>
 <pre><code>[sharename]
 comment = Descriptive name
@@ -553,13 +553,13 @@ guest ok = no</code></pre>
 <p>by <em>Daniel Patterson</em> on <strong>October  5, 2014</strong></p>
 
 <p>Every so often, the question comes up, should you test in Haskell, and if so, how should you do it?</p>
-<p>Most people agree that you should test pure, especially complicated, algorithmic code. Quickcheck<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> is a great way to do this, and most Haskellers have internalized this (Quickcheck was invented here, so it must provide value!). What’s less clear (or at least, more debated!) is whether you should be testing monadic code, glue code, and code that just isn’t all that complicated.</p>
+<p>Most people agree that you should test pure, especially complicated, algorithmic code. Quickcheck<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is a great way to do this, and most Haskellers have internalized this (Quickcheck was invented here, so it must provide value!). What’s less clear (or at least, more debated!) is whether you should be testing monadic code, glue code, and code that just isn’t all that complicated.</p>
 <h2 id="quickcheck">Quickcheck?</h2>
 <p>A lot Haskell I’m writing these days is with the web framework Snap, and web handlers often have the type <code>Handler App App ()</code> - where <code>Handler</code> is a web monad (giving access to request information, and the ability to write response data), and <code>App</code> indicates access to application specific state (like database connections, templates, etc).</p>
 <p>So the inputs (ie, how to run this action) include any HTTP request and any application state, and the only outputs are side effects (as all it returns is unit). Using Quickcheck here is… challenging. You could restrict the generated requests to have the right URL, and even have the right query parameters, but since the query parameters are just text, if they were supposed to be more structured (like an interger), the chance of actually generating text that was just a number is pretty low… And then if the number were supposed to be the id of an element in the database….</p>
 <p>But assume that we restrict it so that it’s only generating ids for elements in the database, what are the properties we are asserting? Let’s say that the handler looked up the element, and rendered it on the page. So then we want to assert something about the content of the response (which is wrapped up in the <code>Handler</code> monad). But maybe it should also increment a view count in the database. And assuming that we wrote all these into properties, what are the elements in the database that it is choosing among? And in some senses we’ve now restricted too much, because we may want to see what the behavior is like for slightly invalid inputs. Say, integer id’s that don’t correspond to elements in the database. This is all certainly possible, and may be worth doing, but it seems pretty difficult. Which is totally different from the experience of testing nice pure functions!</p>
 <p>Let’s try to tease out a little bit of why testing this kind of code with Quickcheck is hard. One problem is that the input space, as determined by the type, is massive. And for most of the possible inputs, the result should be some version of a no-op. Another problem is the dependence on state, as the possible inputs are contingent on external state, and the outputs are primarily changes to state, each of which, again, is a massive space.</p>
-<p>But having massive input and output spaces is not necessarily a reason not to be using randomized testing. Indeed, this is exactly the kind of thing that fuzz-testing of web browsers, for example, has done with great effect<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. The problem in this case is that the size of the input and output space is not at all in proportion to the complexity of the code. If we were writing an HTTP server, we may indeed want to be generating random requests, throwing them at the web server, and making sure it was generating well-formed responses (404s being perfectly fine).</p>
+<p>But having massive input and output spaces is not necessarily a reason not to be using randomized testing. Indeed, this is exactly the kind of thing that fuzz-testing of web browsers, for example, has done with great effect<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The problem in this case is that the size of the input and output space is not at all in proportion to the complexity of the code. If we were writing an HTTP server, we may indeed want to be generating random requests, throwing them at the web server, and making sure it was generating well-formed responses (404s being perfectly fine).</p>
 <h2 id="not-that-complicated">Not that complicated…</h2>
 <p>But we’re just writing a little bit of glue code. Which isn’t that complicated. And can be tested manually pretty easily. And may change rapidly.</p>
 <p>Which means spending a lot of time setting up property based tests (which in these sorts of cases are necessarily going to be quite a bit more complicated than quintessential Quickcheck examples like showing that <code>reverse . reverse = id</code>).</p>
@@ -578,14 +578,14 @@ lookupAndRenderFoo = undefined</code></pre>
 <p>Which is where we come to the argument that testing slows things down, and that for rapidly changing code, it just doesn’t matter.</p>
 <h2 id="what-about-just-not-sampling">What about just not sampling?</h2>
 <p>But if we step back a bit, we realize that what Quickcheck is trying to do is to sample representatively (well, with a bias towards edge cases) over the type of the input. And it’s easy to see why that’s appealing, as it gives you reasonable confidence that any use of the function behaves as desired. But if we forget about that, as we already know that our types completely underspecify the behavior, we realize all that we really care about is that the code does what we think it should do on a few example cases. That’s what we were going to manually verify after writing the code anyway.</p>
-<p>Which is easy to test. With Snap, I’d write some tests for the above snippet like<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>:</p>
+<p>Which is easy to test. With Snap, I’d write some tests for the above snippet like<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
 <pre><code>do f &lt;- create ()
    let i = show . unFooId . fooId $ f
    get (&quot;/foo/&quot; ++ i) &gt;&gt;= should200
    get (&quot;/foo/&quot; ++ i) &gt;&gt;= shouldHaveText (fooDescription f)
    get (&quot;/foo/&quot; ++ show (1 + i)) &gt;&gt;= should404</code></pre>
 <p>And call it a day. This misses vasts swaths of inputs, and asserts very little about the outputs, but it also tells you a huge amount more about the correctness of the code than the fact that it typechecked did. And as you iterate and refactor your application, you get the assurance that this handler:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>still exists.</li>
 <li>still looks up the element from the database.</li>
 <li>still puts the description somewhere on the page.</li>
@@ -594,20 +594,20 @@ lookupAndRenderFoo = undefined</code></pre>
 <p>Which seems like a lot of assurance for a very small amount of work. And if your application is fast moving, this benefits you even more, as the faster you move, the more likely you are to break things (at least, that’s always been my experience!). If you do decide to rewrite this handler, fixing these tests is going to take a tiny amount of time (probably less time than you spend manually confirming that the change worked).</p>
 <h2 id="why-this-should-be-expected-to-work.">Why this should be expected to work.</h2>
 <p>To take it a little further, and perhaps justify from a somewhat theoretical point of view why these sorts of tests are so valuable, consider all possible implementations of any function (or monadic action). The possible implementations with the given type are a subset of all the possible implementations, but still potentially a pretty large one (our example of a web handler certainly has this property).</p>
-<p>This perspective gives us some intuition on why it is much easier to test simple, pure functions. There are only four possible implementations of a <code>Bool -&gt; Bool</code> function, so testing <code>not</code> via sampling seems pretty tractable. To go even further, we get into the territory of “Theorems for Free”<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, where there is only one implementation for an <code>(a,b) -&gt; a</code> function, so testing <code>fst</code> is pointless.</p>
+<p>This perspective gives us some intuition on why it is much easier to test simple, pure functions. There are only four possible implementations of a <code>Bool -&gt; Bool</code> function, so testing <code>not</code> via sampling seems pretty tractable. To go even further, we get into the territory of “Theorems for Free”<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, where there is only one implementation for an <code>(a,b) -&gt; a</code> function, so testing <code>fst</code> is pointless.</p>
 <p>But returning to our case of massive spaces of well-typed implementations: A single test, like one of the above, corresponds to another subset of all the possible implementations. For example, the first test corresponds to the subset that return success when passed the given url via GET request. Since we’re in Haskell, we also get a guarantee that the set of implementations that fulfill the test is a (non)strict subset of the set of implementations that fulfill the type, as if this were not the case, our test case wouldn’t type check. The problem with the first test, of course, is that there are all sorts of bogus implementations that fulfill it. For example, the handler that always returns success would match that test.</p>
 <p>But even still, it <em>is</em> a strict subset of the implementations that fulfill the type (for example, the handler that always returns 404 is not in this set), so we’re guaranteed to have improved the chance that our code is correct, even with such a weak test (granted, it actually may not be that weak of a test - in one project, I have a menu generated from a data structure in code, and a test that iterates through all elements of the menu, checking that hitting each url results in a 200. And this has caught many refactoring problems!).</p>
 <p>Where we really start to benefit is as we add a few more tests. The second test shows that the handler must somehow get an element out of the database (provided our <code>create ()</code> test function is creating relatively unique field names), which is <em>another</em> (strict) subset of the set of implementations that fulfill the type. And we now know that our implementation must be somewhere in the intersection of these two subsets.</p>
 <p>It shouldn’t be hard to convince yourself that through the process of just writing a few (well chosen) tests you can vastly reduce the possibility of writing incorrect implementations. Which, when we are writing relatively straightforward code, will probably be good enough to ensure that the code is actually correct. And will continue to verify that as the code evolves. Pretty good for a couple lines of code.</p>
-<div class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>For those who haven’t used Quickcheck, it allows you to specify properties that a function should satisfy, and possibly a way to generate random values of the input type (if your input is a standard type, it already knows how to do this), and it will generate some number of inputs and verify that the property holds for all of them.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>See, for example, <a href="http://www.squarefree.com/2014/02/03/fuzzers-love-assertions/">www.squarefree.com/2014/02/03/fuzzers-love-assertions/</a>.<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>This syntax is based on the <a href="http://hackage.haskell.org/package/hspec-snap">hspec-snap</a> package, which I chose because I’m familiar with it (and wrote it). The <code>create</code> line is from some not-yet-integrated-or-released, at least at time of publishing, work to add factory support to the library (sorry!). With that said, the advice should hold no matter what you’re doing.<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>See Wadler’s “Theorems for Free”, 1989.<a href="#fnref4">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>For those who haven’t used Quickcheck, it allows you to specify properties that a function should satisfy, and possibly a way to generate random values of the input type (if your input is a standard type, it already knows how to do this), and it will generate some number of inputs and verify that the property holds for all of them.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>See, for example, <a href="http://www.squarefree.com/2014/02/03/fuzzers-love-assertions/">www.squarefree.com/2014/02/03/fuzzers-love-assertions/</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>This syntax is based on the <a href="http://hackage.haskell.org/package/hspec-snap">hspec-snap</a> package, which I chose because I’m familiar with it (and wrote it). The <code>create</code> line is from some not-yet-integrated-or-released, at least at time of publishing, work to add factory support to the library (sorry!). With that said, the advice should hold no matter what you’re doing.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>See Wadler’s “Theorems for Free”, 1989.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
 ]]></description>
     <pubDate>Sun, 05 Oct 2014 00:00:00 UT</pubDate>
     <guid>http://dbp.io/essays/2014-10-05-why-test-in-haskell.html</guid>
@@ -623,7 +623,7 @@ lookupAndRenderFoo = undefined</code></pre>
 <p><em>Note: Since writing this I’ve replaced Exim with Postfix and Courier with Dovecot. This is outlined in the Addendum, but the main text is unchanged. Please read the whole guide before starting, as you can skip some of the steps and go straight to the final system.</em></p>
 <h2 id="motivation">Motivation</h2>
 <p>I reluctantly switched to GMail about six months ago, after using many so-called “replacements for GMail” (the last of which was Fastmail). All of them were missing one or more features that I require of email:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Access to the same email on multiple machines (but, these can all be machines I control).</li>
 <li>Access to important email on my phone (Android). Sophisticated access not important - just a high-tech pager.</li>
 <li>Ability to organize messages by threads.</li>
@@ -646,14 +646,14 @@ lookupAndRenderFoo = undefined</code></pre>
 </ul>
 <p>Mail is received by the mail server and put in a Archive subdirectory which is <em>not</em> configured for push in K9-Mail. The mail is processed and tagged by afew, and any messages with the tag “important” are moved into the Important subdirectory. This directory is set up for push in K9-Mail, so I get all important email right away. No further tagging can be done through the mobile device, but that wasn’t a requirement. read/unread status will be synced two-way to notmuch, which <em>is</em> important.</p>
 <h2 id="step-by-step-instructions">Step By Step Instructions</h2>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>The first and most important part is having a server. I’ve been really happy with VPSes I have from <a href="https://www.digitalocean.com/?refcode=93aab578a407">Digital Ocean</a> (warning: that’s a referral link. <a href="https://www.digitalocean.com">Here’s one without.</a>) - they provide big-enough VPSes for email and a simple website for $5/month. There are also many other providers. The important thing is to get a server, if you don’t already have one.</p></li>
 <li><p>The next thing you’ll need is a domain name. You can use a subdomain of one you already have, but the simplest thing is to just get a new one. This is $10-15/year. Once you have it, you want to set a few records (these are set in the “Zone File”, and should be easy to set up through the online control panel of whatever registrar you used):</p></li>
 </ol>
 <pre><code>A mydomain.com. IP.ADDR.OF.SERVER (mydomain.com. might be written @)
 MX 10 mydomain.com.</code></pre>
 <p>This sets the domain to point to your server, and sets the mail record to point to that domain name. You will also need to set up a PTR record, or reverse DNS. If you got the server through Digital Ocean, you can set up the DNS records through them, and they allow you to set the PTR record for each server easily. Whereever you set it up, it should point at mydomain.com. (Note trailing period. Otherwise it will resolve to mydomain.com.mydomain.com - not what you want!).</p>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li>Now set up the mail server itself. I use Debian, but it shouldn’t be terribly different with other distributions (but you should follow their instructions, not the ones I link to here, because I’m sure there are specifics that are dependent on how Debian sets things up). Since Debian uses Exim4 by default, I used that, and set up Courier as an IMAP server. I followed these instructions: <a href="http://blog.edseek.com/~jasonb/articles/exim4_courier/">blog.edseek.com/~jasonb/articles/exim4_courier/</a> (sections 2, 3, and 4). The only important thing I had to change was to force the hostname, by finding the line it <code>/etc/exim4/exim4.conf.template</code> that looks like:</li>
 </ol>
 <pre><code>.ifdef MAIN_HARDCODE_PRIMARY_HOSTNAME</code></pre>
@@ -671,18 +671,18 @@ Jun 29 16:31:54.641 [24982] dbg: pyzor: opening pipe: /usr/bin/pyzor --homedir .
 Jun 29 16:31:54.674 [24982] dbg: pyzor: [25043] finished: exit 1
 Jun 29 16:31:54.674 [24982] dbg: pyzor: check failed: no response</code></pre>
 <p>According to <a href="http://wiki.apache.org/spamassassin/UsingPyzor">the documentation</a>, this is expected, because “test” is not a valid message.</p>
-<ol start="4" style="list-style-type: decimal">
+<ol start="4" type="1">
 <li>Now we want to set up our delivery. Create a <code>.forward</code> file in the home directory of the account on the server that is going to recieve mail. It should contain</li>
 </ol>
 <pre><code># Exim filter
 
 save Maildir/.Archive/</code></pre>
 <p>What this does is put all mail that is recieved into the Archive subdirectory (the dots are convention of the version of the Maildir format that Courier-IMAP uses).</p>
-<ol start="5" style="list-style-type: decimal">
+<ol start="5" type="1">
 <li>Next, we want to set up notmuch. You can install it and the python bindings (needed by afew) with:</li>
 </ol>
 <pre><code>aptitude install notmuch python-notmuch</code></pre>
-<ol start="6" style="list-style-type: decimal">
+<ol start="6" type="1">
 <li><p>Run <code>notmuch setup</code> and put in your name, email, and make sure that the directory to your email archive is “/home/YOURUSER/Maildir”. Run <code>notmuch new</code> to have it create the directories and, if you tested the mail server by sending yourself messages, import those initial messages.</p></li>
 <li><p>Install afew from <a href="https://github.com/teythoon/afew">github.com/teythoon/afew</a>. You can start with the default configuration, and then add filters that will add the tag ‘important’, as well as any other automatic tagging you want to have. I commented out the ClassifyingFilter because it wasn’t working - and I wasn’t convinced I wanted it, so didn’t bother to figure out how te get it to work.</p></li>
 </ol>
@@ -704,7 +704,7 @@ max_age = 15
 Archive = &#39;tag:important AND NOT tag:spam&#39;:.Important
 Important = &#39;NOT tag:important&#39;:.Archive &#39;tag:spam&#39;:.Archive</code></pre>
 <p>This says to take anything in Archive with the important tag and put it in important (but never spam). Note that the folders we are moving to are prefixed with a dot, but the names of the folders aren’t. Now we need to set everything up to run automatically.</p>
-<ol start="8" style="list-style-type: decimal">
+<ol start="8" type="1">
 <li>We are going to use inotify, and specifically the tool <code>incron</code>, to watch for changes in our .Archive inbox and add files to the database, tag them, and move those that should be moved to .Important. On Debian, you can obtain <code>incron</code> with:</li>
 </ol>
 <pre><code>aptitude install incron</code></pre>
@@ -716,11 +716,11 @@ Important = &#39;NOT tag:important&#39;:.Archive &#39;tag:spam&#39;:.Archive</co
 /usr/local/bin/afew -nt &gt;&gt; /dev/null 2&gt;&amp;1
 /usr/local/bin/afew -m &gt;&gt; /dev/null 2&gt;&amp;1</code></pre>
 <p>It is intentionally being very quiet because output from cron jobs will trigger emails… and thus if there were a mistake, we could be in infinite loop land again. This means you should make sure the commands are working (ie, there aren’t mistakes in your config files), because you won’t see any debug output from them when they are run through this script.</p>
-<ol start="8" style="list-style-type: decimal">
+<ol start="8" type="1">
 <li>Now let’s set up the mobile client. I’m not sure of a good way to do this on iOS (aside from just manually checking the Important folder), but perhaps a motivated person could figure it out. Since I have an Android phone, it wasn’t an issue. On Android, install K9-Mail, and set up your account with the incoming / outgoing mail server to be just ‘mydomain.com’. Click on the account, and it will show just Inbox (not helpful). Hit the menu button, then click folders, and check “display all folders”. Now hit the menu again and click folders and hit “refresh folders”.</li>
 </ol>
 <p>Provided at least one message has been put into Important and Archive, those should both show up now. Open the folder ‘Important’ and use the settings to enable push for it. Also add it to the Unified Inbox. Similarly, disable push on the Inbox (this latter doesn’t really matter, because we never deliver messages to the inbox). If you have trouble finding these settings (which I did for a while), note that the settings that are available are contingent upon the screen you are on. The folders settings only exist when you are looking at the list of folders (not the unified inbox / list of accounts, and not the contents of a folder).</p>
-<ol start="9" style="list-style-type: decimal">
+<ol start="9" type="1">
 <li>Finally, the desktop client. I’m using the emacs client, because I spend most of my time inside emacs, but there are several other clients - one for vim, one called ‘bower’ that is curses based (that I’ve used before, but is less featureful than the emacs one), and a few others. <code>alot</code>, a python client, won’t work, because it assumes that the notmuch database is local (which is a really stupid assumption). The rest just assume that <code>notmuch</code> is in the path. This means that you can follow the instructions here: <a href="http://notmuchmail.org/remoteusage/">notmuchmail.org/remoteusage</a> to have the desktop use the mail database on the server. To test, run <code>notmuch count</code> on your local machine, and it should return the same thing (the total number of messages) as it does on the mail server.</li>
 </ol>
 <p>Once this is working, install notmuch locally, so that you get the emacs bindings (or, just download the source and put the contents of the emacs folder somewhere and include it in your .emacs). You should now be able to run <code>M-x notmuch</code> in emacs and get to your inbox. Setting up mail sending is a little trickier - most of the documentation I found didn’t work!</p>
@@ -749,7 +749,7 @@ Important = &#39;NOT tag:important&#39;:.Archive &#39;tag:spam&#39;:.Archive</co
   (setq starttls-gnutls-program &quot;gnutls-cli&quot;)
   (setq starttls-extra-arguments nil)
   )</code></pre>
-<ol start="10" style="list-style-type: decimal">
+<ol start="10" type="1">
 <li>Address lookup. It’s really nice to have an address book based on messages in your mailbox. An easy way to do this is to install addrlookup: get the source from <code>http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c</code>, build with</li>
 </ol>
 <pre><code>cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch</code></pre>
@@ -771,11 +771,11 @@ exec ssh your_server addrlookup ${ARGS}</code></pre>
 <p><strong>Added July 9th, 2013:</strong></p>
 <h2 id="addendum">Addendum</h2>
 <p>Among the large amount of feedback I received on this post, many people recommended that I use Postfix and Dovecot over Exim and Courier. Postfix chosen because of security (Exim has a less than stellar history), and dovecot because it is simpler and faster than Courier (and more importantly, combined with Postfix frequently). Security is really important to me (as I want this system to be easy to mantain), so I decided to switch it. Since I’m not doing anything particularly complicated with the mail server / IMAP, the conversion was relatively straightforward. For people reading this, I’d suggest just doing this from the start (and substitute for the parts setting up Exim / Courier), but if you’ve already followed the instructions (as I have), here is what you should do to change. Note that I have gotten much of this information from guides at <a href="https://syslog.tv/">syslog.tv</a>, modified as needed.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Install postfix and dovecot with (accept the replacement policy):</li>
 </ol>
 <pre><code>sudo apt-get install dovecot-imapd postfix sasl2-bin libsasl2-2 libsasl2-modules procmail</code></pre>
-<ol start="2" style="list-style-type: decimal">
+<ol start="2" type="1">
 <li>Add this to end of <code>/etc/postfix/main.cf</code>, to tell Postfix to use Maildir, sasl,</li>
 </ol>
 <pre><code>    home_mailbox = Maildir/
@@ -810,7 +810,7 @@ exec ssh your_server addrlookup ${ARGS}</code></pre>
   -o smtpd_client_restrictions=permit_sasl_authenticated,reject
   -o smtpd_recipient_restrictions=reject_non_fqdn_recipient,
      reject_unknown_recipient_domain,permit_sasl_authenticated,reject</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li><p>Change myhostname to be fully qualified if it isn’t. Confirm all is well with http://mxtoolbox.com</p></li>
 <li><p>Set up dovecot. Edit /etc/dovecot/conf.d/10-mail.conf and change mail_location to:</p></li>
 </ol>
@@ -824,7 +824,7 @@ exec ssh your_server addrlookup ${ARGS}</code></pre>
 <p>Now to test that this is working, use <code>swaks</code> from a remote host, and run a command like:</p>
 <pre><code>swaks -a -tls -q HELO -s mydomain.com -au myuser -ap &quot;mypassword&quot; -p 587</code></pre>
 <p>And you should get a good response.</p>
-<ol start="5" style="list-style-type: decimal">
+<ol start="5" type="1">
 <li>Filing mail with procmail.</li>
 </ol>
 <p>Delete <code>~/.forward</code> - we’ll be using procmail to put the mail in the Archive directory.</p>
@@ -843,7 +843,7 @@ DEFAULT=$ORGMAIL</code></pre>
 <pre><code>chmod 600 .procmailrc</code></pre>
 <p>Remove incron, which we aren’t using anymore.</p>
 <pre><code>sudo aptitude remove incron</code></pre>
-<ol start="7" style="list-style-type: decimal">
+<ol start="7" type="1">
 <li>Fix up spamassassin.</li>
 </ol>
 <p>Get the top of /etc/spamassassin/local.cf to look like:</p>
@@ -852,7 +852,7 @@ DEFAULT=$ORGMAIL</code></pre>
 add_header spam Flag _YESNOCAPS_
 add_header all Status _YESNO_, score=_SCORE_ required=_REQD_ tests=_TESTS_ autolearn=_AUTOLEARN_ version=_VERSION_</code></pre>
 <p>This adds the proper headers so that <code>afew</code> recognizes and tags as spam accordingly. And that should be it!</p>
-<ol start="8" style="list-style-type: decimal">
+<ol start="8" type="1">
 <li>I’m not sure of a way to tell K9Mail that the certificate on the IMAP server has changed, so I just deleted the account and recreated it.</li>
 </ol>
 <p>Note: if you find any mistakes in this, or parts that needed additional steps, <a href="mailto:dbp@dbpmail.net">let me know</a> and I’ll correct/add to this.</p>

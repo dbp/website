@@ -31,7 +31,7 @@
 <p><em>Note: Since writing this I’ve replaced Exim with Postfix and Courier with Dovecot. This is outlined in the Addendum, but the main text is unchanged. Please read the whole guide before starting, as you can skip some of the steps and go straight to the final system.</em></p>
 <h2 id="motivation">Motivation</h2>
 <p>I reluctantly switched to GMail about six months ago, after using many so-called “replacements for GMail” (the last of which was Fastmail). All of them were missing one or more features that I require of email:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Access to the same email on multiple machines (but, these can all be machines I control).</li>
 <li>Access to important email on my phone (Android). Sophisticated access not important - just a high-tech pager.</li>
 <li>Ability to organize messages by threads.</li>
@@ -54,14 +54,14 @@
 </ul>
 <p>Mail is received by the mail server and put in a Archive subdirectory which is <em>not</em> configured for push in K9-Mail. The mail is processed and tagged by afew, and any messages with the tag “important” are moved into the Important subdirectory. This directory is set up for push in K9-Mail, so I get all important email right away. No further tagging can be done through the mobile device, but that wasn’t a requirement. read/unread status will be synced two-way to notmuch, which <em>is</em> important.</p>
 <h2 id="step-by-step-instructions">Step By Step Instructions</h2>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>The first and most important part is having a server. I’ve been really happy with VPSes I have from <a href="https://www.digitalocean.com/?refcode=93aab578a407">Digital Ocean</a> (warning: that’s a referral link. <a href="https://www.digitalocean.com">Here’s one without.</a>) - they provide big-enough VPSes for email and a simple website for $5/month. There are also many other providers. The important thing is to get a server, if you don’t already have one.</p></li>
 <li><p>The next thing you’ll need is a domain name. You can use a subdomain of one you already have, but the simplest thing is to just get a new one. This is $10-15/year. Once you have it, you want to set a few records (these are set in the “Zone File”, and should be easy to set up through the online control panel of whatever registrar you used):</p></li>
 </ol>
 <pre><code>A mydomain.com. IP.ADDR.OF.SERVER (mydomain.com. might be written @)
 MX 10 mydomain.com.</code></pre>
 <p>This sets the domain to point to your server, and sets the mail record to point to that domain name. You will also need to set up a PTR record, or reverse DNS. If you got the server through Digital Ocean, you can set up the DNS records through them, and they allow you to set the PTR record for each server easily. Whereever you set it up, it should point at mydomain.com. (Note trailing period. Otherwise it will resolve to mydomain.com.mydomain.com - not what you want!).</p>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li>Now set up the mail server itself. I use Debian, but it shouldn’t be terribly different with other distributions (but you should follow their instructions, not the ones I link to here, because I’m sure there are specifics that are dependent on how Debian sets things up). Since Debian uses Exim4 by default, I used that, and set up Courier as an IMAP server. I followed these instructions: <a href="http://blog.edseek.com/~jasonb/articles/exim4_courier/">blog.edseek.com/~jasonb/articles/exim4_courier/</a> (sections 2, 3, and 4). The only important thing I had to change was to force the hostname, by finding the line it <code>/etc/exim4/exim4.conf.template</code> that looks like:</li>
 </ol>
 <pre><code>.ifdef MAIN_HARDCODE_PRIMARY_HOSTNAME</code></pre>
@@ -79,18 +79,18 @@ Jun 29 16:31:54.641 [24982] dbg: pyzor: opening pipe: /usr/bin/pyzor --homedir .
 Jun 29 16:31:54.674 [24982] dbg: pyzor: [25043] finished: exit 1
 Jun 29 16:31:54.674 [24982] dbg: pyzor: check failed: no response</code></pre>
 <p>According to <a href="http://wiki.apache.org/spamassassin/UsingPyzor">the documentation</a>, this is expected, because “test” is not a valid message.</p>
-<ol start="4" style="list-style-type: decimal">
+<ol start="4" type="1">
 <li>Now we want to set up our delivery. Create a <code>.forward</code> file in the home directory of the account on the server that is going to recieve mail. It should contain</li>
 </ol>
 <pre><code># Exim filter
 
 save Maildir/.Archive/</code></pre>
 <p>What this does is put all mail that is recieved into the Archive subdirectory (the dots are convention of the version of the Maildir format that Courier-IMAP uses).</p>
-<ol start="5" style="list-style-type: decimal">
+<ol start="5" type="1">
 <li>Next, we want to set up notmuch. You can install it and the python bindings (needed by afew) with:</li>
 </ol>
 <pre><code>aptitude install notmuch python-notmuch</code></pre>
-<ol start="6" style="list-style-type: decimal">
+<ol start="6" type="1">
 <li><p>Run <code>notmuch setup</code> and put in your name, email, and make sure that the directory to your email archive is “/home/YOURUSER/Maildir”. Run <code>notmuch new</code> to have it create the directories and, if you tested the mail server by sending yourself messages, import those initial messages.</p></li>
 <li><p>Install afew from <a href="https://github.com/teythoon/afew">github.com/teythoon/afew</a>. You can start with the default configuration, and then add filters that will add the tag ‘important’, as well as any other automatic tagging you want to have. I commented out the ClassifyingFilter because it wasn’t working - and I wasn’t convinced I wanted it, so didn’t bother to figure out how te get it to work.</p></li>
 </ol>
@@ -112,7 +112,7 @@ max_age = 15
 Archive = 'tag:important AND NOT tag:spam':.Important
 Important = 'NOT tag:important':.Archive 'tag:spam':.Archive</code></pre>
 <p>This says to take anything in Archive with the important tag and put it in important (but never spam). Note that the folders we are moving to are prefixed with a dot, but the names of the folders aren’t. Now we need to set everything up to run automatically.</p>
-<ol start="8" style="list-style-type: decimal">
+<ol start="8" type="1">
 <li>We are going to use inotify, and specifically the tool <code>incron</code>, to watch for changes in our .Archive inbox and add files to the database, tag them, and move those that should be moved to .Important. On Debian, you can obtain <code>incron</code> with:</li>
 </ol>
 <pre><code>aptitude install incron</code></pre>
@@ -124,11 +124,11 @@ Important = 'NOT tag:important':.Archive 'tag:spam':.Archive</code></pre>
 /usr/local/bin/afew -nt &gt;&gt; /dev/null 2&gt;&amp;1
 /usr/local/bin/afew -m &gt;&gt; /dev/null 2&gt;&amp;1</code></pre>
 <p>It is intentionally being very quiet because output from cron jobs will trigger emails… and thus if there were a mistake, we could be in infinite loop land again. This means you should make sure the commands are working (ie, there aren’t mistakes in your config files), because you won’t see any debug output from them when they are run through this script.</p>
-<ol start="8" style="list-style-type: decimal">
+<ol start="8" type="1">
 <li>Now let’s set up the mobile client. I’m not sure of a good way to do this on iOS (aside from just manually checking the Important folder), but perhaps a motivated person could figure it out. Since I have an Android phone, it wasn’t an issue. On Android, install K9-Mail, and set up your account with the incoming / outgoing mail server to be just ‘mydomain.com’. Click on the account, and it will show just Inbox (not helpful). Hit the menu button, then click folders, and check “display all folders”. Now hit the menu again and click folders and hit “refresh folders”.</li>
 </ol>
 <p>Provided at least one message has been put into Important and Archive, those should both show up now. Open the folder ‘Important’ and use the settings to enable push for it. Also add it to the Unified Inbox. Similarly, disable push on the Inbox (this latter doesn’t really matter, because we never deliver messages to the inbox). If you have trouble finding these settings (which I did for a while), note that the settings that are available are contingent upon the screen you are on. The folders settings only exist when you are looking at the list of folders (not the unified inbox / list of accounts, and not the contents of a folder).</p>
-<ol start="9" style="list-style-type: decimal">
+<ol start="9" type="1">
 <li>Finally, the desktop client. I’m using the emacs client, because I spend most of my time inside emacs, but there are several other clients - one for vim, one called ‘bower’ that is curses based (that I’ve used before, but is less featureful than the emacs one), and a few others. <code>alot</code>, a python client, won’t work, because it assumes that the notmuch database is local (which is a really stupid assumption). The rest just assume that <code>notmuch</code> is in the path. This means that you can follow the instructions here: <a href="http://notmuchmail.org/remoteusage/">notmuchmail.org/remoteusage</a> to have the desktop use the mail database on the server. To test, run <code>notmuch count</code> on your local machine, and it should return the same thing (the total number of messages) as it does on the mail server.</li>
 </ol>
 <p>Once this is working, install notmuch locally, so that you get the emacs bindings (or, just download the source and put the contents of the emacs folder somewhere and include it in your .emacs). You should now be able to run <code>M-x notmuch</code> in emacs and get to your inbox. Setting up mail sending is a little trickier - most of the documentation I found didn’t work!</p>
@@ -157,7 +157,7 @@ Important = 'NOT tag:important':.Archive 'tag:spam':.Archive</code></pre>
   (setq starttls-gnutls-program &quot;gnutls-cli&quot;)
   (setq starttls-extra-arguments nil)
   )</code></pre>
-<ol start="10" style="list-style-type: decimal">
+<ol start="10" type="1">
 <li>Address lookup. It’s really nice to have an address book based on messages in your mailbox. An easy way to do this is to install addrlookup: get the source from <code>http://github.com/spaetz/vala-notmuch/raw/static-sources/src/addrlookup.c</code>, build with</li>
 </ol>
 <pre><code>cc -o addrlookup addrlookup.c `pkg-config --cflags --libs gobject-2.0` -lnotmuch</code></pre>
@@ -179,11 +179,11 @@ exec ssh your_server addrlookup ${ARGS}</code></pre>
 <p><strong>Added July 9th, 2013:</strong></p>
 <h2 id="addendum">Addendum</h2>
 <p>Among the large amount of feedback I received on this post, many people recommended that I use Postfix and Dovecot over Exim and Courier. Postfix chosen because of security (Exim has a less than stellar history), and dovecot because it is simpler and faster than Courier (and more importantly, combined with Postfix frequently). Security is really important to me (as I want this system to be easy to mantain), so I decided to switch it. Since I’m not doing anything particularly complicated with the mail server / IMAP, the conversion was relatively straightforward. For people reading this, I’d suggest just doing this from the start (and substitute for the parts setting up Exim / Courier), but if you’ve already followed the instructions (as I have), here is what you should do to change. Note that I have gotten much of this information from guides at <a href="https://syslog.tv/">syslog.tv</a>, modified as needed.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Install postfix and dovecot with (accept the replacement policy):</li>
 </ol>
 <pre><code>sudo apt-get install dovecot-imapd postfix sasl2-bin libsasl2-2 libsasl2-modules procmail</code></pre>
-<ol start="2" style="list-style-type: decimal">
+<ol start="2" type="1">
 <li>Add this to end of <code>/etc/postfix/main.cf</code>, to tell Postfix to use Maildir, sasl,</li>
 </ol>
 <pre><code>    home_mailbox = Maildir/
@@ -218,7 +218,7 @@ exec ssh your_server addrlookup ${ARGS}</code></pre>
   -o smtpd_client_restrictions=permit_sasl_authenticated,reject
   -o smtpd_recipient_restrictions=reject_non_fqdn_recipient,
      reject_unknown_recipient_domain,permit_sasl_authenticated,reject</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li><p>Change myhostname to be fully qualified if it isn’t. Confirm all is well with http://mxtoolbox.com</p></li>
 <li><p>Set up dovecot. Edit /etc/dovecot/conf.d/10-mail.conf and change mail_location to:</p></li>
 </ol>
@@ -232,7 +232,7 @@ exec ssh your_server addrlookup ${ARGS}</code></pre>
 <p>Now to test that this is working, use <code>swaks</code> from a remote host, and run a command like:</p>
 <pre><code>swaks -a -tls -q HELO -s mydomain.com -au myuser -ap &quot;mypassword&quot; -p 587</code></pre>
 <p>And you should get a good response.</p>
-<ol start="5" style="list-style-type: decimal">
+<ol start="5" type="1">
 <li>Filing mail with procmail.</li>
 </ol>
 <p>Delete <code>~/.forward</code> - we’ll be using procmail to put the mail in the Archive directory.</p>
@@ -251,7 +251,7 @@ DEFAULT=$ORGMAIL</code></pre>
 <pre><code>chmod 600 .procmailrc</code></pre>
 <p>Remove incron, which we aren’t using anymore.</p>
 <pre><code>sudo aptitude remove incron</code></pre>
-<ol start="7" style="list-style-type: decimal">
+<ol start="7" type="1">
 <li>Fix up spamassassin.</li>
 </ol>
 <p>Get the top of /etc/spamassassin/local.cf to look like:</p>
@@ -260,7 +260,7 @@ DEFAULT=$ORGMAIL</code></pre>
 add_header spam Flag _YESNOCAPS_
 add_header all Status _YESNO_, score=_SCORE_ required=_REQD_ tests=_TESTS_ autolearn=_AUTOLEARN_ version=_VERSION_</code></pre>
 <p>This adds the proper headers so that <code>afew</code> recognizes and tags as spam accordingly. And that should be it!</p>
-<ol start="8" style="list-style-type: decimal">
+<ol start="8" type="1">
 <li>I’m not sure of a way to tell K9Mail that the certificate on the IMAP server has changed, so I just deleted the account and recreated it.</li>
 </ol>
 <p>Note: if you find any mistakes in this, or parts that needed additional steps, <a href="mailto:dbp@dbpmail.net">let me know</a> and I’ll correct/add to this.</p>
