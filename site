@@ -119,6 +119,12 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" (pageCtx "")
             >>= relativizeUrls
 
+    match "apple.markdown" $ do
+        route   $ constRoute "apple/index.html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" (pageCtx "")
+            >>= relativizeUrls
+
     match "404.markdown" $ do
         route   $ setExtension ".html"
         compile $ pandocCompiler
