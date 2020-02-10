@@ -9,6 +9,9 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 ### Publications
 <div class="pubs">
 
+[**Foreign Function Typing: Semantic Type Soundness for FFIs.**](/pubs/2020/soundffi-wgt.pdf)
+<div class="desc">Daniel Patterson and Amal Ahmed. <br/>_WGT 2020_. [PDF](/pubs/2020/soundffi-wgt.pdf).</div>
+
 [**The Next 700 Compiler Correctness Theorems (Functional Pearl).**](/pubs/2019/ccc.pdf)
 <div class="desc">Daniel Patterson and Amal Ahmed. <br/>_ICFP 2019_. [PDF](/pubs/2019/ccc.pdf).</div>
 
