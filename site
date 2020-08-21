@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack --resolver lts-14.0 --install-ghc runghc -j1 --package hakyll
+-- stack --resolver lts-12.26 --install-ghc runghc -j1 --package hakyll
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
@@ -119,10 +119,10 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" (pageCtx "")
             >>= relativizeUrls
 
-    match "apple.markdown" $ do
-        route   $ constRoute "apple/index.html"
+    match "**/*.markdown" $ do
+        route   $ setExtension ".html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" (pageCtx "")
+            >>= loadAndApplyTemplate "templates/default.html" (pageCtx "Apple 16")
             >>= relativizeUrls
 
     match "404.markdown" $ do

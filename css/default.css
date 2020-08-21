@@ -37,6 +37,10 @@ h3 {
     clear: both;
 }
 
+h4 {
+    font-weight: bold;
+}
+
 a {
     text-decoration: none;
     color: #900;
@@ -181,4 +185,30 @@ pre {
 blockquote p {
     padding: 0;
     margin: 0;
+}
+
+
+ul.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.menu li {
+    display: inline-block;
+    padding: 0;
+    border-bottom: 1px solid #900;
+}
+
+ul.menu a {
+    display: block;
+    padding: 0 10px;
+}
+
+ul.menu a:hover {
+    text-decoration: none;
+    background-color: #efefef;
+}
+
+ul.menu li.cur a {
+    background-color: #efefef;
 }
