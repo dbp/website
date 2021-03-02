@@ -40,7 +40,9 @@ are the AHL, then there are many of the decked cutter).
 - [Day 4](https://www.reddit.com/r/boatbuilding/comments/ho4h75/day_4_all_strakes_ready_bulkheads_and_transom/)
 - [Day 5](https://www.reddit.com/r/boatbuilding/comments/hotdzq/day_5_stitching_has_begun_finally_starts_to_look/)
 - [Day 6](https://www.reddit.com/r/boatbuilding/comments/hpyge9/day_6_not_much_progress_but_this_lady_got_some/)
+- [Next Post](https://www.reddit.com/r/boatbuilding/comments/igv1wr/almost_all_zip_ties_gone/)
+- [Glassing](https://www.reddit.com/r/boatbuilding/comments/ihq2km/glassing_the_outside/)
 
-And then it seems to have dropped off (Day 6 was posted, as of this writing, 17 days ago).
+And then it seems to have dropped off (Glassing was posted, as of this writing, 6 months ago).
 
 #### Know of another documented Apple 16 build? Send me info at [dbp@dbpmail.net](mailto:dbp@dbpmail.net)
