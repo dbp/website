@@ -34,7 +34,7 @@ Apple 16, some may not, so it's important to highlight the boat I'm building:
    just amazed by the way that Tom nested the planks into the sheets, and how
    that turned into such a beautiful 3D shape -- often the planks would be less
    than an inch from each other in multiple places.
-2. Single rig, with a small mizzen. This is shown in the picture above. The
+2. Single (large) rig, with a small mizzen. This is shown in the picture above. The
    plans account for a larger mizzen "light-air" rig, and corresponding multiple
    daggerboard positions -- something I did not want to deal with!
 3. Pivoting centerboard, rather than a daggerboard. The design in the plans
@@ -69,7 +69,7 @@ Apple 16, some may not, so it's important to highlight the boat I'm building:
   20mmx20mm. Quarter knees, breast hook, and king plank mahogany. 25mm x 25mm
   douglas fir for centercase support, and lots of 20mm x 20mm stringers (I had a
   disasterous attempt to use way to brittle douglas fir for gunwales, so had
-  plenty of this stuff).
-- Epoxy (to be updated as I go along):  4.5G (not all used yet)
+  plenty of this stuff), white oak for floors, ipe for floorboards.
+- Epoxy (to be updated as I go along):  6G (not all used yet)
 - Fiberglass: XX 3" tape, XX 2" tape, XX 50" yards
 
