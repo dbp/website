@@ -9,6 +9,9 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 ### Publications
 <div class="pubs">
 
+[**Semantic Soundness for Language Interoperability.**](/pubs/2021/semanticinterop-draft.pdf)
+<div class="desc">Daniel Patterson, Noble Mushtak, Andrew Wagner, Amal Ahmed. <br/> _DRAFT_. [PDF](/pubs/2021/semanticinterop-draft.pdf).</div>
+
 [**Foreign Function Typing: Semantic Type Soundness for FFIs.**](/pubs/2020/soundffi-wgt.pdf)
 <div class="desc">Daniel Patterson and Amal Ahmed. <br/>_WGT 2020_. [PDF](/pubs/2020/soundffi-wgt.pdf).</div>
 
