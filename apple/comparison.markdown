@@ -59,20 +59,23 @@ the GIS is probably the best of them, given that the plans have had the most
 eyes on them! The downside is that it seems to be a boat designed for dinghy
 sailors, in that it is a bit unstable! The light weight, combined with the
 narrow front means that capsizing it is certainly a risk, and there doesn't seem
-to be much to do about it aside from be an experienced sailor!
+to be much to do about it aside from be an experienced sailor! (Note: since
+originally writing this, I've seen some people experiment with water tank
+ballast beneath the center seat -- which may make things a bit more stable!)
 
 While obviously any light dinghy will capsize, since the Apple 16 doesn't have a
-flat bottom, it can have ballast put in (water tanks, or more easily, heavy
-material like metal or sand), which will make it much more stable. This might
-make it less exciting to sail, but much better when out with family, or in
-heavier weather -- and with removable ballast, it's easy to switch. Ballasting
-isn't really possible in a flat bottom boat like the GIS, because it would need
-to switch from side to side on each tack (obviously, the _sailors_ serve as
-ballast, but that requires skill). Aside from the easier build and more
-straightforward plans (there is essentially _one_ GIS -- modifications do exist,
-but are pretty rare and minor), another advantage the GIS has is the flat
-transom makes mounting a motor more straightforward -- no complicated mount
-needed to account for the 30 degree raked transom on the Apple 16.
+flat bottom, it can more easily / happily have ballast put in (water tanks, or
+more easily, heavy material like metal or sand), which will make it much more
+stable. This might make it less exciting to sail, but much better when out with
+family, or in heavier weather -- and with removable ballast, it's easy to
+switch. Ballasting is a lot less of an option in a flat bottom boat like the GIS,
+because to really work it should switch from side to side on each tack (obviously, the
+_sailors_ serve as ballast, but that requires skill). Aside from the easier
+build and more straightforward plans (there is essentially _one_ GIS --
+modifications do exist, but are pretty rare and minor), another advantage the
+GIS has is the flat transom makes mounting a motor more straightforward -- no
+complicated mount needed to account for the 30 degree raked transom on the Apple
+16.
 
 ### **Phoenix III** *by Ross Lillistone*
 
@@ -93,8 +96,8 @@ process, the Apple 16 is a lot more boat: whether that is actually relevant is
 of course, a personal decision, but being able to take out three other people
 comfortably was important to me, and all the other constraints (total cost,
 space it would take up in garage, difficulty to transport it) seemed pretty
-similar to me. But, I say that as someone who considers rowing a necessary was
-to get around when there isn't enough wind!
+similar to me. But, I say that as someone who considers rowing a necessary way
+to get around when there isn't enough wind, rather than something that I go out to do!
 
 
 ### **Argie 15** *by Dudley Dix*
