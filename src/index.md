@@ -1,5 +1,21 @@
+<div class="alert">
+I'm on the job market for a **full time teaching position** in the greater Boston area for Fall 2022.
+
+* [CV](/static/cv.pdf)
+* [Teaching Statement](/static/teaching.pdf)
+* [Diversity Statement](/static/diversity.pdf)
+* [Research Statement](/static/research.pdf)
+
+</div>
+
+
+
 <div class="imgr"><img src="/static/dbp.jpg" alt="Daniel Patterson"/></div>
-I'm currently a graduate student at [Northeastern University](http://prl.ccs.neu.edu/) studying programming languages, type systems, and language interoperability with [Amal Ahmed](http://www.ccs.neu.edu/home/amal/). If you want to learn more about what we're working on, Amal gave [a keynote](https://www.youtube.com/watch?v=3yVc5t-g-VU) on our research at StrangeLoop 2018. Previously, I helped start and run a worker-owned software contracting company, [Position Development](http://positiondev.com). I studied math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I worked with [Shriram Krishnamurthi](https://cs.brown.edu/~sk). I'm interested in programming languages, education, and leftist politics. This is my personal website.
+I'm currently a graduate student at [Northeastern University](http://prl.ccs.neu.edu/) studying programming languages with [Amal Ahmed](http://www.ccs.neu.edu/home/amal/).
+
+The topic of my dissertation is the **semantics of language interoperability**. 
+
+Previously, I helped start and run a worker-owned software contracting company, [Position Development](http://positiondev.com). I studied math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I worked with [Shriram Krishnamurthi](https://cs.brown.edu/~sk), helping to design the [Pyret](https://www.pyret.org) programming language.
 
 
 ### Contact
@@ -78,9 +94,9 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 - [A Hacker's Replacement for GMail](/essays/2013-06-29-hackers-replacement-for-gmail.html) - June 29, 2013
 - [Programming as Literature](/essays/2012-10-24-programming-literature.html) - October 24, 2012
 
-### Resume
+### CV
 
-A current resume is available in [PDF form](/static/resume.pdf).
+A current CV is available in [PDF form](/static/cv.pdf).
 
 ### Links
 

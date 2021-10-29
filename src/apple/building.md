@@ -28,6 +28,11 @@ width: auto;
 <li><a href="/apple/building/stem.html">Outer Stem</a></li>
 <li><a href="/apple/building/bowtank.html">Bow Tank</a></li>
 <li><a href="/apple/building/sterntank.html">Stern Tank</a></li>
+<li><a href="/apple/building/centercase.html">Stern Tank</a></li>
+<li><a href="/apple/building/thwarts.html">Stern Tank</a></li>
+<li><a href="/apple/building/hullfinish.html">Keel, skeg, glass, outer paint</a></li>
+<li><a href="/apple/building/innerfinish.html">Inner finish</a></li>
+<li><a href="/apple/building/spars.html">Spars</a></li>
 </ul>
 
 Thus far, my build has taken the following approximate amounts of time for the various
@@ -40,7 +45,13 @@ Hull stitched and taped | 62 hours
 Gunwales & Quarter Knees | 27.75 hours
 Outer Stem & Front of Keel | 12.75 hours
 Bow Tank & Mast Partner | 27 hours
-Stern Tank & Mizzen Step/Partner | 33 hours
+Stern Tank & Mizzen Step/Partner | 30 hours
+Centercase | 19 hours
+Thwarts, floors, floorboards | 50 hours
+Keel, skeg, glass, outer paint | 39 hours
+Inner finish | 39 hours
+Spars (incomplete) | 20 hours
+**Total** | **326 hours**
 
 ### Taking Care
 

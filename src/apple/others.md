@@ -27,6 +27,10 @@ width: auto;
 These give various shots of various different builds (many from the beginning
 are the AHL, then there are many of the decked cutter).
 
+### Jamie Duff, Apple 16 Cutter
+
+- Thread in WBF: [http://forum.woodenboat.com/showthread.php?281597-Melitele-my-Campion-Apple-16-Cutter](http://forum.woodenboat.com/showthread.php?281597-Melitele-my-Campion-Apple-16-Cutter)
+
 ### Matt Bowser, Swedish Apple with totally custom interior
 
 - Blog with photos and description: [http://www.fernhollow.net](http://www.fernhollow.net/)
@@ -42,6 +46,7 @@ are the AHL, then there are many of the decked cutter).
 - [Day 6](https://www.reddit.com/r/boatbuilding/comments/hpyge9/day_6_not_much_progress_but_this_lady_got_some/)
 - [Next Post](https://www.reddit.com/r/boatbuilding/comments/igv1wr/almost_all_zip_ties_gone/)
 - [Glassing](https://www.reddit.com/r/boatbuilding/comments/ihq2km/glassing_the_outside/)
+- [I guess it's watertight](https://www.reddit.com/r/boatbuilding/comments/o5l73m/i_guess_its_watertight/)
 
 And then it seems to have dropped off (Glassing was posted, as of this writing, 6 months ago).
 

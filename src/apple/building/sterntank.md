@@ -22,15 +22,20 @@
 ## Sections
 
 <ul class="menu">
-  <li><a href="/apple/building.html">Overview</a></li>
-  <li><a href="/apple/building/hull.html">Hull</a></li>
-  <li><a href="/apple/building/gunwales.html">Gunwales</a></li>
-  <li><a href="/apple/building/stem.html">Outer Stem</a></li>
-  <li><a href="/apple/building/bowtank.html">Bow Tank</a></li>
-  <li class="cur"><a href="/apple/building/sterntank.html">Stern Tank</a></li>
+<li><a href="/apple/building.html">Overview</a></li>
+<li><a href="/apple/building/hull.html">Hull</a></li>
+<li><a href="/apple/building/gunwales.html">Gunwales</a></li>
+<li><a href="/apple/building/stem.html">Outer Stem</a></li>
+<li><a href="/apple/building/bowtank.html">Bow Tank</a></li>
+<li class="cur"><a href="/apple/building/sterntank.html">Stern Tank</a></li>
+<li><a href="/apple/building/centercase.html">Centercase</a></li>
+<li><a href="/apple/building/thwarts.html">Thwarts, floors, and floorboards</a></li>
+<li><a href="/apple/building/hullfinish.html">Keel, skeg, glass, outer paint</a></li>
+<li><a href="/apple/building/innerfinish.html">Inner finish</a></li>
+<li><a href="/apple/building/spars.html">Spars</a></li>
 </ul>
 
-**Total Time: 33 hours**
+**Total Time: 30 hours**
 
 About this part
 
