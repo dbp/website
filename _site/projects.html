@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="/css/default.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+ </head>
+ <body>
+  <div id="navigation">
+   <a class="t b" href="https://dbp.io">Daniel Patterson</a>
+          <a class="t h" href="#">::</a>
+          <span class="t">
+            <a href="https://dbp.io">dbp.io</a>
+          </span>
+          <span class="t">
+            email: <a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>
+          </span>
+          <span class="t">
+            pubkey: <a href="/static/dbp.gpg">A98D4AF0</a>
+          </span>
+          <span class="t">
+            work: <a target="_blank" href="http://prl.ccs.neu.edu">prl.ccs.neu.edu</a>
+          </span>
+  </div>
+  <main>
+   <h2 id="projects">
+    Projects
+   </h2>
+   <ul>
+    <li>
+     <h3 id="fn---a-functional-web-framework.">
+      Fn - A functional web framework.
+     </h3>
+     <p>
+      Fn is a web framework written in the functional language Haskell, with the explicit goal of writing code in a more functional style - handlers to web requests are normal functions with arguments and return types (rather than monadic actions), and there are no monad transformers. In many ways it makes writing web code more like writing plain Haskell. <a href="https:/github.com/positiondev/fn">github.com/positiondev/fn</a>.
+     </p>
+    </li>
+    <li>
+     <h3 id="hworker---a-reliable-at-least-once-job-processor.">
+      Hworker - A reliable at-least-once job processor.
+     </h3>
+     <p>
+      Hworker is a Redis-backed background job processor written in Haskell. It handles running jobs that, for various reasons (usually that they take a while to complete), have to run in the background (sending email is a common example). It has a strong focus on reliability, in that once a job has been queued, it is guaranteed to run at least once. <a href="https://github.com/dbp/hworker">github.com/dbp/hworker</a>.
+     </p>
+    </li>
+    <li>
+     <h3 id="periodic---a-reliable-scheduled-job-runner.">
+      Periodic - A reliable scheduled job runner.
+     </h3>
+     <p>
+      Periodic is a Redis-backed scheduled job runner (ie, like cron) written in Haskell. It handles running jobs at particular intervals. <a href="https://github.com/positiondev/periodic">github.com/positiondev/periodic</a>.
+     </p>
+    </li>
+    <li>
+     <h3 id="rivet---a-migration-tool.">
+      Rivet - A migration tool.
+     </h3>
+     <p>
+      Rivet is the beginning of a database migration tool for Haskell, that allows you to both write SQL migrations, but also ones that have to run arbitrary Haskell code. It’s pretty early, but is used in various projects. <a href="https://github.com/dbp/rivet">github.com/dbp/rivet</a>.
+     </p>
+    </li>
+    <li>
+     <h3 id="pyret-programming-language">
+      Pyret Programming Language
+     </h3>
+     <p>
+      A research / teaching language being developed by a small team at Brown University. It’s a scripting language that tries to learn from the best features that scripting languages have, but it also has serious functional roots and optional types. <a href="http://www.pyret.org">pyret.org</a>.
+     </p>
+    </li>
+   </ul>
+  </main>
+ </body>
+</html>
