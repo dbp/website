@@ -1,15 +1,3 @@
-<div class="alert">
-I'm on the job market for a **full time teaching position** in the greater Boston area for Fall 2022.
-
-* [CV](/static/cv.pdf)
-* [Teaching Statement](/static/teaching.pdf)
-* [Diversity Statement](/static/diversity.pdf)
-* [Research Statement](/static/research.pdf)
-
-</div>
-
-
-
 <div class="imgr"><img src="/static/dbp.jpg" alt="Daniel Patterson"/></div>
 I'm currently a graduate student at [Northeastern University](http://prl.ccs.neu.edu/) studying programming languages with [Amal Ahmed](http://www.ccs.neu.edu/home/amal/).
 
@@ -25,8 +13,8 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 ### Publications
 <div class="pubs">
 
-[**Semantic Soundness for Language Interoperability.**](/pubs/2021/semanticinterop-draft.pdf)
-<div class="desc">Daniel Patterson, Noble Mushtak, Andrew Wagner, Amal Ahmed. <br/> _DRAFT_. [PDF](/pubs/2021/semanticinterop-draft.pdf).</div>
+**Semantic Soundness for Language Interoperability.**
+<div class="desc">Daniel Patterson, Noble Mushtak, Andrew Wagner, Amal Ahmed. <br/> _PLDI 2022_. Pre-print at [arXiv](https://arxiv.org/abs/2202.13158).</div>
 
 [**Foreign Function Typing: Semantic Type Soundness for FFIs.**](/pubs/2020/soundffi-wgt.pdf)
 <div class="desc">Daniel Patterson and Amal Ahmed. <br/>_WGT 2020_. [PDF](/pubs/2020/soundffi-wgt.pdf).</div>

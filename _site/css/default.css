@@ -8,6 +8,12 @@ body {
     clear: both;
 }
 
+.alert {
+    border: 4px dashed #FFE603;
+    padding: 0px 10px;
+    margin: 10px;
+}
+
 @media (max-width: 799px) {
     h3, p {
         display: block;
