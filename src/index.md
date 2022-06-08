@@ -13,8 +13,8 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 ### Publications
 <div class="pubs">
 
-**Semantic Soundness for Language Interoperability.**
-<div class="desc">Daniel Patterson, Noble Mushtak, Andrew Wagner, Amal Ahmed. <br/> _PLDI 2022_. Pre-print at [arXiv](https://arxiv.org/abs/2202.13158).</div>
+[**Semantic Soundness for Language Interoperability.**](/pubs/2022/semint.pdf)
+<div class="desc">Daniel Patterson, Noble Mushtak, Andrew Wagner, Amal Ahmed. <br/> _PLDI 2022_. [PDF](/pubs/2022/semint.pdf), [appendix](/pubs/2022/semint-tr.pdf), and [arXiv](https://arxiv.org/abs/2202.13158).</div>
 
 [**Foreign Function Typing: Semantic Type Soundness for FFIs.**](/pubs/2020/soundffi-wgt.pdf)
 <div class="desc">Daniel Patterson and Amal Ahmed. <br/>_WGT 2020_. [PDF](/pubs/2020/soundffi-wgt.pdf).</div>
