@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Syllabus</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Course_.Description%29" class="tocviewlink" data-pltdoc="x">Course Description</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Course_.Objectives%29" class="tocviewlink" data-pltdoc="x">Course Objectives</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Prerequisites%29" class="tocviewlink" data-pltdoc="x">Prerequisites</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Course_.Websites___.Tools%29" class="tocviewlink" data-pltdoc="x">Course Websites /<span class="mywbr"> &nbsp;</span> Tools</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Software_.Used%29" class="tocviewlink" data-pltdoc="x">Software Used</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Evaluation%29" class="tocviewlink" data-pltdoc="x">Evaluation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Policies%29" class="tocviewlink" data-pltdoc="x">Policies</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Classroom_.Environment%29" class="tocviewlink" data-pltdoc="x">Classroom Environment</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Course_.Description%29" class="tocsubseclink" data-pltdoc="x">Course Description</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Course_.Objectives%29" class="tocsubseclink" data-pltdoc="x">Course Objectives</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Prerequisites%29" class="tocsubseclink" data-pltdoc="x">Prerequisites</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Course_.Websites___.Tools%29" class="tocsubseclink" data-pltdoc="x">Course Websites /<span class="mywbr"> &nbsp;</span> Tools</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">4.1
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Website%29" class="tocsubseclink" data-pltdoc="x">Website</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">4.2
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Canvas%29" class="tocsubseclink" data-pltdoc="x">Canvas</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">4.3
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Piazza%29" class="tocsubseclink" data-pltdoc="x">Piazza</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">4.4
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.Gradescope%29" class="tocsubseclink" data-pltdoc="x">Gradescope</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">4.5
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._.Polleverywhere%29" class="tocsubseclink" data-pltdoc="x">Polleverywhere</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">5
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Software_.Used%29" class="tocsubseclink" data-pltdoc="x">Software Used</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">5.1
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.I.S.L-.Spec__and_.Quickcheck_%29" class="tocsubseclink" data-pltdoc="x">ISL-<wbr>Spec (and Quickcheck)</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">5.2
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Rosette%29" class="tocsubseclink" data-pltdoc="x">Rosette</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">5.3
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Lean%29" class="tocsubseclink" data-pltdoc="x">Lean</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">6
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Evaluation%29" class="tocsubseclink" data-pltdoc="x">Evaluation</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">6.1
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Homework%29" class="tocsubseclink" data-pltdoc="x">Homework</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">6.2
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Quizes_.Worksheets%29" class="tocsubseclink" data-pltdoc="x">Quizes/<span class="mywbr"> &nbsp;</span>Worksheets</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">6.3
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Exams%29" class="tocsubseclink" data-pltdoc="x">Exams</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">7
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Policies%29" class="tocsubseclink" data-pltdoc="x">Policies</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">7.1
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Late_.Work%29" class="tocsubseclink" data-pltdoc="x">Late Work</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">7.2
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Regrades%29" class="tocsubseclink" data-pltdoc="x">Regrades</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">7.3
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Collaboration%29" class="tocsubseclink" data-pltdoc="x">Collaboration</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">8
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Classroom_.Environment%29" class="tocsubseclink" data-pltdoc="x">Classroom Environment</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">8.1
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Title_.I.X%29" class="tocsubseclink" data-pltdoc="x">Title IX</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">8.2
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Students_.With_.Disabilities%29" class="tocsubseclink" data-pltdoc="x">Students With Disabilities</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.7</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="index.html" title="backward to &quot;Logic &amp; Computation&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Logic &amp; Computation&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="schedule.html" title="forward to &quot;Schedule&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h3>
+<a name="(part._syllabus)"></a>Syllabus
+</h3>
+<h4>
+1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Course_.Description)"></a>Course Description
+</h4>
+<p>
+This course is about formal specification, and how logic can be used to help reason about software.
+Logic is presented from a <span style="font-style: italic">computational</span> perspective using a variety of formal methods
+tools, from property based testing frameworks which exist in nearly every programming language,
+to SMT solvers that are becoming increasingly important across a variety of domains,
+to interactive theorem proving using the Lean theorem prover.
+</p>
+<p>
+We focus on formal methods tools in order to show how logic can be used to <span style="font-style: italic">actively</span> reason
+about software, rather than existing as a purely theoretical pursuit off to the side. Clearly, logical
+reasoning has value even outside of the context of the types of tools that we will use, but we think
+that these tools will allow us to gain a much more hands-on understanding of it than via a more
+traditional presentation.
+</p>
+<p>
+The goal of the course is to introduce fundamental, foundational methods for both modelling
+and reasoning formally about computation. We want to be able to talk <span style="font-style: italic">precisely</span> about
+what programs should do, and once we learn how to express ourselves in precise <span style="font-style: italic">specifications</span>,
+we will deploy an array of tools to use those specifications to increase the reliability of the
+programs we write.
+</p>
+<p>
+We will draw upon propositional, first order, and higher order logic, and use equational
+reasoning and induction over recursive programs. We will talk about the strengths and limitations
+of various techniques, and how they can be applied to different problems.
+</p>
+<h4>
+2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Course_.Objectives)"></a>Course Objectives
+</h4>
+<p>
+The goal of the course is to introduce students to the logic and specification using the field of formal methods. While there are many human processes for increasing the reliability of software, formal methods begins from the premise that we can use math and computation to make software more reliable <span style="font-style: italic">scientifically</span>.
+</p>
+<p>
+Students will learn how to formulate specifications in a variety of ways, from executable predicates in property based testing frameworks that they can bring to any programming language they use, to finitized problems that can be translated into SMT queries and solved by off-the-shelf solvers, to rich higher-order logic specifications that can only be expressed and reasoned about within theorem provers.
+</p>
+<p>
+Every step of the way, we will be running code, querying the solver, or interacting directly with the theorem prover, and so students will get hands-on experience with these state-of-the-art tools. In addition to learning how to use them, they will learn when each is best applied, a skill they can take to further studies, coop, or beyond.
+</p>
+<h4>
+3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Prerequisites)"></a>Prerequisites
+</h4>
+<p>
+The course requires CS2500 (Fundamentals of Computer Science 1) and CS1800 (Discrete Structures). If you do not have this background, you need to get permission of the instructor.
+</p>
+<h4>
+4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Course_.Websites___.Tools)"></a>Course Websites / Tools
+</h4>
+<h5>
+4.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Website)"></a>Website
+</h5>
+<p>
+This website will be the main place that all course materials will be:
+homework assignments, lecture notes, etc. Please check it regularly.
+</p>
+<h5>
+4.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Canvas)"></a>Canvas
+</h5>
+<p>
+We will use Canvas for storing grades. You will not submit anything through
+Canvas. However, Canvas is the way to get to the various other tools, below.
+</p>
+<h5>
+4.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Piazza)"></a>Piazza
+</h5>
+<p>
+We will use Piazza for questions and discussion. While we will do our best to
+answer questions asked there, TA office hours are usually a much more reliable way to get help. You can
+connect to Piazza by going to Canvas and clicking the link in the sidebar.
+</p>
+<h5>
+4.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Gradescope)"></a>Gradescope
+</h5>
+<p>
+You will use Gradescope to submit homework assignments, and the feedback
+you will get will be available on Gradescope. Like Piazza, you can get to Gradescope from Canvas.
+</p>
+<h5>
+4.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Polleverywhere)"></a>Polleverywhere
+</h5>
+<p>
+We will use Polleverywhere for in-class quizzes. You can get to it,
+and link your account to it, from Canvas.
+</p>
+<h4>
+5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Software_.Used)"></a>Software Used
+</h4>
+<h5>
+5.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.I.S.L-.Spec__and_.Quickcheck_)"></a>ISL-Spec (and Quickcheck)
+</h5>
+<p>
+The first portion of the course introduces property based testing and specification using a language
+ISL-Spec which extends the Intermediate Student Language with Lambda (ISL+) language used at the end of CS2500 with support for testing using the Quickcheck library. If it’s been a while since you took CS2500, please refamiliarize yourself with ISL+ as we won’t spend a lot of time reviewing basic functional programming in class.
+</p>
+<h5>
+5.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Rosette)"></a>Rosette
+</h5>
+<p>
+The next portion of the course covers SAT/SMT solvers, staying within DrRacket but using the language <a href="https://emina.github.io/rosette/">Rosette</a>, a state-of-the-art solver-aided programming language. We will only cover its use for <span style="font-style: italic">verification</span> of software, but curious students can explore how it can be used to also synthesize programs satisfying specifications.
+</p>
+<h5>
+5.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Lean)"></a>Lean
+</h5>
+<p>
+The bulk of the course will then be spent with the theorem prover <a href="https://leanprover.github.io/">Lean</a>, from Microsoft Research. Lean is an industrial strength tool used to program and prove properties about programs using higher-order logic. We will use Lean 4, the latest version under development, unlike previous iterations of the course, which used Lean 3.
+</p>
+<h4>
+6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Evaluation)"></a>Evaluation
+</h4>
+<p>
+Your final grade will be (TENTATIVELY) calculated as follows:
+</p>
+<p></p>
+<table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+<tbody>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+Homework
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+20%
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+Quizes
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+40%
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+Exam 1
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+20%
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+Exam 2
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+20%
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p>
+We will drop at least the lowest <span style="font-weight: bold">two</span> homework grades, and your lowest <span style="font-weight: bold">~1/3</span> quizes/worksheets (we’re aiming for very small, nearly daily ones, which would amount to at least 30, with at least 10 dropped). Further, if your Exam 2 grade is higher than your Exam 1 grade, we will drop your Exam 1 grade and count your Exam 2 grade for 40%. Since the material is somewhat cumulative, this is intended to reward those that improve over the course of the semester; it is <span style="font-style: italic">not</span> a reason to skip Exam 1!
+</p>
+<p>
+Final grades will be assigned on the following scale:
+</p>
+<p></p>
+<table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+<tbody>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+A
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">93 - </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+A-
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">90 - 92</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+B+
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">87 - 89</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+B
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">83 - 86</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+B-
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">80 - 82</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+C+
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">77 - 79</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+C
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">73 - 76</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+C-
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">70 - 72</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+D+
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">67 - 69</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+D
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">63 - 66</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+D-
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="stt">60 - 62</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 1px solid black;">
+<p>
+F
+</p>
+</td>
+<td style="border-bottom: 1px solid black;">
+<p>
+<span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">- 59</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h5>
+6.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Homework)"></a>Homework
+</h5>
+<p>
+Homework is a way to practice the material that you learn in lecture, and the main way you will learn the material.
+In is <span style="font-style: italic">primarily</span> a learning tool, and
+<span style="font-style: italic">secondarily</span> an assessment (i.e., grading) tool.
+You can work on homework in groups (of any size), or alone, and you can
+get help from anyone else
+in the class (or not in the class). This is a relatively unusual collaboration policy!
+The only <span style="font-weight: bold">requirement</span> is that you <span style="font-weight: bold">write down the names of anyone that you talked with</span>
+about your solution ( doesn’t need to include those in your group, as you’d be submitting one assignment as a group).
+ Generally there will be one homework assignment due each week.
+</p>
+<h5>
+6.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Quizes_.Worksheets)"></a>Quizes/Worksheets
+</h5>
+<p>
+We will have regular, small, in-class quizes or worksheets. These will happen most classes, and are intended to check your understanding and ensure you are keeping up with the material. They will also be used by the instruction team to flag topics that need to be covered in more depth. These will be quick, and should be straightforward if you are doing the homework and following the material for lecture. To allow flexibility, we will drop the lowest ten of them (which will be about 1/3).
+</p>
+<h5>
+6.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Exams)"></a>Exams
+</h5>
+<p>
+There will be two exams. Dates TBD. They will be proctored and in-person, though will be done on individual computers (not on paper).
+</p>
+<h4>
+7
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Policies)"></a>Policies
+</h4>
+<h5>
+7.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Late_.Work)"></a>Late Work
+</h5>
+<p>
+We do not have any default allowance for late work: instead, we build in an allowance for things happening by dropping your two lowest scores, so that if something happens, it won’t adversely affect your grade. However, if an unusual situation happens, please reach out to the instruction team and we may be able to make an exception.
+</p>
+<h5>
+7.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Regrades)"></a>Regrades
+</h5>
+<p>
+Sometimes mistakes can happen and so if you are confused or concerned about feedback, please don’t be afraid to reach out to a member of the instruction team for further explanation. You must submit any requests for regrading at most 7 days after the feedback was released.
+</p>
+<p>
+When you have a regrade request you should first reach out to the individual who graded your work. If the individual is unable to address your concerns you can approach your lecture instructor for further assistance.
+</p>
+<h5>
+7.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Collaboration)"></a>Collaboration
+</h5>
+<p>
+Unlike in many classes, in this class, you are <span style="font-weight: bold">welcome to work on homework with anyone that you would like</span>. If you want to talk to a friend, that is fine. If you want to talk to someone who took the class previously: also fine. As
+described in the section on homework, you are also free to work in groups, or alone, and to change groups from homework
+to homework There is only one thing you <span style="font-weight: bold">must</span> do: include the names / emails of everyone that you work with in the file that you turn in (if you are turning in a group assignment, you don’t need to include the group members, as that’s obvious). Please err on the side of caution: even if you only work on part of the homework with them, or substantially change what you’ve done after, include their name. This collaboration will have no affect on grading; the names are simply a way of responsibly recording where you found help.
+</p>
+<p>
+We do this because working with others can often be one of the best ways to learn, and we’d love if you can benefit from peers as much as you can from the instruction team. Homework is one of the primary tools for learning this material, and we don’t want to take any learning opportunities away from you.
+</p>
+<p>
+That also cuts in a different direction. If you use the collaboration policy to primarily turn in solutions that you do not fully understand yourself, you will likely suffer in the in class quizes/worksheets and on the exams, which together account for 80% of your grade. So throw away the learning opportunity of homework at your own peril, as trying to "game" this collaboration policy is not a good way to be successful in the class.
+</p>
+<h4>
+8
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Classroom_.Environment)"></a>Classroom Environment
+</h4>
+<p>
+To create and preserve a classroom atmosphere that optimizes teaching and learning, all participants share a responsibility in creating a civil and non-disruptive forum for the discussion of ideas. Students are expected to conduct themselves at all times in a manner that does not disrupt teaching or learning. Your comments to others should be constructive and free from harassing statements. You are encouraged to disagree with other students and the instructor, but such disagreements need to respectful and be based upon facts and documentation (rather than prejudices and personalities). The instructor reserves the right to interrupt conversations that deviate from these expectations. Repeated unprofessional or disrespectful conduct may result in a lower grade or more severe consequences. Part of the learning process in this course is respectful engagement of ideas with others.
+</p>
+<h5>
+8.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Title_.I.X)"></a>Title IX
+</h5>
+<p>
+<span style="font-style: italic">Title IX of the Education Amendments of 1972 protects individuals from sex or gender-based discrimination, including discrimination based on gender-identity, in educational programs and activities that receive federal financial assistance.</span>
+</p>
+<p>
+Northeastern’s Title IX Policy prohibits Prohibited Offenses, which are defined as sexual harassment, sexual assault, relationship or domestic violence, and stalking. The Title IX Policy applies to the entire community, including male, female, transgender students, faculty and staff.
+</p>
+<p>
+If you or someone you know has been a survivor of a Prohibited Offense, <span style="font-weight: bold">confidential</span> support and guidance can be found through <span style="font-weight: bold">University Health and Counseling Services</span> staff (<a href="https://www.northeastern.edu/uhcs/"><span class="url">https://www.northeastern.edu/uhcs/</span></a>) and the <span style="font-weight: bold">Center for Spiritual Dialogue and Service</span> clergy members (<a href="https://www.northeastern.edu/spirituallife/"><span class="url">https://www.northeastern.edu/spirituallife/</span></a>). By law, those employees are not required to report allegations of sex or gender-based discrimination to the University.
+</p>
+<p>
+Alleged violations can be reported non-confidentially to the Title IX Coordinator within <span style="font-weight: bold">The Office for Gender Equity and Compliance</span> at: <a href="mailto:titleix@northeastern.edu"><span class="url">mailto:titleix@northeastern.edu</span></a> and/or through <span style="font-weight: bold">NUPD</span> (Emergency 617.373.3333; Non-Emergency 617.373.2121). Reporting Prohibited Offenses to NUPD does <span style="font-weight: bold">NOT</span> commit the victim/affected party to future legal action.
+</p>
+<p>
+<span style="font-weight: bold">Faculty members are considered "responsible employees"</span> at Northeastern University, meaning they are required to report all allegations of sex or gender-based discrimination to the Title IX Coordinator.
+</p>
+<p>
+In case of an emergency, please call 911.
+</p>
+<p>
+<span style="font-weight: bold">Please visit <a href="https://www.northeastern.edu/titleix"><span class="url">https://www.northeastern.edu/titleix</span></a> for a complete list of reporting options and resources both on- and off-campus.</span>
+</p>
+<h5>
+8.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Students_.With_.Disabilities)"></a>Students With Disabilities
+</h5>
+<p>
+Students who have disabilities who wish to receive academic services and/or accommodations should visit the <a href="https://drc.sites.northeastern.edu/">Disability Resource Center</a> at 20 Dodge Hall or call (617) 373-2675. If you have already done so, please provide your letter from the DRC to me early in the semester so that I can arrange those accommodations.
+</p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="index.html" title="backward to &quot;Logic &amp; Computation&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Logic &amp; Computation&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="schedule.html" title="forward to &quot;Schedule&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

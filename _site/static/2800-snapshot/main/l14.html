@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span> Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Minimal_propositional_logic%29" class="tocviewlink" data-pltdoc="x">Minimal propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Truth_and_falsehood%29" class="tocviewlink" data-pltdoc="x">Truth and falsehood</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Propositional_.Logic%29" class="tocviewlink" data-pltdoc="x">Propositional Logic</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Minimal_propositional_logic%29" class="tocsubseclink" data-pltdoc="x">Minimal propositional logic</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Truth_and_falsehood%29" class="tocsubseclink" data-pltdoc="x">Truth and falsehood</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Propositional_.Logic%29" class="tocsubseclink" data-pltdoc="x">Propositional Logic</a>
+  </td>
+ </tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.7</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="l13.html" title="backward to &quot;Lecture 13: Functions&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l15.html" title="forward to &quot;Lecture 15: Propositional logic &amp; programming&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h4>
+<a name="(part._l14)"></a>Lecture 14: Propositional logic
+</h4>
+<h5>
+1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Purpose)"></a>Purpose
+</h5>
+<p>
+Explore minimal &amp; full propositional logic in lean
+</p>
+<h5>
+2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Outline)"></a>Outline
+</h5>
+<p>
+But we aren’t really here to learn about typed functional programming, no matter how rich. Our goal is to prove
+properties of programs. So how do we get from a typed functional programming language to theorem proving?
+</p>
+<h5>
+3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Minimal_propositional_logic)"></a>Minimal propositional logic
+</h5>
+<p>
+We’ll start with a simple problem, perhaps the simplest: how to express, and prove theorems about, minimal propositional
+logic. That is, the language that only has logical variables and implications. This will allow us to become familiar with what
+it means to express theorems and prove them, and understand what that means!
+</p>
+<p>
+In Lean, as we’ve said, everything has a type, including logical statements, or propositions.
+The type of propositions is <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>, and
+we can declare that we have arbitrary ones using <span class="default"><code class="highlight-inline"><span class="kd">variables</span></code></span>:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="n">R</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span>
+</pre>
+</div>
+</div>
+<p>
+Here, we’ve declared three variables that all have type <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>. We can read this as "consider arbitrary propositions P, Q, R".
+</p>
+<p>
+<span class="default"><code class="highlight-inline"><span class="kd">variables</span></code></span> works for any type; we could write "consider arbitrary natural numbers, or arbitrary lists, or arbitrary graphs, etc".
+</p>
+<p>
+Now, Lean is both a programming language and a tool for expressing and proving theorems. It could have added separate rules for
+logic: implication as an arrow <span class="texMathInline">\Rightarrow</span>, and then logical rules for introduction (abstraction) and elimination (modus ponens),
+and many more rules for different logical constructions,
+but it turns out that the <span style="font-style: italic">programming language</span> is rich enough to express the <span style="font-style: italic">logic</span>. In the context of
+minimal propositional logic, rather than having
+a separate implication arrow, we can re-use the same arrow <span class="texMathInline">\rightarrow</span> that we use for functions.
+</p>
+<p>
+Thus Lean makes no distinction
+between a function that takes <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> and produces <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span> and a theorem that, given <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span>, yields <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span>. This is partly made
+possible because function arrows in Lean are <span style="font-style: italic">dependent</span>: the output type can depend on the <span style="font-style: italic">value</span> of the input type. This
+is quite important for theorems, as, e.g., in the example we had above. <span class="default"><code class="highlight-inline"><span class="n">x</span></code></span> is the value of the input, and it is used in the
+output type (a proof about equality). It can also be useful for programming, though we will not explore this much: e.g., you might encode
+invariants of a data structure in the types, and the output could then relate in sophisticated ways to the input.
+</p>
+<p>
+If a function arrow is an implication, then what is a <span style="font-style: italic">proof</span> of such a statement? i.e., we can write down the following
+<span class="default"><code class="highlight-inline"><span class="kd">theorem</span></code></span>:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="n">R</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span>
+
+<span class="kd">theorem</span> <span class="n">T</span> <span class="o">:</span> <span class="o">(</span><span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span><span class="o">)</span> <span class="bp">-&gt;</span> <span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span>
+</pre>
+</div>
+</div>
+<p>
+Which we can read as: given a theorem from <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> to <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span> and a proof of <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span>, we can prove <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span>. The <span style="font-style: italic">proof</span> is a convincing argument that one can
+proceed as described. A particularly convincing argument is a procedure that given the inputs,
+produces the output. What procedure could that
+be?  Again, we can appeal to
+our understanding of this as a <span style="font-style: italic">type</span> in a programming language. The procedure is a program with the given type. We can
+complete the proof as follows:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="n">R</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span>
+
+<span class="kd">theorem</span> <span class="n">T</span> <span class="o">:</span> <span class="o">(</span><span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span><span class="o">)</span> <span class="bp">-&gt;</span> <span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span> <span class="o">:=</span>
+  <span class="k">fun</span> <span class="n">Hpq</span> <span class="n">p</span> <span class="bp">=&gt;</span> <span class="n">Hpq</span> <span class="n">p</span>
+</pre>
+</div>
+</div>
+<p>
+i.e., a proof is a term that <span style="font-style: italic">inhabits</span> the type that is the theorem. Here, it is a function that takes <span class="default"><code class="highlight-inline"><span class="n">Hpq</span></code></span>,
+ <span class="default"><code class="highlight-inline"><span class="n">p</span></code></span>
+and returns <span class="default"><code class="highlight-inline"><span class="n">Hpq</span></code></span> applied to <span class="default"><code class="highlight-inline"><span class="n">p</span></code></span>.
+</p>
+<p>
+We could write exactly the same thing in ISL+:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="n">--</span><span class="w"> </span><span class="c1">; T' : (P Q) [P -&gt; Q] P -&gt; Q</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="o">'</span><span class="w"> </span><span class="ss">Hpq</span><span class="w"> </span><span class="n">Hp</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">Hpq</span><span class="w"> </span><span class="n">Hp</span><span class="p">))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Note that the type
+had <span class="default"><code class="highlight-inline"><span class="o">(</span><span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span><span class="o">)</span></code></span> taken as an argument, returning a function from <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> to <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span>. For compactness, we wrote the term as a function of two arguments,
+rather than a series of functions of one argument, but the latter would be equivalent:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="n">R</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span>
+
+<span class="kd">theorem</span> <span class="n">T</span> <span class="o">:</span> <span class="o">(</span><span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span><span class="o">)</span> <span class="bp">-&gt;</span> <span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span> <span class="o">:=</span>
+  <span class="k">fun</span> <span class="n">Hpq</span> <span class="bp">=&gt;</span> <span class="k">fun</span> <span class="n">p</span> <span class="bp">=&gt;</span> <span class="n">Hpq</span> <span class="n">p</span>
+</pre>
+</div>
+</div>
+<p>
+We could also write this without the anonymous function, as:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="n">R</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span>
+
+<span class="kd">def</span> <span class="n">T</span> <span class="o">(</span><span class="n">Hpq</span> <span class="o">:</span> <span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span><span class="o">)</span> <span class="o">(</span><span class="n">p</span> <span class="o">:</span> <span class="n">P</span><span class="o">)</span> <span class="o">:</span> <span class="n">Q</span> <span class="o">:=</span> <span class="n">Hpq</span> <span class="n">p</span>
+</pre>
+</div>
+</div>
+<p>
+This same dichotomy between functions defined with or without lambda is present in ISL+, where the following two are identical:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">myfun</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">myfun</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+As an exercise, construct a term for the following theorem:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="n">R</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span>
+<span class="kd">theorem</span> <span class="n">T'</span> <span class="o">:</span> <span class="o">(</span><span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">Q</span> <span class="bp">-&gt;</span> <span class="n">R</span><span class="o">)</span> <span class="bp">-&gt;</span> <span class="n">Q</span> <span class="bp">-&gt;</span> <span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">R</span>
+</pre>
+</div>
+</div>
+<p>
+Last time, we introduced Lean, the notion of proof, and how Lean serves as
+both a programming language and a proof assistant at the same time. Today, we’re going to
+go into more detail about what Truth is, how it relates to Proof, and continue on our journey
+exploring what we can express in Lean,
+moving from
+Minimal Propositional Logic to full Propositional Logic.
+</p>
+<h5>
+4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Truth_and_falsehood)"></a>Truth and falsehood
+</h5>
+<p>
+In propositional logic, a formula or statement is valid if for all assignments of variables,
+the statement evaluates to <span class="RktSym">T</span><span class="RktMeta"></span>. In PBT and Rosette, true statements are those for which we
+have not yet found a counter-example (thus, they are only <span style="font-style: italic">possibly</span> true). Sometimes, with Rosette, our inputs are finite and thus we can exhaustively test, but likely, we made a finite approximation of our actual problem, and only exhaustively tested that approximation.
+</p>
+<p>
+We can be a lot more precise in Lean, but we also have to be a lot more careful: precision
+comes with a cost that small mistakes could render a so-called theorem not always true.
+</p>
+<p>
+So let’s talk about how to represent <span style="font-style: italic">truth</span> and <span style="font-style: italic">falsehood</span> in
+Lean. These will be our second encounter with <span style="font-style: italic">data definitions</span> in Lean (after Nat), also called
+<span style="font-style: italic">inductive types</span>. Inductive types are an important enough part of the system that the theory that
+underlies Lean is called the Calculus of Inductive Constructions. We’ll get into them in a lot more detail
+soon, but for now, will focus on a couple important examples. So what are true and false?
+</p>
+<p>
+Well, it turns out there are <span style="font-style: italic">two</span> different versions, and the difference is very important.
+First, we have the ordinary, boolean data definition that should be familiar from any number of
+programming languages, though perhaps written in an unfamiliar notation.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">Bool</span> <span class="o">:</span> <span class="kt">Type</span> <span class="n">where</span>
+  <span class="bp">|</span> <span class="n">false</span>
+  <span class="bp">|</span> <span class="n">true</span>
+</pre>
+</div>
+</div>
+<p>
+Let’s read this, carefully. First, it says we are declaring a new <span class="default"><code class="highlight-inline"><span class="kd">inductive</span></code></span> type
+called <span class="default"><code class="highlight-inline"><span class="n">Bool</span></code></span>. In Lean, everything has a type, including types, which is what the
+<span class="default"><code class="highlight-inline"><span class="o">:</span> <span class="kt">Type</span></code></span> is saying: the type of <span class="default"><code class="highlight-inline"><span class="n">Bool</span></code></span> is <span class="default"><code class="highlight-inline"><span class="kt">Type</span></code></span>. This data definition has
+two cases: <span class="default"><code class="highlight-inline"><span class="n">false</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">true</span></code></span>.
+</p>
+<p>
+Aside from the syntax, this should be very familiar. And indeed, we have familiar operations on
+type <span class="default"><code class="highlight-inline"><span class="n">Bool</span></code></span>: and, or, not, if, etc. However, in Lean, we have a separate, much more important
+definition of truth and falsehood that exists for a very important reason. As we mentioned
+above, in theorem provers that subscribe to the types-as-theorems idea that originated in AUTOMATH,
+we should not be able to prove false! One of the oldest statements from logic is <span style="font-style: italic">ex falso quodlibet</span>.
+Translated as "from falsehood, anything follows", the idea is that if you have a proof of false, you
+can prove any theorem. As a result, any logical system in which you can <span style="font-style: italic">prove</span> false would
+not be very useful. That means if we use our type <span class="default"><code class="highlight-inline"><span class="n">Bool</span></code></span> as our definition of logical truth and
+falsehood, we are in trouble, as we can easily "prove" false: we just use the constructor for <span class="default"><code class="highlight-inline"><span class="n">false</span></code></span>.
+</p>
+<p>
+Why is this not an issue in PBT or with Rosette? Essentially, our only reasoning is based on
+<span style="font-style: italic">evaluation</span> and <span style="font-style: italic">assertions</span> (often, of equalities). Our only theorems are individual test
+cases, and their proofs are based on evaluation, which must terminate. We thus do not have the principle of
+explosion (ex falso quodlibet), along with just about any other logical reasoning! Indeed, we rarely have
+proofs: we simply have searches for counter-examples, though in certain cases it can be exhaustive (and thus
+form a proof).
+</p>
+<p>
+So how should we define logical truth and falsehood? Truth is the following:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">True</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="n">where</span>
+  <span class="bp">|</span> <span class="n">intro</span>
+</pre>
+</div>
+</div>
+<p>
+i.e., <span class="default"><code class="highlight-inline"><span class="n">True</span></code></span> is a inductive type that has type <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span> that has a single constructer, <span class="default"><code class="highlight-inline"><span class="n">intro</span></code></span>.
+Why <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span> and not <span class="default"><code class="highlight-inline"><span class="kt">Type</span></code></span>? Lean distinguishes between types that are used for theorems, which have type
+<span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>, and types that are used for computation, which have type <span class="default"><code class="highlight-inline"><span class="kt">Type</span></code></span>. The actual situation is
+actually a bit more complicated, as there is an entire hierarchy of types, that exist to avoid circularities
+in the logic, but generally we’ll be able to avoid worrying about that.
+</p>
+<p>
+Why is <span class="default"><code class="highlight-inline"><span class="n">True</span></code></span> a type that has a single constructor? Well, logical truth is essentially trivial: it
+tells you nothing, on its own, and thus you can always construct a proof of it (you don’t need to know
+anything).
+</p>
+<p>
+Logical falsehood ends up being a lot more important. How do we define it?
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">False</span> <span class="o">:</span> <span class="kt">Prop</span>
+</pre>
+</div>
+</div>
+<p>
+This type is much more baffling, at first. It is a type, that has type <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>, but it has <span style="font-style: italic">no</span>
+constructors. Why does in have no constructors? Because it is impossible to construct. This is exactly what
+we want out of our logic, which is our programming language! Thus, we can formally write the statement
+"from false follows anything", without worrying, since there should be no way of constructing a value of type
+<span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>. Note the importance of the distinction between the types (the theorem statements) and the terms (the proofs).
+The type <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span> can easily be written down, and indeed, it is a very important type! We will often want to
+express that certain cases are impossible. How will we do that? We will write that if such cases occur,
+<span class="default"><code class="highlight-inline"><span class="n">False</span></code></span> will result, and as a result, we need not do anything more in those cases (as they become trivial).
+</p>
+<p>
+If, in a proof, we end up with a term of type <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>, by inspecting the value, we can determine that we must be in
+an impossible case, because such a value could never have been constructed, and thus no further work is needed.
+</p>
+<h5>
+5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Propositional_.Logic)"></a>Propositional Logic
+</h5>
+<p>
+Now that we have a way to describe truth and falsehood, let’s continue on with operators from propositional logic.
+We already have implication (which exists in minimal propositional logic) how about logical and?
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">structure</span> <span class="n">And</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="n">where</span>
+  <span class="sd">/-- `And.intro : a → b → a ∧ b` is the constructor for the And operation. -/</span>
+  <span class="n">intro</span> <span class="o">::</span>
+  <span class="sd">/-- Extract the left conjunct from a conjunction. `h : a ∧ b` then</span>
+<span class="sd">  `h.left`, also notated as `h.1`, is a proof of `a`. -/</span>
+  <span class="n">left</span> <span class="o">:</span> <span class="n">a</span>
+  <span class="sd">/-- Extract the right conjunct from a conjunction. `h : a ∧ b` then</span>
+<span class="sd">  `h.right`, also notated as `h.2`, is a proof of `b`. -/</span>
+  <span class="n">right</span> <span class="o">:</span> <span class="n">b</span>
+</pre>
+</div>
+</div>
+<p>
+And a separate infix notation definition:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">infixr</span><span class="o">:</span><span class="mi">35</span> <span class="s2">" /</span><span class="se">\\</span><span class="s2"> "</span> <span class="bp">=&gt;</span> <span class="n">And</span>
+</pre>
+</div>
+</div>
+<p>
+<span class="default"><code class="highlight-inline"><span class="n">And</span></code></span> is defined with <span class="default"><code class="highlight-inline"><span class="kd">structure</span></code></span>, which is a wrapper on top of <span class="default"><code class="highlight-inline"><span class="kd">inductive</span></code></span> that allows
+you to give <span style="font-style: italic">names</span> to the fields; in this case, <span class="default"><code class="highlight-inline"><span class="n">left</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">right</span></code></span>. It is <span style="font-style: italic">shorthand</span>
+for defining the inductive and defining the accessor functions.
+</p>
+<p>
+To use it, we could write a statement like <span class="default"><code class="highlight-inline"> <span class="n">P</span> <span class="bp">/\</span> <span class="n">Q</span> <span class="bp">-&gt;</span> <span class="n">P</span></code></span> as:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">and_1</span> <span class="o">(</span><span class="n">p</span> <span class="o">:</span> <span class="n">P</span> <span class="bp">∧</span> <span class="n">Q</span><span class="o">)</span> <span class="o">:=</span> <span class="n">p.left</span>
+</pre>
+</div>
+</div>
+<p>
+Despite the new syntax, this is entirely something you could have written in ISL+!
+</p>
+<p></p>
+<div class="SIntrapara">
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">intro</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">])</span><span class="w"></span>
+<span class="c1">;; An [And X Y] is a (make-intro X Y)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">and_1</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="n">intro-a</span><span class="w"> </span><span class="n">p</span><span class="p">))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+</div>
+<div class="SIntrapara">
+What is that argument <span class="default"><code class="highlight-inline"><span class="n">p</span></code></span>? Well, it has type <span class="default"><code class="highlight-inline"><span class="n">P</span> <span class="bp">/\</span> <span class="n">Q</span></code></span>, i.e., it is a <span style="font-style: italic">conjunction</span> of two
+propositions. That is its <span style="font-style: italic">type</span>: the term is simply a pair, and so we can use projections (<span class="default"><code class="highlight-inline"><span class="bp">.</span><span class="n">left</span></code></span>) and
+<span class="default"><code class="highlight-inline"><span class="bp">.</span><span class="n">right</span></code></span>) to extract out fields from the pair; in this case, the first field is the proposition of type <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span>. We
+could also have used <span class="default"><code class="highlight-inline"><span class="n">p.1</span></code></span>.
+</div>
+<p></p>
+<p>
+So what this <span style="font-style: italic">program</span> does is, given a <span style="font-style: italic">proof</span> of a conjunction (a term of type <span class="default"><code class="highlight-inline"><span class="n">P</span> <span class="bp">/\</span> <span class="n">Q</span></code></span>), returns
+a proof of <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> (a term of that type).
+</p>
+<p>
+Written in this style, both the theorem (the <span style="font-style: italic">type</span>) and the proof (the <span style="font-style: italic">term</span>) are somewhat mixed together.
+</p>
+<p>
+In addition to logical and, we have logical or, defined as another inductive type:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">Or</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="n">where</span>
+  <span class="bp">|</span> <span class="sd">/-- `Or.inl` is "left injection" into an `Or`. If `h : a` then `Or.inl h : a ∨ b`. -/</span>
+    <span class="n">inl</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span><span class="o">)</span> <span class="o">:</span> <span class="n">Or</span> <span class="n">a</span> <span class="n">b</span>
+  <span class="bp">|</span> <span class="sd">/-- `Or.inr` is "right injection" into an `Or`. If `h : b` then `Or.inr h : a ∨ b`. -/</span>
+    <span class="n">inr</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">b</span><span class="o">)</span> <span class="o">:</span> <span class="n">Or</span> <span class="n">a</span> <span class="n">b</span>
+</pre>
+</div>
+</div>
+<p>
+Which similarly has infix syntax:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">infixr</span><span class="o">:</span><span class="mi">30</span> <span class="s2">" </span><span class="se">\\</span><span class="s2">/ "</span> <span class="bp">=&gt;</span> <span class="n">Or</span>
+</pre>
+</div>
+</div>
+<p>
+Again, this could be defined in ISL+:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">inl</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">])</span><span class="w"></span>
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">inr</span><span class="w"> </span><span class="p">[</span><span class="n">b</span><span class="p">])</span><span class="w"></span>
+<span class="c1">;; An [Or X Y] is one of:</span><span class="w"></span>
+<span class="c1">;; - (make-inl X)</span><span class="w"></span>
+<span class="c1">;; - (make-inr Y)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Unlike <span class="default"><code class="highlight-inline"><span class="n">And</span></code></span>, logical or is an inductive type with two cases: <span class="default"><code class="highlight-inline"><span class="n">Or.inl</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">Or.inr</span></code></span>.
+This is a <span style="font-style: italic">constructive</span> view of logical disjunction: that if you have a proof of <span class="texMathInline">A \lor B</span>, that
+should mean that you either have a proof of <span class="texMathInline">A</span> or a proof of <span class="texMathInline">B</span>. Thus, the two ways of constructing
+<span class="default"><code class="highlight-inline"><span class="n">A</span> <span class="bp">\/</span> <span class="n">B</span></code></span> are constructors that take terms of type <span class="default"><code class="highlight-inline"><span class="n">A</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">B</span></code></span>.
+</p>
+<p>
+To use a disjunction, we end up having to consider the two cases: given a term (proof) of type <span class="default"><code class="highlight-inline"><span class="n">A</span> <span class="bp">\/</span> <span class="n">B</span></code></span>,
+we must handle the case that either <span class="default"><code class="highlight-inline"><span class="n">A</span></code></span> was true or <span class="default"><code class="highlight-inline"><span class="n">B</span></code></span> was true. This means that, unlike with <span class="default"><code class="highlight-inline"><span class="n">And</span></code></span>,
+there are no projections. If <span class="default"><code class="highlight-inline"><span class="n">x</span> <span class="o">:</span> <span class="n">A</span> <span class="bp">\/</span> <span class="n">B</span></code></span>, we don’t have <span class="default"><code class="highlight-inline"><span class="n">x.1</span> <span class="o">:</span> <span class="n">A</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">x.2</span> <span class="o">:</span> <span class="n">B</span></code></span>. Rather, we have
+two possibilities for <span class="default"><code class="highlight-inline"><span class="n">x</span></code></span>: it is either <span class="default"><code class="highlight-inline"><span class="n">Or.inl</span> <span class="n">a</span></code></span> or <span class="default"><code class="highlight-inline"><span class="n">Or.inr</span> <span class="n">b</span></code></span>, where <span class="default"><code class="highlight-inline"><span class="n">a</span> <span class="o">:</span> <span class="n">A</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">b</span> <span class="o">:</span> <span class="n">B</span></code></span>.
+</p>
+<p>
+We can deal with that in code using <span style="font-style: italic">pattern matching</span>, as follows:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">or_1</span> <span class="o">(</span><span class="n">pq</span> <span class="o">:</span> <span class="n">P</span> <span class="bp">∨</span> <span class="n">Q</span><span class="o">)</span> <span class="o">(</span><span class="n">hp</span> <span class="o">:</span> <span class="n">P</span> <span class="bp">→</span> <span class="n">R</span><span class="o">)</span> <span class="o">(</span><span class="n">hq</span> <span class="o">:</span> <span class="n">Q</span> <span class="bp">→</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">R</span> <span class="o">:=</span> 
+  <span class="k">match</span> <span class="n">pq</span> <span class="k">with</span> 
+  <span class="bp">|</span> <span class="n">Or.inl</span> <span class="n">p</span> <span class="bp">=&gt;</span> <span class="n">hp</span> <span class="n">p</span>
+  <span class="bp">|</span> <span class="n">Or.inr</span> <span class="n">q</span> <span class="bp">=&gt;</span> <span class="n">hq</span> <span class="n">q</span>
+</pre>
+</div>
+</div>
+<p>
+Here, we handle the two possibilities, and invoke the corresponding function (<span class="default"><code class="highlight-inline"><span class="n">hp</span></code></span> or <span class="default"><code class="highlight-inline"><span class="n">hq</span></code></span>) accordingly.
+</p>
+<p>
+This is exactly analogous to how we program with itemizations in ISL+. The same function could be defined with out data definition for Or above as:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; or_1 : (P Q R) [Or P Q] [P -&gt; R] [Q -&gt; R] -&gt; R</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">or_1</span><span class="w"> </span><span class="n">pq</span><span class="w"> </span><span class="n">hp</span><span class="w"> </span><span class="n">hq</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="n">inl?</span><span class="w"> </span><span class="n">pq</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">hp</span><span class="w"> </span><span class="p">(</span><span class="n">inl-a</span><span class="w"> </span><span class="n">pq</span><span class="p">))]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="n">inr?</span><span class="w"> </span><span class="n">pq</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">hq</span><span class="w"> </span><span class="p">(</span><span class="n">inr-b</span><span class="w"> </span><span class="n">pq</span><span class="p">))]))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Logical not is defined not directly, but by way of logical falsehood:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">Not</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span> <span class="n">a</span> <span class="bp">→</span> <span class="n">False</span>
+</pre>
+</div>
+</div>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="l13.html" title="backward to &quot;Lecture 13: Functions&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l15.html" title="forward to &quot;Lecture 15: Propositional logic &amp; programming&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

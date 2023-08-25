@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span>  Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Generalize</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l24.html" class="tocviewlink" data-pltdoc="x">Lecture 24:<span class="mywbr"> &nbsp;</span> Standard Libraries</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l25.html" class="tocviewlink" data-pltdoc="x">Lecture 25:<span class="mywbr"> &nbsp;</span> Forward Reasoning</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l26.html" class="tocviewlink" data-pltdoc="x">Lecture 26:<span class="mywbr"> &nbsp;</span> Proof Automation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l27.html" class="tocviewlink" data-pltdoc="x">Lecture 27:<span class="mywbr"> &nbsp;</span> Compiler Correctness</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l28.html" class="tocviewlink" data-pltdoc="x">Lecture 28:<span class="mywbr"> &nbsp;</span> Induction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l29.html" class="tocviewlink" data-pltdoc="x">Lecture 29:<span class="mywbr"> &nbsp;</span> Functions vs. Relations</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l30.html" class="tocviewlink" data-pltdoc="x">Lecture 30:<span class="mywbr"> &nbsp;</span> Why logic?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l31.html" class="tocviewlink" data-pltdoc="x">Lecture 31:<span class="mywbr"> &nbsp;</span> Linear Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l32.html" class="tocviewlink" data-pltdoc="x">Lecture 32</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l33.html" class="tocviewlink" data-pltdoc="x">Lecture 33</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l34.html" class="tocviewlink" data-pltdoc="x">Lecture 34</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l37.html" class="tocviewlink" data-pltdoc="x">Lecture 37</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l38.html" class="tocviewlink" data-pltdoc="x">Lecture 38</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+<div class="maincolumn">
+ <div class="main">
+  <div class="versionbox">
+   <span class="version">8.7</span>
+  </div>
+  <div class="navsettop">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="l8.html" title="backward to &quot;Lecture 8: PBT generators&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l10.html" title="forward to &quot;Lecture 10: SMT &amp; Rosette&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+ </div>
+ <h4>
+  <a name="(part._l9)"></a>Lecture 9: SAT
+ </h4>
+ <h5>
+  1
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Purpose)"></a>Purpose
+ </h5>
+ <p>
+  Introduce SAT problem, both in boolean form &amp; show reduction (of something).
+ </p>
+ <h5>
+  2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Outline)"></a>Outline
+ </h5>
+ <p>
+  The boolean satisfiability problem is quite simple to state.
+ </p>
+ <p>
+  Given a formula in propositional logic, that is, built with variables (e.g., <span class="texMathInline">P,Q,R,\ldots</span>),
+operators (usually just <span class="texMathInline">\wedge,\vee,\neg</span>), and parentheses, is there a truth assignment that makes the formula
+true?
+ </p>
+ <p>
+  A naive approach is simple: go through every possible assignment of variables, and see if any satisfy
+the formula. While this is obviously correct, it is also (nearly as obviously), exponential, since
+there are <span class="texMathInline">2^n</span> possible assignments (each variable has two possible assignments, so if there are <span class="texMathInline">n</span> variables, <span class="texMathInline">2 * 2 * \ldots 2 = 2^n</span>).
+ </p>
+ <p>
+  For large formulas with lots of variables, this is clearly a bad idea. So why are we talking about this?
+ </p>
+ <p>
+  Well, two things come together to make SAT probably the most important problem in computer science.
+ </p>
+ <p>
+  First, an old theorem, proved independently in the early 1970s by Stephen Cook and Leonid Levin, showed that any problem in the complexity class NP could be reduced, or translated, to SAT in polynomial time.
+ </p>
+ <p>
+  It is thus the quintessential hard problem, but also, incredibly general, and if you have taken or do take a theory class, probably
+one of the things you will do is reduce some other problem to SAT.
+ </p>
+ <p>
+  <span class="Larger">Example reduction</span>
+ </p>
+ <p>
+  Consider a map coloring. If you want to assign different colors to adjacent squares on a map.
+ </p>
+ <p>
+  <img src="map.png" alt="" width="600" height="242">
+ </p>
+ <p>
+  You could express this problem as a SAT problem by defining variables for whether each labeled square is colored red, blue, or green. Then, you need to not only show that a square can only be one color, but that each pair of adjacent squares, you could add a clause that says that the two squares cannot be the same color.
+ </p>
+ <p>
+  We can express this by the following. First, we show that we assign exactly one color to each square, by showing that one of the three variables (<span class="texMathInline">a_r, a_g, a_b</span>) is true, but not more than one (by ensuring that for every pairing, at least one is false).
+<span class="texMathDisplay">\begin{array}{l}
+(a_r \vee a_g \vee a_b) \wedge (\neg a_r \vee \neg a_g) \wedge (\neg a_r \vee \neg a_b) \wedge (\neg a_g \vee \neg a_b) \\
+\end{array}</span>
+ </p>
+ <p>
+  We have to do this for each of our squares. This amounts to allowing an assignment, but doesn’t yet cover the adjacency requirement.
+ </p>
+ <p>
+  <span class="texMathDisplay">\begin{array}{l}
+(b_r \vee b_g \vee b_b) \wedge (\neg b_r \vee \neg b_g) \wedge (\neg b_r \vee \neg b_b) \wedge (\neg b_g \vee \neg b_b) \wedge \\
+(c_r \vee c_g \vee c_b) \wedge (\neg c_r \vee \neg c_g) \wedge (\neg c_r \vee \neg c_b) \wedge (\neg c_g \vee \neg c_b) \wedge \\
+(d_r \vee d_g \vee d_b) \wedge (\neg d_r \vee \neg d_g) \wedge (\neg d_r \vee \neg d_b) \wedge (\neg d_g \vee \neg d_b) \wedge \\
+(e_r \vee e_g \vee e_b) \wedge (\neg e_r \vee \neg e_g) \wedge (\neg e_r \vee \neg e_b) \wedge (\neg e_g \vee \neg e_b) \wedge \\
+(z_r \vee z_g \vee z_b) \wedge (\neg z_r \vee \neg z_g) \wedge (\neg z_r \vee \neg z_b) \wedge (\neg z_g \vee \neg z_b) \\
+\end{array}</span>
+ </p>
+ <p>
+  How do we handle adjacency? Well, we want to know that if two squares (say, <span class="texMathInline">a</span> and <span class="texMathInline">b</span>) are adjacent, then they cannot be the same color. So, for each color <span class="texMathInline">c</span>, we add a clause <span class="texMathInline">\neg a_c \vee \neg b_c</span>. Why does that work? If <span class="texMathInline">a_c</span> is true, that means <span class="texMathInline">a</span> has been colored with color <span class="texMathInline">c</span>, which means <span class="texMathInline">\neg a_c</span> is false, so for the clause to be satisfied, <span class="texMathInline">\neg b_c</span> has to be true, which means that <span class="texMathInline">b_c</span> must be false, and thus <span class="texMathInline">b</span> cannot be colored with color <span class="texMathInline">c</span>.
+ </p>
+ <p>
+  This means the rest of our complete formula is:
+ </p>
+ <p>
+  <span class="texMathDisplay">\begin{array}{l}
+(\neg a_r \vee \neg b_r) \wedge (\neg a_g \vee \neg b_g) \wedge (\neg a_b \vee \neg b_b) \wedge \\
+(\neg a_r \vee \neg z_r) \wedge (\neg a_g \vee \neg z_g) \wedge (\neg a_b \vee \neg z_b) \wedge \\
+(\neg b_r \vee \neg c_r) \wedge (\neg b_g \vee \neg c_g) \wedge (\neg b_b \vee \neg c_b) \wedge \\
+(\neg c_r \vee \neg d_r) \wedge (\neg c_g \vee \neg d_g) \wedge (\neg c_b \vee \neg d_b) \wedge \\
+(\neg c_r \vee \neg z_r) \wedge (\neg c_g \vee \neg z_g) \wedge (\neg c_b \vee \neg z_b) \wedge \\
+(\neg d_r \vee \neg e_r) \wedge (\neg d_g \vee \neg e_g) \wedge (\neg d_b \vee \neg e_b) \wedge \\
+(\neg d_r \vee \neg z_r) \wedge (\neg d_g \vee \neg z_g) \wedge (\neg d_b \vee \neg z_b) \\
+\end{array}</span>
+ </p>
+ <p>
+  Now, if we can find a satisfying assignment to this formula, we know that we can color the map. And
+in particular, the coloring will be given by the assignment: if <span class="texMathInline">a_r</span> is true, <span class="texMathInline">a</span> is red, if <span class="texMathInline">b_g</span> is true, so <span class="texMathInline">b</span> is green, etc.
+ </p>
+ <p>
+  It’s important to note, of course, that there may be many satisfying assignments, and the solver may
+only find one of them, or report that no such assignment is possible.
+ </p>
+ <p>
+  <span class="Larger">Reduction for properties about programs</span>
+ </p>
+ <p>
+  While in theory SAT can be used to express an incredibly wide variety of properties, one of
+the most important practical uses is to express properties about programs or systems. One
+mechanism, called Bounded Model Checking, involves taking a program, transforming it into a version
+that works for some finite input <span class="texMathInline">k</span>, and then checking some property about that program.
+ </p>
+ <p>
+  That can result in three possibilites: the property may be violated (in which case, a bug has been
+found for small input), the finitization fails (i.e., if a loop was unrolled <span class="texMathInline">n</span> times, but that
+wasn’t sufficient for even the small input), or
+no problem is detected. In the first case, a bug has been found. In the second case, the program errors because of the loop invariant, but not because of buggy behavior. However, since only a finitized version of the program was run, it’s possible that there still exist bugs on larger inputs. In the last case, no bug is detected, and so we know no bugs exist for all small inputs, but
+may still exhibit bugs on larger inputs than we test on. One of the hypotheses of Bounded Model Checking is that
+if the program is correct for small inputs, it will be correct for larger inputs.
+ </p>
+ <p>
+  Let’s see an example of how to do this.
+ </p>
+ <p>
+  Consider the classic algorithm (from Euclid) to calculate the greatest common denominator.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="nb">modulo</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">))]))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd</span><span class="w"> </span><span class="mi">37</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd</span><span class="w"> </span><span class="mi">270</span><span class="w"> </span><span class="mi">192</span><span class="p">)</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Now, assertions of correctness vary, and we will usually give better ones, but for this example,
+let’s just assert that the result is a positive number, no greater than the smaller of the two numbers.
+ </p>
+ <p>
+  i.e., <span class="texMathInline">\forall x, y. 0 &lt; gcd(x, y) \leq \min(x, y)</span>.
+ </p>
+ <p>
+  The bounded model checking approach to this involves translating the program itself into SAT,
+which first involves translating the program itself into a formula. Part of the "bounded" part is
+that we need to have a finite unrolling of any loops (or recursive calls). Here, we’ll just unroll
+twice (in realistic settings, we’d go much further):
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd-unrolled</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">                    </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="nb">modulo</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">))]</span><span class="w"></span>
+<span class="w">                </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"></span>
+<span class="w">                      </span><span class="p">[</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                  </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="nb">modulo</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">))]</span><span class="w"></span>
+<span class="w">                              </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">[</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="s2">"Did not unroll far enough"</span><span class="w"></span>
+<span class="w">                                                 </span><span class="s2">" a = "</span><span class="w"></span>
+<span class="w">                                                 </span><span class="n">a</span><span class="w"></span>
+<span class="w">                                                 </span><span class="s2">" b = "</span><span class="w"></span>
+<span class="w">                                                 </span><span class="n">b</span><span class="p">)]))]))]))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd-unrolled</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd-unrolled</span><span class="w"> </span><span class="mi">37</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-error</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd-unrolled</span><span class="w"> </span><span class="mi">270</span><span class="w"> </span><span class="mi">192</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Notice we now have an error that we’ll hit if for a given input we need to go further than two
+recursive calls.
+ </p>
+ <p>
+  Now, we need to fully translate this into a formula, which involves removing control flow. What
+we are technically doing is translating into what is called Static Single Assignment (SSA), which is
+a pretty common intermediate form for compilers, as it is quite amenable to all sorts of analyses.
+There is a bit more to SSA, but this is a close approximation:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">rem</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">n</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nb">modulo</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">m</span><span class="p">)))</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd-translated</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">letrec</span><span class="w"> </span><span class="p">[(</span><span class="n">g</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="n">a0</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="n">b0</span><span class="w"> </span><span class="p">(</span><span class="n">rem</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="n">g0</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">b0</span><span class="p">))</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="n">a1</span><span class="w"> </span><span class="n">b0</span><span class="p">)</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="n">b1</span><span class="w"> </span><span class="p">(</span><span class="n">rem</span><span class="w"> </span><span class="n">a0</span><span class="w"> </span><span class="n">b0</span><span class="p">))</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="n">g1</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">b1</span><span class="p">))</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="k">_</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"></span>
+<span class="w">                       </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">g0</span><span class="p">)</span><span class="w"></span>
+<span class="w">                       </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">g1</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="s2">"loop unroll"</span><span class="p">)</span><span class="w"> </span><span class="s2">""</span><span class="p">))</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="n">r0</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="n">g0</span><span class="w"> </span><span class="n">a0</span><span class="w"> </span><span class="n">a</span><span class="p">))</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="n">g1</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="n">r0</span><span class="p">))]</span><span class="w"></span>
+<span class="w">    </span><span class="n">r</span><span class="p">))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd-translated</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd-translated</span><span class="w"> </span><span class="mi">37</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-error</span><span class="w"> </span><span class="p">(</span><span class="n">my-gcd-translated</span><span class="w"> </span><span class="mi">270</span><span class="w"> </span><span class="mi">192</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  The key here is that rather than having nested control flow, we now have a formula that computes
+the result. Some of you might find this rather odd: we are potentially doing lots more work than
+we need to, but the point is to translate the computation into a formula, not to construct an
+efficient algorithm! A formula doesn’t have a defined evaluation —<wbr> indeed, it could only evaluate
+the portions that it needed in order to get the result.
+ </p>
+ <p>
+  At this point, we can start to translate to a logical formula:
+ </p>
+ <p>
+  <span class="texMathInline">\begin{array}{l}
+g = b \equiv 0 \wedge \\
+a0 = b \wedge \\
+b0 = \text{rem}~ a~ b \wedge \\
+g0 = b0 \equiv 0 \wedge \\
+a1 = b0 \wedge \\
+b1 = \text{rem}~a0~b0 \wedge \\
+g1 = b1 \equiv 0 \wedge \\
+\neg (\neg g \wedge \neg g0 \wedge \neg g1) \wedge \\
+r0 = \text{ite}~g0~a0~a
+r = \text{ite}~ g1~ a1~ r0 \\
+r &gt;= 0 \wedge r &lt;= a \wedge r &lt;= b \\
+\end{array}</span>
+ </p>
+ <p>
+  Now, the issue that you might have noticed is that our formula involves numbers: not just equalities,
+but remainders and inequalities. The way this is handled in bounded model checking, which we are
+not going to do, is to represent numbers bit by bit (so a single variable a, if it is 8 bits, would
+be represented as <span class="texMathInline">a_0, a_1, \ldots, a_7</span>). Then, we can represent, as formulas, operations for
+inequality, addition, multiplication, etc. The representation are similar to at least idealized versions
+of hardware. You can imagine that the formulas can become quite large, but with the recent success of
+scaling SAT solvers, this is not quite the problem that it used to be. However, being able to avoid
+this is the main motivation for SMT solvers, what we’ll talk about next time, and what we’ll actually
+experiment with using.
+ </p>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="l8.html" title="backward to &quot;Lecture 8: PBT generators&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l10.html" title="forward to &quot;Lecture 10: SMT &amp; Rosette&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

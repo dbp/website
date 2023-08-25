@@ -1,0 +1,1104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="notes.html" class="tocviewselflink" data-pltdoc="x">Notes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td>
+         2&nbsp;
+        </td>
+        <td>
+         <a href="notes.html" class="tocviewlink" data-pltdoc="x">Notes</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          2.1&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Propositional Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.2&nbsp;
+         </td>
+         <td>
+          <a href="recipe.html" class="tocviewlink" data-pltdoc="x">Design/<span class="mywbr"> &nbsp;</span>Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.3&nbsp;
+         </td>
+         <td>
+          <a href="pbt_specification.html" class="tocviewlink" data-pltdoc="x">Property Based Testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.4&nbsp;
+         </td>
+         <td>
+          <a href="sat.html" class="tocviewlink" data-pltdoc="x">Rosette 1:<span class="mywbr"> &nbsp;</span> SAT &amp; SMT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.5&nbsp;
+         </td>
+         <td>
+          <a href="proof.html" class="tocviewlink" data-pltdoc="x">Lean 1:<span class="mywbr"> &nbsp;</span> What is Proof</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.6</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="notes.html" title="backward to &quot;2 Notes&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="notes.html" title="up to &quot;2 Notes&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="recipe.html" title="forward to &quot;2.2 Design/Specification Recipe&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h4>
+    2.1
+    <tt>
+     &nbsp;
+    </tt>
+    <a name="(part._propositional)"></a>Propositional Logic
+   </h4>
+   <p>
+    In Discrete, you learned about Propositional Logic, which included variables (like <span class="texMathInline">P,Q,R</span>) that range over
+true (written <span class="texMathInline">T</span>) and false (written <span class="texMathInline">F</span>). The variables can then be combined with operators
+like AND (written <span class="texMathInline">\land</span>) OR (written <span class="texMathInline">\lor</span>), and NOT (written <span class="texMathInline">\neg</span>).
+   </p>
+   <p>
+    You probably did proofs that certain formulas were satisfiable (there existed <span style="font-style: italic">some</span>
+assignment of variable that made the formula <span class="texMathInline">T</span>), valid (for all assignments of variable,
+the formula was <span class="texMathInline">T</span>), falsifiable (there existed <span style="font-style: italic">some</span> assignment of variables that
+made the formula <span class="texMathInline">F</span>), and invalid (for all assignments, the formula was <span class="texMathInline">F</span>).
+   </p>
+   <p>
+    These proofs were done via <span style="font-style: italic">truth table</span>. For example, you could show that
+<span class="texMathInline">P \lor \neg P</span> is valid via the following truth table:
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P \lor \neg P</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    This is fine, but one goal of formal methods is to move logical reasoning into the computer,
+primarily to increase the reliability of the proofs that we do. For example, if we had written
+the above truth table as:
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P \lor \neg P</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    we might think that the formula was only satisfiable (rather than valid): but this
+is because the second row of the truth table is wrong! <span class="texMathInline">F \lor \neg F</span> is <span class="texMathInline">T</span>,
+since <span class="texMathInline">\neg F</span> is <span class="texMathInline">T</span> and the truth table for <span class="texMathInline">\lor</span> tells us that
+<span class="texMathInline">F \lor T</span> is <span class="texMathInline">T</span>.
+   </p>
+   <p>
+    How do we do better? Well, it turns out we can express propositional logic as computations
+over boolean values in a language like Intermediate Student Language w/ Lambda (henceforth, ISL+) that you are familiar with from
+Fundamentals 1. Let’s see how to do that, by building a table of equivalences between expressions in
+propositional logic and expressions in ISL+. Some of these are built in; others we define using
+<span class="RktSym">lambda</span><span class="RktMeta"></span> and other operators.
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        expression in logic
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        expression in ISL+
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktVal">#t</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktVal">#f</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">\land</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktSym">and</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">\lor</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktSym">or</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">\neg</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktSym">not</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">\Rightarrow</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktPn">(</span><span class="RktSym">lambda</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">P</span><span class="stt"> </span><span class="RktSym">Q</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">and</span><span class="stt"> </span><span class="RktSym">P</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">not</span><span class="stt"> </span><span class="RktSym">Q</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">\equiv</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktSym">boolean=?</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">\otimes</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktPn">(</span><span class="RktSym">lambda</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">P</span><span class="stt"> </span><span class="RktSym">Q</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">or</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">and</span><span class="stt"> </span><span class="RktSym">P</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">not</span><span class="stt"> </span><span class="RktSym">Q</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">and</span><span class="stt"> </span><span class="RktSym">Q</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">not</span><span class="stt"> </span><span class="RktSym">P</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">ite</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="RktSym">if</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    Most of these operators should be familiar, but it’s possible some are not, so let’s review them,
+and in particular, think about why our version in ISL+ expresses the same thing.
+   </p>
+   <p>
+    First, <span class="texMathInline">T</span> and <span class="texMathInline">F</span>: expressing these as <span class="RktVal">#t</span><span class="RktMeta"></span> and <span class="RktVal">#f</span><span class="RktMeta"></span> allow us to re-use <span style="font-style: italic">boolean</span>
+operators to work as <span style="font-style: italic">logical</span> operators, provided that they do the same thing. In some sense, this choice
+was arbitrary, as long as we remember our choice: we could use <span class="RktVal">#f</span><span class="RktMeta"></span> to represent <span class="texMathInline">T</span>, but if we did that we
+would have to be very careful when translating all the rest of the operators, and would be likely to get
+confused! By representing logical <span class="texMathInline">T</span> as the ISL+ value <span class="RktVal">#t</span><span class="RktMeta"></span> and <span class="texMathInline">F</span> as <span class="RktVal">#f</span><span class="RktMeta"></span>, we can easily reuse boolean operators
+from ISL+. For example,
+<span class="texMathInline">\land</span> is defined by the following truth table:
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">Q</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P \land Q</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    To convince ourself that boolean <span class="RktSym">and</span><span class="RktMeta"></span> from ISL+ is equivalent, we need to know that <span class="RktPn">(</span><span class="RktSym">and</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#t</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#t</span><span class="RktPn">)</span><span class="RktMeta"></span>
+evaluates to <span class="RktVal">#t</span><span class="RktMeta"></span>, <span class="RktPn">(</span><span class="RktSym">and</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#t</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktMeta"></span> evaluates to <span class="RktVal">#f</span><span class="RktMeta"></span>, etc. In other words, we need to know
+that <span class="RktSym">and</span><span class="RktMeta"></span>, applied to booleans, behaves the same way as determined by the truth table for logical and.
+   </p>
+   <p>
+    We can do the same thing with <span class="texMathInline">\lor</span> and <span class="texMathInline">\neg</span> to show that <span class="RktSym">or</span><span class="RktMeta"></span> and <span class="RktSym">not</span><span class="RktMeta"></span> are valid <span style="font-style: italic">encodings</span>.
+   </p>
+   <p>
+    You may not remember, or possibly have not learned, the rest of the operators in the table above, so lets look at their truth tables so that
+the ISL+ version makes sense. First, we have logical implication. Unlike natural language implication,
+a logical implication <span class="texMathInline">P \Rightarrow Q</span> is false only if <span class="texMathInline">P</span> is <span class="texMathInline">T</span> and <span class="texMathInline">Q</span> is <span class="texMathInline">F</span>. We can express this
+with the truth table:
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">Q</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P \Rightarrow Q</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    which our expression in code captures. A logical equivalence <span class="texMathInline">P \equiv Q</span> holds when <span class="texMathInline">P</span> and <span class="texMathInline">Q</span> are assigned the same
+truth value, which leads to the following truth table (and the corresponding ISL+ expression):
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">Q</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P \equiv Q</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    Exclusive or <span class="texMathInline">P \otimes Q</span> holds when exactly one of <span class="texMathInline">P</span> and <span class="texMathInline">Q</span> holds, which doesn’t have a built-in definition, but can
+be expressed using <span class="RktSym">and</span><span class="RktMeta"></span>, <span class="RktSym">or</span><span class="RktMeta"></span>, and <span class="RktSym">not</span><span class="RktMeta"></span>.
+   </p>
+   <p>
+    Finally, the "if-then-else" <span style="font-style: italic">ternary</span> (three argument) logical operator <span class="texMathInline">ite~ P~ Q~ R</span> has the following truth table:
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">P</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">Q</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">R</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="texMathInline">ite~ P~ Q~ R</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">T</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="texMathInline">F</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    which you can verify is the same behavior as the expression <span class="RktSym">if</span><span class="RktMeta"></span>.
+   </p>
+   <p>
+    With this table in mind, we can translate a logical formula into an ISL+ definition, where propositional variables
+become parameters to the definition. Here are some examples:
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        formula in logic
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        definition in ISL+
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">P \land (Q \lor \neg R)</span>
+       </p>
+      </td>
+      <td>
+       <blockquote class="SCodeFlow">
+        <table cellspacing="0" cellpadding="0" class="RktBlk">
+         <tbody>
+          <tr>
+           <td>
+            <span class="RktPn">(</span><span class="RktSym">define</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">P</span><span class="hspace">&nbsp;</span><span class="RktSym">Q</span><span class="hspace">&nbsp;</span><span class="RktSym">R</span><span class="RktPn">)</span>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">and</span><span class="hspace">&nbsp;</span><span class="RktSym">P</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">or</span><span class="hspace">&nbsp;</span><span class="RktSym">Q</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">not</span><span class="hspace">&nbsp;</span><span class="RktSym">R</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </blockquote>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="texMathInline">P \equiv (ite~ Q~ (\neg P)~ R)</span>
+       </p>
+      </td>
+      <td>
+       <blockquote class="SCodeFlow">
+        <table cellspacing="0" cellpadding="0" class="RktBlk">
+         <tbody>
+          <tr>
+           <td>
+            <span class="RktPn">(</span><span class="RktSym">define</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">P</span><span class="hspace">&nbsp;</span><span class="RktSym">Q</span><span class="hspace">&nbsp;</span><span class="RktSym">R</span><span class="RktPn">)</span>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">boolean=?</span><span class="hspace">&nbsp;</span><span class="RktSym">P</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">if</span><span class="hspace">&nbsp;</span><span class="RktSym">Q</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">not</span><span class="hspace">&nbsp;</span><span class="RktSym">P</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">R</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </blockquote>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    Now that we have a way of writing down formulas, we want to have a way of writing proofs, and our goal is that
+our proofs are <span style="font-style: italic">checked</span> (else we would not gain anything!). We already have a way of doing that: unit tests. Once we have our
+formula as a definition, we can express our truth table as a set of unit tests—<wbr>one per row.
+   </p>
+   <p>
+    For example, our original example <span class="texMathInline">P \lor \neg P</span> can be expressed as the
+following definition (the name <span class="RktSym">p0</span><span class="RktMeta"></span> is arbitrary:
+we need to give some name if we are to use definitions. If we wanted to avoid that,
+we could define them as <span class="RktSym">lambda</span><span class="RktMeta"></span> expressions, but having
+names to refer to the formulas makes it a lot easier!):
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">p0</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">P</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">or</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">P</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">not</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">P</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    And we can express the truth table as:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">p0</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#t</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#t</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">p0</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#t</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    Note that, critically, if we make a mistake in one of the rows of our truth table, as
+above when we accidentally wrote <span class="texMathInline">F</span> for the second row (i.e., wrote <span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">p0</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktMeta"></span>),
+we will get a test failure, since
+our formula is actually <span style="font-style: italic">run</span> by our proof.
+   </p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="notes.html" title="backward to &quot;2 Notes&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="notes.html" title="up to &quot;2 Notes&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="recipe.html" title="forward to &quot;2.2 Design/Specification Recipe&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewselflink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="hw1.html" class="tocviewlink" data-pltdoc="x">Homework 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Homework 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="hw3.html" class="tocviewlink" data-pltdoc="x">Homework 3</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="hw4.html" class="tocviewlink" data-pltdoc="x">Homework 4</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          5&nbsp;
+         </td>
+         <td>
+          <a href="hw5.html" class="tocviewlink" data-pltdoc="x">Homework 5</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          6&nbsp;
+         </td>
+         <td>
+          <a href="hw7.html" class="tocviewlink" data-pltdoc="x">Homework 7</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7&nbsp;
+         </td>
+         <td>
+          <a href="hw9.html" class="tocviewlink" data-pltdoc="x">Homework 9</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8&nbsp;
+         </td>
+         <td>
+          <a href="hw10.html" class="tocviewlink" data-pltdoc="x">Homework 10</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9&nbsp;
+         </td>
+         <td>
+          <a href="hw11.html" class="tocviewlink" data-pltdoc="x">Homework 11</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          10&nbsp;
+         </td>
+         <td>
+          <a href="hw12.html" class="tocviewlink" data-pltdoc="x">Homework 12</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td>
+         2&nbsp;
+        </td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Homework 2</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          2.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_1%29" class="tocviewlink" data-pltdoc="x">Problem 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_2%29" class="tocviewlink" data-pltdoc="x">Problem 2</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">2.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Problem_1%29" class="tocsubseclink" data-pltdoc="x">Problem 1</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Problem_2%29" class="tocsubseclink" data-pltdoc="x">Problem 2</a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+<div class="maincolumn">
+ <div class="main">
+  <div class="versionbox">
+   <span class="version">8.7</span>
+  </div>
+  <div class="navsettop">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="hw1.html" title="backward to &quot;1 Homework 1&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw3.html" title="forward to &quot;3 Homework 3&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+ </div>
+ <h4>
+  2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._hw2)"></a>Homework 2
+ </h4>
+ <p>
+  <span style="font-weight: bold">Released:</span> <span style="font-style: italic">Wednesday, January 18, 2023 at 6:00pm</span>
+ </p>
+ <p>
+  <span style="font-weight: bold">Due:</span> <span style="font-style: italic">Wednesday, January 25, 2023 at 6:00pm</span>
+ </p>
+ <blockquote class="boxed">
+  <p>
+   What to Download:
+  </p>
+  <p>
+   <a href="https://github.com/logiccomp/s23-hw2/raw/main/hw2.rkt"><span class="url">https://github.com/logiccomp/s23-hw2/raw/main/hw2.rkt</span></a>
+  </p>
+ </blockquote>
+ <p>
+  Please start with this file, filling in where appropriate, and submit your homework to the <span class="stt">HW2</span> assignment on Gradescope. This page has additional information, and allows us to format things nicely.
+ </p>
+ <h5>
+  2.1
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Problem_1)"></a>Problem 1
+ </h5>
+ <p>
+  Consider a binary tree, defined as follows:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="p">[</span><span class="n">value</span><span class="p">])</span><span class="w"></span>
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="p">[</span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="p">])</span><span class="w"></span>
+<span class="c1">; A [Tree-of X] is one of:</span><span class="w"></span>
+<span class="c1">; - (make-leaf X)</span><span class="w"></span>
+<span class="c1">; - (make-node [Tree-of X] [Tree-of X])</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Trees are often used for fast lookup of sorted data, as if it is sorted, at each node we can continue
+searching down only one half of the tree. But in order to be fast, they have to be
+<span style="font-style: italic">balanced</span>; a degenerate tree that only ever branches down one side will perform the same as a list.
+ </p>
+ <p>
+  A (height) balanced binary tree has a difference in height of the
+left and right subtrees of at most 1, where height is the longest path to a leaf. Importantly,
+this property (or <span style="font-style: italic">invariant</span>) must be mantained when inserting and removing elements
+from the tree. This may not be easy: if you have a tree:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">T1</span><span class="w"> </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span>
+<span class="w">                                 </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span>
+<span class="w">                      </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">4</span><span class="p">)))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  And you want to add 1, while mantaining the fact that the tree is sorted (or else, you won’t be able to
+use it to quickly look up data), you would want to insert it <span style="font-style: italic">before</span> 2 in the tree. The easiest
+thing would be to replace the leaf 2 with a node with 1 and 2:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                            </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="w">                                 </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span>
+<span class="w">                      </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">4</span><span class="p">)))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This is still sorted, but it is no longer balanced, as now the left side of the top-level node has height 3,
+but the right side has height 1, which is a difference of 2. Instead, you might have to "rotate" the 3 to the
+other side to rebalance and get the following tree:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">T3</span><span class="w"> </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
+<span class="w">                                 </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span>
+<span class="w">                      </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                 </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="mi">4</span><span class="p">))))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  There are many different ways of doing this, with different names (AVL trees, Red Black trees, etc), and
+our goal is <span style="font-style: italic">not</span> to implement insertion, rebalancing, deletion, etc. What we do want to do is capture
+the <span style="font-style: italic">invariant</span> of being balanced.
+ </p>
+ <p>
+  Your task: define <span class="RktSym">balanced-prop</span><span class="RktMeta"></span> as a predicate. You should test your property on several example
+trees using <span class="RktSym">check-property</span><span class="RktMeta"></span>.
+ </p>
+ <h5>
+  2.2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Problem_2)"></a>Problem 2
+ </h5>
+ <p>
+  A compiler is a program that translates expressions or programs written in one language into those written
+in another. We’ll come back to this idea later in the semester, but for this exercise, we are going to just
+consider simple arithmetic expressions (so simple, in fact, they only have addition!).
+ </p>
+ <p>
+  First, consider the following data definition:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">addexpr</span><span class="w"> </span><span class="p">[</span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="p">])</span><span class="w"></span>
+<span class="c1">; An AddExpression is one of:</span><span class="w"></span>
+<span class="c1">; - Number</span><span class="w"></span>
+<span class="c1">; - (make-addexpr Expression Expression)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">A0</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="p">(</span><span class="n">make-addexpr</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">A2</span><span class="w"> </span><span class="p">(</span><span class="n">make-addexpr</span><span class="w"> </span><span class="p">(</span><span class="n">make-addexpr</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This definition allows us to define arithmetic expressions with numbers and just + (so "Add Expressions").
+ We don’t
+have a direct way of writing "1 + 2 + 3", but we can write the two equivalent expressions "(1 + 2) + 3" and
+"1 + (2 + 3)":
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">A3</span><span class="w"> </span><span class="p">(</span><span class="n">make-addexpr</span><span class="w"> </span><span class="p">(</span><span class="n">make-addexpr</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">A4</span><span class="w"> </span><span class="p">(</span><span class="n">make-addexpr</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="n">make-addexpr</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Now, consider this second data definition:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="p">[</span><span class="n">num</span><span class="p">])</span><span class="w"></span>
+<span class="c1">; An Instr is one of:</span><span class="w"></span>
+<span class="c1">; - 'add</span><span class="w"></span>
+<span class="c1">; - (make-push Number)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">I0</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">I1</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">'</span><span class="ss">add</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">I2</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">'</span><span class="ss">add</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">'</span><span class="ss">add</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This second definition forms instructions for a stack-based calculator: each instruction operates on
+the stack of numbers, either pushing a new number or adding the top two (and pushing the result).
+ </p>
+ <p>
+  We can define an evaluator for a series of stack instructions as:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="c1">; eval : [List-of Number] [List-of Instr] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="c1">; takes an initial stack and list of instructions and runs them, producing a final stack</span><span class="w"></span>
+<span class="c1">; if the instructions are malformed, returns an empty stack; else result will be a stack</span><span class="w"></span>
+<span class="c1">; with a single number</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[</span><span class="c1">; eval-instr : Instr [List-of Number] [List-of Instr] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="c1">; evaluates a single instruction, given a stack and rest of instructions</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">eval-instr</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">symbol?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                      </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">second</span><span class="w"> </span><span class="n">stk</span><span class="p">))</span><span class="w"></span>
+<span class="w">                                  </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">stk</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                            </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">                      </span><span class="p">(</span><span class="nb">list</span><span class="p">))]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="n">push?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="n">push-num</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]))]</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">[(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">eval-instr</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">instrs</span><span class="p">))])))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="w"> </span><span class="n">I0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="w"> </span><span class="n">I1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="w"> </span><span class="n">I2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">'</span><span class="ss">add</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Now, your task is to define a function <span class="RktSym">compile</span><span class="RktMeta"></span> with signature <span class="RktSym">AddExpression</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym"><span class="nobreak">-&gt;</span></span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">List-of</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">Instr</span><span class="RktPn">]</span><span class="RktMeta"></span>,
+and to give it a good specification, <span class="RktSym">compile-prop</span><span class="RktMeta"></span>. Be sure to test your property on several examples using <span class="RktSym">check-property</span><span class="RktMeta"></span>.
+You might want to define a helper function on <span class="RktSym">AddExpressions</span><span class="RktMeta"></span>
+to help you write <span class="RktSym">compile-prop</span><span class="RktMeta"></span>.
+ </p>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="hw1.html" title="backward to &quot;1 Homework 1&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw3.html" title="forward to &quot;3 Homework 3&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span>  Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Generalize</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l24.html" class="tocviewlink" data-pltdoc="x">Lecture 24:<span class="mywbr"> &nbsp;</span> Standard Libraries</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l25.html" class="tocviewlink" data-pltdoc="x">Lecture 25:<span class="mywbr"> &nbsp;</span> Forward Reasoning</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l26.html" class="tocviewlink" data-pltdoc="x">Lecture 26:<span class="mywbr"> &nbsp;</span> Proof Automation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l27.html" class="tocviewlink" data-pltdoc="x">Lecture 27:<span class="mywbr"> &nbsp;</span> Compiler Correctness</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l28.html" class="tocviewlink" data-pltdoc="x">Lecture 28:<span class="mywbr"> &nbsp;</span> Induction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l29.html" class="tocviewlink" data-pltdoc="x">Lecture 29:<span class="mywbr"> &nbsp;</span> Functions vs. Relations</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 30:<span class="mywbr"> &nbsp;</span> Why logic?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l31.html" class="tocviewlink" data-pltdoc="x">Lecture 31:<span class="mywbr"> &nbsp;</span> Linear Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l32.html" class="tocviewlink" data-pltdoc="x">Lecture 32</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l33.html" class="tocviewlink" data-pltdoc="x">Lecture 33</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l34.html" class="tocviewlink" data-pltdoc="x">Lecture 34</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l37.html" class="tocviewlink" data-pltdoc="x">Lecture 37</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l38.html" class="tocviewlink" data-pltdoc="x">Lecture 38</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 30:<span class="mywbr"> &nbsp;</span> Why logic?</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Other_logics%29" class="tocviewlink" data-pltdoc="x">Other logics</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">2.1
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.The_halting_problem%29" class="tocsubseclink" data-pltdoc="x">The halting problem</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">3
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Other_logics%29" class="tocsubseclink" data-pltdoc="x">Other logics</a>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+ <span class="version">8.7</span>
+</div>
+<div class="navsettop">
+ <span class="navleft">
+ <div class="nosearchform"></div>
+ &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="l29.html" title="backward to &quot;Lecture 29: Functions vs. Relations&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l31.html" title="forward to &quot;Lecture 31: Linear Logic&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h4>
+<a name="(part._l30)"></a>Lecture 30: Why logic?
+</h4>
+<h5>
+1
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Purpose)"></a>Purpose
+</h5>
+<p>
+Revisit why logic for computer science.
+</p>
+<h5>
+2
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Outline)"></a>Outline
+</h5>
+<p>
+Some of you are probably wondering, and maybe have been wondering for a while, why are you required to take this course. Some of you are software concentrators, and probably think, I’m going to go get a job at google or amazon or whatever, and I don’t need to know any of this. Some of you are probably hotshot programmers, who think you know how to program better than any of your professors, and don’t get what this is all about.
+</p>
+<p>
+And if all you’re going to do is write programs that look a lot like programs other people have already written, then you’re probably right: none of this may matter for you. But if your goal is to move beyond cookie-cutter programming, then at some point you are going to start bumping into fundamental problems. You may be trying to solve problems noone has solved before. And to do that, it’s worth understanding the foundations of what programming is.
+</p>
+<p>
+Indeed, one question that is pretty important to ask yourself is: are there programs that you cannot write? Not programs you don’t know how to write yet, but programs that you cannot write, no matter how hard you try, how much you learn, how much you practice? Programs that no person can ever write? If you’re going to try to push the field forward, these are the types of things you should wonder about.
+</p>
+<p>
+And it turns out, that logic, and logicians, people who founded this whole field, have been thinking about this for a very long time.
+</p>
+<p>
+While the earliest idea of “thinking machines” dates back to the nineteenth century, with Charles Babbage’s design for an analytical engine (that Ada Lovelace famously wrote programs for) these were never built.
+</p>
+<p>
+The real origins of computer science are old, but a little more recent: in the early 20th century, there were many mathematicians that were trying to figure out if mathematics could be made into a mechanical process:
+ could theorems be solved simply by following a series of steps. Logicians were at the center of this, and one of the most important ones, and one of the important figures still for computer science was Alan Turing: a mathematician, logician, and once the name could be given, a computer scientist. The highest award in computer science is named after him. He did all sorts of things, including thinking a lot about artificial intelligence, but the two contributions he is probably most famous for is first, coming up with the mathematical model of what we call a Turing machine: an abstract machine that carried out certain operations using an infinite tape. This is still the model that is used in theoretical computer science to classify problems. The second thing he is known for is being part of a team that used actual machines in World War II to break Nazi encryption, most famously, the enigma that was used to secure wireless transmissions from Nazi submarines. Those machines, which were general purpose in a way unlike anything previous, are the first machines that could be truly called computers, and so Turing had his hands in both the foundational theoretical and the foundational practical aspects of the field. Unquestionably brilliant, he also died, likely by suicide, only a few years after the war and in his early 40s, after he was forced to undergo chemical sterilization and prevented from further government work, where most active work was happening, because he was gay, and not particularly interested in hiding it.
+</p>
+<p>
+The other foundational connection of logic, and in particular, propositional logic, Boolean logic, to computer science comes from Claude Shannon. Shannon realized, in the later 1930s, that the ideas of Irish mathematician George Boole could be applied to simplifying the at-that-point quite ad-hoc electronics of the early computers. The masters thesis he wrote in 1937 is probably the most influential masters thesis of all time: it was about the circuits that were used for telephone relays, but what he showed is that simple circuits could solve all problems from Boolean algebra, and thus Boolean algebra could be used as a foundation to implement logical operations. That idea is what underlies all digital electronics: Apple’s latest M2 chip has 67 billion transistors: what Shannon showed (and is still used) is how to combine several transistors together to implement logical AND, OR, NOT, etc.
+</p>
+<p>
+But we were talking about impossible programs. Are there any you can’t write?
+</p>
+<p>
+Here’s one, and it’s almost a hundred years old: because it turns out, these logicians thought very hard about computation, and what could and could not be done. These same questions are still relevant, especially as we are trying to build machines to do ever more sophisticated things. There’s a lot of talk about machines thinking, consciousness, etc: understanding the limits of computation could go a long way to making those conversations more rational.
+</p>
+<h5>
+2.1
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.The_halting_problem)"></a>The halting problem
+</h5>
+<p>
+(This presentation due to S. Tripakis, A simple way to explain undecidability. 2019. hal-02068449)
+</p>
+<p>
+Let <span class="stt">TERMINATOR(P,x)</span> be a program that takes as input a program <span class="stt">P</span> and an input
+ <span class="stt">x</span> and returns YES if <span class="stt">P</span> terminates on input <span class="stt">x</span> and NO otherwise.
+</p>
+<p>
+Now consider this program:
+</p>
+<p></p>
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+ <tr>
+  <td>
+   <p>
+    <span class="stt">Q(P) := if (TERMINATOR(P,P) = YES)</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">then loop forever</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">else return YES.</span>
+   </p>
+  </td>
+ </tr>
+</tbody>
+</table>
+<p></p>
+<p>
+Now, does <span class="stt">Q(Q)</span> terminate? Well, either <span class="stt">TERMINATOR(Q,Q)</span> returns <span class="stt">YES</span>,
+which means that <span class="stt">Q(Q)</span> halts, or it returns <span class="stt">NO</span>, which means that <span class="stt">Q(Q)</span>
+ runs forever. But if <span class="stt">TERMINATOR(Q,Q)</span> returns <span class="stt">YES</span>, then we know <span class="stt">Q(Q)</span>
+ runs forever, which means it does not terminate! And if <span class="stt">TERMINATOR(Q,Q)</span> returns <span class="stt">N
+O</span>, which means <span class="stt">Q(Q)</span> does not halt, but then <span class="stt">Q(Q)</span> takes the else branch and terminates. So in both cases, we get a contradiction. The only possibility, in other words, is that our supposed program <span class="stt">TERMINATOR</span> must not be possible to write. Not that it requires techniques that we do not know yet, but that it is literally impossible.
+</p>
+<p>
+This is the most famous one, due to Turing, not there are plent of other impossibility results. One fascinating one, for logic, is due to Kurt Godel, who showed that any formal system would have statements that were true but unprovable. This shocked mathematicians, and is still thought to be one of the most important results of the 20th century. It gets back to something we talked about at the beginning of the semester: the difference between truth and proof.
+</p>
+<h5>
+3
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Other_logics)"></a>Other logics
+</h5>
+<p>
+Logic allows us to ask, and sometimes answer, those kind of fundamental questions that are at the core of computer science.
+</p>
+<p>
+But there is not a <span style="font-style: italic">single</span> logic: we have already talked, in passing, about how Lean is at its core a Constructive logic, whereas typically in Math we deal with Classical logic. What is the difference? Why do we care? It turns out that for computation, proof matters: while in mathematics, it doesn’t matter if a proof would take a millisecond or a million years to run (as proofs are not run!), but in computation, that difference is essential. There are various formulations, but usually, the main difference is that classical logic includes the following statement:
+</p>
+<p>
+<span class="texMathDisplay">\forall P : Prop, P \lor \neg P</span>
+</p>
+<p>
+Known as the law of the excluded middle, this is not <span style="font-style: italic">provable</span> in Lean (or any constructive logic), because it is not <span style="font-style: italic">constructive</span>: in constructive logic, <span class="texMathInline">A \or B</span> means we have either a proof of A or a proof of B. What the law of the excluded middle says is that for any statement, it can either be proved or disproved. But there may be statements for which we may not know how to prove _or_ disprove them!
+</p>
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+ <blockquote class="refcontent">
+  <p>
+   This is only sort of true: it is actually possible to give a constructive interpretation for the law of the excluded middle, as shown first in a PhD thesis by Murthy, 1990: you just need to use control operators. With <span class="stt">call/cc</span>, you can construct <span class="stt">p \/ not p</span> as follows: capture the current continuation, and then return the <span class="stt">not p</span> case: since <span class="stt">not p</span> is a function from <span class="stt">p</span> to false (i.e., a function that produces an impossible value), if your function is ever called (with a value of <span class="stt">p</span>), then you can use the captured continuation to jump back and instead use the other case by using that  <span class="stt">p</span>. Control operators are bizarre things!
+  </p>
+ </blockquote>
+</blockquote>
+</blockquote>
+<p>
+In lean, we can _include_ the law of the excluded middle, indeed Lean has a module called “Classical” with various axioms / theorems, including exactly that statement: Classical.em.
+</p>
+<p>
+Let’s try to prove some theorems that require classical
+reasoning:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">theorem</span> <span class="n">notp_impp_p</span><span class="o">:</span> <span class="bp">∀</span> <span class="n">P</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">,</span> <span class="o">(</span><span class="bp">¬</span> <span class="n">P</span> <span class="bp">→</span> <span class="n">P</span><span class="o">)</span> <span class="bp">↔</span> <span class="n">P</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="n">intros</span> <span class="n">P</span>
+    <span class="n">constructor</span>
+    <span class="n">case</span> <span class="n">mp</span> <span class="bp">=&gt;</span>
+      <span class="n">intros</span> <span class="n">H</span>
+      <span class="n">cases</span> <span class="o">(</span><span class="n">Classical.em</span> <span class="n">P</span><span class="o">)</span>
+      <span class="n">assumption</span>
+      <span class="n">apply</span> <span class="n">H</span>
+      <span class="n">assumption</span>
+    <span class="n">case</span> <span class="n">mpr</span> <span class="bp">=&gt;</span>
+      <span class="n">intros</span> <span class="n">p</span> <span class="n">np</span>
+      <span class="n">assumption</span>
+</pre>
+</div>
+</div>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">theorem</span> <span class="n">orpq_notp_impq</span><span class="o">:</span> <span class="bp">∀</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">),</span> <span class="n">P</span> <span class="bp">∨</span> <span class="n">Q</span> <span class="bp">↔</span> <span class="o">(</span><span class="bp">¬</span> <span class="n">P</span> <span class="bp">→</span> <span class="n">Q</span><span class="o">)</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="n">intros</span> <span class="n">P</span> <span class="n">Q</span>
+    <span class="n">constructor</span>
+    <span class="n">case</span> <span class="n">mp</span> <span class="bp">=&gt;</span>
+      <span class="n">intros</span> <span class="n">H</span>
+      <span class="n">cases</span> <span class="n">H</span>
+      <span class="n">intros</span>
+      <span class="n">contradiction</span>
+      <span class="n">intros</span>
+      <span class="n">assumption</span>
+    <span class="n">case</span> <span class="n">mpr</span> <span class="bp">=&gt;</span>
+      <span class="n">intros</span> <span class="n">H</span>
+      <span class="n">cases</span> <span class="o">(</span><span class="n">Classical.em</span> <span class="n">P</span><span class="o">)</span>
+      <span class="n">apply</span> <span class="n">Or.inl</span>
+      <span class="n">assumption</span>
+      <span class="n">apply</span> <span class="n">Or.inr</span>
+      <span class="n">apply</span> <span class="n">H</span>
+      <span class="n">assumption</span>
+</pre>
+</div>
+</div>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="l29.html" title="backward to &quot;Lecture 29: Functions vs. Relations&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l31.html" title="forward to &quot;Lecture 31: Linear Logic&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span> Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+<div class="maincolumn">
+ <div class="main">
+  <div class="versionbox">
+   <span class="version">8.7</span>
+  </div>
+  <div class="navsettop">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="l12.html" title="backward to &quot;Lecture 12: Higher order logic&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l14.html" title="forward to &quot;Lecture 14: Propositional logic&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+ </div>
+ <h4>
+  <a name="(part._l13)"></a>Lecture 13: Functions
+ </h4>
+ <h5>
+  1
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Purpose)"></a>Purpose
+ </h5>
+ <p>
+  Explore termination of functions in Lean.
+ </p>
+ <h5>
+  2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Outline)"></a>Outline
+ </h5>
+ <p>
+  And as we have seen, there are often many different ways of implementing the same function, some of which Lean cannot figure out how terminate.
+When we get to <span style="font-style: italic">proving</span>, this will be very important, but if
+you just wanted to use Lean as a programming language, you could
+either declare the function as <span style="font-style: italic">partial</span> (which means that it may not terminate), or you could leave an unproved <span style="font-style: italic">decreasing_by</span>
+argument.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="kd">def</span> <span class="n">even</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:=</span> <span class="n">n</span> <span class="bp">%</span> <span class="mi">2</span> <span class="bp">=</span> <span class="mi">0</span>
+
+<span class="kd">def</span> <span class="n">even'</span> <span class="o">:</span> <span class="n">Nat</span> <span class="bp">-&gt;</span> <span class="n">Bool</span>
+  <span class="bp">|</span> <span class="mi">0</span> <span class="bp">=&gt;</span> <span class="n">true</span>
+  <span class="bp">|</span> <span class="mi">1</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+  <span class="bp">|</span> <span class="n">n</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">=&gt;</span> <span class="n">even'</span> <span class="n">n</span>
+
+<span class="kd">def</span> <span class="n">even''</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:=</span> <span class="k">match</span> <span class="n">n</span> <span class="k">with</span>
+  <span class="bp">|</span> <span class="mi">0</span> <span class="bp">=&gt;</span> <span class="n">true</span>
+  <span class="bp">|</span> <span class="mi">1</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+  <span class="bp">|</span> <span class="n">n</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">=&gt;</span> <span class="n">even''</span> <span class="n">n</span>
+
+<span class="n">partial</span> <span class="kd">def</span> <span class="n">even'''</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:=</span> 
+  <span class="k">if</span> <span class="n">n</span> <span class="bp">=</span> <span class="mi">0</span> <span class="k">then</span> <span class="n">true</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="n">n</span> <span class="bp">=</span> <span class="mi">1</span> <span class="k">then</span> <span class="n">false</span>
+  <span class="k">else</span> <span class="n">even'''</span> <span class="o">(</span><span class="n">n</span> <span class="bp">-</span> <span class="mi">2</span><span class="o">)</span>
+
+<span class="kd">def</span> <span class="n">even''''</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:=</span> 
+  <span class="k">if</span> <span class="n">n</span> <span class="bp">=</span> <span class="mi">0</span> <span class="k">then</span> <span class="n">true</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="n">n</span> <span class="bp">=</span> <span class="mi">1</span> <span class="k">then</span> <span class="n">false</span>
+  <span class="k">else</span> <span class="n">even''''</span> <span class="o">(</span><span class="n">n</span> <span class="bp">-</span> <span class="mi">2</span><span class="o">)</span>
+<span class="n">decreasing_by</span> <span class="gr">sorry</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  <span class="Larger">Termination</span>
+If you recall from last time, typechecking the term, to confirm that it has the type, is all that we need to do
+to confirm that the theorem has been proved. The typechecker is what protects our notion of provability. If we were able to typecheck terms that have false types, this woul be very bad. For the theorem to be valid, it is sufficient
+that there is some way of getting from the arguments to the conclusion, which the typechecker will confirm: any details that are
+finer than captured by the type (i.e., the theorem) are not what we were proving, and thus aren’t relevant for the perspective of
+proving the theorem. This is a very different situation from most type systems, where there are many important details that are
+not able to be captured by the type, and thus the idea that merely having <span style="font-style: italic">an</span> implementation would be sufficient would
+seem ludicrous.
+ </p>
+ <p>
+  This has an important consequence: all functions must terminate. This is because if you
+could write a function
+that did not terminate, you could quite easily write a nonsense proof. For example:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="kd">def</span> <span class="n">T_helper</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">Bool</span><span class="o">)</span> <span class="o">:</span> <span class="n">true</span> <span class="bp">=</span> <span class="n">false</span> <span class="o">:=</span> <span class="n">T_helper</span> <span class="n">true</span>
+<span class="n">decreasing_by</span> <span class="gr">sorry</span>
+
+<span class="kd">theorem</span> <span class="n">T</span> <span class="o">:</span> <span class="n">true</span> <span class="bp">=</span> <span class="n">false</span> <span class="o">:=</span> <span class="n">T_helper</span> <span class="n">true</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This seems absurd, but you can do it in, e.g., Haskell, and it’s why Haskell’s type system isn’t suitable for <span style="font-style: italic">logical</span>
+reasoning, since any type is inhabitable (so if types are theorems, any are provable, even false ones!).
+ </p>
+ <p>
+  Technically, this means that <span class="default"><code class="highlight-inline"><span class="kd">def</span></code></span>initions (and <span class="default"><code class="highlight-inline"><span class="n">theorems</span></code></span>) in Lean need to be <span style="font-style: italic">total</span>. Now, Lean does allow
+you to write partial functions if you need them, by writing <span class="default"><code class="highlight-inline"><span class="n">partial</span> <span class="kd">def</span></code></span>. We won’t use this in this class, but if you
+are thinking of using Lean more generally, it is a general purpose programming language that also has a first class theorem prover
+built-in. Partial definitions cannot be proofs, but they can be useful for programs!
+ </p>
+ <p>
+  How does Lean check that a function is total? As you might know, there is no way of taking a general program and determining
+if it is going to
+terminate: this is one of the most famous results in all of computer science. What you can do, on the other hand, is construct
+proofs that a particular program is going to terminate. Lean can do this automatically if you write programs in a certain form, and
+also allows you to provide proofs in the case that it can’t do it automatically. We’ll spend most of our time constructing
+our functions in such a way as to allow Lean to do this for us automatically, though we will cover how to handle the more
+tricky cases.
+ </p>
+ <p>
+  At this point, everything, aside from termination, is typical for a typed functional language (and indeed, we haven’t
+covered how to define new types, among other important features). How else does Lean differ? Well, we said that
+everything has a type, and that includes types:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="k">#check</span> <span class="n">Nat</span>               <span class="c1">-- Type</span>
+<span class="k">#check</span> <span class="n">Bool</span>              <span class="c1">-- Type</span>
+<span class="k">#check</span> <span class="n">Nat</span> <span class="bp">→</span> <span class="n">Bool</span>        <span class="c1">-- Type</span>
+<span class="k">#check</span> <span class="n">Nat</span> <span class="bp">→</span> <span class="n">Nat</span>         <span class="c1">-- ...</span>
+<span class="k">#check</span> <span class="n">Nat</span> <span class="bp">→</span> <span class="n">Nat</span> <span class="bp">→</span> <span class="n">Nat</span>
+<span class="k">#check</span> <span class="n">Nat</span> <span class="bp">→</span> <span class="o">(</span><span class="n">Nat</span> <span class="bp">→</span> <span class="n">Nat</span><span class="o">)</span>
+<span class="k">#check</span> <span class="n">Nat</span> <span class="bp">→</span> <span class="n">Nat</span> <span class="bp">→</span> <span class="n">Bool</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">Nat</span> <span class="bp">→</span> <span class="n">Nat</span><span class="o">)</span> <span class="bp">→</span> <span class="n">Nat</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  These are all <span class="default"><code class="highlight-inline"><span class="kt">Type</span></code></span>, which is the type of "ordinary" types. Types are themselves first-class. We can define
+constants for them:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="kd">def</span> <span class="n">α</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span> <span class="n">Nat</span>
+<span class="kd">def</span> <span class="n">β</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span> <span class="n">Bool</span>
+<span class="kd">def</span> <span class="n">F</span> <span class="o">:</span> <span class="kt">Type</span> <span class="bp">→</span> <span class="kt">Type</span> <span class="o">:=</span> <span class="n">List</span>
+
+<span class="k">#check</span> <span class="n">α</span>        <span class="c1">-- Type</span>
+<span class="k">#check</span> <span class="n">F</span> <span class="n">α</span>      <span class="c1">-- Type</span>
+<span class="k">#check</span> <span class="n">F</span> <span class="n">Nat</span>    <span class="c1">-- Type</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  We said that everything has a type. So what is the type of <span class="default"><code class="highlight-inline"><span class="kt">Type</span></code></span>?
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="k">#check</span> <span class="kt">Type</span>     <span class="c1">-- Type 1</span>
+<span class="k">#check</span> <span class="kt">Type</span> <span class="mi">1</span>   <span class="c1">-- Type 2</span>
+<span class="k">#check</span> <span class="kt">Type</span> <span class="mi">2</span>   <span class="c1">-- Type 3</span>
+<span class="k">#check</span> <span class="kt">Type</span> <span class="mi">3</span>   <span class="c1">-- Type 4</span>
+<span class="k">#check</span> <span class="kt">Type</span> <span class="mi">4</span>   <span class="c1">-- Type 5</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This is a subtle part of Lean, and mostly something we can ignore: there is an infinite hierarchy of types; <span class="default"><code class="highlight-inline"><span class="kt">Type</span></code></span> is
+a synonym for <span class="default"><code class="highlight-inline"><span class="kt">Type</span> <span class="mi">0</span></code></span>, and is the type of "ordinary" (or "small") types. There is one other member of this hierarchy
+that we need to consider: <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>, which is the type of logical statements, and is actually the lowest on the
+hierarchy: <span class="default"><code class="highlight-inline"><span class="kt">Prop</span> <span class="o">:</span> <span class="kt">Type</span></code></span>. It also has special rules, which are important for expressing theorems, but this too is
+something we can usually ignore.
+ </p>
+ <p>
+  The point of mentioning this at all is to emphasize how important it is that Lean is typed, and that
+the types allow us to express much richer programs than in typical languages: we can easily write functions that take types
+as inputs, for example, as types are themselves data (that have types one higher level on the hierarchy).
+ </p>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="l12.html" title="backward to &quot;Lecture 12: Higher order logic&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l14.html" title="forward to &quot;Lecture 14: Propositional logic&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

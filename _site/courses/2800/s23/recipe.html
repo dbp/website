@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="notes.html" class="tocviewselflink" data-pltdoc="x">Notes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td>
+         2&nbsp;
+        </td>
+        <td>
+         <a href="notes.html" class="tocviewlink" data-pltdoc="x">Notes</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          2.1&nbsp;
+         </td>
+         <td>
+          <a href="propositional.html" class="tocviewlink" data-pltdoc="x">Propositional Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.2&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Design/<span class="mywbr"> &nbsp;</span>Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.3&nbsp;
+         </td>
+         <td>
+          <a href="pbt_specification.html" class="tocviewlink" data-pltdoc="x">Property Based Testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.4&nbsp;
+         </td>
+         <td>
+          <a href="sat.html" class="tocviewlink" data-pltdoc="x">Rosette 1:<span class="mywbr"> &nbsp;</span> SAT &amp; SMT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.5&nbsp;
+         </td>
+         <td>
+          <a href="proof.html" class="tocviewlink" data-pltdoc="x">Lean 1:<span class="mywbr"> &nbsp;</span> What is Proof</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.6</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="propositional.html" title="backward to &quot;2.1 Propositional Logic&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="notes.html" title="up to &quot;2 Notes&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="pbt_specification.html" title="forward to &quot;2.3 Property Based Testing&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h4>
+    2.2
+    <tt>
+     &nbsp;
+    </tt>
+    <a name="(part._recipe)"></a>Design/Specification Recipe
+   </h4>
+   <p>
+    From Fundamentals 1, you learned the Design Recipe, which for functions, was four steps:
+   </p>
+   <ol>
+    <li>
+     <p>
+      Signature
+     </p>
+    </li>
+    <li>
+     <p>
+      Purpose
+     </p>
+    </li>
+    <li>
+     <p>
+      Tests
+     </p>
+    </li>
+    <li>
+     <p>
+      Definition
+     </p>
+    </li>
+   </ol>
+   <p>
+    And for data, was the following four steps:
+   </p>
+   <ol>
+    <li>
+     <p>
+      Definition
+     </p>
+    </li>
+    <li>
+     <p>
+      Interpretation
+     </p>
+    </li>
+    <li>
+     <p>
+      Examples
+     </p>
+    </li>
+    <li>
+     <p>
+      Template
+     </p>
+    </li>
+   </ol>
+   <p>
+    For example, if your task was to design a function <span class="RktSym">shape-area</span><span class="RktMeta"></span> that took a data
+representation of a shape (say, a square or a triangle) and returned its area, you might
+do the following.
+   </p>
+   <p>
+    First, you’d start working on a signature:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">shape-area</span><span class="hspace">&nbsp;</span><span class="RktCmt">:</span><span class="hspace">&nbsp;</span><span class="RktCmt">Shape</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    But doing that makes you realize you need to design the data definition <span class="RktSym">Shape</span><span class="RktMeta"></span>, so you start your file with:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">square</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">side-length</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">triangle</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">base</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">height</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Shape</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">one</span><span class="hspace">&nbsp;</span><span class="RktCmt">of:</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">-</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-square</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">-</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-triangle</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-S1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-square</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-S2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-square</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-T1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-triangle</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">4</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-T2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-triangle</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktMeta">#;</span><span class="RktPn">(</span><span class="RktMeta">define</span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktMeta">shape-temp</span><span class="hspace">&nbsp;</span><span class="RktMeta">sh</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktMeta">...</span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktMeta">cond</span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktMeta">square?</span><span class="hspace">&nbsp;</span><span class="RktMeta">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta">...</span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktMeta">square-side-length</span><span class="hspace">&nbsp;</span><span class="RktMeta">sh</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktMeta">triangle?</span><span class="hspace">&nbsp;</span><span class="RktMeta">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta">...</span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktMeta">triangle-base</span><span class="hspace">&nbsp;</span><span class="RktMeta">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta">...</span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktMeta">triangle-height</span><span class="hspace">&nbsp;</span><span class="RktMeta">sh</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    And then continue with the signature for <span class="RktSym">shape-area</span><span class="RktMeta"></span>:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">shape-area</span><span class="hspace">&nbsp;</span><span class="RktCmt">:</span><span class="hspace">&nbsp;</span><span class="RktCmt">Shape</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    Next, you’d give a purpose and tests for <span class="RktSym">shape-area</span><span class="RktMeta"></span>:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">shape-area</span><span class="hspace">&nbsp;</span><span class="RktCmt">:</span><span class="hspace">&nbsp;</span><span class="RktCmt">Shape</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">calculates</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">area</span><span class="hspace">&nbsp;</span><span class="RktCmt">of</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">given</span><span class="hspace">&nbsp;</span><span class="RktCmt">shape</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-S1</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">25</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-S2</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-T1</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">6</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-T2</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1/2</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    And finally, the implementation, which uses the template to start:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">square?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">square-side-length</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">triangle?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">/</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">*</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">triangle-base</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">triangle-height</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">2</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    This is all, clearly, review. What does it have to do with specification, formal methods,
+and this class? Well, you may not have realized it, but you have already spent a lot of
+time writing specifications, though what you’ve written have been either <span style="font-style: italic">informal</span>
+(in the form of <span style="font-style: italic">purpose statements</span>) or partial (in the form of <span style="font-style: italic">tests</span>).
+So how do we make this formal? We replace the <span style="font-style: italic">purpose statement</span> step with a
+<span style="font-style: italic">formal specification</span>. We will also make our testing section a bit broader, as now not
+only will we be writing unit tests, but we will also be using our specification to verify our
+implementation. Thus, our <span style="font-weight: bold">Design/Specification Recipe</span> for functions is:
+   </p>
+   <ol>
+    <li>
+     <p>
+      Signature
+     </p>
+    </li>
+    <li>
+     <p>
+      Specification
+     </p>
+    </li>
+    <li>
+     <p>
+      Tests/Verification
+     </p>
+    </li>
+    <li>
+     <p>
+      Definition
+     </p>
+    </li>
+   </ol>
+   <p>
+    Let’s see how this plays out with our <span class="RktSym">shape-area</span><span class="RktMeta"></span> function.
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">shape-area</span><span class="hspace">&nbsp;</span><span class="RktCmt">:</span><span class="hspace">&nbsp;</span><span class="RktCmt">Shape</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area-square-prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz1</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">=</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-square</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">*</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area-triangle-prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz2</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">=</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-triangle</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">/</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">*</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sz2</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-S1</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">25</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-S2</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-T1</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">6</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">SH-T2</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1/2</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-satisfies</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area-square-prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-satisfies</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area-square-prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">20</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-satisfies</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area-triangle-prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">6</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">7</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-satisfies</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area-triangle-prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">10</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">shape-area</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">square?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">square-side-length</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">triangle?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">/</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">*</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">triangle-base</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">triangle-height</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">sh</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">2</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="propositional.html" title="backward to &quot;2.1 Propositional Logic&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="notes.html" title="up to &quot;2 Notes&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="pbt_specification.html" title="forward to &quot;2.3 Property Based Testing&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

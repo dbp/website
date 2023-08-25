@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewselflink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="hw1.html" class="tocviewlink" data-pltdoc="x">Homework 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="hw2.html" class="tocviewlink" data-pltdoc="x">Homework 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Homework 3</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="hw4.html" class="tocviewlink" data-pltdoc="x">Homework 4</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          5&nbsp;
+         </td>
+         <td>
+          <a href="hw5.html" class="tocviewlink" data-pltdoc="x">Homework 5</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          6&nbsp;
+         </td>
+         <td>
+          <a href="hw7.html" class="tocviewlink" data-pltdoc="x">Homework 7</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7&nbsp;
+         </td>
+         <td>
+          <a href="hw9.html" class="tocviewlink" data-pltdoc="x">Homework 9</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8&nbsp;
+         </td>
+         <td>
+          <a href="hw10.html" class="tocviewlink" data-pltdoc="x">Homework 10</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9&nbsp;
+         </td>
+         <td>
+          <a href="hw11.html" class="tocviewlink" data-pltdoc="x">Homework 11</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          10&nbsp;
+         </td>
+         <td>
+          <a href="hw12.html" class="tocviewlink" data-pltdoc="x">Homework 12</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td>
+         3&nbsp;
+        </td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Homework 3</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          3.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_1%29" class="tocviewlink" data-pltdoc="x">Problem 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_2%29" class="tocviewlink" data-pltdoc="x">Problem 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_3%29" class="tocviewlink" data-pltdoc="x">Problem 3</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">3.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Problem_1%29" class="tocsubseclink" data-pltdoc="x">Problem 1</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">3.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Problem_2%29" class="tocsubseclink" data-pltdoc="x">Problem 2</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">3.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Problem_3%29" class="tocsubseclink" data-pltdoc="x">Problem 3</a>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+ <div class="versionbox">
+  <span class="version">8.7</span>
+ </div>
+ <div class="navsettop">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="hw2.html" title="backward to &quot;2 Homework 2&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw4.html" title="forward to &quot;4 Homework 4&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h4>
+ 3
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._hw3)"></a>Homework 3
+</h4>
+<p>
+ <span style="font-weight: bold">Released:</span> <span style="font-style: italic">Wednesday, January 25, 2023 at 6:00pm</span>
+</p>
+<p>
+ <span style="font-weight: bold">Due:</span> <span style="font-style: italic">Wednesday, February 1, 2023 at 6:00pm</span>
+</p>
+<blockquote class="boxed">
+ <p>
+  What to Download:
+ </p>
+ <p>
+  <a href="https://github.com/logiccomp/s23-hw3/raw/main/hw3.rkt"><span class="url">https://github.com/logiccomp/s23-hw3/raw/main/hw3.rkt</span></a>
+ </p>
+</blockquote>
+<p>
+ Please start with this file, filling in where appropriate, and submit your homework to the <span class="stt">HW3</span> assignment on Gradescope. This page has additional information, and allows us to format things nicely.
+</p>
+<p>
+ <span style="font-weight: bold">NOTE: You need to update ISL-Spec to complete this assignment. You will get errors related to the third problem if you do not.</span> Go to File-&gt;Install Package, type in "isl-spec" and click "Update".
+</p>
+<h5>
+ 3.1
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Problem_1)"></a>Problem 1
+</h5>
+<p>
+ Cryptography, or the science of secret communication, is about as old as math itself. Modern cryptography
+was born alongside with computers, as during WWII, information was sent over radio and secure communication
+was critical. Machines were used in what became an arms race, where  more sophisticated codes were
+developed using complex machinery, and at the same time, some of the earliest "computers" were
+created in order to break them.
+</p>
+<p>
+ One of the first, and most important, cryptanalysis (code breaking) results was done by teams at Bletchley Park, a British estate that housed one of the first machines that could conceivably be called the computer. While many were involved in the effort, including a team of Polish mathematicians, a key figure in the effort was a British mathematician and one of the pioneers of the entire field of computer science named Alan Turing. For his contributions to this early work on computation, and many other things, the highest award in computer science (our "Nobel Prize") is named the Turing award.
+</p>
+<p>
+ Despite his critical role in the effort, and ground breaking work for the field
+as a whole, Turing was prosecuted for homosexuality after the war, and died by apparent suicide a few years later at the age of only 41. More than a half century later, the British Government appologized for
+his treatment and officially pardoned him.
+</p>
+<p>
+ Much of cryptanalysis relies upon detecting patterns, and indeed, the ability to do that at scale was
+exactly how the Bletchley Park team was able to use machines to break the German Enigma.
+</p>
+<p>
+ "Perfect encryption" via so-called one-time pads, or the other hand, has no patterns, and thus is not vulnerable to that type of analysis, even in theory. It is, in effect, unbreakable. It relies,
+on the other hand, on a secret key, shared beforehand, that is as long as the message itself, which aside from limited
+cases, is difficult to imagine (the "Red Telephone" in movies between the US and USSR is fiction, but keys to enable this form
+of encryption were exchanged via embassies). Most modern cryptography, on the other hand, relies upon being able to negotiate
+secure communication between parties that have never interacted before (you and an online shopping website, for example).
+</p>
+<p>
+ One-time pads, however, still do have value, in that they are
+provably impossible to break, and we will show why that is in this problem. Further, most realistic
+cryptosystems, while much more complex, share elements with this incredibly simple one.
+</p>
+<p>
+ First, we will define types for bits, messages (of fixed length of six bits), and keys (of fixed length of six
+bits). In a realistic setting, we could translate text into bits (each letter getting a unique assignment of bits), and split our message into chunks of length six. We define generators for <span class="RktSym">Bit</span><span class="RktMeta"></span> and <span class="RktSym">Message</span><span class="RktMeta"></span>.
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="c1">; A Bit is one of:</span><span class="w"></span>
+<span class="c1">; - 0</span><span class="w"></span>
+<span class="c1">; - 1</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">Bit</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-one-of</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+
+<span class="c1">; A Key is a (list Bit Bit Bit Bit Bit Bit)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-list</span><span class="w"> </span><span class="n">Bit</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span><span class="w"></span>
+
+<span class="c1">; A Message is a (list Bit Bit Bit Bit Bit Bit)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">Message</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-list</span><span class="w"> </span><span class="n">Bit</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<p>
+ The way one-time pads work is via exclusive-or (XOR). To both encrypt and decrypt, we XOR each bit in the message with a corresponding bit in the key. This should result in an encrypted message for which it is impossible to determine the original without knowing the key. We want to
+prove that, and we’ll do it in the following way. First, we define encryption and decryption, which
+use the key (which is the same length of the message), XOR’d bit by bit with the message:
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="c1">; xor : Bit Bit -&gt; Bit</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="n">b2</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">modulo</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="n">b2</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">; xor-list : [List-of Bit] [List-of Bit] -&gt; [List-of Bit]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">xor-list</span><span class="w"> </span><span class="n">l1</span><span class="w"> </span><span class="n">l2</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nb">xor</span><span class="w"> </span><span class="n">l1</span><span class="w"> </span><span class="n">l2</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor-list</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor-list</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+
+<span class="c1">; encrypt : Message Key -&gt; Message</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">encrypt</span><span class="w"> </span><span class="n">xor-list</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">; decrypt : Message Key -&gt; Message</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">decrypt</span><span class="w"> </span><span class="n">xor-list</span><span class="p">)</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<p>
+ Your task is to define the following property, that captures the fact that encrypt/decrypt result in
+perfect secrecy. It should state
+that for a given encrypted message, for any possible original message, there exists some key
+that would have produced it. That means that without knowing something about the key, there is no
+way of knowing which message was encrypted, since for any message, some key could have produced the
+encrypted message. Note that we don’t have a <span style="font-style: italic">logical</span> exists (<span class="texMathInline">\exists</span>), but if you can compute such a
+key, that is essentially the same thing (to be more technical, it’s very close to an existential in <span style="font-style: italic">constructive</span> logic). To show that you have, indeed, computed the right key,
+your property should finally use it to decrypt the message.
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">xor-perfect-prop</span><span class="w"> </span><span class="n">encr-msg</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">x</span><span class="w"> </span><span class="n">Message</span><span class="p">)]</span><span class="w"> </span><span class="p">(</span><span class="n">xor-perfect-prop</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<h5>
+ 3.2
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Problem_2)"></a>Problem 2
+</h5>
+<p>
+ Many cities have a problem with landlords who own many properties but do not adequately
+maintain them. In some,
+there are people who have begun organizing "tenants unions" to combat this,
+and an important way they
+can work is to organize together between buildings that are owned by the same landlord.
+</p>
+<p>
+ For a landlord with hundreds of properties, a single building threatening to withhold rent is
+perhaps easily ignored or addressed with evictions, but if many buildings do it, such "rent strikes" become a much bigger problem.
+For the organizers, identifying such landlords can be difficult, since the buildings are often owned by shell companies in order to hide true ownership (1 Main St might be owned by "1 Main St LLC").
+</p>
+<p>
+ One way to identify these landlords is to look at the addresses
+for company registrations, as while creating companies to own buildings is usually relatively easy,
+organizing them usually requires having centralized management, and thus, the same business address for all the shell companies.
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">tax-record</span><span class="w"> </span><span class="p">[</span><span class="n">address</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">owner</span><span class="p">])</span><span class="w"></span>
+<span class="c1">;; A TaxRecord is a (make-tax-record String Number String)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">building-owner</span><span class="w"> </span><span class="p">[</span><span class="n">name</span><span class="w"> </span><span class="n">address</span><span class="p">])</span><span class="w"></span>
+<span class="c1">;; A BuildingOwner is a (make-building-owner String String)</span><span class="w"></span>
+<span class="c1">;; Invariant: name is globally unique.</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">owner-assets</span><span class="w"> </span><span class="p">[</span><span class="n">names</span><span class="w"> </span><span class="n">assets</span><span class="p">])</span><span class="w"></span>
+<span class="c1">;; An OwnerAssets is a (make-owner-assets [List-of String] Number)</span><span class="w"></span>
+
+<span class="c1">; find-landlords: [List-of TaxRecord] [List-of BuildingOwner] -&gt; [List-of OwnerAssets]</span><span class="w"></span>
+<span class="c1">; find mega-landlords by using the addresses of owners to merge ostensibly different landlords,</span><span class="w"></span>
+<span class="c1">; totalling the assets for each unique address</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">find-landlords</span><span class="w"> </span><span class="n">tr</span><span class="w"> </span><span class="n">bor</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<p>
+ Your task is to write a correctness spec for the function <span class="RktSym">find-landlords</span><span class="RktMeta"></span> that
+takes a list of TaxRecords and a list of BuildingOwners, and
+computes a list of OwnerAssets, merging differently named BuildingOwners
+that share an address. The function will combine the total value of all the buildings
+owned by the owners that share the same company registration address, storing that total dollar amount,
+along with the owner names, in the OwnerAssets.
+</p>
+<p>
+ As an example, consider the following input and output:
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="w">    </span><span class="p">(</span><span class="n">find-landlords</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="n">make-tax-record</span><span class="w"> </span><span class="s2">"1 Main St"</span><span class="w"> </span><span class="mi">100000</span><span class="w"> </span><span class="s2">"1 Main St, LLC"</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">make-tax-record</span><span class="w"> </span><span class="s2">"2 Main St"</span><span class="w"> </span><span class="mi">150000</span><span class="w"> </span><span class="s2">"2 Main St, LLC"</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">make-tax-record</span><span class="w"> </span><span class="s2">"3 Main St"</span><span class="w"> </span><span class="mi">110000</span><span class="w"> </span><span class="s2">"Alex Anderson"</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">make-tax-record</span><span class="w"> </span><span class="s2">"4 Main St"</span><span class="w"> </span><span class="mi">120000</span><span class="w"> </span><span class="s2">"Great Properties LLC"</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">make-tax-record</span><span class="w"> </span><span class="s2">"5 Main St"</span><span class="w"> </span><span class="mi">100000</span><span class="w"> </span><span class="s2">"Great Properties LLC"</span><span class="p">))</span><span class="w"></span>
+<span class="w">                    </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="n">make-building-owner</span><span class="w"> </span><span class="s2">"1 Main St, LLC"</span><span class="w"> </span><span class="s2">"1 Business Place"</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">make-building-owner</span><span class="w"> </span><span class="s2">"2 Main St, LLC"</span><span class="w"> </span><span class="s2">"1 Business Place"</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">make-building-owner</span><span class="w"> </span><span class="s2">"Alex Anderson"</span><span class="w"> </span><span class="s2">"3 Main St"</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">make-building-owner</span><span class="w"> </span><span class="s2">"Great Properties LLC"</span><span class="w"> </span><span class="s2">"2 Business Place"</span><span class="p">)))</span><span class="w"></span>
+<span class="c1">; =&gt; (list (make-owner-assets (list "1 Main St, LLC" "2 Main St, LLC") 250000)</span><span class="w"></span>
+<span class="c1">;          (make-owner-assets (list "Alex Anderson") 110000)</span><span class="w"></span>
+<span class="c1">;          (make-owner-assets (list "Great Properties LLC") 220000))</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<p>
+ The spec should capture properties that relate
+the output of <span class="RktSym">find-landlords</span><span class="RktMeta"></span> (which you do not have to implement, though
+are welcome to) with the inputs. Think about how to ensure that
+any implementation of <span class="RktSym">find-landlords</span><span class="RktMeta"></span> that satisfies your spec does
+the right thing. You might want to think about the relationship of money between the input and
+the output, about how to ensure duplication hasn’t happened, how to ensure properties were combined
+properly, etc.
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="c1">;; find-landlords-spec : [List-of TaxRecord] [List-of BuildingOwner] -&gt; Boolean</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">find-landlords-spec</span><span class="w"> </span><span class="n">tr</span><span class="w"> </span><span class="n">bor</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<h5>
+ 3.3
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Problem_3)"></a>Problem 3
+</h5>
+<p>
+ One key source of cybersecurity vulnerabilities are "timing attacks", which work by measuring
+how long a particular computation takes. If the computation takes different amount of time based
+on different secret values, the attacker may be able to learn information about those secrets.
+</p>
+<p>
+ In this problem, we’ll consider one of the classic examples of this: matching passwords.
+</p>
+<p>
+ Since recording precise timing can be tricky (and may require collecting many samples), we’ll
+simulate the timing by using a fake clock that we move forward with a <span class="RktSym">tick!</span><span class="RktMeta"></span> function,
+and define versions of functions that call this explicitly.
+</p>
+<p>
+ You <span style="font-style: italic">must</span> use these functions if you need their functionality, rather than built-in versions (or re-implementing them without the calls to <span class="RktSym">tick!</span><span class="RktMeta"></span>), as the built-in versions are fast enough
+that without significant sampling, the timing results we would get (using, e.g., a call to get the
+current clock time before and after a function runs) won’t be consistent. Note that in real attacks,
+extremely small differences of timing are enough (as statistically they become significant), so this constraint exists only to make the
+assignment straightforward.
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="c1">; tick-string=? : String String -&gt; Bool</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">tick-string=?</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="n">s2</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[(</span><span class="k">define</span><span class="w"> </span><span class="n">ticks</span><span class="w"> </span><span class="p">(</span><span class="nb">min</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">s1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                             </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">s2</span><span class="p">)))</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="k">_</span><span class="w"> </span><span class="p">(</span><span class="nb">build-list</span><span class="w"> </span><span class="n">ticks</span><span class="w"> </span><span class="p">(</span><span class="k">λ</span><span class="p">(</span><span class="k">_</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">tick!</span><span class="p">))))]</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nb">string=?</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="n">s2</span><span class="p">)))</span><span class="w"></span>
+
+<span class="c1">; tick-length : (X) [List-of X] -&gt; Number</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">tick-length</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[(</span><span class="k">define</span><span class="w"> </span><span class="k">_</span><span class="w"> </span><span class="p">(</span><span class="n">tick!</span><span class="p">))]</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">[(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="n">tick-length</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">l</span><span class="p">)))])))</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<p>
+ You’ve been given a function <span class="RktSym">check-password</span><span class="RktMeta"></span> that takes as input
+a list of characters (as strings) and checks in against a password (stored as a constant). It
+does it by using a <span class="RktSym">list=?</span><span class="RktMeta"></span> helper that calls the <span class="RktSym">tick-string=?</span><span class="RktMeta"></span> function on each letter.
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="c1">; list=? : (X) [X -&gt; Bool] [List-of X] [List-of X] -&gt; Bool</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">list=?</span><span class="w"> </span><span class="n">elt=?</span><span class="w"> </span><span class="n">l1</span><span class="w"> </span><span class="n">l2</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">l1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">l2</span><span class="p">))</span><span class="w"> </span><span class="no">#t</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">l1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">l2</span><span class="p">))</span><span class="w"> </span><span class="no">#f</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">l1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">l2</span><span class="p">))</span><span class="w"> </span><span class="no">#f</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">l1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">l2</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="n">elt=?</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">l1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">l2</span><span class="p">))</span><span class="w"></span>
+<span class="w">              </span><span class="p">(</span><span class="n">list=?</span><span class="w"> </span><span class="n">elt=?</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">l1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">l2</span><span class="p">)))]))</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="p">(</span><span class="n">explode</span><span class="w"> </span><span class="s2">"a7he29hdee"</span><span class="p">))</span><span class="w"></span>
+
+<span class="c1">; check-password : [List-of String] -&gt; Bool</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">check-password</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="n">list=?</span><span class="w"> </span><span class="n">tick-string=?</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="n">p</span><span class="p">))</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<p>
+ You have two tasks. First, you need to write a specification that ensures that <span class="RktSym">check-password</span><span class="RktMeta"></span>
+does not leak <span style="font-style: italic">timing</span> information. For this, you should use the <span class="RktSym">start-timer!</span><span class="RktMeta"></span>
+function, provided by ISL-Spec, to reset the simulated clock before calling <span class="RktSym">check-password</span><span class="RktMeta"></span>, and
+then call <span class="RktSym">get-timer!</span><span class="RktMeta"></span> to get the clock value (a natural number) after the call. You should do
+this for two passwords, and ensure that each takes exactly the same number of ticks.
+</p>
+<div class="default">
+ <div class="highlight">
+  <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">timing-spec</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="n">p2</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">p1</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">p2</span><span class="w"> </span><span class="n">String</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">(</span><span class="n">timing-spec</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="n">p2</span><span class="p">)))</span><span class="w"></span>
+</pre>
+ </div>
+</div>
+<p>
+ Once you have that spec, you should find that the implementation of <span class="RktSym">check-password</span><span class="RktMeta"></span> is indeed
+leaking timing information. An attacker could use that to guess the password, as the current
+implementation stops as soon as it finds a character that doesn’t match, so they could try passwords
+starting with "a", then "b", etc, until they found one that took a little longer: this would mean
+they discovered the first letter. Then they would continue with the second, etc. You can try this
+out (but don’t have to) by trying <span class="RktSym">check-password</span><span class="RktMeta"></span> with passwords that are longer and longer
+prefixes of the actual password.
+</p>
+<p>
+ Your next task is to go back and fix the implementation of <span class="RktSym">check-password</span><span class="RktMeta"></span> to not reveal that information.
+</p>
+<p>
+ There may be multiple ways to do this; the only requirement is that it no longer fails your timing
+specification, and you are not allowed to use either <span class="RktSym">string=?</span><span class="RktMeta"></span> or <span class="RktSym">length</span><span class="RktMeta"></span> (or to
+re-implement) them yourself, but rather must use the provided versions that invoke <span class="RktSym">tick!</span><span class="RktMeta"></span>. Similarly, you cannot use <span class="RktSym">equal?</span><span class="RktMeta"></span> as a way around using <span class="RktSym">tick-string=?</span><span class="RktMeta"></span>. Failure to follow
+those instructions will result in a 0 on this part of the problem. Note that you <span style="font-style: italic">can</span> have
+your functions call <span class="RktSym">tick!</span><span class="RktMeta"></span> themselves, in order to balance out the cost of other calls. This
+may correspond to doing pointless work, which is indeed an important element of this type of security!
+</p>
+<p>
+ Note: you may not reset the clock (by calling <span class="RktSym">start-timer!</span><span class="RktMeta"></span>) after you compare passwords but before you look at the clock with <span class="RktSym">get-timer!</span><span class="RktMeta"></span>. This amounts to ignoring the timing results entirely (you might as well just assert <span class="RktVal">0</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">=</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">0</span><span class="RktMeta"></span>), and would not be a valid solution.
+</p>
+<div class="navsetbottom">
+ <span class="navleft">
+ <div class="nosearchform"></div>
+ &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="hw2.html" title="backward to &quot;2 Homework 2&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw4.html" title="forward to &quot;4 Homework 4&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

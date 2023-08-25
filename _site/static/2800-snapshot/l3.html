@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span>  Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Generalize</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l24.html" class="tocviewlink" data-pltdoc="x">Lecture 24:<span class="mywbr"> &nbsp;</span> Standard Libraries</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l25.html" class="tocviewlink" data-pltdoc="x">Lecture 25:<span class="mywbr"> &nbsp;</span> Forward Reasoning</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l26.html" class="tocviewlink" data-pltdoc="x">Lecture 26:<span class="mywbr"> &nbsp;</span> Proof Automation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l27.html" class="tocviewlink" data-pltdoc="x">Lecture 27:<span class="mywbr"> &nbsp;</span> Compiler Correctness</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l28.html" class="tocviewlink" data-pltdoc="x">Lecture 28:<span class="mywbr"> &nbsp;</span> Induction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l29.html" class="tocviewlink" data-pltdoc="x">Lecture 29:<span class="mywbr"> &nbsp;</span> Functions vs. Relations</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l30.html" class="tocviewlink" data-pltdoc="x">Lecture 30:<span class="mywbr"> &nbsp;</span> Why logic?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l31.html" class="tocviewlink" data-pltdoc="x">Lecture 31:<span class="mywbr"> &nbsp;</span> Linear Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l32.html" class="tocviewlink" data-pltdoc="x">Lecture 32</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l33.html" class="tocviewlink" data-pltdoc="x">Lecture 33</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l34.html" class="tocviewlink" data-pltdoc="x">Lecture 34</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l37.html" class="tocviewlink" data-pltdoc="x">Lecture 37</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l38.html" class="tocviewlink" data-pltdoc="x">Lecture 38</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+<div class="maincolumn">
+ <div class="main">
+  <div class="versionbox">
+   <span class="version">8.7</span>
+  </div>
+  <div class="navsettop">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="l2.html" title="backward to &quot;Lecture 2: Logistics, Specifications in ISL&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l4.html" title="forward to &quot;Lecture 4: Design / Specification Recipe&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+ </div>
+ <h4>
+  <a name="(part._l3)"></a>Lecture 3: Propositional Logic in Code
+ </h4>
+ <h5>
+  1
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Purpose)"></a>Purpose
+ </h5>
+ <p>
+  Review propositional logic, how it can be expressed in code.
+ </p>
+ <h5>
+  2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Outline)"></a>Outline
+ </h5>
+ <p>
+  <span class="Larger">Who can tell me something they remember from propositional logic?</span>
+ </p>
+ <p>
+  Variables and logical operators. Variables can be assigned True or False.
+ </p>
+ <p>
+  Variables combined with operators into formulas. Formulas can be some combination of:
+ </p>
+ <p>
+  1. Satisfiable (there exists some assignment of variables that makes the formula True)
+ </p>
+ <p>
+  2. Valid, or Tautologies (for all assignments of variables, the formula is True)
+ </p>
+ <p>
+  3. Falsifiable (there exists some assignment of variables that makes the formula False)
+ </p>
+ <p>
+  4. Unsatisfiable (for all assignments, the formula is False)
+ </p>
+ <p>
+  <span class="Larger">What are some operators?</span>
+ </p>
+ <p>
+  AND, OR, NOT, XOR, IMPLIES, ITE
+ </p>
+ <p>
+  We can describe operators, and formulas in general, via truth tables.
+ </p>
+ <p>
+  Here is AND (usually written <span class="texMathInline">\land</span>).
+ </p>
+ <p></p>
+ <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+  <tbody>
+   <tr>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="texMathInline">P</span>
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="texMathInline">Q</span>
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="texMathInline">P \land Q</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p></p>
+ <p>
+  Let’s write down OR, NOT, IMPLIES, and ITE.
+ </p>
+ <p>
+  We can also write truth tables for larger expressions: for every variable, we need to consider
+the two possible assignments (True or False), so for <span class="texMathInline">N</span> variables, <span class="texMathInline">2^N</span> rows of the table.
+ </p>
+ <p>
+  Once we’ve filled in the variable columns, the columns for the formula (and, if we want to do subformulas
+first, we can), are calculated based on the values that already exist in the row.
+ </p>
+ <p>
+  <span class="Larger">This is review:</span> perhaps recent, if you just took Discrete, perhaps rusty, if you
+took it a while ago. But here’s where we diverge. Rather than writing logical formulas on
+paper, we want to express them in code.
+ </p>
+ <p>
+  How? Well, there’s always a question as to how you best model something in data, but here, we
+have most of the tools already with booleans values and boolean operators.
+ </p>
+ <p>
+  Let’s figure out equivalents to a few operators.
+ </p>
+ <p></p>
+ <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+  <tbody>
+   <tr>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      expression in logic
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      expression in ISL-Spec
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktVal">#t</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktVal">#f</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">\land</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktSym">and</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">\lor</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktSym">or</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">\neg</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktSym">not</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">\equiv</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktSym">boolean=?</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">ite</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktSym">if</span>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p></p>
+ <p>
+  <span class="Larger">Now, we can also write down formulas as definitions</span>. For example:
+ </p>
+ <p></p>
+ <div class="SIntrapara">
+  <span class="texMathDisplay">p\lor (q\land r)</span>
+ </div>
+ <div class="SIntrapara">
+  <div class="default">
+   <div class="highlight">
+    <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">p1</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">R</span><span class="p">)))</span><span class="w"></span>
+</pre>
+   </div>
+  </div>
+ </div>
+ <p></p>
+ <p></p>
+ <div class="SIntrapara">
+  <span class="texMathDisplay">(p\lor q)\land (p\lor \neg q)</span>
+ </div>
+ <div class="SIntrapara">
+  <div class="default">
+   <div class="highlight">
+    <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">p3</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">Q</span><span class="p">))))</span><span class="w"></span>
+</pre>
+   </div>
+  </div>
+ </div>
+ <p></p>
+ <p></p>
+ <div class="SIntrapara">
+  <span class="texMathDisplay">(p\equiv q)\equiv (p\lor \neg q)\land (\neg p\lor q)</span>
+ </div>
+ <div class="SIntrapara">
+  <div class="default">
+   <div class="highlight">
+    <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">p4</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">boolean=?</span><span class="w"> </span><span class="p">(</span><span class="nb">boolean=?</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">Q</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="n">Q</span><span class="p">))))</span><span class="w"></span>
+</pre>
+   </div>
+  </div>
+ </div>
+ <p></p>
+ <p>
+  <span class="Larger">On its own, this is fine</span>, but perhaps hasn’t gotten us very far: the statements
+in math were already quite precise, if anything, we’ve only made them a bit more verbose.
+Of course, perhaps having the ability to define named sub-parts is useful, but it’s not
+hard to imagine defining notation to do that in the math notation.
+ </p>
+ <p>
+  <span class="Larger">What really changes things</span> is when we translate our truth tables: our proofs. Because
+while I can write, on paper, the following truth table:
+ </p>
+ <p></p>
+ <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+  <tbody>
+   <tr>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="texMathInline">P</span>
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="texMathInline">Q</span>
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="texMathInline">(P\lor Q)</span>
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="texMathInline">(P\lor \neg Q)</span>
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="texMathInline">(P\lor Q)\land (P\lor \neg Q)</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">T</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="texMathInline">F</span>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p></p>
+ <p>
+  Now, did I get that truth table correct? I might have. I was pretty careful about it. But even just
+this formula with two variables already had me doing twelve calculations, any one of which
+might have been wrong, and there is nothing that checked it. We can, and should, do better. How?
+ </p>
+ <p>
+  By turning our truth tables, which are proofs, into code that <span style="font-style: italic">runs</span>:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">p5</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">Q</span><span class="p">))))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p5</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p5</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p5</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p5</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Note a couple things. First, while we certainly could make the intermediate formulas as definitions,
+and define truth tables for them, we don’t need to, especially since they are partly a way of
+checking your work, and here our work will be checked by the evaluation of ISL-Spec.
+ </p>
+ <p>
+  <span class="Larger">Defining operators</span> Above, we simply speculated that <span class="RktSym">and</span><span class="RktMeta"></span> corresponds to <span class="texMathInline">\land</span>, <span class="RktSym">or</span><span class="RktMeta"></span> to <span class="texMathInline">\lor</span>, and so on. But we can also check this, via truth tables.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  That might seem pretty obvious, but some operators from logic don’t correspond to built in operators that
+we already understand. For example, logical implication and exclusive or. But we can define them in terms
+of other operators. For example, a well-known encoding of logical implication uses <span class="texMathInline">\land</span> and <span class="texMathInline">\neg</span>, and we
+can construct exclusive or in terms of <span class="texMathInline">\land</span>, <span class="texMathInline">\lor</span>, and <span class="texMathInline">\neg</span>. Looking at these definitions,
+especially the first one, you may wonder if they actually correspond to the operators we want. But we can
+check them using truth tables.
+ </p>
+ <p></p>
+ <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+  <tbody>
+   <tr>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      expression in logic
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      expression in ISL-Spec
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">\Rightarrow</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktPn">(</span><span class="RktSym">lambda</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">P</span><span class="stt"> </span><span class="RktSym">Q</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">not</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">and</span><span class="stt"> </span><span class="RktSym">P</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">not</span><span class="stt"> </span><span class="RktSym">Q</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <span class="texMathInline">\otimes</span>
+     </p>
+    </td>
+    <td>
+     <p>
+      <span class="RktPn">(</span><span class="RktSym">lambda</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">P</span><span class="stt"> </span><span class="RktSym">Q</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">or</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">and</span><span class="stt"> </span><span class="RktSym">P</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">not</span><span class="stt"> </span><span class="RktSym">Q</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">and</span><span class="stt"> </span><span class="RktSym">Q</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">not</span><span class="stt"> </span><span class="RktSym">P</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p></p>
+ <p>
+  Some may have many different implementations: we don’t have to understand them, as we can validate
+them against their truth table.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="k">implies</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">Q</span><span class="p">)))))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">implies</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">implies</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">implies</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="k">implies</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">           </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)))))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="nb">xor</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">xor1</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">Q</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="n">Q</span><span class="p">)))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor1</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor1</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor1</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor1</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">xor2</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="p">(</span><span class="nb">equal?</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor2</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor2</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor2</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor2</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">xor3</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">))))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor3</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor3</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor3</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">xor3</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  We can also, of course, define formulas using these derived operators.
+ </p>
+ <p></p>
+ <div class="SIntrapara">
+  <span class="texMathDisplay">p \Rightarrow \neg p</span>
+ </div>
+ <div class="SIntrapara">
+  <div class="default">
+   <div class="highlight">
+    <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">p2</span><span class="w"> </span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">implies</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">P</span><span class="p">)))</span><span class="w"></span>
+</pre>
+   </div>
+  </div>
+ </div>
+ <p></p>
+ <p>
+  <span class="Larger">Simplification</span> Equality in propositional logic is definable, and can be validated via
+truth tables. If an equality is always true, so it is a tautology (or valid), then the two formulas are
+equivalent. For example:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">p8</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">boolean=?</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">             </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">P</span><span class="p">)))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p8</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p8</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p8</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p8</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Your equivalence could also be a simplification. In homework, you are asked to simplify, and while
+we do not ask you to <span style="font-style: italic">prove</span> your simplifications in this way, you certainly can if you
+wish to check your work.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">boolean=?</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="n">R</span><span class="p">)))</span><span class="w"></span>
+<span class="w">             </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="n">P</span><span class="p">)))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">p9</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="l2.html" title="backward to &quot;Lecture 2: Logistics, Specifications in ISL&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l4.html" title="forward to &quot;Lecture 4: Design / Specification Recipe&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

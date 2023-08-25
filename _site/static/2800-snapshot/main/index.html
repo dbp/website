@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublistonly" style="display: block;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Logic___.Computation%29" class="tocsubseclink" data-pltdoc="x">Logic &amp; Computation</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.7</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<span class="nonavigation">← prev</span>&nbsp;&nbsp;<span class="nonavigation">up</span>&nbsp;&nbsp;<a href="syllabus.html" title="forward to &quot;Syllabus&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h2>
+    <a name="(part._.Logic___.Computation)"></a>Logic &amp; Computation
+   </h2>
+   <p>
+    <span class="SSubSubSubSection">Meeting Times</span>
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed">
+    <tbody>
+     <tr>
+      <td>
+       <p>
+        Section
+       </p>
+      </td>
+      <td>
+       <p>
+        Meeting Times
+       </p>
+      </td>
+      <td>
+       <p>
+        Location
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        2
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="stt">MWTh</span>&nbsp;9:15-10:20am
+       </p>
+      </td>
+      <td>
+       <p>
+        RI300
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        3
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="stt">MWTh</span>&nbsp;10:30-11:35pm
+       </p>
+      </td>
+      <td>
+       <p>
+        EV024
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        4
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="stt">MWTh</span>&nbsp;1:35-2:40pm
+       </p>
+      </td>
+      <td>
+       <p>
+        INV019
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    Lectures will not be recorded, though lecture notes will be posted after class (see <a href="schedule.html" data-pltdoc="x">Schedule</a>).
+   </p>
+   <p>
+    <span class="SSubSubSubSection">Course Staff / Office Hours</span>
+   </p>
+   <p>
+    <a href="https://outlook.office365.com/calendar/published/d3c7bc9d687d49f483fcdc557c38792e@northeastern.edu/f36bfaa28b1f484fa2bb1a6e994148da14311530570894238380/calendar.html">Calendar of Virtual Office Hours</a>, held via Teams using <a href="https://officehours.khoury.northeastern.edu/">Khoury Office Hours App</a>.
+   </p>
+   <p>
+    Non-virtual hours held by Daniel Patterson, Raisa Bhuiyan, Ryan Jung, Lucy Liu, Yuhao Zhou (see below). <span style="font-weight: bold">For most up to date virtual hours, consult calendar linked above!</span>
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed staff">
+    <tbody>
+     <tr>
+      <td>
+       <p>
+        Instructor
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="https://dbp.io">Daniel Patterson</a>&nbsp;(he/him)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="dbp.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Tuesday, 12-1pm &amp; 2-3pm<br>Meserve 317
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        Teaching Assistants
+       </p>
+      </td>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p></p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:lucy@alpacalabs.io">Lucy Amidon</a>
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="lucy.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Wednesday, 1-3pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:bhuiyan.r@northeastern.edu">Raisa Bhuiyan</a>
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="raisa.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Thursday, 12-1pm (<a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>) &amp; Saturday, 2-3pm (SL 037)
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:gaddam.sah@northeastern.edu">Sahithi Reddy Gaddam</a>
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="sahithi.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Monday, 12-2pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:ganesh.re@northeastern.edu">Renuka Ganesh</a>&nbsp;(she/her)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="renuka.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Monday, 11am-1pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:jung.ry@husky.neu.edu">Ryan Jung</a>
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="ryan.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Wednesday, 3-5pm<br>SL 045
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto: kumar.anki@husky.neu.edu">Ankit Kumar</a>
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="ankit.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Wednesday, 9:30am-11:30am<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:li.john@northeastern.edu">John Li</a>&nbsp;(he/him)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="john.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Monday, 2-4pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:lin.emi@northeastern.edu">Emily Lin</a>&nbsp;(she/her)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="emily.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Monday 6-7pm &amp; Friday, 12-1pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:liu.xinhu@northeastern.edu">Lucy Liu</a>
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="xinhui.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Thursday, 1-3pm<br>SL 047
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:nashine.t@northeastern.edu">Tanisha Nashine</a>&nbsp;(she/her)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="tanisha.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Tuesday, 12-1pm &amp; Friday, 1-2pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:oakley.l@husky.neu.edu">Lisa Oakley</a>&nbsp;(she/her)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="lisa.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Tuesday, 1-3pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:shen.ang@husky.neu.edu">Angela Shen</a>&nbsp;(she/her)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="angela.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Tuesday, 2-3pm &amp; Wednesday, 3-4pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:wenig.c@northeastern.edu">Carly Wenig</a>&nbsp;(she/her)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="carly.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Monday, 5-7pm<br><a href="https://officehours.khoury.northeastern.edu/">VIRTUAL</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p></p>
+      </td>
+      <td>
+       <p>
+        <a href="mailto:zhou.yuhao@northeastern.edu">Yuhao Zhou</a>&nbsp;(he/him)
+       </p>
+      </td>
+      <td>
+       <p>
+        <img src="yuhao.jpg" alt="" class="bio">
+       </p>
+      </td>
+      <td>
+       <p>
+        Tuesday, 11am-1pm<br>SL 047
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p></p>
+   <div class="SIntrapara">
+    <span class="SSubSubSubSection">Course Description</span>
+   </div>
+   <div class="SIntrapara">
+    The background of this course is Fundamentals 1, based on the textbook How to
+Design Programs, and Discrete Structures. Of course, some people may have more
+background (either before or after), but we’ll neither build on nor assume that.
+   </div>
+   <p></p>
+   <p>
+    In Fundamentals 1, you learned about the systematic design of software. You
+learned how to take a problem statement and refine it into functioning software
+in a step-by-step process called the Design Recipe. This iterative process
+allowed you first to discover the relevant data, then identify the operations on
+that data needed to perform the task, express your understanding of the problem
+in tests, and finally implement the code. In Discrete Structures, you learned,
+among other things, about propositional and first-order logic, and how to
+express, reason about, and prove mathematical statements. The goal of this
+course is to combine these two: to apply logic to enable <span style="font-style: italic">reasoning</span>
+about programs. Why do we care?
+   </p>
+   <p>
+    Even only programming for one semester, only writing programs that stretched
+into the hundreds of lines, you certainly wrote programs with bugs in them. Most
+you probably caught, some your TAs may have caught, and the odd bug may have
+slipped through. Creating bugs in software doesn’t stop with experience, and
+certainly doesn’t disappear "naturally" —<wbr> indeed, much of the field of
+software engineering, developed over more than a half-century has been focused
+around developing processes to try to reduce the number of bugs in software. You
+may take a software development or software engineering class here, and both
+will cover human processes that can help increase the reliability and reduce the
+number of bugs in the software you write. While that is incredibly valuable,
+it’s not the only approach.
+   </p>
+   <p>
+    Running parallel to that is another field, formal methods, which took a
+different tactic: rather than developing human processes, or particular
+development strategies, the goal was to use logic and math to increase the
+trustworthiness of software in a quantifiable way. Most of this work originated
+within the national security apparatus of the US Government, but eventually, it
+spread to other domains.
+   </p>
+   <p>
+    Indeed, software that runs fly-by-wire control systems in airplanes, or control
+systems in modern cars, is software where bugs can directly lead to loss of
+life. And if those examples don’t feel compelling, realize there is software
+controlling the administration of electricity directly to cardiac tissue in
+pacemakers, delivering radiation doses in hospitals, or insulin doses via
+insulin pumps. Of course, there are plenty of places where bugs can have
+significant consequences that fall short of directly threatening human life:
+within the past few decades, most financial transactions have moved mostly or
+wholely online, so that bugs can lead to catastrophic financial costs, nevermind
+a whole host of other problems. Some of you may be cybersecurity majors: much of
+the work of security is trying to figure out exactly how systems can work, so
+that malicious actors can’t use them in unintended ways.
+   </p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<span class="nonavigation">← prev</span>&nbsp;&nbsp;<span class="nonavigation">up</span>&nbsp;&nbsp;<a href="syllabus.html" title="forward to &quot;Syllabus&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

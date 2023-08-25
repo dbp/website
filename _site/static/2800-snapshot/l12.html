@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span>  Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Generalize</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l24.html" class="tocviewlink" data-pltdoc="x">Lecture 24:<span class="mywbr"> &nbsp;</span> Standard Libraries</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l25.html" class="tocviewlink" data-pltdoc="x">Lecture 25:<span class="mywbr"> &nbsp;</span> Forward Reasoning</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l26.html" class="tocviewlink" data-pltdoc="x">Lecture 26:<span class="mywbr"> &nbsp;</span> Proof Automation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l27.html" class="tocviewlink" data-pltdoc="x">Lecture 27:<span class="mywbr"> &nbsp;</span> Compiler Correctness</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l28.html" class="tocviewlink" data-pltdoc="x">Lecture 28:<span class="mywbr"> &nbsp;</span> Induction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l29.html" class="tocviewlink" data-pltdoc="x">Lecture 29:<span class="mywbr"> &nbsp;</span> Functions vs. Relations</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l30.html" class="tocviewlink" data-pltdoc="x">Lecture 30:<span class="mywbr"> &nbsp;</span> Why logic?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l31.html" class="tocviewlink" data-pltdoc="x">Lecture 31:<span class="mywbr"> &nbsp;</span> Linear Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l32.html" class="tocviewlink" data-pltdoc="x">Lecture 32</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l33.html" class="tocviewlink" data-pltdoc="x">Lecture 33</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l34.html" class="tocviewlink" data-pltdoc="x">Lecture 34</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l37.html" class="tocviewlink" data-pltdoc="x">Lecture 37</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l38.html" class="tocviewlink" data-pltdoc="x">Lecture 38</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.What_is_proof_%29" class="tocviewlink" data-pltdoc="x">What is proof?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.What_is_mechanized_proof_%29" class="tocviewlink" data-pltdoc="x">What is mechanized proof?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.What_s_in_.Lean_%29" class="tocviewlink" data-pltdoc="x">What’s in Lean?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Installing_.Lean%29" class="tocviewlink" data-pltdoc="x">Installing Lean</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Programming_in_.Lean%29" class="tocviewlink" data-pltdoc="x">Programming in Lean</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.What_is_proof_%29" class="tocsubseclink" data-pltdoc="x">What is proof?</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.What_is_mechanized_proof_%29" class="tocsubseclink" data-pltdoc="x">What is mechanized proof?</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.What_s_in_.Lean_%29" class="tocsubseclink" data-pltdoc="x">What’s in Lean?</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">6
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Installing_.Lean%29" class="tocsubseclink" data-pltdoc="x">Installing Lean</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">7
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Programming_in_.Lean%29" class="tocsubseclink" data-pltdoc="x">Programming in Lean</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.7</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="l11.html" title="backward to &quot;Lecture 11: Rosette &amp; Finitization&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l13.html" title="forward to &quot;Lecture 13: Functions&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h4>
+<a name="(part._l12)"></a>Lecture 12: Higher order logic
+</h4>
+<h5>
+1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Purpose)"></a>Purpose
+</h5>
+<p>
+Start with Lean
+</p>
+<h5>
+2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Outline)"></a>Outline
+</h5>
+<p>
+Last week we looked at how we can cover large input spaces with SMT solvers. While there are limitations, these are
+amazing tools that can do automated testing at massive scale. And indeed, they are widely used in industry.
+</p>
+<p>
+But one issue with them is they require than we <span style="font-style: italic">finitize</span> our inputs and our computations. e.g., we
+considered lists of length less than 5. If our code had a bug on length 6, or 10, or 100, then this testing
+would not find it. For many applications, this is good enough – it’s certainly better than how the vast
+majority of software is tested – but there are domains (medical devices, cryptography, fly-by-wire systems, etc)
+where we want to do better, and logic gives us tools.
+</p>
+<p>
+How can we possibly reason about data of arbitrary size? Or at least, arbitrary size that will fit into our
+computers? The key idea is the same one as how we write recursive functions on <span style="font-style: italic">data</span> of arbitrary size.
+</p>
+<p>
+Let’s consider one of the simplest possible functions:
+</p>
+<p>
+<span class="texMathDisplay">f(x : \mathbb{N}) \{0 + x \}</span>
+</p>
+<p>
+And we want to show that <span class="texMathInline">f(x) = x</span> for <span style="font-style: italic">all</span> natural numbers. If we were happy testing a few random numbers,
+we could use PBT, and if we were happy testing numbers up to some reasonable bit width, SMT would do very well. But
+we want to know this holds for <span style="font-style: italic">any</span> natural number.
+</p>
+<p>
+In particular, we want to be sure that the function doesn’t do, for example, this:
+</p>
+<p>
+<span class="texMathDisplay">f(x : \mathbb{N}) \{if (x &gt; 2^{64}) \{0\} else \{0 + x \}\}</span>
+</p>
+<p>
+i.e., if the number is beyond any reasonable bound that we would have handed to an SMT solver, it no longer works:
+instead of returning the same number, it just returns 0. How can we prove this?
+</p>
+<p>
+To understand this, let’s look carefully at how we can define natural numbers. In Lean, we define them as:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">Nat</span> <span class="n">where</span>
+  <span class="bp">|</span> <span class="n">zero</span>
+  <span class="bp">|</span> <span class="n">succ</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span>
+</pre>
+</div>
+</div>
+<p>
+i.e., a <span class="default"><code class="highlight-inline"><span class="n">Nat</span></code></span> is either <span class="default"><code class="highlight-inline"><span class="n">zero</span></code></span>, or it is the successor of some other <span class="default"><code class="highlight-inline"><span class="n">Nat</span></code></span>. This is an <span style="font-style: italic">inductive</span>
+definition, as it is defined in terms of its self, or inductively.
+</p>
+<p>
+To prove our <span style="font-style: italic">theorem</span>, that <span class="texMathInline">\forall x, f(x) = x</span>, we consider the two possibilities for our input, and prove that in either case,
+the statement holds. We define our proof <span style="font-style: italic">recursively</span>; indeed, our proof <span style="font-style: italic">is</span> a recursive function.
+</p>
+<p>
+That means that in the <span class="default"><code class="highlight-inline"><span class="n">succ</span></code></span> case, we can call our proof, which is a recursive function,
+on the <span class="default"><code class="highlight-inline"><span class="n">Nat</span></code></span> that is inside (one less than our current value).
+</p>
+<p>
+This works similarly to how we define recursive functions. Because proofs can get somewhat unwieldy, we will often use
+ <span style="font-style: italic">tactics</span> to help construct them. Tactics are procedures that can inspect the current partially constructed proof and add to it. We switch into tactic mode with <span class="default"><code class="highlight-inline"><span class="kd">by</span></code></span>. This allows our theorem, among other things, to construct trivial equality proofs with <span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span>
+and <span style="font-style: italic">rewrite</span> what we are proving using equalities using <span class="default"><code class="highlight-inline"><span class="n">rw</span></code></span> and a comma-separated list of equalities inside of square brackets. Note that, in general, we can only directly prove <span style="font-style: italic">trivial</span>
+equalities (using <span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span>); for more interesting ones, we first have to rewrite them (using <span class="default"><code class="highlight-inline"><span class="n">rw</span></code></span>) to a trivial equality, which is exactly what we do here.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">nat_0_plus</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">),</span> <span class="n">Nat.add</span> <span class="mi">0</span> <span class="n">x</span> <span class="bp">=</span> <span class="n">x</span>
+    <span class="bp">|</span> <span class="n">Nat.zero</span> <span class="bp">=&gt;</span> <span class="kd">by</span> <span class="n">rfl</span>
+    <span class="bp">|</span> <span class="n">Nat.succ</span> <span class="n">n</span> <span class="bp">=&gt;</span> <span class="kd">by</span> <span class="n">rw</span> <span class="o">[</span><span class="n">Nat.add</span><span class="o">,</span> <span class="n">nat_0_plus</span> <span class="n">n</span><span class="o">]</span>
+</pre>
+</div>
+</div>
+<p>
+This is now a recursive definition that, for any natural number, constructs
+a proof that <span class="texMathInline">0 + x</span> is equal to <span class="texMathInline">x</span>, which invokes a recursive call to
+the proof in the case that <span class="texMathInline">x</span> is not zero, and uses the trivial case
+(that <span class="texMathInline">0 + 0 = 0</span>), apparent from the definition, in the base case. In the recursive
+case, we first <span style="font-style: italic">rewrite</span> using the definition of addition. This gets from
+<span class="default"><code class="highlight-inline"><span class="n">Nat.add</span> <span class="mi">0</span> <span class="o">(</span><span class="n">Nat.succ</span> <span class="n">n</span><span class="o">)</span> <span class="bp">=</span> <span class="n">Nat.succ</span> <span class="n">n</span></code></span> to <span class="default"><code class="highlight-inline"><span class="n">Nat.succ</span> <span class="o">(</span><span class="n">Nat.add</span> <span class="mi">0</span> <span class="n">n</span><span class="o">)</span> <span class="bp">=</span> <span class="n">Nat.succ</span> <span class="n">n</span></code></span>, since
+the definition of <span class="default"><code class="highlight-inline"><span class="n">Nat.add</span></code></span> is itself a structurally recursive definition defined on
+the second argument. Now, we can complete the proof by rewriting using a recursive call,
+which gives us that <span class="default"><code class="highlight-inline"><span class="n">Nat.add</span> <span class="mi">0</span> <span class="n">n</span> <span class="bp">=</span> <span class="n">n</span></code></span>.
+</p>
+<p>
+I intentionally used the syntax for function definitions; you can equally use the almost synonym <span class="default"><code class="highlight-inline"><span class="kd">theorem</span></code></span> (the only difference is that theorems cannot be used in executable code, &amp; you cannot eval them) instead of <span class="default"><code class="highlight-inline"><span class="kd">def</span></code></span>:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">theorem</span> <span class="n">nat_0_plus</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">),</span> <span class="n">Nat.add</span> <span class="mi">0</span> <span class="n">x</span> <span class="bp">=</span> <span class="n">x</span>
+    <span class="bp">|</span> <span class="n">Nat.zero</span> <span class="bp">=&gt;</span> <span class="kd">by</span> <span class="n">rfl</span>
+    <span class="bp">|</span> <span class="n">Nat.succ</span> <span class="n">n</span> <span class="bp">=&gt;</span> <span class="kd">by</span> <span class="n">rw</span> <span class="o">[</span><span class="n">Nat.add</span><span class="o">,</span> <span class="n">nat_0_plus</span> <span class="n">n</span><span class="o">]</span>
+</pre>
+</div>
+</div>
+<p>
+A couple other important things in this, our first proof: first, note that we
+have the same <span class="default"><code class="highlight-inline"><span class="k">forall</span></code></span> construct as we’ve seen before. Lean is a higher-order logic, which
+means that we can quantify over terms with quantification (we’ll see exactly what that means later). Next, note that our theorem <span style="font-style: italic">statement</span> is
+the <span style="font-style: italic">type</span> of our function: it’s what we return. This is the type of an equality proof (<span class="default"><code class="highlight-inline"><span class="bp">=</span></code></span> is
+actually just another inductive type, though one for which there is lots of built in support for working with).
+</p>
+<p>
+The idea that we construct proofs as functional programs, and the types are the theorem statements, is
+a very important idea, often called the Curry-Howard isomorphism, and it first showed up in a theorem prover
+called AUTOMATH, created by the mathematician and computer scientist N.G. de Bruijn in 1968.
+</p>
+<p>
+It’s worth actually reflecting a bit on the history of these theorem provers, and really, the notion of truth
+that they give us.
+</p>
+<h5>
+3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.What_is_proof_)"></a>What is proof?
+</h5>
+<p>
+To start, we need to be clear about what a proof is, and in particular, what
+it means within the Lean Theorem Prover. First, what is a proof? A proof is an argument for some
+statement, described so that someone else can follow, and in doing so be convinced of the statement. Proofs are thus,
+historically, very social and contextual things: a step that the reader will be able to jump over can be left out,
+for example. Related to proofs, and in some sense, simpler, are counter-examples: these are refutations of
+statements by means of a concrete example. For example, the statement "all prime numbers are odd" can be refuted
+by giving the counter-example 2, which is both a prime number and not odd (related, the fact that finding contradictions
+is often easier is the reason why many proofs in math assume the statement to be proved is <span style="font-style: italic">not</span> true, and
+then use that to derive a contradiction). There is still context, of course:
+what is a prime number, what is odd, etc: every bit of mathematics and logic builds upon some shared social
+understanding of the meaning of certain things that people over centuries (or millenia) have found useful
+in trying to understand the world.
+</p>
+<h5>
+4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.What_is_mechanized_proof_)"></a>What is mechanized proof?
+</h5>
+<p>
+Much more recently, but nearly as old as computers (1950s), people have been trying
+to use computers to carry about, or assist in carrying out, proofs. The appeal is two-fold: first, if theorems are
+intended to be a series of steps, each which follow according to some logical rule from the previous, computers are
+quite good at following steps without forgetting ones in the middle. Humans are certainly more creative, but this
+comes at a cost: we sometimes make leaps without explanation. Of course, sometimes those leaps are correct,
+and some of the most creative, baffling mathematics arises from those kind of jumps (e.g., some of the number
+theory of Ramanujan, whose results were divinely inspired, appearing to him in dreams). However, sometimes these leaps
+are difficult to confirm, or end up turning out to be not true!
+</p>
+<p>
+The other reason why computers seemed appealing, even from
+the beginning, was the thought that if proof was merely the application of logical steps, one after another, perhaps
+proof could be rendered mechanical, and people could focus on the "interesting" parts: developing new theories, adding
+new rules, and posing new conjectures (to be automatically proved or disproved).
+</p>
+<p>
+It turned out that the initial optimism was somewhat misplaced: while for limited theories, computers can come
+up with proofs, and indeed, SMT is probably the most amazing result from that realm, beyond that, things become intractable.
+</p>
+<p>
+Indeed, for most interesting math, there are simply too many possible approaches, and there is no tractable procedure by which a proof
+will be discovered. This led to an alternative approach, and a new set of tools, proof assistants, of which Lean is one of
+the more modern incarnations.
+</p>
+<p>
+In a proof assistant, a person is primarily responsible for constructing the proof, but each
+step that they carry out is checked to be valid. Thus, while proofs cannot be discovered automatically (at least, not in general),
+even quite rich proofs can be <span style="font-style: italic">checked</span> automatically, and that still turns out to be incredibly valuable, as it
+eliminates a serious potential risk. Assuming one trusts the <span style="font-style: italic">proof checker</span> (which, we’ll talk about), one need not
+trust the person who wrote the proof, only that the statement says what we want it to say. Given that proofs can often be
+orders of magnitude more complicated than theorem statements, this is a huge benefit.
+</p>
+<h5>
+5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.What_s_in_.Lean_)"></a>What’s in Lean?
+</h5>
+<p>
+There are two key ideas in Lean. The first I mentioned earlier, is the idea that theorems are types and proofs are terms.
+While some people are enamored with this from a theoretical perspective, it’s appeal is quite practical: it means we can
+reuse key ideas across programming and proving. Indeed, while in some ways, mechanized theorem proving will feel quite
+different, in some ways, it should feel familiar: like learning a new programming language, just a very very different
+one.
+</p>
+<p>
+There’s another idea, which actually comes from an entirely different theorem prover, developed around the same
+time as de Bruijn’s AUTOMATH. Called LCF (or Edinburgh LCF), created by Robin Milner in 1972, the main idea was to have a trusted
+core that protected logical truth, and then have a flexible language with which to define conveniences for writing proofs.
+What Milner realized, even then, was that mechanized proofs could be very tedious things, and much easier if you could
+leverage programming to make it easier. These procedures, called tactics, are a key idea in Lean: indeed, we pretty much
+won’t write proofs without using some tactics!
+</p>
+<p>
+We used some tactics in the above proof: <span class="default"><code class="highlight-inline"><span class="n">rw</span></code></span> is one of the main ones we’ll
+use, and it is the main way that we <span style="font-style: italic">use</span> equalities in our proofs.
+<span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span> is also a tactic, but a simpler one: it constructs a proof of equality
+between two terms that are equivalent. Equality is itself an inductive type,
+with a single constructor that allows reflexive proofs, and
+so <span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span> is really just a convenience over the constructor <span class="default"><code class="highlight-inline"><span class="n">Eq.refl</span></code></span>.
+</p>
+<p>
+While we are motivated to move to Lean by proving properties involving infinite types, we will begin our journey at the beginning:
+with Lean as a programming language.
+</p>
+<h5>
+6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Installing_.Lean)"></a>Installing Lean
+</h5>
+<p></p>
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+<tr>
+<td>
+<p>
+ <span class="stt">1. Download &amp; Install Visual Studio Code</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">2. Extensions -&gt; Lean4 (install it)</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">3. Open a file with .lean extension (e.g., "hello.lean"), write #eval Lean.versionString</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">4. At this point, a window should pop up prompting you to install Elan:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">accept that; it should take a little while to download.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">5. When than finishes, if you put your cursor on the line with #eval, you should see</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">something like "4.0.0-nightly-2023-01-27" in the window to the right.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">6. Quit &amp; re-open VSCode.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">7. Now go to Terminal -&gt; New Terminal, and run (in it) "elan default leanprover/lean4:stable"</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt"></span><span style="font-weight: bold">Note:</span><span class="stt"></span><span class="hspace">&nbsp;</span><span class="stt">if you use zsh, you may need to open a bash terminal instead. You can do that</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">by clicking the "down arrow" next to the "+" in the terminal pane, and clicking bash.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">If this doesn't mean anything to you, it probably isn't an issue!</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">8. That should download, print out that it's switching which version of Lean to use.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">9. Quit &amp; re-open VSCode.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt">10. If you go back and put your cursor on the line with #eval, you should now see</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">"4.0.0, commit 7dbfaf9b751917a7fe020485bf57f41fdddcaafa" -- that means you are</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+ <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">using the stable version of Lean 4, as desired.</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h5>
+7
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Programming_in_.Lean)"></a>Programming in Lean
+</h5>
+<p>
+Lean is a <span style="font-style: italic">typed</span> functional programming language. Its type system is more powerful than nearly all others, but
+it shares many features with other typed functional languages like OCaml, Haskell, Scala, etc.
+</p>
+<p>
+For example: all values have types, which we can inspect with <span class="default"><code class="highlight-inline"><span class="k">#check</span></code></span>; this is part of the <span style="font-style: italic">interactive</span>
+nature of Lean:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="k">#check</span> <span class="n">true</span>
+<span class="k">#check</span> <span class="s2">"hello"</span>
+</pre>
+</div>
+</div>
+<p>
+We can make <span class="default"><code class="highlight-inline"><span class="kd">def</span></code></span>inititions:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">m</span> <span class="o">:</span> <span class="n">Nat</span> <span class="o">:=</span> <span class="mi">1</span>       <span class="c1">-- m is a natural number</span>
+<span class="kd">def</span> <span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span> <span class="o">:=</span> <span class="mi">0</span>
+<span class="kd">def</span> <span class="n">b1</span> <span class="o">:</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="n">true</span>  <span class="c1">-- b1 is a Boolean</span>
+<span class="kd">def</span> <span class="n">b2</span> <span class="o">:</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="n">false</span>
+</pre>
+</div>
+</div>
+<p>
+Here we’ve given explicit type annotations to each of the definitions. Often, Lean can infer these, but we will usually
+write them explicitly both to avoid any ambiguity and because it can make it easier to read.
+</p>
+<p>
+We can, of course, ask for the type of definitions and expressions using them.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="k">#check</span> <span class="n">m</span>            <span class="c1">-- output: Nat</span>
+<span class="k">#check</span> <span class="n">n</span>
+<span class="k">#check</span> <span class="n">n</span> <span class="bp">+</span> <span class="mi">0</span>        <span class="c1">-- Nat</span>
+<span class="k">#check</span> <span class="n">m</span> <span class="bp">*</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">0</span><span class="o">)</span>  <span class="c1">-- Nat</span>
+<span class="k">#check</span> <span class="n">b1</span>           <span class="c1">-- Bool</span>
+<span class="k">#check</span> <span class="n">b1</span> <span class="bp">&amp;&amp;</span> <span class="n">b2</span>     <span class="c1">-- "&amp;&amp;" is the Boolean and</span>
+<span class="k">#check</span> <span class="n">b1</span> <span class="bp">||</span> <span class="n">b2</span>     <span class="c1">-- Boolean or</span>
+</pre>
+</div>
+</div>
+<p>
+And since it is a programming language, we can also evaluate expressions:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="k">#eval</span> <span class="mi">5</span> <span class="bp">*</span> <span class="mi">4</span>         <span class="c1">-- 20</span>
+<span class="k">#eval</span> <span class="n">m</span> <span class="bp">+</span> <span class="mi">2</span>         <span class="c1">-- 3</span>
+<span class="k">#eval</span> <span class="o">(</span><span class="n">m</span> <span class="bp">+</span> <span class="mi">7</span><span class="o">)</span> <span class="bp">%</span> <span class="mi">2</span>     <span class="c1">-- 0</span>
+<span class="k">#eval</span> <span class="n">b1</span> <span class="bp">&amp;&amp;</span> <span class="n">b2</span>      <span class="c1">-- false</span>
+</pre>
+</div>
+</div>
+<p>
+<span class="default"><code class="highlight-inline"><span class="kd">def</span></code></span> can also be used to create <span style="font-style: italic">functions</span>, which are expressions that are abstracted over (typed) arguments:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">g</span> <span class="o">(</span><span class="n">s</span> <span class="o">:</span> <span class="n">String</span><span class="o">)</span> <span class="o">:</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="n">s.length</span> <span class="bp">&gt;</span> <span class="mi">0</span>
+</pre>
+</div>
+</div>
+<p>
+Here, we are using an operation <span class="default"><code class="highlight-inline"><span class="n">String.length</span></code></span> to calculate how long a string is: Lean allows, as a convenience, for functions
+that are in a types <span style="font-style: italic">namespace</span> to be applied using dot notation (as above). This works because <span class="default"><code class="highlight-inline"><span class="n">s</span></code></span> has type <span class="default"><code class="highlight-inline"><span class="n">String</span></code></span>, so
+Lean can figure out that <span class="default"><code class="highlight-inline"><span class="n">s.length</span></code></span> means call <span class="default"><code class="highlight-inline"><span class="n">String.length</span> <span class="n">s</span></code></span>. Without the dot notation, the same
+function could be written as:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">g</span> <span class="o">(</span><span class="n">s</span> <span class="o">:</span> <span class="n">String</span><span class="o">)</span> <span class="o">:</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="n">String.length</span> <span class="n">s</span> <span class="bp">&gt;</span> <span class="mi">0</span>
+</pre>
+</div>
+</div>
+<p>
+This form of definition is really just a shorthand over a definition for a function <span style="font-style: italic">value</span>: as a functional language,
+functions are first class. The above could have been written as:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">g</span> <span class="o">:</span> <span class="n">String</span> <span class="bp">-&gt;</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="k">fun</span> <span class="n">s</span> <span class="bp">=&gt;</span> <span class="n">s.length</span> <span class="bp">&gt;</span> <span class="mi">0</span>
+</pre>
+</div>
+</div>
+<p>
+Or, if we wanted to add more type annotations:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">g</span> <span class="o">:</span> <span class="n">String</span> <span class="bp">-&gt;</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="k">fun</span> <span class="o">(</span><span class="n">s</span> <span class="o">:</span> <span class="n">String</span><span class="o">)</span> <span class="bp">=&gt;</span> <span class="n">s.length</span> <span class="bp">&gt;</span> <span class="mi">0</span>
+</pre>
+</div>
+</div>
+<p>
+Note that <span class="default"><code class="highlight-inline"><span class="k">fun</span></code></span> is how we create anonymous functions (or lambdas, as they are often called), and function types
+are written with <span class="default"><code class="highlight-inline"><span class="bp">-&gt;</span></code></span>.
+</p>
+<p>
+We can also use other typical data structures, like lists:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">my_length</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="n">List</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:=</span> <span class="k">match</span> <span class="n">l</span> <span class="k">with</span>
+  <span class="bp">|</span> <span class="o">[]</span> <span class="bp">=&gt;</span> <span class="mi">0</span>
+  <span class="bp">|</span> <span class="n">_</span> <span class="o">::</span> <span class="n">xs</span> <span class="bp">=&gt;</span> <span class="mi">1</span> <span class="bp">+</span> <span class="n">my_length</span> <span class="n">xs</span>
+
+<span class="kd">def</span> <span class="n">my_length'</span> <span class="o">:</span> <span class="n">List</span> <span class="n">Nat</span> <span class="bp">-&gt;</span> <span class="n">Nat</span>
+  <span class="bp">|</span> <span class="n">List.nil</span> <span class="bp">=&gt;</span> <span class="mi">0</span>
+  <span class="bp">|</span> <span class="n">List.cons</span> <span class="n">_</span> <span class="n">xs</span> <span class="bp">=&gt;</span> <span class="mi">1</span> <span class="bp">+</span> <span class="n">my_length'</span> <span class="n">xs</span>
+
+<span class="kd">def</span> <span class="n">my_length''</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="n">List</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:=</span> <span class="n">List.length</span> <span class="n">l</span>
+
+<span class="kd">def</span> <span class="n">my_length'''</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="n">List</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:=</span> <span class="n">l.length</span>
+</pre>
+</div>
+</div>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="l11.html" title="backward to &quot;Lecture 11: Rosette &amp; Finitization&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l13.html" title="forward to &quot;Lecture 13: Functions&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

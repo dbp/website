@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span> Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+<div class="maincolumn">
+ <div class="main">
+  <div class="versionbox">
+   <span class="version">8.7</span>
+  </div>
+  <div class="navsettop">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="l1.html" title="backward to &quot;Lecture 1: Intro&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l3.html" title="forward to &quot;Lecture 3: Propositional Logic in Code&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+ </div>
+ <h4>
+  <a name="(part._l2)"></a>Lecture 2: Logistics, Specifications in ISL
+ </h4>
+ <h5>
+  1
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Purpose)"></a>Purpose
+ </h5>
+ <p>
+  Cover course policies, start propositional logic.
+ </p>
+ <h5>
+  2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Outline)"></a>Outline
+ </h5>
+ <p>
+  <span class="Larger">Bring computer to class! We’ll often write things in class.</span>
+ </p>
+ <p>
+  <span class="Larger">Install DrRacket, if you don’t have it already. Update it if it’s below 8.6</span>
+ </p>
+ <p>
+  <span class="Larger">Install ISL-Spec</span>
+ </p>
+ <p>
+  You can install it from within DrRacket by going to <span class="RktSym">File</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym"><span class="nobreak">-&gt;</span></span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">Install</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">Package...</span><span class="RktMeta"></span>, and then searching for <span class="RktSym">isl-spec</span><span class="RktMeta"></span>.
+ </p>
+ <p>
+  <span class="Larger">Switch to "Determine Language from Source" at the bottom left</span> (to get this option, you may need to click "Choose language" and then choose "The Racket Language") and begin each file with "#lang isl-spec".
+ </p>
+ <p>
+  This language is an extension of the the Intermediate Student Language with Lambda (ISL+) language Fundies 1, with a few features for logical reasoning.
+ </p>
+ <p>
+  If you need review of ISL+:
+ </p>
+ <p>
+  <a href="https://docs.racket-lang.org/htdp-langs/intermediate.html">ISL+ documentation</a>
+ </p>
+ <p>
+  <a href="https://htdp.org/2022-8-7/Book/i1-2.html">Chapter on BSL in HtDP</a>
+ </p>
+ <p>
+  <a href="https://htdp.org/2022-8-7/Book/part_three.html#%28part._ch~3a3use%29">Chapter on local in HtDP</a>
+ </p>
+ <p>
+  <a href="https://htdp.org/2022-8-7/Book/part_three.html#%28part._ch~3a3lambda%29">Chapter on lambda in HtDP</a>
+ </p>
+ <p>
+  We’ll also, twice during the semester, install additional pieces of software, but we’ll defer until we need them.
+ </p>
+ <p>
+  <span class="Larger">Quizes</span>
+Will happen nearly every day. They are short, and we will drop about the lowest 1/3 of them, so if you are sick,
+or miss a few classes, you won’t be penalized. They happen via PollEverywhere, which you
+should log in to now, using your phone:
+ </p>
+ <p>
+  pollev.com/logic
+ </p>
+ <p>
+  Let’s try doing one: this one doesn’t count, but confirms that you’re able to take them.
+ </p>
+ <p>
+  <span class="Larger">Syllabus!</span>
+ </p>
+ <p>
+  Important details: grading allocation, HW collaboration policies, in-class quizes.
+ </p>
+ <p>
+  (cover in some detail)
+ </p>
+ <p>
+  <span class="Larger">Office hours</span>
+ </p>
+ <p>
+  Start next week. Most are online, but some are in-person. In addition to TAs, I have open drop-in hours; you can talk to me about stuff from the class, but also, anything else you are interested in. I’m happy to talk about research, larger implications of any of this, projects you’re working on, etc.
+ </p>
+ <p>
+  <span class="Larger">Homework</span>
+ </p>
+ <p>
+  Due every week, Wednesdays at 6pm. We will aim to get them back to you by the weekend. Homework in
+this class is the primary way that you will learn the material, so we want the feedback loop to be tight.
+ </p>
+ <p>
+  <span class="Larger">Start experimenting with isl-spec</span>
+ </p>
+ <p>
+  Set "Determine Language from Source" at bottom left, write
+  <font class="badlink">
+   <span class="RktModLink"><span class="RktMod">#lang</span></span>
+  </font>
+  <span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span>
+  <font class="badlink">
+   <span class="RktModLink"><span class="RktSym">isl-spec</span></span>
+  </font>
+  <span class="RktMeta"></span> at top of file, write some simple functions.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="c1">; f1 : Number Number -&gt; Number</span><span class="w"></span>
+<span class="c1">; adds two numbers</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">f1</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  In addition to all the features from ISL+, ISL-Spec adds a few new ones. The first
+is that we have a new <span class="RktSym">check-property</span><span class="RktMeta"></span> that has two ways of using it. First is, it takes an expression that
+returns a boolean and ensures that it is true. i.e.,
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="n">f1</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">12</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  But that could have been better written as:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">f1</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  What we actually will use it for is to write down predicates that we expect to hold, and then use
+<span class="RktSym">check-property</span><span class="RktMeta"></span> with them. For example:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="c1">; my-abs : Number -&gt; Number</span><span class="w"></span>
+<span class="c1">; takes absolute value of number</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">my-abs</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="p">))</span><span class="w"></span>
+
+<span class="c1">; nonnegative? : Number -&gt; Boolean</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">nonnegative?</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nb">positive?</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">nonnegative?</span><span class="w"> </span><span class="p">(</span><span class="n">my-abs</span><span class="w"> </span><span class="mi">10</span><span class="p">)))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">nonnegative?</span><span class="w"> </span><span class="p">(</span><span class="n">my-abs</span><span class="w"> </span><span class="mi">-5</span><span class="p">)))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">nonnegative?</span><span class="w"> </span><span class="p">(</span><span class="n">my-abs</span><span class="w"> </span><span class="mi">0</span><span class="p">)))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This is our first example of a formal specification: the result of <span class="RktSym">my-abs</span><span class="RktMeta"></span> should be non-negative.
+It is formal because it is expressed in unambiguous language: in this case, in executable ISL-Spec code. And
+it is a specification because it is an abstracted, higher level description of the behavior of the program,
+that hopefully has utility to someone who wants to use or understand the code. Purpose statements, with you
+are familiar with, are informal specifications.
+ </p>
+ <p>
+  <span class="Larger">Why do you think we prefer formal to informal specifications?</span>
+ </p>
+ <p>
+  Answer: better precision, and we can often actually connect them to the code we run, as above.
+ </p>
+ <p>
+  Now, we could have written the above as unit tests instead, albeit while <span style="font-style: italic">losing</span> the informative
+observation that the output is nonnegative.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-abs</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-abs</span><span class="w"> </span><span class="mi">-5</span><span class="p">)</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">my-abs</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Perhaps a reader would understand from the behavior that this is what is going on, and an informal
+specification (a purpose statement) would go a long way to helping. But there are plenty of functions
+we can write where unit tests can’t even accurately specify the behavior. Let’s see an example:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="c1">; longest-string : [List-of String] -&gt; String</span><span class="w"></span>
+<span class="c1">; returns longest string in list or "" if empty</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">longest-string</span><span class="w"> </span><span class="n">los</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">longest-string</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="s2">"a"</span><span class="w"> </span><span class="s2">"bb"</span><span class="w"> </span><span class="s2">"CCC"</span><span class="p">))</span><span class="w"> </span><span class="s2">"CCC"</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">longest-string</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">))</span><span class="w"> </span><span class="s2">""</span><span class="p">)</span><span class="w"></span>
+<span class="c1">;(check-expect (longest-string (list "aa" "b" "c" "dd")) "aa")</span><span class="w"></span>
+<span class="c1">;(check-expect (longest-string (list "aa" "b" "c" "dd")) "dd")</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  I’ve deliberately left out the implementation, because there is a problem with the tests:
+the last two have different outputs, but the same inputs! Which is not something a function can do!
+We could choose one, but then we are <span style="font-style: italic">overly specifying</span> the behavior of our function:
+we are saying it has to return the <span style="font-style: italic">first</span> longest or the <span style="font-style: italic">last</span> longest What
+if someone comes up with a clever algorithm that will return <span style="font-style: italic">one of</span> the longest, but not
+necessarily that one: according to our specification, in the form of our tests, it would be wrong.
+ </p>
+ <p>
+  We can, and should, do better:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">longest-string-prop</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[(</span><span class="n">max-len</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="p">(</span><span class="n">longest-string</span><span class="w"> </span><span class="n">l</span><span class="p">)))]</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nb">andmap</span><span class="w"> </span><span class="p">(</span><span class="k">λ</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">max-len</span><span class="p">))</span><span class="w"> </span><span class="n">l</span><span class="p">)))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">longest-string-prop</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="s2">"aa"</span><span class="w"> </span><span class="s2">"b"</span><span class="w"> </span><span class="s2">"c"</span><span class="w"> </span><span class="s2">"dd"</span><span class="p">)))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Now, we’ve expressed exactly what we mean by longest string, in a formal specification:
+that the lengths of all the strings in the list are at least as big as it! This means that we could
+define <span class="RktSym">longest-string</span><span class="RktMeta"></span> with, for example, either <span class="RktSym">foldr</span><span class="RktMeta"></span> or <span class="RktSym">foldl</span><span class="RktMeta"></span> and all of the
+tests would still pass: something that would have been impossible before, unless we simply didn’t
+test any cases where there were multiple strings with the longest length (which would be pretty
+terrible).
+ </p>
+ <p>
+  <span class="Larger">Stepping back</span> we will see lots of ways to write specifications this semester, and
+lots of ways to connect them to code, but the general pattern you already see will carry through
+all of it. The point of formal specification is to be precise (more precise than a purpose statement)
+and to be able to actually validate your specification.
+ </p>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="l1.html" title="backward to &quot;Lecture 1: Intro&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l3.html" title="forward to &quot;Lecture 3: Propositional Logic in Code&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

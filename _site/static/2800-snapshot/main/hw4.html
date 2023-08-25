@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewselflink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="hw1.html" class="tocviewlink" data-pltdoc="x">Homework 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="hw2.html" class="tocviewlink" data-pltdoc="x">Homework 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="hw3.html" class="tocviewlink" data-pltdoc="x">Homework 3</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Homework 4</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          5&nbsp;
+         </td>
+         <td>
+          <a href="hw5.html" class="tocviewlink" data-pltdoc="x">Homework 5</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          6&nbsp;
+         </td>
+         <td>
+          <a href="hw7.html" class="tocviewlink" data-pltdoc="x">Homework 7</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7&nbsp;
+         </td>
+         <td>
+          <a href="hw9.html" class="tocviewlink" data-pltdoc="x">Homework 9</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8&nbsp;
+         </td>
+         <td>
+          <a href="hw10.html" class="tocviewlink" data-pltdoc="x">Homework 10</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9&nbsp;
+         </td>
+         <td>
+          <a href="hw11.html" class="tocviewlink" data-pltdoc="x">Homework 11</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          10&nbsp;
+         </td>
+         <td>
+          <a href="hw12.html" class="tocviewlink" data-pltdoc="x">Homework 12</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td>
+         4&nbsp;
+        </td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Homework 4</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          4.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Superoptimization%29" class="tocviewlink" data-pltdoc="x">Superoptimization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_1%29" class="tocviewlink" data-pltdoc="x">Problem 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_2%29" class="tocviewlink" data-pltdoc="x">Problem 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_3%29" class="tocviewlink" data-pltdoc="x">Problem 3</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_4%29" class="tocviewlink" data-pltdoc="x">Problem 4</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4.6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_5%29" class="tocviewlink" data-pltdoc="x">Problem 5</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">4.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Superoptimization%29" class="tocsubseclink" data-pltdoc="x">Superoptimization</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">4.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Problem_1%29" class="tocsubseclink" data-pltdoc="x">Problem 1</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">4.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Problem_2%29" class="tocsubseclink" data-pltdoc="x">Problem 2</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">4.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Problem_3%29" class="tocsubseclink" data-pltdoc="x">Problem 3</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">4.5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Problem_4%29" class="tocsubseclink" data-pltdoc="x">Problem 4</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">4.6
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Problem_5%29" class="tocsubseclink" data-pltdoc="x">Problem 5</a>
+ </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.7</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="hw3.html" title="backward to &quot;3 Homework 3&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw5.html" title="forward to &quot;5 Homework 5&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h4>
+4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._hw4)"></a>Homework 4
+</h4>
+<p>
+<span style="font-weight: bold">Released:</span> <span style="font-style: italic">Wednesday, February 1, 2023 at 6:00pm</span>
+</p>
+<p>
+<span style="font-weight: bold">Due:</span> <span style="font-style: italic">Wednesday, February 8, 2023 at 6:00pm</span>
+</p>
+<blockquote class="boxed">
+<p>
+What to Download:
+</p>
+<p>
+<a href="https://github.com/logiccomp/s23-hw4/raw/main/hw4.rkt"><span class="url">https://github.com/logiccomp/s23-hw4/raw/main/hw4.rkt</span></a>
+</p>
+</blockquote>
+<p>
+Please start with this file, filling in where appropriate, and submit your homework to the <span class="stt">HW4</span> assignment on Gradescope. This page has additional information, and allows us to format things nicely.
+</p>
+<h5>
+4.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Superoptimization)"></a>Superoptimization
+</h5>
+<p>
+Superoptimization is the idea of replacing a given loop-free sequence of instructions with an equivalent sequence of instructions
+that is somehow better (usually, shorter and as a result, faster). It’s used in compilers at the very lowest level, to
+optimize numeric operations into often counter-intuitive sequences of instructions that can be baffling at first. It was invented by computer scientist Alexia Massalin in 1987: her idea was to find the shortest sequence of instructions, given a particular instruction set, to compute a given function. This
+is in contrast to most compiler optimization, which merely aim to improve performance, rather than
+finding truly optimal solutions.
+</p>
+<p>
+The resulting programs often rely somewhat complex interactions between different instructions, and sometimes "startling" programs that rely on strange overlap between representations of
+different values: often times, code with branches is replaced with equivalent code that doesn’t use branches, for example.
+</p>
+<h5>
+4.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_1)"></a>Problem 1
+</h5>
+<p>
+While super-optimization is something that can be done using SMT solvers, in this homework, we will tackle a simpler problem: verifying ordinary optimizations. In particular,
+showing that a program before and after an optimization are equivalent.
+</p>
+<p>
+Our first optimization will use a slightly extended version of the same stack-based calculator
+from HW2. Note that since we are using the language <span class="default"><code class="highlight-inline"><span class="kn">#lang </span><span class="nn">rosette/safe</span><span class="w"></span></code></span> instead of <span class="default"><code class="highlight-inline"><span class="kn">#lang </span><span class="nn">isl-spec</span><span class="w"></span></code></span>, <span class="default"><code class="highlight-inline"><span class="k">define-struct</span><span class="w"></span></code></span> is slightly different, in that by default the struct values will
+print out without showing their contents. The <span class="default"><code class="highlight-inline"><span class="kd">#:transparent</span><span class="w"></span></code></span> optional argument changes
+that.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="w"> </span><span class="kd">#:transparent</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="kd">#:transparent</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">mul</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="kd">#:transparent</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="kd">#:transparent</span><span class="p">)</span><span class="w"></span>
+<span class="c1">; A SimpleInstr is one of:</span><span class="w"></span>
+<span class="c1">; - (make-push Number)</span><span class="w"></span>
+<span class="c1">; - (make-add)</span><span class="w"></span>
+<span class="c1">; - (make-mul)</span><span class="w"></span>
+<span class="c1">; - (make-sub)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">simple-eval</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[</span><span class="c1">; stack-binop : [Number Number -&gt; Number] [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="c1">;               [List-of SimpleInstr] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="c1">; evaluates a binary operator on top two numbers of stack, if present</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">stack-binop</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">(</span><span class="n">simple-eval</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">second</span><span class="w"> </span><span class="n">stk</span><span class="p">))</span><span class="w"></span>
+<span class="w">                            </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">stk</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                      </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">(</span><span class="nb">list</span><span class="p">)))</span><span class="w"></span>
+
+<span class="w">          </span><span class="c1">; eval-instr : Instr [List-of Number] [List-of SimpleInstr] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="c1">; evaluates a single instruction, given a stack and rest of instructions</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">eval-instr</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="n">add?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">stack-binop</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="n">mul?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">stack-binop</span><span class="w"> </span><span class="nb">*</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="n">sub?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">stack-binop</span><span class="w"> </span><span class="nb">-</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="n">push?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">simple-eval</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="n">push-num</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]))]</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">[(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">eval-instr</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">instrs</span><span class="p">))])))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Your task is to first implement a function that verifies that two programs written in this
+language are equivalent, where equivalent means runs to the same thing:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; simple-stack-verify : [List-of SimpleInstr] [List-of SimpleInstr] -&gt; Boolean</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">simple-stack-verify</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="n">p2</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<h5>
+4.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_2)"></a>Problem 2
+</h5>
+<p>
+The next problem is to implement a simple optimization. In this case, we want you to implement
+a simple form of <span style="font-style: italic">constant folding</span>. Constant folding is the idea of replacing a series of
+operations that are all on constants with the result of running those operations at optimization time. By doing it at optimization time, it won’t have to be done when the program is actually running. In this case,
+we want your optimization to replace the sequence <span class="default"><code class="highlight-inline"><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-add</span><span class="p">)</span><span class="w"></span></code></span> with <span class="default"><code class="highlight-inline"><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"></span></code></span> where <span class="default"><code class="highlight-inline"><span class="n">o</span><span class="w"></span></code></span> is <span class="default"><code class="highlight-inline"><span class="n">m</span><span class="w"></span></code></span> plus <span class="default"><code class="highlight-inline"><span class="n">n</span><span class="w"></span></code></span>. You do not need to (and should not) replace
+sequences that only appear after the initial constant folding has been done. i.e., the sequence <span class="default"><code class="highlight-inline"><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-add</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-add</span><span class="p">)</span><span class="w"></span></code></span> should turn into <span class="default"><code class="highlight-inline"><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-add</span><span class="p">)</span><span class="w"></span></code></span>, where <span class="default"><code class="highlight-inline"><span class="n">o</span><span class="w"></span></code></span> is the result of adding <span class="default"><code class="highlight-inline"><span class="n">n</span><span class="w"></span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">m</span><span class="w"></span></code></span>, but should <span style="font-style: italic">not</span> be further optimized into a single <span class="default"><code class="highlight-inline"><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"></span></code></span>, where <span class="default"><code class="highlight-inline"><span class="n">p</span><span class="w"></span></code></span> is the result of adding <span class="default"><code class="highlight-inline"><span class="n">l</span><span class="w"></span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">o</span><span class="w"></span></code></span>.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; simple-const-fold: [List-of SimpleInstr] -&gt; [List-of SimpleInstr]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">simple-const-fold</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<h5>
+4.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_3)"></a>Problem 3
+</h5>
+<p>
+To check that your constant folding works, we are going to take two approaches. First, we’ll
+use Property Based Testing (PBT) using the <a href="https://docs.racket-lang.org/quickcheck/index.html">Quickcheck</a> library. In order to do that, you need to
+define a generator for <span class="default"><code class="highlight-inline"><span class="n">SimpleInstr</span><span class="w"></span></code></span>s. Note that, since we are in a <span class="default"><code class="highlight-inline"><span class="kn">#lang </span><span class="nn">rosette/safe</span><span class="w"></span></code></span> file, we have required the quickcheck library directly, so there are no <span class="RktSym">qc:</span><span class="RktMeta"></span> prefixes on the functions.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; choose-simple-instr : [Generator SimpleInstr]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">choose-simple-instr</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                       </span>
+</pre>
+</div>
+</div>
+<p>
+With that, you can now define a property that generates a list of instructions, runs the constant
+folding optimization on it, and then verifies that the result is equivalent to the original program. Note that <span class="default"><code class="highlight-inline"><span class="n">property</span><span class="w"></span></code></span> is how the quickcheck library writes <span class="RktSym">for-all</span><span class="RktMeta"></span>.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="p">(</span><span class="n">quickcheck</span><span class="w"> </span><span class="p">(</span><span class="n">property</span><span class="w"> </span><span class="p">[</span><span class="k">...</span><span class="p">]</span><span class="w"> </span><span class="k">...</span><span class="p">))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<h5>
+4.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_4)"></a>Problem 4
+</h5>
+<p>
+To gain more confidence in our approach, we’ll use Rosette to do a limited form of <span style="font-style: italic">exhaustive</span>
+testing. First, we’ll define a symbolic version of a <span class="default"><code class="highlight-inline"><span class="n">SimpleInstr</span><span class="w"></span></code></span>, using <span class="default"><code class="highlight-inline"><span class="n">choose*</span><span class="w"></span></code></span> to enumerate different possibilies (for reference on how to do this, see lecture notes: <a href="l10.html" data-pltdoc="x">2/1</a>):
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; symbolic-simpl-instr : -&gt; [Symbolic SimpleInstr]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">symbolic-simple-instr</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Using that, we can define a program that a is list of up to 6 instructions. Think about how you could
+have it be <span style="font-style: italic">up to</span> 6 instructions, rather than exactly 6 instructions.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; symbolic-simple-prog : [Symbolic [List-of SimpleInstr]]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">symbolic-simple-prog</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Finally, we can now use this symbolic program to verify that the constant folding optimization
+works on all programs of up to 6 instructions by using <span class="default"><code class="highlight-inline"><span class="n">verify</span><span class="w"></span></code></span> and
+<span class="default"><code class="highlight-inline"><span class="n">assert</span><span class="w"></span></code></span> from Rosette.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="p">(</span><span class="n">verify</span><span class="w"> </span><span class="p">(</span><span class="n">assert</span><span class="w"> </span><span class="k">...</span><span class="p">))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<h5>
+4.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_5)"></a>Problem 5
+</h5>
+<p>
+In this problem, we’ll extend the stack calculator to include <span style="font-style: italic">variables</span>, so that
+there are real limits to what even the best constant folding could do. We represent variable
+names with numbers, to make things easier, and now <span class="default"><code class="highlight-inline"><span class="nb">eval</span><span class="w"></span></code></span> takes a set of
+variable bindings that give values for each variable.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="w"> </span><span class="kd">#:transparent</span><span class="p">)</span><span class="w"></span>
+<span class="c1">; An Instr is one of:</span><span class="w"></span>
+<span class="c1">; - (make-push Number)</span><span class="w"></span>
+<span class="c1">; - (make-add)</span><span class="w"></span>
+<span class="c1">; - (make-mul)</span><span class="w"></span>
+<span class="c1">; - (make-sub)</span><span class="w"></span>
+<span class="c1">; - (make-var Number)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="p">[</span><span class="n">name</span><span class="w"> </span><span class="n">value</span><span class="p">]</span><span class="w"> </span><span class="kd">#:transparent</span><span class="p">)</span><span class="w"></span>
+<span class="c1">; A Binding is a (make-bind Number Number)</span><span class="w"></span>
+
+
+<span class="c1">; eval : [List-of Binding] [List-of Number] [List-of Instr] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="c1">; will return an empty list if it reaches an unbound variable, or a malformed</span><span class="w"></span>
+<span class="c1">; program (trying to do an operation without enough values on stack).</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[</span><span class="c1">; stack-binop : [Number Number -&gt; Number] [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="c1">;               [List-of Instr] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="c1">; evaluates a binary operator on top two numbers of stack, if present</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">stack-binop</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="n">env</span><span class="w"></span>
+<span class="w">                      </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">second</span><span class="w"> </span><span class="n">stk</span><span class="p">))</span><span class="w"></span>
+<span class="w">                            </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">stk</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                      </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">(</span><span class="nb">list</span><span class="p">)))</span><span class="w"></span>
+
+<span class="w">          </span><span class="c1">; lookup-var : String [List-of Binding] [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="c1">;              [List-of Instr] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">lookup-var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">env</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">env</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">equal?</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">(</span><span class="n">bind-name</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">env</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                                   </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="n">env</span><span class="w"></span>
+<span class="w">                                         </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="n">bind-value</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">env</span><span class="p">))</span><span class="w"></span>
+<span class="w">                                               </span><span class="n">stk</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                         </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                   </span><span class="p">(</span><span class="n">lookup-var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">env</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">))]))</span><span class="w"></span>
+
+<span class="w">          </span><span class="c1">; eval-instr : Instr [List-of Number] [List-of SimpleInstr] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="w">          </span><span class="c1">; evaluates a single instruction, given a stack and rest of instructions</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">eval-instr</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="n">add?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">stack-binop</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="n">mul?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">stack-binop</span><span class="w"> </span><span class="nb">*</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="n">sub?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">stack-binop</span><span class="w"> </span><span class="nb">-</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="n">push?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">eval</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="n">push-num</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="p">)</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">[(</span><span class="n">var?</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">lookup-var</span><span class="w"> </span><span class="p">(</span><span class="n">var-name</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="n">instrs</span><span class="p">)]))]</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">[(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">eval-instr</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">instrs</span><span class="p">)</span><span class="w"> </span><span class="n">stk</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">instrs</span><span class="p">))])))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Your first task is to make an updated version of your verify function, to check that two programs
+are equivalent. Now, you take in a set of variable bindings that both programs will use.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; stack-verify : [List-of Binding] [List-of Instr] [List-of Instr] -&gt; Boolean</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">stack-verify</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="n">p2</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Your next task is to define a more general version of constant folding. This time, look for
+any sequence of <span class="default"><code class="highlight-inline"><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-push</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-op</span><span class="p">)</span><span class="w"></span></code></span> where <span class="default"><code class="highlight-inline"><span class="n">op</span><span class="w"></span></code></span> is one of <span class="default"><code class="highlight-inline"><span class="n">add</span><span class="w"></span></code></span>, <span class="default"><code class="highlight-inline"><span class="n">sub</span><span class="w"></span></code></span>, or <span class="default"><code class="highlight-inline"><span class="n">mul</span><span class="w"></span></code></span>. You still
+shouldn’t replace sequences that only appear after the initial constant folding has been done.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; const-fold : [List-of Instr] -&gt; [List-of Instr]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">const-fold</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Now, define a new generator for instructions:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; choose-instr : [Generator Instr]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">choose-instr</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+And a generator for bindings:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; choose-bind : [Generator Binding]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">choose-bind</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+So you can do PBT testing of your constant folding:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="p">(</span><span class="n">quickcheck</span><span class="w"> </span><span class="p">(</span><span class="n">property</span><span class="w"> </span><span class="p">[</span><span class="k">...</span><span class="p">]</span><span class="w"> </span><span class="k">...</span><span class="p">))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+Now you’ll update the symbolic version, by defining a symbolic instruction, program, binding,
+and environment. Note that for this example, to keep things running fast, have the
+program have only up to <span style="font-weight: bold">4</span> instructions, and have the environment have only up to <span style="font-weight: bold">2</span> bindings.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">; symbolic-instr : [Symbolic Instr]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">symbolic-instr</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">; symbolic-prog : [Symbolic [List-of Instr]]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">symbolic-prog</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">; symbolic-bind : [Symbolic Binding]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">symbolic-bind</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">; symbolic-env : [Symbolic [List-of [Symbolic Binding]]]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">symbolic-env</span><span class="w"> </span><span class="k">...</span><span class="p">)</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<p>
+And finally using that, we can run the same verification as before:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="p">(</span><span class="n">verify</span><span class="w"> </span><span class="p">(</span><span class="n">assert</span><span class="w"> </span><span class="k">...</span><span class="p">))</span><span class="w"></span>
+</pre>
+</div>
+</div>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="hw3.html" title="backward to &quot;3 Homework 3&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw5.html" title="forward to &quot;5 Homework 5&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

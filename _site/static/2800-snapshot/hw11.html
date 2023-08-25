@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewselflink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="hw1.html" class="tocviewlink" data-pltdoc="x">Homework 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="hw2.html" class="tocviewlink" data-pltdoc="x">Homework 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="hw3.html" class="tocviewlink" data-pltdoc="x">Homework 3</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="hw4.html" class="tocviewlink" data-pltdoc="x">Homework 4</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          5&nbsp;
+         </td>
+         <td>
+          <a href="hw5.html" class="tocviewlink" data-pltdoc="x">Homework 5</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          6&nbsp;
+         </td>
+         <td>
+          <a href="hw7.html" class="tocviewlink" data-pltdoc="x">Homework 7</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7&nbsp;
+         </td>
+         <td>
+          <a href="hw9.html" class="tocviewlink" data-pltdoc="x">Homework 9</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8&nbsp;
+         </td>
+         <td>
+          <a href="hw10.html" class="tocviewlink" data-pltdoc="x">Homework 10</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Homework 11</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          10&nbsp;
+         </td>
+         <td>
+          <a href="hw12.html" class="tocviewlink" data-pltdoc="x">Homework 12</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td>
+         9&nbsp;
+        </td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Homework 11</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          9.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_1__.Proving_with_.Classical_.Logic%29" class="tocviewlink" data-pltdoc="x">Problem 1:<span class="mywbr"> &nbsp;</span> Proving with Classical Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Returning_to_specifications%29" class="tocviewlink" data-pltdoc="x">Returning to specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_2__.Red_.Black_.Trees%29" class="tocviewlink" data-pltdoc="x">Problem 2:<span class="mywbr"> &nbsp;</span> Red Black Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_3__.Information_.Flow%29" class="tocviewlink" data-pltdoc="x">Problem 3:<span class="mywbr"> &nbsp;</span> Information Flow</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_4__.Algorithmic_.Fairness%29" class="tocviewlink" data-pltdoc="x">Problem 4:<span class="mywbr"> &nbsp;</span> Algorithmic Fairness</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">9.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Problem_1__.Proving_with_.Classical_.Logic%29" class="tocsubseclink" data-pltdoc="x">Problem 1:<span class="mywbr"> &nbsp;</span> Proving with Classical Logic</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">9.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Returning_to_specifications%29" class="tocsubseclink" data-pltdoc="x">Returning to specifications</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">9.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Problem_2__.Red_.Black_.Trees%29" class="tocsubseclink" data-pltdoc="x">Problem 2:<span class="mywbr"> &nbsp;</span> Red Black Trees</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">9.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Problem_3__.Information_.Flow%29" class="tocsubseclink" data-pltdoc="x">Problem 3:<span class="mywbr"> &nbsp;</span> Information Flow</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">9.5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Problem_4__.Algorithmic_.Fairness%29" class="tocsubseclink" data-pltdoc="x">Problem 4:<span class="mywbr"> &nbsp;</span> Algorithmic Fairness</a>
+  </td>
+ </tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.7</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="hw10.html" title="backward to &quot;8 Homework 10&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw12.html" title="forward to &quot;10 Homework 12&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h4>
+9
+<tt>
+&nbsp;
+</tt>
+<a name="(part._hw11)"></a>Homework 11
+</h4>
+<p>
+<span style="font-weight: bold">Released:</span> <span style="font-style: italic">Wednesday, March 29, 2023 at 6:00pm</span>
+</p>
+<p>
+<span style="font-weight: bold">Due:</span> <span style="font-style: italic">Wednesday, April 5, 2023 at 6:00pm</span>
+</p>
+<blockquote class="boxed">
+<p>
+What to Download:
+</p>
+<p>
+<a href="https://github.com/logiccomp/s23-hw11/raw/main/hw11.lean"><span class="url">https://github.com/logiccomp/s23-hw11/raw/main/hw11.lean</span></a>
+</p>
+</blockquote>
+<p>
+Please start with this file, filling in where appropriate, and submit your homework to the <span class="stt">hw11</span> assignment on Gradescope. This page has additional information, and allows us to format things nicely.
+</p>
+<p>
+<span style="font-weight: bold">To do this assignment in the browser: <a href="https://github.com/codespaces/new?machine=basicLinux32gb&amp;repo=578247893&amp;location=EastUs&amp;ref=main&amp;devcontainer_path=.devcontainer%2Fdevcontainer.json">Create a Codespace</a>.</span>
+</p>
+<h5>
+9.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_1__.Proving_with_.Classical_.Logic)"></a>Problem 1: Proving with Classical Logic
+</h5>
+<p>
+In this problem, you will prove various theorems, some of which require an axiom from classical logic, <span class="default"><code class="highlight-inline"><span class="n">Classical.em</span></code></span>, and others do not!
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">-- 12 lines: does this need Classical.em?</span>
+<span class="kd">theorem</span> <span class="n">p_iff_false</span><span class="o">:</span> <span class="bp">∀</span> <span class="n">P</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">,</span> <span class="o">(</span><span class="n">P</span> <span class="bp">↔</span> <span class="n">False</span><span class="o">)</span> <span class="bp">↔</span> <span class="bp">¬</span> <span class="n">P</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="c1">-- 9 lines: does this need Classical.em?</span>
+<span class="kd">theorem</span> <span class="n">p_and_not_p_eq_false</span><span class="o">:</span> <span class="bp">∀</span> <span class="n">P</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">,</span> <span class="o">(</span><span class="n">P</span> <span class="bp">∧</span> <span class="bp">¬</span> <span class="n">P</span><span class="o">)</span> <span class="bp">↔</span> <span class="n">False</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="c1">-- 21 lines: does this need Classical.em?</span>
+<span class="kd">theorem</span> <span class="n">or_absorb_and_or</span><span class="o">:</span> <span class="bp">∀</span> <span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">,</span> <span class="n">P</span> <span class="bp">∨</span> <span class="o">(</span><span class="bp">¬</span> <span class="n">P</span> <span class="bp">∧</span> <span class="n">Q</span><span class="o">)</span> <span class="bp">↔</span> <span class="o">(</span><span class="n">P</span> <span class="bp">∨</span> <span class="n">Q</span><span class="o">)</span> <span class="o">:=</span>
+  <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="c1">-- 11 lines: does this need Classical.em?</span>
+<span class="kd">theorem</span> <span class="n">redundant_and</span><span class="o">:</span> <span class="bp">∀</span> <span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">,</span> <span class="o">(</span><span class="n">P</span> <span class="bp">∨</span> <span class="n">Q</span><span class="o">)</span> <span class="bp">∧</span> <span class="o">(</span><span class="n">P</span> <span class="bp">∨</span> <span class="bp">¬</span> <span class="n">Q</span><span class="o">)</span> <span class="bp">↔</span> <span class="n">P</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="c1">-- 10 lines: does this need Classical.em?</span>
+<span class="kd">theorem</span> <span class="n">exportation</span><span class="o">:</span> <span class="bp">∀</span> <span class="n">A</span> <span class="n">B</span> <span class="n">C</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">,</span> <span class="o">(</span><span class="n">A</span> <span class="bp">→</span> <span class="n">B</span> <span class="bp">→</span> <span class="n">C</span><span class="o">)</span> <span class="bp">↔</span> <span class="o">(</span><span class="n">A</span> <span class="bp">∧</span> <span class="n">B</span> <span class="bp">→</span> <span class="n">C</span><span class="o">)</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+    
+</pre>
+</div>
+</div>
+<h5>
+9.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Returning_to_specifications)"></a>Returning to specifications
+</h5>
+<p>
+In the remaining problems, you will write definitions and theorems,
+but <span style="font-weight: bold">no proofs</span>. We are moving back towards focusing on
+<span style="font-style: italic">specification</span>, rather than <span style="font-style: italic">proof</span>, which has been our focus for the past six weeks. While one secondary goal of this class was to expose you to various methods of proof, the primary goal was to learn how to think about specifications, and how to reason formally about behavior of programs.
+</p>
+<h5>
+9.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_2__.Red_.Black_.Trees)"></a>Problem 2: Red Black Trees
+</h5>
+<p>
+A red-black balanced binary search tree is a binary search tree that uses the following invariant to ensure that it remains balanced, and as a result, operations on it remain fast.
+</p>
+<p>
+It is defined as follows:
+</p>
+<ul>
+<li>
+<p>
+ Each node has a color (red or black) associated with it (in addition to its value and left and right children)
+</p>
+</li>
+<li>
+<p>
+ A node can be ’null’: these will form the leaves of the tree.
+</p>
+</li>
+</ul>
+<p>
+Further, the following three properties hold:
+</p>
+<ul>
+<li>
+<p>
+ (root property) The root of the red-black tree is black
+</p>
+</li>
+<li>
+<p>
+ (red property) The children of a red node are black.
+</p>
+</li>
+<li>
+<p>
+ (black property) For each node with at least one null child, the number of black nodes on the path from the root to the null child is the same.
+</p>
+</li>
+</ul>
+<p>
+As a binary search tree, all left children are <span style="font-style: italic">less</span> than right children. Elements will be natural numbers, in our case.
+</p>
+<p>
+Your task is to:
+</p>
+<ol>
+<li>
+<p>
+ Design an inductive type RedBlackTree. It should have Nat’s as values. Use the empty inductive type below to start.
+</p>
+</li>
+<li>
+<p>
+ Given the (blank) definitions for empty (to create an empty tree), insert (to insert a new number to the tree) &amp; delete (to remove a number), write theorems that ensure that the properties hold. Note that you do not need to _prove_ the theorems, just write down what they are.
+</p>
+</li>
+</ol>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">RedBlackTree</span> <span class="o">:</span> <span class="kt">Type</span> <span class="n">where</span>
+
+<span class="kd">def</span> <span class="n">RedBlackTree.empty</span> <span class="o">:</span> <span class="n">RedBlackTree</span> <span class="o">:=</span> <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="kd">def</span> <span class="n">RedBlackTree.insert</span> <span class="o">:</span> <span class="n">RedBlackTree</span> <span class="bp">-&gt;</span> <span class="n">Nat</span> <span class="bp">-&gt;</span> <span class="n">RedBlackTree</span> <span class="o">:=</span> <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="kd">def</span> <span class="n">RedBlackTree.delete</span> <span class="o">:</span> <span class="n">RedBlackTree</span> <span class="bp">-&gt;</span> <span class="n">Nat</span> <span class="bp">-&gt;</span> <span class="n">RedBlackTree</span> <span class="o">:=</span> <span class="kd">by</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<h5>
+9.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_3__.Information_.Flow)"></a>Problem 3: Information Flow
+</h5>
+<p>
+Throughout most of the semester, we have been concerned with software
+<span style="font-style: italic">correctness</span>: i.e., how to ensure that a particular function, given
+some input, produces a given output. That’s not, however, the only
+type of property that we might want our programs to satisfy. One
+other example that we’ve seen is constant timeness: we had a problem
+in HW3, where we wanted to ensure not that a password checking
+function worked (correctness), but that it took the same amount of
+time regardless of input.
+</p>
+<p>
+Another class of properties that we may want to ensure are so-called
+information flow properties: certain data may originate from specific
+sources, and it is possible that it should not end up being passed
+to other sources. e.g., most websites have a notion of user-specific
+data, and most should not be shared with other users outside of
+specific purposes.
+</p>
+<p>
+One interesting example: in 2011, Facebook had a bug where by
+reporting a person’s <span style="font-weight: bold">public</span> photo for abuse, the system would
+then show additional <span style="font-weight: bold">private</span> photos to see if you wanted to
+add them to your report (<a href="https://www.zdnet.com/article/facebook-flaw-allows-access-to-private-photos/">https://www.zdnet.com/article/facebook-flaw-allows-access-to-private-photos/</a>).
+The only <span style="font-style: italic">bug</span>, though it was serious, is that photos that
+person should not have been given access to were shown to them!
+Otherwise, the code all worked fine...
+</p>
+<p>
+In this problem, you will write a theorem statement that ensures
+that a (unspecified) function <span class="stt">process</span> does not leak any private
+information. Private information, in this case, is the first
+argument to the function (<span class="stt">private_inputs</span>); the function also has
+another argument, <span class="stt">public_inputs</span>, that does not need to remain
+private.
+</p>
+<p>
+Note that you need to think about _how_ the private inputs could
+potentially leak: you don’t know what the definition of the function
+is, so what theorem can you write about it that nonetheless ensures
+that if users see the _output_ of it they cannot determine anything
+about the private inputs.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">process</span> <span class="o">(</span><span class="n">private_inputs</span> <span class="o">:</span> <span class="n">List</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">(</span><span class="n">public_inputs</span> <span class="o">:</span> <span class="n">List</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:</span> <span class="n">Nat</span> <span class="o">:=</span> <span class="kd">by</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<h5>
+9.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_4__.Algorithmic_.Fairness)"></a>Problem 4: Algorithmic Fairness
+</h5>
+<p>
+Another example of a property of systems that is not correctness,
+but nonetheless is important for the behavior of systems is
+<span style="font-weight: bold">algorithmic fairness</span>: i.e., ensuring that computer systems do
+not encode bias. A well-known example is that computer vision
+algorithms have historically performed much worse on people with
+darker skin than people with lighter skin. Once noticed, this is
+obviously a problem (and, compounded by how facial detection is
+often deployed, but that’s a separate issue), but how do we ensure
+that this doesn’t happen?
+</p>
+<p>
+One way, beyond merely testing on more representative datasets
+(which should certainly be done), is to specify how the behavior of
+code should connect (or not connect) to properties of the inputs.
+In the example of computer vision, training/testing data would need
+to be labeled by skin color, but once that was done, a specification
+like the following could be expressed:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="k">let</span> <span class="n">samples</span> <span class="bp">=</span> <span class="n">all</span> <span class="n">labeled</span> <span class="n">input</span> <span class="n">images</span>
+<span class="k">let</span> <span class="n">light_skin</span> <span class="bp">=</span> <span class="n">filter</span><span class="o">(</span><span class="n">light</span> <span class="n">skin</span><span class="o">,</span> <span class="n">samples</span><span class="o">)</span>
+<span class="k">let</span> <span class="n">dark_skin</span> <span class="bp">=</span> <span class="n">filter</span><span class="o">(</span><span class="n">dark</span> <span class="n">skin</span><span class="o">,</span> <span class="n">samples</span><span class="o">)</span>
+<span class="n">count</span><span class="o">(</span><span class="n">filter</span><span class="o">(</span><span class="n">recognize</span><span class="o">,</span> <span class="n">light_skin</span><span class="o">))</span> <span class="bp">/</span> <span class="n">count</span><span class="o">(</span><span class="n">light_skin</span><span class="o">)</span> <span class="bp">=</span>
+<span class="n">count</span><span class="o">(</span><span class="n">filter</span><span class="o">(</span><span class="n">recognize</span><span class="o">,</span> <span class="n">dark_skin</span><span class="o">))</span> <span class="bp">/</span> <span class="n">count</span><span class="o">(</span><span class="n">dark_skin</span><span class="o">)</span>
+</pre>
+</div>
+</div>
+<p>
+i.e., we want to ensure that the <span class="stt">recognize</span> algorithm performs
+similarly on both subsets of the input data. Of course, it may be
+that getting identical results is impossible, but by writing such a
+specification, and validating (via proof or testing), we surface
+this behavior. If not identical, perhaps we get them both to be in
+the same range:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="mi">0</span><span class="bp">.</span><span class="mi">7</span> <span class="bp">&lt;</span> <span class="n">count</span><span class="o">(</span><span class="n">filter</span><span class="o">(</span><span class="n">recognize</span><span class="o">,</span> <span class="n">light_skin</span><span class="o">))</span> <span class="bp">/</span> <span class="n">count</span><span class="o">(</span><span class="n">light_skin</span><span class="o">)</span> <span class="bp">&lt;</span> <span class="mi">0</span><span class="bp">.</span><span class="mi">8</span>
+<span class="mi">0</span><span class="bp">.</span><span class="mi">7</span> <span class="bp">&lt;</span> <span class="n">count</span><span class="o">(</span><span class="n">filter</span><span class="o">(</span><span class="n">recognize</span><span class="o">,</span> <span class="n">dark_skin</span><span class="o">))</span> <span class="bp">/</span> <span class="n">count</span><span class="o">(</span><span class="n">dark_skin</span><span class="o">)</span> <span class="bp">&lt;</span> <span class="mi">0</span><span class="bp">.</span><span class="mi">8</span>
+</pre>
+</div>
+</div>
+<p>
+If we had a way to generate data, we could do this kind of testing
+with the same property-based testing techniques as we used at the
+beginning of the semester.
+</p>
+<p>
+For example, you might define a generator:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="n">Generate10k</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">A</span><span class="o">,</span> <span class="n">Generator</span> <span class="n">A</span> <span class="bp">-&gt;</span> <span class="n">Generator</span> <span class="o">[</span><span class="n">A</span><span class="o">]</span>
+</pre>
+</div>
+</div>
+<p>
+That creates a list of 10,000 elements of a given element.
+</p>
+<p>
+Then you could write a specification function that, given a list
+of elements, returned what fraction passed the recognition function.
+</p>
+<p>
+Other problems are easier to specify and deal with than images,
+and yet still have the same important consequences for fairness.
+</p>
+<p>
+In this problem, we want you to come up with a specification, this
+time for the problem of Mortgage Lending.
+</p>
+<p>
+At this point, whether people are given mortgages (home loans) is
+significantly impacted by algorithms, that take as inputs all sorts
+of data about the potential lenders and deside whether (and at what
+rate) to give loans. It’s been shown that people from minority
+groups are denied loans at higher rates, or given higher interest
+rates even if they are given loans (see, e.g., <a href="https://news.mit.edu/2022/machine-learning-model-discrimination-lending-0330">https://news.mit.edu/2022/machine-learning-model-discrimination-lending-0330</a>).
+</p>
+<p>
+Such algorithms are trained on data, selected from various sources,
+and itself possibly encoding various biases. Indeed, housing
+discrimination has a long history (see, e.g., redlining). How can we
+ensure that a given decision procedure is fair?
+</p>
+<p>
+Clearly, we could label data like the above example with images
+and test that the algorithm doesn’t do better or worse with
+people of certain races, and unlike with images, we can actually
+permute data easily: we could run the algorithm once, then change
+the race (for example) and run it again and see if things change.
+</p>
+<p>
+With that idea in mind, in this problem you are tasked with
+writing a theorem that _proves_ that there is no bias in a
+particular function that decides whether to give mortgages.
+It’s up to you both to decide _what that means_ and how to ensure it.
+</p>
+<p>
+Consider that you have a function, <span class="stt">give_mortgage</span> that takes
+as input <span class="stt">income</span> (a list of yearly income, going back several
+years), <span class="stt">assets</span> (number), <span class="stt">race</span>, <span class="stt">gender</span>, <span class="stt">age</span>,
+<span class="stt">zipcode</span> (where they currently live), and returns a boolean
+of whether or not to give a mortgage.
+</p>
+<p>
+Write a theorem that ensures that <span class="stt">give_mortgage</span> does not
+encode bias. Think about how you might express that? How is this
+similar or different from, e.g., the information flow problem above?
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">give_mortgage</span> <span class="o">:</span> <span class="n">List</span> <span class="n">Nat</span> <span class="c1">-- income</span>
+                 <span class="bp">-&gt;</span> <span class="n">Nat</span>      <span class="c1">-- assets</span>
+                 <span class="bp">-&gt;</span> <span class="n">String</span>   <span class="c1">-- race</span>
+                 <span class="bp">-&gt;</span> <span class="n">String</span>   <span class="c1">-- gender</span>
+                 <span class="bp">-&gt;</span> <span class="n">Nat</span>      <span class="c1">-- age</span>
+                 <span class="bp">-&gt;</span> <span class="n">String</span>   <span class="c1">-- zipcode</span>
+                 <span class="bp">-&gt;</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="kd">by</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="hw10.html" title="backward to &quot;8 Homework 10&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw12.html" title="forward to &quot;10 Homework 12&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

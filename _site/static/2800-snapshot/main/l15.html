@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span> Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.More_on_pattern_matching%29" class="tocviewlink" data-pltdoc="x">More on pattern matching</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Back_to_.And%29" class="tocviewlink" data-pltdoc="x">Back to And</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.More_on_pattern_matching%29" class="tocsubseclink" data-pltdoc="x">More on pattern matching</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Back_to_.And%29" class="tocsubseclink" data-pltdoc="x">Back to And</a>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+ <span class="version">8.7</span>
+</div>
+<div class="navsettop">
+ <span class="navleft">
+ <div class="nosearchform"></div>
+ &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="l14.html" title="backward to &quot;Lecture 14: Propositional logic&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l16.html" title="forward to &quot;Lecture 16: Exam 1, Part A&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h4>
+<a name="(part._l15)"></a>Lecture 15: Propositional logic &amp; programming
+</h4>
+<h5>
+1
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Purpose)"></a>Purpose
+</h5>
+<p>
+More propositional logic, more practice programming, begin with tactics
+</p>
+<h5>
+2
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Outline)"></a>Outline
+</h5>
+<p>
+As noted before, logical negation is defined in terms of <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>, and notation is provided as:
+</p>
+<p>
+<span class="default"><code class="highlight-inline"><span class="kd">notation</span><span class="o">:</span><span class="n">max</span> <span class="s2">"¬"</span> <span class="n">p</span><span class="o">:</span><span class="mi">40</span> <span class="bp">=&gt;</span> <span class="n">Not</span> <span class="n">p</span><br><span class="k">#print</span> <span class="n">Not</span> <span class="c1">-- def Not : Prop → Prop := fun a =&gt; a → False</span></code></span>
+</p>
+<p>
+That is, <span class="default"><code class="highlight-inline"><span class="bp">¬</span><span class="n">P</span></code></span> holds if <span class="default"><code class="highlight-inline"><span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">False</span></code></span>. This is a <span style="font-style: italic">constructive</span> view of negation: the negation of
+<span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> is true if, from <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span>, you can construct a proof of <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>. It is also why we end
+up using <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span> a lot in proofs, even while we rarely use <span class="default"><code class="highlight-inline"><span class="n">True</span></code></span>, since whenever we are reasoning about negation, we end up reasoning about <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>.
+</p>
+<p>
+One obvious consequence of this is that the statement <span class="default"><code class="highlight-inline"><span class="n">And</span> <span class="n">P</span> <span class="o">(</span><span class="n">Not</span> <span class="n">P</span><span class="o">)</span></code></span> is nonsense: a statement can never be both true and false. If we unfold the definition of <span class="default"><code class="highlight-inline"><span class="n">Not</span></code></span>, we see that what that statement is saying is that <span class="default"><code class="highlight-inline"><span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">False</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span>. Thus, we can project out the <span class="default"><code class="highlight-inline"><span class="n">P</span> <span class="bp">-&gt;</span> <span class="n">False</span></code></span> function and the <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span>, and apply the first to the second and get a proof of <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>.
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">P</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span>
+<span class="kd">theorem</span> <span class="n">F</span> <span class="o">:</span> <span class="o">(</span><span class="n">And</span> <span class="n">P</span> <span class="o">(</span><span class="n">Not</span> <span class="n">P</span><span class="o">))</span> <span class="bp">-&gt;</span> <span class="n">False</span> <span class="o">:=</span>
+  <span class="k">fun</span> <span class="n">andpnotp</span> <span class="bp">=&gt;</span> <span class="n">andpnotp.2</span> <span class="n">andpnotp.1</span>
+</pre>
+</div>
+</div>
+<p>
+Now that we have a proof of <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span> (a <span style="font-style: italic">term</span> that has type <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>), we truly are in an impossible situation, as if you recall, there are no terms of type <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>. It is defined as an inductive type with no constructors:
+</p>
+<p>
+<span class="default"><code class="highlight-inline"><span class="kd">inductive</span> <span class="n">False</span> <span class="o">:</span> <span class="kt">Prop</span></code></span>
+</p>
+<p>
+As a result, there is an <span style="font-style: italic">elimination</span> rule (we will talk more about these soon) that says, if we have a proof of <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>, we can conclude anything.
+</p>
+<p>
+<span class="default"><code class="highlight-inline"><span class="k">#check</span> <span class="n">False.elim</span> <span class="c1">-- False.elim : False → ?m.2</span></code></span>
+</p>
+<p>
+For example, if we wanted to prove the statement <span class="default"><code class="highlight-inline"><span class="mi">1</span> <span class="bp">=</span> <span class="mi">2</span></code></span> (which is a valid statement, but not provable), and we knew <span class="default"><code class="highlight-inline"><span class="n">And</span> <span class="n">P</span> <span class="o">(</span><span class="n">Not</span> <span class="n">P</span><span class="o">)</span></code></span>, we
+could do that as follows:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">theorem</span> <span class="n">T</span> <span class="o">:</span> <span class="o">(</span><span class="n">And</span> <span class="n">P</span> <span class="o">(</span><span class="n">Not</span> <span class="n">P</span><span class="o">))</span> <span class="bp">-&gt;</span> <span class="mi">1</span> <span class="bp">=</span> <span class="mi">2</span> <span class="o">:=</span>
+  <span class="k">fun</span> <span class="n">andpnotp</span> <span class="bp">=&gt;</span> <span class="n">False.elim</span> <span class="o">(</span><span class="n">andpnotp.2</span> <span class="n">andpnotp.1</span><span class="o">)</span>
+</pre>
+</div>
+</div>
+<p>
+i.e., we first pull out the two components of the conjunction, applying the second to the first, which gives us a term of type <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span>. We can then use <span class="default"><code class="highlight-inline"><span class="n">False.elim</span></code></span>, which takes something of types <span class="default"><code class="highlight-inline"><span class="n">False</span></code></span> and returns anything! In particular, it will produce a proof of <span class="default"><code class="highlight-inline"><span class="mi">1</span> <span class="bp">=</span> <span class="mi">2</span></code></span> in this case.
+</p>
+<h5>
+3
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.More_on_pattern_matching)"></a>More on pattern matching
+</h5>
+<p>
+So far, the functions we’ve shown have done pattern matching on a <span style="font-style: italic">single</span> argument. While you could certainly nest that, more often, you want to match simultaneously on multiple values. You can do that by separating the patterns (and, in a <span class="default"><code class="highlight-inline"><span class="k">match</span></code></span> expression, the values) with commas, as:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">def</span> <span class="n">bool_and</span> <span class="o">:</span> <span class="n">Bool</span> <span class="bp">-&gt;</span> <span class="n">Bool</span> <span class="bp">-&gt;</span> <span class="n">Bool</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">true</span> <span class="bp">=&gt;</span> <span class="n">true</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">false</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+<span class="bp">|</span> <span class="n">false</span><span class="o">,</span> <span class="n">true</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+<span class="bp">|</span> <span class="n">false</span><span class="o">,</span> <span class="n">false</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+
+<span class="kd">def</span> <span class="n">bool_and1</span> <span class="o">(</span><span class="n">b1</span> <span class="o">:</span> <span class="n">Bool</span><span class="o">)</span> <span class="o">(</span><span class="n">b2</span> <span class="o">:</span> <span class="n">Bool</span><span class="o">)</span> <span class="o">:</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="k">match</span> <span class="n">b1</span><span class="o">,</span> <span class="n">b2</span> <span class="k">with</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">true</span> <span class="bp">=&gt;</span> <span class="n">true</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">false</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+<span class="bp">|</span> <span class="n">false</span><span class="o">,</span> <span class="n">true</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+<span class="bp">|</span> <span class="n">false</span><span class="o">,</span> <span class="n">false</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+
+<span class="kd">def</span> <span class="n">bool_and2</span> <span class="o">(</span><span class="n">b1</span> <span class="n">b2</span> <span class="o">:</span> <span class="n">Bool</span><span class="o">)</span> <span class="o">:</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="k">match</span> <span class="n">b1</span><span class="o">,</span> <span class="n">b2</span> <span class="k">with</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">true</span> <span class="bp">=&gt;</span> <span class="n">true</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">false</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+<span class="bp">|</span> <span class="n">false</span><span class="o">,</span> <span class="n">true</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+<span class="bp">|</span> <span class="n">false</span><span class="o">,</span> <span class="n">false</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+
+<span class="kd">def</span> <span class="n">bool_and3</span> <span class="o">(</span><span class="n">b1</span> <span class="n">b2</span> <span class="o">:</span> <span class="n">Bool</span><span class="o">)</span> <span class="o">:</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="k">match</span> <span class="n">b1</span><span class="o">,</span> <span class="n">b2</span> <span class="k">with</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">true</span> <span class="bp">=&gt;</span> <span class="n">true</span>
+<span class="bp">|</span> <span class="n">_</span><span class="o">,</span><span class="n">_</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+
+<span class="kd">def</span> <span class="n">bool_and4</span> <span class="o">(</span><span class="n">b1</span> <span class="n">b2</span> <span class="o">:</span> <span class="n">Bool</span><span class="o">)</span> <span class="o">:</span> <span class="n">Bool</span> <span class="o">:=</span> <span class="k">match</span> <span class="n">b1</span><span class="o">,</span> <span class="n">b2</span> <span class="k">with</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">true</span> <span class="bp">=&gt;</span> <span class="n">true</span>
+<span class="bp">|</span> <span class="n">true</span><span class="o">,</span> <span class="n">false</span> 
+<span class="bp">|</span> <span class="n">false</span><span class="o">,</span> <span class="n">true</span> 
+<span class="bp">|</span> <span class="n">false</span><span class="o">,</span> <span class="n">false</span> <span class="bp">=&gt;</span> <span class="n">false</span>
+</pre>
+</div>
+</div>
+<h5>
+4
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Back_to_.And)"></a>Back to And
+</h5>
+<p>
+We’ve been using logical conjunction, i.e., <span class="default"><code class="highlight-inline"><span class="n">And</span> <span class="n">P</span> <span class="n">Q</span></code></span> where <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span> are <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>s. We wrote a function <span class="default"><code class="highlight-inline"><span class="n">and_1</span></code></span> that took in a pair of propositions and returned the first one:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span>
+<span class="kd">def</span> <span class="n">and_1</span> <span class="o">(</span><span class="n">cn</span> <span class="o">:</span> <span class="n">P</span> <span class="bp">∧</span> <span class="n">Q</span><span class="o">)</span> <span class="o">:</span> <span class="n">P</span> <span class="o">:=</span> <span class="n">cn.1</span>
+</pre>
+</div>
+</div>
+<p>
+Now, we could <span style="font-style: italic">also</span> have written a function that took a pair of booleans and returned the first one:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">def</span> <span class="n">band_1</span> <span class="o">(</span><span class="n">pr</span> <span class="o">:</span> <span class="n">Bool</span> <span class="bp">×</span> <span class="n">Bool</span><span class="o">)</span> <span class="o">:=</span>  <span class="n">pr.1</span>
+</pre>
+</div>
+</div>
+<p>
+Note a few differences: first, rather than having a conjunction of two arbitrary logical statements (a pair of two
+<span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>s), we have a pair of <span class="default"><code class="highlight-inline"><span class="n">Bool</span></code></span>s. To do this, we are using a different infix operator:
+logical <span class="default"><code class="highlight-inline"><span class="bp">∧</span></code></span> is for types of type <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>, while <span class="default"><code class="highlight-inline"><span class="bp">×</span></code></span> is for types of type <span class="default"><code class="highlight-inline"><span class="kt">Type</span></code></span>. If you
+aren’t sure what a notation means, you can right click on it and say "Go to Definition", in this case,
+it takes us to the syntax file, where we can see that <span class="default"><code class="highlight-inline"><span class="bp">×</span></code></span> is defined as <span class="default"><code class="highlight-inline"><span class="n">Prod</span></code></span>. So we can
+write this definition equivalently as:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">def</span> <span class="n">band_2</span> <span class="o">(</span><span class="n">pr</span> <span class="o">:</span> <span class="n">Prod</span> <span class="n">Bool</span> <span class="n">Bool</span><span class="o">)</span> <span class="o">:=</span>  <span class="n">pr.1</span>
+</pre>
+</div>
+</div>
+<p>
+And if we go to definition on <span class="default"><code class="highlight-inline"><span class="n">Prod</span></code></span>, we can see that it is defined as:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">structure</span> <span class="n">Prod</span> <span class="o">(</span><span class="n">α</span> <span class="o">:</span> <span class="kt">Type</span> <span class="n">u</span><span class="o">)</span> <span class="o">(</span><span class="n">β</span> <span class="o">:</span> <span class="kt">Type</span> <span class="n">v</span><span class="o">)</span> <span class="n">where</span>
+  <span class="sd">/-- The first projection out of a pair. if `p : α × β` then `p.1 : α`. -/</span>
+  <span class="n">fst</span> <span class="o">:</span> <span class="n">α</span>
+  <span class="sd">/-- The second projection out of a pair. if `p : α × β` then `p.2 : β`. -/</span>
+  <span class="n">snd</span> <span class="o">:</span> <span class="n">β</span>
+</pre>
+</div>
+</div>
+<p>
+As in, it is structurally identical to logical <span class="default"><code class="highlight-inline"><span class="n">And</span></code></span>, but defined on <span class="default"><code class="highlight-inline"><span class="kt">Type</span></code></span>, not <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>.
+</p>
+<p>
+We can use this, for example, to write a more interesting function, this time showing how to define <span style="font-style: italic">local</span> functions or definitions:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">def</span> <span class="n">fibFast</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:</span> <span class="n">Nat</span> <span class="o">:=</span>
+  <span class="o">(</span><span class="n">loop</span> <span class="n">n</span><span class="o">)</span><span class="bp">.</span><span class="mi">2</span>
+<span class="n">where</span>
+  <span class="n">loop</span> <span class="o">:</span> <span class="n">Nat</span> <span class="bp">→</span> <span class="n">Nat</span> <span class="bp">×</span> <span class="n">Nat</span>
+    <span class="bp">|</span> <span class="mi">0</span>   <span class="bp">=&gt;</span> <span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+    <span class="bp">|</span> <span class="n">n</span><span class="bp">+</span><span class="mi">1</span> <span class="bp">=&gt;</span> <span class="k">let</span> <span class="n">p</span> <span class="o">:=</span> <span class="n">loop</span> <span class="n">n</span>
+             <span class="o">(</span><span class="n">p.2</span><span class="o">,</span> <span class="n">p.1</span> <span class="bp">+</span> <span class="n">p.2</span><span class="o">)</span>
+
+<span class="k">#eval</span> <span class="n">fibFast</span> <span class="mi">100</span>
+</pre>
+</div>
+</div>
+<p>
+Here we have used yet another special syntax: <span class="default"><code class="highlight-inline"><span class="o">(</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">)</span></code></span> as a way to write product literals (as an alternative to <span class="default"><code class="highlight-inline"><span class="n">Prod.mk</span> <span class="n">a</span> <span class="n">b</span></code></span>).
+</p>
+<p>
+Returning to our logical statement, there are different ways to write the same statement. For example, to make this read a little more like a logical statement
+<span class="texMathInline">\forall \,P\, Q. P \land Q \rightarrow Q</span>, we could write:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">def</span> <span class="n">and_2</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">{</span><span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">},</span> <span class="n">P</span> <span class="bp">∧</span> <span class="n">Q</span> <span class="bp">-&gt;</span> <span class="n">Q</span> <span class="o">:=</span> <span class="k">fun</span> <span class="n">x</span> <span class="bp">=&gt;</span> <span class="n">x.2</span>
+</pre>
+</div>
+</div>
+<p>
+First, we give a <span style="font-style: italic">name</span> to our theorem, <span class="default"><code class="highlight-inline"><span class="n">and_2</span></code></span>. This name
+is then given a type, which is the Theorem statement: <span class="default"><code class="highlight-inline"><span class="k">forall</span> <span class="o">{</span><span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">},</span> <span class="n">P</span> <span class="bp">/\</span> <span class="n">Q</span> <span class="bp">-&gt;</span> <span class="n">Q</span></code></span>.
+Unlike in the definitions we saw last time, we aren’t using <span class="default"><code class="highlight-inline"><span class="kd">variables</span></code></span>: instead, we are taking the
+two <span class="default"><code class="highlight-inline"><span class="kt">Prop</span></code></span>s as arguments. We have written them (<span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span>) inside curly brackets instead of parenthesis to
+tell Lean that they should be able to be inferred from the rest of the arguments: in this case, <span class="default"><code class="highlight-inline"><span class="n">p</span></code></span>.
+This is a convenience that will make calling <span class="default"><code class="highlight-inline"><span class="n">and_2</span></code></span> easier, since the type of <span class="default"><code class="highlight-inline"><span class="n">p</span></code></span> has <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span>
+in it, Lean is perfectly capable of figuring out what those arguments should be.
+ Finally, we have the term, which is the proof; it takes in a
+pair, and projects out the second component.  This difference in presentation doesn’t change
+what the underlying term is, but it may make it easier to read. Sometimes we will try to emphasize
+the programming part and sometimes the logical part: both are, indeed, the same thing.
+</p>
+<p>
+Now, note that our term doesn’t take the <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> or
+<span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span> as arguments. That is because we’ve indicated, with the curly
+brackets, that these arguments should be able to be <span style="font-style: italic">inferred</span> from the
+rest of the arguments. In particular, if we are given a pair of type
+<span class="default"><code class="highlight-inline"><span class="n">P</span> <span class="bp">/\</span> <span class="n">Q</span></code></span>, Lean can figure out what <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span> and
+<span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span> are. We could have equally written the definition as:
+</p>
+<div class="default">
+<div class="highlight">
+ <pre><span></span><span class="kd">def</span> <span class="n">and_2'</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">),</span> <span class="n">P</span> <span class="bp">∧</span> <span class="n">Q</span> <span class="bp">-&gt;</span> <span class="n">Q</span> <span class="o">:=</span> <span class="k">fun</span> <span class="n">P</span> <span class="n">Q</span> <span class="n">x</span> <span class="bp">=&gt;</span> <span class="n">x.2</span>
+</pre>
+</div>
+</div>
+<p>
+Though if we do that, Lean will warn us that the <span style="font-style: italic">term</span> parameters <span class="default"><code class="highlight-inline"><span class="n">P</span></code></span>
+and <span class="default"><code class="highlight-inline"><span class="n">Q</span></code></span> are unused, which is a good indication that they might
+be able to be inferred. This is also an example (one of many) of features that exist
+in Lean to make it <span style="font-style: italic">easier</span> to write proofs. Indeed, you can see this going back
+all the way to the original idea in LCF to allow programming of tactics to make it
+easier to build proofs.
+</p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="l14.html" title="backward to &quot;Lecture 14: Propositional logic&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l16.html" title="forward to &quot;Lecture 16: Exam 1, Part A&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

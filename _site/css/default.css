@@ -48,12 +48,12 @@ h4 {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #900;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: wavy underline;
 }
 
 strong {
@@ -73,6 +73,7 @@ div#navigation {
     padding: 10px 0px;
     border-bottom: 1px solid #ccc;
 }
+
 
 div#navigation .t {
     margin: 0px;
@@ -159,6 +160,11 @@ table {
     border-collapse: collapse;
     width: 95%;
     margin: 0 auto;
+}
+
+table tr.header {
+    text-align: left;
+    background-color: #efefef;
 }
 
 table th {

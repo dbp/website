@@ -1,0 +1,12 @@
+pre {
+    margin: 0;
+}
+
+img.bio {
+    width: 100px;
+    height: auto;
+}
+
+table.staff tr:nth-child(even) {
+    background-color: #fff;
+}

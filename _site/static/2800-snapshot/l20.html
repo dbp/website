@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span>  Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Generalize</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l24.html" class="tocviewlink" data-pltdoc="x">Lecture 24:<span class="mywbr"> &nbsp;</span> Standard Libraries</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l25.html" class="tocviewlink" data-pltdoc="x">Lecture 25:<span class="mywbr"> &nbsp;</span> Forward Reasoning</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l26.html" class="tocviewlink" data-pltdoc="x">Lecture 26:<span class="mywbr"> &nbsp;</span> Proof Automation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l27.html" class="tocviewlink" data-pltdoc="x">Lecture 27:<span class="mywbr"> &nbsp;</span> Compiler Correctness</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l28.html" class="tocviewlink" data-pltdoc="x">Lecture 28:<span class="mywbr"> &nbsp;</span> Induction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l29.html" class="tocviewlink" data-pltdoc="x">Lecture 29:<span class="mywbr"> &nbsp;</span> Functions vs. Relations</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l30.html" class="tocviewlink" data-pltdoc="x">Lecture 30:<span class="mywbr"> &nbsp;</span> Why logic?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l31.html" class="tocviewlink" data-pltdoc="x">Lecture 31:<span class="mywbr"> &nbsp;</span> Linear Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l32.html" class="tocviewlink" data-pltdoc="x">Lecture 32</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l33.html" class="tocviewlink" data-pltdoc="x">Lecture 33</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l34.html" class="tocviewlink" data-pltdoc="x">Lecture 34</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l37.html" class="tocviewlink" data-pltdoc="x">Lecture 37</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l38.html" class="tocviewlink" data-pltdoc="x">Lecture 38</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+<div class="maincolumn">
+ <div class="main">
+  <div class="versionbox">
+   <span class="version">8.7</span>
+  </div>
+  <div class="navsettop">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="l19.html" title="backward to &quot;Lecture 19: Inductive types &amp; proofs&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l21.html" title="forward to &quot;Lecture 21:  Proof Practice&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+ </div>
+ <h4>
+  <a name="(part._l20)"></a>Lecture 20: Lists
+ </h4>
+ <h5>
+  1
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Purpose)"></a>Purpose
+ </h5>
+ <p>
+  Practice proofs with lists.
+ </p>
+ <h5>
+  2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Outline)"></a>Outline
+ </h5>
+ <p>
+  Today, we’ll do a few proofs about lists. This is practice that should
+be useful for the homework, and should help you get more familiar
+with the interactive proof environment. While the theorems we will
+prove today and tomorrow are not particularly interesting, they should
+be good exercises.
+ </p>
+ <p>
+  As a warm up, we’ll look at a proof we did last time, but framed slightly differently: this time using the overloaded infix <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span> append syntax, rather than the actual <span class="default"><code class="highlight-inline"><span class="n">List.append</span></code></span> function.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="kd">theorem</span> <span class="n">list_app_r_nil</span> <span class="o">:</span> <span class="bp">∀</span> <span class="o">(</span><span class="n">T</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">)</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="n">List</span> <span class="n">T</span><span class="o">),</span> <span class="n">l</span> <span class="bp">++</span> <span class="o">[]</span> <span class="bp">=</span> <span class="n">l</span> <span class="o">:=</span>
+  <span class="kd">by</span> <span class="n">intros</span> <span class="n">T</span> <span class="n">l</span>
+     <span class="n">induction</span> <span class="n">l</span>
+     <span class="n">case</span> <span class="n">nil</span> <span class="bp">=&gt;</span> <span class="n">rfl</span>
+     <span class="n">case</span> <span class="n">cons</span> <span class="n">h</span> <span class="n">t</span> <span class="n">ih</span> <span class="bp">=&gt;</span> 
+       <span class="c1">-- simp only [HAppend.hAppend, Append.append, List.append]</span>
+       <span class="k">have</span> <span class="n">h1</span> <span class="o">:</span> <span class="o">(</span><span class="n">h</span> <span class="o">::</span> <span class="n">t</span><span class="o">)</span> <span class="bp">++</span> <span class="o">[]</span> <span class="bp">=</span> <span class="n">h</span> <span class="o">::</span> <span class="o">(</span><span class="n">t</span> <span class="bp">++</span> <span class="o">[])</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">rfl</span>
+       <span class="n">rw</span> <span class="o">[</span><span class="n">h1</span><span class="o">]</span>
+       <span class="n">rw</span> <span class="o">[</span><span class="n">ih</span><span class="o">]</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Note that the <span class="default"><code class="highlight-inline"><span class="n">nil</span></code></span> case proceeds as before, but the <span class="default"><code class="highlight-inline"><span class="n">cons</span></code></span> case doesn’t: in particular, while it might look like we could immediately <span class="default"><code class="highlight-inline"><span class="n">rw</span></code></span> with our induction hypothesis, this is actually a misleading consequence of the binding precedence of <span class="default"><code class="highlight-inline"><span class="o">::</span></code></span> vs <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span>: since <span class="default"><code class="highlight-inline"><span class="o">::</span></code></span> binds <span style="font-style: italic">tighter</span> than <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span>, what we have is equivalent to <span class="default"><code class="highlight-inline"><span class="o">(</span><span class="n">h</span><span class="o">::</span><span class="n">t</span><span class="o">)</span> <span class="bp">++</span> <span class="o">[]</span></code></span>, which means that our induction hypothesis, which is an equality about <span class="default"><code class="highlight-inline"><span class="n">t</span> <span class="bp">++</span> <span class="o">[]</span></code></span>, does not directly apply. This was true in our previous proof too, though it was more obvious, since without the infix operator <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span>, we could see the precedence more clearly.
+ </p>
+ <p>
+  But there’s more: if we try to do <span class="default"><code class="highlight-inline"><span class="n">simp</span> <span class="n">only</span> <span class="o">[</span><span class="n">List.append</span><span class="o">]</span></code></span>, as we did before, nothing would change. This is because <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span> is not syntax for <span class="default"><code class="highlight-inline"><span class="n">List.append</span></code></span>, but instead, is a generic abstraction for appending, which in the particular case of Lists, will turn out to be <span class="default"><code class="highlight-inline"><span class="n">List.append</span></code></span>.
+ </p>
+ <p>
+  We can make this go through by simplifying through the abstraction (shown commented out), but this is an opportunity to show a helpful tactic: <span class="default"><code class="highlight-inline"><span class="k">have</span></code></span>, which allows us to define an intermediate result and prove that, which we will then have as a lemma. We can use this to show that <span class="default"><code class="highlight-inline"><span class="n">h</span> <span class="o">::</span> <span class="n">t</span> <span class="bp">++</span> <span class="o">[]</span></code></span> is equal to <span class="default"><code class="highlight-inline"><span class="n">h</span> <span class="o">::</span> <span class="o">(</span><span class="n">t</span> <span class="bp">++</span> <span class="o">[])</span></code></span>, without having to know what the exact functions are, because <span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span> will run whicheven side evaluates to the other. Once we have that, we can rewrite using it, and at that point, our induction hypothesis is usable.
+ </p>
+ <p>
+  While this is, in some sense, a lesson showing why we will usually use <span class="default"><code class="highlight-inline"><span class="n">List.append</span></code></span> instead of <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span>, this strategy of using <span class="default"><code class="highlight-inline"><span class="k">have</span></code></span> to make fine-grained changes
+ </p>
+ <p></p>
+ <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+  <tbody>
+   <tr>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span style="font-weight: bold">Tactic Use</span>
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span style="font-weight: bold">Tactic Description</span>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      <span class="default"><code class="highlight-inline"><span class="k">have</span> <span class="n">H</span> <span class="o">:</span> <span class="n">T</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">tac</span></code></span>
+     </p>
+    </td>
+    <td style="border-bottom: 1px solid black;">
+     <p>
+      Introduces a new local theorem called <span class="default"><code class="highlight-inline"><span class="n">H</span></code></span>, whose statement is <span class="default"><code class="highlight-inline"><span class="n">T</span></code></span>, proved by the tactic (or series of tacics <span class="default"><code class="highlight-inline"><span class="n">tac</span></code></span>.
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p></p>
+ <p>
+  To go over carefully how this works, its helpful to think a bit about how
+append works. The actual definition of append is a tiny bit more
+complicated, but we could define an equivalent function like this:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="n">def</span><span class="w"> </span><span class="n">my_append</span><span class="w"> </span><span class="p">{</span><span class="n">A</span><span class="w"> </span><span class="n">:</span><span class="w"> </span><span class="n">Type</span><span class="p">}</span><span class="w"> </span><span class="n">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">→</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="n">| [], l =&gt; l</span>
+<span class="n">|</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="n">::</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="k">=&gt;</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="n">::</span><span class="w"> </span><span class="p">(</span><span class="n">my_append</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This should be very familiar from Fundies 1: it is a recursive
+function that treats its second argument as a simple input, adding
+each element of the first as it recurs until it reaches the end of
+the first list and returns the second list.
+ </p>
+ <p>
+  Looking at this definition, it should be clear that doing
+<span style="font-style: italic">induction</span> on the first list is the right way to prove this, as
+the definition does <span style="font-style: italic">recursion</span> on this list. Induction and
+recursion are two sides of the same coin, and in particular, the
+definition requires that we know whether the first list is empty or
+non-empty to unfold, which are exactly the cases we consider when
+doing induction.
+ </p>
+ <p>
+  In the empty case, we need to show that <span class="default"><code class="highlight-inline"><span class="o">[]</span> <span class="bp">++</span> <span class="o">[]</span> <span class="bp">=</span> <span class="o">[]</span></code></span>. This
+follows by reducing the definition of <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span>. Another way of
+saying this is that it follows by <span style="font-style: italic">definitional</span> equality,
+as by merely unfolding the definition of <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span> we can see that
+these are equal. This means we can use this using the tactic
+<span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span>.
+ </p>
+ <p>
+  In the non-empty case, we need to show that
+<span class="default"><code class="highlight-inline"><span class="bp">⊢</span> <span class="n">h</span> <span class="o">::</span> <span class="n">t</span> <span class="bp">++</span> <span class="o">[]</span> <span class="bp">=</span> <span class="n">h</span> <span class="o">::</span> <span class="n">t</span></code></span>, where we know, as an inductive
+hypothesis, that <span class="default"><code class="highlight-inline"><span class="n">t</span> <span class="bp">++</span> <span class="o">[]</span> <span class="bp">=</span> <span class="n">t</span></code></span>. This looks like you could just
+rewrite with the hypothesis and be done, but operator precedence is
+a bit tricky here. The <span class="default"><code class="highlight-inline"><span class="o">::</span></code></span> binds tighter than <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span> (you
+can right click on either and click "Go to Definition" – <span class="default"><code class="highlight-inline"><span class="o">::</span></code></span> has
+precedence 67, whereas <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span> has precedence 65). That means that,
+if we had explicit parenthesis, what we are trying to show is:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="n">ih</span><span class="o">:</span> <span class="n">t</span> <span class="bp">++</span> <span class="o">[]</span> <span class="bp">=</span> <span class="n">t</span>
+<span class="bp">⊢</span> <span class="o">(</span><span class="n">h</span> <span class="o">::</span> <span class="n">t</span><span class="o">)</span> <span class="bp">++</span> <span class="o">[]</span> <span class="bp">=</span> <span class="n">h</span> <span class="o">::</span> <span class="n">t</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  However, we know from the definition of <span class="default"><code class="highlight-inline"><span class="bp">++</span></code></span> that if the first
+argument is a non-empty list, this is equivalent to
+<span class="default"><code class="highlight-inline"><span class="n">h</span> <span class="o">::</span> <span class="o">(</span><span class="n">t</span> <span class="bp">++</span> <span class="o">[])</span></code></span>, at which point we could rewrite using the
+hypothesis. To make these steps explicit, and as a useful trick when
+proving particular equivalences, we define this as an intermediate
+helper with <span class="default"><code class="highlight-inline"><span class="k">have</span></code></span>. This holds by <span style="font-style: italic">definitional</span> equality
+—<wbr> i.e., reduction —<wbr> which can be done by the tactic
+<span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span>.
+ </p>
+ <p>
+  Now that we have that lemma, we can rewrite using it, and that then
+gets the goal in a form where rewriting with the induction hypothesis
+is sufficient to complete the proof. Note that <span class="default"><code class="highlight-inline"><span class="n">rw</span></code></span>, like many
+tactics, will check if the result is a trivial equality and complete
+the proof with <span class="default"><code class="highlight-inline"><span class="n">refl</span></code></span> if so.
+ </p>
+ <p>
+  Let’s now do the other direction:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="kd">theorem</span> <span class="n">list_app_l_nil</span> <span class="o">:</span> <span class="bp">∀</span> <span class="o">{</span><span class="n">A</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="n">List</span> <span class="n">A</span><span class="o">),</span> <span class="o">[]</span> <span class="bp">++</span> <span class="n">l</span> <span class="bp">=</span> <span class="n">l</span> <span class="o">:=</span> 
+  <span class="kd">by</span> <span class="n">intros</span> <span class="n">A</span> <span class="n">l</span>
+     <span class="n">rfl</span>
+<span class="kd">theorem</span> <span class="n">list_app_l_nil'</span> <span class="o">:</span> <span class="bp">∀</span> <span class="o">{</span><span class="n">A</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="n">List</span> <span class="n">A</span><span class="o">),</span> <span class="n">List.append</span> <span class="o">[]</span> <span class="n">l</span> <span class="bp">=</span> <span class="n">l</span> <span class="o">:=</span> 
+  <span class="kd">by</span> <span class="n">intros</span> <span class="n">A</span> <span class="n">l</span>
+     <span class="n">rfl</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Here, the whole proof follows by <span style="font-style: italic">definitional</span> equality, and
+so we don’t need induction at all! Why? Well, if we look back at the
+definition of append, we see that we recur on the first argument,
+which means that if it is empty, <span class="default"><code class="highlight-inline"><span class="o">[]</span> <span class="bp">++</span> <span class="n">l</span> <span class="bp">=</span> <span class="n">l</span></code></span> by the definition
+of append!
+ </p>
+ <p>
+  This asymmetry may seem odd at first, but if you think about the actual
+program that we are proving facts around, the behavior is very
+different based on which argument we are talking about! Indeed, the
+program will never inspect the second argument at all.
+ </p>
+ <p>
+  Now, let’s practice with some exercises about lists. First, we’ll prove a theorem about length:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="kd">theorem</span> <span class="n">list_length_cons</span> <span class="o">:</span> <span class="bp">∀</span> <span class="o">{</span><span class="n">A</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">A</span><span class="o">)</span> <span class="o">(</span><span class="n">t</span> <span class="o">:</span> <span class="n">List</span> <span class="n">A</span><span class="o">),</span> 
+  <span class="o">(</span><span class="n">h</span> <span class="o">::</span> <span class="n">t</span><span class="o">)</span><span class="bp">.</span><span class="n">length</span> <span class="bp">=</span> <span class="n">t.length</span> <span class="bp">+</span> <span class="mi">1</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="n">intros</span> <span class="n">A</span> <span class="n">h</span> <span class="n">t</span>
+     <span class="n">rfl</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This, again, followed directly from defintional equality, since
+<span class="default"><code class="highlight-inline"><span class="n">length</span></code></span> is defined essentially as follows:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="n">def</span><span class="w"> </span><span class="n">my_length</span><span class="w"> </span><span class="p">{</span><span class="n">A</span><span class="w"> </span><span class="n">:</span><span class="w"> </span><span class="n">Type</span><span class="p">}</span><span class="w"> </span><span class="n">:</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">→</span><span class="w"> </span><span class="n">Nat</span><span class="w"></span>
+<span class="n">| [] =&gt; 0</span>
+<span class="n">|</span><span class="w"> </span><span class="p">(</span><span class="k">_</span><span class="w"> </span><span class="n">::</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">=&gt;</span><span class="w"> </span><span class="n">my_length</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Now, let’s prove a simple fact about natural numbers:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="n">theorem</span><span class="w"> </span><span class="n">nat_zero_add</span><span class="w"> </span><span class="n">:</span><span class="w"> </span><span class="n">forall</span><span class="w"> </span><span class="n">n</span><span class="o">,</span><span class="w"> </span><span class="n">Nat.add</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">:=</span><span class="w"></span>
+<span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">intros</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="w">    </span><span class="n">induction</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="k">=&gt;</span><span class="w"> </span><span class="n">rfl</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">succ</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">IH</span><span class="w"> </span><span class="k">=&gt;</span><span class="w"> </span>
+<span class="w">      </span><span class="n">simp</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">[</span><span class="n">Nat.add</span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="n">rw</span><span class="w"> </span><span class="p">[</span><span class="n">IH</span><span class="p">]</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This is a straightforward proof by induction: in the base case, it is trivial (by <span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span>); in the recursive case, we simplify and use the induction hypothesis.
+ </p>
+ <p>
+  Let’s prove another fact, this one about successor:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="n">theorem</span><span class="w"> </span><span class="n">nat_succ_add</span><span class="w"> </span><span class="n">:</span><span class="w"> </span><span class="n">forall</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="n">:</span><span class="w"> </span><span class="n">Nat</span><span class="p">)</span><span class="o">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">Nat.add</span><span class="w"> </span><span class="p">(</span><span class="n">Nat.succ</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="n">Nat.succ</span><span class="w"> </span><span class="p">(</span><span class="n">Nat.add</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">:=</span><span class="w"></span>
+<span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">intros</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">m</span><span class="w"></span>
+<span class="w">    </span><span class="n">induction</span><span class="w"> </span><span class="n">m</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="k">=&gt;</span><span class="w"> </span><span class="n">rfl</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">succ</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="n">IH</span><span class="w"> </span><span class="k">=&gt;</span><span class="w"> </span><span class="n">simp</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">[</span><span class="n">Nat.add</span><span class="p">]</span><span class="w"></span>
+<span class="w">                      </span><span class="n">rw</span><span class="w"> </span><span class="p">[</span><span class="n">IH</span><span class="p">]</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This was interesting, as we had two arguments, and we
+had to decide which to do induction on! In general, if
+you are proving a fact about a recursive function, you will want to do induction on the argument that the function is structurally recursive on. In this case, that was the <span style="font-style: italic">second</span> argument. Once we figure that out, the proof ends up being as simple as the previous one.
+ </p>
+ <p>
+  These lemmas may be useful when we go to prove a more interesting fact about length:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="kd">theorem</span> <span class="n">list_length_app</span> <span class="o">:</span> <span class="bp">∀</span> <span class="o">{</span><span class="n">A</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">(</span><span class="n">l1</span> <span class="n">l2</span> <span class="o">:</span> <span class="n">List</span> <span class="n">A</span><span class="o">),</span> 
+ <span class="o">(</span><span class="n">List.append</span> <span class="n">l1</span> <span class="n">l2</span><span class="o">)</span><span class="bp">.</span><span class="n">length</span> <span class="bp">=</span> <span class="n">Nat.add</span> <span class="n">l1.length</span> <span class="n">l2.length</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="n">intros</span> <span class="n">A</span> <span class="n">l1</span> <span class="n">l2</span>
+    <span class="n">induction</span> <span class="n">l1</span>
+    <span class="n">case</span> <span class="n">nil</span> <span class="bp">=&gt;</span> 
+      <span class="n">rw</span> <span class="o">[</span><span class="n">list_app_l_nil'</span><span class="o">]</span>
+      <span class="n">simp</span> <span class="n">only</span> <span class="o">[</span><span class="n">List.length</span><span class="o">]</span>
+      <span class="n">rw</span> <span class="o">[</span><span class="n">nat_zero_add</span><span class="o">]</span>
+    <span class="n">case</span> <span class="n">cons</span> <span class="n">h</span> <span class="n">t</span> <span class="n">ih</span> <span class="bp">=&gt;</span> 
+      <span class="n">simp</span> <span class="n">only</span> <span class="o">[</span><span class="n">List.length</span><span class="o">]</span>
+      <span class="n">rw</span> <span class="o">[</span><span class="n">ih</span><span class="o">]</span>
+      <span class="n">rw</span> <span class="o">[</span><span class="n">nat_succ_add</span><span class="o">]</span>
+      <span class="n">rfl</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  We’ll proceed by induction on the first list argument.
+ </p>
+ <p>
+  This is the first proof we’ve done where we’ve had to use previous lemmas: indeed, it would not be possible to do it "all at once", as there are separate inductive arguments that need to be made to carry out individual steps.
+ </p>
+ <p>
+  In the empty case, we’ll first rewrite using the lemma we just proved,
+that <span class="default"><code class="highlight-inline"><span class="n">List.append</span> <span class="o">[]</span> <span class="n">l</span> <span class="bp">=</span> <span class="n">l</span></code></span>, and then we’ll do definitional simplification
+using the <span class="default"><code class="highlight-inline"><span class="n">List.length</span></code></span> function to get that
+<span class="default"><code class="highlight-inline"><span class="n">List.length</span> <span class="o">[]</span> <span class="bp">=</span> <span class="mi">0</span></code></span>. Now we are left with a seemingly trivial
+conundrum: <span class="default"><code class="highlight-inline"><span class="bp">⊢</span> <span class="n">List.length</span> <span class="n">l2</span> <span class="bp">=</span> <span class="mi">0</span> <span class="bp">+</span> <span class="n">List.length</span> <span class="n">l2</span></code></span>. Now, to
+understand whether this holds <span style="font-style: italic">definitionally</span>, we need to know
+how addition is defined. On natural numbers, addition is defined to recur
+on the <span style="font-style: italic">second</span> argument, which means that this is actually
+not a trivial equality. Fortunately, this is a theorem we just proved!
+ </p>
+ <p>
+  In the non-empty list case, we first <span class="default"><code class="highlight-inline"><span class="n">simp</span> <span class="n">only</span></code></span> with <span class="default"><code class="highlight-inline"><span class="n">List.length</span></code></span>. At this point, we can
+use our inductive hypothesis, and we are almost finished: the only
+issue is a problem of associativity. Our goal is:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="bp">⊢</span> <span class="n">Nat.add</span> <span class="o">(</span><span class="n">List.length</span> <span class="n">t</span><span class="o">)</span> <span class="o">(</span><span class="n">List.length</span> <span class="n">l2</span><span class="o">)</span> <span class="bp">+</span> <span class="mi">1</span> <span class="bp">=</span> <span class="n">Nat.add</span> <span class="o">(</span><span class="n">List.length</span> <span class="n">t</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">(</span><span class="n">List.length</span> <span class="n">l2</span><span class="o">)</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Or, if we abstract out a bit, replacing <span class="default"><code class="highlight-inline"><span class="bp">+</span> <span class="mi">1</span></code></span> with <span class="default"><code class="highlight-inline"><span class="n">Nat.succ</span></code></span>:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="bp">⊢</span> <span class="n">Nat.succ</span> <span class="o">(</span><span class="n">Nat.add</span> <span class="n">a</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">Nat.add</span> <span class="o">(</span><span class="n">Nat.succ</span> <span class="n">a</span><span class="o">)</span> <span class="n">b</span>
+</pre>
+  </div>
+ </div>
+ <p>
+  This should be true, but it is not true <span style="font-style: italic">definitionally</span>. Luckily, we had already proved this as a theorem, so we can nearly complete the proof by using it. After rewriting, the goal can be closed with <span class="default"><code class="highlight-inline"><span class="n">rfl</span></code></span>.
+ </p>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="l19.html" title="backward to &quot;Lecture 19: Inductive types &amp; proofs&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l21.html" title="forward to &quot;Lecture 21:  Proof Practice&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

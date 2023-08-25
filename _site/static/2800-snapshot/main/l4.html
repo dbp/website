@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l8.html" class="tocviewlink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span> Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+<div class="maincolumn">
+ <div class="main">
+  <div class="versionbox">
+   <span class="version">8.7</span>
+  </div>
+  <div class="navsettop">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="l3.html" title="backward to &quot;Lecture 3: Propositional Logic in Code&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l5.html" title="forward to &quot;Lecture 5: Relational Specifications&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+ </div>
+ <h4>
+  <a name="(part._l4)"></a>Lecture 4: Design / Specification Recipe
+ </h4>
+ <h5>
+  1
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Purpose)"></a>Purpose
+ </h5>
+ <p>
+  Introduce design / specification recipe.
+ </p>
+ <h5>
+  2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Outline)"></a>Outline
+ </h5>
+ <p>
+  At this point, we’ve figured out how to express formulas from propositional logic as code, and truth
+tables as unit tests. What we will do is figure out how to apply these ideas to programs!
+ </p>
+ <p>
+  Consider a problem: converting colors to black &amp; white. This comes up, among other places, in
+accessibility: different people perceive visible light in different ways, and one way of checking
+if particular sets of colors are likely to still be distinguishable is to convert them to black &amp; white,
+and check if they are still different, as even people who see colors differently are still likely
+to distinguish luminance.
+ </p>
+ <p>
+  In F1, you learned the design recipe:
+ </p>
+ <p>
+  1. Signature
+ </p>
+ <p>
+  2. Purpose
+ </p>
+ <p>
+  3. Tests
+ </p>
+ <p>
+  4. Implementation
+ </p>
+ <p>
+  Here, we are going to slightly change thing, to emphasize different parts:
+ </p>
+ <p>
+  1. Signature
+ </p>
+ <p>
+  2. Purpose
+ </p>
+ <p>
+  3. Specification / Tests
+ </p>
+ <p>
+  4. Implementation
+ </p>
+ <p>
+  5. Verification
+ </p>
+ <p>
+  In particular, we add the idea of a <span style="font-style: italic">specification</span>, which will supplement or partly supplant the purpose,
+and we add a step at the end: verification. Running our tests was always this step, but since running tests is easy,
+we didn’t distinguish between that and the implementation step. As we’ll see throughout the semester, sometimes
+verification is indeed quite a lot of work, above and beyond the implementation. Always, the verification is
+checking that the implementation matches the specification. Further, <span style="font-style: italic">tests</span> are a <span style="font-style: italic">form</span> of specification.
+ </p>
+ <p>
+  In particular, they are <span style="font-style: italic">pointwise</span> specifications. They tell us how the function will behave on particular inputs.
+This may or may not be illuminating: it depends on the function.
+ </p>
+ <p>
+  Let’s apply this to our <span class="RktSym">color-&gt;b&amp;w</span><span class="RktMeta"></span> function.
+ </p>
+ <p>
+  First, we need to define what we mean by a color. I’ll define it as an enumeration of several options:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="c1">; A Color is one of:</span><span class="w"></span>
+<span class="c1">; - "red"</span><span class="w"></span>
+<span class="c1">; - "blue"</span><span class="w"></span>
+<span class="c1">; - "green"</span><span class="w"></span>
+<span class="c1">; - "yellow"</span><span class="w"></span>
+<span class="c1">; - "purple"</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">RED</span><span class="w"> </span><span class="s2">"red"</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">BLUE</span><span class="w"> </span><span class="s2">"blue"</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">GREEN</span><span class="w"> </span><span class="s2">"green"</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">YELLOW</span><span class="w"> </span><span class="s2">"yellow"</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">PURPLE</span><span class="w"> </span><span class="s2">"purple"</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">ALL-COLORS</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="n">RED</span><span class="w"> </span><span class="n">BLUE</span><span class="w"> </span><span class="n">GREEN</span><span class="w"> </span><span class="n">YELLOW</span><span class="w"> </span><span class="n">PURPLE</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Now, I need a signature, purpose, and specification for my function:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="c1">; color-&gt;b&amp;w : Color -&gt; Number[0,255]</span><span class="w"></span>
+<span class="c1">; converts a color to its luminance (b&amp;w value)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">MIN-DELTA</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;b&amp;w-prop</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[(</span><span class="k">define</span><span class="w"> </span><span class="n">LUM</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;b&amp;w</span><span class="w"> </span><span class="n">c</span><span class="p">))</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">OTHER-LUM</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="n">color-&gt;b&amp;w</span><span class="w"> </span><span class="p">(</span><span class="nb">filter</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">c1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">not</span><span class="w"> </span><span class="p">(</span><span class="nb">string=?</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="n">c</span><span class="p">)))</span><span class="w"> </span><span class="n">ALL-COLORS</span><span class="p">)))</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">DELTAS</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">lum</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">LUM</span><span class="w"> </span><span class="n">lum</span><span class="p">)))</span><span class="w"> </span><span class="n">OTHER-LUM</span><span class="p">))]</span><span class="w"></span>
+<span class="w">     </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">foldr</span><span class="w"> </span><span class="nb">min</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="n">DELTAS</span><span class="p">)</span><span class="w"> </span><span class="mi">20</span><span class="p">)))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;b&amp;w-prop</span><span class="w"> </span><span class="n">RED</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;b&amp;w-prop</span><span class="w"> </span><span class="n">BLUE</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;b&amp;w-prop</span><span class="w"> </span><span class="n">GREEN</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;b&amp;w-prop</span><span class="w"> </span><span class="n">YELLOW</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;b&amp;w-prop</span><span class="w"> </span><span class="n">PURPLE</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  What have I written here? My specification says that for any color, I want its luminance to be
+at least <span class="RktSym">MIN-DELTA</span><span class="RktMeta"></span> away from all the other colors. I am checking that for all the colors
+that I am using. This will ensure that no matter the combination of colors, if they are viewed
+after being converted to black &amp; white, they will still be distinguishable.
+ </p>
+ <p>
+  What should the code be? Well, one option would be to simply assign luminance values to the colors,
+but ideally, it has some correspondance to how the colors are viewed, so what we will do instead is
+first match RGB colors to our named colors, and then use a standard conversion that approximates
+perception.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">rgb</span><span class="w"> </span><span class="p">[</span><span class="n">R</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="n">B</span><span class="p">])</span><span class="w"></span>
+<span class="c1">; An RGB is a (make-rgb Number[0,255] Number[0,255] Number[0,255])</span><span class="w"></span>
+<span class="c1">; Interpretation: color using standard red, green, blue color values</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;rgb</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">string=?</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">RED</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-rgb</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">)]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="nb">string=?</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">BLUE</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-rgb</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">255</span><span class="p">)]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="nb">string=?</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">GREEN</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-rgb</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="mi">0</span><span class="p">)]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="nb">string=?</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">YELLOW</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-rgb</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="mi">0</span><span class="p">)]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="nb">string=?</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">PURPLE</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">make-rgb</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">255</span><span class="p">)]))</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;b&amp;w</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[(</span><span class="k">define</span><span class="w"> </span><span class="n">rgb</span><span class="w"> </span><span class="p">(</span><span class="n">color-&gt;rgb</span><span class="w"> </span><span class="n">c</span><span class="p">))]</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="mf">0.299</span><span class="w"> </span><span class="p">(</span><span class="n">rgb-R</span><span class="w"> </span><span class="n">rgb</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="mf">0.587</span><span class="w"> </span><span class="p">(</span><span class="n">rgb-G</span><span class="w"> </span><span class="n">rgb</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="mf">0.114</span><span class="w"> </span><span class="p">(</span><span class="n">rgb-B</span><span class="w"> </span><span class="n">rgb</span><span class="p">)))))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  <span class="Larger">Exercise: add another color, see if it fails the spec!</span>
+ </p>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="l3.html" title="backward to &quot;Lecture 3: Propositional Logic in Code&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l5.html" title="forward to &quot;Lecture 5: Relational Specifications&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

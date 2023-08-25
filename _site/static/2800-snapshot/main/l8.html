@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l1.html" class="tocviewlink" data-pltdoc="x">Lecture 1:<span class="mywbr"> &nbsp;</span> Intro</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l2.html" class="tocviewlink" data-pltdoc="x">Lecture 2:<span class="mywbr"> &nbsp;</span> Logistics, Specifications in ISL</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l3.html" class="tocviewlink" data-pltdoc="x">Lecture 3:<span class="mywbr"> &nbsp;</span> Propositional Logic in Code</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l4.html" class="tocviewlink" data-pltdoc="x">Lecture 4:<span class="mywbr"> &nbsp;</span> Design /<span class="mywbr"> &nbsp;</span> Specification Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l5.html" class="tocviewlink" data-pltdoc="x">Lecture 5:<span class="mywbr"> &nbsp;</span> Relational Specifications</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l6.html" class="tocviewlink" data-pltdoc="x">Lecture 6:<span class="mywbr"> &nbsp;</span> For-<wbr>all, Intro to PBT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l7.html" class="tocviewlink" data-pltdoc="x">Lecture 7:<span class="mywbr"> &nbsp;</span> ==&gt;, PBT filtering</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l9.html" class="tocviewlink" data-pltdoc="x">Lecture 9:<span class="mywbr"> &nbsp;</span> SAT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l10.html" class="tocviewlink" data-pltdoc="x">Lecture 10:<span class="mywbr"> &nbsp;</span> SMT &amp; Rosette</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l11.html" class="tocviewlink" data-pltdoc="x">Lecture 11:<span class="mywbr"> &nbsp;</span> Rosette &amp; Finitization</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l12.html" class="tocviewlink" data-pltdoc="x">Lecture 12:<span class="mywbr"> &nbsp;</span> Higher order logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l13.html" class="tocviewlink" data-pltdoc="x">Lecture 13:<span class="mywbr"> &nbsp;</span> Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l14.html" class="tocviewlink" data-pltdoc="x">Lecture 14:<span class="mywbr"> &nbsp;</span> Propositional logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l15.html" class="tocviewlink" data-pltdoc="x">Lecture 15:<span class="mywbr"> &nbsp;</span> Propositional logic &amp; programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l16.html" class="tocviewlink" data-pltdoc="x">Lecture 16:<span class="mywbr"> &nbsp;</span> Exam 1, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l17.html" class="tocviewlink" data-pltdoc="x">Lecture 17:<span class="mywbr"> &nbsp;</span> Exam 1, Part B</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l18.html" class="tocviewlink" data-pltdoc="x">Lecture 18:<span class="mywbr"> &nbsp;</span> Proving with tactics</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l19.html" class="tocviewlink" data-pltdoc="x">Lecture 19:<span class="mywbr"> &nbsp;</span> Inductive types &amp; proofs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l20.html" class="tocviewlink" data-pltdoc="x">Lecture 20:<span class="mywbr"> &nbsp;</span> Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l21.html" class="tocviewlink" data-pltdoc="x">Lecture 21:<span class="mywbr"> &nbsp;</span> Proof Practice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l22.html" class="tocviewlink" data-pltdoc="x">Lecture 22:<span class="mywbr"> &nbsp;</span> Generalizing hypotheses</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l23.html" class="tocviewlink" data-pltdoc="x">Lecture 23:<span class="mywbr"> &nbsp;</span> Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l35.html" class="tocviewlink" data-pltdoc="x">Lecture 35:<span class="mywbr"> &nbsp;</span> Exam 2, Part A</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="l36.html" class="tocviewlink" data-pltdoc="x">Lecture 36:<span class="mywbr"> &nbsp;</span> Exam 2, Part B</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lecture 8:<span class="mywbr"> &nbsp;</span> PBT generators</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Purpose%29" class="tocviewlink" data-pltdoc="x">Purpose</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Purpose%29" class="tocsubseclink" data-pltdoc="x">Purpose</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+<div class="maincolumn">
+ <div class="main">
+  <div class="versionbox">
+   <span class="version">8.7</span>
+  </div>
+  <div class="navsettop">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="l7.html" title="backward to &quot;Lecture 7: ==>, PBT filtering&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l9.html" title="forward to &quot;Lecture 9: SAT&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+ </div>
+ <h4>
+  <a name="(part._l8)"></a>Lecture 8: PBT generators
+ </h4>
+ <h5>
+  1
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Purpose)"></a>Purpose
+ </h5>
+ <p>
+  Sometimes you you need special generators.
+ </p>
+ <h5>
+  2
+  <tt>
+   &nbsp;
+  </tt>
+  <a name="(part._.Outline)"></a>Outline
+ </h5>
+ <p>
+  <span class="Larger">Nesting for-all</span>
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">prop</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">x</span><span class="w"> </span><span class="n">Integer</span><span class="p">)]</span><span class="w"> </span><span class="p">(</span><span class="nb">equal?</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                     </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">x</span><span class="w"> </span><span class="n">Integer</span><span class="p">)]</span><span class="w"> </span><span class="p">(</span><span class="nb">equal?</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">x</span><span class="p">)))))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">y</span><span class="w"> </span><span class="n">Integer</span><span class="p">)]</span><span class="w"> </span><span class="p">(</span><span class="n">prop</span><span class="w"> </span><span class="n">y</span><span class="p">)))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  <span class="Larger">Running more tests</span>
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="n">qc:with-medium-test-count</span><span class="w"> </span><span class="p">(</span><span class="n">qc:quickcheck</span><span class="w"> </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">y</span><span class="w"> </span><span class="n">Integer</span><span class="p">)]</span><span class="w"> </span><span class="p">(</span><span class="nb">equal?</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">y</span><span class="p">)))))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  <span class="Larger">Back to error correction</span>
+ </p>
+ <p>
+  Last week, we wrote a specification for a simple error correction strategy. The specification
+we wrote was:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="c1">; A Bit is one of:</span><span class="w"></span>
+<span class="c1">; - 0</span><span class="w"></span>
+<span class="c1">; - 1</span><span class="w"></span>
+
+<span class="c1">; A Packet is a Bit</span><span class="w"></span>
+
+<span class="c1">; A Message is a [List-of Packet]</span><span class="w"></span>
+
+<span class="c1">; A TripletPacket is a (list Bit Bit Bit)</span><span class="w"></span>
+
+<span class="c1">; encode : [List-of Packet] -&gt; [List-of TripletPacket]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">encode</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="n">msg</span><span class="p">))</span><span class="w"></span>
+
+<span class="c1">; decode : [List-of TripletPacket] -&gt; [List-of Packet]</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">decode</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">foldr</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="n">msg</span><span class="p">))</span><span class="w"></span>
+
+<span class="c1">; message-recovery-prop : Message -&gt; Bool</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">message-recovery-prop</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">mutate</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">introduce-error</span><span class="w"> </span><span class="n">triplet</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="p">[(</span><span class="k">define</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="p">(</span><span class="nb">random</span><span class="w"> </span><span class="mi">4</span><span class="p">))]</span><span class="w"></span>
+<span class="w">              </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="n">mutate</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list-ref</span><span class="w"> </span><span class="n">triplet</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span>
+<span class="w">                    </span><span class="p">(</span><span class="n">mutate</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list-ref</span><span class="w"> </span><span class="n">triplet</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">                    </span><span class="p">(</span><span class="n">mutate</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list-ref</span><span class="w"> </span><span class="n">triplet</span><span class="w"> </span><span class="mi">2</span><span class="p">)))))]</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">equal?</span><span class="w"> </span><span class="p">(</span><span class="n">decode</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="n">introduce-error</span><span class="w"> </span><span class="p">(</span><span class="n">encode</span><span class="w"> </span><span class="n">msg</span><span class="p">)))</span><span class="w"> </span><span class="n">msg</span><span class="p">)))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Now we can make our testing much better, by randomly generating messages. First, we’ll define
+how to generate <span class="RktSym">Bit</span><span class="RktMeta"></span>s, and using that, <span class="RktSym">Message</span><span class="RktMeta"></span>. We’ll use <span class="RktSym">qc:sized</span><span class="RktMeta"></span>, which we saw yesterday, and takes as input a function from number to
+generator, and passes it random natural numbers.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">Bit</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-one-of</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">Message</span><span class="w"> </span><span class="p">(</span><span class="n">qc:sized</span><span class="w"> </span><span class="p">(</span><span class="k">λ</span><span class="p">(</span><span class="n">len</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-list</span><span class="w"> </span><span class="n">Bit</span><span class="w"> </span><span class="n">len</span><span class="p">))))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">m</span><span class="w"> </span><span class="n">Message</span><span class="p">)]</span><span class="w"> </span><span class="p">(</span><span class="n">message-recovery-prop</span><span class="w"> </span><span class="n">m</span><span class="p">)))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  <span class="Larger">Sorting</span>
+ </p>
+ <p>
+  You might recall insertion sort from Fundies 1. It’s not a terribly efficient sorting algorithm, but it’s
+also not terribly inefficient, and the code is straightforward to write:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">L0</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">L1</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">L3</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">-2</span><span class="p">))</span><span class="w"></span>
+
+<span class="c1">; isort : [List-of Number] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="c1">; sorts the given list of numbers in ascending order</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">isort</span><span class="w"> </span><span class="n">L0</span><span class="p">)</span><span class="w"> </span><span class="n">L0</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">isort</span><span class="w"> </span><span class="n">L1</span><span class="p">)</span><span class="w"> </span><span class="n">L1</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">isort</span><span class="w"> </span><span class="n">L2</span><span class="p">)</span><span class="w"> </span><span class="n">L2</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">isort</span><span class="w"> </span><span class="n">L3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">-2</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">isort</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="n">l</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">                 </span><span class="p">(</span><span class="n">isort</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">l</span><span class="p">)))]))</span><span class="w"></span>
+
+<span class="c1">; insert : Number [List-of Number] -&gt; [List-of Number]</span><span class="w"></span>
+<span class="c1">; put the number at the right place in a _sorted_ list</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">L0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">L2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">L2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="n">n</span><span class="p">)]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">l</span><span class="p">))</span><span class="w"></span>
+<span class="w">             </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">             </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">l</span><span class="p">))))]))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  It works by inserting the first element at the right place into the result of sorting
+the rest; recursively.
+ </p>
+ <p>
+  Now, you can certainly test <span class="RktSym">isort</span><span class="RktMeta"></span> using PBT: generate lists, sort them, check that the
+results satisfy the predicate. But can you do the same for <span class="RktSym">insert</span><span class="RktMeta"></span>? You could use <span class="RktSym">==&gt;</span><span class="RktMeta"></span>,
+but almost no randomly generated lists will be sorted, so you will likely just end up not passing
+anything to <span class="RktSym">insert</span><span class="RktMeta"></span>. Need to do something else.
+ </p>
+ <p>
+  To do this, we want to define our own generator, this time for sorted lists.
+ </p>
+ <p>
+  There are multiple ways of doing this, but the strategy that we’ll use is to generate one
+number at a time, each time, choosing a number larger than the last. This will be a recursive
+function that takes a length as an input. We’ll then wrap this up
+with a generator than first generates a number and then uses that to make a sorted list of
+that length.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">INTERVAL</span><span class="w"> </span><span class="mi">10000</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">mkSortedList</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">qc:generator-unit</span><span class="w"> </span><span class="n">l</span><span class="p">)]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="n">qc:generator-bind</span><span class="w"></span>
+<span class="w">               </span><span class="p">(</span><span class="n">qc:choose-integer</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">INTERVAL</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="p">(</span><span class="k">λ</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">mkSortedList</span><span class="w"> </span><span class="p">(</span><span class="nb">sub1</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="n">m</span><span class="w"></span>
+<span class="w">                                   </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="n">m</span><span class="p">)))))]))</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">SortedList</span><span class="w"> </span><span class="p">(</span><span class="n">qc:sized</span><span class="w"> </span><span class="p">(</span><span class="k">λ</span><span class="p">(</span><span class="n">len</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">mkSortedList</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nb">empty</span><span class="p">))))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  Now we can define <span class="RktSym">sorted</span><span class="RktMeta"></span>, which we can use to not only double check our sorted list
+generation, but use that to test <span class="RktSym">insert</span><span class="RktMeta"></span>:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">sorted</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">empty?</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="nb">cons?</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">andmap</span><span class="w"> </span><span class="p">(</span><span class="k">λ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">l</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="p">(</span><span class="n">sorted</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">l</span><span class="p">)))]))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">l</span><span class="w"> </span><span class="n">SortedList</span><span class="p">)]</span><span class="w"> </span><span class="p">(</span><span class="n">sorted</span><span class="w"> </span><span class="n">l</span><span class="p">)))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">l</span><span class="w"> </span><span class="n">SortedList</span><span class="p">)</span><span class="w"></span>
+<span class="w">                          </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="n">Integer</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                  </span><span class="p">(</span><span class="n">sorted</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">l</span><span class="p">))))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  <span class="Larger">Generating balanced trees</span>
+ </p>
+ <p>
+  Recall from HW2, we defined binary trees as:
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">leaf</span><span class="w"> </span><span class="p">[</span><span class="n">value</span><span class="p">])</span><span class="w"></span>
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="p">[</span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="p">])</span><span class="w"></span>
+<span class="c1">; A [Tree-of X] is one of:</span><span class="w"></span>
+<span class="c1">; - (make-leaf X)</span><span class="w"></span>
+<span class="c1">; - (make-node [Tree-of X] [Tree-of X])</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <p>
+  For homework, you defined a predicate to ensure that a given tree was balanced. What we want to do
+now is define a <span style="font-style: italic">generator</span> that produces only balanced trees. How might we do that?
+Well, following the idea from our sorted lists, we might choose a random height, at the top: then
+we know that one subtree must have that height minus 1, and the other subtree can either be the
+same height, or of height one smaller. Using those new heights, we can recursively generate the
+subtrees.
+ </p>
+ <div class="default">
+  <div class="highlight">
+   <pre><span></span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">mkTreeHeight</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">elem-gen</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">qc:generator-bind</span><span class="w"></span>
+<span class="w">                    </span><span class="n">elem-gen</span><span class="w"></span>
+<span class="w">                    </span><span class="p">(</span><span class="k">λ</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">qc:generator-unit</span><span class="w"></span>
+<span class="w">                           </span><span class="p">(</span><span class="n">make-leaf</span><span class="w"> </span><span class="n">x</span><span class="p">))))]</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="k">else</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="n">qc:bind-generators</span><span class="w"></span>
+<span class="w">          </span><span class="p">([</span><span class="n">decrease</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-one-of</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="p">))]</span><span class="w"></span>
+<span class="w">           </span><span class="p">[</span><span class="n">full-height</span><span class="w"> </span><span class="p">(</span><span class="n">mkTreeHeight</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">elem-gen</span><span class="p">)]</span><span class="w"></span>
+<span class="w">           </span><span class="p">[</span><span class="n">other-side</span><span class="w"> </span><span class="p">(</span><span class="n">mkTreeHeight</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">decrease</span><span class="p">)</span><span class="w"> </span><span class="n">elem-gen</span><span class="p">)]</span><span class="w"></span>
+<span class="w">           </span><span class="p">[</span><span class="n">side</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-one-of</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="o">'</span><span class="ss">left</span><span class="w"> </span><span class="o">'</span><span class="ss">right</span><span class="p">))])</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">[(</span><span class="nb">symbol=?</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="o">'</span><span class="ss">left</span><span class="p">)</span><span class="w"></span>
+<span class="w">                 </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="n">full-height</span><span class="w"> </span><span class="n">other-side</span><span class="p">)]</span><span class="w"></span>
+<span class="w">                </span><span class="p">[(</span><span class="nb">symbol=?</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="o">'</span><span class="ss">right</span><span class="p">)</span><span class="w"></span>
+<span class="w">                 </span><span class="p">(</span><span class="n">make-node</span><span class="w"> </span><span class="n">other-side</span><span class="w"> </span><span class="n">full-height</span><span class="p">)]))]))</span><span class="w"> </span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">BalancedTree</span><span class="w"> </span><span class="p">(</span><span class="n">qc:generator-bind</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-integer</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="w">                      </span><span class="p">(</span><span class="k">λ</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">mkTreeHeight</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-integer</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">)))))</span><span class="w"></span>
+
+<span class="p">(</span><span class="n">check-property</span><span class="w"> </span><span class="p">(</span><span class="n">for-all</span><span class="w"> </span><span class="p">[(</span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="n">qc:choose-list</span><span class="w"> </span><span class="n">BalancedTree</span><span class="w"> </span><span class="mi">10</span><span class="p">))]</span><span class="w"></span>
+<span class="w">                  </span><span class="no">#f</span><span class="p">))</span><span class="w"></span>
+</pre>
+  </div>
+ </div>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="l7.html" title="backward to &quot;Lecture 7: ==>, PBT filtering&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="l9.html" title="forward to &quot;Lecture 9: SAT&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

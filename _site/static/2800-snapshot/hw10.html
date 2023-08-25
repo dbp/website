@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="minted-default-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewselflink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ref.html" class="tocviewlink" data-pltdoc="x">Lean Tactic Reference</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="hw1.html" class="tocviewlink" data-pltdoc="x">Homework 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="hw2.html" class="tocviewlink" data-pltdoc="x">Homework 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="hw3.html" class="tocviewlink" data-pltdoc="x">Homework 3</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          4&nbsp;
+         </td>
+         <td>
+          <a href="hw4.html" class="tocviewlink" data-pltdoc="x">Homework 4</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          5&nbsp;
+         </td>
+         <td>
+          <a href="hw5.html" class="tocviewlink" data-pltdoc="x">Homework 5</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          6&nbsp;
+         </td>
+         <td>
+          <a href="hw7.html" class="tocviewlink" data-pltdoc="x">Homework 7</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7&nbsp;
+         </td>
+         <td>
+          <a href="hw9.html" class="tocviewlink" data-pltdoc="x">Homework 9</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Homework 10</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9&nbsp;
+         </td>
+         <td>
+          <a href="hw11.html" class="tocviewlink" data-pltdoc="x">Homework 11</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          10&nbsp;
+         </td>
+         <td>
+          <a href="hw12.html" class="tocviewlink" data-pltdoc="x">Homework 12</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td>
+         8&nbsp;
+        </td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Homework 10</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          8.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Verifying_.Compilers_with_.Simulations%29" class="tocviewlink" data-pltdoc="x">Verifying Compilers with Simulations</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_1__.Helper_theorems_relating_.Rstar_to_.T.Step%29" class="tocviewlink" data-pltdoc="x">Problem 1:<span class="mywbr"> &nbsp;</span> Helper theorems relating Rstar to TStep</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_2__.Substitution_commutes_with_compile_%29" class="tocviewlink" data-pltdoc="x">Problem 2:<span class="mywbr"> &nbsp;</span> Substitution commutes with compile.</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_3__.Show_that_the_simulation_respects_compiler_%29" class="tocviewlink" data-pltdoc="x">Problem 3:<span class="mywbr"> &nbsp;</span> Show that the simulation respects compiler.</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_4__.Simulation_is_preserved_over_reduction%29" class="tocviewlink" data-pltdoc="x">Problem 4:<span class="mywbr"> &nbsp;</span> Simulation is preserved over reduction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8.6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_5__.Simulation_is_preserved_over_multiple_steps%29" class="tocviewlink" data-pltdoc="x">Problem 5:<span class="mywbr"> &nbsp;</span> Simulation is preserved over multiple steps</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          8.7&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Problem_6__.Prove_the_compiler_is_correct%29" class="tocviewlink" data-pltdoc="x">Problem 6:<span class="mywbr"> &nbsp;</span> Prove the compiler is correct</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">8.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Verifying_.Compilers_with_.Simulations%29" class="tocsubseclink" data-pltdoc="x">Verifying Compilers with Simulations</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">8.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Problem_1__.Helper_theorems_relating_.Rstar_to_.T.Step%29" class="tocsubseclink" data-pltdoc="x">Problem 1:<span class="mywbr"> &nbsp;</span> Helper theorems relating Rstar to TStep</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">8.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Problem_2__.Substitution_commutes_with_compile_%29" class="tocsubseclink" data-pltdoc="x">Problem 2:<span class="mywbr"> &nbsp;</span> Substitution commutes with compile.</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">8.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Problem_3__.Show_that_the_simulation_respects_compiler_%29" class="tocsubseclink" data-pltdoc="x">Problem 3:<span class="mywbr"> &nbsp;</span> Show that the simulation respects compiler.</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">8.5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Problem_4__.Simulation_is_preserved_over_reduction%29" class="tocsubseclink" data-pltdoc="x">Problem 4:<span class="mywbr"> &nbsp;</span> Simulation is preserved over reduction</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">8.6
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Problem_5__.Simulation_is_preserved_over_multiple_steps%29" class="tocsubseclink" data-pltdoc="x">Problem 5:<span class="mywbr"> &nbsp;</span> Simulation is preserved over multiple steps</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">8.7
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Problem_6__.Prove_the_compiler_is_correct%29" class="tocsubseclink" data-pltdoc="x">Problem 6:<span class="mywbr"> &nbsp;</span> Prove the compiler is correct</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.7</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="hw9.html" title="backward to &quot;7 Homework 9&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw11.html" title="forward to &quot;9 Homework 11&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+<h4>
+8
+<tt>
+&nbsp;
+</tt>
+<a name="(part._hw10)"></a>Homework 10
+</h4>
+<p>
+<span style="font-weight: bold">Released:</span> <span style="font-style: italic">Wednesday, March 22, 2023 at 6:00pm</span>
+</p>
+<p>
+<span style="font-weight: bold">Due:</span> <span style="font-style: italic">Wednesday, March 29, 2023 at 6:00pm</span>
+</p>
+<blockquote class="boxed">
+<p>
+What to Download:
+</p>
+<p>
+<a href="https://github.com/logiccomp/s23-hw10/raw/main/hw10.lean"><span class="url">https://github.com/logiccomp/s23-hw10/raw/main/hw10.lean</span></a>
+</p>
+</blockquote>
+<p>
+Please start with this file, filling in where appropriate, and submit your homework to the <span class="stt">hw10</span> assignment on Gradescope. This page has additional information, and allows us to format things nicely.
+</p>
+<p>
+<span style="font-weight: bold">To do this assignment in the browser: <a href="https://github.com/codespaces/new?machine=basicLinux32gb&amp;repo=578247840&amp;location=EastUs&amp;ref=main&amp;devcontainer_path=.devcontainer%2Fdevcontainer.json">Create a Codespace</a>.</span>
+</p>
+<h5>
+8.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Verifying_.Compilers_with_.Simulations)"></a>Verifying Compilers with Simulations
+</h5>
+<p>
+Earlier, we’ve seen simpler compiler correctness proofs of languages that were just arithmetic, or perhaps, arithmetic with variables. In this assignment, we’ll introduce slightly more interesting languages, in order to demonstrate the main technique used in proving compilers correct: simulation relations.
+</p>
+<p>
+Compiler correctness, at its essence, amounts to the following theorem:
+</p>
+<p>
+Given a source program <span class="texMathInline">E_s</span>, if it is compiled to a target program <span class="texMathInline">E_t</span>, then runinng <span class="texMathInline">E_s \overset{*}{\rightarrow} v_s</span> (to a source value <span class="texMathInline">v_s</span>) and running the target program <span class="texMathInline">E_t \overset{*}{\rightarrow} v_t</span> (to a target value <span class="texMathInline">v_t</span>) should result in related (or equivalent) target values. In languages with side effects (printing, network, etc), they should also produce the same effects.
+</p>
+<p>
+The most common way of proving this is with a so-called "simulation" relation, which describes a relationship between source a target programs that should hold <span style="font-style: italic">as the programs evaluate</span>. So rather than trying to prove, all at once, that <span class="texMathInline">v_s</span> is equivalent to <span class="texMathInline">v_t</span> (the final values after runinng the source and target program), we instead just show that after each step, the simulation relation still holds. Technically, what it will say is that if the source term takes a step, then after zero or more steps the target will reach a term that is in the simulation relation with the new source term. This allows the target to take more (or fewer) steps than the source. Provided this relation holds as we go, and the relation relates equal values to values, once the programs terminate, the relation will give us what we need, that <span class="texMathInline">v_s</span> is equivalent to <span class="texMathInline">v_t</span>.
+</p>
+<p>
+In this assignment, you will prove a simulation proof for a compiler that compiles booleans to numbers, in a small functional language that has functions, variables, function application, and either booleans (and ‘and‘) or numbers (and ‘plus‘ and ‘minus‘). By including functions (which are untyped), we end up including a lot of the complexity of more interesting languages (e.g., recursion, etc), but without adding lots of cases to our syntax (which would translate to more cases of the proof).
+</p>
+<p>
+We first give you a background definitions, which we talked about in class (in <a href="l27.html" data-pltdoc="x">L27, 3/22</a>).
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">Rstar</span> <span class="o">{</span><span class="n">T</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">(</span><span class="n">P</span> <span class="o">:</span> <span class="n">T</span> <span class="bp">-&gt;</span> <span class="n">T</span> <span class="bp">-&gt;</span> <span class="kt">Prop</span><span class="o">)</span> <span class="o">:</span> <span class="n">T</span> <span class="bp">-&gt;</span> <span class="n">T</span> <span class="bp">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+<span class="bp">|</span> <span class="n">refl</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">a</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">P</span> <span class="n">a</span> <span class="n">a</span>
+<span class="bp">|</span> <span class="n">step</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span><span class="o">,</span> <span class="n">P</span> <span class="n">a</span> <span class="n">b</span> <span class="bp">-&gt;</span> <span class="n">Rstar</span> <span class="n">P</span> <span class="n">b</span> <span class="n">c</span> <span class="bp">-&gt;</span> <span class="n">Rstar</span> <span class="n">P</span> <span class="n">a</span> <span class="n">c</span>
+
+<span class="kd">theorem</span> <span class="n">RTrans</span> <span class="o">{</span><span class="n">T</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">{</span><span class="n">P</span> <span class="o">:</span> <span class="n">T</span> <span class="bp">-&gt;</span> <span class="n">T</span> <span class="bp">-&gt;</span> <span class="kt">Prop</span><span class="o">}</span> <span class="o">{</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">T</span><span class="o">}</span> <span class="o">:</span> 
+        <span class="n">Rstar</span> <span class="n">P</span> <span class="n">a</span> <span class="n">b</span> <span class="bp">-&gt;</span> <span class="n">Rstar</span> <span class="n">P</span> <span class="n">b</span> <span class="n">c</span> <span class="bp">-&gt;</span> <span class="n">Rstar</span> <span class="n">P</span> <span class="n">a</span> <span class="n">c</span> <span class="o">:=</span>
+  <span class="kd">by</span> <span class="n">intros</span> <span class="n">H1</span>
+     <span class="n">revert</span> <span class="n">c</span>
+     <span class="n">induction</span> <span class="n">H1</span> <span class="bp">&lt;;&gt;</span> <span class="n">intros</span> <span class="n">c</span> <span class="n">H2</span> <span class="bp">&lt;;&gt;</span> <span class="n">simp</span> <span class="bp">&lt;;&gt;</span> <span class="n">try</span> <span class="n">assumption</span>
+     <span class="n">constructor</span>
+     <span class="n">assumption</span>
+     <span class="n">rename_i</span> <span class="n">H</span>
+     <span class="n">apply</span> <span class="n">H</span>
+     <span class="n">assumption</span>
+</pre>
+</div>
+</div>
+<p>
+And definitions for the source &amp; target language, which includes substitution functions to handle function application:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">Source</span> <span class="o">:=</span>
+<span class="bp">|</span> <span class="n">b</span> <span class="o">:</span> <span class="n">Bool</span> <span class="bp">-&gt;</span> <span class="n">Source</span>
+<span class="bp">|</span> <span class="n">and</span> <span class="o">:</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="n">Source</span>
+<span class="bp">|</span> <span class="n">var</span> <span class="o">:</span> <span class="n">String</span> <span class="bp">-&gt;</span> <span class="n">Source</span>
+<span class="bp">|</span> <span class="n">lam</span> <span class="o">:</span> <span class="n">String</span> <span class="bp">-&gt;</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="n">Source</span>
+<span class="bp">|</span> <span class="n">app</span> <span class="o">:</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="n">Source</span>
+
+<span class="kd">def</span> <span class="n">Source.sub</span> <span class="o">(</span><span class="n">e</span> <span class="o">:</span> <span class="n">Source</span><span class="o">)</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">String</span><span class="o">)</span> <span class="o">(</span><span class="n">body</span> <span class="o">:</span> <span class="n">Source</span><span class="o">)</span> <span class="o">:=</span>
+  <span class="k">match</span> <span class="n">body</span> <span class="k">with</span>
+  <span class="bp">|</span> <span class="n">b</span> <span class="n">_</span> <span class="bp">=&gt;</span> <span class="n">body</span>
+  <span class="bp">|</span> <span class="n">and</span> <span class="n">t1</span> <span class="n">t2</span> <span class="bp">=&gt;</span> <span class="n">and</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t1</span><span class="o">)</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t2</span><span class="o">)</span>
+  <span class="bp">|</span> <span class="n">var</span> <span class="n">x'</span> <span class="bp">=&gt;</span> <span class="k">if</span> <span class="n">x</span> <span class="bp">==</span> <span class="n">x'</span> <span class="k">then</span> <span class="n">e</span> <span class="k">else</span> <span class="n">body</span>
+  <span class="bp">|</span> <span class="n">app</span> <span class="n">t1</span> <span class="n">t2</span> <span class="bp">=&gt;</span> <span class="n">app</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t1</span><span class="o">)</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t2</span><span class="o">)</span>
+  <span class="bp">|</span> <span class="n">lam</span> <span class="n">x'</span> <span class="n">body'</span> <span class="bp">=&gt;</span> <span class="k">if</span> <span class="n">x</span> <span class="bp">==</span> <span class="n">x'</span> <span class="k">then</span> <span class="n">body</span>
+                    <span class="k">else</span> <span class="n">lam</span> <span class="n">x'</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">body'</span><span class="o">)</span>
+
+<span class="kd">inductive</span> <span class="n">SStep</span> <span class="o">:</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+<span class="bp">|</span> <span class="n">app</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e</span> <span class="n">e'</span> <span class="n">a</span><span class="o">,</span> <span class="n">SStep</span> <span class="n">e</span> <span class="n">e'</span> <span class="bp">-&gt;</span>
+                  <span class="n">SStep</span> <span class="o">(</span><span class="n">Source.app</span> <span class="n">e</span> <span class="n">a</span><span class="o">)</span> <span class="o">(</span><span class="n">Source.app</span> <span class="n">e'</span> <span class="n">a</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">beta</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">x1</span> <span class="n">body</span> <span class="n">e</span><span class="o">,</span>
+    <span class="n">SStep</span> <span class="o">(</span><span class="n">Source.app</span> <span class="o">(</span><span class="n">Source.lam</span> <span class="n">x1</span> <span class="n">body</span><span class="o">)</span> <span class="n">e</span><span class="o">)</span>
+        <span class="o">(</span><span class="n">e.sub</span> <span class="n">x1</span> <span class="n">body</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">and1</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">,</span> <span class="n">SStep</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="bp">-&gt;</span>
+                        <span class="n">SStep</span> <span class="o">(</span><span class="n">Source.and</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Source.and</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">and2</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">b</span> <span class="n">e2</span> <span class="n">e2'</span><span class="o">,</span> <span class="n">SStep</span> <span class="n">e2</span> <span class="n">e2'</span> <span class="bp">-&gt;</span>
+                      <span class="n">SStep</span> <span class="o">(</span><span class="n">Source.and</span> <span class="o">(</span><span class="n">Source.b</span> <span class="n">b</span><span class="o">)</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Source.and</span> <span class="o">(</span><span class="n">Source.b</span> <span class="n">b</span><span class="o">)</span> <span class="n">e2'</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">and</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">b1</span> <span class="n">b2</span><span class="o">,</span> <span class="n">SStep</span> <span class="o">(</span><span class="n">Source.and</span> <span class="o">(</span><span class="n">Source.b</span> <span class="n">b1</span><span class="o">)</span> <span class="o">(</span><span class="n">Source.b</span> <span class="n">b2</span><span class="o">))</span>
+                        <span class="o">(</span><span class="n">Source.b</span> <span class="o">(</span><span class="n">b1</span> <span class="bp">&amp;&amp;</span> <span class="n">b2</span><span class="o">))</span>
+
+<span class="kd">inductive</span> <span class="n">Target</span> <span class="o">:=</span>
+<span class="bp">|</span> <span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span> <span class="bp">-&gt;</span> <span class="n">Target</span>
+<span class="bp">|</span> <span class="n">plus</span> <span class="o">:</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="n">Target</span>
+<span class="bp">|</span> <span class="n">minus</span> <span class="o">:</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="n">Target</span>
+<span class="bp">|</span> <span class="n">var</span> <span class="o">:</span> <span class="n">String</span> <span class="bp">-&gt;</span> <span class="n">Target</span>
+<span class="bp">|</span> <span class="n">lam</span> <span class="o">:</span> <span class="n">String</span> <span class="bp">-&gt;</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="n">Target</span>
+<span class="bp">|</span> <span class="n">app</span> <span class="o">:</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="n">Target</span>
+
+<span class="kd">def</span> <span class="n">Target.sub</span> <span class="o">(</span><span class="n">e</span> <span class="o">:</span> <span class="n">Target</span><span class="o">)</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">String</span><span class="o">)</span> <span class="o">(</span><span class="n">body</span> <span class="o">:</span> <span class="n">Target</span><span class="o">)</span> <span class="o">:=</span>
+  <span class="k">match</span> <span class="n">body</span> <span class="k">with</span>
+  <span class="bp">|</span> <span class="n">n</span> <span class="n">_</span> <span class="bp">=&gt;</span> <span class="n">body</span>
+  <span class="bp">|</span> <span class="n">plus</span> <span class="n">t1</span> <span class="n">t2</span> <span class="bp">=&gt;</span> <span class="n">plus</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t1</span><span class="o">)</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t2</span><span class="o">)</span>
+  <span class="bp">|</span> <span class="n">minus</span> <span class="n">t1</span> <span class="n">t2</span> <span class="bp">=&gt;</span> <span class="n">minus</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t1</span><span class="o">)</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t2</span><span class="o">)</span>
+  <span class="bp">|</span> <span class="n">var</span> <span class="n">x'</span> <span class="bp">=&gt;</span> <span class="k">if</span> <span class="n">x</span> <span class="bp">==</span> <span class="n">x'</span> <span class="k">then</span> <span class="n">e</span> <span class="k">else</span> <span class="n">body</span>
+  <span class="bp">|</span> <span class="n">app</span> <span class="n">t1</span> <span class="n">t2</span> <span class="bp">=&gt;</span> <span class="n">app</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t1</span><span class="o">)</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">t2</span><span class="o">)</span>
+  <span class="bp">|</span> <span class="n">lam</span> <span class="n">x'</span> <span class="n">body'</span> <span class="bp">=&gt;</span> <span class="k">if</span> <span class="n">x</span> <span class="bp">==</span> <span class="n">x'</span> <span class="k">then</span> <span class="n">body</span>
+                      <span class="k">else</span> <span class="n">lam</span> <span class="n">x'</span> <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">body'</span><span class="o">)</span>
+
+<span class="kd">inductive</span> <span class="n">TStep</span> <span class="o">:</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+<span class="bp">|</span> <span class="n">app</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e</span> <span class="n">e'</span> <span class="n">a</span><span class="o">,</span> <span class="n">TStep</span> <span class="n">e</span> <span class="n">e'</span> <span class="bp">-&gt;</span>
+                  <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.app</span> <span class="n">e</span> <span class="n">a</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.app</span> <span class="n">e'</span> <span class="n">a</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">beta</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">x1</span> <span class="n">body</span> <span class="n">e</span><span class="o">,</span>
+    <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.app</span> <span class="o">(</span><span class="n">Target.lam</span> <span class="n">x1</span> <span class="n">body</span><span class="o">)</span> <span class="n">e</span><span class="o">)</span>
+          <span class="o">(</span><span class="n">e.sub</span> <span class="n">x1</span> <span class="n">body</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">plus1</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">,</span> <span class="n">TStep</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="bp">-&gt;</span>
+                        <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">plus2</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e2</span> <span class="n">e2'</span><span class="o">,</span> <span class="n">TStep</span> <span class="n">e2</span> <span class="n">e2'</span> <span class="bp">-&gt;</span>
+                        <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="n">e1</span> <span class="n">e2'</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">plus</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n1</span> <span class="n">n2</span><span class="o">,</span> <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="o">(</span><span class="n">Target.n</span> <span class="n">n1</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.n</span> <span class="n">n2</span><span class="o">))</span>
+                        <span class="o">(</span><span class="n">Target.n</span> <span class="o">(</span><span class="n">n1</span> <span class="bp">+</span> <span class="n">n2</span><span class="o">))</span>
+<span class="bp">|</span> <span class="n">minus1</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">,</span> <span class="n">TStep</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="bp">-&gt;</span>
+                      <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">minus2</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e2</span> <span class="n">e2'</span><span class="o">,</span> <span class="n">TStep</span> <span class="n">e2</span> <span class="n">e2'</span> <span class="bp">-&gt;</span>
+                      <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="n">e1</span> <span class="n">e2'</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">minus</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n1</span> <span class="n">n2</span><span class="o">,</span> <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="o">(</span><span class="n">Target.n</span> <span class="n">n1</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.n</span> <span class="n">n2</span><span class="o">))</span>
+                          <span class="o">(</span><span class="n">Target.n</span> <span class="o">(</span><span class="n">n1</span> <span class="bp">-</span> <span class="n">n2</span><span class="o">))</span>
+</pre>
+</div>
+</div>
+<p>
+We also give you the compiler:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">def</span> <span class="n">Source.compile</span> <span class="o">:</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="n">Target</span> 
+<span class="bp">|</span> <span class="n">b</span> <span class="n">true</span>    <span class="bp">=&gt;</span> <span class="n">Target.n</span> <span class="mi">1</span>
+<span class="bp">|</span> <span class="n">b</span> <span class="n">false</span>   <span class="bp">=&gt;</span> <span class="n">Target.n</span> <span class="mi">0</span>
+<span class="bp">|</span> <span class="n">and</span> <span class="n">b1</span> <span class="n">b2</span> <span class="bp">=&gt;</span> <span class="n">Target.minus</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="o">(</span><span class="n">compile</span> <span class="n">b1</span><span class="o">)</span> <span class="o">(</span><span class="n">compile</span> <span class="n">b2</span><span class="o">))</span> <span class="o">(</span><span class="n">Target.n</span> <span class="mi">1</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">var</span> <span class="n">x</span>     <span class="bp">=&gt;</span> <span class="n">Target.var</span> <span class="n">x</span>
+<span class="bp">|</span> <span class="n">app</span> <span class="n">t1</span> <span class="n">t2</span> <span class="bp">=&gt;</span> <span class="n">Target.app</span> <span class="o">(</span><span class="n">compile</span> <span class="n">t1</span><span class="o">)</span> <span class="o">(</span><span class="n">compile</span> <span class="n">t2</span><span class="o">)</span>
+<span class="bp">|</span> <span class="n">lam</span> <span class="n">x</span> <span class="n">bdy</span> <span class="bp">=&gt;</span> <span class="n">Target.lam</span> <span class="n">x</span> <span class="o">(</span><span class="n">compile</span> <span class="n">bdy</span><span class="o">)</span>
+</pre>
+</div>
+</div>
+<p>
+And the simulation relation:
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="kd">inductive</span> <span class="n">sim</span> <span class="o">:</span> <span class="n">Source</span> <span class="bp">-&gt;</span> <span class="n">Target</span> <span class="bp">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+<span class="bp">|</span> <span class="n">comp</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e</span><span class="o">,</span> <span class="n">sim</span> <span class="n">e</span> <span class="n">e.compile</span>
+</pre>
+</div>
+</div>
+<h5>
+8.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_1__.Helper_theorems_relating_.Rstar_to_.T.Step)"></a>Problem 1: Helper theorems relating Rstar to TStep
+</h5>
+<p>
+In this first problem, you’ll prove various helper theorems relating to the evaluation of the target (number containing) language.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">-- 7 lines </span>
+<span class="kd">theorem</span> <span class="n">app_star</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">TStep</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="bp">-&gt;</span> 
+                  <span class="n">Rstar</span> <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.app</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.app</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">)</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="c1">-- 7 lines</span>
+<span class="kd">theorem</span> <span class="n">plus_star1</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">TStep</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="bp">-&gt;</span> 
+                  <span class="n">Rstar</span> <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">)</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="c1">-- 7 lines</span>
+<span class="kd">theorem</span> <span class="n">plus_star2</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e2</span> <span class="n">e2'</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">TStep</span> <span class="n">e2</span> <span class="n">e2'</span> <span class="bp">-&gt;</span> 
+                  <span class="n">Rstar</span> <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.plus</span> <span class="n">e1</span> <span class="n">e2'</span><span class="o">)</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="c1">-- 7 lines</span>
+<span class="kd">theorem</span> <span class="n">minus_star1</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">TStep</span> <span class="n">e1</span> <span class="n">e1'</span> <span class="bp">-&gt;</span> 
+                  <span class="n">Rstar</span> <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="n">e1'</span> <span class="n">e2</span><span class="o">)</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="c1">-- 7 lines</span>
+<span class="kd">theorem</span> <span class="n">minus_star2</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">e1</span> <span class="n">e2</span> <span class="n">e2'</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">TStep</span> <span class="n">e2</span> <span class="n">e2'</span> <span class="bp">-&gt;</span> 
+                  <span class="n">Rstar</span> <span class="n">TStep</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">Target.minus</span> <span class="n">e1</span> <span class="n">e2'</span><span class="o">)</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<h5>
+8.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_2__.Substitution_commutes_with_compile_)"></a>Problem 2: Substitution commutes with compile.
+</h5>
+<p>
+In this problem, you will prove that substituting and then
+  compiling is the same as compiling and then substituting.
+  This will be a necessary result in the ‘beta‘ case of ‘sim_step‘.
+</p>
+<p>
+Think about whether the expression being substituted, or the
+  expression substituted into (e or body) make more sense to do
+  induction on. Also: in the cases where variable comparison is
+  used (var &amp; lam), remember L23 (3/13).
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">-- 15 lines</span>
+<span class="kd">theorem</span> <span class="n">compile_sub</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">(</span><span class="n">e</span> <span class="o">:</span> <span class="n">Source</span><span class="o">)</span> <span class="n">x</span> <span class="o">(</span><span class="n">body</span> <span class="o">:</span> <span class="n">Source</span><span class="o">),</span>
+  <span class="o">(</span><span class="n">e.sub</span> <span class="n">x</span> <span class="n">body</span><span class="o">)</span><span class="bp">.</span><span class="n">compile</span> <span class="bp">=</span> <span class="n">Target.sub</span> <span class="n">e.compile</span> <span class="n">x</span> <span class="n">body.compile</span> <span class="o">:=</span>
+ <span class="kd">by</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<h5>
+8.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_3__.Show_that_the_simulation_respects_compiler_)"></a>Problem 3: Show that the simulation respects compiler.
+</h5>
+<p>
+In some relations, this is involved: in ours, this should be
+  trivial! But it is a necessary step, as logically, it is how we
+  start our argument: first, we show that the source &amp; target term are
+  in the relation. Then we should that at each step, they remain;
+  finally, we should that when they terminate, they terminate at related
+  values.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">-- 1 line</span>
+<span class="kd">theorem</span> <span class="n">compile_sim</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t</span><span class="o">,</span>
+  <span class="n">sim</span> <span class="n">t</span> <span class="n">t.compile</span> <span class="o">:=</span> 
+ <span class="kd">by</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<h5>
+8.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_4__.Simulation_is_preserved_over_reduction)"></a>Problem 4: Simulation is preserved over reduction
+</h5>
+<p>
+This is the heart of the proof. It says that for a single
+  step of the source, after any number of steps of the target,
+  there is some target term that is related again. i.e., we can
+  always get back to a pair of related terms. We will use this
+  iteratively in the next proof.
+</p>
+<p>
+Be sure to use the theorems you did in Problem 1 &amp; Problem 2,
+  and as a hint: you will want to do induction on the SSTep relation.
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">-- 67 lines</span>
+<span class="kd">theorem</span> <span class="n">sim_step</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t1</span> <span class="n">t1'</span><span class="o">,</span>
+  <span class="n">SStep</span> <span class="n">t1</span> <span class="n">t1'</span> <span class="bp">-&gt;</span>
+  <span class="k">forall</span> <span class="n">t2</span><span class="o">,</span>
+  <span class="n">sim</span> <span class="n">t1</span> <span class="n">t2</span> <span class="bp">-&gt;</span>
+  <span class="n">exists</span> <span class="n">t2'</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">TStep</span> <span class="n">t2</span> <span class="n">t2'</span> <span class="bp">/\</span> <span class="n">sim</span> <span class="n">t1'</span> <span class="n">t2'</span> <span class="o">:=</span> 
+ <span class="kd">by</span> <span class="n">intros</span> <span class="n">t1</span> <span class="n">t1'</span> <span class="n">stept1</span>
+    <span class="n">induction</span> <span class="n">stept1</span> <span class="bp">&lt;;&gt;</span> <span class="n">intros</span> <span class="n">t2</span> <span class="n">sim1</span> <span class="bp">&lt;;&gt;</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<h5>
+8.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_5__.Simulation_is_preserved_over_multiple_steps)"></a>Problem 5: Simulation is preserved over multiple steps
+</h5>
+<p>
+This problem shows that if we take many steps at the source,
+  the result from the previous theorem still holds. It is
+  much easier, since we can appeal to the single step result
+  (where most of the work is done).
+</p>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">-- 15 lines</span>
+<span class="kd">theorem</span> <span class="n">step_sim_star</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t1</span> <span class="n">t1'</span><span class="o">,</span>
+  <span class="n">Rstar</span> <span class="n">SStep</span> <span class="n">t1</span> <span class="n">t1'</span> <span class="bp">-&gt;</span>
+  <span class="k">forall</span> <span class="n">t2</span><span class="o">,</span>
+  <span class="n">sim</span> <span class="n">t1</span> <span class="n">t2</span> <span class="bp">-&gt;</span>
+  <span class="n">exists</span> <span class="n">t2'</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">TStep</span> <span class="n">t2</span> <span class="n">t2'</span> <span class="bp">/\</span> <span class="n">sim</span> <span class="n">t1'</span> <span class="n">t2'</span> <span class="o">:=</span> 
+ <span class="kd">by</span> <span class="n">intros</span> <span class="n">t1</span> <span class="n">t1'</span> <span class="n">rst1</span>
+    <span class="n">induction</span> <span class="n">rst1</span> <span class="bp">&lt;;&gt;</span> <span class="n">intros</span> <span class="n">t2</span> <span class="n">sim1</span> <span class="bp">&lt;;&gt;</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<h5>
+8.7
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Problem_6__.Prove_the_compiler_is_correct)"></a>Problem 6: Prove the compiler is correct
+</h5>
+<div class="default">
+<div class="highlight">
+<pre><span></span><span class="c1">-- 7 lines</span>
+<span class="kd">theorem</span> <span class="n">correct</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t</span> <span class="n">b</span><span class="o">,</span> <span class="n">Rstar</span> <span class="n">SStep</span> <span class="n">t</span> <span class="o">(</span><span class="n">Source.b</span> <span class="n">b</span><span class="o">)</span> <span class="bp">-&gt;</span>
+                              <span class="n">Rstar</span> <span class="n">TStep</span> <span class="n">t.compile</span> <span class="o">((</span><span class="n">Source.b</span> <span class="n">b</span><span class="o">)</span><span class="bp">.</span><span class="n">compile</span><span class="o">)</span> <span class="o">:=</span> 
+ <span class="kd">by</span> <span class="gr">sorry</span>
+</pre>
+</div>
+</div>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="hw9.html" title="backward to &quot;7 Homework 9&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="homework.html" title="up to &quot;Homework&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="hw11.html" title="forward to &quot;9 Homework 11&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

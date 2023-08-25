@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {
+  document.write('<link rel="stylesheet" href="katex/katex.min.css" />');
+})();(function() {document.write('<scr' + 'ipt type="text/javascript" src="katex/katex.min.js"></scr' + 'ipt>');})();(function(f) {
+  // A "simple" onLoad function
+  if (window.document.readyState == "complete") {
+    f();
+  } else if (window.document.addEventListener) {
+    window.document.addEventListener("DOMContentLoaded", f, false);
+  } else if (window.attachEvent) {
+    window.attachEvent("onreadystatechange", function() {
+      if (window.document.readyState == "complete") {
+        f();
+      }
+    });
+  } else {
+    var oldLoad = window.onload;
+    if (typeof(oldLoad) == "function") {
+      window.onload = function() {
+        try {
+          oldLoad();
+        } finally {
+          f();
+        }
+      };
+    } else {
+      window.onload = f;
+    }
+  }
+})(function() {
+  // This is an ugly way to change the doctype, in case the scribble document
+  // did not use (with-html5).
+  if (!(document.doctype && document.doctype.publicId == '')) {
+    if (console && console.log) {
+      console.log("Re-wrote the document to use the HTML5 doctype.\n"
+                  + "  Consider using the following declaration:\n"
+                  + "      @title[#:style (with-html5 manual-doc-style)]{…}");
+    }
+    var wholeDoc = '<!doctype HTML>\n' + document.documentElement.outerHTML;
+    document.open();
+    document.clear();
+    document.write(wholeDoc);
+  }
+  var inlineElements = document.getElementsByClassName("texMathInline");
+  for (var i = 0; i < inlineElements.length; i++) {
+    var e = inlineElements[i];
+    katex.render(e.textContent, e, { displayMode:false, throwOnError:false });
+  }
+  var displayElements = document.getElementsByClassName("texMathDisplay");
+  for (var i = 0; i < displayElements.length; i++) {
+    var e = displayElements[i];
+    katex.render(e.textContent, e, { displayMode:true, throwOnError:false });
+  }
+});
+  </script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="notes.html" class="tocviewselflink" data-pltdoc="x">Notes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td>
+         1&nbsp;
+        </td>
+        <td>
+         <a href="notes.html" class="tocviewlink" data-pltdoc="x">Notes</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1.1&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">What is specification?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          1.2&nbsp;
+         </td>
+         <td>
+          <a href="propositional.html" class="tocviewlink" data-pltdoc="x">Propositional Logic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          1.3&nbsp;
+         </td>
+         <td>
+          <a href="pbt_specification.html" class="tocviewlink" data-pltdoc="x">Property Based Testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          1.4&nbsp;
+         </td>
+         <td>
+          <a href="sat.html" class="tocviewlink" data-pltdoc="x">Rosette 1:<span class="mywbr"> &nbsp;</span> SAT &amp; SMT</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          1.5&nbsp;
+         </td>
+         <td>
+          <a href="proof.html" class="tocviewlink" data-pltdoc="x">Lean 1:<span class="mywbr"> &nbsp;</span> What is Proof</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="notes.html" title="backward to &quot;1 Notes&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="notes.html" title="up to &quot;1 Notes&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="propositional.html" title="forward to &quot;1.2 Propositional Logic&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h4>
+    1.1
+    <tt>
+     &nbsp;
+    </tt>
+    <a name="(part._.What_is_specification_)"></a>What is specification?
+   </h4>
+   <p>
+    So what, exactly, is formal methods, and how does it relate to this class? The
+premise of all formal methods is to develop a precise formal description of how
+a piece of software is supposed to work. This description is called the
+specification, and the desire to make it precise and unambiguous leads
+<span style="font-style: italic">logic</span> to be a very natural fit for it, since logical statements have a
+completely unambiguous meaning. For example, <span class="texMathInline">A \lor B</span> is true if <span class="texMathInline">A</span> is
+true and also true if <span class="texMathInline">B</span> is true —<wbr> not, as is another possible
+interpretation in English, only if exactly one of <span class="texMathInline">A</span> and <span class="texMathInline">B</span> were true
+(that definition, exclusive or or XOR, can also be encoded in logic, or built
+in). By expressing specifications in a completely unambiguous way, we first gain
+the ability to talk precisely about what we want systems to do: these
+specifications can act as a communication mechanism, and studying them can
+reveal flaws that might not have been obvious in a more ambiguous description.
+   </p>
+   <p>
+    Specifications need not be complete —<wbr> and indeed, they will likely not include
+some details of the actual code. For example, one powerful and popular form of
+specification asserts the <span style="font-style: italic">correctness</span> of code, but nothing about its
+space or time behavior, security properties, etc. We can also have
+specifications that only cover a partial description of the correctness of code.
+For example, if I had a function with the following signature and purpose
+statement:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">fast-square</span><span class="hspace">&nbsp;</span><span class="RktCmt">:</span><span class="hspace">&nbsp;</span><span class="RktCmt">Integer</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Integer</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktCmt">;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Squares</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">input</span><span class="hspace">&nbsp;</span><span class="RktCmt">number</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    I could give it both of the following specifications, using <span class="stt">for-all</span> from
+first-order logic:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">for-all</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">integer</span><span class="RktPn">]</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">&gt;=</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">fast-square</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">for-all</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">integer</span><span class="RktPn">]</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">=</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">fast-square</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">*</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    Both use a <span style="font-style: italic">universal quantification</span> from first-order logic, which says
+that for any integer <span class="RktSym">x</span><span class="RktMeta"></span>, the nested logical statement should hold. What do
+they each say? The first says that the result of calling <span class="RktSym">fast-square</span><span class="RktMeta"></span> should
+be at least <span class="RktVal">0</span><span class="RktMeta"></span>, though says nothing about what the actual result should be. This
+is true, but also admits many functions that likely would not satisfy us: for
+example, a constant function that always returned <span class="RktVal">0</span><span class="RktMeta"></span>. The second
+specification is better: it says that the result of running <span class="RktSym">fast-square</span><span class="RktMeta"></span> on
+<span class="RktSym">x</span><span class="RktMeta"></span> should result in <span class="RktPn">(</span><span class="RktSym">*</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span>. This is a statement of correctness: it
+specifies exactly what the result should be, but makes no statement about
+<span style="font-style: italic">how</span> the <span class="RktSym">fast-square</span><span class="RktMeta"></span> function should get to that result. Perhaps
+our implementation can accomplish it with bit shifting, relying on knowledge
+about the underlying representation, etc. This may be enough for some purposes,
+but for others, we might need still other specifications. For example, if we
+were writing high-security code, we might want to ensure properties that relate
+to information leakage.
+   </p>
+   <p>
+    Once we have a good enough specification of what a program should do, we need to use
+that specification to increase our trust of our code. Note that I do not say
+that we prove our code correct, as trust is always relative, and the goal can
+essentially never be absolute trust: but we can get things to be good enough
+that bugs are incredibly unlikely. This is the point where the field of formal
+methods splits out into many different directions, some fundamental, and some
+based on tools. In this course, we will cover three different approaches:
+first, we will cover probably the highest efficacy to weight formal methods
+technique, property based testing. Next, we’ll see how SAT/SMT solvers can be used to
+scale testing approaches to very large input spaces and solve classes of problems
+automatically. Last, we will see how to use the theorem
+prover Lean to not only use property based testing to connect the formal
+specifications we write down to our code, but to prove, within Lean, that the
+code satisfies the specification. Provided there aren’t bugs in the Lean system,
+these proofs are then highly trustworthy, but constructing proofs is both
+difficult and requires specialized tools, so is a more specialized technique
+than SMT, and certainly than property based testing, which can be easily used
+in almost any setting.
+   </p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="notes.html" title="backward to &quot;1 Notes&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="notes.html" title="up to &quot;1 Notes&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="propositional.html" title="forward to &quot;1.2 Propositional Logic&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

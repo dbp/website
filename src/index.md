@@ -1,17 +1,43 @@
 <div class="imgr"><img src="/static/dbp.jpg" alt="Daniel Patterson"/></div> I'm
-currently a graduate student at [Northeastern
-University](http://prl.ccs.neu.edu/) studying programming languages with [Amal
-Ahmed](http://www.ccs.neu.edu/home/amal/). The topic of my dissertation is the
+an Assistant Teaching Professor at [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/) at Northeastern University. 
+
+I got my PhD at the [PRL Lab](http://prl.ccs.neu.edu/), studying programming languages with [Amal
+Ahmed](http://www.ccs.neu.edu/home/amal/). My [dissertation]((/pubs/2022/dbp-dissertation.pdf)) was about the
 **semantics of language interoperability**.
 
-Starting in Fall'22, I'll be an Assistant Teaching Professor at [Northeastern University](https://www.khoury.northeastern.edu/).
-
-Previously, I helped start and run a worker-owned software contracting company, [Position Development](http://positiondev.com). I studied math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I worked with [Shriram Krishnamurthi](https://cs.brown.edu/~sk), helping to design the [Pyret](https://www.pyret.org) programming language.
-
+Before that, I helped start and run a worker-owned software contracting company, [Position Development](http://positiondev.com). I studied math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I worked with [Shriram Krishnamurthi](https://cs.brown.edu/~sk), helping to design the [Pyret](https://www.pyret.org) programming language.
 
 ### Contact
 
-The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>. Note that if you have another email address for me, it will probably work as well. I'm currently located in Boston, MA.
+The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">dbp@dbpmail.net</a>. Note that if you have another email address for me, it will probably work as well. 
+
+### Drop-in Hours
+
+You're welcome to come talk to me about anything (related to what I'm teaching,
+research I've done, or really, anything else), though students who are currently
+enrolled in classes I'm teaching will get preference.
+
+**Spring 2023**, I'll have *in-person* drop-in hours, Tuesdays **11:00am-12:00pm** and **2:00pm-3:00pm**, at my office, **317 Meserve Hall**.
+
+If you are unable to make that time, or would like to meet virtually, reach out via email.
+
+### Teaching
+
+**Spring 2023: ** [CS2800: Logic & Computation](https://course.ccs.neu.edu/cs2800sp23/)
+
+**Fall 2022: ** [CS2500: Fundamentals of Computer Science 1](https://course.ccs.neu.edu/cs2500f22/index.html)
+
+**Fall 2019: ** [CS4910: Verified Compilers and Multi-Language Software](https://verifcomp.dbp.io)
+
+
+### Dissertation
+<div class="pubs">
+
+[**Interoperability Through Realizability: Expressing High-level Abstractions using Low-level code.**](/pubs/2022/dbp-dissertation.pdf)
+<div class="desc">Daniel Patterson. <br/> _Northeastern University, 2022_. [PDF](/pubs/2022/dbp-dissertation.pdf).</div>
+
+</div>
+
 
 ### Publications
 <div class="pubs">
@@ -47,34 +73,6 @@ The easiest way to get in touch is via email: <a href="mailto:dbp@dbpmail.net">d
 <div class="desc">Joe Gibbs Politz, Alejandro Martinez, Matthew Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. <br/>_OOPSLA 2013_. [PDF](/pubs/2013/lambda-py-oopsla.pdf), [appendix](/pubs/2013/lambda-py-appendix-oopsla.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).</div>
 </div>
 
-### Teaching
-
-**Fall 2019: ** [CS4910: Verified Compilers and Multi-Language Software](https://verifcomp.dbp.io)
-
-### Talks
-
-<div class="pubs">
-**On Compositional Compiler Correctness and Fully Abstract Compilation.**
-<div class="desc">Principles of Secure Compilation at _POPL 2017_. [slides](/talks/2018/ccc-prisc.pdf) (no video).</div>
-
-**FunTAL: Reasonably Mixing a Functional Language with Assembly.**
-<div class="desc">_PLDI 2017_. [slides](/talks/2017/funtal-pldi.pdf) and [video](https://www.youtube.com/watch?v=5Py0l7CfQTo&index=25&list=PLMTm6Ln7vQZZv6sQ0I4R7iaIjvSVhHXod).</div>
-
-**Artifacts for Semantics: An OCaml Experiment.**
-<div class="desc">New England Programming Languages and Systems Symposium June 2017. [slides](/talks/2017/artifacts-nepls.pdf) (no video).</div>
-
-**Linking Types for Multi-Language Software: Have Your Cake and Eat It Too;.**
-<div class="desc">_SNAPL 2017_. [slides](/talks/2017/linking-types-snapl.pdf) (no video).</div>
-
-**Linking Types: Secure compilation of multi-language programs.**
-<div class="desc">Secure Compilation Meeting at _POPL 2017_. [slides](/talks/2017/linking-types-scm.pdf) (no video).</div>
-
-**Typed routing with continuations.**
-<div class="desc">New York Haskell Meetup April 2016. [slides](/talks/2016/fn-continuations-haskell-meetup.pdf) (or [with animations](/talks/2016/fn-continuations-transitions-haskell-meetup.pdf), which may be helpful) and [video](https://www.youtube.com/watch?v=tQI2JJwD_ZY).</div>
-
-**Types and Testing in Haskell.**
-<div class="desc">New York Haskell Meetup November 2014. [slides](/talks/2014/types-testing-haskell-meetup.pdf) and [video](https://www.youtube.com/watch?v=8_gjqN-VqeM).</div>
-</div>
 
 ### Blog
 
@@ -87,5 +85,5 @@ A current CV is available in [PDF form](/static/cv.pdf).
 
 ### Links
 
-I'm at [github.com/dbp](https://github.com/dbp) (code), [twitter.com/dbp__](https://twitter.com/dbp__) (research & politics), and [instagram.com/dbp____](https://www.instagram.com/dbp____/) (food & art).
+I'm at [github.com/dbp](https://github.com/dbp) & [twitter.com/dbp__](https://twitter.com/dbp__).
 

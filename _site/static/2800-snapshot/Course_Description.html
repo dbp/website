@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="main.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Logic &amp; Computation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublistonly" style="display: block;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1&nbsp;
+         </td>
+         <td>
+          <a href="Meeting_Times.html" class="tocviewlink" data-pltdoc="x">Meeting Times</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2&nbsp;
+         </td>
+         <td>
+          <a href="Office_Hours.html" class="tocviewlink" data-pltdoc="x">Office Hours</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3&nbsp;
+         </td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Course Description</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="schedule.html" class="tocviewlink" data-pltdoc="x">Schedule</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="homework.html" class="tocviewlink" data-pltdoc="x">Homework</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="Office_Hours.html" title="backward to &quot;2 Office Hours&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Logic &amp; Computation&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="syllabus.html" title="forward to &quot;Syllabus&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    3
+    <tt>
+     &nbsp;
+    </tt>
+    <a name="(part._.Course_.Description)"></a>Course Description
+   </h3>
+   <p>
+    The background of this course is Fundamentals 1, based on the textbook How to
+Design Programs, and Discrete Structures. Of course, some people may have more
+background (either before or after), but we’ll neither build on nor assume that.
+   </p>
+   <p>
+    In Fundamentals 1, you learned about the systematic design of software. You
+learned how to take a problem statement and refine it into functioning software
+in a step-by-step process called the Design Recipe. This iterative process
+allowed you first to discover the relevant data, then identify the operations on
+that data needed to perform the task, express your understanding of the problem
+in tests, and finally implement the code. In Discrete Structures, you learned,
+among other things, about propositional and first-order logic, and how to
+express, reason about, and prove mathematical statements. The goal of this
+course is to combine these two: to apply logic to enable <span style="font-style: italic">reasoning</span>
+about programs. Why do we care?
+   </p>
+   <p>
+    Even only programming for one semester, only writing programs that stretched
+into the hundreds of lines, you certainly wrote programs with bugs in them. Most
+you probably caught, some your TAs may have caught, and the odd bug may have
+slipped through. Creating bugs in software doesn’t stop with experience, and
+certainly doesn’t disappear "naturally" —<wbr> indeed, much of the field of
+software engineering, developed over more than a half-century has been focused
+around developing processes to try to reduce the number of bugs in software. You
+may take a software development or software engineering class here, and both
+will cover human processes that can help increase the reliability and reduce the
+number of bugs in the software you write. While that is incredibly valuable,
+it’s not the only approach.
+   </p>
+   <p>
+    Running parallel to that is another field, formal methods, which took a
+different tactic: rather than developing human processes, or particular
+development strategies, the goal was to use logic and math to increase the
+trustworthiness of software in a quantifiable way. Most of this work originated
+within the national security apparatus of the US Government, but eventually, it
+spread to other domains.
+   </p>
+   <p>
+    Indeed, software that runs fly-by-wire control systems in airplanes, or control
+systems in modern cars, is software where bugs can directly lead to loss of
+life. And if those examples don’t feel compelling, realize there is software
+controlling the administration of electricity directly to cardiac tissue in
+pacemakers, delivering radiation doses in hospitals, or insulin doses via
+insulin pumps. Of course, there are plenty of places where bugs can have
+significant consequences that fall short of directly threatening human life:
+within the past few decades, most financial transactions have moved mostly or
+wholely online, so that bugs can lead to catastrophic financial costs, nevermind
+a whole host of other problems. Some of you may be cybersecurity majors: much of
+the work of security is trying to figure out exactly how systems can work, so
+that malicious actors can’t use them in unintended ways.
+   </p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="Office_Hours.html" title="backward to &quot;2 Office Hours&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Logic &amp; Computation&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="syllabus.html" title="forward to &quot;Syllabus&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>
