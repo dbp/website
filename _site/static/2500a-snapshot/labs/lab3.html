@@ -1,0 +1,1355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pygments.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab1.html" class="tocviewlink" data-pltdoc="x">1 The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab2.html" class="tocviewlink" data-pltdoc="x">2 Big Bang</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">3 Natural Numbers and Counters</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab4.html" class="tocviewlink" data-pltdoc="x">4 Quote &amp; Unquote</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab5.html" class="tocviewlink" data-pltdoc="x">5 Designing With Lists and Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab6.html" class="tocviewlink" data-pltdoc="x">6 Using Abstractions to Mimic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab7.html" class="tocviewlink" data-pltdoc="x">7 Tree Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab8.html" class="tocviewlink" data-pltdoc="x">8 Files and Directories</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab9.html" class="tocviewlink" data-pltdoc="x">9 Graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab10.html" class="tocviewlink" data-pltdoc="x">10 Generative Recursion</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab11.html" class="tocviewlink" data-pltdoc="x">11 Mutable State</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab13.html" class="tocviewlink" data-pltdoc="x">13 Synthesis</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">3 Natural Numbers and Counters</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46723%29" class="tocviewlink" data-pltdoc="x">Expanding Conciousness</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46724%29" class="tocviewlink" data-pltdoc="x">Interlude:<span class="mywbr"> &nbsp;</span> Checked Signatures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46725%29" class="tocviewlink" data-pltdoc="x">Back to Regular Programming</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46726%29" class="tocviewlink" data-pltdoc="x">Counters</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46727%29" class="tocviewlink" data-pltdoc="x">Brief Aside on Mappings</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46728%29" class="tocviewlink" data-pltdoc="x">Before you go...</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46729%29" class="tocviewlink" data-pltdoc="x">Bonus Exercise</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46723%29" class="tocsubseclink" data-pltdoc="x">Expanding Conciousness</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46724%29" class="tocsubseclink" data-pltdoc="x">Interlude:<span class="mywbr"> &nbsp;</span> Checked Signatures</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46725%29" class="tocsubseclink" data-pltdoc="x">Back to Regular Programming</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46726%29" class="tocsubseclink" data-pltdoc="x">Counters</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46727%29" class="tocsubseclink" data-pltdoc="x">Brief Aside on Mappings</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46728%29" class="tocsubseclink" data-pltdoc="x">Before you go...</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46729%29" class="tocsubseclink" data-pltdoc="x">Bonus Exercise</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.10</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="lab2.html" title="backward to &quot;2 Big Bang&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab4.html" title="forward to &quot;4 Quote &amp; Unquote&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._lab3)"></a>3 Natural Numbers and Counters
+   </h3>
+   <blockquote class="refpara">
+    <blockquote class="refcolumn">
+     <blockquote class="refcontent">
+      <p>
+       <img src="lab.png" alt="home work!" width="128" height="105">
+      </p>
+     </blockquote>
+    </blockquote>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Purpose:</span> The purpose of this lab is to practice designing programs using natural
+numbers and counters, and to practice with <span style="font-weight: bold">checked signatures</span>.
+   </p>
+   <p>
+    <span style="font-weight: bold">Textbook references:</span>
+   </p>
+   <p>
+    <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._ch~3adesign-lists%29">Chapter 9</a>: Designing with Self-Referential Data Definitions
+   </p>
+   <p>
+    <span style="color: red">LANGUAGE SHOULD BE #lang htdp/isl</span>
+   </p>
+   <h3>
+    <a name="(part._g46723)"></a>Expanding Conciousness
+   </h3>
+   <p>
+    <span style="font-weight: bold">Goals:</span> Learn to look at numbers and recursion in a new way.
+   </p>
+   <p>
+    <span style="font-weight: bold">Starter Code:</span> Below is a data definition which shows how natural numbers can be
+built up recursively.
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">next</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">prev</span><span class="RktPn">]</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">A </span><a name="(tech._nat)"></a><span style="font-style: italic">Nat</span><span class="RktCmt"> is one of:</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- </span><span class="RktVal">0</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- (make-next </span><a href="#%28tech._nat%29" class="techoutside" data-pltdoc="x"><span class="techinside">Nat</span></a><span class="RktCmt">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">N0</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">N1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktSym">N0</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">N2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktSym">N1</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">nat-temp : Nat -&gt; ?</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">nat-temp</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">zero?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">next?</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">nat-temp</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">next-prev</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <h3>
+    <a name="(part._g46724)"></a>Interlude: Checked Signatures
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    Up until now, we have written all our data definitions in <span style="font-style: italic">comments</span>.
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="refpara">
+     <blockquote class="refcolumn">
+      <blockquote class="refcontent">
+       <p>
+        This is <span style="font-style: italic">not</span> type checking. That’s something related, but
+not quite the same.
+       </p>
+      </blockquote>
+     </blockquote>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    While some invariants of data will always need to be
+ expressed in comments (indeed, this is part of why we teach this), and in some
+ languages, this is the best we can do, it turns out that we can write many of
+ our signatures down a <span style="font-weight: bold">code</span> in ISL, and correspondingly, have ISL check
+ if functions satisfy those signatures.
+   </div>
+   <p></p>
+   <p>
+    Signatures are the first part of the design recipe for a reason—<wbr>they are the
+ most important—<wbr>and correspondingly, if there is a problem in code, they are
+ the first place to look. With <span style="font-weight: bold">checked signatures</span>, some of that checking
+ can be automated.
+   </p>
+   <p>
+    The first checked signatures we will see are ones for built-in atomic data. For example:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">my-add</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">adds two numbers together</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">my-add</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="hspace">&nbsp;</span><span class="RktSym">y</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="hspace">&nbsp;</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    Note that the signature line is now <span style="font-style: italic">code</span>, rather than a comment, and signatures are created
+with a new language feature <span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span> that takes the name of a function and then a <span style="font-style: italic">signature</span>,
+which should be, in paretheses, a series of data types (signature values), followed by an arrow, followed by the return type.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 1 </span>Try typing that definition in, and calling <span class="RktSym">my-add</span> with something other than numbers. What happens?
+What if the function was:
+    </p>
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">my-first</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">returns the first argument passed in</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">my-first</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="hspace">&nbsp;</span><span class="RktSym">y</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+    <p>
+     What do you think will happen if you call that with <span class="RktPn">(</span><span class="RktSym">my-first</span><span class="stt"> </span><span class="RktVal">#f</span><span class="stt"> </span><span class="RktVal">#t</span><span class="RktPn">)</span>?
+What about <span class="RktPn">(</span><span class="RktSym">my-first</span><span class="stt"> </span><span class="RktVal">10</span><span class="stt"> </span><span class="RktVal">#t</span><span class="RktPn">)</span>? Why? How is this different (if at all) to when signatures were in comments.
+    </p>
+   </blockquote>
+   <p>
+    For data definitions, there are two main ways of building signatures:
+<span class="RktSym"><span class="badlink"><span class="RktValLink">enum</span></span></span> and <span class="RktSym"><span class="badlink"><span class="RktValLink">mixed</span></span></span>. The first, <span class="RktSym"><span class="badlink"><span class="RktValLink">enum</span></span></span>, is used to build a
+signature out of a collection (possibly 1) of values. For example:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">ZeroOrOne</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">enum</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">zoo-add1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">ZeroOrOne</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">adds one to the given input</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">zoo-add1</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    When defining named signatures, we use a normal <span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span> to create a
+constant, but the value is a signature value, identified with <span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span>
+to indicate that it is a signature definition, rather than a normal value. The
+naming convention should match normal data definition names: capitalized words
+(this makes it easy to keep them distinct from constant values, which are all
+caps, and functions, which are all lowercase).
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 2 </span>What happens if you pass <span class="RktVal">2</span> to <span class="RktSym">zoo-add1</span>? What about if you change <span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span> to <span class="RktSym">ZeroOrOne</span> – will it work? Always?
+    </p>
+   </blockquote>
+   <p>
+    Once we have enumerated signatures, we can combine them to make mixed signatures (these are "itemizations"). For example:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">ListOfZero</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">mixed</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">EmptyList</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ConsOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">enum</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">ListOfZero</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">ALTERNATIVE</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">(define ListOfZero (signature [ListOf (enum 0)]))</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">loz-length</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">ListOfZero</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">returns the length of the given list</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">loz-length</span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">empty?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cons?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">loz-length</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    This signature is different from the previous ones – first, it uses
+<span class="RktSym"><span class="badlink"><span class="RktValLink">ConsOf</span></span></span>, which is a signature that takes a signature value as an argument.
+Secondly, it is self referential!
+   </p>
+   <p>
+    Note that this pattern is quite common, so there is a built-in shorthand to define signatures like that:
+   </p>
+   <blockquote class="SCodeFlow">
+    <p>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">ListOfZero</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">enum</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 3 </span>Try experimenting with this function. What values can you pass it? Does it follow the template?
+Note how, just as with signatures in comments, some signatures are parametric: List is not a signature, but ListOf T, where T is the signature of elements, is.
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <p>
+    As it turns out, <span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span> is only barely special: any struct you define
+creates a parametric signature that you can use to build data definitions with.
+This means we can define our original <span class="RktSym">Nat</span> example as:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">next</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">prev</span><span class="RktPn">]</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Nat</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">mixed</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">enum</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">NextOf</span><span class="hspace">&nbsp;</span><span class="RktSym">Nat</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">N0</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">N1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktSym">nat0</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">N2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktSym">nat1</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">nat-temp</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">Nat</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Any</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">nat-temp</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">zero?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">next?</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">nat-temp</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">next-prev</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    The last type of signature you might need to create (primarily for dealing with
+existing code) is with <span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span>. This turns a function that returns
+true or false into a signature. For example:
+   </p>
+   <blockquote class="SCodeFlow">
+    <p>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Image</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">image?</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </p>
+   </blockquote>
+   <p>
+    (As a side note: supporting this type of signature is why we had to switch to ISL. All the rest are supported by BSL; we could have started using them on the first day).
+   </p>
+   <h3>
+    <a name="(part._g46725)"></a>Back to Regular Programming
+   </h3>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Sample Problem </span>Design the function <span class="RktSym">double</span> which doubles a <a href="#%28tech._nat%29" class="techoutside" data-pltdoc="x"><span class="techinside">Nat</span></a>. Note how this follows
+the <a href="#%28tech._nat%29" class="techoutside" data-pltdoc="x"><span class="techinside">Nat</span></a> template!
+    </p>
+   </blockquote>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">zero?/nat</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">Nat</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">outputs whether a nat is zero</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">zero?/nat</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">zero?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">zero?/nat</span><span class="hspace">&nbsp;</span><span class="RktSym">N0</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#true</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">zero?/nat</span><span class="hspace">&nbsp;</span><span class="RktSym">N1</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#false</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">zero?/nat</span><span class="hspace">&nbsp;</span><span class="RktSym">N2</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#false</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">Nat</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Nat</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Double the Nat</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">zero?/nat</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">next?</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">next-prev</span><span class="hspace">&nbsp;</span><span class="RktSym">nat</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktSym">N0</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktSym">N1</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktSym">N2</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-next</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p></p>
+   <div class="SIntrapara">
+    <blockquote>
+     <p>
+      <span style="font-weight: bold">Exercise 4 </span>Writing numbers in this form for testing is a little laborious, so
+your first task is to design a function to convert from <span class="RktSym">Nat</span> to
+<span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span>. Design the function <span class="RktSym">nat-&gt;number</span> with signature
+<span class="RktSym">Nat</span><span class="stt"> </span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="stt"> </span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span>
+     </p>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    .
+   </div>
+   <p></p>
+   <p>
+    Now note you can use your function to help write <span class="RktSym">check-expects</span>, e.g., as:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">nat-&gt;number</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktSym">N0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">nat-&gt;number</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktSym">N1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">nat-&gt;number</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktSym">N2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 5 </span>Design the function <span class="RktSym">even?/nat</span> which determines if a <a href="#%28tech._nat%29" class="techoutside" data-pltdoc="x"><span class="techinside">Nat</span></a>
+is even. You may only use the functions mentioned above, as well as
+<span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>, <span class="RktSym"><span class="badlink"><span class="RktValLink">not</span></span></span>, and <span class="RktSym">even?/nat</span> (you may <span style="font-style: italic">not</span> use
+<span class="RktSym">nat-&gt;number</span> in your code, only in testing).
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 6 </span>Design the function <span class="RktSym">+/nat</span> which sums two <a href="#%28tech._nat%29" class="techoutside" data-pltdoc="x"><span class="techinside">Nat</span></a>s.
+As before, only use the functions mentioned above, as well as <span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span> and <span class="RktSym">+/nat</span>
+(do not convert to <span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span>, except for in testing).
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 7 </span>Design the function <span class="RktSym">*/nat</span> which multiplies two <a href="#%28tech._nat%29" class="techoutside" data-pltdoc="x"><span class="techinside">Nat</span></a>s.
+You may only use the functions mentioned above, as well as <span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>, <span class="RktSym">+/nat</span>,
+and <span class="RktSym">*/nat</span>.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 8 </span>Design the function <span class="RktSym">factorial</span> which computes the
+<a href="https://en.wikipedia.org/wiki/Factorial">factorial</a> of a natural number.
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <h3>
+    <a name="(part._g46726)"></a>Counters
+   </h3>
+   <p>
+    <span style="font-weight: bold">Starter Code:</span> Consider the following data definitions and functions:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">pair</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">element</span><span class="hspace">&nbsp;</span><span class="RktSym">value</span><span class="RktPn">]</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Entry</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">PairOf</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">String</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">represents an element with a count</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pair-temp</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pair-element</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pair-value</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Counter</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Entry</span><span class="RktPn">]</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">and represents a multiset (a set of elements where</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">an element can appear more than once)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">counter-temp</span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">empty?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cons?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pair-temp</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">counter-temp</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">marble-bag</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"green"</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">marble-bag represents a bag with 2 "green" marbles and 5 "red" ones</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">get</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">Counter</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">String</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Get the count of the given element</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get</span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">empty?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">error</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">"not found"</span><span class="RktPn">)</span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">else</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">counts-element?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pair-value</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-error</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"cats"</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"dogs"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"not found"</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"cats"</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"dogs"</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"dogs"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counts-element?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">Entry</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">String</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Does the pair hold a count for the element?</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">counts-element?</span><span class="hspace">&nbsp;</span><span class="RktSym">pair</span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string=?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pair-element</span><span class="hspace">&nbsp;</span><span class="RktSym">pair</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">counts-element?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"green"</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"green"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#true</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">counts-element?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"blue"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#false</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Sample Problem </span>Design the function <span class="RktSym">add-to-counter</span>, which given a
+<a href="lab6.html#%28tech._counter%29" class="techoutside" data-pltdoc="x"><span class="techinside">Counter</span></a> and an element will add 1 to the previously associated count. If that element
+was not present, its count will be 1.
+    </p>
+   </blockquote>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">add-to-counter</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">Counter</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">String</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Counter</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Add one to the count associated with element or set it to 1</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">if it hasn</span><span class="RktCmt">'</span><span class="RktCmt">t been seen before</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">add-to-counter</span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">empty?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cons?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">counts-element?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cons</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">increment-value</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cons</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">add-to-counter</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">counter</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">element</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">add-to-counter</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"blue"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"blue"</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">add-to-counter</span><span class="hspace">&nbsp;</span><span class="RktSym">marble-bag</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"green"</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="hspace">&nbsp;</span><span class="RktVal">6</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">add-to-counter</span><span class="hspace">&nbsp;</span><span class="RktSym">marble-bag</span><span class="hspace">&nbsp;</span><span class="RktVal">"green"</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"green"</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">increment-value</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">Entry</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Entry</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Increment the value in pair</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">increment-value</span><span class="hspace">&nbsp;</span><span class="RktSym">pair</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pair-element</span><span class="hspace">&nbsp;</span><span class="RktSym">pair</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pair-value</span><span class="hspace">&nbsp;</span><span class="RktSym">pair</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">increment-value</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"green"</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"green"</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">increment-value</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="hspace">&nbsp;</span><span class="RktVal">6</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 9 </span>Design the function <span class="RktSym">total-size</span>, which grabs the total count
+of elements in a <a href="lab6.html#%28tech._counter%29" class="techoutside" data-pltdoc="x"><span class="techinside">Counter</span></a> (there are 7 in <span class="RktSym">marble-bag</span>).
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 10 </span>Design the function <span class="RktSym">initiate-counter</span>, which given a String
+creates a <a href="lab6.html#%28tech._counter%29" class="techoutside" data-pltdoc="x"><span class="techinside">Counter</span></a> with one copy of that element. Be sure to follow the data definition.
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 11 </span>Design the function <span class="RktSym">all-elements</span>, which outputs a <span style="font-style: italic">ListOfString</span>
+ containing all of the elements a <a href="lab6.html#%28tech._counter%29" class="techoutside" data-pltdoc="x"><span class="techinside">Counter</span></a> has counted so far. For example, the output of
+ <span class="RktPn">(</span><span class="RktSym">all-elements</span><span class="stt"> </span><span class="RktSym">marble-bag</span><span class="RktPn">)</span> would be
+ <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="stt"> </span><span class="RktVal">"green"</span><span class="stt"> </span><span class="RktVal">"green"</span><span class="stt"> </span><span class="RktVal">"red"</span><span class="stt"> </span><span class="RktVal">"red"</span><span class="stt"> </span><span class="RktVal">"red"</span><span class="stt"> </span><span class="RktVal">"red"</span><span class="stt"> </span><span class="RktVal">"red"</span><span class="RktPn">)</span>.
+    </p>
+    <p>
+     ; <span style="font-weight: bold">Hint:</span> Notice that every <span style="font-style: italic">PosInt</span> is also a <a href="#%28tech._nat%29" class="techoutside" data-pltdoc="x"><span class="techinside">Nat</span></a>; this may be helpful.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 12 </span>Design the function <span class="RktSym">highest-count</span>, which returns the highest count for
+a single element in a <a href="lab6.html#%28tech._counter%29" class="techoutside" data-pltdoc="x"><span class="techinside">Counter</span></a>. If the counter is empty, return 0.
+    </p>
+   </blockquote>
+   <h3>
+    <a name="(part._g46727)"></a>Brief Aside on Mappings
+   </h3>
+   <p>
+    Our <a href="lab6.html#%28tech._counter%29" class="techoutside" data-pltdoc="x"><span class="techinside">Counter</span></a> definition is actually a specialized version of a <span style="font-style: italic">mapping</span>.
+It’s a mapping from Strings to their counts; that is, it keeps track of a count for
+each individual String.
+   </p>
+   <p>
+    Mappings are everywhere in computer science, and most "real" programming languages
+will come with them baked-in (where they might also be called dictionaries, hash
+maps, associative arrays, etc.), along with functions that let you work with them.
+You’ll see more general and useful mappings very soon.
+   </p>
+   <h3>
+    <a name="(part._g46728)"></a>Before you go...
+   </h3>
+   <p>
+    If you had trouble finishing any of the exercises in the lab or homework, or
+just feel like you’re struggling with any of the class material, please feel
+free to come to office hours and talk to a TA for additional
+assistance.
+   </p>
+   <h3>
+    <a name="(part._g46729)"></a>Bonus Exercise
+   </h3>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 13 </span>Design the function <span class="RktSym">counter-</span>, which "subtracts" one <a href="lab6.html#%28tech._counter%29" class="techoutside" data-pltdoc="x"><span class="techinside">Counter</span></a>
+from another. That is, if <span class="RktSym">other-marbles</span> contains 4 red, 1 blue, and 2
+green marbles, <span class="RktPn">(</span><span class="RktSym">counter-</span><span class="stt"> </span><span class="RktSym">marble-bag</span><span class="stt"> </span><span class="RktSym">other-marbles</span><span class="RktPn">)</span> should return
+<span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">make-pair</span><span class="stt"> </span><span class="RktVal">"red"</span><span class="stt"> </span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span>.
+    </p>
+   </blockquote>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="lab2.html" title="backward to &quot;2 Big Bang&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab4.html" title="forward to &quot;4 Quote &amp; Unquote&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../scribble-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../labs/index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         •
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">General Information</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37273%29" class="tocsubseclink" data-pltdoc="x">Class</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37274%29" class="tocsubseclink" data-pltdoc="x">Labs</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37275%29" class="tocsubseclink" data-pltdoc="x">Staff</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37276%29" class="tocsubseclink" data-pltdoc="x">Moving from Accelerated to Regular</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <a href="http://www.racket-lang.org/"><span class="Smaller">DrRacket</span></a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="index.html" title="backward to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../advice/index.html" title="forward to &quot;Advice&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._general)"></a>General Information
+   </h3>
+   <p>
+    <span class="refelem"><span class="refcolumn"><span class="refcontent"><img src="penguin-cymbal.png" alt="time to wake up" width="143" height="122"></span></span></span>
+   </p>
+   <a name="(part._chap~3ageneral)"></a>
+   <p></p>
+   <div class="SIntrapara">
+    A lot of you have one burning question on your mind as you start your college career:
+   </div>
+   <div class="SIntrapara">
+    <blockquote>
+     <p>
+      How am I going to get an A in this course?
+     </p>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    We have some news for you
+   </div>
+   <div class="SIntrapara">
+    <blockquote>
+     <p>
+      As of today, you are learning for life, not for exams.
+     </p>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    Yes, you are in college now, and college really is about learning something
+and not getting a grade. As a matter of fact, if you are taking a course
+and the A comes easy, you are either cheating yourself or you are allowing
+the instructor to cheat you.
+   </div>
+   <p></p>
+   <p>
+    College is a chance to learn how to learn by yourself, without
+ pressure from parents, teachers, or peers. You want to learn that, because
+ the quality of your life depends on it.
+   </p>
+   <p>
+    Naturally, we understand that you want some feedback, both in terms of
+ specific corrections and in terms of a grade. You want feedback so that
+ you can improve your learning process. And we will give you that
+ feedback. It is our end of the bargain. Your end is to demonstrate that
+ you actually study the methods we teach so that they become second
+ nature. After all, you don’t want to waste your time, and we don’t want to
+ waste ours either.
+   </p>
+   <p>
+    So, if you wish to earn a grade in this course, you must read and agree to the
+<a href="../contract/index.html" data-pltdoc="x">Course Contract</a>. This is a contract between you and the course staff. <span style="font-weight: bold">We promise:</span> As long as
+you will live up to its spirit, we will stand by you during this semester.
+   </p>
+   <h4>
+    <a name="(part._g37273)"></a>Class
+   </h4>
+   <blockquote class="SubFlow">
+    <table cellspacing="0" cellpadding="0" class="boxed">
+     <tbody>
+      <tr>
+       <td>
+        <p>
+         <span style="color: red">Instructor</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span style="color: red">Time</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span style="color: red">Days</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span style="color: red">Location</span>
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         Daniel Patterson
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         10:30am-11:35am
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         MWR
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         SH 305
+        </p>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <h4>
+    <a name="(part._g37274)"></a>Labs
+   </h4>
+   <p>
+    The course has two lab sections. Labs start
+ the first week of class, <span style="font-weight: bold">on September 8</span>.
+   </p>
+   <blockquote class="SubFlow">
+    <table cellspacing="0" cellpadding="0" class="boxed">
+     <tbody>
+      <tr>
+       <td>
+        <p>
+         <span style="color: red">Lab</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span style="color: red">Instructor</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span style="color: red">Time</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span style="color: red">Days</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         <span style="color: red">Location</span>
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         2
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         Zachary Eisbach
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         09:50am-11:30am
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         F
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         WVH210A
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         2
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         Aidan Ih
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         09:50am-11:30am
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         F
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         WVH210A
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         2
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         Alessandra Simmons
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         09:50am-11:30am
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         F
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         WVH210A
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         2
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         Andrew Wagner
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         09:50am-11:30am
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         F
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         WVH210A
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         3
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         Josie Kummer
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         11:45am-01:25pm
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         F
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         WVH210A
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         3
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         Luisa Li
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         11:45am-01:25pm
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         F
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         WVH210A
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         3
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         Olivia Sedarski
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         11:45am-01:25am
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         F
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         WVH210A
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         3
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         Stephanie Xu
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         11:45am-01:25am
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         F
+        </p>
+       </td>
+       <td>
+        <p>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+        </p>
+       </td>
+       <td>
+        <p>
+         WVH210A
+        </p>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold"><span style="color: red">You must attend the lab section you signed up for during registration, and attendance is mandatory.</span></span>
+   </p>
+   <p>
+    The purpose of labs is to give you some hands-on experience with the actual
+ tools and to illustrate some of the principles from lecture with hands-on
+ exercises. You will also have the chance to explain your solutions to your
+ peers.
+   </p>
+   <h4>
+    <a name="(part._g37275)"></a>Staff
+   </h4>
+   <p>
+    Please familiarize yourself with the course <a href="../ofc_hrs/index.html#%28part._staff%29" data-pltdoc="x">Staff</a>. The
+<a href="../ofc_hrs/index.html#%28part._staff%29" data-pltdoc="x">Staff</a> section comes with pictures so you can recognize people in
+the classroom, during office hours, or on the sidewalk.
+   </p>
+   <h4>
+    <a name="(part._g37276)"></a>Moving from Accelerated to Regular
+   </h4>
+   <p>
+    If you are in Accelerated and you feel, during the first two weeks of this course, that you would be better off learning
+the material at a slightly slower pace, you may ask to transfer to a regular section.   To request
+a switch to a regular section, you should talk to Prof. Patterson so he can help you with the switch. Note that this <span style="font-weight: bold">must</span> be done by September 14th, and you must move into a regular section with space.
+   </p>
+   <p></p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="index.html" title="backward to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../advice/index.html" title="forward to &quot;Advice&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

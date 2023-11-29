@@ -4,7 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-   dbp.io :: How to prove a compiler correct
+   dbp.io :: How to prove a compiler
+correct
   </title>
   <link rel="stylesheet" type="text/css" href="/css/default.css">
   <link rel="stylesheet" type="text/css" href="/css/syntax.css">
@@ -23,38 +24,79 @@
   </div>
   <main>
    <h1 id="how-to-prove-a-compiler-correct">
-    How to prove a compiler correct
+    How to prove a compiler
+correct
    </h1>
    <p>
-    At POPL’18 (Principles of Programming Languages) last week, I ended up talking to <a href="https://anniecherkaev.com">Annie Cherkaev</a> about her really cool DSL (domain specific language) <a href="https://github.com/anniecherk/sweetpea">SweetPea</a> (which she <a href="https://popl18.sigplan.org/event/obt-2018-sweetpea-a-language-for-designing-experiments">presented</a> at Off the Beaten Track 18, a workshop colocated with POPL), which is a “SAT-Sampler aided language for experimental design, targeted for Psychology &amp; Neuroscience”. In particular, we were talking about software engineering, and the work that Annie was doing to test SweetPea and increase her confidence that the implementation is correct!
+    At POPL’18 (Principles of Programming Languages) last week, I ended
+up talking to <a href="https://anniecherkaev.com">Annie Cherkaev</a>
+about her really cool DSL (domain specific language) <a href="https://github.com/anniecherk/sweetpea">SweetPea</a> (which she <a href="https://popl18.sigplan.org/event/obt-2018-sweetpea-a-language-for-designing-experiments">presented</a>
+at Off the Beaten Track 18, a workshop colocated with POPL), which is a
+“SAT-Sampler aided language for experimental design, targeted for
+Psychology &amp; Neuroscience”. In particular, we were talking about
+software engineering, and the work that Annie was doing to test SweetPea
+and increase her confidence that the implementation is correct!
    </p>
    <p>
-    The topic of how exactly one goes about proving a compiler correct came up, and I realized that I couldn’t think of a high-level (but <em>concrete</em>) overview of what that might look like. Also, like many compilers, hers is implemented in Haskell, so it seemed like a good opportunity to try out the really cool work presented at the colocated conference CPP’18 (Certified Programs and Proofs) titled <a href="https://arxiv.org/abs/1711.09286">“Total Haskell is Reasonable Coq” by Spector-Zabusky, Breitner, Rizkallah, and Weirich</a>. They have a tool (<code>hs-to-coq</code>) that extracts Coq definitions from (certain) terminating Haskell programs (of which at least small compilers hopefully qualify). There are certainly limitations to this approach (see Addendum at the bottom of the page for some discussion), but it seems very promising from an engineering perspective.
+    The topic of how exactly one goes about proving a compiler correct
+came up, and I realized that I couldn’t think of a high-level (but
+<em>concrete</em>) overview of what that might look like. Also, like
+many compilers, hers is implemented in Haskell, so it seemed like a good
+opportunity to try out the really cool work presented at the colocated
+conference CPP’18 (Certified Programs and Proofs) titled <a href="https://arxiv.org/abs/1711.09286">“Total Haskell is Reasonable
+Coq” by Spector-Zabusky, Breitner, Rizkallah, and Weirich</a>. They have
+a tool (<code>hs-to-coq</code>) that extracts Coq definitions from
+(certain) terminating Haskell programs (of which at least small
+compilers hopefully qualify). There are certainly limitations to this
+approach (see Addendum at the bottom of the page for some discussion),
+but it seems very promising from an engineering perspective.
    </p>
    <p>
     The intention of this post is twofold:
    </p>
    <ol type="1">
     <li>
-     Show how to take a compiler (albeit a tiny one) that was built with no intention of verifying it and after the fact prove it correct. Part of the ability to do this in such a seamless way is the wonderful <code>hs-to-coq</code> tool mentioned above, though there is no reason in principle you couldn’t carry out this translation manually (in practice maintenance becomes an issue, hence realistic verified compilers relying on writing their implementations within theorem provers like Coq and then <em>extracting</em> executable versions automatically, at least in the past – possibly <code>hs-to-coq</code> could change this workflow).
+     Show how to take a compiler (albeit a tiny one) that was built with
+no intention of verifying it and after the fact prove it correct. Part
+of the ability to do this in such a seamless way is the wonderful
+<code>hs-to-coq</code> tool mentioned above, though there is no reason
+in principle you couldn’t carry out this translation manually (in
+practice maintenance becomes an issue, hence realistic verified
+compilers relying on writing their implementations within theorem
+provers like Coq and then <em>extracting</em> executable versions
+automatically, at least in the past – possibly <code>hs-to-coq</code>
+could change this workflow).
     </li>
     <li>
-     Give a concrete example of proving compiler correctness. By necessity, this is a very simplified scenario without a lot of the subtleties that appear in real verification efforts (e.g., undefined behavior, multiple compiler passes, linking with code after compilation, etc). On the other hand, even this simplified scenario could cover many cases of DSLs, and understanding the subtleties that come up should be much easier once you understand the basic case!
+     Give a concrete example of proving compiler correctness. By
+necessity, this is a very simplified scenario without a lot of the
+subtleties that appear in real verification efforts (e.g., undefined
+behavior, multiple compiler passes, linking with code after compilation,
+etc). On the other hand, even this simplified scenario could cover many
+cases of DSLs, and understanding the subtleties that come up should be
+much easier once you understand the basic case!
     </li>
    </ol>
    <p>
-    <strong>The intended audience is: people who know what compilers are (and may have implemented them!) but aren’t sure what it means to prove one correct!</strong>
+    <strong>The intended audience is: people who know what compilers are
+(and may have implemented them!) but aren’t sure what it means to prove
+one correct!</strong>
    </p>
    <blockquote>
     <p>
-     All the code for this post, along with instructions to get it running, is in the repository <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>. If you have any trouble getting it going, open an issue on that repository.
+     All the code for this post, along with instructions to get it
+running, is in the repository <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>.
+If you have any trouble getting it going, open an issue on that
+repository.
     </p>
    </blockquote>
    <h3 id="dsl-compiler">
     DSL &amp; Compiler
    </h3>
    <p>
-    To make this simple, my source language is arithmetic expressions with adding, subtraction, and multiplication. I represent this as an explicit data structure in Haskell:
+    To make this simple, my source language is arithmetic expressions
+with adding, subtraction, and multiplication. I represent this as an
+explicit data structure in Haskell:
    </p>
    <div class="sourceCode" id="cb1">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Arith</span> <span class="ot">=</span> <span class="dt">Num</span> <span class="dt">Int</span></span>
@@ -63,7 +105,12 @@
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>           <span class="op">|</span> <span class="dt">Times</span> <span class="dt">Arith</span> <span class="dt">Arith</span></span></code></pre>
    </div>
    <p>
-    And a program is an <code>Arith</code>. For example, the source expression “1 + (2 * 4)” is represented as <code>Plus 1 (Times 2 4)</code>. The target of this is a sequence of instructions for a stack machine. The idea of the stack machine is that there is a stack of values that can be used by instructions. The target language expressions are:
+    And a program is an <code>Arith</code>. For example, the source
+expression “1 + (2 * 4)” is represented as
+<code>Plus 1 (Times 2 4)</code>. The target of this is a sequence of
+instructions for a stack machine. The idea of the stack machine is that
+there is a stack of values that can be used by instructions. The target
+language expressions are:
    </p>
    <div class="sourceCode" id="cb2">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">StackOp</span> <span class="ot">=</span> <span class="dt">SNum</span> <span class="dt">Int</span></span>
@@ -72,7 +119,17 @@
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>             <span class="op">|</span> <span class="dt">STimes</span></span></code></pre>
    </div>
    <p>
-    And a program is a <code>[StackOp]</code>. For example, the previous example “1 + (2 * 4)” could be represented as <code>[SNum 1, SNum 2, SNum 4, STimes, SPlus]</code>. The idea is that a number evaluates to pushing it onto the stack and plus/times evaluate by popping two numbers off the stack and pushing the sum/product respectively back on. But we can make this concrete by writing an <code>eval</code> function that takes an initial stack (which will probably be empty), a program, and either produces an integer (the top of the stack after all the instructions run) or an error (which, for debugging sake, is the state of the stack and rest of the program when it got stuck).
+    And a program is a <code>[StackOp]</code>. For example, the previous
+example “1 + (2 * 4)” could be represented as
+<code>[SNum 1, SNum 2, SNum 4, STimes, SPlus]</code>. The idea is that a
+number evaluates to pushing it onto the stack and plus/times evaluate by
+popping two numbers off the stack and pushing the sum/product
+respectively back on. But we can make this concrete by writing an
+<code>eval</code> function that takes an initial stack (which will
+probably be empty), a program, and either produces an integer (the top
+of the stack after all the instructions run) or an error (which, for
+debugging sake, is the state of the stack and rest of the program when
+it got stuck).
    </p>
    <div class="sourceCode" id="cb3">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">eval ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>] <span class="ot">-&gt;</span> <span class="dt">Either</span> ([<span class="dt">Int</span>], [<span class="dt">StackOp</span>]) <span class="dt">Int</span></span>
@@ -84,7 +141,9 @@
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>eval vals instrs            <span class="ot">=</span> <span class="dt">Left</span> (vals, instrs)</span></code></pre>
    </div>
    <p>
-    Now that we have our source and target language, and know how the target works, we can implement our compiler. Part of why this is a good small example is that the compiler is very simple!
+    Now that we have our source and target language, and know how the
+target works, we can implement our compiler. Part of why this is a good
+small example is that the compiler is very simple!
    </p>
    <div class="sourceCode" id="cb4">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">compile ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
@@ -94,13 +153,28 @@
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>compile (<span class="dt">Times</span> a1 a2) <span class="ot">=</span> compile a2 <span class="op">++</span> compile a1 <span class="op">++</span> [<span class="dt">STimes</span>]</span></code></pre>
    </div>
    <p>
-    The cases for plus/minus/times are the cases that are slightly non-obvious, because they can contain further recursive expressions, but if you think about what the <code>eval</code> function is doing, once the stack machine <em>finishes</em> evaluating everything that <code>a2</code> compiled to, the number that the left branch evaluated to should be on the top of the stack. Then once it finishes evaluating what <code>a1</code> compiles to the number that the right branch evaluated to should be on the top of the stack (the reversal is so that they are in the right order when popped off). This means that evaluating e.g.&nbsp;<code>SPlus</code> will put the sum on the top of the stack, as expected. That’s a pretty informal argument about correctness, but we’ll have a chance to get more formal later.
+    The cases for plus/minus/times are the cases that are slightly
+non-obvious, because they can contain further recursive expressions, but
+if you think about what the <code>eval</code> function is doing, once
+the stack machine <em>finishes</em> evaluating everything that
+<code>a2</code> compiled to, the number that the left branch evaluated
+to should be on the top of the stack. Then once it finishes evaluating
+what <code>a1</code> compiles to the number that the right branch
+evaluated to should be on the top of the stack (the reversal is so that
+they are in the right order when popped off). This means that evaluating
+e.g.&nbsp;<code>SPlus</code> will put the sum on the top of the stack, as
+expected. That’s a pretty informal argument about correctness, but we’ll
+have a chance to get more formal later.
    </p>
    <h2 id="formalizing">
     Formalizing
    </h2>
    <p>
-    Now that we have a Haskell compiler, we want to prove it correct! So what do we do? First, we want to convert this to Coq using the <a href="https://github.com/antalsz/hs-to-coq">hs-to-coq</a> tool. There are full instructions at <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>, but the main command that will convert <code>src/Compiler.hs</code> to <code>src/Compiler.v</code>:
+    Now that we have a Haskell compiler, we want to prove it correct! So
+what do we do? First, we want to convert this to Coq using the <a href="https://github.com/antalsz/hs-to-coq">hs-to-coq</a> tool. There
+are full instructions at <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>,
+but the main command that will convert <code>src/Compiler.hs</code> to
+<code>src/Compiler.v</code>:
    </p>
    <pre><code>STACK_YAML=hs-to-coq/stack.yaml stack exec hs-to-coq -- -o src/ src/Compiler.hs -e hs-to-coq/base/edits</code></pre>
    <p>
@@ -108,25 +182,57 @@
    </p>
    <pre><code>make</code></pre>
    <p>
-    And open up <code>src/Proofs.v</code> using a Coq interactive mode (I use Proof General within Emacs; with Spacemacs, this is particularly easy: use the <code>coq</code> layer!).
+    And open up <code>src/Proofs.v</code> using a Coq interactive mode (I
+use Proof General within Emacs; with Spacemacs, this is particularly
+easy: use the <code>coq</code> layer!).
    </p>
    <h2 id="proving-things">
     Proving things
    </h2>
    <p>
-    We now have a Coq version of our compiler, complete with our evaluation function. So we should be able to write down a theorem that we would like to prove. What should the theorem say? Well, there are various things you could prove, but the most basic theorem in compiler correctness says essentially that running the source program and the target program “does the same thing”. This is often stated as “semantics preservation” and is often formally proven by way of a backwards simulation: whatever the target program does, the source program also should do (for a much more thorough discussion of this, check out William Bowman’s blog post, <a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/">What even is compiler correctness?</a>). In languages with ambiguity (nondeterminism, undefined behavior, this becomes much more complicated, but in our setting, we would state it as:
+    We now have a Coq version of our compiler, complete with our
+evaluation function. So we should be able to write down a theorem that
+we would like to prove. What should the theorem say? Well, there are
+various things you could prove, but the most basic theorem in compiler
+correctness says essentially that running the source program and the
+target program “does the same thing”. This is often stated as “semantics
+preservation” and is often formally proven by way of a backwards
+simulation: whatever the target program does, the source program also
+should do (for a much more thorough discussion of this, check out
+William Bowman’s blog post, <a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/">What
+even is compiler correctness?</a>). In languages with ambiguity
+(nondeterminism, undefined behavior, this becomes much more complicated,
+but in our setting, we would state it as:
    </p>
    <p>
-    <strong>Theorem (informal). For all source arith expressions A, if eval [] (compile A) produces integer N then evaluating A should produce the same number N.</strong>
+    <strong>Theorem (informal). For all source arith expressions A, if
+eval [] (compile A) produces integer N then evaluating A should produce
+the same number N.</strong>
    </p>
    <p>
-    The issue that’s immediately apparent is that we don’t actually have a way of directly evaluating the source expression. The only thing we can do with our source expression is compile it, but if we do that, any statement we get has the behavior of the compiler baked into it (so if the compiler is wrong, we will just be proving stuff about our wrong compiler).
+    The issue that’s immediately apparent is that we don’t actually have
+a way of directly evaluating the source expression. The only thing we
+can do with our source expression is compile it, but if we do that, any
+statement we get has the behavior of the compiler baked into it (so if
+the compiler is wrong, we will just be proving stuff about our wrong
+compiler).
    </p>
    <p>
-    More philosophically, what does it even mean that the compiler is wrong? For it to be wrong, there has to be some external specification (likely, just in our head at this point) about what it was supposed to do, or in this case, about the behavior of the source language that the compiler was supposed to faithfully preserve. To prove things formally, we need to write that behavior down.
+    More philosophically, what does it even mean that the compiler is
+wrong? For it to be wrong, there has to be some external specification
+(likely, just in our head at this point) about what it was supposed to
+do, or in this case, about the behavior of the source language that the
+compiler was supposed to faithfully preserve. To prove things formally,
+we need to write that behavior down.
    </p>
    <p>
-    So we should add this function to our Haskell source. In a non-trivial DSL, this may be a significant part of the formalization process, but it is also incredibly important, because this is the part where you are actually specifying exactly what the source DSL means (otherwise, the only “meaning” it has is whatever the compiler happens to do, bugs and all). In this example, we can write this function as:
+    So we should add this function to our Haskell source. In a
+non-trivial DSL, this may be a significant part of the formalization
+process, but it is also incredibly important, because this is the part
+where you are actually specifying exactly what the source DSL means
+(otherwise, the only “meaning” it has is whatever the compiler happens
+to do, bugs and all). In this example, we can write this function
+as:
    </p>
    <div class="sourceCode" id="cb7">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">eval' ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
@@ -136,50 +242,75 @@
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>eval' (<span class="dt">Times</span> a1 a2) <span class="ot">=</span> (eval' a1) <span class="op">*</span> (eval' a2)</span></code></pre>
    </div>
    <p>
-    And we can re-run <code>hs-to-coq</code> to get it added to our Coq development. We can now formally state the theorem we want to prove as:
+    And we can re-run <code>hs-to-coq</code> to get it added to our Coq
+development. We can now formally state the theorem we want to prove
+as:
    </p>
    <pre><code>Theorem compiler_correctness : forall a : Arith,
   eval nil (compile a) = Data.Either.Right (eval' a).</code></pre>
    <p>
-    I’m going to sketch out how this proof went. Proving stuff can be complex, but this maybe gives a sense of some of the thinking that goes into it. To go further, you probably want to take a course if you can find one, or follow a book like:
+    I’m going to sketch out how this proof went. Proving stuff can be
+complex, but this maybe gives a sense of some of the thinking that goes
+into it. To go further, you probably want to take a course if you can
+find one, or follow a book like:
    </p>
    <ul>
     <li>
-     Bertot and Casteron’s <a href="https://archive.org/details/springer_10.1007-978-3-662-07964-5">Coq’Art: Interactive Theorem Proving and Program Development</a>.
+     Bertot and Casteron’s <a href="https://archive.org/details/springer_10.1007-978-3-662-07964-5">Coq’Art:
+Interactive Theorem Proving and Program Development</a>.
     </li>
     <li>
-     Adam Chlipala’s <a href="http://adam.chlipala.net/cpdt/">Certified Programming with Dependent Types</a>
+     Adam Chlipala’s <a href="http://adam.chlipala.net/cpdt/">Certified
+Programming with Dependent Types</a>
     </li>
     <li>
-     Pierce et. al.’s <a href="https://softwarefoundations.cis.upenn.edu/">Software Foundations</a>
+     Pierce et. al.’s <a href="https://softwarefoundations.cis.upenn.edu/">Software
+Foundations</a>
     </li>
    </ul>
    <p>
-    If you were to prove this on paper, you would proceed by induction on the structure of the arithmetic expression, so let’s start that way. The base case goes away trivially and we can expand the case for plus using:
+    If you were to prove this on paper, you would proceed by induction on
+the structure of the arithmetic expression, so let’s start that way. The
+base case goes away trivially and we can expand the case for plus
+using:
    </p>
    <pre><code>induction a; iauto; simpl.</code></pre>
    <p>
-    We see (above the line is assumptions, below what you need to prove):
+    We see (above the line is assumptions, below what you need to
+prove):
    </p>
    <pre><code>IHa1 : eval nil (compile a1) = Either.Right (eval' a1)
 IHa2 : eval nil (compile a2) = Either.Right (eval' a2)
 ============================
 eval nil (compile a1 ++ compile a2 ++ SPlus :: nil) = Either.Right (eval' a1 + eval' a2)%Z</code></pre>
    <p>
-    Which, if we look at it for a little while, we realize two things:
+    Which, if we look at it for a little while, we realize two
+things:
    </p>
    <ol type="1">
     <li>
-     Our induction hypotheses really aren’t going to work, intuitively because of the <code>Either</code> — our program won’t produce <code>Right</code> results for the subtrees, so there probably won’t be a way to rely on these hypotheses.
+     Our induction hypotheses really aren’t going to work, intuitively
+because of the <code>Either</code> — our program won’t produce
+<code>Right</code> results for the subtrees, so there probably won’t be
+a way to rely on these hypotheses.
     </li>
     <li>
-     On the other hand, what does look like a Lemma we should be able to prove has to do with evaluating a partial program. Rather than trying to induct on the entire statement, we instead try to prove that <code>eval</code>ing a <code>compile</code>d term will result in the <code>eval'</code>d term on the top of the stack. This is an instance of a more general pattern – that often the toplevel statement that you want has too much specificity, and you need to instead prove something that is more general and then use it for the specific case. So here’s (a first attempt) at a Lemma we want to prove:
+     On the other hand, what does look like a Lemma we should be able to
+prove has to do with evaluating a partial program. Rather than trying to
+induct on the entire statement, we instead try to prove that
+<code>eval</code>ing a <code>compile</code>d term will result in the
+<code>eval'</code>d term on the top of the stack. This is an instance of
+a more general pattern – that often the toplevel statement that you want
+has too much specificity, and you need to instead prove something that
+is more general and then use it for the specific case. So here’s (a
+first attempt) at a Lemma we want to prove:
     </li>
    </ol>
    <pre><code>Lemma eval_step : forall a : Arith, forall xs : list StackOp,
         eval nil (compile a ++ xs) = eval (eval' a :: nil) xs.</code></pre>
    <p>
-    This is more general, and again we start by inducting on <code>a</code>, expanding and eliminating the base case:
+    This is more general, and again we start by inducting on
+<code>a</code>, expanding and eliminating the base case:
    </p>
    <pre><code>induction a; intros; simpl; iauto.</code></pre>
    <p>
@@ -191,11 +322,18 @@ IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval' a2 ::
 eval nil ((compile a1 ++ compile a2 ++ SPlus :: nil) ++ xs) =
 eval ((eval' a1 + eval' a2)%Z :: nil) xs</code></pre>
    <p>
-    We need to reshuffle the list associativity and then we can rewrite using the first hypotheses:
+    We need to reshuffle the list associativity and then we can rewrite
+using the first hypotheses:
    </p>
    <pre><code>rewrite List.app_assoc_reverse. rewrite IHa1.</code></pre>
    <p>
-    But now there is a problem (this is <em>common</em>, hence going over it!). We want to use our second hypothesis. Once we do that, we can reduce based on the definition of <code>eval</code> and we’ll be done (with this case, but multiplication is the same). The issue is that <code>IHa2</code> needs the stack to be empty, and the stack we now have (since we used <code>IHa1</code>) is <code>eval' a1 :: nil</code>, so it can’t be used:
+    But now there is a problem (this is <em>common</em>, hence going over
+it!). We want to use our second hypothesis. Once we do that, we can
+reduce based on the definition of <code>eval</code> and we’ll be done
+(with this case, but multiplication is the same). The issue is that
+<code>IHa2</code> needs the stack to be empty, and the stack we now have
+(since we used <code>IHa1</code>) is <code>eval' a1 :: nil</code>, so it
+can’t be used:
    </p>
    <pre><code>IHa1 : forall xs : list StackOp, eval nil (compile a1 ++ xs) = eval (eval' a1 :: nil) xs
 IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval' a2 :: nil) xs
@@ -203,7 +341,10 @@ IHa2 : forall xs : list StackOp, eval nil (compile a2 ++ xs) = eval (eval' a2 ::
 eval (eval' a1 :: nil) ((compile a2 ++ SPlus :: nil) ++ xs) =
 eval ((eval' a1 + eval' a2)%Z :: nil) xs</code></pre>
    <p>
-    The solution is to go back to what our Lemma statement said and generalize it now to arbitrary stacks (so in this process we’ve now generalized twice!), so that the inductive hypotheses are correspondingly stronger:
+    The solution is to go back to what our Lemma statement said and
+generalize it now to arbitrary stacks (so in this process we’ve now
+generalized twice!), so that the inductive hypotheses are
+correspondingly stronger:
    </p>
    <pre><code>Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp,
         eval s (compile a ++ xs) = eval (eval' a :: s) xs.</code></pre>
@@ -220,12 +361,18 @@ eval ((eval' a1 + eval' a2)%Z :: nil) xs</code></pre>
 | (_ :: _ :: _)%list =&gt; eval (i :: s) xs
 end = eval (i :: s) xs</code></pre>
    <p>
-    Which will go away once we break apart the list <code>s</code> and simplify (if you look carefully, it has the same thing in all three branches of the match). There are (at least) a couple approaches to this:
+    Which will go away once we break apart the list <code>s</code> and
+simplify (if you look carefully, it has the same thing in all three
+branches of the match). There are (at least) a couple approaches to
+this:
    </p>
    <ol type="1">
     <li>
      <p>
-      We could just do it manually: <code>destruct s; simpl; eauto; destruct s; simpl;    eauto</code>. But it shows up multiple times in the proof, and that’s a mess and someone reading the proof script may be confused what is going on.
+      We could just do it manually:
+<code>destruct s; simpl; eauto; destruct s; simpl;    eauto</code>. But
+it shows up multiple times in the proof, and that’s a mess and someone
+reading the proof script may be confused what is going on.
      </p>
     </li>
     <li>
@@ -236,12 +383,20 @@ end = eval (i :: s) xs</code></pre>
      |[l : list _ |- _ ] =&gt; solve [destruct l; simpl; eauto; destruct l; simpl; eauto]
     end.</code></pre>
      <p>
-      This has the advantage that it doesn’t depend on the name, you can call it whenever (it won’t do anything if it isn’t able to discharge the goal), but where to call it is still somewhat messy (as it’ll be in the middle of the proofs). We could hint using this tactic (using <code>Hint Extern</code>) to have it handled automatically, but I generally dislike adding global hints for tactics (unless there is a very good reason!), as it can slow things down and make understanding why proofs worked more difficult.
+      This has the advantage that it doesn’t depend on the name, you can
+call it whenever (it won’t do anything if it isn’t able to discharge the
+goal), but where to call it is still somewhat messy (as it’ll be in the
+middle of the proofs). We could hint using this tactic (using
+<code>Hint Extern</code>) to have it handled automatically, but I
+generally dislike adding global hints for tactics (unless there is a
+very good reason!), as it can slow things down and make understanding
+why proofs worked more difficult.
      </p>
     </li>
     <li>
      <p>
-      We can also write lemmas for these. There are actually two cases that come up, and both are solved easily:
+      We can also write lemmas for these. There are actually two cases
+that come up, and both are solved easily:
      </p>
      <pre><code>Lemma list_pointless_split : forall A B:Type, forall l : list A, forall x : B,
     match l with | nil =&gt; x | (_ :: _)%list =&gt; x end = x.
@@ -254,12 +409,16 @@ Proof.
   destruct l; intros; eauto. destruct l; eauto.
 Qed.</code></pre>
      <p>
-      In this style, we can then hint using these lemmas locally to where they are needed.
+      In this style, we can then hint using these lemmas locally to where
+they are needed.
      </p>
     </li>
    </ol>
    <p>
-    Now we know the proof should follow from list associativity, this pointless list splitting, and the inductive hypotheses. We can write this down formally (this relies on the <code>literatecoq</code> library, which is just a few tactics at this point) as:
+    Now we know the proof should follow from list associativity, this
+pointless list splitting, and the inductive hypotheses. We can write
+this down formally (this relies on the <code>literatecoq</code> library,
+which is just a few tactics at this point) as:
    </p>
    <pre><code>Lemma eval_step : forall a : Arith, forall s : list Num.Int, forall xs : list StackOp,
         eval s (compile a ++ xs) = eval (eval' a :: s) xs.
@@ -271,10 +430,17 @@ Proof.
     hint_rewrite IHa1, IHa2; iauto'.
 Qed.</code></pre>
    <p>
-    Which says that we know that we will need the associativity lemma and these list splitting lemmas somewhere. Then we proceed by induction, handle the base case, and then use the inductive hypotheses to handle the rest.
+    Which says that we know that we will need the associativity lemma and
+these list splitting lemmas somewhere. Then we proceed by induction,
+handle the base case, and then use the inductive hypotheses to handle
+the rest.
    </p>
    <p>
-    We can then go back to our main theorem, and proceed in a similar style. We prove by induction, relying on the <code>eval_step</code> lemma, and in various places needing to simplify (for the observant reader, <code>iauto</code> and <code>iauto'</code> only differ in that <code>iauto'</code> does a deeper proof search).
+    We can then go back to our main theorem, and proceed in a similar
+style. We prove by induction, relying on the <code>eval_step</code>
+lemma, and in various places needing to simplify (for the observant
+reader, <code>iauto</code> and <code>iauto'</code> only differ in that
+<code>iauto'</code> does a deeper proof search).
    </p>
    <pre><code>Theorem compiler_correctness : forall a : Arith,
   eval nil (compile a) = Data.Either.Right (eval' a).
@@ -284,18 +450,30 @@ Proof.
   induction a; iauto'.
 Qed.</code></pre>
    <p>
-    We now have a proof that the compiler that we wrote in Haskell is correct, insofar as it preserves the meaning expressed in the source-level <code>eval'</code> function to the meaning in the <code>eval</code> function in the target. This isn’t, of course, the only theorem you could prove! Another one that would be interesting would be that no compiled program ever got stuck (i.e., never produces a <code>Left</code> error).
+    We now have a proof that the compiler that we wrote in Haskell is
+correct, insofar as it preserves the meaning expressed in the
+source-level <code>eval'</code> function to the meaning in the
+<code>eval</code> function in the target. This isn’t, of course, the
+only theorem you could prove! Another one that would be interesting
+would be that no compiled program ever got stuck (i.e., never produces a
+<code>Left</code> error).
    </p>
    <blockquote>
     <p>
-     As stated at the top of the post, all the code in this post is available at <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>. If you are looking for more, check out <a href="https://xavierleroy.org/courses/Eugene-2012/">Xavier Leroy’s Oregon Programming Languages Summer School Lectures</a> (videos are <a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html">here</a>, scroll down to find them).
+     As stated at the top of the post, all the code in this post is
+available at <a href="https://github.com/dbp/howtoproveacompiler">https://github.com/dbp/howtoproveacompiler</a>.
+If you are looking for more, check out <a href="https://xavierleroy.org/courses/Eugene-2012/">Xavier Leroy’s
+Oregon Programming Languages Summer School Lectures</a> (videos are <a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html">here</a>,
+scroll down to find them).
     </p>
    </blockquote>
    <p>
     <br>
    </p>
    <p>
-    Thanks to current and former <a href="http://prl.ccs.neu.edu">PRL</a> members, in particular <a href="http://gallium.inria.fr/~scherer/">Gabriel Scherer</a> and <a href="https://williamjbowman.com/">William Bowman</a>, for providing useful feedback on drafts of this post.
+    Thanks to current and former <a href="http://prl.ccs.neu.edu">PRL</a>
+members, in particular <a href="http://gallium.inria.fr/~scherer/">Gabriel Scherer</a> and <a href="https://williamjbowman.com/">William Bowman</a>, for providing
+useful feedback on drafts of this post.
    </p>
    <p>
     <br><br>
@@ -304,7 +482,9 @@ Qed.</code></pre>
     Addendum: termination
    </h2>
    <p>
-    This example was so tiny we haven’t run into something that <em>will</em> be really common: imagine instead of the compile function shown above:
+    This example was so tiny we haven’t run into something that
+<em>will</em> be really common: imagine instead of the compile function
+shown above:
    </p>
    <div class="sourceCode" id="cb23">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ot">compile ::</span> <span class="dt">Arith</span> <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
@@ -314,7 +494,11 @@ Qed.</code></pre>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>compile (<span class="dt">Times</span> a1 a2) <span class="ot">=</span> compile a2 <span class="op">++</span> compile a1 <span class="op">++</span> [<span class="dt">STimes</span>]</span></code></pre>
    </div>
    <p>
-    We instead wanted to take <code>[Arith]</code>. This would still work, and would result in the list of results stored on the stack (so probably you would want to change <code>eval</code> to print everything that was on the stack at the end, not just the top). If you wrote this <code>compile</code>:
+    We instead wanted to take <code>[Arith]</code>. This would still
+work, and would result in the list of results stored on the stack (so
+probably you would want to change <code>eval</code> to print everything
+that was on the stack at the end, not just the top). If you wrote this
+<code>compile</code>:
    </p>
    <div class="sourceCode" id="cb24">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ot">compile ::</span> [<span class="dt">Arith</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
@@ -325,23 +509,61 @@ Qed.</code></pre>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>compile (<span class="dt">Times</span> a1 a2<span class="op">:</span>xs) <span class="ot">=</span> compile [a2] <span class="op">++</span> compile [a1] <span class="op">++</span> <span class="dt">STimes</span> <span class="op">:</span> compile xs</span></code></pre>
    </div>
    <p>
-    You would get an error when you try to compile the output of <code>hs-to-coq</code>! Coq says that the compile function is not terminating!
+    You would get an error when you try to compile the output of
+<code>hs-to-coq</code>! Coq says that the compile function is not
+terminating!
    </p>
    <p>
-    This is good introduction into a (major) difference between Haskell and Coq: in Haskell, any term can run forever. For a programming language, this is an inconvenience, as you can end up with code that is perhaps difficult to debug if you didn’t want it to (it’s also useful if you happen to be writing a server that is supposed to run forever!). For a language intended to be used to <em>prove</em> things, this feature would be a non-starter, as it would make the logic unsound. The issue is that in Coq, (at a high level), a type is a theorem and the term that inhabits the type is a proof of that theorem. But in Haskell, you can write:
+    This is good introduction into a (major) difference between Haskell
+and Coq: in Haskell, any term can run forever. For a programming
+language, this is an inconvenience, as you can end up with code that is
+perhaps difficult to debug if you didn’t want it to (it’s also useful if
+you happen to be writing a server that is supposed to run forever!). For
+a language intended to be used to <em>prove</em> things, this feature
+would be a non-starter, as it would make the logic unsound. The issue is
+that in Coq, (at a high level), a type is a theorem and the term that
+inhabits the type is a proof of that theorem. But in Haskell, you can
+write:
    </p>
    <div class="sourceCode" id="cb25">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ot">anything ::</span> a</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>anything <span class="ot">=</span> anything</span></code></pre>
    </div>
    <p>
-    i.e., for any type, you can provide a term with that type — that is, the term that simply never returns. If that were possible in Coq, you could prove any theorem, and the entire logic would be useless (or unsound, which technically means you can prove logical falsehood, but since falsehood allows you to prove anything, it’s the same thing).
+    i.e., for any type, you can provide a term with that type — that is,
+the term that simply never returns. If that were possible in Coq, you
+could prove any theorem, and the entire logic would be useless (or
+unsound, which technically means you can prove logical falsehood, but
+since falsehood allows you to prove anything, it’s the same thing).
    </p>
    <p>
-    Returning to this (only slightly contrived) program, it isn’t actually that our program runs forever (and if you do want to prove things about programs that do, you’ll need to do much more work!), just that Coq can’t tell that it doesn’t. In general, it’s not possible to tell this for sufficiently powerful languages (this is what the Halting problem says for Turing machines, and thus holds for anything with similar expressivity). What Coq relies on is that some argument is inductively defined (which we have: both lists and <code>Arith</code> expressions) and that all recursive calls are to <em>structurally smaller</em> parts of the arguments. If that holds, we are guaranteed to terminate, as inductive types cannot be infinite (note: unlike Haskell, Coq is <em>not</em> lazy, which is another difference, but we’ll ignore that). If we look at our recursive call, we called <code>compile</code> with <code>[a1]</code>. While <code>a1</code> is structurally smaller, we put that inside a list and used that instead, which thus violates what Coq was expecting.
+    Returning to this (only slightly contrived) program, it isn’t
+actually that our program runs forever (and if you do want to prove
+things about programs that do, you’ll need to do much more work!), just
+that Coq can’t tell that it doesn’t. In general, it’s not possible to
+tell this for sufficiently powerful languages (this is what the Halting
+problem says for Turing machines, and thus holds for anything with
+similar expressivity). What Coq relies on is that some argument is
+inductively defined (which we have: both lists and <code>Arith</code>
+expressions) and that all recursive calls are to <em>structurally
+smaller</em> parts of the arguments. If that holds, we are guaranteed to
+terminate, as inductive types cannot be infinite (note: unlike Haskell,
+Coq is <em>not</em> lazy, which is another difference, but we’ll ignore
+that). If we look at our recursive call, we called <code>compile</code>
+with <code>[a1]</code>. While <code>a1</code> is structurally smaller,
+we put that inside a list and used that instead, which thus violates
+what Coq was expecting.
    </p>
    <p>
-    There are various ways around this (like adding another argument whose purpose is to track termination, or adding more sophisticated measurements), but there is another option: adding a helper function <code>compile'</code> that does what our original <code>compile</code> did: compiles a single <code>Arith</code>. The intuition that leads to trying this is that in this new <code>compile</code> we are decreasing on both the length of the list and the structure of the <code>Arith</code>, but we are trying to do both at the same time. By separating things out, we can eliminate the issue:
+    There are various ways around this (like adding another argument
+whose purpose is to track termination, or adding more sophisticated
+measurements), but there is another option: adding a helper function
+<code>compile'</code> that does what our original <code>compile</code>
+did: compiles a single <code>Arith</code>. The intuition that leads to
+trying this is that in this new <code>compile</code> we are decreasing
+on both the length of the list and the structure of the
+<code>Arith</code>, but we are trying to do both at the same time. By
+separating things out, we can eliminate the issue:
    </p>
    <div class="sourceCode" id="cb26">
     <pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ot">compile ::</span> [<span class="dt">Arith</span>] <span class="ot">-&gt;</span> [<span class="dt">StackOp</span>]</span>
@@ -355,13 +577,38 @@ Qed.</code></pre>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>compile' (<span class="dt">Times</span> a1 a2) <span class="ot">=</span> compile' a2 <span class="op">++</span> compile' a1 <span class="op">++</span> [<span class="dt">STimes</span>]</span></code></pre>
    </div>
    <h2 id="addendum-do-the-proofs-mean-anything">
-    Addendum: do the proofs mean anything?
+    Addendum: do the proofs
+mean anything?
    </h2>
    <p>
-    There are limitations to the approach outlined in this post. In particular, what <code>hs-to-coq</code> does is syntactically translate similar constructs from Haskell to Coq, but constructs that have similar syntax don’t necessarily have similar semantics. For example, data types in Haskell are lazy and thus infinite, whereas inductive types in Coq are definitely not infinite. This means that the proofs that you have made are about the version of the program as represented in Coq, not the original program. There are ways to make proofs about the precise semantics of a language (e.g., Arthur Charguéraud’s <a href="http://www.chargueraud.org/softs/cfml/">CFML</a>), but on the other hand, program extraction (which is a core part of verified compilers like <a href="http://compcert.inria.fr/">CompCert</a>) has the same issue that the program being run has been converted via a similar process as <code>hs-to-coq</code> (from Coq to OCaml the distance is less than from Coq to Haskell, but in principle there are similar issues).
+    There are limitations to the approach outlined in this post. In
+particular, what <code>hs-to-coq</code> does is syntactically translate
+similar constructs from Haskell to Coq, but constructs that have similar
+syntax don’t necessarily have similar semantics. For example, data types
+in Haskell are lazy and thus infinite, whereas inductive types in Coq
+are definitely not infinite. This means that the proofs that you have
+made are about the version of the program as represented in Coq, not the
+original program. There are ways to make proofs about the precise
+semantics of a language (e.g., Arthur Charguéraud’s <a href="http://www.chargueraud.org/softs/cfml/">CFML</a>), but on the
+other hand, program extraction (which is a core part of verified
+compilers like <a href="http://compcert.inria.fr/">CompCert</a>) has the
+same issue that the program being run has been converted via a similar
+process as <code>hs-to-coq</code> (from Coq to OCaml the distance is
+less than from Coq to Haskell, but in principle there are similar
+issues).
    </p>
    <p>
-    And yet, I think that <code>hs-to-coq</code> has a real practical use, in particular when you have an existing Haskell codebase that you want to verify. You likely will need to refactor it to have <code>hs-to-coq</code> work, but that refactoring can be done within Haskell, while the program continues to work (and your existing tests continue to pass, etc). Eventually, once you finish conversion, you may decide that it makes more sense to take the converted version as ground truth (thus, you run <code>hs-to-coq</code> and throw out the original, relying on extraction after that point for an executable), but being able to do this gradual migration (from full Haskell to essentially a Gallina-like dialect of Haskell) seems incredibly valuable.
+    And yet, I think that <code>hs-to-coq</code> has a real practical
+use, in particular when you have an existing Haskell codebase that you
+want to verify. You likely will need to refactor it to have
+<code>hs-to-coq</code> work, but that refactoring can be done within
+Haskell, while the program continues to work (and your existing tests
+continue to pass, etc). Eventually, once you finish conversion, you may
+decide that it makes more sense to take the converted version as ground
+truth (thus, you run <code>hs-to-coq</code> and throw out the original,
+relying on extraction after that point for an executable), but being
+able to do this gradual migration (from full Haskell to essentially a
+Gallina-like dialect of Haskell) seems incredibly valuable.
    </p>
   </main>
  </body>

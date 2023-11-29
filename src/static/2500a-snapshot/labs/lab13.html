@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=0.8"/><title>13 Synthesis</title><link rel="stylesheet" type="text/css" href="../scribble.css" title="default"/><link rel="stylesheet" type="text/css" href="../minted.css" title="default"/><link rel="stylesheet" type="text/css" href="../manual-style.css" title="default"/><link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default"/><link rel="stylesheet" type="text/css" href="../minted-default-style.css" title="default"/><link rel="stylesheet" type="text/css" href="../pretty.css" title="default"/><link rel="stylesheet" type="text/css" href="../pygments.css" title="default"/><script type="text/javascript" src="../scribble-common.js"></script><script type="text/javascript" src="../manual-racket.js"></script><!--[if IE 6]><style type="text/css">.SIEHidden { overflow: hidden; }</style><![endif]--></head><body id="scribble-racket-lang-org"><div class="tocset"><div class="tocview"><div class="tocviewlist tocviewlisttopspace"><div class="tocviewtitle"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">&#9658;</a></td><td></td><td><a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a></td></tr></table></div><div class="tocviewsublisttop" style="display: none;" id="tocview_0"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a></td></tr><tr><td align="right"></td><td><a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a></td></tr><tr><td align="right"></td><td><a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a></td></tr><tr><td align="right"></td><td><a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a></td></tr><tr><td align="right"></td><td><a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a></td></tr><tr><td align="right"></td><td><a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a></td></tr><tr><td align="right"></td><td><a href="index.html" class="tocviewselflink" data-pltdoc="x">Labs</a></td></tr><tr><td align="right"></td><td><a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a></td></tr><tr><td align="right"></td><td><a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a></td></tr><tr><td align="right"></td><td><a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a></td></tr><tr><td align="right"></td><td><a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a></td></tr><tr><td align="right"></td><td><a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">&#9660;</a></td><td></td><td><a href="index.html" class="tocviewlink" data-pltdoc="x">Labs</a></td></tr></table><div class="tocviewsublist" style="display: block;" id="tocview_1"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="lab1.html" class="tocviewlink" data-pltdoc="x">1 The Design Recipe</a></td></tr><tr><td align="right"></td><td><a href="lab2.html" class="tocviewlink" data-pltdoc="x">2 Big Bang</a></td></tr><tr><td align="right"></td><td><a href="lab3.html" class="tocviewlink" data-pltdoc="x">3 Natural Numbers and Counters</a></td></tr><tr><td align="right"></td><td><a href="lab4.html" class="tocviewlink" data-pltdoc="x">4 Quote &amp; Unquote</a></td></tr><tr><td align="right"></td><td><a href="lab5.html" class="tocviewlink" data-pltdoc="x">5 Designing With Lists and Abstractions</a></td></tr><tr><td align="right"></td><td><a href="lab6.html" class="tocviewlink" data-pltdoc="x">6 Using Abstractions to Mimic</a></td></tr><tr><td align="right"></td><td><a href="lab7.html" class="tocviewlink" data-pltdoc="x">7 Tree Abstractions</a></td></tr><tr><td align="right"></td><td><a href="lab8.html" class="tocviewlink" data-pltdoc="x">8 Files and Directories</a></td></tr><tr><td align="right"></td><td><a href="lab9.html" class="tocviewlink" data-pltdoc="x">9 Graphs</a></td></tr><tr><td align="right"></td><td><a href="lab10.html" class="tocviewlink" data-pltdoc="x">10 Generative Recursion</a></td></tr><tr><td align="right"></td><td><a href="lab11.html" class="tocviewlink" data-pltdoc="x">11 Mutable State</a></td></tr><tr><td align="right"></td><td><a href="" class="tocviewselflink" data-pltdoc="x">13 Synthesis</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">&#9658;</a></td><td></td><td><a href="" class="tocviewselflink" data-pltdoc="x">13 Synthesis</a></td></tr></table><div class="tocviewsublistbottom" style="display: none;" id="tocview_2"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="#%28part._g46780%29" class="tocviewlink" data-pltdoc="x">Pre-<wbr></wbr>lab Setup</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46781%29" class="tocviewlink" data-pltdoc="x">Background</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46782%29" class="tocviewlink" data-pltdoc="x">How It Works</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46783%29" class="tocviewlink" data-pltdoc="x">Sample Code</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46784%29" class="tocviewlink" data-pltdoc="x">Generating Blackjack</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46785%29" class="tocviewlink" data-pltdoc="x">A Short Summary of Blackjack</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46786%29" class="tocviewlink" data-pltdoc="x">Starter Code</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46787%29" class="tocviewlink" data-pltdoc="x">Extending the Game</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46788%29" class="tocviewlink" data-pltdoc="x">Continuing with this after lab</a></td></tr><tr><td align="right"></td><td><a href="#%28part._g46789%29" class="tocviewlink" data-pltdoc="x">Before You Go...</a></td></tr></table></div></div></div><div class="tocsub"><div class="tocsubtitle">On this page:</div><table class="tocsublist" cellspacing="0"><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46780%29" class="tocsubseclink" data-pltdoc="x">Pre-<wbr></wbr>lab Setup</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46781%29" class="tocsubseclink" data-pltdoc="x">Background</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46782%29" class="tocsubseclink" data-pltdoc="x">How It Works</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46783%29" class="tocsubseclink" data-pltdoc="x">Sample Code</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46784%29" class="tocsubseclink" data-pltdoc="x">Generating Blackjack</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46785%29" class="tocsubseclink" data-pltdoc="x">A Short Summary of Blackjack</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46786%29" class="tocsubseclink" data-pltdoc="x">Starter Code</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46787%29" class="tocsubseclink" data-pltdoc="x">Extending the Game</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46788%29" class="tocsubseclink" data-pltdoc="x">Continuing with this after lab</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._g46789%29" class="tocsubseclink" data-pltdoc="x">Before You Go...</a></td></tr></table></div></div><div class="maincolumn"><div class="main"><div class="versionbox"><span class="version">8.10</span></div><div class="navsettop"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="lab11.html" title="backward to &quot;11 Mutable State&quot;" data-pltdoc="x">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../style/index.html" title="forward to &quot;The Style&quot;" data-pltdoc="x">next &rarr;</a></span>&nbsp;</div><h3><a name="(part._lab13)"></a>13 Synthesis</h3><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p><img src="lab.png" alt="home work!" width="128" height="105"/></p></blockquote></blockquote></blockquote><p><span style="font-weight: bold">Purpose:</span> Explore synthesis &amp; how it connects to the design recipe</p><h3><a name="(part._g46780)"></a>Pre-lab Setup</h3><p>Please make sure you have Python 3 installed (We&rsquo;ve tested on 3.9 &amp; 3.11, and
+assume 3.10 &amp; 3.12 will work). You also need to install the OpenAI package. If
+you&rsquo;ve installed Python3, you should have pip (run it with either pip or pip3)
+installed, and can then run the following command using either the Terminal (on
+MacOS) or Powershell (on Windows):</p><p><table cellspacing="0" cellpadding="0" class="SVerbatim"><tr><td><p><span class="stt">pip3 install openai</span></p></td></tr></table></p><p>If you have done Python development before, you are welcome to set this up
+within a virtual environment, but given that we have no other requirements,
+installing openai globally should be enough.</p><p>You probably want to have some text editor that can at least syntax highlight
+Python. At this point, perhaps the most common suggestion in VSCode; you can use
+that, or anything else that you&rsquo;d like.</p><h3><a name="(part._g46781)"></a>Background</h3><p>In this lab, you will use a research prototype being built by your professor and
+several students. The goal behind the system is to use LLM-driven synthesis
+behind the scenes, but to never show generated code to the programmer. The
+primary reason for exploring this idea is a well-known phenomena in the research
+literature called "automation bias", which means that people are more likely to
+trust the results of automated systems than the same results when they come from
+people. Given that LLMs can produce buggy code, code with security
+vulnerabilities, etc, this is a particular risk that is currently
+under-explored. Our approach to this is to structure our synthesis to avoid ever
+showing the code, and thus avoiding the issue of programmers skimming past
+mistakes in generated code (since, especially with synthesized code, most of it
+will look reasonable!).</p><p>How do we do that? We have programmers write down <span style="font-style: italic">specifications</span>,
+currently in the form of signatures, purpose statements, and tests, and then use
+those both to guide the synthesis (as is typically done) but also (the unit
+tests) to validate that the generated code conforms to the expected behavior. In
+the case that it doesn&rsquo;t, the system automatically re-prompts (with the failed
+test or error raised) for a corrected version and tries to run the test suite
+again.</p><p>Concretely, we have implemented this as a library in Python. We know some of you
+have not programmed in Python: that&rsquo;s fine. Part of the goal of this is that you
+don&rsquo;t actually write any code! You need to know how to write data definitions
+("dataclasses"), function headers, purpose statements, and unit tests (which
+will require knowing how to construct examples of data), and that should be it.</p><h3><a name="(part._g46782)"></a>How It Works</h3><p>An example (complete) use of the library is the following (this shows all the features of Python that we need):</p><div class="default"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">from</span> <span class="nn">synth</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Money</span><span class="p">:</span>
+    <span class="n">dollars</span> <span class="p">:</span> <span class="nb">int</span>
+    <span class="n">cents</span> <span class="p">:</span> <span class="nb">int</span>
+
+<span class="nd">@synthfunc</span>
+<span class="nd">@synthdepend</span><span class="p">(</span><span class="n">Money</span><span class="p">)</span>
+<span class="nd">@synthexpect</span><span class="p">(</span><span class="n">Money</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nd">@synthexpect</span><span class="p">(</span><span class="n">Money</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">505</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_in_cents</span><span class="p">(</span><span class="n">money</span> <span class="p">:</span> <span class="n">Money</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; converts money into a total number of cents &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div></td></tr></table></div>
+</div><p>Aside from the <span class="default"><code class="highlight-inline"><span class="nd">@synth</span></code></span> parts, this is equivalent to the following ISL+ code:</p><div class="default"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">#lang </span><span class="nn">htdp/isl+</span>
+
+<span class="p">(</span><span class="k">define-struct</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="p">[</span><span class="n">dollars</span><span class="w"> </span><span class="n">cents</span><span class="p">])</span>
+<span class="c1">;; A Money is a (make-money Integer Integer)</span>
+
+<span class="c1">;; get-in-cents : Money -&gt; Integer</span>
+<span class="c1">;; converts Money into a total number of cents</span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">get-in-cents</span><span class="w"> </span><span class="p">(</span><span class="n">make-money</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="p">(</span><span class="n">check-expect</span><span class="w"> </span><span class="p">(</span><span class="n">get-in-cents</span><span class="w"> </span><span class="p">(</span><span class="n">make-money</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="mi">505</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">get-in-cents</span><span class="w"> </span><span class="n">money</span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+</div><p>Let&rsquo;s explain the python version, line-by-line. On line 1, we import everything we need from our
+library (how to get the library we&rsquo;ll cover next). On lines 3-6, we define a data
+definition; this is effectively a struct called Money that has a dollars and
+cents field. They have type annotations, but these are not enforced (they are
+effectively comments, just structured).</p><p>Next (Lines 8-14), we get to a function defintion. Our library operates by
+assuming you start with an empty function definition: <span class="default"><code class="highlight-inline"><span class="k">pass</span></code></span> (Line 14) is an
+expression in Python that stands for "do nothing". Since Python is whitespace
+sensitive, you cannot have an empty block; instead, you can put <span class="default"><code class="highlight-inline"><span class="k">pass</span></code></span>. So this is
+a function with one argument (called money, with type Money) that returns an
+int, and it does nothing. A string that appears as the first part of the body of
+the function (Line 13) is called a docstring: this is a purpose statement, and like the
+type annotations, it is supported by the language (it cannot go somewhere else
+and work the same way). Triple quoted strings allow line breaks to appear in the
+string.</p><p>Finally (Lines 8-11), for the four lines that start with
+<span class="default"><code class="highlight-inline"><span class="nd">@synth</span></code></span>. These are the declarations to our library that
+we want this function to be synthesized. They run from the function <span style="font-style: italic">up</span>,
+though the only one whose order matters is <span class="default"><code class="highlight-inline"><span class="nd">@synthfunc</span></code></span>:
+this must happen "last", i.e., it must be the first one in line order. We
+describe each of the three decorators as follows:</p><p><span class="default"><code class="highlight-inline"><span class="nd">@synthexpect</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span></code></span>: asserts that the
+to-be-synthesized function <span class="default"><code class="highlight-inline"><span class="n">f</span></code></span>, when called on the
+arguments, <span class="default"><code class="highlight-inline"><span class="n">f</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="o">...</span><span class="p">)</span></code></span>, should return the value
+<span class="default"><code class="highlight-inline"><span class="n">ret</span></code></span>. This is both used as a guide for synthesis, and
+also, the generated code is validated by running this test. This uses equality
+(<span class="default"><code class="highlight-inline"><span class="o">==</span></code></span>) to check equivalence with the return value.</p><p><span class="default"><code class="highlight-inline"><span class="nd">@synthexpect</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">predicate</span><span class="p">)</span></code></span>: alternate
+form, where <span class="default"><code class="highlight-inline"><span class="n">predicate</span></code></span> is a function that returns a
+boolean. In this case, we expect that the predicate returns
+<span class="default"><code class="highlight-inline"><span class="kc">True</span></code></span> when the function is called on the arguments.
+i.e., <span class="default"><code class="highlight-inline"><span class="n">predicate</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="o">...</span><span class="p">))</span></code></span> should be
+<span class="default"><code class="highlight-inline"><span class="kc">True</span></code></span>. This allows you to write tests for functions that
+are non-deterministic (e.g., random shuffling), where you might not be able to
+determine the exact output, but you can write a function to check properties of
+it (the only actual Python code you may need to write during the lab!).</p><p><span class="default"><code class="highlight-inline"><span class="nd">@synthdepend</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span></code></span>: declares that there is a
+data definition (e.g., <span class="default"><code class="highlight-inline"><span class="n">Money</span></code></span>), function (e.g.,
+<span class="default"><code class="highlight-inline"><span class="n">get_in_cents</span></code></span>), or module (e.g.,
+<span class="default"><code class="highlight-inline"><span class="n">random</span></code></span>, though note that a few, including
+<span class="default"><code class="highlight-inline"><span class="n">math</span></code></span> and <span class="default"><code class="highlight-inline"><span class="n">random</span></code></span> are included
+by default) that may be needed in order to synthesize this function. There can
+be any number of dependencies declared at once, and also, multiple invocations
+of this decorator. This is both provided as a hint to the synthesis, but also,
+only these and a very small number of core data structures are available to the
+generated code (i.e., functions that are in scope but not declared as
+dependencies cannot be used in synthesized functions), so one of the tasks when
+designing functions is deciding what they might need to use.</p><p>Given this as a file, when you <span style="font-style: italic">load</span> it, i.e., in the Python REPL, you might see this:</p><p><table cellspacing="0" cellpadding="0" class="SVerbatim"><tr><td><p><span class="stt">&gt;&gt;&gt; from examples.dollar_change import *</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">[synth] get_in_cents:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#10003;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#10003;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(caching valid response)</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt;</span></p></td></tr></table></p><p>This shows that, <span style="font-style: italic">as it is loading</span>, it is synthesizing an implementation
+of get_in_cents. You can&rsquo;t see here, of course, but there is quite a pause
+between the ":" and the first check mark &#8212;<wbr></wbr> this is the time to actually query
+OpenAI and get back a response. The check-marks show that the generated code
+passed both given tests (if it failed, it would report that, what the failure
+was, and would attempt to find a new implementation).</p><p>If you load it again, and haven&rsquo;t changed the specification (tests, docstring,
+depends, etc), it will use the previously generated version:</p><p><table cellspacing="0" cellpadding="0" class="SVerbatim"><tr><td><p><span class="stt">&gt;&gt;&gt; from examples.dollar_change import *</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">[synth] get_in_cents:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#10003; (cached)</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt;</span></p></td></tr></table></p><p>In this case, no queries are made, and it is very fast. The general workflow,
+for this lab, is to define function headers, purpose statements, and tests, and
+then try to generate the function. If it works (and assuming you have sufficient
+tests), then you move on to the next function. Assuming you don&rsquo;t need to update
+anything about the previous function, it will load instantly on subsequent loads
+of the module: only the current function you are working on will take time. Of
+course, if you discover a bug, you may have to add more tests, but this will
+never cause you to have to dig into the <span style="font-style: italic">buggy code</span>: you add/fix tests,
+and that function, plus all functions depending on the updated function will
+automatically be regenerated.</p><p>Of course, it may turn out that the function you want to generate is too
+complicated for the model to figure out: in that case, just as with code, define
+a helper first, generate that, and then add it as a dependency to the original
+function you were trying to generate.</p><h3><a name="(part._g46783)"></a>Sample Code</h3><p>We have provided, for this lab, a zip file that includes both our library code
+and a python file "starter.py". If you open that file up, you&rsquo;ll see it has an
+example at the top that involves clocks, and then below that, data definitions
+for a blackjack game. To start, load the file in Python by starting, in the
+commandline, python:</p><p><table cellspacing="0" cellpadding="0" class="SVerbatim"><tr><td><p><span class="stt">$ python3</span></p></td></tr><tr><td><p><span class="stt">Python 3.11.6 (main, Oct</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">2 2023, 20:46:14) [Clang 14.0.3 (clang-1403.0.22.14.1)] on darwin</span></p></td></tr><tr><td><p><span class="stt">Type "help", "copyright", "credits" or "license" for more information.</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt; from starter import *</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">[synth] add_second:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#10003; (cached)</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt;</span></p></td></tr></table></p><p>The first time you load it, it will not show (cached), and it will take a few
+seconds. Once it has loaded, you can test the generated function by running it
+on an example input:</p><p><table cellspacing="0" cellpadding="0" class="SVerbatim"><tr><td><p><span class="stt">&gt;&gt;&gt; add_second(Clock(10,0,0))</span></p></td></tr><tr><td><p><span class="stt">Clock(hours=10, minutes=0, seconds=1)</span></p></td></tr></table></p><p>Note that you do not see the code (while there are certainly ways for you to
+poke around and figure out how to do so, please, for this lab, do not do that!
+You can use ChatGPT outside of this lab where you can see the generated
+code: we&rsquo;d like you to use this system as it is designed, which is that you
+treat the generated code as a black box).</p><p>To see what happens if there is a problem, we can artificially introduce a
+<span style="font-style: italic">bug</span> in our test cases. If we introduced enough, perhaps the synthesis
+would find a different function, but especially for simple functions, most
+likely the other tests &amp; purpose statement will result in the right code, so a
+failing test will result in our system failing to validate. So let&rsquo;s change the
+first test output from from <span class="default"><code class="highlight-inline"><span class="n">Clock</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span></code></span> to
+<span class="default"><code class="highlight-inline"><span class="n">Clock</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span></code></span> (i.e., it doesn&rsquo;t increment).</p><p>Now we quit python (Ctrl-D, or typing "quit()") and load it again.</p><p><table cellspacing="0" cellpadding="0" class="SVerbatim"><tr><td><p><span class="stt">&gt;&gt;&gt; from starter import *</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">[synth] add_second:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#10003;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#65794; failed validation</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">add_second([Clock(hours=10, minutes=1, seconds=1)]) &#8800; Clock(hours=10, minutes=1, seconds=1)</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">[synth]</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">add_second (attempt 2/3):</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#10003;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#65794; failed validation</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">add_second([Clock(hours=10, minutes=1, seconds=1)]) &#8800; Clock(hours=10, minutes=1, seconds=1)</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">[synth]</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">add_second (attempt 3/3):</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#10003;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">&#65794; failed validation</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">add_second([Clock(hours=10, minutes=1, seconds=1)]) &#8800; Clock(hours=10, minutes=1, seconds=1)</span></p></td></tr><tr><td><p><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">[synth] add_second: abandoning</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt;</span></p></td></tr></table></p><p>Here we can see that it passed one test and failed the other, and it shows the
+failing test. Then it attempts to synthesize again. This still doesn&rsquo;t work, and the last attempt still doesn&rsquo;t work, so the system abandons the attempt, and puts a placeholder that will error if you try to call the function:</p><p><table cellspacing="0" cellpadding="0" class="SVerbatim"><tr><td><p><span class="stt">&gt;&gt;&gt; add_second(Clock(0,1,2))</span></p></td></tr><tr><td><p><span class="stt">Traceback (most recent call last):</span></p></td></tr><tr><td><p><span class="stt">...</span></p></td></tr><tr><td><p><span class="stt">synth.lib.synthfunc.NotSynthesized: NotSynthesized: No implementation of add_second was sucessfully synthesized.</span></p></td></tr></table></p><p>(Note that when we changed the test, we changed the cache key, and so we got a new synthesis effort. If we change the test back, we will actually go back to the old key, and won&rsquo;t have to generate anything!).</p><h3><a name="(part._g46784)"></a>Generating Blackjack</h3><p>The main task of this lab is to make a function-only version of the game of
+Blackjack. What function-only means is that there will be no user interface: you
+will interact with the game by calling functions in the interactive python
+prompt. But the code you will create would be similar to code that would be
+necessary for an actual game, just excluding all of the interface!</p><h3><a name="(part._g46785)"></a>A Short Summary of Blackjack</h3><p>Blackjack is a card game where there are some number of players (you will start
+with just one!) and a dealer. Players and dealers both get dealt cards, and the
+goal is to have the highest sum of cards, without going over 21. Number cards
+count as their number, face cards (Jack, Queen, King) count as 10, and Aces
+count as either 1 or 11. Initially both players and the dealer are dealt two
+cards. The player can "hit", asking for an additional card. The dealer, instead,
+must follow a mechanical rule: if they have less than 17, they must get another
+card, if they have 17 or over, they must "stay". Betting is always between the
+players and the dealer, and generally, the idea is that the player either loses
+what they bet (if they lose) or double it (if they win). There are more
+complicated rules related to betting, splitting, etc, which we will not include.</p><h3><a name="(part._g46786)"></a>Starter Code</h3><p>We have given you, as starter code, a data definition for an initial version of
+this: a definition of a <span class="default"><code class="highlight-inline"><span class="n">Card</span></code></span>, and a game state <span class="default"><code class="highlight-inline"><span class="n">BlackjackGame</span></code></span> that
+currently hardcodes the dealer&rsquo;s hand, and starts with an empty deck.</p><p>We&rsquo;d like you to start by making a version of the game that will allow you to
+be able to carry out the below interaction. Note that it&rsquo;s fine if the deck overlaps with the dealers cards (i.e., when filling the deck with <span class="default"><code class="highlight-inline"><span class="n">add_to_deck</span></code></span>, you don&rsquo;t need to exclude those two cards; instead, just add as many distinct cards as specified).</p><p><table cellspacing="0" cellpadding="0" class="SVerbatim"><tr><td><p><span class="stt">&gt;&gt;&gt; gm = shuffle_deck(add_to_deck(BlackjackGame(), 52))</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt; gm1 = deal_initial(gm)</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt; render_player_hand(gm1)</span></p></td></tr><tr><td><p><span class="stt">'4&#9824; K&#9824;'</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt; gm2 = hit(gm1)</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt; render_player_hand(gm2)</span></p></td></tr><tr><td><p><span class="stt">'4&#9824; K&#9824; 2&#9830;'</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt; gm3 = hit(gm2)</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt; render_player_hand(gm3)</span></p></td></tr><tr><td><p><span class="stt">'4&#9824; K&#9824; 2&#9830; 10&#9827;'</span></p></td></tr><tr><td><p><span class="stt">&gt;&gt;&gt; winner(gm3)</span></p></td></tr><tr><td><p><span class="stt">'dealer'</span></p></td></tr></table></p><p>You should try <span style="font-style: italic">not</span> to write any Python code, even if you know how! You may
+need to define additional helpers not included above, and depend upon them to
+get these functions working.</p><p>Note how most of the functions take and receive the game state; that means most
+<span class="default"><code class="highlight-inline"><span class="nd">@synthexpect</span></code></span> declarations will have the form:</p><div class="default"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><span class="nd">@synthexpect</span><span class="p">(</span>
+  <span class="n">Blackjackgame</span><span class="p">(</span><span class="n">player_cards</span> <span class="o">=</span> <span class="p">(</span><span class="n">Card</span><span class="p">(</span><span class="s2">&quot;♥&quot;</span><span class="p">,</span> <span class="s2">&quot;10&quot;</span><span class="p">),),</span> <span class="n">deck</span> <span class="o">=</span> <span class="p">(</span><span class="n">Card</span><span class="p">(</span><span class="s2">&quot;♥&quot;</span><span class="p">,</span> <span class="s2">&quot;7&quot;</span><span class="p">),)),</span>
+  <span class="n">Blackjackgame</span><span class="p">(</span><span class="n">player_cards</span> <span class="o">=</span> <span class="p">(</span><span class="n">Card</span><span class="p">(</span><span class="s2">&quot;♥&quot;</span><span class="p">,</span> <span class="s2">&quot;7&quot;</span><span class="p">),</span> <span class="n">Card</span><span class="p">(</span><span class="s2">&quot;♥&quot;</span><span class="p">,</span> <span class="s2">&quot;10&quot;</span><span class="p">)),</span> <span class="n">deck</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()))</span>
+</pre></div></td></tr></table></div>
+</div><p>This could be a test for <span class="default"><code class="highlight-inline"><span class="n">hit</span></code></span>. One oddity of Python:
+since we want _immutable_ lists, we are using tuples (which are essentially
+immutable lists). Tuple literals are written with parenthesis, i.e.,
+<span class="default"><code class="highlight-inline"><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span></code></span>, but if there is only one element, there is no
+way to tell we intend a single element tuple rather than using parethesis to
+disambiguate. To resolve this, Python has you write a single trailing comma,
+e.g., <span class="default"><code class="highlight-inline"><span class="p">(</span><span class="mi">1</span><span class="p">,)</span></code></span>. You can see this in use in the example
+above.</p><h3><a name="(part._g46787)"></a>Extending the Game</h3><p>Now you should change it so that the dealer starts out with an empty hand and
+you should add a function for the dealer to get another card if, according to
+the rules of the game, the dealer would ask for one. For simplicity, you can
+have the dealer fill their entire hand at once (you don&rsquo;t have to worry about
+alternating between dealer cards and player cards). i.e., add a
+<span class="default"><code class="highlight-inline"><span class="n">deal_dealer</span></code></span> function.</p><p>Now add betting. You first have to add an amount of money that the player has to
+the game state. Note how once you do that, (most of) your functions are regenerated: this is because the dataclass that they dependend on changed. Since the change was pretty trivial (adding a field), this refactoring shouldn&rsquo;t cause any of the regenerations to fail.</p><p>Next, add a <span class="default"><code class="highlight-inline"><span class="n">player_bet</span></code></span> function that
+takes an amount from what they have and add that to their wager. You can enforce
+that this must be done before the player has cards. Then, you need to add a
+<span class="default"><code class="highlight-inline"><span class="n">call</span></code></span> function that indicates that the player is finished
+getting cards: at this point, if they are the winner, they get double their
+wager added back to their pool of money. If they lose, they get nothing, and
+regardless, all cards and the wager is cleared for another round.</p><p>At this point, you&rsquo;ve added a bit. Now let&rsquo;s do a more involved change: we want
+both partners to be able to play the game! Both will be playing against the
+dealer, so the fact that you&rsquo;ll be able to see your partners cards is okay.
+However, each of you need a separate hand, the ability to wager / hit / call
+separately. For each round, however, the dealer has only a single set of cards.</p><p>At this point, you should have a game that you can both play! Test it out! What
+happens if you play enough rounds that the deck runs out of cards. Do you get a
+sensible error? Did you include test cases for that possibility?</p><h3><a name="(part._g46788)"></a>Continuing with this after lab</h3><p>Unfortunately, unlike with most labs, you won&rsquo;t really be able to continue with
+this after lab. While you will clearly have access to the code, the API key that
+provides access to the OpenAI API will be turned off, so all the queries will
+fail. Obviously, if you have your own access to their API and use your own API
+key, you are welcome to keep experimenting with this (and if you do so, please
+let us know!).</p><h3><a name="(part._g46789)"></a>Before You Go...</h3><p>That&rsquo;s the last lab of the semester! Just two lectures and one homework to go and you are done with
+the accelerated version of CS2500. Congratulations on all you have achieved! Consider
+the kinds of problems you can solve now that would have seemed impossible at the beginning of September;
+you can and should feel proud. We certainly are of you!</p><div class="navsetbottom"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="lab11.html" title="backward to &quot;11 Mutable State&quot;" data-pltdoc="x">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../style/index.html" title="forward to &quot;The Style&quot;" data-pltdoc="x">next &rarr;</a></span>&nbsp;</div></div></div><div id="contextindicator">&nbsp;</div></body></html>

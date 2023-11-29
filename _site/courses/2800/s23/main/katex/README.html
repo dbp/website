@@ -31,30 +31,42 @@
     <a href="https://gitpod.io/#https://github.com/KaTeX/KaTeX"><img src="https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod" alt="Gitpod ready-to-code"></a>
    </p>
    <p>
-    KaTeX is a fast, easy-to-use JavaScript library for TeX math rendering on the web.
+    KaTeX is a fast, easy-to-use JavaScript library for TeX math
+rendering on the web.
    </p>
    <ul>
     <li>
-     <strong>Fast:</strong> KaTeX renders its math synchronously and doesn’t need to reflow the page. See how it compares to a competitor in <a href="http://www.intmath.com/cg5/katex-mathjax-comparison.php">this speed test</a>.
+     <strong>Fast:</strong> KaTeX renders its math synchronously and
+doesn’t need to reflow the page. See how it compares to a competitor in
+<a href="http://www.intmath.com/cg5/katex-mathjax-comparison.php">this
+speed test</a>.
     </li>
     <li>
-     <strong>Print quality:</strong> KaTeX’s layout is based on Donald Knuth’s TeX, the gold standard for math typesetting.
+     <strong>Print quality:</strong> KaTeX’s layout is based on Donald
+Knuth’s TeX, the gold standard for math typesetting.
     </li>
     <li>
-     <strong>Self contained:</strong> KaTeX has no dependencies and can easily be bundled with your website resources.
+     <strong>Self contained:</strong> KaTeX has no dependencies and can
+easily be bundled with your website resources.
     </li>
     <li>
-     <strong>Server side rendering:</strong> KaTeX produces the same output regardless of browser or environment, so you can pre-render expressions using Node.js and send them as plain HTML.
+     <strong>Server side rendering:</strong> KaTeX produces the same
+output regardless of browser or environment, so you can pre-render
+expressions using Node.js and send them as plain HTML.
     </li>
    </ul>
    <p>
-    KaTeX is compatible with all major browsers, including Chrome, Safari, Firefox, Opera, Edge, and IE 11.
+    KaTeX is compatible with all major browsers, including Chrome,
+Safari, Firefox, Opera, Edge, and IE 11.
    </p>
    <p>
-    KaTeX supports much (but not all) of LaTeX and many LaTeX packages. See the <a href="https://katex.org/docs/supported.html">list of supported functions</a>.
+    KaTeX supports much (but not all) of LaTeX and many LaTeX packages.
+See the <a href="https://katex.org/docs/supported.html">list of
+supported functions</a>.
    </p>
    <p>
-    Try out KaTeX <a href="https://katex.org/#demo">on the demo page</a>!
+    Try out KaTeX <a href="https://katex.org/#demo">on the demo
+page</a>!
    </p>
    <h2 id="getting-started">
     Getting started
@@ -65,22 +77,23 @@
    <div class="sourceCode" id="cb1">
     <pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly --&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;head&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"stylesheet"</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"</span> <span class="er">integrity</span><span class="ot">=</span><span class="st">"sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw"</span> <span class="er">crossorigin</span><span class="ot">=</span><span class="st">"anonymous"</span><span class="kw">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"stylesheet"</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"</span> <span class="er">integrity</span><span class="ot">=</span><span class="st">"sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw"</span> <span class="er">crossorigin</span><span class="ot">=</span><span class="st">"anonymous"</span><span class="dt">&gt;</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- The loading of KaTeX is deferred to speed up page rendering --&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script</span> <span class="er">defer</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js"</span> <span class="er">integrity</span><span class="ot">=</span><span class="st">"sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH"</span> <span class="er">crossorigin</span><span class="ot">=</span><span class="st">"anonymous"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">script</span> <span class="er">defer</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js"</span> <span class="er">integrity</span><span class="ot">=</span><span class="st">"sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH"</span> <span class="er">crossorigin</span><span class="ot">=</span><span class="st">"anonymous"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- To automatically render math in text elements, include the auto-render extension: --&gt;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script</span> <span class="er">defer</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"</span> <span class="er">integrity</span><span class="ot">=</span><span class="st">"sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"</span> <span class="er">crossorigin</span><span class="ot">=</span><span class="st">"anonymous"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ot">        onload=</span><span class="st">"renderMathInElement(document.body);"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/head&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">script</span> <span class="er">defer</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"</span> <span class="er">integrity</span><span class="ot">=</span><span class="st">"sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"</span> <span class="er">crossorigin</span><span class="ot">=</span><span class="st">"anonymous"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ot">        onload=</span><span class="st">"renderMathInElement(document.body);"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  ...</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre>
    </div>
    <p>
-    You can also <a href="https://github.com/KaTeX/KaTeX/releases">download KaTeX</a> and host it yourself.
+    You can also <a href="https://github.com/KaTeX/KaTeX/releases">download KaTeX</a> and
+host it yourself.
    </p>
    <p>
     For details on how to configure auto-render extension, refer to <a href="https://katex.org/docs/autorender.html">the documentation</a>.
@@ -89,7 +102,8 @@
     API
    </h3>
    <p>
-    Call <code>katex.render</code> to render a TeX expression directly into a DOM element. For example:
+    Call <code>katex.render</code> to render a TeX expression directly
+into a DOM element. For example:
    </p>
    <div class="sourceCode" id="cb2">
     <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>katex<span class="op">.</span><span class="fu">render</span>(<span class="st">"c = </span><span class="sc">\\</span><span class="st">pm</span><span class="sc">\\</span><span class="st">sqrt{a^2 + b^2}"</span><span class="op">,</span> element<span class="op">,</span> {</span>
@@ -97,7 +111,8 @@
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre>
    </div>
    <p>
-    Call <code>katex.renderToString</code> to generate an HTML string of the rendered math, e.g., for server-side rendering. For example:
+    Call <code>katex.renderToString</code> to generate an HTML string of
+the rendered math, e.g., for server-side rendering. For example:
    </p>
    <div class="sourceCode" id="cb3">
     <pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> html <span class="op">=</span> katex<span class="op">.</span><span class="fu">renderToString</span>(<span class="st">"c = </span><span class="sc">\\</span><span class="st">pm</span><span class="sc">\\</span><span class="st">sqrt{a^2 + b^2}"</span><span class="op">,</span> {</span>
@@ -106,16 +121,24 @@
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">// '&lt;span class="katex"&gt;...&lt;/span&gt;'</span></span></code></pre>
    </div>
    <p>
-    Make sure to include the CSS and font files in both cases. If you are doing all rendering on the server, there is no need to include the JavaScript on the client.
+    Make sure to include the CSS and font files in both cases. If you are
+doing all rendering on the server, there is no need to include the
+JavaScript on the client.
    </p>
    <p>
-    The examples above use the <code>throwOnError: false</code> option, which renders invalid inputs as the TeX source code in red (by default), with the error message as hover text. For other available options, see the <a href="https://katex.org/docs/api.html">API documentation</a>, <a href="https://katex.org/docs/options.html">options documentation</a>, and <a href="https://katex.org/docs/error.html">handling errors documentation</a>.
+    The examples above use the <code>throwOnError: false</code> option,
+which renders invalid inputs as the TeX source code in red (by default),
+with the error message as hover text. For other available options, see
+the <a href="https://katex.org/docs/api.html">API documentation</a>, <a href="https://katex.org/docs/options.html">options documentation</a>,
+and <a href="https://katex.org/docs/error.html">handling errors
+documentation</a>.
    </p>
    <h2 id="demo-and-documentation">
     Demo and Documentation
    </h2>
    <p>
-    Learn more about using KaTeX <a href="https://katex.org">on the website</a>!
+    Learn more about using KaTeX <a href="https://katex.org">on the
+website</a>!
    </p>
    <h2 id="contributing">
     Contributing

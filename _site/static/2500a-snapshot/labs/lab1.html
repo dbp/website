@@ -1,0 +1,701 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pygments.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">1 The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab2.html" class="tocviewlink" data-pltdoc="x">2 Big Bang</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab3.html" class="tocviewlink" data-pltdoc="x">3 Natural Numbers and Counters</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab4.html" class="tocviewlink" data-pltdoc="x">4 Quote &amp; Unquote</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab5.html" class="tocviewlink" data-pltdoc="x">5 Designing With Lists and Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab6.html" class="tocviewlink" data-pltdoc="x">6 Using Abstractions to Mimic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab7.html" class="tocviewlink" data-pltdoc="x">7 Tree Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab8.html" class="tocviewlink" data-pltdoc="x">8 Files and Directories</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab9.html" class="tocviewlink" data-pltdoc="x">9 Graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab10.html" class="tocviewlink" data-pltdoc="x">10 Generative Recursion</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab11.html" class="tocviewlink" data-pltdoc="x">11 Mutable State</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab13.html" class="tocviewlink" data-pltdoc="x">13 Synthesis</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">1 The Design Recipe</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46714%29" class="tocviewlink" data-pltdoc="x">Shaping Up</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46717%29" class="tocviewlink" data-pltdoc="x">Defying Gravity</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46718%29" class="tocviewlink" data-pltdoc="x">Before You Go...</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46719%29" class="tocviewlink" data-pltdoc="x">Defying Gravity Extension (Optional)</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46714%29" class="tocsubseclink" data-pltdoc="x">Shaping Up</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46717%29" class="tocsubseclink" data-pltdoc="x">Defying Gravity</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46718%29" class="tocsubseclink" data-pltdoc="x">Before You Go...</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46719%29" class="tocsubseclink" data-pltdoc="x">Defying Gravity Extension (Optional)</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.10</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="index.html" title="backward to &quot;Labs&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab2.html" title="forward to &quot;2 Big Bang&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._lab1)"></a>1 The Design Recipe
+   </h3>
+   <blockquote class="refpara">
+    <blockquote class="refcolumn">
+     <blockquote class="refcontent">
+      <p>
+       <img src="lab.png" alt="home work!" width="128" height="105">
+      </p>
+     </blockquote>
+    </blockquote>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Purpose</span> The purpose of this lab is to review and practice the
+<a href="design_recipe.html">design recipe</a> that you were recently introduced to.
+   </p>
+   <p>
+    <span style="font-weight: bold">Textbook references</span>
+<a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._ch~3ahtdp%29">Chapter 3</a>: How to Design Programs,
+<a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._ch~3aintervals-enums%29">Chapter 4</a>: Intervals,
+Enumerations, and Itemizations
+   </p>
+   <h3>
+    <a name="(part._g46714)"></a>Shaping Up
+   </h3>
+   <p>
+    <span style="font-weight: bold">Goals:</span> To design programs over enumerations.
+   </p>
+   <p></p>
+   <div class="SIntrapara">
+    <span style="font-weight: bold">Starter Code:</span> This is a data definition of a <a href="#%28tech._shape%29" class="techoutside" data-pltdoc="x"><span class="techinside">Shape</span></a>.
+<span class="refelem"><span class="refcolumn"><span class="refcontent">Be sure to select 
+    <font class="badlink">
+     <span class="RktModLink"><span class="RktMod">#lang</span></span>
+    </font>
+    <span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span>
+    <font class="badlink">
+     <span class="RktModLink"><span class="RktSym">htdp/bsl</span></span>
+    </font>
+    <span class="RktMeta"></span> and require <span class="RktSym">2htdp/image</span><span class="RktMeta"></span> and <span class="RktSym">2htdp/universe</span><span class="RktMeta"></span>.
+   </span>
+  </span>
+ </span>
+</div>
+<div class="SIntrapara">
+ <blockquote class="SCodeFlow">
+  <table cellspacing="0" cellpadding="0" class="RktBlk">
+   <tbody>
+    <tr>
+     <td>
+      <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">A </span><a name="(tech._shape)"></a><span style="font-style: italic">Shape</span><span class="RktCmt"> is one of:</span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- </span><span class="RktVal">"circle"</span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- </span><span class="RktVal">"square"</span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- </span><span class="RktVal">"triangle"</span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">and represents a kind of shape</span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </blockquote>
+</div>
+<p></p>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Sample Problem </span>Finish following <a href="../design_recipe/index.html" data-pltdoc="x">the design recipe</a>
+for this data definition (examples and a template).
+ </p>
+</blockquote>
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Examples</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">CIRCLE</span><span class="hspace">&nbsp;</span><span class="RktVal">"circle"</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">SQUARE</span><span class="hspace">&nbsp;</span><span class="RktVal">"square"</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">TRIANGLE</span><span class="hspace">&nbsp;</span><span class="RktVal">"triangle"</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="hspace">&nbsp;</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Template</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">shape-temp</span><span class="hspace">&nbsp;</span><span class="RktSym">shape</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string=?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">shape</span><span class="hspace">&nbsp;</span><span class="RktVal">"circle"</span><span class="RktPn">)</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">]</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string=?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">shape</span><span class="hspace">&nbsp;</span><span class="RktVal">"square"</span><span class="RktPn">)</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">]</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string=?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">shape</span><span class="hspace">&nbsp;</span><span class="RktVal">"triangle"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Sample Problem </span>Design a function <span class="RktSym">draw</span> which draws a <a href="#%28tech._shape%29" class="techoutside" data-pltdoc="x"><span class="techinside">Shape</span></a>.
+Make use of your handy template from the past exercise, and don’t forget to follow
+every step of <a href="../design_recipe/index.html" data-pltdoc="x">the design recipe</a>
+for functions (signature, purpose statement, tests, code).
+ </p>
+</blockquote>
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">draw: Shape -&gt; Image</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Draw the shape</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">draw</span><span class="hspace">&nbsp;</span><span class="RktSym">shape</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string=?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">shape</span><span class="hspace">&nbsp;</span><span class="RktVal">"circle"</span><span class="RktPn">)</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">circle</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">10</span><span class="hspace">&nbsp;</span><span class="RktVal">"solid"</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="RktPn">)</span><span class="RktPn">]</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string=?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">shape</span><span class="hspace">&nbsp;</span><span class="RktVal">"square"</span><span class="RktPn">)</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">square</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">"solid"</span><span class="hspace">&nbsp;</span><span class="RktVal">"blue"</span><span class="RktPn">)</span><span class="RktPn">]</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string=?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">shape</span><span class="hspace">&nbsp;</span><span class="RktVal">"triangle"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">triangle</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">7</span><span class="hspace">&nbsp;</span><span class="RktVal">"solid"</span><span class="hspace">&nbsp;</span><span class="RktVal">"orange"</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="hspace">&nbsp;</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">draw</span><span class="hspace">&nbsp;</span><span class="RktSym">CIRCLE</span><span class="RktPn">)</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">circle</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">10</span><span class="hspace">&nbsp;</span><span class="RktVal">"solid"</span><span class="hspace">&nbsp;</span><span class="RktVal">"red"</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">draw</span><span class="hspace">&nbsp;</span><span class="RktSym">SQUARE</span><span class="RktPn">)</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">square</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">"solid"</span><span class="hspace">&nbsp;</span><span class="RktVal">"blue"</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">draw</span><span class="hspace">&nbsp;</span><span class="RktSym">TRIANGLE</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">triangle</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">7</span><span class="hspace">&nbsp;</span><span class="RktVal">"solid"</span><span class="hspace">&nbsp;</span><span class="RktVal">"orange"</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 1 </span>Design a function <span class="RktSym">draw/scene</span> which <span class="RktSym"><span class="badlink"><span class="RktValLink">overlay</span></span></span>s the image of a
+<a href="#%28tech._shape%29" class="techoutside" data-pltdoc="x"><span class="techinside">Shape</span></a> on an <span class="RktSym"><span class="badlink"><span class="RktValLink">empty-scene</span></span></span> of a fixed size. Do you need to follow the <a href="#%28tech._shape%29" class="techoutside" data-pltdoc="x"><span class="techinside">Shape</span></a>
+template here? How many tests does it need?
+ </p>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 2 </span>Design a function <span class="RktSym">next-shape</span> which consumes a <a href="#%28tech._shape%29" class="techoutside" data-pltdoc="x"><span class="techinside">Shape</span></a> and outputs
+the "next" shape (any order is fine, so long as <span class="RktSym">next-shape</span> "cycles through" all the
+shapes.)
+ </p>
+</blockquote>
+<p>
+ <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+</p>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 3 </span>Compose the <span class="RktSym">draw/scene</span> and <span class="RktSym">next-shape</span> functions in a
+<span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> animation that cycles through all of the shapes (See: <a href="https://docs.racket-lang.org/teachpack/2htdpuniverse.html#%28form._world._%28%28lib._2htdp%2Funiverse..rkt%29._big-bang%29%29">this documentation</a>). Ask a member of the course staff
+for help if you’re stuck on <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> syntax/usage. Using <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> takes some
+practice, which is why we’re here!
+ </p>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 4 </span>Is your animation headache-inducingly fast? Slow it down by giving your
+<span class="RktSym"><span class="badlink"><span class="RktValLink">on-tick</span></span></span> clause a number that follows <span class="RktSym">next-shape</span> to slow it down to that rate of
+seconds per frame (the default is <span class="RktVal">1/28</span> seconds per frame).
+ </p>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 5 </span>Wrap your call to <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> in a <span class="RktSym">main</span> function, which takes a
+<span class="RktSym">Shape</span> and uses that shape as the initial state. Don’t forget to give it a signature and
+purpose statement, but you cannot write tests for the <span class="RktSym">main</span> function. Why not?
+ </p>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 6 </span>Launch your animation by calling your <span class="RktSym">main</span> function from the interactions
+window.
+ </p>
+</blockquote>
+<p>
+ <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+</p>
+<h3>
+ <a name="(part._g46717)"></a>Defying Gravity
+</h3>
+<p>
+ <span style="font-weight: bold">Goals:</span> To design programs over intervals.
+</p>
+<p>
+ Countless crazes have swept the nation over the course of history. From planking to democracy, America
+is truly a land of fads. What fad grips us in its promise of adventure, scenic vistas, and defiance
+of gravity? Climbing, of course!
+</p>
+<p>
+ We’re going to create a game that simulates climbing, with varying difficulty in the vertical terrain.
+Our worldstate will be represented by the height of the climber, and we will construct a data
+definition that helps us design a program that simulates this daring climb.
+</p>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 7 </span>Define three constants, <span class="RktSym">EASY-UP</span>, <span class="RktSym">MEDIUM-UP</span>, and <span class="RktSym">HARD-UP</span>
+which will define how many pixels our brave climber can move in a single movement in terrains of
+varying climbing difficulty. The easier the terrain, the more our climber can move. Also, define the
+constant <span class="RktSym">HEIGHT</span> which will determine how tall our mountain is.
+ </p>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 8 </span>Design a data definition <a name="(tech._terrain)"></a><span style="font-style: italic">Terrain</span> which itemizes three non-overlapping,
+adjacent intervals. The smallest should start at <span class="RktVal">0</span> and the largest should end at whatever
+you defined <span class="RktSym">HEIGHT</span> to be. Remember to follow all four steps of
+<a href="../design_recipe/index.html" data-pltdoc="x">the design recipe</a> for data (data definition, interpretation,
+examples, template).
+ </p>
+</blockquote>
+<p>
+ <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+</p>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 9 </span>Design a function <span class="RktSym">place-terrain</span> which takes a <a href="#%28tech._terrain%29" class="techoutside" data-pltdoc="x"><span class="techinside">Terrain</span></a> (representing
+the height of a climber) and draws someone (who can be represented by your favorite shape) on a scene
+that is <span class="RktSym">HEIGHT</span> tall. If you’re feeling fancy, split your scene into three different-colored
+rectangles, one for each section of the terrain.
+ </p>
+ <p>
+  Remember that the coordinate system of images has (0, 0) at the top left and not bottom left!
+ </p>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 10 </span>Design a function <span class="RktSym">climb</span>, which takes a <a href="#%28tech._terrain%29" class="techoutside" data-pltdoc="x"><span class="techinside">Terrain</span></a> (representing the
+height of the climber) and a <span class="RktSym">KeyEvent</span> and moves a climber up the mountain (<span class="RktSym">move-up</span>)
+if the key event is <span class="RktVal">"up"</span>. Otherwise, they drop back down to <span class="RktVal">0</span>. Sad!
+ </p>
+</blockquote>
+<p>
+ <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+</p>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 11 </span>Design a function <span class="RktSym">reached-the-top?</span> which takes a <a href="#%28tech._terrain%29" class="techoutside" data-pltdoc="x"><span class="techinside">Terrain</span></a> and
+determines if it is equal to <span class="RktSym">HEIGHT</span>.
+ </p>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 12 </span>Compose your functions into a <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> program wrapped in a
+<span class="RktSym">main/climb</span> function. This function can ignore its input, as the start state should always be
+<span class="RktVal">0</span>; when inputs are ignored we name them <span class="RktSym">_</span> by convention.
+ </p>
+ <p>
+  Unlike our last program, this one ends when a specific event happens (the climber reaches the top).
+What <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> handler stops programs? Again, ask a course staff member if you’re having
+trouble with <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span>.
+ </p>
+</blockquote>
+<h3>
+ <a name="(part._g46718)"></a>Before You Go...
+</h3>
+<p>
+ If you had trouble finishing any of the exercises in the lab or homework, or just feel like you’re
+struggling with any of the class material, please feel free to come to office hours and talk to a TA
+or tutor for additional assistance. We love to teach and you will learn. It’s symbiotic!
+</p>
+<h3>
+ <a name="(part._g46719)"></a>Defying Gravity Extension (Optional)
+</h3>
+<p>
+ Try this optional exercise if you’re looking to stretch your design skills!
+</p>
+<p>
+ Consider the following data definition:
+</p>
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">climbing</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">terrain</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">falling</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">terrain</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">A </span><a name="(tech._climber)"></a><span style="font-style: italic">Climber</span><span class="RktCmt"> is one of:</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- </span><span class="RktPn">(</span><span class="RktSym">make-climbing</span><span class="stt"> </span><a href="#%28tech._terrain%29" class="techoutside" data-pltdoc="x"><span class="techinside">Terrain</span></a><span class="RktPn">)</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- </span><span class="RktPn">(</span><span class="RktSym">make-falling</span><span class="stt"> </span><a href="#%28tech._terrain%29" class="techoutside" data-pltdoc="x"><span class="techinside">Terrain</span></a><span class="RktPn">)</span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 13 </span>Finish the design recipe for this data definition.
+ </p>
+</blockquote>
+<blockquote>
+ <p>
+  <span style="font-weight: bold">Exercise 14 </span>Instead of using a <a href="#%28tech._terrain%29" class="techoutside" data-pltdoc="x"><span class="techinside">Terrain</span></a> directly, update your program from ’Defying Gravity’ to use
+a <a href="#%28tech._climber%29" class="techoutside" data-pltdoc="x"><span class="techinside">Climber</span></a> for your <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> world.
+ </p>
+ <p>
+  Instead of dropping back down to <span class="RktVal">0</span> immediately when a key other than <span class="RktVal">"up"</span>
+is pressed, the climber should start falling at some constant rate. They should then begin climbing
+again when they reach the bottom. The climber should never fall below <span class="RktVal">0</span>.
+ </p>
+</blockquote>
+<div class="navsetbottom">
+ <span class="navleft">
+ <div class="nosearchform"></div>
+ &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="index.html" title="backward to &quot;Labs&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab2.html" title="forward to &quot;2 Big Bang&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

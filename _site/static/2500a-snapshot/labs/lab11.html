@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pygments.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab1.html" class="tocviewlink" data-pltdoc="x">1 The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab2.html" class="tocviewlink" data-pltdoc="x">2 Big Bang</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab3.html" class="tocviewlink" data-pltdoc="x">3 Natural Numbers and Counters</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab4.html" class="tocviewlink" data-pltdoc="x">4 Quote &amp; Unquote</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab5.html" class="tocviewlink" data-pltdoc="x">5 Designing With Lists and Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab6.html" class="tocviewlink" data-pltdoc="x">6 Using Abstractions to Mimic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab7.html" class="tocviewlink" data-pltdoc="x">7 Tree Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab8.html" class="tocviewlink" data-pltdoc="x">8 Files and Directories</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab9.html" class="tocviewlink" data-pltdoc="x">9 Graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab10.html" class="tocviewlink" data-pltdoc="x">10 Generative Recursion</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">11 Mutable State</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab13.html" class="tocviewlink" data-pltdoc="x">13 Synthesis</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">11 Mutable State</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46761%29" class="tocviewlink" data-pltdoc="x">Wrapping big-<wbr>bang</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46762%29" class="tocviewlink" data-pltdoc="x">Before you go...</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46761%29" class="tocsubseclink" data-pltdoc="x">Wrapping big-<wbr>bang</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46762%29" class="tocsubseclink" data-pltdoc="x">Before you go...</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.10</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="lab10.html" title="backward to &quot;10 Generative Recursion&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab13.html" title="forward to &quot;13 Synthesis&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._lab11)"></a>11 Mutable State
+   </h3>
+   <blockquote class="refpara">
+    <blockquote class="refcolumn">
+     <blockquote class="refcontent">
+      <p>
+       <img src="lab.png" alt="home work!" width="128" height="105">
+      </p>
+     </blockquote>
+    </blockquote>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Purpose:</span> Learn about set! and set-box! in ASL by building a big-bang wrapper
+   </p>
+   <h3>
+    <a name="(part._g46761)"></a>Wrapping big-bang
+   </h3>
+   <p>
+    In this lab, we are going to construct a debugging helper for writing big-bang
+programs. This will allow us to add logging messages, display them on the screen
+(next to the normal output of big-bang), pause &amp; resume the debug log (in case
+many messages are being logged), and filter messages.
+   </p>
+   <p>
+    <span style="font-weight: bold">Goals:</span>
+   </p>
+   <p>
+    Understand how mutation can be used to express programs that would be difficult
+(or impossible) to write otherwise. In this case, the key is that we are able to
+use <span style="font-style: italic">unchanged</span> big-bang programs within our wrapper.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 1 </span>First, we want you to find an existing big-bang program. If you aren’t
+sure which to choose, we suggest starting with the Conway’s game of life
+simulation from Lab 9. Copy all the code you wrote (either partners) into your
+file to start.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 2 </span>Next, we want to start defining our wrapper. We can’t define the
+special notation that big-bang uses, so instead, we will write a function with
+normal positional arguments for all the parameters to big-bang that we will
+support. Unlike with big-bang, none of these will be optional, but clients can
+always pass in handlers that don’t do anything (e.g., identity for on-tick, etc).
+    </p>
+    <p>
+     For this wrapper, we want to support on-tick, with an interval, on-mouse,
+on-key, and stop-when (with the optional draw argument). Write the signature for
+a function, <span class="RktSym">wrapped-big-bang</span><span class="RktMeta"></span> that takes an initial world state (of type
+<span class="RktSym">%X</span><span class="RktMeta"></span>), a draw handler, a tick handler, a tick interval, a mouse handler, a
+key handler, a stop predicate, and a draw handler to use after stopping. For now,
+all the wrapper should do is invoke <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span><span class="RktMeta"></span> with all of those arguments.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 3 </span>Now, rewrite your <span class="RktSym">main</span><span class="RktMeta"></span> from the big-bang program you imported to
+use your wrapped version. If you don’t need particular handlers, pass in versions
+that don’t do anything.
+    </p>
+   </blockquote>
+   <p>
+    Make sure that you can run the program using your wrapper before moving on.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 4 </span>Our first change is to add some space in our display for our debugging
+output. You should do that by making a <span class="RktSym">wrapped-draw</span><span class="RktMeta"></span> that will be what you
+pass to big-bang. This should call the actual <span class="RktSym">draw</span><span class="RktMeta"></span> handler, and then it should
+add a "debugging panel" to the image before returning it. Our recommendation is
+to make the panel the same height, and next to, the output of the program being
+wrapper (this will make certain things easier later). You can decide how wide it
+should be: at least a couple hundred pixels.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 5 </span>Since you’ve made your canvas bigger, you’ve now made there be more
+places that the user can click. But clicking anywhere in your debugging panel
+really shouldn’t pass on mouse events to the wrapped program (if you hadn’t
+added the panel, those events wouldn’t have existed). So add a
+<span class="RktSym">wrapped-mouse</span><span class="RktMeta"></span> that checks the x,y coordinate and only passes through
+events that should go through. Depending on where you placed your panel, you may
+have to modify the values that you pass through to the original mouse handler so
+that it thinks its canvas is the whole display.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 6 </span>Next, let’s add debugging messages. First, add a global variable that
+will hold messages, and functions to add a message and a function to read all
+messages. We did this in class on Monday, if you want to review.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 7 </span>Now that you can add messages from the program, we want to display them
+in the debugging panel. Think about how to take a list of messages and render them
+into an image that fits in the panel. A few suggestions:
+    </p>
+    <p>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">text/font</span></span></span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">some-string</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">18</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"color"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"monospace"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"default"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym"><span class="badlink"><span class="RktValLink">'</span></span></span><span class="RktSym">normal</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym"><span class="badlink"><span class="RktValLink">'</span></span></span><span class="RktSym">normal</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </p>
+    <p>
+     Will render text that is 11 pixels wide per character (if you change the size to
+something other than 18, it may be different. Also, those tests were on our
+machine: it may be worth verifying using <span class="RktSym"><span class="badlink"><span class="RktValLink">image-width</span></span></span><span class="RktMeta"></span> that this is true on
+yours). It will render multi-line text fine if there are "\n" inserted in the
+text, so you may want to add those to messages that are too long. Finally,
+<span class="RktSym"><span class="badlink"><span class="RktValLink">crop/align</span></span></span><span class="RktMeta"></span> will allow you to cut an image that is too large into an
+appropriate size, and cut from the bottom if you want.
+    </p>
+   </blockquote>
+   <p>
+    At this point, you should be able to run your program and see log messages on
+the side, assuming you add some to your program! Great!
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 8 </span>Let’s make the messages a little more readable: let’s include
+<span style="font-style: italic">when</span> they were sent. Add the number of seconds since the beginning of
+the big-bang program to the beginning of the message. Think about how you could
+include that. Can you add it when rendering? You can get the current time, in
+seconds (since a very long time ago) with <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">current-seconds</span></span></span><span class="RktPn">)</span><span class="RktMeta"></span>; how do you use
+that to give the number of seconds since the start of the wrapped program?
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 9 </span>Now let’s add the ability to <span style="font-style: italic">pause</span> the log. It might be that
+you see a message that you wonder about, so you want to be able to click a
+button and have the log stop accepting messages until you click it again. In
+your debugging panel, shrink the space for your messages by a bit to make room
+for a "button": our recommendation is to just make this be the top or bottom N
+pixels of the panel. Render this as "pause" (or a picture equivalent) if the log
+is running, and "resume" (or a picture equivalent) if the log is paused (how can
+the log be paused or resumed? More state!).
+    </p>
+    <p>
+     Ensure that the log behaves
+correctly when paused (ignores messages) or running (as before). Now you want to
+make clicking on the button switch from paused to running and back. To do this,
+we need to go back to our <span class="RktSym">wrapped-mouse</span><span class="RktMeta"></span> handler: now in the case you
+aren’t passing on a mouse event, you actually need to do something if the event
+is "button-down" and it is in the area that corresponds to your button. If so,
+toggle the pause state.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 10 </span>This is pretty cool, but we can do better. Let’s add the ability to
+<span style="font-style: italic">filter</span> messages. Again, we’ll shrink the space for messages and give
+ourselves a spot for adding a filtering message. We now want to capture key
+events and add them to a message to filter, and use that to restrict which log
+messages we display. But how do we decide if a key event (say, the letter "x")
+should cause our filtering predicate to add an "x" to the end, vs passing "x" to
+the wrapped program?
+    </p>
+    <p>
+     One way is to have a notion of "selecting" the filtering
+box, which we could do by clicking on it. So add "adding-filter" state, and if
+you click on the filter box, toggle it on. This should work just like your
+pause/resume button. But now, in your <span class="RktSym">wrapped-key</span><span class="RktMeta"></span>, if that state is #t,
+you add keys to the current filter, whereas if it is #f, you pass them to
+the original key handler. You can also make it so that when you toggle it off, it
+clears the filter text.
+    </p>
+   </blockquote>
+   <h3>
+    <a name="(part._g46762)"></a>Before you go...
+   </h3>
+   <p>
+    If you had trouble finishing any of the exercises in the
+lab or homework, or just feel like you’re struggling with any of the class
+material, please feel free to come to office hours and talk to a TA for
+additional assistance.
+   </p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="lab10.html" title="backward to &quot;10 Generative Recursion&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab13.html" title="forward to &quot;13 Synthesis&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

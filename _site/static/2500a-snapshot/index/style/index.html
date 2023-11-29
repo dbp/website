@@ -1,0 +1,1651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../labs/index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">The Style</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37300%29" class="tocviewlink" data-pltdoc="x">Document Structure -<wbr> General Exercises</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37301%29" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37302%29" class="tocviewlink" data-pltdoc="x">Document Structure -<wbr> Large Programs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37303%29" class="tocviewlink" data-pltdoc="x">Data Definitions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37304%29" class="tocviewlink" data-pltdoc="x">Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37305%29" class="tocviewlink" data-pltdoc="x">Local Functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37306%29" class="tocviewlink" data-pltdoc="x">Testing &amp; Randomness</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37300%29" class="tocsubseclink" data-pltdoc="x">Document Structure -<wbr> General Exercises</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37301%29" class="tocsubseclink" data-pltdoc="x">General</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37302%29" class="tocsubseclink" data-pltdoc="x">Document Structure -<wbr> Large Programs</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37303%29" class="tocsubseclink" data-pltdoc="x">Data Definitions</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37304%29" class="tocsubseclink" data-pltdoc="x">Functions</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37305%29" class="tocsubseclink" data-pltdoc="x">Local Functions</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37306%29" class="tocsubseclink" data-pltdoc="x">Testing &amp; Randomness</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.9</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="../labs/lab2.html" title="backward to &quot;2 Big Bang&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../texts/index.html" title="forward to &quot;Texts&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._style)"></a>The Style
+   </h3>
+   <a name="(part._chap~3astyle)"></a>
+   <p>
+    Programs are easier to read and to understand when they are written in a familiar style and follow
+standard coding conventions. Most organizations that develop software therefore require programmers
+to write programs that follow the organization’s preferred style and coding conventions. Programs
+are generally written once, read many times, and edited over and over again. Style conventions
+help both you and any other programmer using your code (such as your homework partner) to more
+easily understand what you were thinking when you wrote the code.
+   </p>
+   <p>
+    In addition to following the design recipe, all code must adhere to the
+following style guidelines, which are intended to make your code easier to read, debug, and edit.
+These guidelines will be updated throughout the semester as you learn more so please check back
+often to make sure you are adhering to them before you submit your homeworks.
+   </p>
+   <h3>
+    <a name="(part._g37300)"></a>Document Structure - General Exercises
+   </h3>
+   <ol>
+    <li>
+     <p>
+      <span style="font-weight: bold">Capitalize terms appropriately.</span> Constants should be in all caps with dashes between
+words (e.g. <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="stt"> </span><span class="RktSym">MOON-RADIUS</span><span class="stt"> </span><span class="RktVal">20</span><span class="RktPn">)</span> or
+<span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="stt"> </span><span class="RktSym">SUN-IMG</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">circle</span></span></span><span class="stt"> </span><span class="RktVal">35</span><span class="stt"> </span><span class="RktVal">"solid"</span><span class="stt"> </span><span class="RktVal">"yellow"</span><span class="RktPn">)</span><span class="RktPn">)</span>). Function names, structure names, examples, and
+inputs should be all lower case with dashes between words (this is called <span style="font-style: italic">kebab-case</span>).
+For example <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">my-function-name</span><span class="stt"> </span><span class="RktSym">my-input-name</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktSym">my-input-name</span><span class="stt"> </span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span> or
+<span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="stt"> </span><span class="RktSym">posn1</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">make-posn</span></span></span><span class="stt"> </span><span class="RktVal">3</span><span class="stt"> </span><span class="RktVal">4</span><span class="RktPn">)</span><span class="RktPn">)</span>. Types of data
+should be title case (e.g. <span class="RktSym">ThisIsADataType</span> or <span class="RktSym">ThisIsAnotherOne</span>).
+     </p>
+    </li>
+    <li>
+     <p></p>
+     <div class="SIntrapara">
+      <span style="font-weight: bold">Organize your program top-down.</span> This means that when you write a
+solution that contains multiple functions, the primary function should come
+first, followed by helpers. The functions should be in order of where they appear in
+the primary function. For example, the following code is organized top-down:
+     </div>
+     <div class="SIntrapara">
+      <blockquote class="SCodeFlow">
+       <table cellspacing="0" cellpadding="0" class="RktBlk">
+        <tbody>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">my-function : Number String -&gt; Number</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Add double the string-length to twice the number cubed</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">my-function</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="hspace">&nbsp;</span><span class="RktSym">s</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cube-num</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double-length</span><span class="hspace">&nbsp;</span><span class="RktSym">s</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">my-function</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">"hi"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">my-function</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="hspace">&nbsp;</span><span class="RktVal">"hello"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">64</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">double : Number -&gt; Number</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Computes 2n</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">cube-num : Number -&gt; Number</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Produces the cube of this number</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cube-num</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">expt</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cube-num</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">125</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">double-length : String -&gt; Number</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Produces twice the length of this string</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double-length</span><span class="hspace">&nbsp;</span><span class="RktSym">s</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string-length</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">s</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">double-length</span><span class="hspace">&nbsp;</span><span class="RktVal">"goodbye"</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">14</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </blockquote>
+     </div>
+     <p></p>
+     <p>
+      Please note that many of the above helper functions were written solely to illustrate
+the top-down organization we expect.
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Title your exercises.</span> Above every exercise please note which exercise it is. Note
+this does not apply to project homeworks.
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Separate data definitions.</span> Data definitions (and their corresponding examples/templates)
+should be placed at the beginning of the relevant exercise. Data definitions do not need to be repeated if
+used in multiple exercises.
+     </p>
+    </li>
+   </ol>
+   <h3>
+    <a name="(part._g37301)"></a>General
+   </h3>
+   <ol>
+    <li>
+     <p>
+      <span style="font-weight: bold">Use names that make sense</span> with respect to the problem, for your
+data definitions, field names, functions, constants, and parameters.
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Use proper indentation.</span> Use the indentation style of DrRacket in
+your program. You can go to "Racket" &gt; "Reindent All" to indent your entire
+file properly. Press tab to reindent the current line, or the currently
+selected selected portion of your file.
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Keep lines narrow.</span>  Do not exceed 102 columns for code <span class="emph">or</span>
+comments.  DrRacket will show you the current line and column number in the
+bottom right of the window.  You can also use its <span class="stt">Edit -&gt; Find Longest
+Line</span> menu item.  Or, you can go to <span class="stt">Edit -&gt; Preferences -&gt; Editing -&gt;
+General Editing</span>, check the <span class="stt">Maximum character width guide</span> option and set
+it to <span class="stt">102</span>.
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Do not use dangling parentheses</span>: the closing right-parenthesis
+should be on the same line as the last expression of your code.
+     </p>
+     <p></p>
+     <table cellspacing="0" cellpadding="0" class="SVerbatim">
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; ------------------------ GOOD</span>
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (f l)</span>
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(cond [(empty? l) 0]</span>
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">[else (f (rest l))])) ;; HERE</span>
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <p></p>
+     <p></p>
+     <table cellspacing="0" cellpadding="0" class="SVerbatim">
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; ------------------------ BAD</span>
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (f l)</span>
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(cond [(empty? 1) 0]</span>
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">[else (f (rest l))]</span>
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">) ;; NOT HERE</span>
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;</span><span class="stt">)</span>
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <p></p>
+     <p>
+      The dangling parentheses in the second code excerpt are considered
+<span style="font-weight: bold">extremely bad style</span>.
+     </p>
+    </li>
+    <li>
+     <p></p>
+     <div class="SIntrapara">
+      <span style="font-weight: bold">Break lines to break up logically distinct tasks.</span> Consider these examples of simple
+function calls:
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; ----------------- GOOD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (foo x y z)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(max (* x y)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; Break after each argument to max,</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(* y z)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; and align all arguments in a column</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(* x z)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; (This works best with short-named functions)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(* x y z)))</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; ----------------- OK</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (foo x y z)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(max</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; Break after max itself</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">(* x y)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; Then indent each argument 1 space</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">(* y z)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; (This works better when function names are long)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">(* x z)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">(* x y z)))</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; ----------------- BAD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (foo x y z)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(max (* x y)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">(* y z)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; This indentation is an inconsistent</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">(* x z)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; mix of the previous two styles</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">(* x y z)))</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; ----------------- BAD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (foo x y z)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(max (* x y) (* y</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; This linebreak is just weird.</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">z)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(* x z) (* x</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; This is ugly. And avoidable!</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">y</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">z)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">)</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <p></p>
+     <p>
+      By breaking after each argument, you will more often keep complete expressions together, and
+need fewer line breaks overall.
+     </p>
+     <p>
+      In <span class="emph">rare</span> cases, you can keep two arguments on a line, when they logically belong together.
+For example, the x- and y-coordinates in a call to <span class="RktSym"><span class="badlink"><span class="RktValLink">place-image</span></span></span> might easily fit on one line,
+and logically form a pair of coordinates, and so could stay on one line in good style.
+     </p>
+     <p></p>
+     <div class="SIntrapara">
+      Here are some more examples:
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; ---------------- BAD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; Don't break here</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(foo x y z)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">...)</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; ---------------- BAD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define-struct</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; Don't break here</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">foo [x y z])</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define-struct foo</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; or here</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">[x y z])</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; -------------------------- GOOD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (foo l)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(if (some-condition ...)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(then-expression ...)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(else-expression ...)))</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; -------------------------- BAD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (foo l)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(if (some-condition ...)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(then-expression ...)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; Not aligned with condition</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(else-expression ...)))</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; --------------------------------- VERY GOOD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (f l)</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; Aligning the responses</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(cond [(empty? l)</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">0]</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; in a column is very legible.</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">[else</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(f (rest l))])) ;; ...if there's room for it</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; --------------------------------- GOOD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (f l)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(cond [(empty? l) 0]</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">[else (f (rest l))]))</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; --------------------------------- GOOD</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (f l)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(cond</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">[(empty? l) 0]</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">[else (f (rest l))]))</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="SIntrapara">
+      <table cellspacing="0" cellpadding="0" class="SVerbatim">
+       <tbody>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">;; --------------------------------- OK</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt">(define (f l)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">(cond</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">[(empty? l)</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">0]</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">;; Only use this style if necessary</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">[else</span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">(f (rest l))]))</span>
+          </p>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <p></p>
+    </li>
+   </ol>
+   <h3>
+    <a name="(part._g37302)"></a>Document Structure - Large Programs
+   </h3>
+   <ol>
+    <li>
+     <p>
+      <span style="font-weight: bold">Organize your program top-down,</span> regardless of how you actually
+work through your wish list. The phrase "top down" means that project files
+consist of  a data definition and a constant definition section, a main function,
+followed by sections for handler functions, and wrapped up by general utility functions
+(functions used by multiple handlers). Within these sections please use top-down
+organization as defined above.
+     </p>
+     <p></p>
+     <div class="SIntrapara">
+      The <a name="(tech._main._function)"></a><span style="font-style: italic">main function</span> is the one that uses <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span>,
+<span class="RktSym"><span class="badlink"><span class="RktValLink">read-file</span></span></span>, <span class="RktSym"><span class="badlink"><span class="RktValLink">write-file</span></span></span>, and so on. A good purpose
+statement for the <a href="#%28tech._main._function%29" class="techoutside" data-pltdoc="x"><span class="techinside">main function</span></a> explains how to use it. For example,
+     </div>
+     <div class="SIntrapara">
+      <blockquote class="SCodeFlow">
+       <table cellspacing="0" cellpadding="0" class="RktBlk">
+        <tbody>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">main : Number -&gt; Number</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">main</span><span class="stt"> </span><span class="RktSym">n</span><span class="RktPn">)</span><span class="RktCmt"> runs the game with tick-rate n</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">main</span><span class="hspace">&nbsp;</span><span class="RktSym">tick-speed</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">WORLD-STATE-0</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">on-tick</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">update-world</span><span class="hspace">&nbsp;</span><span class="RktSym">tick-speed</span><span class="RktPn">]</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">to-draw</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">render-world</span><span class="RktPn">]</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </blockquote>
+     </div>
+     <p></p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Title your sections.</span> Title your data definition section, your constant section,
+and each of your handler sections. Good names for your handler sections are the names of your
+handlers! Also label your utility functions section.
+     </p>
+    </li>
+   </ol>
+   <h3>
+    <a name="(part._g37303)"></a>Data Definitions
+   </h3>
+   <ol>
+    <li>
+     <p>
+      <span style="font-weight: bold">Interpret your data.</span> A data definition comes with two parts: the definition and the interpretation.
+The interpretation should tell the user what your data means in plain English. In some rare cases this interpretation
+ is extraneous. For example, when defining a list of numbers, it would be redundant to write
+ "This represents a list of numbers". Err on the side of caution as it is never wrong to include an interpretation.
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Remember your examples and templates.</span> Each new data definition should come with its own corresponding
+examples and template, <span style="font-weight: bold">but</span> data definitions should be grouped together, followed by examples, followed by
+templates. This is because data definitions being put together makes them much easier to read, and examples
+are the first step in ensuring data definitions are valid (in that they can be made). While data definitions
+and templates should be sorted in a top-down fashion, examples unfortunately cannot be as constants cannot
+be defined by constants that have yet to be made.
+     </p>
+    </li>
+   </ol>
+   <h3>
+    <a name="(part._g37304)"></a>Functions
+   </h3>
+   <ol>
+    <li>
+     <p>
+      <span style="font-weight: bold">Remember your signature and purpose.</span> Each new function should come with its own corresponding
+signature and purpose statement. These should be written directly above the function.
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Write proper signatures.</span> Remember that the only types of data that you can use for a signature
+are pre-defined types (e.g. String, Number, etc.) or types you have defined yourself. Signatures have one
+or more input types followed by an arrow and one output type (see above for examples).
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Write clear purpose statements.</span> A purpose statement should NOT repeat the information given by
+the signature. It should be succinct and give the reader an understanding of what the function is doing with
+its inputs. It is good style for the purpose statement of a predicate (a function that outputs a Boolean) to
+be written as a question.
+     </p>
+    </li>
+    <li>
+     <p>
+      When writing generative recursion functions, don’t forget to write a <span style="font-weight: bold">termination statement</span> which
+clearly and concisely explains why you believe your function will not run forever, OR, warns the user that
+the function may run forever.
+     </p>
+    </li>
+    <li>
+     <p>
+      When writing functions that use an accumulator, don’t forget to write an <span style="font-weight: bold">accumulator statement</span>
+which describes what the accumulator in your function is keeping track of.
+     </p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">One task, one function.</span> Functions should not be excessively long.
+ If it is, split up the tasks into helper functions.
+     </p>
+     <p></p>
+     <div class="SIntrapara">
+      If a function consumes a complex argument and must perform several
+different tasks, design several functions that all consume the argument,
+produce a value in the same data collection, and hand it over to the next
+function:
+     </div>
+     <div class="SIntrapara">
+      <blockquote class="SCodeFlow">
+       <table cellspacing="0" cellpadding="0" class="RktBlk">
+        <tbody>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">update-hippo-world : HungryHungryHippoWorld -&gt; HungryHungryHippoWorld </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">update-hippo-world</span><span class="hspace">&nbsp;</span><span class="RktSym">hhhw</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">update-time</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">move-marbles</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">eat-marbles</span><span class="hspace">&nbsp;</span><span class="RktSym">hw</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">update-time : HungryHungryHippoWorld -&gt; HungryHungryHippoWorld </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">update-time</span><span class="hspace">&nbsp;</span><span class="RktSym">hhhw</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">move-marbles : HungryHungryHippoWorld -&gt; HungryHungryHippoWorld </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">move-marbles</span><span class="hspace">&nbsp;</span><span class="RktSym">hhhw</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="hspace">&nbsp;</span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">eat-marbles : HungryHungryHippoWorld -&gt; HungryHungryHippoWorld </span>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">eat-marbles</span><span class="hspace">&nbsp;</span><span class="RktSym">hhhw</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </blockquote>
+     </div>
+     <div class="SIntrapara">
+      Piling the code from these three functions into the first one would yield a
+confusing mess.
+     </div>
+     <p></p>
+    </li>
+    <li>
+     <p>
+      <span style="font-weight: bold">Test thoroughly.</span> You should have at LEAST enough tests to cover all your code (none of your code should
+be highlighted in black when you run it). The exception is any function which produce side effects,
+such as functions that call <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> or I/O functions like <span class="RktSym"><span class="badlink"><span class="RktValLink">write-file</span></span></span>.
+     </p>
+    </li>
+   </ol>
+   <h3>
+    <a name="(part._g37305)"></a>Local Functions
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    Local functions must contain signatures and purpose statements. For example:
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">distances-to-origin : [List-of Posn] -&gt; [List-of Number]</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">The distances of each posn to the origin</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">distances-to-origin</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">make-posn</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">make-posn</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">make-posn</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal"><span class="nobreak">-5</span></span><span class="hspace">&nbsp;</span><span class="RktVal">12</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">13</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">distances-to-origin</span><span class="hspace">&nbsp;</span><span class="RktSym">lop</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">local</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">distance-to-origin : Posn -&gt; Number</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Distance to origin of p</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">distance-to-origin</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sqrt</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sqr</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">posn-x</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sqr</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">posn-y</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">map</span><span class="hspace">&nbsp;</span><span class="RktSym">distance-to-origin</span><span class="hspace">&nbsp;</span><span class="RktSym">lop</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    Also, if a function is sufficiently complex, it should be written outside of <span class="RktSym">local</span> so it
+can be tested.
+   </div>
+   <p></p>
+   <h3>
+    <a name="(part._g37306)"></a>Testing &amp; Randomness
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    When you design functions that create (pseudo-)random results, <span style="font-weight: bold">do not
+give up on testing.</span> To make this guide concrete, consider this example:
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">SCENE-WIDTH</span><span class="hspace">&nbsp;</span><span class="RktVal">100</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">SCENE-HEIGHT</span><span class="hspace">&nbsp;</span><span class="RktVal">200</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">create-cupcake : Number Number -&gt; Posn</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">create a Posn located at random points in [0,width) x [0,height)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">create-cupcake</span><span class="hspace">&nbsp;</span><span class="RktSym">width</span><span class="hspace">&nbsp;</span><span class="RktSym">height</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">make-posn</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">random</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">width</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">random</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">height</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    Just because this function returns a random <span class="stt">Posn</span> does not mean you
+cannot test something about the relationship between its input(s) and
+output.
+   </div>
+   <p></p>
+   <p></p>
+   <div class="SIntrapara">
+    <span style="font-weight: bold">At a minimum</span>, your tests can validate that the function always
+produces a <span class="stt">Posn</span>:
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">posn?</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">create-cupcake</span><span class="hspace">&nbsp;</span><span class="RktVal">100</span><span class="hspace">&nbsp;</span><span class="RktVal">200</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">true</span></span></span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">posn?</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">create-cupcake</span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktVal">1000</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">true</span></span></span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    Although this simplistic test may appear to be silly, it ensures that the
+function runs for some examples (e.g., no typos, primitives called correctly).
+   </div>
+   <p></p>
+   <p></p>
+   <div class="SIntrapara">
+    <span style="font-weight: bold">One step up</span> your tests can include a property checker that confirms
+the purpose statement:
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">in-range? : Number Number Posn -&gt; Boolean </span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">property tester</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in-range?</span><span class="hspace">&nbsp;</span><span class="RktSym">width</span><span class="hspace">&nbsp;</span><span class="RktSym">height</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">&lt;=</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">posn-x</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">width</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">&lt;=</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">posn-y</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">height</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in-range?</span><span class="hspace">&nbsp;</span><span class="RktVal">100</span><span class="hspace">&nbsp;</span><span class="RktVal">200</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">create-cupcake</span><span class="hspace">&nbsp;</span><span class="RktVal">100</span><span class="hspace">&nbsp;</span><span class="RktVal">200</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">true</span></span></span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in-range?</span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktVal">1000</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">create-cupcake</span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktVal">1000</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">true</span></span></span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    The introduction of a 2-line property checker for a 1-line function may
+seem overkill, but keep in mind that we purposefully keep the basic example
+small.
+   </div>
+   <p></p>
+   <p>
+    As your functions get more complicated, <span style="font-weight: bold">deploy "loops" to
+check entire</span> lists, trees, forests and other complex, <span style="font-weight: bold">or randomly generated
+data structures</span>:<span class="refelem"><span class="refcolumn"><span class="refcontent">Note how <span class="RktSym">one</span> ignores its
+argument. Still, why would <span class="RktSym"><span class="badlink"><span class="RktValLink">make-list</span></span></span> in lieu of
+<span class="RktSym">build-list</span> not produce the correct result here?</span></span></span>
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">create-many-cupcakes : Nat -&gt; [List-of Posn]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">create the given number of cupcakes </span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">create-many-cupcakes</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">local</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">one</span><span class="hspace">&nbsp;</span><span class="RktSym">_</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">ignore argument, indicate with _</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">create-cupcake</span><span class="hspace">&nbsp;</span><span class="RktSym">SCENE-WIDTH</span><span class="hspace">&nbsp;</span><span class="RktSym">SCENE-HEIGHT</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">build-list</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="hspace">&nbsp;</span><span class="RktSym">one</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    For a function like this, your property checker must use <span class="RktSym">andmap</span>
+to check all generated <span class="stt">Posn</span>s:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">one? : Posn -&gt; Boolean </span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">property tester </span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">one?</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in-range?</span><span class="hspace">&nbsp;</span><span class="RktSym">SCENE-WIDTH</span><span class="hspace">&nbsp;</span><span class="RktSym">SCENE-HEIGHT</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">andmap</span><span class="hspace">&nbsp;</span><span class="RktSym">one?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">create-many-cupcakes</span><span class="hspace">&nbsp;</span><span class="RktVal">100</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">true</span></span></span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="../labs/lab2.html" title="backward to &quot;2 Big Bang&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../texts/index.html" title="forward to &quot;Texts&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

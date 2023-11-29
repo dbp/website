@@ -1,0 +1,1412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pygments.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab1.html" class="tocviewlink" data-pltdoc="x">1 The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab2.html" class="tocviewlink" data-pltdoc="x">2 Big Bang</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab3.html" class="tocviewlink" data-pltdoc="x">3 Natural Numbers and Counters</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab4.html" class="tocviewlink" data-pltdoc="x">4 Quote &amp; Unquote</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab5.html" class="tocviewlink" data-pltdoc="x">5 Designing With Lists and Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab6.html" class="tocviewlink" data-pltdoc="x">6 Using Abstractions to Mimic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab7.html" class="tocviewlink" data-pltdoc="x">7 Tree Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab8.html" class="tocviewlink" data-pltdoc="x">8 Files and Directories</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">9 Graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab10.html" class="tocviewlink" data-pltdoc="x">10 Generative Recursion</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab11.html" class="tocviewlink" data-pltdoc="x">11 Mutable State</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab13.html" class="tocviewlink" data-pltdoc="x">13 Synthesis</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">9 Graphs</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46751%29" class="tocviewlink" data-pltdoc="x">PARTNER CHANGE</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46752%29" class="tocviewlink" data-pltdoc="x">I’ve Got Life, Brothers</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46753%29" class="tocviewlink" data-pltdoc="x">Livin’ Large</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46754%29" class="tocviewlink" data-pltdoc="x">There’s Got To Be More To Life Than This</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46755%29" class="tocviewlink" data-pltdoc="x">Circle of Life</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46756%29" class="tocviewlink" data-pltdoc="x">Before you go...</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46751%29" class="tocsubseclink" data-pltdoc="x">PARTNER CHANGE</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46752%29" class="tocsubseclink" data-pltdoc="x">I’ve Got Life, Brothers</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46753%29" class="tocsubseclink" data-pltdoc="x">Livin’ Large</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46754%29" class="tocsubseclink" data-pltdoc="x">There’s Got To Be More To Life Than This</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46755%29" class="tocsubseclink" data-pltdoc="x">Circle of Life</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46756%29" class="tocsubseclink" data-pltdoc="x">Before you go...</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.10</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="lab8.html" title="backward to &quot;8 Files and Directories&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab10.html" title="forward to &quot;10 Generative Recursion&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._lab9)"></a>9 Graphs
+   </h3>
+   <blockquote class="refpara">
+    <blockquote class="refcolumn">
+     <blockquote class="refcontent">
+      <p>
+       <img src="lab.png" alt="home work!" width="128" height="105">
+      </p>
+     </blockquote>
+    </blockquote>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Purpose:</span> The purpose of this lab is to design a cool animation with grid-like graphs.
+   </p>
+   <p>
+    <span style="font-weight: bold">Textbook references:</span> <a href="https://htdp.org/2023-8-14/Book/part_five.html#%28part._ch~3abacktrack%29">Chapter 29</a>:
+Algorithms that Backtrack
+   </p>
+   <h3>
+    <a name="(part._g46751)"></a>PARTNER CHANGE
+   </h3>
+   <p>
+    <span style="font-weight: bold">Goals:</span> Your new lab partner today will be your HW partner for the next several weeks.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 1 </span>Sit next to your new partner if they are in this section.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 2 </span>Exchange contact information with your partner: telephone number,
+latest-greatest social network scheme, whatever-app.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 3 </span>Agree to a first meeting time and meeting place.
+At that meeting, agree to next meeting time and meeting place.
+    </p>
+   </blockquote>
+   <h3>
+    <a name="(part._g46752)"></a>I’ve Got Life, Brothers
+   </h3>
+   <p>
+    <span style="font-weight: bold">Goals:</span> To play the game of life.
+   </p>
+   <p>
+    Today we’re going to implement
+<a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway’s Game of Life</a>.
+The word "game" is somewhat disingenuous, as it is actually a simulation of
+<span style="font-style: italic">cellular automata</span>, which is a fancy way of saying a grid of cells, where each
+cell can be in one of a finite amount of states, and the cells all change their state
+(or remain the same) at the same time depending on a set of rules.
+   </p>
+   <p></p>
+   <div class="SIntrapara">
+    Conway’s Game of Life works as follows:
+   </div>
+   <div class="SIntrapara">
+    <ul>
+     <li>
+      <p>
+       Every cell is either alive or dead.
+      </p>
+     </li>
+     <li>
+      <p>
+       Every cell’s neighbors are the eight cells directly surrounding it.
+      </p>
+     </li>
+     <li>
+      <p>
+       If a cell is alive but has less than two live neighbors, it dies as if by underpopulation.
+      </p>
+     </li>
+     <li>
+      <p>
+       If a cell is alive but has more than three live neighbors, it dies as if by overpopulation.
+      </p>
+     </li>
+     <li>
+      <p>
+       If a cell is alive and has two or three live neighbors, it survives.
+      </p>
+     </li>
+     <li>
+      <p>
+       If a cell is dead and has exactly three live neighbors, it is born as if by reproduction.
+      </p>
+     </li>
+    </ul>
+   </div>
+   <p></p>
+   <p>
+    Notice how each cell has a group of neighbors, so we are dealing with a graph. However, because
+everyone’s neighbors is predetermined based on their location, we don’t need to keep track of it.
+   </p>
+   <p>
+    Our grid is going to be a fixed-size square of cells. Every cell will have eight neighbors, including
+cells on the edge of the grid. The cells on the top row will be neighbors of cells on the bottom row
+and vice versa, and the same is true for cells in the leftmost and rightmost column (meaning our grid
+is actually <a href="torus.png">a torus</a>).
+   </p>
+   <p>
+    <span style="font-weight: bold">Starter Code:</span> Below is a data definition that will let us run the game as well as an example
+of a 4x4 grid for testing purposes.
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">GameOfLife</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">]</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">where the length of the outer list is the same as all of the inner lists</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">and represents alive (#t) and dead (#f) cells</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="hspace">&nbsp;</span><span class="RktSym">GameOfLife</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">(</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktVal">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">(</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktVal">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">(</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktVal">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">(</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktVal">)</span><span class="RktVal">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Sample Problem </span>Define another constant which shows what <span class="RktSym">TINY-GAME</span> will become
+after applying the rules of the game.
+    </p>
+   </blockquote>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME+1</span><span class="hspace">&nbsp;</span><span class="RktSym">GameOfLife</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME+1</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">(</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktVal">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">(</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktVal">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">(</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktVal">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">(</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktVal">)</span><span class="RktVal">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p></p>
+    <div class="SIntrapara">
+     <span style="font-weight: bold">Sample Problem </span>Finish a function, which, given a coordinate of the grid (two natural
+numbers) and the grid, outputs a list of the boolean values of its eight neighbors. The main
+function is provided for you, but you will implement <span class="RktSym">get-cell</span>, a helper function.
+Hint: <span class="RktSym"><span class="badlink"><span class="RktValLink">list-ref</span></span></span> and <span class="RktSym"><span class="badlink"><span class="RktValLink">modulo</span></span></span> could be helpful
+    </div>
+    <div class="SIntrapara">
+     <blockquote class="SCodeFlow">
+      <table cellspacing="0" cellpadding="0" class="RktBlk">
+       <tbody>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">neighbors</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">GameOfLife</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">The neighbors of i, j in gol (i = row, j = column)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">neighbors</span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sub1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sub1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sub1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sub1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sub1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sub1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">j</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">neighbors</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">#t</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">neighbors</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">#f</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">GameOfLife</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">The value of the cell at y, x (looping around the ends of the list if necessary)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktSym">y</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">6</span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </blockquote>
+    </div>
+    <p></p>
+   </blockquote>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">GameOfLife</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">The value of the cell at y, x (looping around the ends of the list if necessary)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-cell</span><span class="hspace">&nbsp;</span><span class="RktSym">y</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">local</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">length</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">y-mod</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">modulo</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">y</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">x-mod</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">modulo</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list-ref</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list-ref</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="hspace">&nbsp;</span><span class="RktSym">y-mod</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">x-mod</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 4 </span>Design a function which given a list of booleans returns the number of elements
+that are <span class="RktVal">#t</span>.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 5 </span>Design a function <span class="RktSym">new-value/conway</span>, which given a cell’s current value and
+the list of its neighbors’ current values, outputs the new value of the cell. <span class="RktSym"><span class="badlink"><span class="RktValLink">local</span></span></span>ly
+define a constant which determines the number of neighbors that are alive so it only needs to be
+computed once.
+    </p>
+    <p>
+     Remember that a cell lives if it is alive <span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span> it has 2 <span class="RktSym"><span class="badlink"><span class="RktValLink">or</span></span></span> 3 live neighbors,
+<span class="RktSym"><span class="badlink"><span class="RktValLink">or</span></span></span> if it is dead <span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span> has 3 live neighbors.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 6 </span>Design a function <span class="RktSym">next-grid</span> that given a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">GameOfLife</span></span>
+     </font>
+     outputs
+the new grid. Use your constant from exercise 1 to test it. Use two nested calls to
+<span class="RktSym"><span class="badlink"><span class="RktValLink">build-list</span></span></span> to define this function.
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <p>
+    <span style="font-weight: bold">Starter Code:</span> Below are some constants which will help you draw the grid.
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">CELL-SIZE</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">LIVE-CELL</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">color-frame</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">"cadetblue"</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">square</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">CELL-SIZE</span><span class="hspace">&nbsp;</span><span class="RktVal">"solid"</span><span class="hspace">&nbsp;</span><span class="RktVal">"seashell"</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">square</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">CELL-SIZE</span><span class="hspace">&nbsp;</span><span class="RktVal">"solid"</span><span class="hspace">&nbsp;</span><span class="RktVal">"white"</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p></p>
+    <div class="SIntrapara">
+     <span style="font-weight: bold">Exercise 7 </span>Design a function <span class="RktSym">draw-grid</span> which draws a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">GameOfLife</span></span>
+     </font>
+     .
+A function header and test is provided below.
+    </div>
+    <div class="SIntrapara">
+     <blockquote class="SCodeFlow">
+      <table cellspacing="0" cellpadding="0" class="RktBlk">
+       <tbody>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Image</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">image?</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">draw-grid</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">GameOfLife</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Image</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Draw the game of life</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">draw-grid</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">draw-grid</span><span class="hspace">&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">above</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">beside</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">beside</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">LIVE-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">LIVE-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">beside</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">LIVE-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">beside</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="hspace">&nbsp;</span><span class="RktSym">DEAD-CELL</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </blockquote>
+    </div>
+    <p></p>
+   </blockquote>
+   <p></p>
+   <div class="SIntrapara">
+    So if we run
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">main</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">GameOfLife</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">GameOfLife</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Run conway</span><span class="RktCmt">'</span><span class="RktCmt">s game of life</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">main</span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">gol</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">on-tick</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">next-grid</span><span class="hspace">&nbsp;</span><span class="RktVal">1/10</span><span class="RktPn">]</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">to-draw</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">draw-grid</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    on <span class="RktSym">TINY-GAME</span>, what happens? Is it any interesting? Spoiler alert: not really. It gets stuck
+awful fast. Try it out to see why.
+   </div>
+   <p></p>
+   <p></p>
+   <div class="SIntrapara">
+    But what about...
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym">main</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <p></p>
+   <h3>
+    <a name="(part._g46753)"></a>Livin’ Large
+   </h3>
+   <p>
+    So that animation was pretty cool, but it sure took a lot of work to make. Let’s make that simpler.
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Coord</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">l</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">=</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">length</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number?</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number?</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">second</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">FirstState</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Coord</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">It represents a list of coordinates that are alive at the onset of the game</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 8 </span>Design a function <span class="RktSym">initial-grid</span> which takes a natural number dictating the
+size of the grid and a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">FirstState</span></span>
+     </font>
+     , and creates a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">GameOfLife</span></span>
+     </font>
+     of that size where the
+coordinates in the first state are alive and the rest are dead. A test and function header are
+provided for you. As you’ll notice, the left-hand side of the <span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span> is much faster
+to write than <span class="RktSym">TINY-GAME</span>.
+    </p>
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">initial-grid</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">FirstState</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">GameOfLife</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">A game of life with size grid-size with points in fs alive</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">assume grid-size is larger than any number in fs</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">initial-grid</span><span class="hspace">&nbsp;</span><span class="RktSym">grid-size</span><span class="hspace">&nbsp;</span><span class="RktSym">fs</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">initial-grid</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym">TINY-GAME</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <blockquote>
+    <p></p>
+    <div class="SIntrapara">
+     <span style="font-weight: bold">Exercise 9 </span>Modify your <span class="RktSym">main</span> function to take a number <span class="RktSym">grid-size</span> and a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">FirstState</span></span>
+     </font>
+     and run the game with that initial state in a grid of that size. Then,
+try this out:
+    </div>
+    <div class="SIntrapara">
+     <blockquote class="SCodeFlow">
+      <table cellspacing="0" cellpadding="0" class="RktBlk">
+       <tbody>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym">main</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span><span class="RktVal">50</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktVal">21</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">21</span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">22</span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktVal">24</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">21</span><span class="hspace">&nbsp;</span><span class="RktVal">24</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">22</span><span class="hspace">&nbsp;</span><span class="RktVal">24</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">22</span><span class="hspace">&nbsp;</span><span class="RktVal">23</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </blockquote>
+    </div>
+    <p></p>
+   </blockquote>
+   <p>
+    So where are these magical numbers coming from? Turns out a lot of people are very fascinated by
+Conway’s Game of Life, and have discovered
+<a href="https://bitstorm.org/gameoflife/lexicon/">a lot</a> of interesting shapes. The first
+interesting shape we saw in this lab is a glider, and this one is called "glider by the dozens."
+   </p>
+   <p>
+    Feel free to try out as many shapes as you like!
+   </p>
+   <h3>
+    <a name="(part._g46754)"></a>There’s Got To Be More To Life Than This
+   </h3>
+   <p>
+    As it turns out, there are many life-like cellular automata. Like Conway’s, they are 2D,
+the cells are alive or dead, and the cells have the same eight neighbors. Also like Conway’s, whether
+or not a cell is alive in the next state is only dependent on its current state and the amount of
+neighbors that are alive.
+   </p>
+   <p>
+    This kind of rule can be summarized with two lists: a list of numbers that describe when
+a cell is "birthed" (how many neighbors need to be alive when a cell <span style="font-style: italic">is not</span> for it to
+be alive in the next state, often abbreviated as B) and when a cell "survives" (how many neighbors
+need to be alive when a cell <span style="font-style: italic">is</span> for it to be alive in the next state, often abbreviated
+as S). For example, in Conway’s game, the birth list is <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="stt"> </span><span class="RktVal">3</span><span class="RktPn">)</span> and the survival list is
+<span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="stt"> </span><span class="RktVal">2</span><span class="stt"> </span><span class="RktVal">3</span><span class="RktPn">)</span>. Naturally, then, life and what happens in it amounts to nothing more than B/S.
+   </p>
+   <blockquote>
+    <p></p>
+    <div class="SIntrapara">
+     <span style="font-weight: bold">Exercise 10 </span>Look at the signature for <span class="RktSym">new-value/conway</span>. Since all life-like
+automata operate under the same general framework, a new ruleset would operate under
+the same signature.
+    </div>
+    <div class="SIntrapara">
+     <blockquote class="SCodeFlow">
+      <table cellspacing="0" cellpadding="0" class="RktBlk">
+       <tbody>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">CellUpdate</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">]</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">It represents the rules by which a cell</span><span class="RktCmt">'</span><span class="RktCmt">s new value is determined</span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </blockquote>
+    </div>
+    <p></p>
+    <p></p>
+    <div class="SIntrapara">
+     So, we want a way to make different kinds of
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">CellUpdate</span></span>
+     </font>
+     s quickly. Clearly, we
+need a function. Finish defining the following function:
+    </div>
+    <div class="SIntrapara">
+     <blockquote class="SCodeFlow">
+      <table cellspacing="0" cellpadding="0" class="RktBlk">
+       <tbody>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">range?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">range?</span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">&gt;=</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">&lt;=</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">n</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Represents a number in the range 0-8, inclusive</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Num0-8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">range?</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">cell-update</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Num0-8</span><span class="RktPn">]</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">ListOf</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Num0-8</span><span class="RktPn">]</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">CellUpdate</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Output a cell update function with "birth" numbers and "survival" numbers</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cell-update</span><span class="hspace">&nbsp;</span><span class="RktSym">birth</span><span class="hspace">&nbsp;</span><span class="RktSym">survival</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </blockquote>
+    </div>
+    <p></p>
+    <p>
+     Test it by commenting out your old defintion of <span class="RktSym">new-value/conway</span>, and
+redefine it as <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="stt"> </span><span class="RktSym">new-value/conway</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">cell-update</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="stt"> </span><span class="RktVal">3</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="stt"> </span><span class="RktVal">2</span><span class="stt"> </span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>.
+All of your old tests should still pass.
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 11 </span>Modify your <span class="RktSym">next-grid</span> function to take in a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">CellUpdate</span></span>
+     </font>
+     function to use in place of <span class="RktSym">new-value/conway</span>. Your
+old tests for <span class="RktSym">next-grid</span> should pass when passing in <span class="RktSym">new-value/conway</span>.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 12 </span>Modify your <span class="RktSym">main</span> function to take a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">CellUpdate</span></span>
+     </font>
+     ,
+and define a <span class="RktSym"><span class="badlink"><span class="RktValLink">local</span></span></span> function to replace <span class="RktSym">next-grid</span> with a function
+that takes a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">GameOfLife</span></span>
+     </font>
+     and outputs its new state, using the given
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">CellUpdate</span></span>
+     </font>
+     .
+    </p>
+   </blockquote>
+   <p>
+    Experiment with as many
+<a href="https://en.wikipedia.org/wiki/Life-like_cellular_automaton#A_selection_of_Life-like_rules">life-like cell updates</a> as you want! Check out the last paragraph in "Notation for rules"
+to make sense of the examples.
+   </p>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <h3>
+    <a name="(part._g46755)"></a>Circle of Life
+   </h3>
+   <p>
+    For any game of life on an NxN grid, there are 2<span style="vertical-align: super; font-size: 80%">N<span style="vertical-align: super; font-size: 80%">2</span></span> possible
+states (since every cell can be either alive or dead). Since the update rule is deterministic
+(that is, for any current state and update rule, there is exactly one next state) and the number of
+states is finite, a cycle must exist.
+   </p>
+   <p>
+    You can probably see this in your simulation; there’s some set of states that the game
+eventually devolves into that it just keeps repeating over and over again.
+   </p>
+   <p>
+    We want to figure out, given some initial state, the number of states in its eventual cycle,
+which we’ll refer to as the <span style="font-style: italic">size</span> of the cycle. A simple example would be a completely
+dead grid using Conway’s update rule, in which the cycle size would be 1, as it simply stays dead.
+   </p>
+   <p>
+    In order to find the cycle, we need to be able to find a state which repeats. This could be an
+incredibly expensive computation memory-wise using a naive algorithm (2<span style="vertical-align: super; font-size: 80%">N<span style="vertical-align: super; font-size: 80%">2</span></span>
+is a big number, after all), but luckily we have a nice tortoise and hare algorithm to help us:
+   </p>
+   <ol>
+    <li>
+     <p>
+      Initialize <span class="RktSym">tortoise</span> to state 0
+     </p>
+    </li>
+    <li>
+     <p>
+      Initialize <span class="RktSym">hare</span> to state 1 (apply the update rule once to state 0)
+     </p>
+    </li>
+    <li>
+     <p>
+      If <span class="RktSym">tortoise</span> and <span class="RktSym">hare</span> are the same, stop
+     </p>
+    </li>
+    <li>
+     <p>
+      Otherwise, update <span class="RktSym">tortoise</span> once and <span class="RktSym">hare</span> twice
+     </p>
+    </li>
+    <li>
+     <p>
+      Go to step 3
+     </p>
+    </li>
+   </ol>
+   <p>
+    At the <span style="font-style: italic">n</span><span style="vertical-align: super; font-size: 80%">th</span> iteration of step 3, <span class="RktSym">hare</span> is always <span style="font-style: italic">n</span>
+steps ahead of <span class="RktSym">tortoise</span>. Therefore, since the cycle exists and its size is finite,
+<span class="RktSym">tortosie</span> will eventually equal <span class="RktSym">hare</span> and the algorithm will end on step 3.
+   </p>
+   <p></p>
+   <div class="SIntrapara">
+    <blockquote class="refpara">
+     <blockquote class="refcolumn">
+      <blockquote class="refcontent">
+       <p>
+        Why is this the case?
+       </p>
+      </blockquote>
+     </blockquote>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    Then, to determine the actual size of the cycle, keep applying the update rule to <span class="RktSym">tortoise</span>
+until it’s the same as <span class="RktSym">hare</span>. However many times that takes is the size of the cycle.
+   </div>
+   <p></p>
+   <p>
+    A more complicated example is having a single glider using Conway’s update rule in a
+sufficiently large grid (<span class="RktSym">grid-size</span> &gt; 4). The size of the cycle should be
+<span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="stt"> </span><span class="RktSym">grid-size</span><span class="stt"> </span><span class="RktVal">4</span><span class="RktPn">)</span>.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 13 </span>Design the function <span class="RktSym">cycle-size</span> that takes an initial state and a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">CellUpdate</span></span>
+     </font>
+     and outputs the size of that game’s cycle.
+    </p>
+   </blockquote>
+   <h3>
+    <a name="(part._g46756)"></a>Before you go...
+   </h3>
+   <p>
+    If you had trouble finishing any of the exercises in the lab or homework, or just feel like you’re
+struggling with any of the class material, please feel free to come to office hours and talk to a TA
+or tutor for additional assistance.
+   </p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="lab8.html" title="backward to &quot;8 Files and Directories&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab10.html" title="forward to &quot;10 Generative Recursion&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

@@ -1,0 +1,930 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../scribble-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript">
+   (function() {document.write('<scr' + 'ipt type="text/javascript" src="MathJax/MathJax.js?config=default"></scr' + 'ipt>');})();
+  </script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../labs/index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Placement Test</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          10&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Registration%29" class="tocviewlink" data-pltdoc="x">Registration</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          11&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Dates%29" class="tocviewlink" data-pltdoc="x">Dates</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          12&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Questions%29" class="tocviewlink" data-pltdoc="x">Questions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          13&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Required_.Software%29" class="tocviewlink" data-pltdoc="x">Required Software</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          14&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._placement-required-reading%29" class="tocviewlink" data-pltdoc="x">Required Reading</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          15&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.The_.Placement_.Tasks%29" class="tocviewlink" data-pltdoc="x">The Placement Tasks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          16&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._placement-programming-1%29" class="tocviewlink" data-pltdoc="x">Programming Task 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          17&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._placement-programming-2%29" class="tocviewlink" data-pltdoc="x">Programming Task 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          18&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._placement-math-1%29" class="tocviewlink" data-pltdoc="x">Math Task 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">10
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Registration%29" class="tocsubseclink" data-pltdoc="x">Registration</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">11
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Dates%29" class="tocsubseclink" data-pltdoc="x">Dates</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">12
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Questions%29" class="tocsubseclink" data-pltdoc="x">Questions</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">13
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Required_.Software%29" class="tocsubseclink" data-pltdoc="x">Required Software</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">14
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._placement-required-reading%29" class="tocsubseclink" data-pltdoc="x">Required Reading</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">14.1
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Beginning_.Student_.Language%29" class="tocsubseclink" data-pltdoc="x">Beginning Student Language</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">14.2
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Working_with_.Images%29" class="tocsubseclink" data-pltdoc="x">Working with Images</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">15
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.The_.Placement_.Tasks%29" class="tocsubseclink" data-pltdoc="x">The Placement Tasks</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">16
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._placement-programming-1%29" class="tocsubseclink" data-pltdoc="x">Programming Task 1</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">16.1
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._placement-programming-1-reading%29" class="tocsubseclink" data-pltdoc="x">Required Reading</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">16.2
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._placement-programming-1-task%29" class="tocsubseclink" data-pltdoc="x">Task</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">16.3
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._placement-programming-1-grading-standards%29" class="tocsubseclink" data-pltdoc="x">Grading Standards</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">16.4
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._placement-programming-1-submission%29" class="tocsubseclink" data-pltdoc="x">Submission</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">17
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._placement-programming-2%29" class="tocsubseclink" data-pltdoc="x">Programming Task 2</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">17.1
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._placement-programming-2-reading%29" class="tocsubseclink" data-pltdoc="x">Required Reading</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">17.2
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._%28gentag._0%29%29" class="tocsubseclink" data-pltdoc="x">Task</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">17.3
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._%28gentag._1%29%29" class="tocsubseclink" data-pltdoc="x">Grading Standards</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">17.4
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._%28gentag._2%29%29" class="tocsubseclink" data-pltdoc="x">Submission</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">18
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._placement-math-1%29" class="tocsubseclink" data-pltdoc="x">Math Task 1</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">18.1
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Submission%29" class="tocsubseclink" data-pltdoc="x">Submission</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="../design_recipe/index.html" title="backward to &quot;The Design Recipe&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<span class="nonavigation">next →</span></span>&nbsp;
+</div>
+<h3>
+<a name="(part._placement)"></a>Placement Test
+</h3>
+<h4>
+10
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Registration)"></a>Registration
+</h4>
+<p>
+The placement test started on July 3. But, you can register late by
+emailing d.patterson AT northeastern.edu.
+</p>
+<h4>
+11
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Dates)"></a>Dates
+</h4>
+<p>
+The placement test will run from July 3 – August 11. It will not require 1.5
+months of work. But, it will require studying portions of a textbook and working
+through several exercises by yourself. The 1.5 months duration is to give you
+flexibility. You will be able to complete the test at any point while the test
+is out.
+</p>
+<h4>
+12
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Questions)"></a>Questions
+</h4>
+<ul>
+<li>
+<p>
+<span class="emph">What should I do to prepare before July 3?</span> I recommend nothing.
+If you really want to, you can start the <a href="#%28part._placement-required-reading%29" data-pltdoc="x">Required Reading</a>
+</p>
+</li>
+<li>
+<p>
+<span class="emph">What will be the format of the placement test?</span> The test will have
+programming problems (similar to those in the  book) and math problems
+(similar to problems from high school algebra). The test will not have a time
+limit. You will be able to use DrRacket and the book as a reference. Do not
+search the web for answers. You will find them and “do well” on the test, but
+will have a rough time in the accelerated course. The placement test does not count towards your grade, so cheating in this way will only hurt you.
+</p>
+</li>
+</ul>
+<p>
+Feel free to email me at d.patterson AT northeastern.edu if you have any questions.
+</p>
+<h4>
+13
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Required_.Software)"></a>Required Software
+</h4>
+<p>
+The placement test, and the rest of Accelerated 1, takes place within Racket (a collection of languages and an IDE), which you can download from the Racket website:
+</p>
+<p>
+<a href="https://www.racket-lang.org">https://www.racket-lang.org</a>
+</p>
+<h4>
+14
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-required-reading)"></a>Required Reading
+</h4>
+<p>
+If you want to start reading right away, you should
+read the following parts of <span class="emph">How to Design Programs (2nd ed)</span>:
+</p>
+<ul>
+<li>
+<p>
+The
+<a href="https://htdp.org/2021-5-4/Book/part_prologue.html">Prologue</a>
+</p>
+</li>
+<li>
+<p>
+Read
+<a href="https://htdp.org/2021-5-4/Book/part_two.html#%28part._ch~3alists1%29">Chapter
+8</a> and
+<a href="https://htdp.org/2021-5-4/Book/part_two.html#%28part._ch~3adesign-lists%29">Chapter
+9 (up to 9.1)</a> If you find something unfamiliar (e.g., the material references if),
+see <a href="https://htdp.org/2021-5-4/Book/part_one.html">Part 1</a>.
+</p>
+</li>
+</ul>
+<h5>
+14.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Beginning_.Student_.Language)"></a>Beginning Student Language
+</h5>
+<p>
+Racket is a
+<a href="https://docs.racket-lang.org/reference/index.html">large and
+complicated language</a>. For the purpose of teaching, it includes smaller
+sub-languages that are easier to understand. Over the course of the semester, we
+will build up to more complicated subsets of it. For now, the
+<span class="emph">Beginning Student Language (BSL)</span> omits most of Racket’s advanced features
+and thus makes it easier to learn.
+</p>
+<p>
+To use <span class="emph">BSL</span> in Racket, go to the <span class="emph">Language</span> menu, select <span class="emph">Choose
+Language</span>, and pick BSL from the <span class="emph">Teaching Languages</span> section.
+</p>
+<h5>
+14.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Working_with_.Images)"></a>Working with Images
+</h5>
+<p>
+To do the programming tasks in the placement test, make sure you add the
+following line at the top of your program:
+</p>
+<blockquote class="SCodeFlow">
+<p>
+<span class="RktPn">(</span><span class="RktSym">require</span><span class="hspace">&nbsp;</span><span class="RktSym">2htdp/image</span><span class="RktPn">)</span>
+</p>
+</blockquote>
+<p>
+Please do not use Racket features like embedded images, embedded comment boxes,
+etc. While these are all nice, Gradescope does not understand any of them,
+making it much more complicated for us to read your code. This is really
+Gradescope’s fault, not Racket’s, but we’re stuck with these tools.
+</p>
+<h4>
+15
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.The_.Placement_.Tasks)"></a>The Placement Tasks
+</h4>
+<p>
+This placement test has three parts:
+</p>
+<ul>
+<li>
+<p>
+<a href="#%28part._placement-programming-1%29" data-pltdoc="x">Programming Task 1</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#%28part._placement-programming-2%29" data-pltdoc="x">Programming Task 2</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#%28part._placement-math-1%29" data-pltdoc="x">Math Task 1</a>
+</p>
+</li>
+</ul>
+<p>
+You must complete and submit all three parts.
+</p>
+<h4>
+16
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-programming-1)"></a>Programming Task 1
+</h4>
+<h5>
+16.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-programming-1-reading)"></a>Required Reading
+</h5>
+<p>
+Read the
+<a href="https://htdp.org/2021-5-4/Book/part_prologue.html">Prologue</a> of
+<span class="emph">How to Design Programs (2nd ed)</span>. You won’t need all the content of this
+part to do the work below (the first portion, through the “Arithmetic and
+Arithmetic” section, should suffice), but from the next assignment onward you
+will be defining functions and using conditionals (covered in the rest of the
+part), so you may find it useful read ahead.
+</p>
+<p>
+If you want to learn more about Racket’s support for images, see the
+<a href="https://docs.racket-lang.org/quick/index.html">Quick Introduction</a>.
+</p>
+<p>
+If you are new to programming: people learn programming by actually writing
+programs and running them. As you read, type in the code in the document, see
+how it works, change it a little and see what happens. Actually trying the code
+in the assigned reading will be essential for you to get comfortable with the
+material. <span class="emph">Do not passively “read” the material: you will get far less
+out of it than you imagine!</span>
+</p>
+<h5>
+16.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-programming-1-task)"></a>Task
+</h5>
+<p>
+Create flags of the following countries:
+</p>
+<ul>
+<li>
+<p>
+Vietnam
+</p>
+</li>
+<li>
+<p>
+Chile
+</p>
+</li>
+<li>
+<p>
+Suriname
+</p>
+</li>
+<li>
+<p>
+Saint Lucia
+</p>
+</li>
+<li>
+<p>
+Turkey
+</p>
+</li>
+</ul>
+<p>
+You should create these flag images using the Racket image primitives (for
+rectangles, stars, etc.), not by finding the images and pasting them in. You
+are, however, welcome to use a Web search to figure out what the flags look
+like.
+</p>
+<p>
+You may pick the dimensions of your flag, but please make it large enough for us
+to see (with a width of at least 100), but preferably not so large that we need
+to scroll a lot to see them all.
+</p>
+<p>
+For maybe the only time this summer or during the semester, we will not judge
+you on absolute correctness (e.g., checking whether you got the precise ratios
+of the different parts right). We’re going to visually eyeball it for general
+adherence. Of course, feel free to geek out on the vexillological details as
+much as you wish!
+</p>
+<h5>
+16.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-programming-1-grading-standards)"></a>Grading Standards
+</h5>
+<p>
+This assignment will not be graded. You’ll know when you’ve gotten the flags
+right; you don’t need us to tell you. However, we still want you to turn in your
+work so that you have gone through the full cycle of submission. That way things
+will go more smoothly from the next part, which is graded.
+</p>
+<p>
+Therefore, please do turn in your work but do not expect any feedback on
+this assignment.
+</p>
+<h5>
+16.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-programming-1-submission)"></a>Submission
+</h5>
+<p>
+Please write a series of expressions in a single file such that, when the file
+is Run, the flags appear in the interactions area. If you do use <span class="stt">define</span> to
+give them names, make sure to use these names so that this criterion is met.
+</p>
+<p>
+Submit the assignment on <a href="https://www.gradescope.com/courses/550464">Gradescope</a> (select Log in with School Credentials, find Northeastern, and use your <span class="stt">@northeastern.edu</span> email address. Do <span style="font-style: italic">not</span> log in with Google, or any other Gradescope account you may have.)
+</p>
+<h4>
+17
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-programming-2)"></a>Programming Task 2
+</h4>
+<h5>
+17.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-programming-2-reading)"></a>Required Reading
+</h5>
+<p>
+Read
+<a href="https://htdp.org/2021-5-4/Book/part_two.html#%28part._ch~3alists1%29">Chapter
+8</a> and
+<a href="https://htdp.org/2021-5-4/Book/part_two.html#%28part._ch~3adesign-lists%29">Chapter
+9 (up to 9.1)</a> of HtDP 2/e.
+</p>
+<p>
+If you find something unfamiliar (e.g., the material references if), note that
+we skipped reading
+<a href="https://htdp.org/2021-5-4/Book/part_one.html">Part 1</a> so you may
+need to peek in there to look it up.
+</p>
+<h5>
+17.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._(gentag._0))"></a>Task
+</h5>
+<p>
+Define the following functions. Even if you think they correspond to a function
+that already exists, write it yourself. We’re testing your ability to program,
+not to read documentation!
+</p>
+<p>
+Some of the problems refer to “words”. You may assume every string represents
+a word irrespective of its content, i.e., you do not need to check the content
+unless explicitly asked to do so by the assignment.
+</p>
+<ul>
+<li>
+<blockquote class="SCodeFlow">
+<p>
+<span class="RktSym">score-by-length</span><span class="hspace">&nbsp;</span><span class="RktSym">::</span><span class="hspace">&nbsp;</span><span class="RktSym">List-of-strings</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="nobreak">-&gt;</span></span><span class="hspace">&nbsp;</span><span class="RktSym">Number</span>
+</p>
+</blockquote>
+<p>
+Consumes a list of strings that represents words. Produces the sum of the
+lengths of these words. (Imagine you’re writing a game based on words, and this
+is a scoring function. We’ll return to this theme.)
+</p>
+</li>
+<li>
+<blockquote class="SCodeFlow">
+<p>
+<span class="RktSym">overlay-all</span><span class="hspace">&nbsp;</span><span class="RktSym">::</span><span class="hspace">&nbsp;</span><span class="RktSym">List-of-images</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="nobreak">-&gt;</span></span><span class="hspace">&nbsp;</span><span class="RktSym">Image</span>
+</p>
+</blockquote>
+<p>
+Consumes a list of images and overlays them, with earlier images in the list
+over later ones. Use a 10x10 solid white rectangle as the backdrop atop which
+all other images are overlaid.
+</p>
+<p>
+Note: You may sometimes find that two images you expect to be equal are reported
+as not equal by Racket. This is because image equality is an imperfect art.
+Images that visually appear identical may in fact be very slightly different,
+causing a test to fail.
+</p>
+</li>
+<li>
+<blockquote class="SCodeFlow">
+<p>
+<span class="RktSym">bar-graph</span><span class="hspace">&nbsp;</span><span class="RktSym">::</span><span class="hspace">&nbsp;</span><span class="RktSym">List-of-numbers</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="nobreak">-&gt;</span></span><span class="hspace">&nbsp;</span><span class="RktSym">Image</span>
+</p>
+</blockquote>
+<p>
+The numbers in the list represent heights of bars in a bar graph (assume they
+have already been scaled and reflect the desired heights). Generate a bar graph
+where each bar is a black solid rectangle with a width of 10px, and successive
+bars are adjacent (use <span class="stt">beside/align</span>). Don’t have spaces between the bars.
+</p>
+<p>
+Use a 1x1 solid white rectangle bar as the base case, so it will always be
+present as the right-most bar.
+</p>
+<p>
+You can assume that all the numbers are non-negative.
+</p>
+</li>
+<li>
+<blockquote class="SCodeFlow">
+<p>
+<span class="RktSym">is-in?</span><span class="hspace">&nbsp;</span><span class="RktSym">::</span><span class="hspace">&nbsp;</span><span class="RktSym">Any</span><span class="hspace">&nbsp;</span><span class="RktSym">List-of-any</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="nobreak">-&gt;</span></span><span class="hspace">&nbsp;</span><span class="RktSym">Boolean</span>
+</p>
+</blockquote>
+<p>
+Consumes a value and list of values and determines whether the former is
+anywhere in the latter: returns <span class="stt">#true</span> if it is and <span class="stt">#false</span> otherwise.
+</p>
+<p>
+Use <span class="stt">equal?</span> for comparison.
+</p>
+</li>
+<li>
+<blockquote class="SCodeFlow">
+<p>
+<span class="RktSym">words-to-sentence</span><span class="hspace">&nbsp;</span><span class="RktSym">::</span><span class="hspace">&nbsp;</span><span class="RktSym">List-of-strings</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="nobreak">-&gt;</span></span><span class="hspace">&nbsp;</span><span class="RktSym">String</span>
+</p>
+</blockquote>
+<p>
+Consumes a list of strings that represent words. Concatenate these strings with
+a space between every pair of words.
+</p>
+<p>
+To write this function, you may not use any built-in string functions other than
+<span class="stt">string-append</span>.
+</p>
+</li>
+</ul>
+<h5>
+17.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._(gentag._1))"></a>Grading Standards
+</h5>
+<p>
+This assignment is graded. When you submit the problem, you will receive
+some basic instant feedback, e.g., if there is typo in the name of a function.
+After the deadline, you’ll receive more detailed feedback.
+</p>
+<h5>
+17.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._(gentag._2))"></a>Submission
+</h5>
+<p>
+Create a single file that contains the five functions named above (it can
+contain any other helper definitions you like as well). The functions must be
+named exactly as above and must take parameters exactly as above.
+</p>
+<p>
+Submit the assignment on <a href="https://www.gradescope.com/courses/550464">Gradescope</a> (select Log in with School Credentials, find Northeastern, and use your <span class="stt">@northeastern.edu</span> email address. Do <span style="font-style: italic">not</span> log in with Google, or any other Gradescope account you may have.)
+</p>
+<h4>
+18
+<tt>
+&nbsp;
+</tt>
+<a name="(part._placement-math-1)"></a>Math Task 1
+</h4>
+<p>
+Please answer the following math questions.
+</p>
+<ul>
+<li>
+<p>
+Find the numerical value of:
+</p>
+<p></p>
+<div class="math">
+\Sigma_{n=1}^{100} (3n - 5)
+</div>
+<p></p>
+</li>
+<li>
+<p>
+Let <span class="math">f(x)=x-1</span> and let <span class="math">g(x)=2x−4</span>. Is there a number <span class="math">C</span> with the
+property that for all <span class="math">x&gt;C</span>, we have <span class="math">g(x)&gt;f(x)</span>? If so, what is it, and if
+not, why not?
+</p>
+</li>
+</ul>
+<p>
+Don’t just write the answer: also show us why us your solution is correct (e.g., show your steps).
+</p>
+<h5>
+18.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Submission)"></a>Submission
+</h5>
+<p>
+Please submit a PDF of your solution, including your work, on <a href="https://www.gradescope.com/courses/550464">Gradescope</a> (select Log in with School Credentials, find Northeastern, and use your <span class="stt">@northeastern.edu</span> email address. Do <span style="font-style: italic">not</span> log in with Google, or any other Gradescope account you may have.)
+</p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="../design_recipe/index.html" title="backward to &quot;The Design Recipe&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<span class="nonavigation">next →</span></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

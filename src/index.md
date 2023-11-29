@@ -2,7 +2,7 @@
 an Assistant Teaching Professor at [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/) at Northeastern University. 
 
 I got my PhD at the [PRL Lab](http://prl.ccs.neu.edu/), studying programming languages with [Amal
-Ahmed](http://www.ccs.neu.edu/home/amal/). My [dissertation]((/pubs/2022/dbp-dissertation.pdf)) was about the
+Ahmed](http://www.ccs.neu.edu/home/amal/). My [dissertation](/pubs/2022/dbp-dissertation.pdf) was about the
 **semantics of language interoperability**.
 
 Before that, I helped start and run a worker-owned software contracting company, [Position Development](http://positiondev.com). I studied math and computer science undergrad at <a href="http://cs.brown.edu">Brown University</a> where I worked with [Shriram Krishnamurthi](https://cs.brown.edu/~sk), helping to design the [Pyret](https://www.pyret.org) programming language.
@@ -17,11 +17,13 @@ You're welcome to come talk to me about anything (related to what I'm teaching,
 research I've done, or really, anything else), though students who are currently
 enrolled in classes I'm teaching will get preference.
 
-**Spring 2023**, I'll have *in-person* drop-in hours, Tuesdays **11:00am-12:00pm** and **2:00pm-3:00pm**, at my office, **317 Meserve Hall**.
+**Fall 2023**, I'll have *in-person* drop-in hours, Tuesdays **11:00am-1:00pm**, at my office, **317 Meserve Hall**.
 
 If you are unable to make that time, or would like to meet virtually, reach out via email.
 
 ### Teaching
+
+**Fall 2023: ** [CS2500: Fundamentals of Computer Science (Accelerated)](https://course.ccs.neu.edu/cs2500accelf23/) and [CS2500: Fundamentals of Computer Science](#)
 
 **Spring 2023: ** [CS2800: Logic & Computation](https://course.ccs.neu.edu/cs2800sp23/)
 
@@ -41,6 +43,10 @@ If you are unable to make that time, or would like to meet virtually, reach out 
 
 ### Publications
 <div class="pubs">
+
+[**Semantic Encapsulation using Linking Types.**](/pubs/2023/lt.pdf)
+<div class="desc">Daniel Patterson, Andrew Wagner, Amal Ahmed. <br/> _TyDE 2023_. [PDF](/pubs/2023/lt.pdf), [appendix](/pubs/2023/lt-tr.pdf), and [video](https://www.youtube.com/watch?v=Uoj9rVFlOQs&list=PLyrlk8Xaylp4YYkJKQZ8gO9RK8GCqmFzk).</div>
+
 
 [**Semantic Soundness for Language Interoperability.**](/pubs/2022/semint.pdf)
 <div class="desc">Daniel Patterson, Noble Mushtak, Andrew Wagner, Amal Ahmed. <br/> _PLDI 2022_. [PDF](/pubs/2022/semint.pdf), [appendix](/pubs/2022/semint-tr.pdf), and [arXiv](https://arxiv.org/abs/2202.13158).</div>
@@ -85,5 +91,5 @@ A current CV is available in [PDF form](/static/cv.pdf).
 
 ### Links
 
-I'm at [github.com/dbp](https://github.com/dbp) & [twitter.com/dbp__](https://twitter.com/dbp__).
+I'm at [github.com/dbp](https://github.com/dbp) & [dbp.bsky.social](https://bsky.app/profile/dbp.bsky.social).
 

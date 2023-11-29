@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../labs/index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps1b.html" class="tocviewlink" data-pltdoc="x">Homework 1b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps2a.html" class="tocviewlink" data-pltdoc="x">Homework 2a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps2b.html" class="tocviewlink" data-pltdoc="x">Homework 2b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Homework 3a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps3b.html" class="tocviewlink" data-pltdoc="x">Homework 3b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps4a.html" class="tocviewlink" data-pltdoc="x">Homework 4a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps4b.html" class="tocviewlink" data-pltdoc="x">Homework 4b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps5b.html" class="tocviewlink" data-pltdoc="x">Homework 5b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps6b.html" class="tocviewlink" data-pltdoc="x">Homework 6b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps7a.html" class="tocviewlink" data-pltdoc="x">Homework 7a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps7b.html" class="tocviewlink" data-pltdoc="x">Homework 7b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps8a.html" class="tocviewlink" data-pltdoc="x">Homework 8a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps8b.html" class="tocviewlink" data-pltdoc="x">Homework 8b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps9a.html" class="tocviewlink" data-pltdoc="x">Homework 9a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps9b.html" class="tocviewlink" data-pltdoc="x">Homework 9b</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.9</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="ps2b.html" title="backward to &quot;Homework 2b&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Homeworks&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="ps3b.html" title="forward to &quot;Homework 3b&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._ps3a)"></a>Homework 3a
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    <blockquote class="refpara">
+     <blockquote class="refcolumn">
+      <blockquote class="refcontent">
+       <p>
+        <img src="assignments.png" alt="home work!" width="121" height="132">
+       </p>
+      </blockquote>
+     </blockquote>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    <span style="font-weight: bold">Programming Language</span>  <span style="color: red">#lang htdp/bsl</span>
+   </div>
+   <p></p>
+   <p>
+    <span style="color: red">MUST BE DONE WITH YOUR PARTNER</span>
+   </p>
+   <p>
+    <span style="font-weight: bold">Due Date</span> Tues at 9:00pm (<a href="../syllabus/index.html#%28part._3%29" data-pltdoc="x">Week 3</a>)
+   </p>
+   <p>
+    <span style="font-weight: bold">Purpose</span> Practice designing programs
+   </p>
+   <p>
+    <span style="font-weight: bold">Exercises</span>
+   </p>
+   <p>
+    <span style="font-weight: bold">Photo Shoot</span>
+   </p>
+   <p>
+    We are going to develop a game which simulates a remote controlled photo shoot. In it, a stationary
+photographer begins the photo shoot on the ground, with some part of the ground as their goal
+to capture. They will then launch a drone with a camera and fly it. The shoot will end when the drone can
+capture the whole surface area of the goal... or it crashes!
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">A </span><a name="(tech._p)"></a><span style="font-style: italic">PS</span><span class="RktCmt"> (Photo Shoot) is one of:</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- (make-launch Number </span><a href="#%28tech._interval%29" class="techoutside" data-pltdoc="x"><span class="techinside">Interval</span></a><span class="RktCmt">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">launch</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">photographer</span><span class="hspace">&nbsp;</span><span class="RktSym">goal</span><span class="RktPn">]</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- (make-flight Number </span><a href="#%28tech._interval%29" class="techoutside" data-pltdoc="x"><span class="techinside">Interval</span></a><span class="RktCmt"> </span>
+        <font class="badlink">
+         <span class="techoutside"><span class="techinside">Posn</span></span>
+        </font>
+        <span class="RktCmt">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">flight</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">photographer</span><span class="hspace">&nbsp;</span><span class="RktSym">goal</span><span class="hspace">&nbsp;</span><span class="RktSym">drone</span><span class="RktPn">]</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Where:</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktCmt">- photographer represents a photographer</span><span class="RktCmt">'</span><span class="RktCmt">s x-coordinate on the ground</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktCmt">- goal represents the range of the desired image to to be captured at the ground-level</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktCmt">- drone (if any) represents the drone</span><span class="RktCmt">'</span><span class="RktCmt">s x/y position (with 0, 0 at the bottom left)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">All numbers are measured in pixels.</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">An </span><a name="(tech._interval)"></a><span style="font-style: italic">Interval</span><span class="RktCmt"> is a (make-interval Number Number)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">interval</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">left</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">right</span></span></span><span class="RktPn">]</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">and represents the leftmost and rightmost range of an interval in pixel coordinates (inclusive)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 1 </span>Provide examples and templates for the above data definitions. Recall that when
+data definitions refer to other complex data types, the template must reflect this by calling
+the appropriate template.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 2 </span>Design a function <span class="RktSym">falling-drone</span> which, given a <a href="#%28tech._p%29" class="techoutside" data-pltdoc="x"><span class="techinside">PS</span></a>, moves the drone (if any)
+down by 1 pixel.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 3 </span>Design a function <span class="RktSym">launch-drone</span>, which given a <a href="#%28tech._p%29" class="techoutside" data-pltdoc="x"><span class="techinside">PS</span></a> without a drone in
+flight, puts the drone in flight at <span class="RktVal">20</span> pixels in the air and <span class="RktVal">15</span> pixels to the right
+of the photographer. If the drone is in flight, nothing should change.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 4 </span>Design a function <span class="RktSym">shoot-over?</span>, which determines if the shoot is over. The shoot
+is over if the drone has crashed (height = <span class="RktVal">0</span>), <span class="RktSym"><span class="badlink"><span class="RktValLink">or</span></span></span> if the drone has
+captured the goal. Assume the drone has a 53.14 degree camera, which essentially means that
+if the drone is <span class="RktSym">y</span> pixels above the ground, it can see the ground <span class="RktSym">y/2</span> pixels to
+the left and right of its position. It does not matter if the drone captures
+more than the goal, so long as the whole goal is captured.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 5 </span>Design a function which draws the photo shoot. The photographer can be represented by a
+ vertical rectangle of any color. The goal should be visually distinct from the rest of the
+ ground-level. The drone, if any, should be represented by a black horizontal rectangle. The
+ background on which all these images are placed should be a fixed size.
+    </p>
+    <p>
+     Be sure to use constants (and helper functions!) to keep your code as clean as possible.
+ Also, remember that in our data definition, (0, 0) is at the bottom left, but the image library has
+ (0, 0) at the top left!
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 6 </span>Design a function handle-keyevent which given a <a href="#%28tech._p%29" class="techoutside" data-pltdoc="x"><span class="techinside">PS</span></a> and a <span class="RktSym">KeyEvent</span> launches the drone
+if it is not already in flight and the given key is <span class="RktVal">"l"</span>. This should put the drone
+<span class="RktVal">20</span> pixels in the air and <span class="RktVal">15</span> pixels to the right
+of the photographer. If the drone is in flight and the given key is either <span class="RktVal">"up"</span>,
+ <span class="RktVal">"right"</span>, or <span class="RktVal">"left"</span>, it should move the drone <span class="RktVal">5</span> pixels in that direction.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 7 </span>Compose your above functions into a <span class="RktSym"><span class="badlink"><span class="RktValLink">big-bang</span></span></span> program,
+ wrapped inside a <span class="RktSym">main</span> function. The game should stop when the shoot is over, and the drone
+should fall <span class="RktVal">1</span> pixel every <span class="RktVal">1/10</span> of a second (see and use your code from
+ last week’s assignment).
+    </p>
+    <p>
+     The function should take in an initial <a href="#%28tech._p%29" class="techoutside" data-pltdoc="x"><span class="techinside">PS</span></a> and output whether or not the shoot was a success.
+    </p>
+   </blockquote>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="ps2b.html" title="backward to &quot;Homework 2b&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Homeworks&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="ps3b.html" title="forward to &quot;Homework 3b&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

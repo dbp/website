@@ -1,0 +1,3024 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../labs/index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Syllabus</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Details%29" class="tocviewlink" data-pltdoc="x">Details</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Details%29" class="tocsubseclink" data-pltdoc="x">Details</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37278%29" class="tocsubseclink" data-pltdoc="x">Computing Environment</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37279%29" class="tocsubseclink" data-pltdoc="x">Homeworks</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._lateness%29" class="tocsubseclink" data-pltdoc="x">Late Policy</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._pp%29" class="tocsubseclink" data-pltdoc="x">Pair Programming</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37280%29" class="tocsubseclink" data-pltdoc="x">Exams</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37281%29" class="tocsubseclink" data-pltdoc="x">Grades</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <a href="http://www.racket-lang.org/"><span class="Smaller">DrRacket</span></a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.9</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="../advice/index.html" title="backward to &quot;Advice&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../ofc_hrs/index.html" title="forward to &quot;Office Hours/Contact&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._syllabus)"></a>Syllabus
+   </h3>
+   <a name="(part._chap~3asyllabus)"></a>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td align="right" style="border-bottom: 1px solid black;">
+       <p>
+        Week
+       </p>
+      </td>
+      <td align="right" style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left" style="border-bottom: 1px solid black;">
+       <p>
+        Topic
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._1)"></a>1
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Programming%2C._.Computing%2C._and._.How._to._.Design._.Functions%29" data-pltdoc="x">Programming, Computing, and How to Design Functions</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._ch~3afuncs-progs%29">2</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adesign-func%29">3.1</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adomain%29">3.3</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adesign%29">3.4</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3atesting%29">3.5</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._2)"></a>2
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Designing._.Programs%29" data-pltdoc="x">Designing Programs</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3aenums%29">4.3</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3aintervals%29">4.4</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._itemization._sec~3aitemization%29">4.5</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3astructures%29">5.4</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._data-uni._sec~3adata-uni%29">5.7</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adesign-itemization%29">4.6</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adesignstructs%29">5.8</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._mix._sec~3aitemization-design2%29">6.1</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._.D.K._sec~3adesign-world%29">3.6</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._3)"></a>3
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.From._.Fixed-size._.Data._to._.Large._.Data%29" data-pltdoc="x">From Fixed-size Data to Large Data</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._ch~3alists1%29">8</a>, <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._sec~3alists~3ane%29">9.2</a>, <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._sec~3anats%29">9.3</a>, <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._rd._sec~3ard%29">9.4</a>, <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._ch~3adesign-lists%29">9</a>, <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._ch~3alists2%29">10</a>, <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._ch~3alist-sort%29">11</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._4)"></a>4
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Designing._.Programs._.For._.Arbitrarily._.Large._.Data%29" data-pltdoc="x">Designing Programs For Arbitrarily Large Data</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._ch~3aproj-lists%29">12</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._ch~3add-similarities%29">14</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3alocal-definitions%29">16.2</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3alocal-is-power%29">16.3</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3aint-lambda%29">17.1</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._5)"></a>5
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Designing._.Programs._.With._.Local%2F.Lambda%29" data-pltdoc="x">Designing Programs With Local/Lambda</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3aeval-local%29">16.4</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3alambda-technical%29">17.2</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3alambda%29">17.3</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3aspecification%29">17.4</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._6)"></a>6
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Design._.With._.Abstraction%29" data-pltdoc="x">Design With Abstraction</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._ch~3aabstract%29">15</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3ausage-examples%29">16.5</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3adesigning-with-abstraction%29">16.6</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3aabstraction-exercises%29">16.7</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._7)"></a>7
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.General._.Design._.With._.Arbitrarily._.Large._.Data%29" data-pltdoc="x">General Design With Arbitrarily Large Data</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_four.html#%28part._ch~3apoetry-sexp%29">19</a>, <a href="https://htdp.org/2023-8-14/Book/part_four.html#%28part._ch~3afiles%29">20</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._8)"></a>8
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Iterative._.Refinement%29" data-pltdoc="x">Iterative Refinement</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._ch~3a3lambda%29">17</a>, <a href="https://htdp.org/2023-8-14/Book/part_four.html#%28part._ch~3aevaluator%29">21</a>, <a href="https://htdp.org/2023-8-14/Book/part_four.html#%28part._ch~3asimu%29">23</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._9)"></a>9
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Designing._.With._.Generative._.Recursion%29" data-pltdoc="x">Designing With Generative Recursion</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_five.html#%28part._ch~3astrange-recursions%29">25</a>, <a href="https://htdp.org/2023-8-14/Book/part_five.html#%28part._ch~3adesign-algo%29">26</a>, <a href="https://htdp.org/2023-8-14/Book/part_five.html#%28part._ch~3agen-rec-samples%29">27</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._10)"></a>10
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Designing._.With._.Accumulators%29" data-pltdoc="x">Designing With Accumulators</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_six.html#%28part._ch~3aaccumulator-samples%29">31</a>, <a href="https://htdp.org/2023-8-14/Book/part_six.html#%28part._sec~3adesign-accu%29">32</a>, <a href="https://htdp.org/2023-8-14/Book/part_six.html#%28part._sec~3amore-accu-mc%29">33.2</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._11)"></a>11
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.Design._.Review%29" data-pltdoc="x">Design Review</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adesign-func%29"> 3.1</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adesign%29"> 3.4</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._.D.K._sec~3adesign-world%29"> 3.6</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adesign-itemization%29"> 4.6</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._sec~3adesignstructs%29"> 5.8</a>, <a href="https://htdp.org/2023-8-14/Book/part_one.html#%28part._mix._sec~3aitemization-design2%29"> 6.1</a>, <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._ch~3adesign-lists%29"> 9</a>, <a href="https://htdp.org/2023-8-14/Book/part_two.html#%28part._ch~3alist-sort%29">11</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._ch~3aabstract%29">15</a>, <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._sec~3adesigning-with-abstraction%29">16.6</a>, <a href="https://htdp.org/2023-8-14/Book/part_four.html#%28part._sec~3adesign-.N%29">19.4</a>, <a href="https://htdp.org/2023-8-14/Book/part_four.html#%28part._ch~3afiles%29">20</a>, <a href="https://htdp.org/2023-8-14/Book/part_five.html#%28part._ch~3adesign-algo%29">26</a>, <a href="https://htdp.org/2023-8-14/Book/part_six.html#%28part._sec~3adesign-accu%29">32</a>, <a href="https://htdp.org/2023-8-14/Book/part_six.html#%28part._sec~3amore-accu-trees%29">33.1</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._12)"></a>12
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.To._.Be._.Determined%29" data-pltdoc="x">To Be Determined</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: none
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._13)"></a>13
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.To._.Be._.Determined%29" data-pltdoc="x">To Be Determined</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: none
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p>
+        <a name="(part._14)"></a>14
+       </p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        <a href="#%28part._.To._.Be._.Determined%29" data-pltdoc="x">To Be Determined</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td align="right">
+       <p></p>
+      </td>
+      <td align="right">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td align="left">
+       <p>
+        Readings: none
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p>
+    The topics are linked to detailed weekly lecture plans below. The readings
+point into the on-line version of the text book.
+   </p>
+   <p>
+    <span style="color: red">You are primarily responsible for the readings</span>. The lectures will
+help you understand those and will occasionally add highly pragmatic
+tips. But, the weekly homeworks and <span style="color: red">the exams will
+cover the reading material.</span>
+   </p>
+   <p>
+    A semester tends to unfold in unpredictable ways, meaning the syllabus is
+subject to change. The most likely change concerns the last few weeks,
+which cover material that varies from semester to semester.
+   </p>
+   <h3>
+    <a name="(part._.Details)"></a>Details
+   </h3>
+   <p>
+    Homeworks are due Tuesdays &amp; Thursdays at 9pm. The first one is due Sept 7.
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._1%29" data-pltdoc="x">Week 1</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Programming,._.Computing,._and._.How._to._.Design._.Functions)"></a>Programming, Computing, and How to Design Functions
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        01
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/06
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        `hello world', Information vs. Data
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        02
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/07
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Designing Functions
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps1b.html" data-pltdoc="x">1b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 1
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._2%29" data-pltdoc="x">Week 2</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Designing._.Programs)"></a>Designing Programs
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        03
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/11
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Designing Functions: Some Practice
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps2a.html" data-pltdoc="x">2a</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        04
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/13
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Designing Programs: the Basics
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        05
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/14
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Desiging Programs: Some Practice
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps2b.html" data-pltdoc="x">2b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 2
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._3%29" data-pltdoc="x">Week 3</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.From._.Fixed-size._.Data._to._.Large._.Data)"></a>From Fixed-size Data to Large Data
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        06
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/18
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Representing Arbitrarily Large Data
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps3a.html" data-pltdoc="x">3a</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        07
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/20
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Designing Functions: Arbitrarily Large Data
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        08
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/21
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Arbitrarily Large Data: Practice Design
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps3b.html" data-pltdoc="x">3b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 3
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._4%29" data-pltdoc="x">Week 4</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Designing._.Programs._.For._.Arbitrarily._.Large._.Data)"></a>Designing Programs For Arbitrarily Large Data
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        09
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/25
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Designing Functions via Composition
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps4a.html" data-pltdoc="x">4a</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        10
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/27
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Designing Programs: Arbitrarily Large Data
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        11
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        09/28
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Local Definitions, Anonymous Functions
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps4b.html" data-pltdoc="x">4b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 4
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._5%29" data-pltdoc="x">Week 5</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Designing._.Programs._.With._.Local/.Lambda)"></a>Designing Programs With Local/Lambda
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span style="background-color: white; color: red">Midterm coming up: 10/02 @ 10:30-11:35am</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        12
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/02
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Exam 1
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        13
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/04
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Practice with Anonymous Functions
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        14
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/05
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Similar Functions
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps5b.html" data-pltdoc="x">5b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 5
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._6%29" data-pltdoc="x">Week 6</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Design._.With._.Abstraction)"></a>Design With Abstraction
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        15
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/09
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Indigenous Peoples Day
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        16
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/11
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Designing (with) Abstractions
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        17
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/12
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Designing (with) Abstractions: Practice
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps6b.html" data-pltdoc="x">6b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 6
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._7%29" data-pltdoc="x">Week 7</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.General._.Design._.With._.Arbitrarily._.Large._.Data)"></a>General Design With Arbitrarily Large Data
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        18
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/16
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Designing with Abstractions: More Practice
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps7a.html" data-pltdoc="x">7a</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        19
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/18
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Designing Programs: S--expressions
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        20
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/19
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Designing Programs: Trees
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps7b.html" data-pltdoc="x">7b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 7
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._8%29" data-pltdoc="x">Week 8</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Iterative._.Refinement)"></a>Iterative Refinement
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        21
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/23
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Designing Programs: Binary Search Trees
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps8a.html" data-pltdoc="x">8a</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        22
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/25
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Designing for Multiple Complex Arguments
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        23
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/26
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Big-bang, Universe, and Client-Server Programs
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps8b.html" data-pltdoc="x">8b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 8
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._9%29" data-pltdoc="x">Week 9</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Designing._.With._.Generative._.Recursion)"></a>Designing With Generative Recursion
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        24
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        10/30
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Designing Client-Server Programs
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps9a.html" data-pltdoc="x">9a</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        25
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/01
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Enforcing Signatures
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        26
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/02
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Graphs with Generative Recursion and Accumulators
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <a href="../Homeworks/ps9b.html" data-pltdoc="x">9b</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 9
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._10%29" data-pltdoc="x">Week 10</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Designing._.With._.Accumulators)"></a>Designing With Accumulators
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span style="background-color: white; color: red">Midterm coming up: 11/06 @ 10:30-11:35am</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        27
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/06
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Exam 2
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <font class="badlink">
+         10a
+        </font>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        28
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/08
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Designing Generative Recursive Functions
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        29
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/09
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        The Need For Accumulator Design
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <font class="badlink">
+         10b
+        </font>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 10
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._11%29" data-pltdoc="x">Week 11</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.Design._.Review)"></a>Design Review
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        30
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/13
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        ???
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        31
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/15
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        More Practice with Accumulators
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        32
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/16
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Design Review
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <font class="badlink">
+         11b
+        </font>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 11
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._12%29" data-pltdoc="x">Week 12</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.To._.Be._.Determined)"></a>To Be Determined
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        33
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/20
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        To Be Determined
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <font class="badlink">
+         12a
+        </font>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        34
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/21
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Thanksgiving
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        35
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/22
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        Thanksgiving Day
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._13%29" data-pltdoc="x">Week 13</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.To._.Be._.Determined)"></a>To Be Determined
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span style="background-color: white; color: red">Midterm coming up: 11/27 @ 10:30-11:35am</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        36
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/27
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        Exam 3
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <font class="badlink">
+         13a
+        </font>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        37
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/29
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        To Be Determined
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        38
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        11/30
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        To Be Determined
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <font class="badlink">
+         13b
+        </font>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        Lab 12
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        Day
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <a href="#%28part._14%29" data-pltdoc="x">Week 14</a>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;" colspan="3">
+       <p>
+        <a name="(part._.To._.Be._.Determined)"></a>To Be Determined
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        39
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        12/04
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td colspan="3">
+       <p>
+        To Be Determined
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        40
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        12/06
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        To Be Determined
+       </p>
+      </td>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+      <td>
+       <p>
+        <font class="badlink">
+         14b
+        </font>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td colspan="7">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <h3>
+    <a name="(part._g37278)"></a>Computing Environment
+   </h3>
+   <p>
+    We will use DrRacket (v8.9), a programming environment for a family of programming
+languages. For Fundamentals I, we will stick to the HtDP teaching languages plus a
+small number of teachpacks as specified in <a href="https://htdp.org/2023-8-14/Book/">How to Design Programs (HtDP)</a>.
+DrRacket is <a href="http://www.racket-lang.org">freely available on the web</a>, and
+<span class="emph">we request that you install it on your own computer</span>.
+   </p>
+   <p>
+    DrRacket runs on most popular platforms (Windows, Mac OS X, Linux, and
+ other *nixes). Programs written in the teaching languages have mostly
+ the same behavior on all platforms.  You therefore do not need to worry
+ what kind of machine you use when you run your programs.
+   </p>
+   <h3>
+    <a name="(part._g37279)"></a>Homeworks
+   </h3>
+   <p>
+    The purpose of the homeworks is learn the material. You can only learn by doing. Secondarily, the homeworks will also prepare you for the exams.
+   </p>
+   <p>
+    There will be two weekly homeworks. Some problems are drawn from <a href="https://htdp.org/2023-8-14/Book/">How to Design Programs (HtDP)</a>, the
+ textbook; others are constructed for this instance of Fundamentals I. One of
+ the homeworks will be done solo and be automatically graded (the one due
+ Thursday), and will involve more routine practice of the material for the week.
+ The other (due Tuesday) will be done with a partner, will be graded manually by
+ the course staff, and will involve more design, creative work, and generally
+ more challenging problems.
+   </p>
+   <p>
+    Homework should be submitted via Gradescope, just like the summer placement.
+Submit only a single file for each assignment, unless specified otherwise.
+   </p>
+   <h3>
+    <a name="(part._lateness)"></a>Late Policy
+   </h3>
+   <p>
+    Falling behind on homework is never a
+good idea: the course presents new material every day, making catching up
+harder and harder.
+   </p>
+   <p>
+    However, we know that your time is not always easily scheduled, and some weeks,
+“stuff happens.” Therefore, you are allowed to turn in any homework up to 24
+hours late with, <span style="font-weight: bold">provided you do not abuse this</span>, no penalties. If you do
+abuse this (turning in many/most homeworks late), we may impose a penalty, so
+treat the deadline with respect. Beyond that 24 hour period (e.g., 24 hrs and 1
+second), no late work will be accepted, so don’t try to sneak up on it.
+   </p>
+   <h3>
+    <a name="(part._pp)"></a>Pair Programming
+   </h3>
+   <p>
+    You must work on the homework due Tuesday in
+ assigned pairs.  Your partner should be in the same lab as you; your
+ first partner will be assigned in the first lab. Twice in the semester you will switch partners. You will submit <span style="font-style: italic">one</span> assignment per pair: when you submit, you will add the second person so that both get credit, but <span style="font-weight: bold">do not submit separately</span>.
+   </p>
+   <p>
+    Pair programming means that you and your partner work on the homeworks
+ <span class="emph">jointly</span>. You read them together and you work on the solutions
+ together. One of the lab’s purposes is to teach you how to work in pairs
+ effectively; indeed, pairs are provably more effective than individuals in
+ programming. The rough idea is this: One of you plays <span class="emph">pilot</span>, the
+ other <span class="emph">co-pilot</span>. The pilot works on the keyboard and explains aloud
+ what is going on; it is the co-pilot’s responsibility to question things
+ that do not make sense. After a problem is solved to the satisfaction of
+ both, you must switch roles.
+   </p>
+   <p>
+    Pair programming does <span style="font-weight: bold">not</span> mean you split the assignment, and each do half. Not
+only is that an academic integrity violation, as you will be turning it work you did
+not work on, but you will not be learning. You should be here to learn.
+   </p>
+   <h3>
+    <a name="(part._g37280)"></a>Exams
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    For an assessment of your progress in this course, we will run three
+exams, each will be held during regular class time, and will be <span style="font-weight: bold">on-paper</span>:
+   </div>
+   <div class="SIntrapara">
+    <ul>
+     <li>
+      <p>
+       on 10/02 at 10:30-11:35am
+      </p>
+     </li>
+     <li>
+      <p>
+       on 11/06 at 10:30-11:35am
+      </p>
+     </li>
+     <li>
+      <p>
+       on 11/27 at 10:30-11:35am
+      </p>
+     </li>
+    </ul>
+   </div>
+   <p></p>
+   <p>
+    These midterm exams will test material similar to that assigned in weekly
+ homeworks. If you can solve every homework problem on your own, the
+ exams will be easy.  If not, you will have a difficult time.
+   </p>
+   <p>
+    All exams are open-book, meaning you can bring <span class="emph">any</span> printed or hand-written material you wish.  The exams will be done on paper, and no electronic devices will be allowed (including phones, smart watches, etc).
+   </p>
+   <h3>
+    <a name="(part._g37281)"></a>Grades
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    You will get grades for your homework, labs, and exams. We will combine those together as follows:
+   </div>
+   <div class="SIntrapara">
+    <blockquote>
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td align="left">
+         <p>
+          <span style="font-weight: bold">exam 0</span>
+         </p>
+        </td>
+        <td align="left">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          18%
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="left">
+         <p></p>
+        </td>
+       </tr>
+       <tr>
+        <td align="left">
+         <p>
+          <span style="font-weight: bold">exam 1</span>
+         </p>
+        </td>
+        <td align="left">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          18%
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="left">
+         <p></p>
+        </td>
+       </tr>
+       <tr>
+        <td align="left">
+         <p>
+          <span style="font-weight: bold">exam 2</span>
+         </p>
+        </td>
+        <td align="left">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          19%
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="left">
+         <p></p>
+        </td>
+       </tr>
+       <tr>
+        <td align="left">
+         <p>
+          <span style="font-weight: bold">labs</span>
+         </p>
+        </td>
+        <td align="left">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          12%
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="left">
+         <p>
+          (1% per lab)
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td align="left">
+         <p>
+          <span style="font-weight: bold">homeworks</span>
+         </p>
+        </td>
+        <td align="left">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          33%
+         </p>
+        </td>
+        <td align="right">
+         <p>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span>
+         </p>
+        </td>
+        <td align="left">
+         <p>
+          (1.5% per assignment)
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <p></p>
+   <p>
+    Final grades will be assigned on the following scale:
+   </p>
+   <p></p>
+   <table cellspacing="0" cellpadding="0" class="boxed" style="border-collapse: collapse;">
+    <tbody>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        A
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">93 - </span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        A-
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">90 - 92</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        B+
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">87 - 89</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        B
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">83 - 86</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        B-
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">80 - 82</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        C+
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">77 - 79</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        C
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">73 - 76</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        C-
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">70 - 72</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        D+
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">67 - 69</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        D
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">63 - 66</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        D-
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="stt">60 - 62</span>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        F
+       </p>
+      </td>
+      <td style="border-bottom: 1px solid black;">
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">- 59</span>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p></p>
+   <p></p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="../advice/index.html" title="backward to &quot;Advice&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Accelerated Fundamentals of Computer Science 1&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../ofc_hrs/index.html" title="forward to &quot;Office Hours/Contact&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

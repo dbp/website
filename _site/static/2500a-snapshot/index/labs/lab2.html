@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab1.html" class="tocviewlink" data-pltdoc="x">1 The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">2 Big Bang</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">2 Big Bang</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37297%29" class="tocviewlink" data-pltdoc="x">Partners</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37298%29" class="tocviewlink" data-pltdoc="x">Pairing Demonstration:<span class="mywbr"> &nbsp;</span> Online Average</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g37299%29" class="tocviewlink" data-pltdoc="x">Stuck in the middle</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37297%29" class="tocsubseclink" data-pltdoc="x">Partners</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37298%29" class="tocsubseclink" data-pltdoc="x">Pairing Demonstration:<span class="mywbr"> &nbsp;</span> Online Average</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g37299%29" class="tocsubseclink" data-pltdoc="x">Stuck in the middle</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.9</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="lab1.html" title="backward to &quot;1 The Design Recipe&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../style/index.html" title="forward to &quot;The Style&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._lab2)"></a>2 Big Bang
+   </h3>
+   <blockquote class="refpara">
+    <blockquote class="refcolumn">
+     <blockquote class="refcontent">
+      <p>
+       <img src="lab.png" alt="home work!" width="128" height="105">
+      </p>
+     </blockquote>
+    </blockquote>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Purpose</span> The purpose of this lab is to practice with big-bang.
+   </p>
+   <h3>
+    <a name="(part._g37297)"></a>Partners
+   </h3>
+   <p>
+    Remember, each lab you will work with a <span style="font-style: italic">different</span> partner. So find someone you didn’t work with last week.
+   </p>
+   <h3>
+    <a name="(part._g37298)"></a>Pairing Demonstration: Online Average
+   </h3>
+   <p>
+    In this, two TAs will demonstrate pair programming to solve a challenging
+problem, following the complete design recipe. <span style="font-weight: bold">THIS IS NOT AN EXERCISE,
+BUT WE DO NOT PROVIDE THE SOLUTION BECAUSE THE POINT IS TO OBSERVE HOW THE TAs
+INTERACT AS A PAIR TO SOLVE IT.</span>
+   </p>
+   <p>
+    An "online" algorithm is one that processes data as it receives it, producing
+results along the way. These are important whenever the amount of data to
+process may exceed what you can store. For example, consider that we have a
+embedded computer attached to a temperature sensor in the arctic. The sensor is
+producing readings every few hundred milliseconds but the embedded computer
+doesn’t have nearly enough memory to store all of these readings for the months
+between visits by researchers. That’s okay, because the researchers are okay
+with just having the average temperature over the entire time between visits.
+However, we can’t simply store all the values and then compute the average at
+the end: there isn’t room to store all the values. Instead, we have to compute
+the average "online".
+   </p>
+   <p>
+    Our task is to design an online average function that accepts a previously
+computed current average, a new number, and computes a new current average. We
+will design a function <span class="RktSym">next-average</span> and an appropriate struct
+for the <span class="RktSym">current-average</span>.
+   </p>
+   <h3>
+    <a name="(part._g37299)"></a>Stuck in the middle
+   </h3>
+   <p>
+    We are going to write a "click the midpoint" game. It will begin by showing players two points on a screen. The player is then expected to guess their midpoint by clicking on the screen. Once the player clicks, it will show them how the actual midpoint compares to where they clicked.
+   </p>
+   <p>
+    First, we will start be representing the static elements of the game.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 1 </span>Design a data definition, called Point, which represents a point on a 2D-plane.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 2 </span>Design a data definition, called Board, which represents the 2D board on which the midpoint-game will be played. The board should include the locations of the two points.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 3 </span>Define constant images to represent the board points, their midpoint, and the point the user chooses. These will come in handy later.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 4 </span>Design a function called place-point, which takes a Point, an image representing that point, and a background image, and places the point’s image on top of the background image at the point’s coordinates.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 5 </span>Design a function called draw-board, which renders the board you designed in the previous question.
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <p>
+    Next, we will work on designing the calculations necessary for playing the game.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 6 </span>Design a function called midpoint, which computes the midpoint of two Points.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 7 </span>Design a function called board-midpoint, which computes the midpoint of the points on a given Board.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 8 </span>Define a function called distance, which computes the distance between two points. The distance between two points is the square root of the sum of the squares of the differences in their x and y coordinates.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 9 </span>Design a function user-error determining the distance from the user-given Point to the midpoint of the Board.
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <p>
+    Now, we would like to work on rendering the Board on the screen.
+   </p>
+   <p>
+    At this time, we can render every part of the game, and what’s left is to complete the main logic of the game itself. We need to first represent the state of the game. There are two things to keep track in the game state:
+   </p>
+   <p>
+    the Board;
+the current state of user input.
+We have already designed the Board. How would we design the user state? The only event we care about here is a single click on the board, but also note that the user might not have immediately clicked their mouse.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 10 </span>Design a data definition for the state of user input, and use this data definition to complete the data definition for the GameState.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 11 </span>Design a function to check whether a GameState has user-input (i.e., to check if the user has already clicked)
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 12 </span>Design a function, draw-state, which takes a GameState and renders the board and a dot (different from the board dots) for the potential user input.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 13 </span>Design a function, draw-state/midpoint, which renders exactly the same state as the previous function, but also includes another dot at the midpoint between the two dots on the board.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 14 </span>Design a function, initial-board, which takes a height and width and generates a board with randomly positioned Points. How can you test on random values? check-random is your friend.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 15 </span>Design a function, initial-state, which generates an initial GameState.
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 16 </span>Design a function to handle when the user has clicked their guess. See the documentation for big-bang’s on-mouse for the structure.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 17 </span>Design a main function that launches the game. The input should be the height and width of the desired board and the initial start state is random. The program should stop-when the player clicks.
+    </p>
+   </blockquote>
+   <p>
+    Do you see the world change after you click? If not, give your stop-when clause a second input, the function which draws the board, the true midpoint, and where the player clicked, and try again. This tells big-bang to draw the final state of the world before exiting.
+   </p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="lab1.html" title="backward to &quot;1 The Design Recipe&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../style/index.html" title="forward to &quot;The Style&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

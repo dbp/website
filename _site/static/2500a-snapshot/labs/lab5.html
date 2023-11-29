@@ -1,0 +1,872 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pygments.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab1.html" class="tocviewlink" data-pltdoc="x">1 The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab2.html" class="tocviewlink" data-pltdoc="x">2 Big Bang</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab3.html" class="tocviewlink" data-pltdoc="x">3 Natural Numbers and Counters</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab4.html" class="tocviewlink" data-pltdoc="x">4 Quote &amp; Unquote</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">5 Designing With Lists and Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab6.html" class="tocviewlink" data-pltdoc="x">6 Using Abstractions to Mimic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab7.html" class="tocviewlink" data-pltdoc="x">7 Tree Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab8.html" class="tocviewlink" data-pltdoc="x">8 Files and Directories</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab9.html" class="tocviewlink" data-pltdoc="x">9 Graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab10.html" class="tocviewlink" data-pltdoc="x">10 Generative Recursion</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab11.html" class="tocviewlink" data-pltdoc="x">11 Mutable State</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab13.html" class="tocviewlink" data-pltdoc="x">13 Synthesis</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">5 Designing With Lists and Abstractions</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46733%29" class="tocviewlink" data-pltdoc="x">PARTNER CHANGE</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46734%29" class="tocviewlink" data-pltdoc="x">Finite Increasing Arithmetic Sequences</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46735%29" class="tocviewlink" data-pltdoc="x">List Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g46736%29" class="tocviewlink" data-pltdoc="x">Signature Detective</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46733%29" class="tocsubseclink" data-pltdoc="x">PARTNER CHANGE</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46734%29" class="tocsubseclink" data-pltdoc="x">Finite Increasing Arithmetic Sequences</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46735%29" class="tocsubseclink" data-pltdoc="x">List Abstractions</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g46736%29" class="tocsubseclink" data-pltdoc="x">Signature Detective</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.10</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="lab4.html" title="backward to &quot;4 Quote &amp; Unquote&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab6.html" title="forward to &quot;6 Using Abstractions to Mimic&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._lab5)"></a>5 Designing With Lists and Abstractions
+   </h3>
+   <blockquote class="refpara">
+    <blockquote class="refcolumn">
+     <blockquote class="refcontent">
+      <p>
+       <img src="lab.png" alt="home work!" width="128" height="105">
+      </p>
+     </blockquote>
+    </blockquote>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Purpose:</span> This lab focuses on designing programs on lists, as well as creating abstractions.
+   </p>
+   <p>
+    <span style="font-weight: bold">Textbook references:</span>
+   </p>
+   <p>
+    <a href="https://htdp.org/2023-8-14/Book/part_two.html">Part II</a>: Arbitrarily Large Data
+   </p>
+   <p>
+    <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._ch~3add-similarities%29">Chapter 14</a>: Similarities Everywhere
+   </p>
+   <p>
+    <a href="https://htdp.org/2023-8-14/Book/part_three.html#%28part._ch~3aabstract%29">Chapter 15</a>: Designing Abstractions
+   </p>
+   <h3>
+    <a name="(part._g46733)"></a>PARTNER CHANGE
+   </h3>
+   <p>
+    <span style="font-weight: bold">Goals:</span> Your new lab partner today will be your HW partner for the next several weeks.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 1 </span>Sit next to your new partner.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 2 </span>Exchange contact information with your partner: telephone number,
+latest-greatest social network scheme, whatever-app.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 3 </span>Agree to a first meeting time and meeting place.
+At that meeting, agree to next meeting time and meeting place.
+    </p>
+   </blockquote>
+   <h3>
+    <a name="(part._g46734)"></a>Finite Increasing Arithmetic Sequences
+   </h3>
+   <p>
+    <span style="font-weight: bold">Goals:</span> Use abstraction in an unfamiliar context.
+   </p>
+   <p>
+    <span style="font-weight: bold">Starter Code</span>: Below is the data definition of a finite increasing arithmetic sequence.
+   </p>
+   <p></p>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Positive</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">lambda</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">positive?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">min</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">max</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">step</span><span class="RktPn">]</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">AFIAS</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">FiasOf</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Positive</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">where (make-fias min max step) represents all numbers</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">of the form min + (k * step), where k is a natural number,</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">such that min + (k * step) &lt; max.</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">FIAS-EMPTY</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-fias</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0.25</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">empty sequence, as min &gt;= max</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">FIAS-1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-fias</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0.25</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">sequence with the elements (0, .25, .5, .75)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">fias-temp : AFIAS -&gt; ?</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-temp</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-min</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-max</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-step</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    <blockquote>
+     <p>
+      <span style="font-weight: bold">Sample Problem </span>Design a function that determines if
+      <font class="badlink">
+       <span class="techoutside"><span class="techinside">AFIAS</span></span>
+      </font>
+      is empty.
+     </p>
+    </blockquote>
+   </div>
+   <p></p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">empty-fias?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">AFIAS</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Boolean</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">determines if the given FIAS is empty</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">empty-fias?</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">&gt;=</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-min</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-max</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Sample Problem </span>Design the function <span class="RktSym">next-sequence</span>, which takes
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     and returns a new
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     with the same max and step. The new min will be the original
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     ’s min with its step added to it.
+    </p>
+   </blockquote>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">:</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">next-sequence</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">AFIAS</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">AFIAS</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">returns a new FIAS where the min is the original FIAS</span><span class="RktCmt">'</span><span class="RktCmt">s min plus its step</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">next-sequence</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-fias</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-min</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-step</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-max</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-step</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Sample Problem </span>You may have noticed that <span class="RktSym">next-sequence</span> returns the <span style="font-style: italic">rest</span> of a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     , <span class="RktSym">empty-fias?</span> determines if it is <span style="font-style: italic">empty</span>, and that if it is non-empty <span class="RktSym">fias-min</span> is the <span style="font-style: italic">first</span> element in it. Redefine your <span class="RktSym">fias-temp</span> to take advantage of this recursive structure.
+    </p>
+   </blockquote>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">fias-temp : </span>
+        <font class="badlink">
+         <span class="techoutside"><span class="techinside">AFIAS</span></span>
+        </font>
+        <span class="RktCmt"> -&gt; ?</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-temp</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">empty-fias?</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">else</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-min</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">fias-temp</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">next-sequence</span><span class="hspace">&nbsp;</span><span class="RktSym">fias</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 4 </span>Design a function which sums the elements of a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     .
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 5 </span>Design a function which multiplies the elements of a
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     . <span style="font-weight: bold">Hint:</span>
+the product of an empty sequence is <span class="RktVal">1</span>.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 6 </span>Design a function which lists the elements of
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     .
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 7 </span>All of these functions look marvelously similar; abstract them, redefine them
+with your new function, and ensure all of your tests still pass.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 8 </span>Design a function which determines if any element of
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     is a perfect
+square. <span style="font-weight: bold">Hint:</span> <span class="RktSym"><span class="badlink"><span class="RktValLink">integer?</span></span></span>.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 9 </span>Design a function which determines if any element of
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">AFIAS</span></span>
+     </font>
+     is even.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 10 </span>Both of these functions look marvelously similar; abstract them, redefine them
+with your new function, and ensure all of your tests still pass.
+    </p>
+   </blockquote>
+   <h3>
+    <a name="(part._g46735)"></a>List Abstractions
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    <span style="font-weight: bold">Goals:</span> Practice understanding how to use the <span class="RktSym">foldr</span> list abstraction.
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">require</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">2htdp/image</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Image</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">image?</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Color</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">image-color?</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Mode</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">predicate</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">mode?</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">is one of</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- "solid"</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- "outline"</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">circl</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">radius</span><span class="hspace">&nbsp;</span><span class="RktSym">mode</span><span class="hspace">&nbsp;</span><span class="RktSym">c</span><span class="RktPn">]</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">squar</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">side-length</span><span class="hspace">&nbsp;</span><span class="RktSym">mode</span><span class="hspace">&nbsp;</span><span class="RktSym">c</span><span class="RktPn">]</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define-struct</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">rectangl</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">width</span><span class="hspace">&nbsp;</span><span class="RktSym">height</span><span class="hspace">&nbsp;</span><span class="RktSym">mode</span><span class="hspace">&nbsp;</span><span class="RktSym">c</span><span class="RktPn">]</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Shape</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">signature</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">mixed</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">CirclOf</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Mode</span><span class="hspace">&nbsp;</span><span class="RktSym">Color</span><span class="RktPn">]</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym">SquarOf</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Mode</span><span class="hspace">&nbsp;</span><span class="RktSym">Color</span><span class="RktPn">]</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym">RectanglOf</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">Number</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">Mode</span><span class="hspace">&nbsp;</span><span class="RktSym">Color</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">and represents either:</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- the radius in pixels, mode, and color of a circle</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- the side length in pixels, mode, and color of a square</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">- the width and height in pixels, the mode, and color of a rectangle</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <p></p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 11 </span>Provide examples and templates for the above data definitions.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 12 </span>Use <span class="RktSym">filter</span> to design a function that takes a
+<span style="font-style: italic">[ListOf 
+     <font class="badlink">
+      <span class="techoutside"><span class="techinside">Shape</span></span>
+     </font>
+     ]
+    </span>
+     and keeps only circles.
+   </p>
+  </blockquote>
+  <blockquote>
+   <p>
+    <span style="font-weight: bold">Exercise 13 </span>Use <span class="RktSym">foldr</span> to design a function that takes a
+<span style="font-style: italic">[ListOf 
+    <font class="badlink">
+     <span class="techoutside"><span class="techinside">Shape</span></span>
+    </font>
+    ]
+   </span>
+    and stacks all of its images vertically (hint: you may need to use map as well).
+  </p>
+ </blockquote>
+ <h3>
+  <a name="(part._g46736)"></a>Signature Detective
+ </h3>
+ <p>
+  <span style="font-weight: bold">Goals:</span> Practice understanding what the data type restrictions on code must be when reading
+it.
+ </p>
+ <blockquote>
+  <p>
+   <span style="font-weight: bold">Exercise 14 </span>Determine the signature for the following functions.
+  </p>
+ </blockquote>
+ <blockquote>
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">a</span><span class="hspace">&nbsp;</span><span class="RktSym">supercut</span><span class="hspace">&nbsp;</span><span class="RktSym">of</span><span class="hspace">&nbsp;</span><span class="RktSym">us</span><span class="RktPn">)</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">of</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">empty?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">supercut</span><span class="RktPn">)</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">us</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">us</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">supercut</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">the</span><span class="hspace">&nbsp;</span><span class="RktSym">moments</span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="hspace">&nbsp;</span><span class="RktSym">play</span><span class="hspace">&nbsp;</span><span class="RktSym">in</span><span class="hspace">&nbsp;</span><span class="RktSym">the</span><span class="hspace">&nbsp;</span><span class="RktSym">dark</span><span class="RktPn">)</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">play</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">play</span><span class="hspace">&nbsp;</span><span class="RktSym">the</span><span class="hspace">&nbsp;</span><span class="RktSym">dark</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">play</span><span class="hspace">&nbsp;</span><span class="RktSym">moments</span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">come</span><span class="hspace">&nbsp;</span><span class="RktSym">home</span><span class="hspace">&nbsp;</span><span class="RktSym">to</span><span class="hspace">&nbsp;</span><span class="RktSym">my</span><span class="hspace">&nbsp;</span><span class="RktSym">heart</span><span class="RktPn">)</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">home</span><span class="hspace">&nbsp;</span><span class="RktSym">my</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">to</span><span class="hspace">&nbsp;</span><span class="RktSym">heart</span><span class="RktPn">)</span><span class="RktPn">]</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">my</span><span class="hspace">&nbsp;</span><span class="RktSym">heart</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">" "</span><span class="RktPn">]</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">else</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">""</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </blockquote>
+ <div class="navsetbottom">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="lab4.html" title="backward to &quot;4 Quote &amp; Unquote&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab6.html" title="forward to &quot;6 Using Abstractions to Mimic&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

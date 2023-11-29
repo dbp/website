@@ -1,0 +1,1393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../Homeworks/index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab1.html" class="tocviewlink" data-pltdoc="x">1 The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab2.html" class="tocviewlink" data-pltdoc="x">2 Big Bang</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab3.html" class="tocviewlink" data-pltdoc="x">3 Natural Numbers and Counters</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab4.html" class="tocviewlink" data-pltdoc="x">4 Quote &amp; Unquote</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab5.html" class="tocviewlink" data-pltdoc="x">5 Designing With Lists and Abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab6.html" class="tocviewlink" data-pltdoc="x">6 Using Abstractions to Mimic</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab7.html" class="tocviewlink" data-pltdoc="x">7 Lambda</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab8.html" class="tocviewlink" data-pltdoc="x">8 Files and Directories</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab9.html" class="tocviewlink" data-pltdoc="x">9 Using Abstractions To Game</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab10.html" class="tocviewlink" data-pltdoc="x">10 Graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab11.html" class="tocviewlink" data-pltdoc="x">11 Generative Recursion</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">12 Control</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">12 Control</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g43409%29" class="tocviewlink" data-pltdoc="x">STOP! In The Name Of Cycles</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g43410%29" class="tocviewlink" data-pltdoc="x">Controlling Control</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g43411%29" class="tocviewlink" data-pltdoc="x">Laws Of Control</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._g43412%29" class="tocviewlink" data-pltdoc="x">Before You Go...</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g43409%29" class="tocsubseclink" data-pltdoc="x">STOP! In The Name Of Cycles</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g43410%29" class="tocsubseclink" data-pltdoc="x">Controlling Control</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g43411%29" class="tocsubseclink" data-pltdoc="x">Laws Of Control</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._g43412%29" class="tocsubseclink" data-pltdoc="x">Before You Go...</a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.10</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="lab11.html" title="backward to &quot;11 Generative Recursion&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../style/index.html" title="forward to &quot;The Style&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._lab12)"></a>12 Control
+   </h3>
+   <blockquote class="refpara">
+    <blockquote class="refcolumn">
+     <blockquote class="refcontent">
+      <p>
+       <img src="lab.png" alt="home work!" width="128" height="105">
+      </p>
+     </blockquote>
+    </blockquote>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Purpose:</span> To examine new and interesting computational models; achieve the control
+we crave in our real lives in programming.
+   </p>
+   <h3>
+    <a name="(part._g43409)"></a>STOP! In The Name Of Cycles
+   </h3>
+   <p>
+    Consider the following silly computation:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">product : [List-of Number] -&gt; Number</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">The product of lon</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">empty?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">else</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktVal">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">3</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">27</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">54</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    Why is this silly? Once we see <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="stt"> </span><span class="RktVal">0</span><span class="stt"> </span><span class="RktSym"><span class="badlink"><span class="RktValLink">...</span></span></span><span class="RktPn">)</span>, the program continues to compute the product
+of the remaining sublist, despite the fact the output <span style="font-style: italic">must</span> be <span class="RktVal">0</span>.
+   </p>
+   <p></p>
+   <div class="SIntrapara">
+    We could make this slightly less silly by tweaking <span class="RktSym">product</span>:
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">product : [List-of Number] -&gt; Number</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">The product of lon</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">empty?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">]</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">else</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">zero?</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <p></p>
+   <p></p>
+   <div class="SIntrapara">
+    Now, our computation is more like this:
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <p></p>
+   <p>
+    But wouldn’t it be nice if it also avoided computing every step of <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="stt"> </span><span class="RktVal">5</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="stt"> </span><span class="RktVal">8</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="stt"> </span><span class="RktVal">1</span><span class="stt"> </span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+and instead replaced the whole computation with <span class="RktVal">0</span> immediately? Something like...
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">STOP!-THE-ANSWER-IS</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    If we had a keyword like <span class="RktSym">STOP!-THE-ANSWER-IS</span> then we could refine our implementation of
+<span class="RktSym">product</span> once more to avoid computing any of the multiplications by <span class="RktVal">0</span>:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">product : [List-of Number] -&gt; Number</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">The product of lon</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cond</span></span></span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">empty?</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">]</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym"><span class="badlink"><span class="RktValLink">else</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">zero?</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">STOP!-THE-ANSWER-IS</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">lon</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    But how can we get a keyword like <span class="RktSym">STOP!-THE-ANSWER-IS</span>? The closest thing we have is
+<span class="RktSym"><span class="badlink"><span class="RktValLink">error</span></span></span>, but it signals an error to the user whereas we just want to return a normal value.
+   </p>
+   <p>
+    The problem is that Racket has a strict idea about how a program is evaluated,
+which prevents us from defining an operator like <span class="RktSym">STOP!-THE-ANSWER-IS</span>.
+That is, ISL+ has a strict notion of the <span style="font-style: italic">control</span> of a program, i.e.
+in what order to evaluate expressions and their sub-expressions. What we lack is
+a way to influence this control once a program starts running.
+   </p>
+   <p>
+    <span style="font-weight: bold">Starter Code:</span> Place the following two lines at the top of your file.
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">require</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">racket</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">require</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">only-in</span><span class="hspace">&nbsp;</span><span class="RktSym">racket/control</span><span class="hspace">&nbsp;</span><span class="RktSym">abort</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    We can now access <span class="RktSym">abort</span>, which functions just as we would want
+<span class="RktSym">STOP!-THE-ANSWER-IS</span> to. ISL+ will evaluate your program as normal, except if it ever needs
+to evaluate a part that says <span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span>, then ISL+ will replace your whole program with
+<span class="RktSym">val</span>.
+   </p>
+   <blockquote>
+    <p></p>
+    <div class="SIntrapara">
+     <span style="font-weight: bold">Exercise 1 </span>Predict what the following code snippets will return:
+    </div>
+    <div class="SIntrapara">
+     <blockquote class="SCodeFlow">
+      <table cellspacing="0" cellpadding="0" class="RktBlk">
+       <tbody>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">-</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">6</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string-append</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">"Your total is: $"</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">n</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktVal">"Hi Mom!"</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number-&gt;string</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">80</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">string-append</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">"Your total is: $"</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">second</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">n</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktVal">"Hi Mom!"</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number-&gt;string</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">80</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">map</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">f</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">f</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">sqr</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">number-&gt;string</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">odd?</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"Oopsies"</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">rest</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">map</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">identity</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">abort</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">map</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">local</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">loop</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">loop</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">loop</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktVal">"Hello, World!"</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">local</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">loop</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">loop</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">loop</span><span class="hspace">&nbsp;</span><span class="RktVal">"Hello, World!"</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">watch out for this one!</span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </blockquote>
+    </div>
+    <p></p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 2 </span>Determine the signature for <span class="RktSym">abort</span>.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 3 </span>Implement <span class="RktSym">product</span> with <span class="RktSym">abort</span>.
+    </p>
+   </blockquote>
+   <p>
+    So this is great, but what if <span class="RktSym">product</span> was just part of a computation? For example,
+   </p>
+   <blockquote class="SCodeFlow">
+    <p>
+     <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+    </p>
+   </blockquote>
+   <p>
+    Just reading this, we’d want the outcome to be <span class="RktVal">20</span>. But that’s not what happens: why not?
+And how do we fix it? Let’s dive in.
+   </p>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <h3>
+    <a name="(part._g43410)"></a>Controlling Control
+   </h3>
+   <p>
+    Aborting a computation is somewhat handy, but it’s too <span style="font-style: italic">global</span>—<wbr>it affects the entire
+computation. What we want is something that enables us to manipulate control more <span style="font-style: italic">locally</span>
+so that we can skip over just the unnecessary products but leave the rest of the program alone.
+   </p>
+   <p>
+    In our example
+   </p>
+   <p></p>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <p>
+      <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+     </p>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    what we want is to consider "the remainder of the computation," <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktVal">20</span><span class="stt"> </span><span class="RktSym">•</span><span class="RktPn">)</span>, separately from what happens once we start to compute <span class="RktPn">(</span><span class="RktSym">product</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="stt"> </span><span class="RktVal">5</span><span class="stt"> </span><span class="RktVal">8</span><span class="stt"> </span><span class="RktVal">1</span><span class="stt"> </span><span class="RktVal">0</span><span class="stt"> </span><span class="RktVal">2</span><span class="stt"> </span><span class="RktVal">9</span><span class="stt"> </span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span>.
+This way, when we see the <span class="RktVal">0</span> we don’t abort the <span style="font-style: italic">whole</span>
+computation with <span class="RktVal">0</span>, but instead we only abort the computation between
+<span class="RktVal">0</span> and <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktVal">20</span><span class="stt"> </span><span class="RktSym">•</span><span class="RktPn">)</span>. We can imagine a special <span class="RktSym">WHERE-AM-I?</span>
+operator that gives programs access to "the remainder of the computation" as a
+function:
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">WHERE-AM-I?</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">GO-BACK</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product-or-go-back</span><span class="hspace">&nbsp;</span><span class="RktSym">GO-BACK</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">GO-BACK = (λ (x) (abort (+ 20 x)))</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product-or-go-back</span><span class="hspace">&nbsp;</span><span class="RktSym">GO-BACK</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product-or-go-back</span><span class="hspace">&nbsp;</span><span class="RktSym">GO-BACK</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product-or-go-back</span><span class="hspace">&nbsp;</span><span class="RktSym">GO-BACK</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">product-or-go-back</span><span class="hspace">&nbsp;</span><span class="RktSym">GO-BACK</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">9</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">GO-BACK</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">8</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">20</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </div>
+   <p></p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 4 </span>That there’s a toughy. Re-read and discuss the above with your partner until both of you
+are certain you understand it.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 5 </span>What would happen if <span class="RktSym">GO-BACK</span> was not <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktVal">20</span><span class="stt"> </span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>, but just <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktVal">20</span><span class="stt"> </span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span>, without the abort?
+    </p>
+   </blockquote>
+   <p>
+    So, we need to further examine this supposed <span class="RktSym">WHERE-AM-I?</span> operator. How does it behave?
+   </p>
+   <p>
+    <span class="RktSym">WHERE-AM-I?</span> grabs the rest of the computation, turns it into an aborting <span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span>, and
+hands it to the function you supply. Your function can then do whatever it wants with it. If it
+calls it with argument <span class="RktSym">val</span>, the computation will jump back to the captured point, filling
+the hole with <span class="RktSym">val</span>. If it doesn’t call it, life proceeds as usual.
+   </p>
+   <p>
+    If we call the rest of the computation at some point in the program the current continuation, then
+a good name for this operator is, instead of <span class="RktSym">WHERE-AM-I?</span>,
+<span class="RktSym">call-with-current-continuation</span>. That’s a mouthful, so let’s
+also abbreviate it as <span class="RktSym">call/cc</span>. Since we’re about to start carrying around lots of
+continuations we should pick a good name for them: <span class="RktSym">k</span> is conventional, just like
+<span class="RktSym">n</span> for integers or <span class="RktSym">s</span> for strings.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 6 </span>What do each of the following snippets of code evaluate to? Work them out in your head
+first, and then use <span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span> to test your hypotheses.
+    </p>
+    <p>
+     Your first step in each should be to figure out what <span class="RktSym">k</span> is, the continuation that’s current
+ when <span class="RktSym">call/cc</span> is invoked.
+    </p>
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 7 </span>What should the signature for <span class="RktSym">call/cc</span> be?
+    </p>
+   </blockquote>
+   <p>
+    <span style="font-weight: bold">Switch pair programming roles before continuing!</span>
+   </p>
+   <h3>
+    <a name="(part._g43411)"></a>Laws Of Control
+   </h3>
+   <p>
+    Now that you have a feel for <span class="RktSym">call/cc</span> and <span class="RktSym">abort</span>, let me show you a very concise and
+very precise way to describe their behavior. Think of these like laws of physics—very small, very
+dense, and containing all the information you need. Much staring required.
+   </p>
+   <p>
+    To illustrate what a law looks like in Racket, let’s first look at a law that describes behavior
+we’re already comfortable with: the law of <span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span>. It says that if you apply a <span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span> to a
+value then it plugs that value into its body:
+   </p>
+   <p>
+    <span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktSym">expr1</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span> = replace <span class="RktSym">x</span> with <span class="RktSym">val</span> in <span class="RktSym">expr1</span>
+   </p>
+   <p>
+    It’s important that <span class="RktSym">val</span> is a value: if we apply <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktSym">expr1</span><span class="RktPn">)</span> to some expression
+<span class="RktSym">expr2</span> that isn’t yet evaluated, then <span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktSym">expr1</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktSym">expr2</span><span class="RktPn">)</span> must first evaluate
+<span class="RktSym">expr2</span> to a value <span class="RktSym">val</span> before it can apply the above law.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 8 </span>Find an <span class="RktSym">expr1</span> and expr2 such that <span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktSym">expr1</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktSym">expr2</span><span class="RktPn">)</span> is
+<span style="font-style: italic">not</span> equivalent to replacing <span class="RktSym">x</span> with <span class="RktSym">expr2</span> in
+<span class="RktSym">expr1</span>. Hint: use <span class="RktSym"><span class="badlink"><span class="RktValLink">error</span></span></span>.
+    </p>
+   </blockquote>
+   <p>
+    So a law is just an equation between two expressions that we read left to right: when you see the
+thing on the left, replace it with the thing on the right. What then should be the laws for
+<span class="RktSym">call/cc</span> and <span class="RktSym">abort</span>?
+   </p>
+   <p>
+    <span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span>   = ...
+   </p>
+   <p>
+    <span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span> = ...
+   </p>
+   <p>
+    Whereas the law of <span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span> didn’t care where in the program the application
+occurred, as we saw above control operators are about the continuation of an
+expression. While we can use variables like <span class="RktSym">expr</span> and <span class="RktSym">val</span> to
+describe the law of <span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span>, it’s not obvious how to write something similar
+for the continuation. However, the same idea applies: we can refer to the
+<span style="font-style: italic">context</span> of an expression with a variable <span class="RktSym">C</span>, such as in
+   </p>
+   <p>
+    <span class="RktSym">C</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span>   = ...
+   </p>
+   <p>
+    <span class="RktSym">C</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span> = ...
+   </p>
+   <p>
+    A context <span class="RktSym">C</span> can stand for any program with a hole in it, and
+<span class="RktSym">C</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktSym">expr</span><span class="RktPn">]</span> is the same program with <span class="RktSym">expr</span> plugged in the hole. For example,
+   </p>
+   <p>
+    <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktVal">20</span><span class="stt"> </span><span class="RktSym">•</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">product</span><span class="stt"> </span><span class="RktVal">1</span><span class="stt"> </span><span class="RktVal">2</span><span class="stt"> </span><span class="RktVal">3</span><span class="stt"> </span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">]</span> = <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktVal">20</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">product</span><span class="stt"> </span><span class="RktVal">1</span><span class="stt"> </span><span class="RktVal">2</span><span class="stt"> </span><span class="RktVal">3</span><span class="stt"> </span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span>
+   </p>
+   <p>
+    <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">zero?</span></span></span><span class="stt"> </span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="stt"> </span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktSym">•</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">/</span></span></span><span class="stt"> </span><span class="RktVal">1</span><span class="stt"> </span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">]</span> = <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">zero?</span></span></span><span class="stt"> </span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">add1</span></span></span><span class="stt"> </span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">/</span></span></span><span class="stt"> </span><span class="RktVal">1</span><span class="stt"> </span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktPn">)</span>
+   </p>
+   <p>
+    Given this, the law for abort now seems clear: throw away the context and
+replace the whole program with the given value.
+   </p>
+   <p>
+    <span class="RktSym">C</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span> = <span class="RktSym">val</span>
+   </p>
+   <p>
+    But this law gets us in trouble. It says that this computation should happen:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">even?</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">42</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktVal"><span class="nobreak">-1</span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal"><span class="nobreak">-1</span></span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    But if we actually run this, we get <span class="RktVal">42</span>.
+Why? Because contexts can be <span style="font-style: italic">any</span> hole-y program,
+so <span class="RktSym">C</span><span class="stt"> </span><span class="RktSym"><span class="badlink"><span class="RktValLink">=</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">even?</span></span></span><span class="stt"> </span><span class="RktVal">0</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktVal">42</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktVal">1</span><span class="stt"> </span><span class="RktSym">•</span><span class="RktPn">)</span><span class="RktPn">)</span> is certainly a legal context. That law essentially says that
+<span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span> can be evaluated <span style="font-style: italic">anywhere</span> in the program <span style="font-style: italic">at any time</span>. But we
+meant for it to evaluate <span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span> only when it’s the current expression being evaluated.
+In fact, we have a very particular feeling about the order in which the above
+expression should evaluate, and it should never include any aborts:
+   </p>
+   <blockquote class="SCodeFlow">
+    <table cellspacing="0" cellpadding="0" class="RktBlk">
+     <tbody>
+      <tr>
+       <td>
+        <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">even?</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">42</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktVal"><span class="nobreak">-1</span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym"><span class="badlink"><span class="RktValLink">true</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">42</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="hspace">&nbsp;</span><span class="RktVal"><span class="nobreak">-1</span></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="RktSym"><span class="badlink"><span class="RktValLink">-&gt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">42</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </blockquote>
+   <p>
+    We want the above law to apply only when <span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span> is the
+<span style="font-style: italic">current expression</span> to evaluate. Similarly to how we say value variables
+<span class="RktSym">val</span> are a restricted subset of expressions, we can revise our
+definition of contexts to only allow programs where the hole is the current
+expression to evaluate. We will call these the <span style="font-style: italic">evaluation contexts</span> and
+write them as <span class="RktSym">E</span>. Our laws now look like this:
+   </p>
+   <p>
+    <span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span>   = <span class="RktSym">val</span>
+   </p>
+   <p>
+    <span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span> = ...
+   </p>
+   <p>
+    This properly captures the behavior of <span class="RktSym">abort</span>: if you encounter <span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span>
+<span style="font-style: italic">while evaluating a program</span>, throw away the rest of the program by replacing
+<span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span> with just <span class="RktSym">val</span>. This rules out the bad computation above and enables
+the good one.
+   </p>
+   <p>
+    What about the law for <span class="RktSym">call/cc</span>?
+   </p>
+   <p>
+    <span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span> = ...
+   </p>
+   <p>
+    Above we said that <span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span> grabs its current continuation, wraps it in an aborting
+<span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span>, and hands it to <span class="RktSym">val</span>. Since the current continuation is exactly the evaluation
+context <span class="RktSym">E</span>, this is now straightforward:
+   </p>
+   <p>
+    <span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span> = <span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">val</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+   </p>
+   <p>
+    That’s it—that’s the crux of the lab in two laws of Racket:
+   </p>
+   <p>
+    <span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span>   = <span class="RktSym">val</span>
+   </p>
+   <p>
+    <span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span><span class="RktPn">]</span> = <span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">val</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">abort</span><span class="stt"> </span><span class="RktSym">E</span><span class="stt"> </span><span class="RktPn">[</span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+   </p>
+   <p>
+    All we lacked before was the notion of an evaluation context.
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 9 </span>What do each of the following snippets of code evaluate to? Work them out in your head
+first, and then use <span class="RktSym"><span class="badlink"><span class="RktValLink">check-expect</span></span></span> (when possible) to test your hypotheses.
+    </p>
+    <p>
+     These are more challenging than the last set. As before, start by figuring out all the relevant
+ continuations—if you get stuck, step the program in your head (or on paper) to find the evaluation
+ context when <span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="stt"> </span><span class="RktSym">val</span><span class="RktPn">)</span> becomes the current expression.
+    </p>
+    <blockquote class="SCodeFlow">
+     <table cellspacing="0" cellpadding="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">map</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cons</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">4</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">cons</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">map</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">call/cc</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">3</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">local</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">k</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">local</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">f</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">first</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">a</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">second</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">b</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">third</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">l</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">if</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">&lt;</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">a</span><span class="hspace">&nbsp;</span><span class="RktVal">7</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">f</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="hspace">&nbsp;</span><span class="RktSym">f</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;</span><span class="RktSym">a</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">*</span></span></span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="hspace">&nbsp;</span><span class="RktSym">b</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym">b</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">k</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktSym">abort</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktSym">call/cc</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="hspace">&nbsp;</span>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktSym">call/cc</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">call/cc</span><span class="hspace">&nbsp;</span><span class="RktSym">call/cc</span><span class="RktPn">)</span><span class="RktPn">)</span>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </blockquote>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 10 </span>Using <span class="RktSym">call/cc</span>, implement <span class="RktSym">product</span> and <span class="RktSym">product-or-go-back</span> so
+the evaluation of <span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">+</span></span></span><span class="stt"> </span><span class="RktVal">20</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">product</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><span class="badlink"><span class="RktValLink">list</span></span></span><span class="stt"> </span><span class="RktVal">5</span><span class="stt"> </span><span class="RktVal">8</span><span class="stt"> </span><span class="RktVal">1</span><span class="stt"> </span><span class="RktVal">0</span><span class="stt"> </span><span class="RktVal">2</span><span class="stt"> </span><span class="RktVal">9</span><span class="stt"> </span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span> works as described above.
+    </p>
+   </blockquote>
+   <h3>
+    <a name="(part._g43412)"></a>Before You Go...
+   </h3>
+   <p>
+    That’s the last lab of the semester! Just three lectures and two homeworks to go and you are done with
+the accelerated version of CS2500. Congratulations on all you have achieved! Consider
+the kinds of problems you can solve now that would have seemed impossible at the beginning of September;
+you can and should feel proud. We certainly are of you!
+   </p>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="lab11.html" title="backward to &quot;11 Generative Recursion&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Labs&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="../style/index.html" title="forward to &quot;The Style&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

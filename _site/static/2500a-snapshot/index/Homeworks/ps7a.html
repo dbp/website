@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="../scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="../pretty.css" title="default">
+  <script type="text/javascript" src="../scribble-common.js"></script>
+  <script type="text/javascript" src="../manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="../index.html" class="tocviewlink" data-pltdoc="x">Accelerated Fundamentals of Computer Science 1</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../general/index.html" class="tocviewlink" data-pltdoc="x">General Information</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../advice/index.html" class="tocviewlink" data-pltdoc="x">Advice</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../syllabus/index.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../ofc_hrs/index.html" class="tocviewlink" data-pltdoc="x">Office Hours/<span class="mywbr"> &nbsp;</span>Contact</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../comm/index.html" class="tocviewlink" data-pltdoc="x">Email, Discord</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="index.html" class="tocviewselflink" data-pltdoc="x">Homeworks</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../labs/index.html" class="tocviewlink" data-pltdoc="x">Labs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../style/index.html" class="tocviewlink" data-pltdoc="x">The Style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../texts/index.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../contract/index.html" class="tocviewlink" data-pltdoc="x">Course Contract</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../design_recipe/index.html" class="tocviewlink" data-pltdoc="x">The Design Recipe</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="../placement/index.html" class="tocviewlink" data-pltdoc="x">Placement Test</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="index.html" class="tocviewlink" data-pltdoc="x">Homeworks</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps1b.html" class="tocviewlink" data-pltdoc="x">Homework 1b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps2a.html" class="tocviewlink" data-pltdoc="x">Homework 2a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps2b.html" class="tocviewlink" data-pltdoc="x">Homework 2b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps3a.html" class="tocviewlink" data-pltdoc="x">Homework 3a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps3b.html" class="tocviewlink" data-pltdoc="x">Homework 3b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps4a.html" class="tocviewlink" data-pltdoc="x">Homework 4a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps4b.html" class="tocviewlink" data-pltdoc="x">Homework 4b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps5b.html" class="tocviewlink" data-pltdoc="x">Homework 5b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps6b.html" class="tocviewlink" data-pltdoc="x">Homework 6b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Homework 7a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps7b.html" class="tocviewlink" data-pltdoc="x">Homework 7b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps8a.html" class="tocviewlink" data-pltdoc="x">Homework 8a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps8b.html" class="tocviewlink" data-pltdoc="x">Homework 8b</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps9a.html" class="tocviewlink" data-pltdoc="x">Homework 9a</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="ps9b.html" class="tocviewlink" data-pltdoc="x">Homework 9b</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.9</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="ps6b.html" title="backward to &quot;Homework 6b&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Homeworks&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="ps7b.html" title="forward to &quot;Homework 7b&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+   </div>
+   <h3>
+    <a name="(part._ps7a)"></a>Homework 7a
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    <blockquote class="refpara">
+     <blockquote class="refcolumn">
+      <blockquote class="refcontent">
+       <p>
+        <img src="assignments.png" alt="home work!" width="121" height="132">
+       </p>
+      </blockquote>
+     </blockquote>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    <span style="font-weight: bold">Programming Language</span>  <span style="color: red">BSL</span>
+   </div>
+   <p></p>
+   <p>
+    <span style="font-weight: bold">Due Date</span> Tues at 9:00pm (<a href="../syllabus/index.html#%28part._7%29" data-pltdoc="x">Week 7</a>)
+   </p>
+   <p>
+    <span style="font-weight: bold">Purpose</span> Explore Lambda
+   </p>
+   <p>
+    <span style="font-weight: bold">Exercises</span>
+   </p>
+   <p>
+    <span style="font-weight: bold">Take Me To Church</span>
+   </p>
+   <p>
+    Alonzo Church is one of the founders of computer science: he came up with the
+<span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span> calculus, which we know and love so dearly. In fact, he famously
+argued that <span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span>, much like love, is all you need! Let’s see whether or
+not he was right by investigating one of our favorite atomic data types,
+booleans.
+   </p>
+   <p></p>
+   <div class="SIntrapara">
+    <blockquote class="SCodeFlow">
+     <p>
+      <span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">A </span><a name="(tech._bool)"></a><span style="font-style: italic">Bool</span><span class="RktCmt"> is a [X X -&gt; X]</span>
+     </p>
+    </blockquote>
+   </div>
+   <div class="SIntrapara">
+    <blockquote>
+     <p>
+      <span style="font-weight: bold">Exercise 1 </span>Define the two shortest functions that have this signature. The functions are restricted to
+<span style="font-style: italic">only</span> use <span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span> expressions and variables. These will be our <a href="#%28tech._bool%29" class="techoutside" data-pltdoc="x"><span class="techinside">Bool</span></a>s.
+     </p>
+    </blockquote>
+   </div>
+   <p></p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 2 </span>Design a <span class="RktSym">bool-&gt;boolean</span> function, which will allow us to test the functions we
+define below by converting to normal ISL <span class="RktVal">#true</span> / <span class="RktVal">#false</span>.
+    </p>
+   </blockquote>
+   <p>
+    For the following three functions, besides <span class="RktSym"><span class="badlink"><span class="RktValLink">define</span></span></span> and <span class="RktSym"><span class="badlink"><span class="RktValLink">λ</span></span></span>, your
+function definitions should not use any ISL-provided functions or keywords (and
+certainly not <span class="RktSym">bool-&gt;boolean</span>, <span class="RktVal">#true</span> or <span class="RktVal">#false</span>).
+   </p>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 3 </span>Design <span class="RktSym">and/bool</span>, which functions analogusly to <span class="RktSym"><span class="badlink"><span class="RktValLink">and</span></span></span>, but takes in two
+<a href="#%28tech._bool%29" class="techoutside" data-pltdoc="x"><span class="techinside">Bool</span></a>s and outputs a <a href="#%28tech._bool%29" class="techoutside" data-pltdoc="x"><span class="techinside">Bool</span></a>.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 4 </span>Design <span class="RktSym">or/bool</span>, which functions analogusly to <span class="RktSym"><span class="badlink"><span class="RktValLink">or</span></span></span>, but takes in two
+<a href="#%28tech._bool%29" class="techoutside" data-pltdoc="x"><span class="techinside">Bool</span></a>s and outputs a <a href="#%28tech._bool%29" class="techoutside" data-pltdoc="x"><span class="techinside">Bool</span></a>.
+    </p>
+   </blockquote>
+   <blockquote>
+    <p>
+     <span style="font-weight: bold">Exercise 5 </span>Design <span class="RktSym">not/bool</span>, which functions analogusly to <span class="RktSym"><span class="badlink"><span class="RktValLink">not</span></span></span>, but takes in one
+<a href="#%28tech._bool%29" class="techoutside" data-pltdoc="x"><span class="techinside">Bool</span></a> and outputs a <a href="#%28tech._bool%29" class="techoutside" data-pltdoc="x"><span class="techinside">Bool</span></a>.
+    </p>
+   </blockquote>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="ps6b.html" title="backward to &quot;Homework 6b&quot;" data-pltdoc="x">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Homeworks&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="ps7b.html" title="forward to &quot;Homework 7b&quot;" data-pltdoc="x">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>
