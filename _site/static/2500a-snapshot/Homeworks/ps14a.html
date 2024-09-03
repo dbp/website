@@ -543,6 +543,10 @@ and <span class="RktSym">ValV2</span><span class="RktMeta"></span>). Like ASL, w
     <p>
      If you don’t remember, please revisit how <span class="RktSym">set!</span><span class="RktMeta"></span> works in ASL.
     </p>
+    <p>
+     <span style="font-weight: bold">NOTE: One difference, unlike in ASL, <span class="RktSym">set!</span><span class="RktMeta"></span> should return 0, rather
+than a void value (which we do not have in StateLang)</span>
+    </p>
    </blockquote>
    <blockquote>
     <p>
@@ -688,7 +692,13 @@ for the given location with that value.
    <blockquote>
     <p>
      <span style="font-weight: bold">Exercise 5 </span>With <span class="RktSym">set!</span><span class="RktMeta"></span> implemented, its time to move on to <span class="RktSym">set-box!</span><span class="RktMeta"></span>.
-For this exercise, we want you to copy your implementations into
+    </p>
+    <p>
+     <span style="font-weight: bold">NOTE: Like with <span class="RktSym">set!</span><span class="RktMeta"></span>, unlike in ASL, <span class="RktSym">set-box!</span><span class="RktMeta"></span> should return
+0, rather than a void value (which we do not have in StateLang)</span>
+    </p>
+    <p>
+     For this exercise, we want you to copy your implementations into
 <span class="RktSym">parse-v3</span><span class="RktMeta"></span>, <span class="RktSym">subst-v3</span><span class="RktMeta"></span>, <span class="RktSym">wf-v3</span><span class="RktMeta"></span>, <span class="RktSym">eval-v3</span><span class="RktMeta"></span>, etc. First, you
 need to extend your Expr and Val definitions to account for the new terms:
 <span class="RktSym">box</span><span class="RktMeta"></span>, <span class="RktSym">unbox</span><span class="RktMeta"></span>, and <span class="RktSym">set-box!</span><span class="RktMeta"></span>. You also need a <span style="font-style: italic">value</span>

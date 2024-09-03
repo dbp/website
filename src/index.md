@@ -17,13 +17,17 @@ You're welcome to come talk to me about anything (related to what I'm teaching,
 research I've done, or really, anything else), though students who are currently
 enrolled in classes I'm teaching will get preference.
 
-**Fall 2023**, I'll have *in-person* drop-in hours, Tuesdays **11:00am-1:00pm**, at my office, **317 Meserve Hall**.
+**Fall 2024**, I'll have *in-person* drop-in hours, **Mondays 1:30-2:30pm** and **Wednesdays 3:00pm-4:00pm**, at my office, **317 Meserve Hall**.
 
 If you are unable to make that time, or would like to meet virtually, reach out via email.
 
 ### Teaching
 
-**Fall 2023: ** [CS2500: Fundamentals of Computer Science (Accelerated)](https://course.ccs.neu.edu/cs2500accelf23/) and [CS2500: Fundamentals of Computer Science](#)
+**Fall 2024: ** [CS2500: Fundamentals of Computer Science](https://pages.github.khoury.northeastern.edu/2500/2024F/)
+
+**Spring 2024: ** [CS2800: Logic & Computation](https://course.ccs.neu.edu/cs2800sp24/)
+
+**Fall 2023: ** [CS2500: Fundamentals of Computer Science (Accelerated)](https://course.ccs.neu.edu/cs2500accelf23/) and [CS2500: Fundamentals of Computer Science](https://pages.github.khoury.northeastern.edu/2500/2023F/)
 
 **Spring 2023: ** [CS2800: Logic & Computation](https://course.ccs.neu.edu/cs2800sp23/)
 
