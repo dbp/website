@@ -1,4 +1,8 @@
-<div class="imgr"><img src="/static/dbp.jpg" alt="Daniel Patterson"/></div> I'm
+<div class="bio">
+<div class="imgr"><img src="/static/dbp.jpg" alt="Daniel Patterson"/></div>
+<div class="credit">photo by <a target="_blank" href="https://elainezhu.myportfolio.com/">Elaine Zhu</a></div>
+</div>
+I'm
 an Assistant Teaching Professor at [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/) at Northeastern University. 
 
 I got my PhD at the [PRL Lab](http://prl.ccs.neu.edu/), studying programming languages with [Amal

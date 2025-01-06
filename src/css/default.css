@@ -118,27 +118,30 @@ code, pre {
   overflow-x: auto;
 }
 
-.imgr {
+.bio {
     margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
+    width: 150px;
+}
+
+.imgr {
+    height: 150px;
+    overflow: hidden;
+    text-align: center;
     border: 4px solid #ccc;
     border-radius: 75px;
-    width: 150px;
-    overflow: hidden;
-    height: 150px;
-    text-align: center;
 }
 
 @media (min-width: 800px) {
-    .imgr {
+    .bio {
         float: right;
     }
 }
 
 @media (max-width: 799px) {
-    .imgr {
+    .bio {
     margin: 10px auto;
     }
 }
@@ -155,6 +158,14 @@ img {
     width: 100%;
     height: 100%;
 }
+
+
+.bio .credit {
+    font-size: 0.8em;
+    color: #ccc;
+    text-align: center;
+}
+
 
 table {
     border-collapse: collapse;
