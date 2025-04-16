@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Motivation%29" class="tocviewlink" data-pltdoc="x">Motivation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          11.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.What_do_we_mean_by__sameness__%29" class="tocviewlink" data-pltdoc="x">What do we mean by “sameness”?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          11.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Review__sameness_for_built-in_types%29" class="tocviewlink" data-pltdoc="x">Review:<span class="mywbr"> &nbsp;</span> sameness for built-<wbr>in types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          11.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Review__sameness_of_structured_data%29" class="tocviewlink" data-pltdoc="x">Review:<span class="mywbr"> &nbsp;</span> sameness of structured data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          11.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Sameness_of_union_data__.Warmup%29" class="tocviewlink" data-pltdoc="x">Sameness of union data:<span class="mywbr"> &nbsp;</span> Warmup</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          11.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Sameness_of_union_data__flawed_attempt__1_using__casting__and_type-testing%29" class="tocviewlink" data-pltdoc="x">Sameness of union data:<span class="mywbr"> &nbsp;</span> flawed attempt #1 using “casting” and type-<wbr>testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          11.6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Sameness_of_union_data__flawed_attempt__2_using__custom__type-testing%29" class="tocviewlink" data-pltdoc="x">Sameness of union data:<span class="mywbr"> &nbsp;</span> flawed attempt #2 using “custom” type-<wbr>testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Wrapup%29" class="tocviewlink" data-pltdoc="x">Wrapup</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Motivation%29" class="tocsubseclink" data-pltdoc="x">Motivation</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">11.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.What_do_we_mean_by__sameness__%29" class="tocsubseclink" data-pltdoc="x">What do we mean by “sameness”?</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">11.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Review__sameness_for_built-in_types%29" class="tocsubseclink" data-pltdoc="x">Review:<span class="mywbr"> &nbsp;</span> sameness for built-<wbr>in types</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">11.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Review__sameness_of_structured_data%29" class="tocsubseclink" data-pltdoc="x">Review:<span class="mywbr"> &nbsp;</span> sameness of structured data</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">11.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Sameness_of_union_data__.Warmup%29" class="tocsubseclink" data-pltdoc="x">Sameness of union data:<span class="mywbr"> &nbsp;</span> Warmup</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">11.5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Sameness_of_union_data__flawed_attempt__1_using__casting__and_type-testing%29" class="tocsubseclink" data-pltdoc="x">Sameness of union data:<span class="mywbr"> &nbsp;</span> flawed attempt #1 using “casting” and type-<wbr>testing</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">11.5.1
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Casting%29" class="tocsubseclink" data-pltdoc="x">Casting</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">11.5.2
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Type-testing_using_instanceof%29" class="tocsubseclink" data-pltdoc="x">Type-<wbr>testing using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span></a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">11.5.3
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.What_goes_wrong_with_casting_and_instanceof_%29" class="tocsubseclink" data-pltdoc="x">What goes wrong with casting and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span>?</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">11.6
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._.Sameness_of_union_data__flawed_attempt__2_using__custom__type-testing%29" class="tocsubseclink" data-pltdoc="x">Sameness of union data:<span class="mywbr"> &nbsp;</span> flawed attempt #2 using “custom” type-<wbr>testing</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber"></span><a href="#%28part._.Wrapup%29" class="tocsubseclink" data-pltdoc="x">Wrapup</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture10.html" title="backward to &quot;Lecture 10: Customizing constructors for correctness and convenience&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture12.html" title="forward to &quot;Lecture 12: Defining sameness for complex data, part 2&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+Casting, type-testing, and “customized" type-testing mechanisms for checking sameness
+</p>
+<h5 class="heading">
+<a name="(part._.Motivation)"></a>Motivation<span class="button-group"><a href="#(part._.Motivation)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+How can we test when two values are “the same”?  This seemingly simple question has a surprisingly subtle
+answer, and we’ll spend the next two lectures constructing a reasonable answer.
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+For now!  As we’ll see in a few weeks, when we add new language features, we’ll have to revisit
+this and modify our approach.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+As with any other operation, we need to determine the form of our code based on the structure of the data.
+</div>
+<p></p>
+<h5 class="heading">
+11.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.What_do_we_mean_by__sameness__)"></a>What do we mean by “sameness”?<span class="button-group"><a href="#(part._.What_do_we_mean_by__sameness__)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+We cannot define a new operation if we don’t know what we want it to do!  Intuitively, we’d like “sameness”
+to mean “two values are the same if there’s no way we can tell them apart”.  In other words, any method that we call
+that uses one value could use the other value and compute the exact same answer; there are no “trick questions”
+we could ask to distinguish the two values.  In order to do that, and to make sameness be useful, there
+are a few other properties it must uphold:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+<span style="font-weight: bold">Reflexivity:</span> every object should be the same as itself.
+</p>
+</li>
+<li>
+<p>
+<span style="font-weight: bold">Symmetry:</span> if object <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">x</span><span class="RktMeta"></span></span></span> is the same as object <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">y</span><span class="RktMeta"></span></span></span>, then <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">y</span><span class="RktMeta"></span></span></span> is the same as <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">x</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+<span style="font-weight: bold">Transitivity:</span> if two objects are both the same as a third object, then they are the same as each other.
+</p>
+</li>
+<li>
+<p>
+<span style="font-weight: bold">Totality:</span> we can compare any two objects of the same type, and obtain a correct answer.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+As we define sameness for our various forms of data, keep these properties in mind, as they may indicate flaws in our designs
+that we must correct.
+</div>
+<p></p>
+<h5 class="heading">
+11.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Review__sameness_for_built-in_types)"></a>Review: sameness for built-in types<span class="button-group"><a href="#(part._.Review__sameness_for_built-in_types)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+We can use Java’s built-in <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">==</span><span class="RktMeta"></span></span></span> operator to compare two integers, or two booleans:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">4</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">true</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Technically, we can use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">==</span><span class="RktMeta"></span></span></span> to compare two doubles, but be careful!  Doubles are imprecise,
+and two numbers that appear the same may not in fact be equal.  It’s always safer to subtract
+one double from the other, and compare the difference to a small value:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">4.3333</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4.3333</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// BAD idea
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">4.3333</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4.3333</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.001</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// MUCH BETTER</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+(This latter one is conceptually what <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkInexact</span><span class="RktMeta"></span></span></span> does:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">4.3333</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4.3333</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.001</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+But there is a difference between the two: the former line checks whether the <span class="emph">absolute</span> difference between
+two numbers is less than some tolerance.  On the other hand, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkInexact</span><span class="RktMeta"></span></span></span> looks at the
+<span class="emph">relative</span> difference.  The distinction between these two is easier to see with larger numbers.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">1100000</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1000000</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// FAILS: the absolute difference is much bigger than 0.1
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">1100000</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1000000</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// SUCCEEDS: the relative difference is at most 10%</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Relative tolerances are interpreted as percentages of the expected value, while absolute tolerances
+are interpreted as plain numbers.)
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+To compare two strings, we use the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">equals</span><span class="RktMeta"></span></span></span> method:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjString">"hello"</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">equals</span><span class="ProfjKeyword">(</span><span class="ProfjString">"hel"</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"lo"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjString">"hello"</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">equals</span><span class="ProfjKeyword">(</span><span class="ProfjString">"goodbye"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Technically, we can use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">==</span><span class="RktMeta"></span></span></span> to compare two strings, but it may not always give the answer we expect: it
+relies on subtle details of Java that we have not yet explored, and it is much safer to use the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">equals</span><span class="RktMeta"></span></span></span> method.
+</div>
+<p></p>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Convince yourself that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">==</span><span class="RktMeta"></span></span></span> for integers and booleans and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">equals</span><span class="RktMeta"></span></span></span> on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span>s obey
+the four properties above.
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+11.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Review__sameness_of_structured_data)"></a>Review: sameness of structured data<span class="button-group"><a href="#(part._.Review__sameness_of_structured_data)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Recall a simple definition of a book:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">title</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+How might we define sameness for books?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Two books are the same when their titles are the same and their authors are the same:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameBook</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* Fields:
+   * this.title
+   * this.author
+   *
+   * Methods of fields:
+   * this.title.equals(String) -&gt; Boolean
+   * this.author.equals(String) -&gt; Boolean
+   *
+   * Fields of parameters:
+   * that.title
+   * that.author
+   */</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">equals</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">title</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">         </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">equals</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+This makes sense: we define sameness of two structures in terms of the sameness of their parts.
+Also notice that we restrict our comparison to be between two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s —<wbr> it makes no sense
+to compare a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> to any other form of data, since they will never be the same.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Define the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">samePoint</span><span class="RktMeta"></span></span></span> for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">CartPt</span><span class="RktMeta"></span></span></span> class.
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Revise the definition of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> so that its <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">author</span><span class="RktMeta"></span></span></span> field is now of type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>,
+where <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">last</span><span class="RktMeta"></span></span></span> names, and two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s are the same when
+both names are the same.  Revise the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameBook</span><span class="RktMeta"></span></span></span> method.  What methods must it delegate to?
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+11.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Sameness_of_union_data__.Warmup)"></a>Sameness of union data: Warmup<span class="button-group"><a href="#(part._.Sameness_of_union_data__.Warmup)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Recall a simplified form of our shapes examples:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">radius</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">w</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">w</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">h</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">w</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">h</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+We can define simple methods to check if two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>s are the same, or two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>s,
+by temporarily ignoring the fact that these classes implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>, and just defining methods as we did above with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In Circle
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameCircle</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* Template:
+   * Fields:
+   * this.x, this.y, this.radius
+   *
+   * Fields of parameters:
+   * that.x, that.y, that.radius
+   */</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">         </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">         </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In Rect
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameRect</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* Template:
+   * Fields:
+   * this.x, this.y, this.w, this.h
+   *
+   * Fields of parameters:
+   * that.x, that.y, that.w, that.h
+   */</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">         </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">         </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">         </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">h</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+We can write tests for these methods, and they work correctly:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In test method in an Examples class
+</span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">6</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">6</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">7</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameCircle</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameCircle</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameCircle</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c3</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c3</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameCircle</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameRect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameRect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameRect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r3</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r3</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameRect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+11.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Sameness_of_union_data__flawed_attempt__1_using__casting__and_type-testing)"></a>Sameness of union data: flawed attempt #1 using “casting” and type-testing<span class="button-group"><a href="#(part._.Sameness_of_union_data__flawed_attempt__1_using__casting__and_type-testing)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Ultimately the data type we care about here is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>; we can’t ignore it forever.
+We don’t just want to compare <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>s to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>s; we want to compare any <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> to any other <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>.
+If we follow the pattern we’ve started above, we ought to define a method
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+on the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> interface, and implement it in our classes.  Let’s try it for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> first:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In Circle:
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/*
+   * Fields:
+   * this.x, this.y, this.radius
+   *
+   * Methods:
+   * this.sameShape(IShape) -&gt; boolean
+   * this.sameCircle(Circle) -&gt; boolean
+   *
+   * Methods on fields:
+   *
+   * Fields on parameters:
+   *
+   * Methods on parameters
+   * that.sameShape(IShape) -&gt; boolean
+   */</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">   </span><span class="ProfjKeyword">?</span><span class="ProfjKeyword">?</span><span class="ProfjKeyword">?</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Our template is exceedingly useless here: if all we know is that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> is an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>,
+we have no way of knowing whether <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> or a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> (or something else).
+So we can’t call <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameCircle</span><span class="RktMeta"></span></span></span>, even though it would be perfect here.
+</div>
+<p></p>
+<h5 class="heading">
+11.5.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Casting)"></a>Casting<span class="button-group"><a href="#(part._.Casting)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+One naive approach would be to try to somehow <span class="emph">force</span> Java to treat <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> as a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> —<wbr> after all,
+if <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> <span class="emph">isn’t</span> a circle, then <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> can’t possibly be equal to this circle.  So why would any other situation be worth
+examining?
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What could go wrong with taking this position?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Java actually gives us a mechanism to achieve this “forcing”: we can <span class="emph">cast</span> the value to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> class.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+A <span class="emph">type cast</span>, or just a <span class="emph">cast</span>, is written as <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">SomeTypeName</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">someValue</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>, and it has two aspects to its meaning.
+First, it <span class="emph">statically</span> (that is, in the source code of our program) lets us treat <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">someValue</span><span class="RktMeta"></span></span></span> as if it had been
+defined with the type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">SomeTypeName</span><span class="RktMeta"></span></span></span>, <span class="emph">even if we don’t know for sure that its value is really of that type</span>,
+and so it will let us access the fields and methods of that type without giving a type error.  This sounds great; let’s try it:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In Circle
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameCircle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// cast that to a Circle, and use the sameCircle helper
+</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+If we try writing tests for this, it doesn’t go well:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In the Examples class
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c3</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// works
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// works
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r3</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// works
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// works
+</span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// CRASH! with a ClassCastException</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+Quite literally, we’re trying to fit a square peg into a round hole...
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+What went wrong?  We passed <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> method a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> value,
+and the code of the method tried to pretend that that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> was actually a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>,
+and that simply cannot work.
+So where did the exception get thrown?  It came from the second part of the meaning of casts:
+<span class="emph">dynamically</span> (that is, at runtime), a cast will check that the given value really is an instance of the specified type.
+When it is, the cast succeeds and the program continues; but when it isn’t, the cast will throw a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ClassCastException</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Which of our properties for sameness have we violated here?
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+11.5.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Type-testing_using_instanceof)"></a>Type-testing using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span><span class="button-group"><a href="#(part._.Type-testing_using_instanceof)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+We’ve made some progress, but not enough.  We can convince Java to compile our code without any type errors,
+but we can’t safely use casts, since they may throw exceptions at runtime.  When would casting a value to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> fail?  Precisely
+when the value is not a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> (by definition) —<wbr> and if the value is not a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>, it definitely
+is not the same as this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>.  If we had some way to detect
+when a cast would fail, we could just return <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">false</span><span class="RktMeta"></span></span></span> and avoid using the cast at all.
+</p>
+<p>
+In Racket, we had type-testing predicates (<span class="RktMeta"></span><span class="RktSym">circle?</span><span class="RktMeta"></span> and <span class="RktMeta"></span><span class="RktSym">rect?</span><span class="RktMeta"></span>) that would let us check
+what kind of a structure we had.  Until now, we have said that Java has no such mechanism.  In fact, Java
+actually does have a type-testing mechanism, but it does not work as well as we might hope.  Let’s see how to use it,
+and how it breaks.
+</p>
+<p></p>
+<div class="SIntrapara">
+To test whether a value is an instance of a given class or interface, we introduce a new operator, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span>.
+We’ll illustrate how it works by way of examples:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// because Circle is a Circle.
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// because Circle implements IShape
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// because a Circle is not a Book
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">6</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// because a Rect is not a Circle</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span>, we can test a <span class="emph">value</span> against a class or interface <span class="emph">type</span>, and get a boolean answer.
+(This is unlike any other operator we have seen so far, which all let us work with two values, not with values and types.)
+Notice that we can ask absurd questions, like whether a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> value is an instanceof <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>, even when we
+know the answer must always be <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">false</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Let’s now use this operator to improve our code above:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In Circle
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// that is-a Circle -- we can safely cast!
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameCircle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// that is not a Circle
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Now our code works: when <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> is not a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>, we just return <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">false</span><span class="RktMeta"></span></span></span>.  When it <span class="emph">is</span> a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>,
+we can safely cast it to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> and then invoke <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameCircle</span><span class="RktMeta"></span></span></span> with it.
+Notice that we need both the cast and the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span>: the cast convinces Java to let us use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> as a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>,
+and the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span> test ensures that it actually will be safe for us to do so.
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+This is a good example of the difference between <span class="emph">static</span> and <span class="emph">dynamic</span> information available in our code, and
+goes to show that static types sometimes <span class="emph">cause</span> problems (that must then be worked around), even as they help <span class="emph">solve</span> others.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+If we try our tests, they work now:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In the Examples class
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// works</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> class, following the same pattern as for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>.
+What test should you write to confirm that it works?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In Rect
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// that is-a Rect -- we can safely cast!
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameRect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// that is not a Rect
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In the Examples class
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">c1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// works</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+11.5.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.What_goes_wrong_with_casting_and_instanceof_)"></a>What goes wrong with casting and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span>?<span class="button-group"><a href="#(part._.What_goes_wrong_with_casting_and_instanceof_)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Let’s add another type of shape to our classes: let’s bring back the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> class as a subclass of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>, along with a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameSquare</span><span class="RktMeta"></span></span></span> helper method.
+Write tests to confirm that it works properly.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+We can start the definition of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> easily enough:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">super</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameSquare</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Square</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameSquare</span><span class="ProfjKeyword">(</span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">           </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">           </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// No need to check the h field, too...
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+But writing tests for this shows a subtle bug:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In test method in an Examples class
+</span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">6</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// basic checks comparing two Squares should work
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s3</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s3</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// Comparing a Square with a Rect of a different size
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// Good
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// Good
+</span><span class="ProfjComment">// Comparing a Square with a Rect of the same size
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// Good
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Not so good</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Which property of sameness have we violated?
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<h5 class="heading">
+11.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Sameness_of_union_data__flawed_attempt__2_using__custom__type-testing)"></a>Sameness of union data: flawed attempt #2 using “custom” type-testing<span class="button-group"><a href="#(part._.Sameness_of_union_data__flawed_attempt__2_using__custom__type-testing)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+What’s going on here?  Carefully step through the last two examples.  When we test <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">s1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">s1</span><span class="RktMeta"></span></span></span> is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>, so we invoke the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> method defined in <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+This method checks whether <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> (which is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">r1</span><span class="RktMeta"></span></span></span>) is an instance of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>,
+which it is <span class="emph">not</span>, so the method returns <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">false</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+On the other hand, when we test <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">r1</span><span class="RktMeta"></span></span></span> is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>, so we invoke the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> method defined in <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+This method checks whether <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> (which is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">s1</span><span class="RktMeta"></span></span></span>) is an instance of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>.
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> is a subclass of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>, this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span> test <span class="emph">returns <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">true</span><span class="RktMeta"></span></span></span></span>.
+So the method then casts <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> to a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> (which is perfectly fine), and invokes <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameRect</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameRect</span><span class="RktMeta"></span></span></span> method compares all the fields of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span> (which is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">r1</span><span class="RktMeta"></span></span></span>) to all the fields of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> (which is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">s1</span><span class="RktMeta"></span></span></span>),
+and since they all match, it returns <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">true</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+Somehow, our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> operation is no longer symmetric.  The problem is that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span> is too lenient:
+it returns true when the provided value is an instance of the given class <span class="emph">or of any of its subclasses</span>.  A <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>
+is an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span> <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>, but a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> is not an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span> <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>, and this asymmetry
+is now apparent in the behavior of our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> implementation.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+To work around this, we can define a set of methods on the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> interface to tell us when a given shape
+is precisely a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> or a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> or a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// is this shape a Circle?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isCircle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// is this shape a Rect?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isRect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// is this shape a Square?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isSquare</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// in Circle
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isCircle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isRect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">   </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isSquare</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// in Rect
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isCircle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isRect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">   </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isSquare</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// in Square
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isCircle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isRect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">   </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">isSquare</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Now if we use these methods instead of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span>, we’ll get better results:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// in Rect
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">isRect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameRect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// in Square
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">isSquare</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameSquare</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Square</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Try making these changes, and confirm that our bad test above is now better.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// Comparing a Square with a Rect of the same size
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Good
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameShape</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Good</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+But <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">r1</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">s1</span><span class="RktMeta"></span></span></span> both describe rectangles with width and height of 5, at position (3,4).  Why are they not equal?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Why must we have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> respond to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">isRect</span><span class="RktMeta"></span></span></span> with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">false</span><span class="RktMeta"></span></span></span> —<wbr> surely all
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>s are <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>s?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Remember our original goal for sameness testing: two values are the same if <span class="emph">there is no
+method we could write, or operation we could use, to distinguish between them.</span>  Now that we
+have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">instanceof</span><span class="RktMeta"></span></span></span>, there <span class="emph">is</span> a way we can distinguish them:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// Distinguishing between a Square and a Rect of the same size
+</span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">s1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">r1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+If there is a way to distinguish between these values, they must not be the same!
+</div>
+<p></p>
+<h5 class="heading">
+<a name="(part._.Wrapup)"></a>Wrapup<span class="button-group"><a href="#(part._.Wrapup)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+We’re still not finished, though: we have these odd <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">isSomeType</span><span class="RktMeta"></span></span></span> methods
+which don’t have any utility outside of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> methods, and we still have
+casts which (if we make any mistakes) will crash our program with an exception.  So how can we
+implement this functionality <span class="emph">without</span> casts and <span class="emph">without</span> oddly-specific helper methods?
+</div>
+<div class="SIntrapara">
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Try to figure this out.  Hint: you may want to look at the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngerIAT</span><span class="RktMeta"></span></span></span> method
+from <a href="lecture7.html" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>, which deals with a similar problem.
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture10.html" title="backward to &quot;Lecture 10: Customizing constructors for correctness and convenience&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture12.html" title="forward to &quot;Lecture 12: Defining sameness for complex data, part 2&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

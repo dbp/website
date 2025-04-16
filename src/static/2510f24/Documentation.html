@@ -1,0 +1,40 @@
+<!doctype HTML>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="codemirror.js"></script>
+<script src="python.js"></script>
+<script src="runmode.js"></script>
+<script src="setup-page.js"></script>
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=0.8"/><title>Documentation</title><link rel="stylesheet" type="text/css" href="scribble.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-style.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-racket.css" title="default"/><link rel="stylesheet" type="text/css" href="extra-styles.css" title="default"/><link rel="stylesheet" type="text/css" href="codemirror.css" title="default"/><script type="text/javascript" src="scribble-common.js"></script><script type="text/javascript" src="manual-racket.js"></script><!--[if IE 6]><style type="text/css">.SIEHidden { overflow: hidden; }</style><![endif]--></head><body id="scribble-racket-lang-org"><div class="tocset"><div class="tocview"><div class="tocviewlist tocviewlisttopspace"><div class="tocviewtitle"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">&#9658;</a></td><td></td><td><a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br/>
+Introduction to Class-<wbr></wbr>based Program Design</a></td></tr></table></div><div class="tocviewsublisttop" style="display: none;" id="tocview_0"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="General.html" class="tocviewlink" data-pltdoc="x">General</a></td></tr><tr><td align="right"></td><td><a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a></td></tr><tr><td align="right"></td><td><a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a></td></tr><tr><td align="right"></td><td><a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a></td></tr><tr><td align="right"></td><td><a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a></td></tr><tr><td align="right"></td><td><a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a></td></tr><tr><td align="right"></td><td><a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a></td></tr><tr><td align="right"></td><td><a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a></td></tr><tr><td align="right"></td><td><a href="" class="tocviewselflink" data-pltdoc="x">Documentation</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">&#9660;</a></td><td></td><td><a href="" class="tocviewselflink" data-pltdoc="x">Documentation</a></td></tr></table><div class="tocviewsublistbottom" style="display: block;" id="tocview_1"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="image-doc.html" class="tocviewlink" data-pltdoc="x">The Image Library</a></td></tr><tr><td align="right"></td><td><a href="tester-doc.html" class="tocviewlink" data-pltdoc="x">The Tester Library</a></td></tr></table></div></div></div></div><div class="maincolumn"><div class="main"><div class="versionbox"><span class="version">8.14</span></div><div class="navsettop"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="code-style.html" title="backward to &quot;Code style&quot;" data-pltdoc="x" rel="prev">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="image-doc.html" title="forward to &quot;The Image Library&quot;" data-pltdoc="x" rel="next">next &rarr;</a></span>&nbsp;</div><h3 class="heading"><a name="(part._.Documentation)"></a>Documentation<span class="button-group"><a href="#(part._.Documentation)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h3><p>Here you will find descriptions of how to use both the Tester library and the
+Javalib library.  If you find mistakes in the documentation, please email us!</p><table cellspacing="0" cellpadding="0"><tr><td><p><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="image-doc.html" class="toclink" data-pltdoc="x">The Image Library</a></p></td></tr><tr><td><p><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="tester-doc.html" class="toclink" data-pltdoc="x">The Tester Library</a></p></td></tr></table><div class="navsetbottom"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="code-style.html" title="backward to &quot;Code style&quot;" data-pltdoc="x" rel="prev">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="image-doc.html" title="forward to &quot;The Image Library&quot;" data-pltdoc="x" rel="next">next &rarr;</a></span>&nbsp;</div></div></div><div id="contextindicator">&nbsp;</div></body></html>

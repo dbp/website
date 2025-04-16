@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewselflink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab1.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 1:</span> Introduction to Eclipse and Simple Data Definitions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab2.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 2:</span> Working with Self-<wbr>Referential Data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab3.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 3:</span> Working with the debugger</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab4.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 4:</span> Working with Abstract Classes, Problem Solving</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab5.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 5:</span> Higher-<wbr>order functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab6.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 6:</span> Working with Cyclic Data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab7.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 7:</span> Sameness</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab8.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 8:</span> Parametric data and visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab9.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 9:</span> Working with Array<span class="mywbr"> &nbsp;</span>Lists and Loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LabNum">Lab 10:</span> An Introduction to the JUnit testing library</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LabNum">Lab 10:</span> An Introduction to the JUnit testing library</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          Problem 1:&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.From_the_tester_library_to_.J.Unit%29" class="tocviewlink" data-pltdoc="x">From the tester library to JUnit</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">Problem 1:
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.From_the_tester_library_to_.J.Unit%29" class="tocsubseclink" data-pltdoc="x">From the tester library to JUnit</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">10.1
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Introduction_to_.J.Unit%29" class="tocsubseclink" data-pltdoc="x">Introduction to JUnit</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">10.2
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Preparing_your_.Project%29" class="tocsubseclink" data-pltdoc="x">Preparing your Project</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">10.3
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.A_.J.Unit_test%29" class="tocsubseclink" data-pltdoc="x">A JUnit test</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">10.3.1
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._assert.Equals%29" class="tocsubseclink" data-pltdoc="x"><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assert<span class="mywbr"> &nbsp;</span>Equals</span><span class="RktMeta"></span></span></span></a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">10.3.2
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._assert.True_and_assert.False%29" class="tocsubseclink" data-pltdoc="x"><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assert<span class="mywbr"> &nbsp;</span>True</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assert<span class="mywbr"> &nbsp;</span>False</span><span class="RktMeta"></span></span></span></a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">10.3.3
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Different_flavors_of_assert.Equals%29" class="tocsubseclink" data-pltdoc="x">Different flavors of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assert<span class="mywbr"> &nbsp;</span>Equals</span><span class="RktMeta"></span></span></span></a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">10.4
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.Timeouts%29" class="tocsubseclink" data-pltdoc="x">Timeouts</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">10.5
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._.Checking_for_an_exception%29" class="tocsubseclink" data-pltdoc="x">Checking for an exception</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lab9.html" title="backward to &quot;Lab 9: Working with ArrayLists and Loops&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lab_Materials.html" title="up to &quot;Lab Materials&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Assignments.html" title="forward to &quot;Assignments&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LabNum">Lab 10:</span> An Introduction to the JUnit testing library<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p>
+<span style="font-weight: bold">Goals:</span> The goal of this lab is to transition from the tester library to the JUnit testing library.
+</p>
+<p>
+<span style="font-weight: bold">Submission:</span> The Lab 10 submission will be opened by your lab TA
+during the lab period and you will have until the end of the lab period to do it.
+This will be an individual submission.
+</p>
+<h3 class="heading">
+Problem 1:
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.From_the_tester_library_to_.J.Unit)"></a>From the tester library to JUnit<span class="button-group"><a href="#(part._.From_the_tester_library_to_.J.Unit)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h3>
+<div class="RelatedFiles">
+<blockquote>
+<p class="boxed">
+Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/labs/R-junit/files/labs/R-junit/IShape.java">IShape.java</a><span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</blockquote>
+</div>
+<h5 class="heading">
+10.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Introduction_to_.J.Unit)"></a>Introduction to JUnit<span class="button-group"><a href="#(part._.Introduction_to_.J.Unit)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+All through this semester we have been using the tester library. This is a library
+written specifically for CS 2510. One of its primary objectives is to help you
+write meaningful and non-trivial tests while mimicking the general style of
+test writing in Racket. In this lab we will transition from this custom testing library
+to a more popular and widely used testing library: JUnit.
+</p>
+<p>
+JUnit provides a testing framework for Java code. It is widely used in academic and
+industry settings, and is a powerful library. CS 3500 uses JUnit as well. Unlike existing
+Java classes that we have been using all semester, JUnit is not part of the JDK.
+Therefore JUnit must be downloaded separately. More information can be found at the
+<a href="http://junit.org">JUnit library website</a>.  However most IDEs (including Eclipse)
+ship with JUnit, so you do not have to download it separately if you are using any of them.
+There are several similarities between our tester library and JUnit, both in terms of how
+it works and how to use it.
+</p>
+<p>
+In this lab we will start with the code from Lecture 4 (linked above), and we will replicate
+and then add to the tests written in this code using JUnit.
+</p>
+<h5 class="heading">
+10.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Preparing_your_.Project)"></a>Preparing your Project<span class="button-group"><a href="#(part._.Preparing_your_.Project)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<ul>
+<li>
+<p>
+Create a new project in Eclipse, and put the above file in it.
+</p>
+</li>
+<li>
+<p>
+Add the tester library to the project, and create a Run configuration for it.
+</p>
+</li>
+<li>
+<p>
+Run the configuration to ensure that all tests run and pass.
+</p>
+</li>
+<li>
+<p>
+Create a new file called "ExamplesShapesInJUnit.java". Copy the example class code from where it is
+to this file, and rename the class to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ExamplesShapesInJUnit</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+Make the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="RktMeta"></span></span></span> by adding the word <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="RktMeta"></span></span></span> before <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Examples</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+Make its constructor <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+Rerun the configuration to ensure that all tests run and pass.
+</p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+Add JUnit to the project:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Right click on the project and go to Properties
+</p>
+</li>
+<li>
+<p>
+Go to Java Build Path (these two steps are the same to add the tester library)
+</p>
+</li>
+<li>
+<p>
+Select "Classpath" and then click on "Add Library"
+</p>
+</li>
+<li>
+<p>
+In the dialog box, select JUnit and click "Next"
+</p>
+</li>
+<li>
+<p>
+From the dropdown menu, select "Junit 4" (even though JUnit 5 is the latest version we
+will use JUnit 4)
+</p>
+</li>
+<li>
+<p>
+Click "Finish". You should now see the JUnit4 library added to Classpath (along with our tester library)
+</p>
+</li>
+</ul>
+</div>
+<p></p>
+</li>
+</ul>
+<h5 class="heading">
+10.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.A_.J.Unit_test)"></a>A JUnit test<span class="button-group"><a href="#(part._.A_.J.Unit_test)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The tester library identifies a test method by its name: the name must begin with "test" and should have
+one argument of type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Tester</span><span class="RktMeta"></span></span></span>. A JUnit test is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="RktMeta"></span></span></span> method inside a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="RktMeta"></span></span></span> class.
+Such a method returns <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span> and takes no arguments. Its name does not matter.
+However one must annotate the method to identify it as a test.
+</p>
+<p>
+All the instructions below are for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ExamplesShapesInJUnit</span><span class="RktMeta"></span></span></span> class.
+</p>
+<ul>
+<li>
+<p>
+Find the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">testCircleContains</span><span class="RktMeta"></span></span></span>. We will convert this method to a JUnit-equivalent
+of itself.
+</p>
+</li>
+<li>
+<p>
+Make the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="RktMeta"></span></span></span>, change its return type to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span> and fix the method
+implementation so that it does not return anything.
+</p>
+</li>
+<li>
+<p>
+Add the following right above its method signature: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjError">@</span><span class="ProfjType">Test</span><span class="RktMeta"></span></span></span>. This annotation above a
+method tells JUnit that it is JUnit test method.
+</p>
+</li>
+<li>
+<p>
+Add <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">import</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">org</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">junit</span><span class="ProfjDefault">.</span><span class="ProfjType">Test</span><span class="ProfjDefault">;</span><span class="RktMeta"></span></span></span> to the file at the top, so that it recognizes the annotation.
+</p>
+</li>
+</ul>
+<h5 class="heading">
+10.3.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._assert.Equals)"></a><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span><span class="button-group"><a href="#(part._assert.Equals)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The JUnit equivalent of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span>. It takes two arguments:
+the expected value and the actual value in that order. <span style="font-weight: bold">Note that this order is flipped
+from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkExpect</span><span class="RktMeta"></span></span></span></span>.
+</p>
+<ul>
+<li>
+<p>
+Replace <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">100</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>
+with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">false</span><span class="ProfjDefault">,</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">100</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">100</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+Add <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">import</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">static</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">org</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">junit</span><span class="ProfjDefault">.</span><span class="ProfjType">Assert</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">assertEquals</span><span class="ProfjDefault">;</span><span class="RktMeta"></span></span></span> to the top of the file.
+</p>
+</li>
+<li>
+<p>
+Replace the second <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkExpect</span><span class="RktMeta"></span></span></span> with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> accordingly.
+</p>
+</li>
+<li>
+<p>
+To run the tests, right-click on this file from the Package Explorer, and select
+"Run As" -&gt; "JUnit Test".
+</p>
+<p>
+You should now see a new tab open up, and a report that states that it ran 1/1 tests
+and all passed with a green progress bar. Congratulations! You just ran your first JUnit test!
+</p>
+</li>
+<li>
+<p>
+Change the expected value of the first <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">true</span><span class="RktMeta"></span></span></span> and run the test again.
+See what a failure looks like.
+</p>
+</li>
+<li>
+<p>
+Change the first <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="ProfjKeyword">(</span><span class="ProfjString">"The contains method for circle does not work properly"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjDefault">,</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>. Rerun your test to see this message appear.
+</p>
+<p>
+This version of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> allows you to specify a string that is printed only if the test
+fails. You can use this string to help you debug.
+</p>
+</li>
+<li>
+<p>
+Change the test back so that it passes once again.
+</p>
+</li>
+</ul>
+<h5 class="heading">
+10.3.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._assert.True_and_assert.False)"></a><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertTrue</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertFalse</span><span class="RktMeta"></span></span></span><span class="button-group"><a href="#(part._assert.True_and_assert.False)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+If your expected and actual values are <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="RktMeta"></span></span></span> you can use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertTrue</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertFalse</span><span class="RktMeta"></span></span></span> instead.
+</p>
+<ul>
+<li>
+<p>
+Replace both <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> statements above with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertTrue</span><span class="RktMeta"></span></span></span> or <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertFalse</span><span class="RktMeta"></span></span></span>
+as applicable. You will have to add the corresponding imports.
+</p>
+</li>
+<li>
+<p>
+Run the tests to make sure they pass.
+</p>
+</li>
+</ul>
+<h5 class="heading">
+10.3.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Different_flavors_of_assert.Equals)"></a>Different flavors of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span><span class="button-group"><a href="#(part._.Different_flavors_of_assert.Equals)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+There are several different versions of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> method.
+</p>
+<ul>
+<li>
+<p>
+Find the test <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">testCircleGrow</span><span class="RktMeta"></span></span></span>. Change its method signature to make it public
+and add the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjError">@</span><span class="ProfjType">Test</span><span class="RktMeta"></span></span></span> annotation.
+</p>
+</li>
+<li>
+<p>
+Change the test to its JUnit equivalent using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> statements.
+</p>
+</li>
+<li>
+<p>
+Run the tests. This test fails!
+</p>
+</li>
+</ul>
+<p>
+The test fails because <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> uses intensional equality, and therefore two equivalent <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>
+objects are deemed to be not the same. It uses intensional equality because it uses the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">equals</span><span class="RktMeta"></span></span></span> method for
+one of the objects and passes the other object to it! Since we did not write an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">equals</span><span class="RktMeta"></span></span></span> method in the
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> class (why would we? We were so naive back then!), it uses the default implementation that compares
+references.
+</p>
+<ul>
+<li>
+<p>
+Write an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">equals</span><span class="RktMeta"></span></span></span> method in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> class.
+</p>
+</li>
+<li>
+<p>
+Now run the test again. This time it should pass!
+</p>
+</li>
+</ul>
+<p>
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span> method can be used to compare two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">double</span><span class="RktMeta"></span></span></span> values as well (equivalent to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkInExact</span><span class="RktMeta"></span></span></span>).
+</p>
+<ul>
+<li>
+<p>
+Find the test <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">testDistToOrigin</span><span class="RktMeta"></span></span></span>. Change its method signature to make it public
+and add the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjError">@</span><span class="ProfjType">Test</span><span class="RktMeta"></span></span></span> annotation.
+</p>
+</li>
+<li>
+<p>
+Replace <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">pt1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distToOrigin</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.0</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.001</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> with
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">0.0</span><span class="ProfjDefault">,</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">pt1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distToOrigin</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">0.001</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span></span></span>.
+</p>
+<p>
+As before, the expected and actual values are flipped. But the third argument is the error threshold, exactly
+like <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkInExact</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+Replace the second test with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">assertEquals</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+Run the test and verify that it passes.
+</p>
+<p>
+If you wish to add a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span> message to this version, you can add it as the first argument as before.
+</p>
+</li>
+</ul>
+<p>
+Convert other test methods one-by-one to their JUnit equivalents.
+</p>
+<h5 class="heading">
+10.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Timeouts)"></a>Timeouts<span class="button-group"><a href="#(part._.Timeouts)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+You can add a timeout value to verify that the test takes no more than a certain amount of time. If the test takes more than
+the allocated time, it will time out and fail. This is useful to check whether tests (and therefore the methods they test) are
+sufficiently efficient.
+</p>
+<p>
+To make a test time out if it runs more than 3s, replace <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjError">@</span><span class="ProfjType">Test</span><span class="RktMeta"></span></span></span> above the test to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjError">@</span><span class="ProfjType">Test</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">timeout</span><span class="ProfjKeyword">=</span><span class="ProfjLiteral">3000</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>.
+</p>
+<h5 class="heading">
+10.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Checking_for_an_exception)"></a>Checking for an exception<span class="button-group"><a href="#(part._.Checking_for_an_exception)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+You can write JUnit tests to check whether exceptions are thrown as expected.
+</p>
+<ul>
+<li>
+<p>
+Modify the constructor of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> class so that it throws an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IllegalArgumentException</span><span class="RktMeta"></span></span></span>
+if a negative radius is passed to it.
+</p>
+</li>
+<li>
+<p>
+Write the following test:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjError">@</span><span class="ProfjType">Test</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">expected</span><span class="ProfjKeyword">=</span><span class="ProfjType">IllegalArgumentException</span><span class="ProfjDefault">.</span><span class="ProfjKeyword">class</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testCircleException</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjKeyword">-</span><span class="ProfjLiteral">10</span><span class="ProfjDefault">,</span><span class="ProfjString">"blue"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Test</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">expected</span><span class="ProfjKeyword">=</span><span class="ProfjType">IllegalArgumentException</span><span class="ProfjDefault">.</span><span class="ProfjKeyword">class</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> states that this test will pass at the first
+instance it sees an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IllegalArgumentException</span><span class="RktMeta"></span></span></span> when the test is run. The test fails if it executes
+the test completely without encountering this specific exception.
+</p>
+<p>
+Because it passes the first time it sees the specific exception, you should not try to test for multiple
+cases of exceptions inside the same test method.
+</p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+The above test is equivalent to the one below:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">@</span><span class="ProfjType">Test</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testCircleException</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">try</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjIdentifier">c</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjKeyword">-</span><span class="ProfjLiteral">10</span><span class="ProfjDefault">,</span><span class="ProfjString">"blue"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjIdentifier">fail</span><span class="ProfjKeyword">(</span><span class="ProfjString">"This test did not throw any exception"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">catch</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjType">IllegalArgumentException</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">e</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">catch</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjType">Exception</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">e</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjIdentifier">fail</span><span class="ProfjKeyword">(</span><span class="ProfjString">"This test did not throw the correct kind of exception"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">fail</span><span class="RktMeta"></span></span></span> statement fails the test: it is the murdering hatchet of JUnit: no questions asked,
+no conditions checked, just fail!
+</p>
+</li>
+</ul>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lab9.html" title="backward to &quot;Lab 9: Working with ArrayLists and Loops&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lab_Materials.html" title="up to &quot;Lab Materials&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Assignments.html" title="forward to &quot;Assignments&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

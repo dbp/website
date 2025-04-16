@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Overview%29" class="tocviewlink" data-pltdoc="x">Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._simple-classes._.Designing_methods_for_simple_classes%29" class="tocviewlink" data-pltdoc="x">Designing methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Aside__.Evaluation_of_arithmetic_expressions%29" class="tocviewlink" data-pltdoc="x">Aside:<span class="mywbr"> &nbsp;</span> Evaluation of arithmetic expressions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._containment-classes._.Methods_for_classes_with_containment__.Designing_method_templates%29" class="tocviewlink" data-pltdoc="x">Methods for classes with containment:<span class="mywbr"> &nbsp;</span> Designing method templates</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          3.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Methods_that_produce_objects%29" class="tocviewlink" data-pltdoc="x">Methods that produce objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Overview%29" class="tocsubseclink" data-pltdoc="x">Overview</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">3.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._simple-classes._.Designing_methods_for_simple_classes%29" class="tocsubseclink" data-pltdoc="x">Designing methods for simple classes</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">3.1.1
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._simple-classes._.Signature_and_purpose%29" class="tocsubseclink" data-pltdoc="x">Signature and purpose</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">3.1.2
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._simple-classes._.Template%29" class="tocsubseclink" data-pltdoc="x">Template</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">3.1.3
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._simple-classes._.Method_.Body%29" class="tocsubseclink" data-pltdoc="x">Method Body</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">3.1.4
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._simple-classes._.Tests%29" class="tocsubseclink" data-pltdoc="x">Tests</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">3.2
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Aside__.Evaluation_of_arithmetic_expressions%29" class="tocsubseclink" data-pltdoc="x">Aside:<span class="mywbr"> &nbsp;</span> Evaluation of arithmetic expressions</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">3.3
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._containment-classes._.Methods_for_classes_with_containment__.Designing_method_templates%29" class="tocsubseclink" data-pltdoc="x">Methods for classes with containment:<span class="mywbr"> &nbsp;</span> Designing method templates</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">3.3.1
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._containment-classes._.Signature_and_purpose%29" class="tocsubseclink" data-pltdoc="x">Signature and purpose</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">3.3.2
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._containment-classes._.Examples%29" class="tocsubseclink" data-pltdoc="x">Examples</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">3.3.3
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._containment-classes._.Template%29" class="tocsubseclink" data-pltdoc="x">Template</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">3.3.4
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._containment-classes._.Method_.Body%29" class="tocsubseclink" data-pltdoc="x">Method Body</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">3.4
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Methods_that_produce_objects%29" class="tocsubseclink" data-pltdoc="x">Methods that produce objects</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture2.html" title="backward to &quot;Lecture 2: Data Definitions: Unions&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture4.html" title="forward to &quot;Lecture 4: Methods for unions&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 3:</span> Methods for simple classes<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p></p>
+<div class="SIntrapara">
+<p class="boxed">
+Design methods for simple classes of data.<br>
+Design methods for classes that contain objects of another class.<br>
+Wish lists.
+</p>
+</div>
+<div class="SIntrapara">
+<div class="RelatedFiles">
+<blockquote>
+<p class="boxed">
+Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture3/files/lectures/lecture3/Book.java">Book.java</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture3/files/lectures/lecture3/BookAuthor.java">BookAuthor.java</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture3/files/lectures/lecture3/Book2.java">Book2.java</a><span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+<a name="(part._.Overview)"></a>Overview<span class="button-group"><a href="#(part._.Overview)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+In the last two lectures, we’ve built classes to represent compound data: structures, nested structures,
+unions, and recursive unions of structures.  However our data has been utterly inert, and we have not
+defined any computations that work with our data.  In this lecture, we’ll define <span class="emph">methods</span>,
+which are the object-oriented analogue of the functions we’ve seen before (though they are subtly and
+importantly different!), work with arithmetic expressions, and build up to methods that consume and produce
+additional objects.
+</p>
+<h5 class="heading">
+3.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._simple-classes._.Designing_methods_for_simple_classes)"></a>Designing methods for simple classes<span class="button-group"><a href="#(part._simple-classes._.Designing_methods_for_simple_classes)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<div class="RelatedFiles">
+<blockquote>
+<p class="boxed">
+Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture3/files/lectures/lecture3/Book.java">Book.java</a><span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</blockquote>
+</div>
+<p>
+Suppose we’re modeling books in a bookstore.
+Recall our definition of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> class from <a href="lecture1.html" data-pltdoc="x">Lecture 1</a>.  (We’ll simplify it for now
+by representing the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">author</span><span class="RktMeta"></span></span></span> field merely as a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span>; we’ll reinstate the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>
+class below.)  Let’s remind ourselves how we might manipulate books in Racket, and then we’ll
+see how to translate these concepts to Java.
+</p>
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">represent</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">book</span><span class="hspace">&nbsp;</span><span class="RktCmt">in</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">bookstore</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Book</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-book</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">book</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">title</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">author</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">price</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Examples:</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">htdp</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-book</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"HtDP"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"FFFK"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">60</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">beaches</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-book</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Beaches"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"PC"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">20</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>
+Occasionally, stores have sales: on a sale day, all books are discounted by some fixed percentage.
+We’ll therefore want to define a function that will produce the book’s sale price.
+Following the <span class="emph">Design Recipe</span> we produce the following function and tests:
+</p>
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">compute</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">sale</span><span class="hspace">&nbsp;</span><span class="RktCmt">price</span><span class="hspace">&nbsp;</span><span class="RktCmt">of</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">book</span><span class="hspace">&nbsp;</span><span class="RktCmt">for</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">given</span><span class="hspace">&nbsp;</span><span class="RktCmt">discount</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">sale-price:</span><span class="hspace">&nbsp;</span><span class="RktCmt">Book</span><span class="hspace">&nbsp;</span><span class="RktCmt">Num</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Num</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sale-price</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">abook</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">discount</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym"><span class="nobreak">-</span></span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">book-price</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">abook</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">/</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">*</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">book-price</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">abook</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">discount</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">100</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sale-price</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">htdp</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">30</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">42</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sale-price</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">beaches</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">20</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">16</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>
+Note that this function is useless for other types of data -
+per our signature, this function requires that we provide a book.
+</p>
+<p>
+In Java all computations relevant for one type of data are
+defined as <span class="emph">methods</span> in the class that represents the
+relevant data. (We say that the <span class="emph">methods</span> represent the
+behavior of the objects that are the members of this class.)
+</p>
+<p>
+The class diagram and the Java class definitions for the class
+of books is straightforward:
+</p>
+<pre class="AsciiArt">+---------------+
+| Book          |
++---------------+
+| String title  |
+| String author |
+| int price     |
++---------------+</pre>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Without looking at <a href="lecture1.html" data-pltdoc="x">Lecture 1</a>, translate this diagram into a Java class definition.
+Translate the examples of books into Java as well.
+</div>
+<p></p>
+</blockquote>
+<p>
+According to the design recipe, we need a purpose statement for our method, a signature for it,
+examples of using it, a template for it, then finally its implementation and tests.  However,
+to write examples or tests for this method...we first need to know how to define and invoke methods!
+So in this one instance, we’ll skip writing examples first and come back to them afterward.
+Once you’re familiar with the syntax for defining and invoking methods, you should follow the recipe in order.
+</p>
+<p></p>
+<div class="SIntrapara">
+When reading the code below, notice the organization:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+The purpose statement for the class precedes the class definition,
+just as it would precede a struct definition in Racket.
+</p>
+</li>
+<li>
+<p>
+The class definition starts with the field declarations, followed by the constructor.
+</p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+After the constructor comes the <span class="emph">template</span> (described in more detail below).
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Why do you think the template goes <span class="emph">here</span>, and not anywhere else
+in the class definition?
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+</li>
+<li>
+<p>
+After the template comes each <span class="emph">method definition</span> for the class.
+</p>
+</li>
+</ul>
+</div>
+<p></p>
+<p>
+Here is the Java code:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// to represent a book in a bookstore
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// in dollars
+</span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// the constructor
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">title</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* TEMPLATE will go here */</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* METHOD DEFINITIONS will go here. */</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<h5 class="heading">
+3.1.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._simple-classes._.Signature_and_purpose)"></a>Signature and purpose<span class="button-group"><a href="#(part._simple-classes._.Signature_and_purpose)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Every method definition consists of the following parts:
+</p>
+<ul>
+<li>
+<p>
+A purpose statement, much as we wrote in Racket, except we will be very
+careful to use the pronoun <span style="font-weight: bold">this</span>
+</p>
+</li>
+<li>
+<p>
+The type of the value returned from the function, known as the <span class="emph">return type</span>
+</p>
+</li>
+<li>
+<p>
+The method name, where the standard naming convention starts with a lowercase letter
+and uses “camelCase” to distinguish words within the name
+</p>
+</li>
+<li>
+<p>
+A parenthesized argument list, consisting of the type and name of each argument, separated by commas
+</p>
+</li>
+<li>
+<p>
+The method body, surrounded by braces; this is the code to execute when the method is invoked
+</p>
+</li>
+</ul>
+<p>
+How should we define the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">salePrice</span><span class="RktMeta"></span></span></span>?  What should its signature be?
+We know it needs a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> and an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">int</span><span class="RktMeta"></span></span></span> sale rate, so should it have two arguments?
+No!  Unlike in Racket, where we have to explicitly pass a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> in as an argument to
+the <span class="RktMeta"></span><span class="RktSym">sale-price</span><span class="RktMeta"></span> <span class="emph">function</span>, in Java every <span class="emph">method</span> always has access to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span>,
+the object on which we want to <span class="emph">invoke</span> the method (in this case, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">salePrice</span><span class="RktMeta"></span></span></span>).
+This object acts as an <span class="emph">implicit</span> argument for the method, and is sometimes called the <span class="emph">receiver object</span>.
+Within the body of the method we can access the fields of the receiver object as <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">title</span><span class="RktMeta"></span></span></span>
+or <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="RktMeta"></span></span></span>, etc. (These field accesses are <span class="emph">selectors</span>, similar to
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">book-title</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">abook</span><span class="RktPn">)</span><span class="RktMeta"></span> or <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">book-price</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">abook</span><span class="RktPn">)</span><span class="RktMeta"></span> in Racket.)  Accordingly, our signature
+will look like this:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book, at the comment "METHOD DEFINITIONS will go here"
+</span><span class="ProfjComment">// Compute the sale price of this Book given using
+</span><span class="ProfjComment">// the given discount rate (as a percentage)
+</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">discount</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<h5 class="heading">
+3.1.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._simple-classes._.Template)"></a>Template<span class="button-group"><a href="#(part._simple-classes._.Template)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+What should the template look like, and where should it be defined?  Recall that in Racket, we
+defined a template <span class="emph">once and for all</span> for each data type, rather than once per <span class="emph">function</span> that we define.
+Accordingly, we will define a template just once in each class.  For now, the template is very simple,
+and contains only the fields of the current class.  Later we will make this more elaborate:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book, at the comment "TEMPLATE will go here"
+</span><span class="ProfjBlockComment">/* TEMPLATE:
+   Fields:
+   ... this.title ...         -- String
+   ... this.author ...        -- String
+   ... this.price ...         -- int
+*/</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+(A minor note on syntax: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjBlockComment">/* ... */</span><span class="RktMeta"></span></span></span> denotes a <span class="emph">block comment</span> that can span multiple lines,
+as opposed to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjComment">// ...</span><span class="RktMeta"></span></span></span> which is a single-line comment.)
+</p>
+<p>
+Just as the template for structs in Racket allowed us to tear the struct apart and access its fields,
+so too the template here allows us access to the fields of <span class="emph">this</span> object.
+</p>
+<h5 class="heading">
+3.1.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._simple-classes._.Method_.Body)"></a>Method Body<span class="button-group"><a href="#(part._simple-classes._.Method_.Body)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Now that the preparatory work is done, defining the method is fairly straightforward.  In Java,
+note that arithmetic expressions are <span class="emph">infix</span>, rather than prefix function calls as in Racket.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjComment">// Compute the sale price of this Book given using
+</span><span class="ProfjComment">// the given discount rate (as a percentage)
+</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">discount</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">discount</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+We will revisit the distinction between expressions and statements more carefully
+in a few lectures.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+This method body introduces a new keyword, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">return</span><span class="RktMeta"></span></span></span>.  Unlike Racket, where functions
+simply evaluated to “the expression in their body”, in Java we must explicitly state which
+value we want to return.  Accordingly, these are known as <span class="emph">return statements</span>.
+</div>
+<p></p>
+<h5 class="heading">
+3.1.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._simple-classes._.Tests)"></a>Tests<span class="button-group"><a href="#(part._simple-classes._.Tests)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+In order to test our method, we must learn how to <span class="emph">invoke</span> a method.  We show the completed
+code for these tests below, which introduces several new features, and then explain the syntax in detail.
+</p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+You might notice that the constructor for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ExamplesBooks</span><span class="RktMeta"></span></span></span> class is seemingly
+useless, as it contains no code and initializes no fields.  In this case, you are
+permitted to omit the constructor entirely.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// examples and tests for books
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ExamplesBooks</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ExamplesBooks</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// examples of books
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">htdp</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"HtDP"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Felleisen et al."</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">60</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">ror</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Realm of Racket"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Bice et al."</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// test the method salePrice for the class Book
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testSalePrice</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">htdp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">30</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">42</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">ror</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">16</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+The syntax for invoking a method is to first write the receiver object,
+followed by a period, then the name of the method, then a parenthesized list of
+arguments to the method: for example, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">htdp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">30</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>.  Here, the receiver object
+is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">htdp</span><span class="RktMeta"></span></span></span>, the method name is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">salePrice</span><span class="RktMeta"></span></span></span>, and the argument is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">30</span><span class="RktMeta"></span></span></span>.
+</p>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+There are three more method invocations in this code: what are they, what are the receiver objects,
+and what are the parameters?
+</div>
+<p></p>
+</blockquote>
+<p>
+Testing our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">salePrice</span><span class="RktMeta"></span></span></span> method actually required writing another method!  Specifically,
+we needed to add a test method to our examples class.  After all, <span class="emph">running</span> a test means we have
+to execute some computation, and the only way to execute computations in Java is to define methods.
+Test methods are slightly special: the tester library looks for methods named <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">test</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span></span></span>, with a single <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Tester</span><span class="RktMeta"></span></span></span> parameter,
+in classes named <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Examples</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span></span></span>, and invokes those methods for us – this is how our tests will get run.
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Tester</span><span class="RktMeta"></span></span></span> object that is given to these test methods is what implements the check-expect functionality you
+have seen in Racket.  Naturally enough, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkExpect</span><span class="RktMeta"></span></span></span> is a <span class="emph">method</span> on this object: we are asking the
+tester library to run some code for us, and give us a report about the passing and failing tests.
+</p>
+<p></p>
+<div class="SIntrapara">
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkExpect</span><span class="RktMeta"></span></span></span> method returns a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="RktMeta"></span></span></span>, indicating whether the particular test passed (<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">true</span><span class="RktMeta"></span></span></span>) or failed (<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">false</span><span class="RktMeta"></span></span></span>).
+Notice that we want to run <span class="emph">two</span> tests here.  If we simply wrote the following:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ExamplesBooks
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testSalePriceBROKEN</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// BAD
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">htdp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">30</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">42</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">ror</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">16</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Java would execute the first test, and get back a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">true</span><span class="RktMeta"></span></span></span> result because our test succeeds.  It would then
+immediately <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">return</span><span class="RktMeta"></span></span></span> that value from the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">testSalePrice</span><span class="RktMeta"></span></span></span> method – and never even execute the second test.
+If we want to execute multiple tests, we have to combine their results, and in particular we only want to succeed if
+all tests succeed.  Accordingly, the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span></span></span> operator is the logical <span class="emph">and</span> operator.  Just like in Racket,
+it is short-circuiting: if the first clause evaluates to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">false</span><span class="RktMeta"></span></span></span> (i.e. our first test fails), the second clause
+will not be evaluated (i.e. our second test will not be run).
+</div>
+<p></p>
+<p>
+Phew!  Quite a lot of new content in only four lines of code!
+</p>
+<h5 class="heading">
+3.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Aside__.Evaluation_of_arithmetic_expressions)"></a>Aside: Evaluation of arithmetic expressions<span class="button-group"><a href="#(part._.Aside__.Evaluation_of_arithmetic_expressions)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The body of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">salePrice</span><span class="RktMeta"></span></span></span> method contained the following formula:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">discount</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+In Racket, every function expression was wrapped in parentheses and evaluation
+proceeded predictably left-to-right and inside-out.  How does the Java code above evaluate?
+</p>
+<p>
+Java tries to mimic the conventions used in
+mathematical formulas by assigning <span class="emph">precedences</span> to operators: it defines an <span class="emph">order of operations</span>.
+Specifically, multiplication and division take precedence over addition or subtraction,
+and equal-precedence operators evaluate from left to right. So the expression above is evaluated as
+if the parentheses were written:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">discount</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p></p>
+<div class="SIntrapara">
+In fact, because of that left-to-right ordering, we could actually drop <span class="emph">all</span> the parentheses
+from this particular expression, and it would still evaluate the same way:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">discount</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+Savvy programmers add extra parentheses whenever the order of operations
+is not clear, or to emphasise the meaning of the formula.  (Unlike Racket,
+adding parentheses does not mean “invoke this value as a function”, since
+Java does not use parenthetical syntax.  So adding parentheses for clarity is
+semantically just fine.)
+</p>
+<p></p>
+<div class="SIntrapara">
+Note, however, that some mathematically “valid” changes to this expression will produce <span class="emph">different</span> results
+than you might expect!  For example, because multiplication is associative, we ought to be able to write any of
+the following and get the same answer:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">discount</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">discount</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">discount</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+However, these will produce two different answers!
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Try it and see.  Why do you think this is happening?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Let’s pick an example <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">price</span><span class="RktMeta"></span></span></span> of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span>, and a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">discount</span><span class="RktMeta"></span></span></span> of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">20</span><span class="RktMeta"></span></span></span>.
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+In the first line, we first evaluate <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="RktMeta"></span></span></span>, or <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">1000</span><span class="RktMeta"></span></span></span>, and divide by <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">100</span><span class="RktMeta"></span></span></span>
+to get <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">10</span><span class="RktMeta"></span></span></span>.  We subtract <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">10</span><span class="RktMeta"></span></span></span> from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span> to get the correct answe of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">40</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+<li>
+<p>
+In the second line, we first evaluate <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">20</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="RktMeta"></span></span></span>, which is <span class="emph">zero</span> —<wbr> because we’re working
+with integers.  We then multiply <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span> by zero, and subtract the result from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span>, leaving <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span> —<wbr> not much of a discount.
+</p>
+</li>
+<li>
+<p>
+The third line similarly evaluates the division to be zero, leading to the same answer of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span>.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+We might argue that the problem is due to using integers and division together —<wbr> why not just use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">double</span><span class="RktMeta"></span></span></span> everywhere
+and avoid this problem?  Unfortunately, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">double</span><span class="RktMeta"></span></span></span>s don’t obey the laws of algebra completely, either, and
+cannot be relied upon to check simple relations like equality:
+for example, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.1</span><span class="RktMeta"></span></span></span> should equal <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">1.0</span><span class="RktMeta"></span></span></span>,
+but it will likely give you <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">0.99999999999999999</span><span class="RktMeta"></span></span></span> instead.  This is still a rounding error;
+it’s just a smaller, subtler one.
+</div>
+<p></p>
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+There are <span class="emph">many</span> articles about floating-point analysis.  A relatively gentle introduction can be found <a href="https://doi.org/10.1109/MCSE.2014.90">here</a>.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>
+The moral here, naturally, is to test your arithmetic thoroughly: be sure you understand the consequences
+of using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">int</span><span class="RktMeta"></span></span></span>s instead of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">double</span><span class="RktMeta"></span></span></span>s, and check the order of operations carefully.
+</p>
+<h5 class="heading">
+3.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._containment-classes._.Methods_for_classes_with_containment__.Designing_method_templates)"></a>Methods for classes with containment: Designing method templates<span class="button-group"><a href="#(part._containment-classes._.Methods_for_classes_with_containment__.Designing_method_templates)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<div class="RelatedFiles">
+<blockquote>
+<p class="boxed">
+Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture3/files/lectures/lecture3/BookAuthor.java">BookAuthor.java</a><span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</blockquote>
+</div>
+<p>
+The example above introduced all the machinery and syntax we’ll need to define methods,
+but we simplified our data definitions for brevity and clarity.
+Let’s continue with the original example that included a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> and its <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// to represent a book in a bookstore
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// the constructor
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">title</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// to represent a author of a book in a bookstore
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// the constructor
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">name</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// examples and tests for the classes that represent books and authors
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ExamplesBooksAuthors</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ExamplesBooksAuthors</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// examples of authors
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pat</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Pat Conroy"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1948</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">dan</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Dan Brown"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1962</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// examples of books
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">beaches</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Beaches"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">pat</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prince</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Prince of Tides"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">pat</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">15</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">code</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Da Vinci Code"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dan</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Suppose we would like to determine if the authors of two books are the same.
+</p>
+<h5 class="heading">
+3.3.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._containment-classes._.Signature_and_purpose)"></a>Signature and purpose<span class="button-group"><a href="#(part._containment-classes._.Signature_and_purpose)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+In Racket we might define the signature and purpose of a function to do this as follows:
+</p>
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">are</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">two</span><span class="hspace">&nbsp;</span><span class="RktCmt">given</span><span class="hspace">&nbsp;</span><span class="RktCmt">books</span><span class="hspace">&nbsp;</span><span class="RktCmt">by</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">same</span><span class="hspace">&nbsp;</span><span class="RktCmt">author?</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">same-author?</span><span class="hspace">&nbsp;</span><span class="RktCmt">:</span><span class="hspace">&nbsp;</span><span class="RktCmt">Book</span><span class="hspace">&nbsp;</span><span class="RktCmt">Book</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Boolean</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">same-author?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">book1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">book2</span><span class="RktPn">)</span><span class="RktSym">...</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>
+In Java, the first book becomes the implicit argument (<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span>), the instance which
+invokes the method, and the second book will be the sole explicit argument
+for the method. Here is the purpose and the header:
+</p>
+<p></p>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjComment">// is this book written by the same author as the given book?
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Complete the design of this method following the design recipe.  What new
+things should be added to the template?
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<h5 class="heading">
+3.3.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._containment-classes._.Examples)"></a>Examples<span class="button-group"><a href="#(part._containment-classes._.Examples)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ExamplesBooksAuthors
+</span><span class="ProfjComment">// test the method sameAuthor in the class Book
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testSameBookAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">beaches</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">prince</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkexpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">beaches</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">code</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<h5 class="heading">
+3.3.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._containment-classes._.Template)"></a>Template<span class="button-group"><a href="#(part._containment-classes._.Template)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Now we look at the template. The common template for all methods
+in the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> now looks like this:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjBlockComment">/* TEMPLATE:
+   Fields:
+   ... this.title ...        -- String
+   ... this.author ...       -- Author
+   ... this.price ...        -- int
+&nbsp;
+   Methods:
+   ... this.salePrice(int) ...   -- int
+   ... this.sameAuthor(Book) ... -- boolean
+&nbsp;
+   Methods for fields:
+   ... this.author.mmm(??) ...    -- ??
+*/</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Our template now consists of <span class="emph">three</span> sections.  The first section, fields, is the same as before.
+Second, we add all methods defined for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> class.
+That includes <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>, defined earlier,
+as well as <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> we are defining now.
+So, for example, our method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="RktMeta"></span></span></span>
+could invoke <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">salePrice</span><span class="RktMeta"></span></span></span> (though in this case, knowing a sale price is useless for checking authorship).
+</p>
+<p>
+The third section is interesting: if any of the fields of this class is an instance of another class,
+we add to our template all methods defined for that other class, as they
+can be invoked on that field. Here we would add any methods
+defined for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> class, since such methods can be invoked on
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="RktMeta"></span></span></span>.  We don’t have any such methods...yet.
+</p>
+<p>
+Using the templates we’ve constructed for each of our classes, we can also
+construct a template customized for our current method, by adding
+any information we can extract from the parameters of the method.
+In this case, such information includes anything that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">that</span><span class="RktMeta"></span></span></span> book
+can provide: we might access its fields, and we might invoke methods on it.
+</p>
+<p></p>
+<div class="SIntrapara">
+So, our template for this method essentially expands to:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* TEMPLATE: everything in the template for Book, plus
+     Fields of parameters:
+     ... that.title ...        -- String
+     ... that.author ...       -- Author
+     ... that.price ...        -- int
+&nbsp;
+     Methods on parameters:
+     ... that.salePrice(int) ...   -- int
+     ... that.sameAuthor(Book) ... -- boolean
+  */</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+3.3.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._containment-classes._.Method_.Body)"></a>Method Body<span class="button-group"><a href="#(part._containment-classes._.Method_.Body)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Annoyingly, when we try to finish the design of the method we see that
+we do not have enough information available. We need to know
+whether the authors are the same —<wbr> but only the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> class
+can define the method that would compare two authors.
+</p>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What information isn’t available to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> class,
+that would be needed to compute whether two authors are the same?  <span class="emph">Why</span>
+isn’t that information available?
+</div>
+<p></p>
+</blockquote>
+<p>
+So, we make a wish list: we need to define the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameAuthor</span><span class="RktMeta"></span></span></span>
+in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> class:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Author
+</span><span class="ProfjComment">// is this the same author as the given one?
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+We can now add this method to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> template, and from there add it
+to the template for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameAuthor</span><span class="RktMeta"></span></span></span> in <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book's sameAuthor
+</span><span class="ProfjBlockComment">/*
+   Methods for fields:
+   ... this.author.sameAuthor(Author) ...    -- boolean
+&nbsp;
+   Methods on parameters
+   ... that.author.sameAuthor(Author) ...    -- boolean
+*/</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Now writing the method body is trivial:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjComment">// is this book written by the same author as the given book?
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Of course, before we test this method, we need to finish designing any remaining
+methods in our wish list:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// to represent a author of a book in a bookstore
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// the constructor
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">name</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* TEMPLATE
+     Fields:
+     ... this.name ...    -- String
+     ... this.yob ...     -- int
+&nbsp;
+     Methods:
+     ... this.sameAuthor(Author) ... -- boolean
+  */</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// is this the same author as the given one?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">equals</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">           </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+with the added tests:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// test the method sameAuthor in the class Author
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testSameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">          </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">pat</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Pat Conroy"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1948</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">          </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">     </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkexpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">pat</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dan</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+(A note about testing for equality: always test whether two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span>s are equal
+by invoking their <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">equals</span><span class="RktMeta"></span></span></span> method; always check whether two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">int</span><span class="RktMeta"></span></span></span>s are equal
+by using the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">==</span><span class="RktMeta"></span></span></span> operator.)
+</p>
+<p>
+This pattern of asking another object to “help”, by invoking
+a method on that object which requires access to information that only it
+actually has access to, is called <span class="emph">delegation</span>, and we’ll see a lot
+more of this pattern in the upcoming lectures.
+</p>
+<h5 class="heading">
+3.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Methods_that_produce_objects)"></a>Methods that produce objects<span class="button-group"><a href="#(part._.Methods_that_produce_objects)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<div class="RelatedFiles">
+<blockquote>
+<p class="boxed">
+Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture3/files/lectures/lecture3/Book2.java">Book2.java</a><span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</blockquote>
+</div>
+<p>
+The methods so far produced results of the primitive type.
+We now look at how to design methods that produce objects.
+</p>
+<p>
+Suppose the bookstore wants to permanently decrease the price of all
+books by 20%. We need a method that produces a book with
+the price reduced as desired.
+</p>
+<p>
+The purpose and signature will be:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjComment">// produce a book like this one, but with the price reduced by 20%
+</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">reducePrice</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Here are some examples:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ExamplesBooks
+</span><span class="ProfjComment">// examples of books
+</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">htdp</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"HtDP"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"FFK"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">60</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">beaches</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Beaches"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"PC"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// test the method reducePrice for the class Book
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testReducePrice</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">htdp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">reducePrice</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">                       </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"HtDP"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"FFK"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">48</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">     </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">beaches</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">reducePrice</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">                      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Beaches"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"PC"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">16</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+We see that the result is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">new</span><span class="RktMeta"></span></span></span> object and so the method body will
+contain <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>. The template is as follows:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjBlockComment">/* TEMPLATE:
+   Fields:
+   ... this.title ...         -- String
+   ... this.author ...        -- String
+   ... this.price ...         -- int
+&nbsp;
+   Methods:
+   ... this.salePrice(int) ... -- int
+   ... this.reducePrice() ...  -- Book
+*/</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Conveniently, we can reuse the method defined earlier in the body of our
+method as follows:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In Book
+</span><span class="ProfjComment">// produce a book like this one, but with the price reduced by 20%
+</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">reducePrice</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">salePrice</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Of course, we finish by running the tests. Notice that the test cases
+now compare the values of two objects, not just the values of data
+of the primitive types.
+</p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture2.html" title="backward to &quot;Lecture 2: Data Definitions: Unions&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture4.html" title="forward to &quot;Lecture 4: Methods for unions&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

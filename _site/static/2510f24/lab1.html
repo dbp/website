@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewselflink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LabNum">Lab 1:</span> Introduction to Eclipse and Simple Data Definitions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab2.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 2:</span> Working with Self-<wbr>Referential Data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab3.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 3:</span> Working with the debugger</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab4.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 4:</span> Working with Abstract Classes, Problem Solving</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab5.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 5:</span> Higher-<wbr>order functions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab6.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 6:</span> Working with Cyclic Data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab7.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 7:</span> Sameness</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab8.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 8:</span> Parametric data and visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab9.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 9:</span> Working with Array<span class="mywbr"> &nbsp;</span>Lists and Loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lab10.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 10:</span> An Introduction to the JUnit testing library</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LabNum">Lab 1:</span> Introduction to Eclipse and Simple Data Definitions</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          1.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Khoury_.Accounts%29" class="tocviewlink" data-pltdoc="x">Khoury Accounts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          1.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Introduction%29" class="tocviewlink" data-pltdoc="x">Introduction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          1.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Eclipse_.I.D.E%29" class="tocviewlink" data-pltdoc="x">Eclipse IDE</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">1.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Khoury_.Accounts%29" class="tocsubseclink" data-pltdoc="x">Khoury Accounts</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">1.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Introduction%29" class="tocsubseclink" data-pltdoc="x">Introduction</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">1.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Eclipse_.I.D.E%29" class="tocsubseclink" data-pltdoc="x">Eclipse IDE</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.Learn_to_set_up_your_workspace_%29" class="tocsubseclink" data-pltdoc="x">Learn to set up your workspace.</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.The_.First_.Project%29" class="tocsubseclink" data-pltdoc="x">The First Project</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.Set_up_the_run_configuration_and_run_the_program_%29" class="tocsubseclink" data-pltdoc="x">Set up the run configuration and run the program.</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.Interface__.Implements_%29" class="tocsubseclink" data-pltdoc="x">Interface? Implements?</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.Making_examples%29" class="tocsubseclink" data-pltdoc="x">Making examples</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.Simple_.Data_.Definitions%29" class="tocsubseclink" data-pltdoc="x">Simple Data Definitions</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.Data_.Definitions_with_.Containment%29" class="tocsubseclink" data-pltdoc="x">Data Definitions with Containment</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.Data_.Definitions_for_.Unions_of_.Data%29" class="tocsubseclink" data-pltdoc="x">Data Definitions for Unions of Data</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber"></span><a href="#%28part._.Self-.Referential_.Data%29" class="tocsubseclink" data-pltdoc="x">Self-<wbr>Referential Data</a>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+ <div class="versionbox">
+  <span class="version">8.14</span>
+ </div>
+ <div class="navsettop">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="Lab_Materials.html" title="backward to &quot;Lab Materials&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lab_Materials.html" title="up to &quot;Lab Materials&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab2.html" title="forward to &quot;Lab 2: Working with Self-Referential Data&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+ <a name="(part._)"></a><span class="LabNum">Lab 1:</span> Introduction to Eclipse and Simple Data Definitions<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p>
+ <span style="font-weight: bold">Goals:</span> The goals of this lab are to get familiar with our work
+environment: the Eclipse IDE, the handin-server submission process, the basics
+of running a program in Java, and program testing framework.
+</p>
+<p>
+ The second part of the lab will focus on practicing data definitions and examples in Java.
+</p>
+<p>
+ <span style="font-weight: bold">Submission:</span> Make sure to complete the Lab 1 questions in handins before you leave lab today.
+</p>
+<div class="RelatedFiles">
+ <blockquote>
+  <p class="boxed">
+   Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/files/tester.jar">tester.jar</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/files/javalib.jar">javalib.jar</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/labs/R-LAB-intro/files/labs/R-LAB-intro/Shapes.java">Shapes.java</a><span class="hspace">&nbsp;&nbsp;</span>
+  </p>
+ </blockquote>
+</div>
+<h5 class="heading">
+ 1.1
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Khoury_.Accounts)"></a>Khoury Accounts<span class="button-group"><a href="#(part._.Khoury_.Accounts)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ You will use the <a href="https://handins.ccs.neu.edu">Handin Server</a> to work on your homework sets, to
+keep track of revisions, and to submit your homework. You will need a Khoury account to use the
+<a href="https://handins.ccs.neu.edu">Handin Server</a> so please go <a href="https://my.khoury.northeastern.edu/">here</a>
+to apply for an account if you don’t already have one.
+</p>
+<p>
+ <span style="font-weight: bold">Important:</span> if you have had a Khoury (or CCS) account in the past, but are not a Khoury
+student and your account has been deactivated due to inactivity, <span class="emph">do not</span>
+apply for a new account.  Instead, send an email to <span class="stt">khoury-systems at northeastern dot edu</span>
+explaining that you’re registered for CS2510, that your account has been
+disabled, and provide your Khoury username and your NUID in the email.  You will
+not likely be able to log in until the Systems team has a chance to process
+your account, so be patient.
+</p>
+<h5 class="heading">
+ 1.2
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Introduction)"></a>Introduction<span class="button-group"><a href="#(part._.Introduction)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ We start with designing data - designing classes of data that are
+connected to each other in a systematic way, showing that the
+<span class="emph">Design recipe for Data Definitions</span> can be used virually without
+change in a completely different language than we have used in the first part.
+</p>
+<p>
+ The programs we provide give you examples of the progressively
+more complex data (class) definitions, and illustrate
+the design of methods for these class hierarchies.
+</p>
+<h5 class="heading">
+ 1.3
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Eclipse_.I.D.E)"></a>Eclipse IDE<span class="button-group"><a href="#(part._.Eclipse_.I.D.E)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ <span style="font-weight: bold">Eclipse</span> is an integrated (program) development environment used by many
+professional Java programmers (as well as programmers using other programming
+languages). It is an <span class="emph">Open Source</span> product, which means anyone can use it freely
+and anyone can contribute to its development.
+</p>
+<p>
+ The environment provides an editor, allows you to organize your work into several
+files that together comprise a project, and has a compiler so you can run your programs.
+Several projects form a workspace. You can probably keep all the work till the
+end of the semester in one workspace, with one project for each programming problem
+or a lab problem.
+</p>
+<p>
+ There are several steps to getting started:
+</p>
+<ul>
+ <li>
+  <p>
+   Learn to set up your workspace and launch an Eclipse project.
+  </p>
+ </li>
+ <li>
+  <p>
+   Learn to manage your files and save your work.
+  </p>
+ </li>
+ <li>
+  <p>
+   Learn how to edit your Java programs and run them, using our tester library.
+  </p>
+ </li>
+</ul>
+<h5 class="heading">
+ <a name="(part._.Learn_to_set_up_your_workspace_)"></a>Learn to set up your workspace.<span class="button-group"><a href="#(part._.Learn_to_set_up_your_workspace_)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<ul>
+ <li>
+  <p>
+   First, install the Java Development Kit (JDK): download Java 11 from
+<a href="https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html">https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html</a> appropriate for your machine, and install it. Make sure you choose the JDK option, and not merely the JRE: the latter only enables you to <span class="emph">run</span> Java programs, but the development kit lets you <span class="emph">develop</span> them.
+  </p>
+  <p>
+   <span style="font-weight: bold">Do not use any version higher than 11. The submission server does not support higher versions, so you may have some problems when you submit.</span>
+  </p>
+ </li>
+ <li>
+  <p>
+   Next, download Eclipse from <a href="https://www.eclipse.org/downloads/">https://www.eclipse.org/downloads/</a> – the standard Eclipse IDE release is fine, and the Eclipse site should detect your computer’s operating system appropriately.
+When installing it, select Eclipse IDE for Java Developers, for this is what you are becoming!
+  </p>
+ </li>
+ <li>
+  <p>
+   Create a folder where you will keep all of
+your fundies2 files. We will refer to this folder as <span class="emph">cs2510</span>.
+  </p>
+ </li>
+ <li>
+  <p>
+   Inside of the <span class="emph">cs2510</span> folder, create a workspace folder where you will keep all of
+ your Java projects. We will refer to this folder as <span class="emph">EclipseWorkspace</span>. <span style="font-weight: bold">Note:</span> you should not
+ add, delete or move files directly in the EclipseWorkspace folder. This
+ is because there will be metadata in this folder created by Eclipse. This metadata will be corrupted if you edit files
+directly. Instead, all of these operations should go through Eclipse.
+  </p>
+ </li>
+ <li>
+  <p>
+   Next, set up a second folder within <span class="emph">cs2510</span>, where you will keep
+all of your Java library files.
+  </p>
+  <p>
+   We will refer to this folder as <span class="emph">EclipseJars</span>.
+Make sure the two folders <span class="emph">EclipseWorkspace</span> and <span class="emph">EclipseJars</span> are subfolders
+of the <span class="emph">cs2510</span> folder.
+  </p>
+ </li>
+ <li>
+  <p>
+   Start the Eclipse application.
+  </p>
+  <p>
+   <span style="font-weight: bold">DO NOT check the box</span> that asks if you want to make this the <span style="font-weight: bold">default workspace</span>
+for <span style="font-weight: bold">Eclipse</span> if you are working on a lab computer. If you are working at home
+or using your laptop, you may want to make the selected workspace to be your default. Select your
+previously created <span class="emph">EclipseWorkspace</span> folder as your workspace.
+  </p>
+ </li>
+</ul>
+<h5 class="heading">
+ <a name="(part._.The_.First_.Project)"></a>The First Project<span class="button-group"><a href="#(part._.The_.First_.Project)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<ul>
+ <li>
+  <p>
+   <span style="font-weight: bold">Right click the following two libraries</span> and select "Save link as..." Save them to your
+<span class="emph">EclipseJars</span> folder.
+  </p>
+  <p>
+   The libraries you will need are:
+  </p>
+  <div class="RelatedFiles">
+   <blockquote>
+    <p class="boxed">
+     Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/files/tester.jar">tester.jar</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/files/javalib.jar">javalib.jar</a><span class="hspace">&nbsp;&nbsp;</span>
+    </p>
+   </blockquote>
+  </div>
+ </li>
+ <li>
+  <p>
+   <span style="font-weight: bold">Create a project.</span>
+  </p>
+  <p>
+   Back in Eclipse, in the <span class="emph">File</span> menu select <span class="emph">New</span> then <span class="emph">Java Project</span>. In the window that
+appears in the <span class="emph">Project layout</span> section select <span class="emph">Create separate folders for sources
+and class files</span>. Click Next. <span style="font-weight: bold">If you see the option to make a module file, please uncheck it</span>.
+Select <span class="emph">Finish</span>, as the other defaults should be fine. Name the project <span class="emph">Lab1</span>. Avoid using
+any spaces or special characters in your project and file names in Eclipse.
+If you see a tab with "Welcome" in the title that has a lot of options, exit out of the tab with the
+white x.
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="font-weight: bold">Make the libraries available to the new project.</span>
+  </p>
+  <p>
+   Highlight your <span class="emph">Project</span> in the <span class="emph">Package Explorer</span> pane, then right-click it and select "Properties".
+In the list on the left, select the <span class="emph">Java Build Path</span>, then select the <span class="emph">Libraries</span> tab.
+<span style="font-weight: bold">NOTE:</span> If you are using Java 9 or higher, you should see two options in the main area of the form:
+"Modulepath" and "Classpath". Make sure that you have clicked on "Classpath" to select it.
+If you do not see these two options, just ignore this step.
+  </p>
+  <p>
+   Note: If the pane is not visible, go to <span class="emph">Window</span> menu, select <span class="emph">Show View...</span>
+then <span class="emph">Package Explorer</span>. You should also select <span class="emph">Show View... Outline</span>.
+  </p>
+  <p>
+   On the right click on <span class="emph">Add External JARs...</span>
+  </p>
+  <p>
+   The <span class="emph">file chooser window</span> will be shown. Navigate to your <span class="emph">EclipseJars</span> folder
+and select all <span class="emph">jar</span> files you have downloaded.
+  </p>
+  <p>
+   Hit Apply and Close.
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="font-weight: bold">Add the <span class="emph">Shapes.java</span> file to your project.</span>
+  </p>
+  <div class="RelatedFiles">
+   <blockquote>
+    <p class="boxed">
+     Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/labs/R-LAB-intro/files/labs/R-LAB-intro/Shapes.java">Shapes.java</a><span class="hspace">&nbsp;&nbsp;</span>
+    </p>
+   </blockquote>
+  </div>
+  <ul>
+   <li>
+    <p>
+     Download the file <span class="stt">Shapes.java</span> to a temporary directory or the desktop.
+    </p>
+   </li>
+   <li>
+    <p>
+     <span class="emph">In Eclipse</span> highlight the <span class="emph">src</span> box under the <span class="emph">Lab1</span> in the
+<span class="emph">Package Explorer</span> pane.
+    </p>
+   </li>
+   <li>
+    <p>
+     In the <span class="emph">File</span> menu select <span class="emph">Import....</span>
+    </p>
+    <p>
+     Choose the <span class="emph">General</span> tab, within that <span class="emph">File System</span> and click on <span class="emph">Next</span>.
+    </p>
+   </li>
+   <li>
+    <p>
+     Browse to the temporary directory that contains your <span class="emph">Shapes.java</span> file and click "Open".
+    </p>
+    <p>
+     Click on the directory on the left, then select the <span class="emph">Shapes.java</span> file
+in the right pane and once you have checked the "Into folder" is <span class="emph">Lab1/src</span>,
+hit <span class="emph">Finish</span>.
+    </p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <span style="font-weight: bold">View the file <span class="stt">Shapes.java</span>.</span>
+  </p>
+  <ul>
+   <li>
+    <p>
+     Click on the <span class="emph">src</span> block under <span class="emph">Lab1</span> in the <span class="emph">Package Explorer</span>
+pane. It will reveal <span class="emph">default</span> package block.
+    </p>
+   </li>
+   <li>
+    <p>
+     Click on the <span class="emph">default</span> package block. It will reveal <span class="emph">Shapes.java</span>.
+    </p>
+   </li>
+   <li>
+    <p>
+     Double click on <span class="emph">Shapes.java</span>. The file should open in the main pane of <span class="emph">Eclipse</span>.
+    </p>
+    <p>
+     You can now edit it in the usual way. Notice that the <span class="emph">Outline</span> pane lists all classes
+defined in this file as well as all fields and methods. It is almost as if someone was
+building our templates for us.
+    </p>
+   </li>
+   <li>
+    <p>
+     <span style="font-weight: bold">Adjust the <span class="emph">Eclipse</span> settings.</span>
+    </p>
+    <p>
+     The <a href="code-style.html" data-pltdoc="x">Code style</a> section explains how to configure Eclipse to only use spaces instead of tabs,
+and how to set the editor to show you the line numbers for all lines in the code.  If you
+have trouble, ask a TA for help.
+    </p>
+   </li>
+  </ul>
+ </li>
+</ul>
+<h5 class="heading">
+ <a name="(part._.Set_up_the_run_configuration_and_run_the_program_)"></a>Set up the run configuration and run the program.<span class="button-group"><a href="#(part._.Set_up_the_run_configuration_and_run_the_program_)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<ul>
+ <li>
+  <p>
+   Highlight <span class="emph">Lab1</span> in the <span class="emph">Package Explorer</span> pane.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the <span class="emph">Run</span> menu select <span class="emph">Run Configurations...</span>.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the list on the left, make sure "Java Application" is selected.  Then, in
+the top left corner of the inner pane click on the leftmost item.
+(When you mouse over it should show <span class="emph">New launch configuration</span>.)
+  </p>
+ </li>
+ <li>
+  <p>
+   Select the name for this configuration - usually the same as the name
+of your project.
+  </p>
+ </li>
+ <li>
+  <p>
+   In the <span class="emph">Main class:</span> click on <span class="emph">Search...</span>.
+  </p>
+ </li>
+ <li>
+  <p>
+   Among <span class="emph">Matching items</span> select <span class="emph">Main - tester</span> and hit <span class="emph">OK</span>.
+  </p>
+ </li>
+ <li>
+  <p>
+   Click on the tab <span class="emph">(x)= Arguments</span>. In the <span class="emph">Program arguments</span> text field
+enter <span class="stt">ExamplesShapes</span>.
+  </p>
+  <p>
+   Later, when you define your own program, you will use the class name of your <span class="stt">Examples...</span>
+class instead of <span class="stt">ExamplesShapes</span>.
+  </p>
+ </li>
+ <li>
+  <p>
+   At the bottom of the <span class="emph">Run Configurations</span> select <span class="emph">Apply</span> then <span class="emph">Run</span>.
+  </p>
+  <p>
+   Next time you want to run the same project, make sure <span class="emph">Shapes.java</span> is shown
+in the main pane (and is currently selected), then hit the green circle with the white triangle
+on the top left side of the main menu.
+  </p>
+ </li>
+</ul>
+<h5 class="heading">
+ <a name="(part._.Interface__.Implements_)"></a>Interface? Implements?<span class="button-group"><a href="#(part._.Interface__.Implements_)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ As we fondly remember from CS2500, one of our favorite types of data is union data: enumerations,
+itemizations, etc. This is covered in Lecture 2, so you can skip to <span style="font-weight: bold">Problem 1</span> below if you have
+not read Lecture 2 yet.
+</p>
+<p>
+ To define union data
+in Java, we define that union as an <span style="font-style: italic">interface</span> and say each branch of the data
+<span style="font-style: italic">implements</span> the interface. Read the code in your shapes file: you’ll notice the <span class="emph">IShape</span> interface
+is defined at the top, and that each class implements it. In the examples section, the examples
+are given the type of the interface, and are created with the constructor of the specific class.
+Follow suit when defining your own examples.
+</p>
+<h5 class="heading">
+ <a name="(part._.Making_examples)"></a>Making examples<span class="button-group"><a href="#(part._.Making_examples)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ Add examples of shapes found in the following image (ignore the colors, and note you do not actually
+have to draw the shapes):
+</p>
+<p>
+ <img src="car.png" alt="" width="99" height="99">
+</p>
+<p>
+ Run your examples class with the tester library to make sure it works.
+</p>
+<h5 class="heading">
+ <a name="(part._.Simple_.Data_.Definitions)"></a>Simple Data Definitions<span class="button-group"><a href="#(part._.Simple_.Data_.Definitions)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ <span style="font-weight: bold">Problem 1</span>
+</p>
+<p>
+ Here is a data definition in DrRacket:
+</p>
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">represent</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">person</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Person</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-person</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number</span><span class="hspace">&nbsp;</span><span class="RktCmt">String)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">name</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">age</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">gender</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta">&nbsp;</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">tim</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Tim"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">23</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Male"</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">kate</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Kate"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">22</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Female"</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">rebecca</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Rebecca"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">31</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Non-binary"</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+<p>
+ Draw the class diagram that represents this data.
+</p>
+<p>
+ Define the class <span class="stt">Person</span> that implements this data
+definition and the class <span class="stt">ExamplesPerson</span> that contains the
+examples defined above. You should do this in a new <span class="emph">Person.java</span> file.
+Right click the default package under <span class="emph">Lab1</span> and select New &gt; File. Name it
+<span class="emph">Person.java</span>.
+</p>
+<p>
+ Run your program to make sure it works.
+</p>
+<blockquote class="InterpretiveBody">
+ <p></p>
+ <div class="SIntrapara">
+  <p class="Interpretive">
+   Interpretive Reflection
+  </p>
+ </div>
+ <div class="SIntrapara">
+  <details>
+   <summary>
+    By representing gender as a string, we can allow people to choose whatever best reflects
+their identity. This is clearly beneficial for user autonomy, but is not typical for software systems. In
+most, even ones that allow a variety of choices, gender is expressed as an enumeration. Why do you think
+this is?
+   </summary>
+   Allowing people to express their identity is balanced against the desire to not
+have invalid data. While a free-text field may seem ideal, it would likely
+result in many typos, e.g., <span class="stt">Mal</span> instead of <span class="stt">Male</span>, nevermind many
+different equivalent notions, like <span class="stt">trans</span> instead of <span class="stt">Transgender</span>, or
+<span class="stt">Woman</span> instead of <span class="stt">Female</span>. This would make any data analysis much more
+difficult, and is the main reason why enumerations, even while flawed, are
+typically used for this purpose.
+  </details>
+ </div>
+ <p></p>
+</blockquote>
+<h5 class="heading">
+ <a name="(part._.Data_.Definitions_with_.Containment)"></a>Data Definitions with Containment<span class="button-group"><a href="#(part._.Data_.Definitions_with_.Containment)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ <span style="font-weight: bold">Problem 2</span>
+</p>
+<p>
+ Modify your data definitions so that for each person we also
+record the person’s address. For each person’s address we only
+record the city and the state; each of these should be its own field.
+Create an <span class="stt">Address</span> class to contain the address information, then
+modify the <span class="stt">Person</span> data definition to include an <span class="stt">Address</span>.
+</p>
+<ul>
+ <li>
+  <p>
+   Draw the class diagram for this data definition
+  </p>
+ </li>
+ <li>
+  <p>
+   Define Java classes that represent this data definition.
+  </p>
+ </li>
+ <li>
+  <p>
+   Tim lives in Boston, MA, Kate lives in Warwick, RI,
+and Rebecca lives in Nashua, NH.
+  </p>
+  <p>
+   Make examples of these data and add two more people.
+  </p>
+ </li>
+</ul>
+<p>
+ <span style="font-weight: bold">Problem 3</span>
+We want to define events which have a title, date, location and host.
+What types of data should you use for each of these fields?
+A date should have a day, month and year. A host should be a <span class="stt">Person</span>.
+</p>
+<ul>
+ <li>
+  <p>
+   Draw the class diagrams for an event data definition.
+  </p>
+ </li>
+ <li>
+  <p>
+   Define the class <span class="stt">Event</span> that implements this data
+definition.
+  </p>
+ </li>
+ <li>
+  <p>
+   Define the class <span class="stt">ExamplesEvent</span> and create some examples of events.
+  </p>
+ </li>
+</ul>
+<p>
+ You should do this problem in a new <span class="emph">Event.java</span> file.
+Right click the default package under <span class="emph">Lab1</span> and select New &gt; File. Name it
+<span class="emph">Event.java</span>.
+</p>
+<h5 class="heading">
+ <a name="(part._.Data_.Definitions_for_.Unions_of_.Data)"></a>Data Definitions for Unions of Data<span class="button-group"><a href="#(part._.Data_.Definitions_for_.Unions_of_.Data)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ Problems 4 and 5 concern material found in Lecture 2. You can attempt them if you like.
+</p>
+<p>
+ <span style="font-weight: bold">Problem 4</span>
+</p>
+<p>
+ A deli menu includes soups, salads, and sandwiches.
+Every item has a name and a price (in cents - so we have whole numbers only).
+</p>
+<p>
+ For each soup and salad we note whether it is vegetarian or not.
+</p>
+<p>
+ Salads also specify the name of any dressing being used.
+</p>
+<p>
+ For a sandwich we note the kind of bread, and two fillings (e.g peanut butter and jelly;
+or ham and cheese). Assume that every sandwich will have two fillings, and ignore extras (mayo,
+mustard, tomatoes, lettuce, etc.)
+</p>
+<p>
+ Define classes to represent each of these kinds of menu items.  Think carefully about what type
+each field of each class should be.  Do you need to define any interfaces?
+Construct at least two examples each of soups, salads, and sandwiches.
+</p>
+<h5 class="heading">
+ <a name="(part._.Self-.Referential_.Data)"></a>Self-Referential Data<span class="button-group"><a href="#(part._.Self-.Referential_.Data)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ <span style="font-weight: bold">Problem 5</span>
+</p>
+<p>
+ The <span class="emph">HtDP</span> book includes the data definition for <span class="emph">Ancestor Trees</span>:
+</p>
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">An</span><span class="hspace">&nbsp;</span><span class="RktCmt">Ancestor</span><span class="hspace">&nbsp;</span><span class="RktCmt">Tree</span><span class="hspace">&nbsp;</span><span class="RktCmt">(AT)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">one</span><span class="hspace">&nbsp;</span><span class="RktCmt">of</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">'unknown</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-tree</span><span class="hspace">&nbsp;</span><span class="RktCmt">Person</span><span class="hspace">&nbsp;</span><span class="RktCmt">AT</span><span class="hspace">&nbsp;</span><span class="RktCmt">AT)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta">&nbsp;</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Person</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">defined</span><span class="hspace">&nbsp;</span><span class="RktCmt">as</span><span class="hspace">&nbsp;</span><span class="RktCmt">above</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+<p>
+ Convert this data definition into Java classes and interfaces. What options do
+you have for how to translate this into Java?  Make examples of ancestor trees
+that in at least one branch cover at least three generations.
+</p>
+<div class="navsetbottom">
+ <span class="navleft">
+ <div class="nosearchform"></div>
+ &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="Lab_Materials.html" title="backward to &quot;Lab Materials&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lab_Materials.html" title="up to &quot;Lab Materials&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab2.html" title="forward to &quot;Lab 2: Working with Self-Referential Data&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

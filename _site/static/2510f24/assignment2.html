@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewselflink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="assignment1.html" class="tocviewlink" data-pltdoc="x"><span class="AssignmentNum">Assignment 1:</span> Designing complex data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="AssignmentNum">Assignment 2:</span> Designing methods for complex data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="assignment3.html" class="tocviewlink" data-pltdoc="x"><span class="AssignmentNum">Assignment 3:</span> Designing methods for Complex Data, Practice with Lists and Accumulators</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="assignment4.html" class="tocviewlink" data-pltdoc="x"><span class="AssignmentNum">Assignment 4:</span> Abstraction; Constructors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="assignment5.html" class="tocviewlink" data-pltdoc="x"><span class="AssignmentNum">Assignment 5:</span> Mastermind</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="AssignmentNum">Assignment 2:</span> Designing methods for complex data</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Instructions%29" class="tocviewlink" data-pltdoc="x">Instructions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Practice_.Problems%29" class="tocviewlink" data-pltdoc="x">Practice Problems</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          Problem 1:&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Circuit_.Components%29" class="tocviewlink" data-pltdoc="x">Circuit Components</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Instructions%29" class="tocsubseclink" data-pltdoc="x">Instructions</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Practice_.Problems%29" class="tocsubseclink" data-pltdoc="x">Practice Problems</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">Problem 1:
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Circuit_.Components%29" class="tocsubseclink" data-pltdoc="x">Circuit Components</a>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+ <div class="maincolumn">
+  <div class="main">
+   <div class="versionbox">
+    <span class="version">8.14</span>
+   </div>
+   <div class="navsettop">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="assignment1.html" title="backward to &quot;Assignment 1: Designing complex data&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Assignments.html" title="up to &quot;Assignments&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="assignment3.html" title="forward to &quot;Assignment 3: Designing methods for Complex Data, Practice with Lists and Accumulators&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+  </div>
+  <h4 class="heading">
+   <a name="(part._)"></a><span class="AssignmentNum">Assignment 2:</span> Designing methods for complex data<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+  </h4>
+  <p>
+   <span style="font-weight: bold">Goals:</span> Learn to design methods for complex class hierarchies.
+Practice designing the representation of complex data.
+  </p>
+  <h5 class="heading">
+   <a name="(part._.Instructions)"></a>Instructions<span class="button-group"><a href="#(part._.Instructions)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+  </h5>
+  <p></p>
+  <div class="SIntrapara">
+   <span style="font-weight: bold">Be very, very careful with naming!</span>  Again, the solution files expect your submissions to
+be named a certain way, so that they can define their own <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Examples</span><span class="RktMeta"></span></span></span> class with which
+to test your code.  Therefore, whenever the assignment specifies:
+  </div>
+  <div class="SIntrapara">
+   <ul>
+    <li>
+     <p>
+      the names of classes,
+     </p>
+    </li>
+    <li>
+     <p>
+      the names and types of the fields within classes,
+     </p>
+    </li>
+    <li>
+     <p>
+      the names, types and order of the arguments to the constructor,
+     </p>
+    </li>
+    <li>
+     <p>
+      the names, types and order of arguments to methods, or
+     </p>
+    </li>
+    <li>
+     <p>
+      filenames,
+     </p>
+    </li>
+   </ul>
+  </div>
+  <div class="SIntrapara">
+   ...be sure that your submission uses exactly those names.  Additionally,
+make sure you follow the style guidelines that the
+<a href="https://handins.ccs.neu.edu">handin server</a> enforces. For now the most
+important ones are: using spaces instead of tabs, indenting by 2 characters, following
+the naming conventions (data type names start with a capital letter, names of fields
+and methods start with a lower case letter), and having spaces before curly braces.
+  </div>
+  <p></p>
+  <p>
+   You will submit this assignment by the deadlines using the
+<a href="https://handins.ccs.neu.edu">course handin server</a>.
+Follow
+<a href="http://www.ccs.neu.edu/home/blerner/handin-server/handin-server-guide.html"><span style="color: red">A
+Complete Guide to the Handin Server</span></a> for information on how to use the handin
+server.  <span style="font-weight: bold">You may submit as many times as you wish. Be aware of the fact
+that close to the deadline the server may slow down to handle many submissions,
+so try to finish early.</span>  There will be a separate submission for each problem
+- it makes it easier to grade each problem, and to provide you with the
+feedback for each problem you work on.
+  </p>
+  <p>
+   Remember that you should avoid accessing fields of fields and using any type-checkers. Design
+your methods systematically using the Design Recipe as we have been doing in class!
+  </p>
+  <p>
+   As always, you may only use techniques that have been covered in lectures so far in your solutions.
+  </p>
+  <p></p>
+  <div class="SIntrapara">
+   <span style="font-weight: bold">Due Date:</span>
+  </div>
+  <div class="SIntrapara">
+   <ul>
+    <li>
+     <p>
+      Part 1: Monday, September 16th, 9:00 pm (with self-eval due Tues by 10pm)
+     </p>
+    </li>
+    <li>
+     <p>
+      Part 2: Thursday, Spetember 19th, 9:00 pm
+     </p>
+    </li>
+   </ul>
+  </div>
+  <p></p>
+  <h5 class="heading">
+   <a name="(part._.Practice_.Problems)"></a>Practice Problems<span class="button-group"><a href="#(part._.Practice_.Problems)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+  </h5>
+  <p>
+   Work out these problems on your own. Save them in an electronic portfolio, so you can
+show them to your instructor, review them before the exam, use them as a reference
+when working on the homework assignments.
+  </p>
+  <ul>
+   <li>
+    <p>
+     Problem 10.6 on page 102
+    </p>
+   </li>
+   <li>
+    <p>
+     Problem 11.2 on page 113
+    </p>
+   </li>
+   <li>
+    <p>
+     Problem 12.1 on page 125
+    </p>
+   </li>
+   <li>
+    <p>
+     Problem 14.7 on page 140
+    </p>
+   </li>
+   <li>
+    <p>
+     Problem 15.2 on page 149
+    </p>
+   </li>
+   <li>
+    <p>
+     Problem 15.3 on page 149
+    </p>
+   </li>
+   <li>
+    <p>
+     Problem 15.8 on page 171
+    </p>
+   </li>
+  </ul>
+  <h3 class="heading">
+   Problem 1:
+   <tt>
+    &nbsp;
+   </tt>
+   <a name="(part._.Circuit_.Components)"></a>Circuit Components<span class="button-group"><a href="#(part._.Circuit_.Components)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+  </h3>
+  <p>
+   You will submit this in two parts:
+  </p>
+  <ul>
+   <li>
+    <p>
+     Part 1: Submit your data definitions, examples and tests
+for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">countComponents</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">totalVoltage</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">totalCurrent</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">reversePolarity</span><span class="RktMeta"></span></span></span> methods.
+You should include stubs
+for the two methods themselves. This will be partly graded on the completeness of your test cases.
+You may add examples if there are cases you want to test that are not covered by the examples described below.
+The self-eval due on Tuesday at 10pm will ask you questions about your tests.
+<span style="font-weight: bold">Please add a comment for each test case describing what you are testing.</span>
+    </p>
+   </li>
+   <li>
+    <p>
+     Part 2: Submit everything from Part 1 but this time include complete implementations for the methods
+(including any helpers needed).
+    </p>
+   </li>
+  </ul>
+  <p>
+   A circuit component is a piece of hardware with two terminals. Much like legos, circuit components
+can be connected to each other to create electrical circuits.
+  </p>
+  <p>
+   A multi-meter is an instrument used by technicians and engineers. It is used to measure voltages
+and currents. A multi-meter has two probes: red and black. When they are connected to the two
+terminals of a circuit component, it can measure the voltage difference between them, or the
+current passing from one to the other.
+  </p>
+  <p>
+   A circuit component can be many different things. A simple type of component is a battery.
+A battery offers a constant (DC) voltage between its terminals. Each battery has a nominal
+resistance (so that connecting its terminals to each other doesn’t burn the battery).
+A battery is represented visually as follows:
+  </p>
+  <p>
+   <img src="battery.png" alt="" width="171" height="49">
+  </p>
+  <p>
+   Specifically, the longer vertical line is the positive terminal. The voltage (measured in Volts)
+is the voltage of the left terminal with respect to the right terminal. That is why the voltage
+of the second example above is -5V.
+  </p>
+  <p>
+   Another simple component is a resistor. It is a passive component (i.e. it does not produce any
+voltage or current) with a fixed resistance, measured in ohms (\(\Omega\)). It is represented
+visually as follows:
+  </p>
+  <p>
+   <img src="resistor.png" alt="" width="83" height="23">
+  </p>
+  <p>
+   A circuit component can be created by combining two circuit components. This can be done in two
+ways: series and parallel combinations.
+  </p>
+  <p>
+   In a series combination the two components are connected “one after the other”, as shown below:
+  </p>
+  <p>
+   <img src="series.png" alt="" width="313" height="90">
+  </p>
+  <p>
+   In a parallel combination the two components are connected by connecting their respective matching
+terminals, as shown below:
+  </p>
+  <p>
+   <img src="parallel.png" alt="" width="292" height="71">
+  </p>
+  <p>
+   Using these combinations, one can create more complicated components, such as the one below:
+  </p>
+  <p>
+   <img src="complicated.png" alt="" width="389" height="146">
+  </p>
+  <p>
+   The following DrRacket data definition describes a circuit:
+  </p>
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Circuit</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">one</span><span class="hspace">&nbsp;</span><span class="RktCmt">of</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">Battery</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">Resistor</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">Series</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">Parallel</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta">&nbsp;</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Battery</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-battery</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">Double</span><span class="hspace">&nbsp;</span><span class="RktCmt">Double)</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">battery</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">name</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">voltage</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">nominal-resistance</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta">&nbsp;</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Resistor</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-resistor</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">Double)</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">resistor</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">name</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">resistance</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta">&nbsp;</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Series</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-series</span><span class="hspace">&nbsp;</span><span class="RktCmt">Circuit</span><span class="hspace">&nbsp;</span><span class="RktCmt">Circuit)</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">series</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">first</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">second</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta">&nbsp;</span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Parallel</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-parallel</span><span class="hspace">&nbsp;</span><span class="RktCmt">Circuit</span><span class="hspace">&nbsp;</span><span class="RktCmt">Circuit)</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">parallel</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">first</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">second</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+  <ul>
+   <li>
+    <p>
+     Draw a class diagram for the classes that represent this data
+definition. (It is optional to submit your diagram. You can draw this on paper,
+or in ASCII art as a comment in your submitted file.)
+    </p>
+   </li>
+   <li>
+    <p>
+     Define Java classes that represent the definitions above.
+    </p>
+   </li>
+   <li>
+    <p>
+     Describe (in English, or in a diagram, or in code...) the contents of a circuit that has at least
+two batteries, two resistors and one way of combining circuits. It should be
+different from the ones below.
+    </p>
+   </li>
+   <li>
+    <p>
+     Design the data representation of the example you just described.
+    </p>
+   </li>
+   <li>
+    <p>
+     <span style="font-weight: bold">Name your examples class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ExamplesCircuits</span><span class="RktMeta"></span></span></span></span>
+    </p>
+    <p></p>
+    <div class="SIntrapara">
+     In the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ExamplesCircuits</span><span class="RktMeta"></span></span></span> class design at least 5 examples of circuit components,
+including the following:
+    </div>
+    <div class="SIntrapara">
+     <ul class="CompactList">
+      <li class="CompactListItem">
+       <p>
+        <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">batteryOne</span><span class="RktMeta"></span></span></span>: A battery named <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"B 1"</span><span class="RktMeta"></span></span></span>, with a voltage of 10V
+and a nominal resistance of 25\(\Omega\).
+       </p>
+      </li>
+      <li class="CompactListItem">
+       <p>
+        <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">resistorOne</span><span class="RktMeta"></span></span></span>: A resistor named <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"R 1"</span><span class="RktMeta"></span></span></span>, with a resistance of 100\(\Omega\).
+       </p>
+      </li>
+      <li class="CompactListItem">
+       <p>
+        <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">simpleSeries</span><span class="RktMeta"></span></span></span>: A circuit component mimicking the figure above illustrating
+the series combination.
+       </p>
+      </li>
+      <li class="CompactListItem">
+       <p>
+        <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">complexCircuit</span><span class="RktMeta"></span></span></span>: A circuit component mimicking the figure above illustrating
+the complicated circuit. The parallel combinations are built
+from top to bottom, and series combinations are built from left to right (i.e. the series circuit
+with batteries \(BT_1\) and \(BT_2\) is made first. Then a series circuit with
+\(R_4\) and \(R_5\) is made, and is connected in parallel with \(R_1\), and the resulting
+circuit in parallel to \(R_2\), and so on.
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p></p>
+    <p>
+     <span style="font-weight: bold">Name the different components exactly as in the figures, but replace subscripts with spaces.
+For example, change \(BT_2\) with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"BT 2"</span><span class="RktMeta"></span></span></span>.</span>
+    </p>
+   </li>
+   <li>
+    <p>
+     Design the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">countComponents</span><span class="RktMeta"></span></span></span> that counts the number of simple components
+(batteries and resistors) in this component. For example, the number of simple components
+in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">batteryOne</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">complexCircuit</span><span class="RktMeta"></span></span></span> are 1 and 7 respectively.
+    </p>
+   </li>
+   <li>
+    <p>
+     Design the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">totalVoltage</span><span class="RktMeta"></span></span></span> that computes the voltage between the two terminals
+of this circuit component. For example, the voltages in <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">batteryOne</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">complexCircuit</span><span class="RktMeta"></span></span></span> are 10
+and 30 respectively.
+    </p>
+    <p>
+     If two components are combined in series, then their voltages are added
+(remembering that the voltage may be negative). In a parallel combination, the voltage
+is the same as the voltage across any component (combining two different voltages in parallel
+is a bad idea, and should never be done. For now, we will avoid this by creating valid examples).
+    </p>
+   </li>
+   <li>
+    <p>
+     Design the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">totalCurrent</span><span class="RktMeta"></span></span></span> that computes the current flowing from the left terminal
+to the right terminal of this circuit component. The current is defined as the ratio of voltage
+and resistance. For example, the currents in <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">simpleSeries</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">complexCircuit</span><span class="RktMeta"></span></span></span> circuit are
+0.08 and 0.6 respectively.
+    </p>
+    <p>
+     If two resistances \(R_1\) and \(R_2\) are combined in series, the total resistance
+is \(R_1\)+\(R_2\). If they are connected in parallel, their resistance is \(R\)
+which is computed using the equation \(\frac{1}{R} = \frac{1}{R_1} + \frac{1}{R_2}\).
+    </p>
+   </li>
+   <li>
+    <p>
+     Design the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">reversePolarity</span><span class="RktMeta"></span></span></span> that computes a circuit component identical
+with this component, but with the voltages reversed.
+    </p>
+   </li>
+  </ul>
+  <p>
+   Submit your work in a file called <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circuit</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">java</span><span class="RktMeta"></span></span></span>.
+  </p>
+  <div class="navsetbottom">
+   <span class="navleft">
+   <div class="nosearchform"></div>
+   &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+  </span>
+  <span class="navright">&nbsp;&nbsp;<a href="assignment1.html" title="backward to &quot;Assignment 1: Designing complex data&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Assignments.html" title="up to &quot;Assignments&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="assignment3.html" title="forward to &quot;Assignment 3: Designing methods for Complex Data, Practice with Lists and Accumulators&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+ </div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

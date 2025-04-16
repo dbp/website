@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          33.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Introduction%29" class="tocviewlink" data-pltdoc="x">Introduction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          33.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part.__.An_object_is_what_an_object_has_%29" class="tocviewlink" data-pltdoc="x">“An object is what an object has”</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          33.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part.__.An_object_is_what_an_object_does_%29" class="tocviewlink" data-pltdoc="x">“An object is what an object does”</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          33.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Discussion%29" class="tocviewlink" data-pltdoc="x">Discussion</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">33.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Introduction%29" class="tocsubseclink" data-pltdoc="x">Introduction</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">33.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part.__.An_object_is_what_an_object_has_%29" class="tocsubseclink" data-pltdoc="x">“An object is what an object has”</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">33.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part.__.An_object_is_what_an_object_does_%29" class="tocsubseclink" data-pltdoc="x">“An object is what an object does”</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">33.3.1
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Constructors%29" class="tocsubseclink" data-pltdoc="x">Constructors</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">33.3.2
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Inheritance%29" class="tocsubseclink" data-pltdoc="x">Inheritance</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">33.3.3
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Methods%29" class="tocsubseclink" data-pltdoc="x">Methods</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">33.3.4
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Methods_with_arguments__this__and_dynamic_binding%29" class="tocsubseclink" data-pltdoc="x">Methods with arguments, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span>, and dynamic binding</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">33.4
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.Discussion%29" class="tocsubseclink" data-pltdoc="x">Discussion</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture32.html" title="backward to &quot;Lecture 32: Minimum Spanning Trees&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Syllabus.html" title="forward to &quot;Syllabus&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 33:</span> Implementing Objects<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+Compiling objects to purely functional code
+</p>
+<h5 class="heading">
+33.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Introduction)"></a>Introduction<span class="button-group"><a href="#(part._.Introduction)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+In the last lecture, we looked at a rather different approach to an object-oriented language:
+JavaScript used a system of objects that:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Was <span class="emph">dynamically</span> typed, like the rest of JavaScript,
+</p>
+</li>
+<li>
+<p>
+Modeled objects as a simple <span class="emph">dictionary</span> of property/value pairs,
+</p>
+</li>
+<li>
+<p>
+Used <span class="emph">prototypes</span> to implement inheritance, rather than base and derived classes,
+</p>
+</li>
+<li>
+<p>
+Allowed the creation and removal of object properties at runtime (because they’re “just” dictionaries),
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+...and the whole system functions self-consistently.  Evidently, Java’s approach to object-oriented programming
+isn’t the only possible approach!
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Now that we’ve seen two such systems, it’s natural to ask: how are they <span class="emph">implemented</span>?  That is, when programs
+in these languages are run, what actually happens?  To answer that question, we’ll implement objects ourselves,
+in a language we’re familiar with but that doesn’t have objects of its own: the intermediate
+student language of DrRacket.
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+The <span class="emph">full</span> Racket language actually has a sophisticated object system, which you may be interested in
+examining later, possibly after completing some more advanced courses in language design.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<p></p>
+<p>
+We will examine two possible representations of objects (there are of course other designs possible), and see how we can implement
+all the features of an object-oriented language using them.  You are strongly encouraged to run the snippets of code in this lecture,
+and follow along with each version as we add new features.
+</p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What features are <span class="emph">essential</span> to object-oriented programming?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+At the very least, we must support:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Creating objects
+</p>
+</li>
+<li>
+<p>
+Properties
+</p>
+</li>
+<li>
+<p>
+Methods
+</p>
+</li>
+<li>
+<p>
+...with arguments
+</p>
+</li>
+<li>
+<p>
+Dynamic dispatch
+</p>
+</li>
+<li>
+<p>
+The notion of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span>
+</p>
+</li>
+<li>
+<p>
+Some form of inheritance or code-reuse
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+We do not need to support static types or mutation, as these notions are <span class="emph">orthogonal</span> to our object system:
+we can add them later, or not, without affecting the “object-oriented” part of our language.  We also don’t need
+to explicitly support things like function objects —<wbr> after all, we’re compiling to ISL, which has actual functions!
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+The two representation choices we will examine arise from two perspectives on what objects are, which we can summarize by the slogans:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCentered">
+<p>
+“An object is what an object has”,
+</p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+and
+</div>
+<div class="SIntrapara">
+<blockquote class="SCentered">
+<p>
+“An object is what an object does”
+</p>
+</blockquote>
+</div>
+<p></p>
+<p>
+As our running example, we’ll try to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Posn</span><span class="RktMeta"></span></span></span>s, including their distance-to-origin methods, and comparing whether
+one object is closer to the origin than another.
+</p>
+<h5 class="heading">
+33.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part.__.An_object_is_what_an_object_has_)"></a>“An object is what an object has”<span class="button-group"><a href="#(part.__.An_object_is_what_an_object_has_)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Looking at the JavaScript approach to objects, we see that one possible description of objects is
+</div>
+<div class="SIntrapara">
+<blockquote class="SCentered">
+<p>
+<span class="emph">A dictionary of property/value pairs</span>
+</p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+This defines the object simply in terms of what it contains.  We can represent this in ISL as a list of pairs:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">An</span><span class="hspace">&nbsp;</span><span class="RktCmt">Object</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Listof</span><span class="hspace">&nbsp;</span><span class="RktCmt">PropVal]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">PropVal</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">(list</span><span class="hspace">&nbsp;</span><span class="RktCmt">Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">symbol</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">4</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">6</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">8</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+This handles our first requirement: we can easily create objects, just by writing down a list.  And we can easily
+create properties for those objects, again just by writing them down.  Our object quite literally <span class="emph">is</span> whatever
+fields it <span class="emph">has</span>.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+We need to define a way to access the fields of an object.  In Java, we’d write a field access as <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">myPos1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="RktMeta"></span></span></span>.
+In ISL, we’ll define a function <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span> to do the same thing.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Design this function, given our current representation.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">dot</span><span class="hspace">&nbsp;</span><span class="RktCmt">::</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Object</span><span class="hspace">&nbsp;</span><span class="RktCmt">Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">empty?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">first</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">first</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">second</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">first</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">rest</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">8</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"z:</span><span class="hspace">&nbsp;</span><span class="RktVal">No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p></p>
+<p>
+This seems plain enough: our <span class="RktMeta"></span><span class="RktSym">dot</span><span class="RktMeta"></span> function is basically the standard <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">find</span><span class="RktMeta"></span></span></span> function, and so we have property lookup.
+</p>
+<p></p>
+<div class="SIntrapara">
+How can we implement methods?  We might simply say that methods are just properties whose values happen to be functions.  But this
+approach gets slightly tricky, rather quickly.  Instead, let’s examine the second perspective of objects in more detail.
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+In practice, these tricky details can be solved, and all compilers for object-oriented languages do use a representation
+similar to this dictionary-of-properties approach.  But understanding those details actually distracts from what’s going on;
+if you are interested in more information, take a course on compilers!
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<p></p>
+<h5 class="heading">
+33.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part.__.An_object_is_what_an_object_does_)"></a>“An object is what an object does”<span class="button-group"><a href="#(part.__.An_object_is_what_an_object_does_)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Recall our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span> interface that we’ve seen so frequently.  If we have an object that we know to be an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>, do we know in
+advance what fields it has?  No —<wbr> we merely know what behaviors we can invoke on it.  After all, that’s the whole point of an interface
+in Java: it hides the implementation details behind a promise to support some set of behaviors.  All we know is that our object
+can <span class="emph">do</span> whatever the interface promises.  Our object <span class="emph">is</span> whatever it can <span class="emph">do</span>.
+</p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What kind of value in ISL also acts like this?  What values <span class="emph">are</span> what they can <span class="emph">do</span>?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Of all the kinds of values we’ve seen in ISL, <span class="emph">functions</span> sound most like this description: however a function was implemented,
+all we can observe of it is the result of calling it on some arguments.  This leads us to our second representation for objects:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">An</span><span class="hspace">&nbsp;</span><span class="RktCmt">Object</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">symbol</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Define <span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span> and <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span> in this new representation.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">4</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">6</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">8</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Looking at these definitions, we see we can again easily create objects, just by writing down functions with the appropriate signature,
+and we again can easily create properties.  We need to define a new version of <span class="RktMeta"></span><span class="RktSym">dot</span><span class="RktMeta"></span>, though:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">dot</span><span class="hspace">&nbsp;</span><span class="RktCmt">::</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Object</span><span class="hspace">&nbsp;</span><span class="RktCmt">Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">(1st</span><span class="hspace">&nbsp;</span><span class="RktCmt">attempt)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">8</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"z:</span><span class="hspace">&nbsp;</span><span class="RktVal">No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p></p>
+<p>
+Notice that our tests are completely unchanged: even though we’ve totally changed our representation of objects, we can still interact
+with them via <span class="RktMeta"></span><span class="RktSym">dot</span><span class="RktMeta"></span>.
+</p>
+<h5 class="heading">
+33.3.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Constructors)"></a>Constructors<span class="button-group"><a href="#(part._.Constructors)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Looking at the definitions of <span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span> and <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span>, it’s obvious that there is a great deal of repetitive code.  The design recipe for
+abstraction says we ought to isolate the parts of the code that vary and extract them as function parameters.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Do this.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+If we do this, we’ll have a function that takes parameters that represent the values of the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktMeta"></span> and <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktMeta"></span> fields, and that
+returns the lambda that is our object.  In other words: by abstracting out these parameters, we’ve created <span class="emph">object constructors</span>,
+which are nothing more than functions that return objects.  We obtain the following code:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">4</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">6</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">8</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p></p>
+<h5 class="heading">
+33.3.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Inheritance)"></a>Inheritance<span class="button-group"><a href="#(part._.Inheritance)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Suppose we want to make a 3-d point.  A 3-d point shares some of the implementation of a 2-d point, so we might want to reuse our
+code from above, but we also want to add a <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktMeta"></span> property.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Design a <span class="RktMeta"></span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span> constructor.  Can you reuse <span class="RktMeta"></span><span class="RktSym">make-pos</span><span class="RktMeta"></span> in some way?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+The simplest approach is just to copy and paste the <span class="RktMeta"></span><span class="RktSym">make-pos</span><span class="RktMeta"></span> constructor and modify it:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">4</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">12</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">12</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">w</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"w:</span><span class="hspace">&nbsp;</span><span class="RktVal">No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+But it’s visually apparent that there’s duplicated code here.  What if we constructed a 2-d point with the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktMeta"></span> and <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktMeta"></span> fields, and used it
+as a helper for our 3-d point?
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">2dpos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">2dpos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">4</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">12</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">12</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">w</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"w:</span><span class="hspace">&nbsp;</span><span class="RktVal">No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Our 3-d point uses <span class="RktMeta"></span><span class="RktSym">2dpos</span><span class="RktMeta"></span> as a helper function to handle <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktMeta"></span> and <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktMeta"></span>.  In other words, it <span class="emph">delegates</span> to <span class="RktMeta"></span><span class="RktSym">2dpos</span><span class="RktMeta"></span>.
+Moreover, given the particular pattern of delegation being used here, we might well rename <span class="RktMeta"></span><span class="RktSym">2dpos</span><span class="RktMeta"></span>: it’s being used as the base object
+from which our 3-d point inherits, so we can call it <span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span>:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+In fact, we can reuse this mechanism in <span class="RktMeta"></span><span class="RktSym">make-pos</span><span class="RktMeta"></span> itself.  After all, <span class="emph">every</span> object we create needs some catch-all
+clause to handle the “No such property found” error cases.  So let’s define an object that fails when looking up every single possible property:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">failure</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+We can now revise <span class="RktMeta"></span><span class="RktSym">make-pos</span><span class="RktMeta"></span> to delegate to this object for all the properties it doesn’t know about:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">failure</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p></p>
+<p>
+Again, we can rename some of our variables: <span class="RktMeta"></span><span class="RktSym">failure</span><span class="RktMeta"></span> is the simplest possible object, and the one at the root of our object hierarchy.  We
+might well just call it <span class="RktMeta"></span><span class="RktSym">object</span><span class="RktMeta"></span>.
+</p>
+<h5 class="heading">
+33.3.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Methods)"></a>Methods<span class="button-group"><a href="#(part._.Methods)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Design a method <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> that computes the distance to the origin for 2-d points.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+All we need to do is add a new case to our <span class="RktMeta"></span><span class="RktSym">cond</span><span class="RktMeta"></span>, which will recognize <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> and use the Pythagorean formula
+to compute the right answer.
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">failure</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">NEW:</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqrt</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">+</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">5</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">10</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Notice that in this representation, methods and properties behave uniformly: we just write whatever code we need for the body of the method
+as the right-hand side of our <span class="RktMeta"></span><span class="RktSym">cond</span><span class="RktMeta"></span> branch, and we call the method using <span class="RktMeta"></span><span class="RktSym">dot</span><span class="RktMeta"></span> just as we do to access fields.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+If we try to run <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> on <span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span>, we get the wrong answer.  Fix this problem.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Our 3-d points inherit the implementation of <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> from <span class="RktMeta"></span><span class="RktSym">make-pos</span><span class="RktMeta"></span>’s 2-d points, but of course this is the wrong answer.
+Instead, we need to define a better method that is specialized for 3-d points:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">NEW:</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqrt</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">+</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Thanks to the natural behavior of <span class="RktMeta"></span><span class="RktSym">cond</span><span class="RktMeta"></span>, which evaluates its branches in order, we have now easily implemented <span class="emph">overriding</span>,
+just by defining a new handler for our <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> method where it belongs.
+</div>
+<p></p>
+<h5 class="heading">
+33.3.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Methods_with_arguments__this__and_dynamic_binding)"></a>Methods with arguments, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span>, and dynamic binding<span class="button-group"><a href="#(part._.Methods_with_arguments__this__and_dynamic_binding)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+The next level of support for object-oriented features requires a few upgrades all at once, and these can be subtle at first glance.
+Read through this section slowly, and try stepping through the examples in DrRacket until they make sense.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Let’s try to implement the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> method, which checks whether this point is closer to the origin than the given one.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What’s different about the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> method as compared to the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> method?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+That is, we’d like to write the following:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">failure</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqrt</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">+</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">NEW:</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">&lt;</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+This code doesn’t work, because neither <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> nor <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> are defined anywhere.  Handling <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> is relatively straightforward;
+handling <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> is quite subtle.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+The <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> method requires passing in <span class="emph">parameters</span> to our method calls.  That means, we need to revise <span class="RktMeta"></span><span class="RktSym">dot</span><span class="RktMeta"></span>
+to take parameters, and pass them along to our objects:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">dot</span><span class="hspace">&nbsp;</span><span class="RktCmt">::</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Object</span><span class="hspace">&nbsp;</span><span class="RktCmt">Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">Params</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+This means we need to revise our definition of <span class="RktMeta"></span><span class="RktSym">Object</span><span class="RktMeta"></span>: an object needs to be a function that takes both a property name
+and a list of arguments
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">An</span><span class="hspace">&nbsp;</span><span class="RktCmt">Object</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">Params</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Params</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Listof</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">failure</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">NEW:</span><span class="hspace">&nbsp;</span><span class="RktCmt">args</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqrt</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">+</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktSym">????</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Now that we have <span class="RktMeta"></span><span class="RktSym">args</span><span class="RktMeta"></span> passed in to our object, how can we define <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> in the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> branch?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">failure</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqrt</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">+</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">NEW:</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">first</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">&lt;</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+We can find <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> as the first argument that’s passed in.  Unfortunately, we still need a way to define <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span>.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What value does <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span> refer to in Java?  What expression in the ISL code above represents that value?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+In Java, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span> refers to <span class="emph">the current object</span>.  In the code above, this is represented by the lambda itself.
+We somehow need to bind that lambda to the name <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> in such a way that it is available while defining the lambda itself...
+in other words, we need a <span class="emph">recursive</span> definition:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">object</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">NEW:</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqrt</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">+</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">first</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">&lt;</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Now, <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> is bound to the lambda, and in the body of the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> method, we can use <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span>
+to invoke the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> method on this object!
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Let’s test this, to ensure we’ve gotten it right:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Test</span><span class="hspace">&nbsp;</span><span class="RktCmt">1:</span><span class="hspace">&nbsp;</span><span class="RktCmt">(3,4)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">closer</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">origin</span><span class="hspace">&nbsp;</span><span class="RktCmt">than</span><span class="hspace">&nbsp;</span><span class="RktCmt">(6,8)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Test</span><span class="hspace">&nbsp;</span><span class="RktCmt">2:</span><span class="hspace">&nbsp;</span><span class="RktCmt">(6,8)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">not</span><span class="hspace">&nbsp;</span><span class="RktCmt">closer</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">origin</span><span class="hspace">&nbsp;</span><span class="RktCmt">than</span><span class="hspace">&nbsp;</span><span class="RktCmt">(3,4)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">false</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Test</span><span class="hspace">&nbsp;</span><span class="RktCmt">3:</span><span class="hspace">&nbsp;</span><span class="RktCmt">(6,8)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">closer</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">origin</span><span class="hspace">&nbsp;</span><span class="RktCmt">than</span><span class="hspace">&nbsp;</span><span class="RktCmt">(3,4,12)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Test</span><span class="hspace">&nbsp;</span><span class="RktCmt">4:</span><span class="hspace">&nbsp;</span><span class="RktCmt">(3,4,12)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">not</span><span class="hspace">&nbsp;</span><span class="RktCmt">closer</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">origin</span><span class="hspace">&nbsp;</span><span class="RktCmt">than</span><span class="hspace">&nbsp;</span><span class="RktCmt">(6,8)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">false</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Unfortunately, the last of these tests fails.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Why?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Let’s trace very carefully through the execution of the last two tests.  In test 3:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+When we invoke <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> on <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span> with an argument of <span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span>,
+we evaluate whether <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span> is less than <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>, where
+<span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> is bound to <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span>, and <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> is bound to <span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span>.
+</p>
+</li>
+<li>
+<p>
+Evaluating the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> method on <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span> runs the 2-d version of the Pythagorean formula within <span class="RktMeta"></span><span class="RktSym">make-pos</span><span class="RktMeta"></span>, and results in <span class="RktMeta"></span><span class="RktVal">10</span><span class="RktMeta"></span>.
+Evaluating <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> on <span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span> runs the <span class="emph">3-d</span> version within <span class="RktMeta"></span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span>, and results in <span class="RktMeta"></span><span class="RktVal">13</span><span class="RktMeta"></span>.
+</p>
+</li>
+<li>
+<p>
+Together, <span class="RktMeta"></span><span class="RktVal">10</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">&lt;</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">13</span><span class="RktMeta"></span>, so we obtain <span class="RktMeta"></span><span class="RktSym">true</span><span class="RktMeta"></span> and the test passes.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+However in test 4:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+When we invoke <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> on <span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span> with an argument of <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span>,
+we find that a 3-d point doesn’t have its own <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> method, so we invoke <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>, where
+<span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span> is bound to the helper <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">4</span><span class="RktPn">)</span><span class="RktMeta"></span> object.  This will invoke <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> <span class="emph">on this helper object</span>,
+with an argument of <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span>.
+</p>
+</li>
+<li>
+<p>
+When we evaluate <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span> on the helper object, <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> is bound to <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span>, and <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> is bound
+to the helper object, which is <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">4</span><span class="RktPn">)</span><span class="RktMeta"></span>.
+</p>
+</li>
+<li>
+<p>
+Evaluating the <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> method on <span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span> runs the 2-d version of the Pythagorean formula within <span class="RktMeta"></span><span class="RktSym">make-pos</span><span class="RktMeta"></span>, and results in <span class="RktMeta"></span><span class="RktVal">10</span><span class="RktMeta"></span>.
+Evaluating <span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span> on the helper object runs the <span class="emph">2-d</span> version again, and results in <span class="emph"><span class="RktMeta"></span><span class="RktVal">5</span><span class="RktMeta"></span></span> (instead of the correct <span class="RktMeta"></span><span class="RktVal">13</span><span class="RktMeta"></span>).
+</p>
+</li>
+<li>
+<p>
+Together, <span class="RktMeta"></span><span class="RktVal">5</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">&lt;</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">10</span><span class="RktMeta"></span> is true, so we obtain <span class="RktMeta"></span><span class="RktSym">true</span><span class="RktMeta"></span> and the test fails.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+The problem here is that when we delegate up to a super object, we “forget” which object we actually invoked the method on!  How can we resolve this?
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Look carefully at where <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> is bound.  Look carefully at where <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> is bound.  What is the difference?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+The <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> parameter is defined by finding it in the arguments supplied to the method call: it is defined <span class="emph">dynamically</span> each time
+we invoke the method.  In contrast, <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> is defined by the <span class="RktMeta"></span><span class="RktSym">local</span><span class="RktMeta"></span> <span class="RktMeta"></span><span class="RktSym">define</span><span class="RktMeta"></span> and never changes between calls: it is defined <span class="emph">statically</span>.
+Our only way out of this conundrum is to somehow make <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> be defined <span class="emph">dynamically</span> also —<wbr> we must pass in the object on which we’re invoking
+a method as a parameter <span class="emph">to</span> that method!
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+This requires changing our representation of objects one last time:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">An</span><span class="hspace">&nbsp;</span><span class="RktCmt">Object</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Itself</span><span class="hspace">&nbsp;</span><span class="RktCmt">Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">Params</span><span class="hspace">&nbsp;</span><span class="RktCmt">-&gt;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Name</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">a</span><span class="hspace">&nbsp;</span><span class="RktCmt">symbol</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Params</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">[Listof</span><span class="hspace">&nbsp;</span><span class="RktCmt">Value]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Itself</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">object</span><span class="hspace">&nbsp;</span><span class="RktCmt">on</span><span class="hspace">&nbsp;</span><span class="RktCmt">which</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">method</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">being</span><span class="hspace">&nbsp;</span><span class="RktCmt">invoked</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta">&nbsp;</span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">object</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">error</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"No</span><span class="hspace">&nbsp;</span><span class="RktVal">such</span><span class="hspace">&nbsp;</span><span class="RktVal">property</span><span class="hspace">&nbsp;</span><span class="RktVal">found"</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">object</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqrt</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">+</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">first</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">&lt;</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktPn">(</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktPn">(</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">NEW:</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">local</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-pos</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">λ</span><span class="RktPn">(</span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">cond</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktPn">(</span><span class="RktSym">symbol=?</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">dist-to-0</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqrt</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">+</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">x</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">y</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">sqr</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">z</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">NEW:</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">[</span><span class="RktSym">else</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">super</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Passes</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">object</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">itself</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">obj</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">args</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Look carefully at the last line of <span class="RktMeta"></span><span class="RktSym">make-pos</span><span class="RktMeta"></span> and <span class="RktMeta"></span><span class="RktSym">make-3d-pos</span><span class="RktMeta"></span>: when we make a super call, we must pass
+<span class="emph">the original object</span> up to the parent, in case the parent needs to invoke a method on it.  By passing in the object,
+we ensure that it is bound dynamically, just like <span class="RktMeta"></span><span class="RktSym">that</span><span class="RktMeta"></span> is, and this dynamic binding is the essential idea behind <span class="emph">dynamic dispatch</span>:
+we don’t know until runtime precisely which object we’re invoking a method on.  If we run our four tests above again, they now all pass:
+</div>
+<p></p>
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Test</span><span class="hspace">&nbsp;</span><span class="RktCmt">1:</span><span class="hspace">&nbsp;</span><span class="RktCmt">(3,4)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">closer</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">origin</span><span class="hspace">&nbsp;</span><span class="RktCmt">than</span><span class="hspace">&nbsp;</span><span class="RktCmt">(6,8)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Test</span><span class="hspace">&nbsp;</span><span class="RktCmt">2:</span><span class="hspace">&nbsp;</span><span class="RktCmt">(6,8)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">not</span><span class="hspace">&nbsp;</span><span class="RktCmt">closer</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">origin</span><span class="hspace">&nbsp;</span><span class="RktCmt">than</span><span class="hspace">&nbsp;</span><span class="RktCmt">(3,4)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">false</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Test</span><span class="hspace">&nbsp;</span><span class="RktCmt">3:</span><span class="hspace">&nbsp;</span><span class="RktCmt">(6,8)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">closer</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">origin</span><span class="hspace">&nbsp;</span><span class="RktCmt">than</span><span class="hspace">&nbsp;</span><span class="RktCmt">(3,4,12)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Test</span><span class="hspace">&nbsp;</span><span class="RktCmt">4:</span><span class="hspace">&nbsp;</span><span class="RktCmt">(3,4,12)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">not</span><span class="hspace">&nbsp;</span><span class="RktCmt">closer</span><span class="hspace">&nbsp;</span><span class="RktCmt">to</span><span class="hspace">&nbsp;</span><span class="RktCmt">the</span><span class="hspace">&nbsp;</span><span class="RktCmt">origin</span><span class="hspace">&nbsp;</span><span class="RktCmt">than</span><span class="hspace">&nbsp;</span><span class="RktCmt">(6,8)</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">check-expect</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">dot</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos3</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">closer-than</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">list</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">my-pos2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">false</span><span class="RktPn">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>
+(You might have noticed that the <span class="RktMeta"></span><span class="RktSym">local</span><span class="RktMeta"></span> definition of <span class="RktMeta"></span><span class="RktSym">this</span><span class="RktMeta"></span> has disappeared.  The recursion that we needed hasn’t vanished though: instead, we obtain it
+by passing the object to itself as its first parameter.)
+</p>
+<h5 class="heading">
+33.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Discussion)"></a>Discussion<span class="button-group"><a href="#(part._.Discussion)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+We’ve actually implemented all the essential features of an object system: we have objects and constructors, fields, methods (with parameters), dynamic dispatch,
+inheritance and code reuse.  Everything else from here on is a bonus.  Some possibilities include:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+If we abstract the binding for <span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span> and pass it in as an argument to the constructor, we obtain the prototype inheritance pattern
+of JavaScript.
+</p>
+</li>
+<li>
+<p>
+If instead we abstract just the constructor being called to create <span class="RktMeta"></span><span class="RktSym">super</span><span class="RktMeta"></span> and pass that in instead, we obtain a pattern called <span class="emph">mixins</span>,
+which are essentially “higher-order classes”.
+</p>
+</li>
+<li>
+<p>
+If we do a fair bit of error checking that <span class="RktMeta"></span><span class="RktSym">prop</span><span class="RktMeta"></span> is a symbol, that <span class="RktMeta"></span><span class="RktSym">args</span><span class="RktMeta"></span> is always of the expected length and contains values of the expected
+kinds, then we essentially are performing runtime type-checking, analogous to the typechecking that Java performs statically.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+Many other patterns are possible with this representation, because everything is “just” more and more patterns of lambdas!
+</div>
+<p></p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture32.html" title="backward to &quot;Lecture 32: Minimum Spanning Trees&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Syllabus.html" title="forward to &quot;Syllabus&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

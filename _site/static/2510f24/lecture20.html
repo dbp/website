@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          20.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Removing_items_from_a_list__the_setup%29" class="tocviewlink" data-pltdoc="x">Removing items from a list:<span class="mywbr"> &nbsp;</span> the setup</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          20.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Removing_a_person_by_name__part_1%29" class="tocviewlink" data-pltdoc="x">Removing a person by name, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          20.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Aliasing__again__and_removing_items_from_a_list%29" class="tocviewlink" data-pltdoc="x">Aliasing, again, and removing items from a list</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          20.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Removing_from_a_list__part_2__removing_the_first_item%29" class="tocviewlink" data-pltdoc="x">Removing from a list, part 2:<span class="mywbr"> &nbsp;</span> removing the first item</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          20.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Revising_our_data_structure__.Introducing_sentinels%29" class="tocviewlink" data-pltdoc="x">Revising our data structure:<span class="mywbr"> &nbsp;</span> Introducing sentinels</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          20.6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Revising_our_data_structure__introducing_wrappers%29" class="tocviewlink" data-pltdoc="x">Revising our data structure:<span class="mywbr"> &nbsp;</span> introducing wrappers</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          20.7&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Discussion%29" class="tocviewlink" data-pltdoc="x">Discussion</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          20.8&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Generalizing_from_.Mutable.Person.Lists_to_mutable_lists_of_arbitrary_data%29" class="tocviewlink" data-pltdoc="x">Generalizing from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Mutable<span class="mywbr"> &nbsp;</span>Person<span class="mywbr"> &nbsp;</span>List</span><span class="RktMeta"></span></span></span>s to mutable lists of arbitrary data</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">20.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Removing_items_from_a_list__the_setup%29" class="tocsubseclink" data-pltdoc="x">Removing items from a list:<span class="mywbr"> &nbsp;</span> the setup</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">20.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Removing_a_person_by_name__part_1%29" class="tocsubseclink" data-pltdoc="x">Removing a person by name, part 1</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">20.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Aliasing__again__and_removing_items_from_a_list%29" class="tocsubseclink" data-pltdoc="x">Aliasing, again, and removing items from a list</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">20.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Removing_from_a_list__part_2__removing_the_first_item%29" class="tocsubseclink" data-pltdoc="x">Removing from a list, part 2:<span class="mywbr"> &nbsp;</span> removing the first item</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">20.5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Revising_our_data_structure__.Introducing_sentinels%29" class="tocsubseclink" data-pltdoc="x">Revising our data structure:<span class="mywbr"> &nbsp;</span> Introducing sentinels</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">20.6
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Revising_our_data_structure__introducing_wrappers%29" class="tocsubseclink" data-pltdoc="x">Revising our data structure:<span class="mywbr"> &nbsp;</span> introducing wrappers</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">20.6.1
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Implementing_the_nodes_of_the_list%29" class="tocsubseclink" data-pltdoc="x">Implementing the nodes of the list</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">20.6.2
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.Implementing_.Mutable.Person.List_itself%29" class="tocsubseclink" data-pltdoc="x">Implementing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Mutable<span class="mywbr"> &nbsp;</span>Person<span class="mywbr"> &nbsp;</span>List</span><span class="RktMeta"></span></span></span> itself</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">20.7
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._.Discussion%29" class="tocsubseclink" data-pltdoc="x">Discussion</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">20.8
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Generalizing_from_.Mutable.Person.Lists_to_mutable_lists_of_arbitrary_data%29" class="tocsubseclink" data-pltdoc="x">Generalizing from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Mutable<span class="mywbr"> &nbsp;</span>Person<span class="mywbr"> &nbsp;</span>List</span><span class="RktMeta"></span></span></span>s to mutable lists of arbitrary data</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture19.html" title="backward to &quot;Lecture 19: Mutation, aliasing and testing&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture21.html" title="forward to &quot;Lecture 21: ArrayLists&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 20:</span> Mutable data structures<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+Removing items from a list, sentinels, and wrappers
+</p>
+<p>
+In the last lecture, we considered phone lists and dealt with the possibility that people might
+move and change their phone numbers.  In this lecture, we deal with a related but more subtle
+situation, where we lose contact with someone altogether, and need to remove them from a phone list.
+Once again, we’ll start with the non-generic <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ILoPerson</span><span class="RktMeta"></span></span></span> type to focus on the essential new
+aspects of the problem; generalizing to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Person</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> is straightforward.
+</p>
+<h5 class="heading">
+20.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Removing_items_from_a_list__the_setup)"></a>Removing items from a list: the setup<span class="button-group"><a href="#(part._.Removing_items_from_a_list__the_setup)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+As it turns out, removing an item from a list is a bit subtle.  First, we need a signature and a few
+examples of what we expect to happen when we remove a person from a list:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ILoPerson
+</span><span class="ProfjComment">// EFFECT: modifies this list and removes the person with the given name from it
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ExamplePhoneLists
+</span><span class="ProfjComment">// Tests removing the first person in a list
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRemoveFirstPerson</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initData</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ILoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">list1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">anne</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">clyde</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">henry</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ILoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">list2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">anne</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dana</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">gail</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Check initial conditions
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Anne"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Anne"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Modify list1
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Anne"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Check that list1 has been modified...
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Anne"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// ...but that list2 has not
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Anne"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Tests removing a middle person in a list
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRemoveMiddlePerson</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initData</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ILoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">list1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">anne</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">clyde</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">henry</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ILoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">list2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dana</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">clyde</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">gail</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Check initial conditions
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Clyde"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Clyde"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Modify list1
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Clyde"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Check that list1 has been modified...
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Clyde"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// ...but that list2 has not
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Clyde"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Tests removing the last person in a list
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRemoveLastPerson</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initData</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ILoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">list1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">anne</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">clyde</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">henry</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ILoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">list2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dana</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">gail</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">henry</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Check initial conditions
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Henry"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Henry"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Modify list1
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Henry"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Check that list1 has been modified...
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Henry"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// ...but that list2 has not
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">list2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Henry"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+These examples are not complete.  What other edge cases might there be?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Let’s try to design <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePerson</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+<h5 class="heading">
+20.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Removing_a_person_by_name__part_1)"></a>Removing a person by name, part 1<span class="button-group"><a href="#(part._.Removing_a_person_by_name__part_1)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+We can dispense with the empty case easily enough: there’s no person to be removed, so there’s
+nothing to do.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In MtLoPerson
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+The non-empty case is a bit trickier.  The recursive part is easy: if we haven’t found
+the person by name yet, keep searching.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ConsLoPerson
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameName</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">?</span><span class="ProfjKeyword">?</span><span class="ProfjKeyword">?</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+What should we do when we finally find the name?  We need somehow to remove the current <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span>
+from the list.  Is there anything we can do to modify the current object to accomplish that?
+No!  Each <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span> only contains references to the <span class="emph">next</span> item in the list,
+so all we could do is modify the node after the current one.  But the link we need to modify
+is therefore from the node <span class="emph">before</span> the current one, and we don’t have a reference to it!
+</div>
+<p></p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+<span class="emph">Well...</span>maybe we don’t need to remove <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span> <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span> from the list —<wbr> maybe we just need
+to remove its <span class="emph">data</span>.  Why couldn’t we just “move” the data from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span> into <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span>,
+and then do the same thing to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span>, moving the items up one by one to eliminate the current one?
+</div>
+<p></p>
+<p>
+Give three technical reasons why this approach fails.  (Hint: consider types, aliasing, and any base cases.)
+</p>
+</blockquote>
+<p>
+(It’s tempting to think that perhaps all we need to do is “set <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span> to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span>”,
+and then we’d be done.  But <span class="emph"><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span> is not a variable, it’s a keyword</span>.  It is a pronoun,
+referring to the current object, and we cannot modify it to mean something else.  Instead,
+we have to find where the references to the current object are being held—<wbr>i.e., in the preceding
+node of this list—<wbr>and modify them.)
+</p>
+<p></p>
+<div class="SIntrapara">
+It sounds like we need to keep track of additional information: we need an accumulator parameter
+that tells us what the node is before this one, so that we can modify it as needed.  Note that the
+node before the current one is guaranteed to be a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span>, not merely an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ILoPerson</span><span class="RktMeta"></span></span></span>,
+so we can define the following signature:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ILoPerson
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prev</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In MtLoPerson
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prev</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ConsLoPerson
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prev</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameName</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">prev</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// Modify the previous node to bypass this node
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// this is the previous node of this.rest
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Of course, this isn’t the method we want to define; we still need to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePerson</span><span class="RktMeta"></span></span></span>
+itself.  To do that, we’ll need to pass to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span> some particular
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span>, and the only one we have available is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ConsLoPerson
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+If we try running the tests above, most of them pass.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+There is a serious but subtle problem with this single line of code.  What is it?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Before we tackle that problem, there’s another potential hazard to recognize and avoid.
+</div>
+<p></p>
+<h5 class="heading">
+20.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Aliasing__again__and_removing_items_from_a_list)"></a>Aliasing, again, and removing items from a list<span class="button-group"><a href="#(part._.Aliasing__again__and_removing_items_from_a_list)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Suppose we had a different setup of friends and coworkers than the last lecture:
+suppose we work in an office where we’re friends with everyone; additionally, we have friends
+outside of work.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ExamplePhoneLists
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">initData</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// ... initialize Anne, Bob, etc...
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">work</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">bob</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">clyde</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dana</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">eric</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">frank</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// We're friends with everyone at work, and also with other people
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">friends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">anne</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">gail</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">henry</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">work</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Now suppose Eric quits his job.  We need to remove him from the list of work contacts, but we still remain friends with him outside of work.  In other words, the following test should pass:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ExamplePhoneLists
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRemoveCoworker</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initData</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test that Eric is a coworker and a friend
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">work</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">findPhoneNum</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Eric"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">eric</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">num</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">friends</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">findPhoneNum</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Eric"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">eric</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">num</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Remove Eric from coworkers
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">work</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Eric"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Check that Eric is no longer a coworker
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">work</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">findPhoneNum</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Eric"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Check that Eric is still a friend
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">friends</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">findPhoneNum</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Eric"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">eric</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">num</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Do these tests pass?  Why or why not?  Draw an object diagram to illustrate the situation.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Here is the object diagram that represents our initial data, before removing Eric.
+</div>
+<div class="SIntrapara">
+<pre class="SmallerVerb">+------+ +------+ +-------+ +------+ +-------+ +-------+ +------+ +-------+ +-------+ +---------+
+| Anne | | Bob  | | Clyde | | Dana | | Eric  | | Frank | | Gail | | Henry | | Irene | | Jenny   |
+| 1234 | | 3456 | | 6789  | | 1357 | | 12469 | | 7924  | | 9345 | | 8602  | | 91302 | | 8675309 |
++------+ +------+ +-------+ +------+ +-------+ +-------+ +------+ +-------+ +-------+ +---------+
+    ^        ^        ^          ^      ^         ^          ^         ^
+    |        |        |          |      |         +----------|---------|-----------------+
+    |        |        |          |      +--------------------|---------|------+          |
+    |        |        |          +---------------------------|-----+   |      |          |
+    |        |        +---------------------------------+    |     |   |      |          |
+    |        +-------------------------------+          |    |     |   |      |          |
+    |                                        |          |    |     |   |      |          |
+    |          +-----------------------------|----------|----+     |   |      |          |
+    |          |          +------------------|----------|----------|---+      |          |
+ +--|----+  +--|----+  +--|----+             |          |          |          |          |
+ | first |  | first |  | first |          +--|----+  +--|----+  +--|----+  +--|----+  +--|----+  ++
+ | rest ---&gt;| rest ---&gt;| rest -----------&gt;| first |  | first |  | first |  | first |  | first |  ||
+ +-------+  +-------+  +-------+          | rest ---&gt;| rest ---&gt;| rest ---&gt;| rest ---&gt;| rest ---&gt;||
+  ^                                       +-------+  +-------+  +-------+  +-------+  +-------+  ++
+  |                                         ^
+friends                                     |
+                                          work</pre>
+</div>
+<div class="SIntrapara">
+The first test certainly passes, since Eric is present as the fourth item of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">work</span><span class="RktMeta"></span></span></span> list.
+Notice that in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">friends</span><span class="RktMeta"></span></span></span> list, the fourth <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span> node <span class="emph">is</span> the first
+node of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">work</span><span class="RktMeta"></span></span></span> list: in other words, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">work</span><span class="RktMeta"></span></span></span> is <span class="emph">aliased</span> as <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">friends</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span>.
+So finding Eric in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">friends</span><span class="RktMeta"></span></span></span> list (test 2) also passes; he’s present as the seventh item of the list.
+But as a result of the aliasing, <span class="emph">after</span> removing Eric from the list of work colleagues, we get this:
+</div>
+<div class="SIntrapara">
+<pre class="SmallerVerb">+------+ +------+ +-------+ +------+ +-------+ +-------+ +------+ +-------+ +-------+ +---------+
+| Anne | | Bob  | | Clyde | | Dana | | Eric  | | Frank | | Gail | | Henry | | Irene | | Jenny   |
+| 1234 | | 3456 | | 6789  | | 1357 | | 12469 | | 7924  | | 9345 | | 8602  | | 91302 | | 8675309 |
++------+ +------+ +-------+ +------+ +-------+ +-------+ +------+ +-------+ +-------+ +---------+
+    ^        ^        ^          ^                ^          ^         ^
+    |        |        |          |                +----------|---------|-----------------+
+    |        |        |          |                           |         |                 |
+    |        |        |          +---------------------------|-----+   |                 |
+    |        |        +---------------------------------+    |     |   |                 |
+    |        +-------------------------------+          |    |     |   |                 |
+    |                                        |          |    |     |   |                 |
+    |          +-----------------------------|----------|----+     |   |                 |
+    |          |          +------------------|----------|----------|---+                 |
+ +--|----+  +--|----+  +--|----+             |          |          |                     |
+ | first |  | first |  | first |          +--|----+  +--|----+  +--|----+             +--|----+  ++
+ | rest ---&gt;| rest ---&gt;| rest -----------&gt;| first |  | first |  | first |             | first |  ||
+ +-------+  +-------+  +-------+          | rest ---&gt;| rest ---&gt;| rest --------------&gt;| rest ---&gt;||
+  ^                                       +-------+  +-------+  +-------+             +-------+  ++
+  |                                         ^
+friends                                     |
+                                          work</pre>
+</div>
+<div class="SIntrapara">
+We’ve successfully removed Eric from the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">work</span><span class="RktMeta"></span></span></span> list, so the third test passes.  But because of the aliasing,
+we’ve inadvertently removed Eric from the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">friends</span><span class="RktMeta"></span></span></span> list as well, so the fourth test <span class="emph">fails</span>.
+</div>
+<p></p>
+<p>
+There is no way to avoid this problem, except by avoiding unintended aliasing in mutable
+data structures.  (For <span class="emph">immutable</span> data structures, sharing like this is perfectly fine,
+because there will never be a modification that could expose the sharing.)  When constructing
+values of mutable data types, pay extra attention to whether objects are being reused,
+and whether that reuse could become problematic later in the design of the program.
+</p>
+<h5 class="heading">
+20.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Removing_from_a_list__part_2__removing_the_first_item)"></a>Removing from a list, part 2: removing the first item<span class="button-group"><a href="#(part._.Removing_from_a_list__part_2__removing_the_first_item)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+In our initial attempt at removing items from a list, there was a suspicious line of code:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ConsLoPerson
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">   </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+When does this line of code fail?  This method completely ignores <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span>, so if
+we need to remove the first item of the list, we’ll never even examine it!  But how can we
+possibly remove the front item of the list—<wbr>what can we remove it <span class="emph">from</span>?  There is no
+reference to the first node from some previous node that we can modify.  Is there?
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+There <span class="emph">is</span> one reference to the front of the list: after all,
+the variables <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">friends</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">work</span><span class="RktMeta"></span></span></span>, etc., are how we refer to the lists!
+Perhaps we could write something like this?
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjIdentifier">work</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Bob"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">work</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+This will not succeed, and illustrates an important point about variables.  If we
+run the line of code above, it will evaluate <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">work</span><span class="RktMeta"></span></span></span> to a particular object value,
+and then pass that value in to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span> method, where it will be
+given the name <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">prev</span><span class="RktMeta"></span></span></span>.  <span class="emph">We cannot pass the variable <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">work</span><span class="RktMeta"></span></span></span> itself in
+as a parameter—<wbr>that’s simply meaningless in Java—<wbr>so we cannot modify that variable
+from within the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span> method.</span>
+</div>
+<p></p>
+<p>
+If the problem with removing the first item of the list is that it’s the <span class="emph">first</span>
+item of the list, and therefore there is no reference to it from some previous cell,
+then the only way forward is to make it not be the first item of the list!
+</p>
+<h5 class="heading">
+20.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Revising_our_data_structure__.Introducing_sentinels)"></a>Revising our data structure: Introducing sentinels<span class="button-group"><a href="#(part._.Revising_our_data_structure__.Introducing_sentinels)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+What if we created a “dummy” node to be the very first <span class="emph">node</span> of the list,
+but that didn’t contain any <span class="emph">data</span>?  Instead, it merely serves to hold a reference
+to the <span class="emph">second</span> node of the list, which will be the first item that actually stores data.
+That is, instead of a picture that looks like this:
+</div>
+<div class="SIntrapara">
+<pre class="SmallerVerb">+------+   +------+   +-------+
+| Anne |   | Gail |   | Henry |
+| 1234 |   | 9345 |   | 8602  |
++------+   +------+   +-------+
+   ^          ^          ^
++--|----+  +--|----+  +--|----+  ++
+| first |  | first |  | first |  ||
+| rest ---&gt;| rest ---&gt;| rest ---&gt;||
++-------+  +-------+  +-------+  ++
+  ^
+  |
+friends</pre>
+</div>
+<div class="SIntrapara">
+We’d have a picture that looks more like this:
+</div>
+<div class="SIntrapara">
+<pre class="SmallerVerb">           +------+   +------+   +-------+
+           | Anne |   | Gail |   | Henry |
+           | 1234 |   | 9345 |   | 8602  |
+           +------+   +------+   +-------+
+              ^          ^          ^
++-------+  +--|----+  +--|----+  +--|----+  ++
+| rest ---&gt;| first |  | first |  | first |  ||
++-------+  | rest ---&gt;| rest ---&gt;| rest ---&gt;||
+  ^        +-------+  +-------+  +-------+  ++
+  |
+friends</pre>
+</div>
+<div class="SIntrapara">
+The first node holds no data.  It is a <span class="emph">sentinel</span>, a “guard”
+or intermediate object that always sits at the front of the list, before any of the interesting data.
+<span class="emph">Now</span>, the first data-carrying node isn’t so special after all, because there’s a node
+that comes before it: the sentinel!  We’ve gotten rid of the special case that broke our tests
+earlier...assuming we can design the sentinel properly.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+This particular technique of introducing an extra object between what we have (the variable
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">friends</span><span class="RktMeta"></span></span></span>) and what we want (the data in the list) is called
+adding a <span class="emph">layer of indirection</span>.  In courses on algorithms and data structures,
+you will see many, many more examples of using indirection to solve
+problems that seem difficult or impossible, otherwise.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Introducing the idea of a sentinel node is the first time we have encountered a data definition
+where not every part of the data definition is dedicated to the purpose of holding data.
+In all our types before this—<wbr>trees with nodes to hold data and leaves to mark the end; lists
+with conses to hold data and emptys to mark the end; shapes that hold data; books and authors
+and posns and all the rest—<wbr>every class we defined had a clear purpose for representing
+information.  Now, this new <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> class that we are about to define has as its sole purpose
+to make it <span class="emph">easier to operate</span> on our data.  In fact, this is a concept that will
+reappear over and over in future courses: sometimes the challenge is not merely to design
+<span class="emph">a</span> representation for our data, but to design a representation that is <span class="emph">efficient</span>
+or <span class="emph">convenient</span> to work with.
+</div>
+<p></p>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Before adding the sentinel node, we could access the first data item of a non-empty
+list using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">theList</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span>.  Now that we have a sentinel node,
+how can we access the first item of the list?
+</div>
+<p></p>
+</blockquote>
+<p>
+How can we define this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> class, and how can we use it?  At the very least,
+it must have a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span> field capable of containing a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span>, or else we
+couldn’t place it at the front of the list.  And <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span>
+must share a common base class, because the node <span class="emph">before</span> a
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span> could now be either a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span> or a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span>, but
+either way, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span> needs a way to access the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span> field of such an object.
+</p>
+<p></p>
+<div class="SIntrapara">
+This leads to the following tentative class design:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">+------------------------------------------------+
+| ILoPerson                                      |
++------------------------------------------------+
+| void removePerson(String name)                 |
+| void removePersonHelp(String name, ANode prev) |
++------------------------------------------------+
+               /_\                     /_\
+                |                       |
+       +----------------+               |
+       | ANode          |               |
+       +----------------+               |
+       | ILoPerson rest |               |
+       +----------------+               |
+         /_\       /_\                  |
+          |         |                   |
+     +----+         |                   |
+     |              |                   |
++----------+    +--------------+  +------------+
+| Sentinel |    | ConsLoPerson |  | MtLoPerson |
++----------+    +--------------+  +------------+
++----------+    | Person first |  +------------+
+                +--------------+</pre>
+</div>
+<div class="SIntrapara">
+A <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> and a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span> are both kinds of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ANode</span><span class="RktMeta"></span></span></span>s, in that they
+have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span> fields.  But it’s not entirely clear whether <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ANode</span><span class="RktMeta"></span></span></span> should implement
+the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ILoPerson</span><span class="RktMeta"></span></span></span> interface: it still makes no sense to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePerson</span><span class="RktMeta"></span></span></span>
+on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span> (because we don’t know the node preceding the current one);
+we’re creating this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> class precisely so that we only have to implement
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+<p>
+Worse, users of this data type will have to create <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span>s instead of
+just creating <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span>s and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MtLoPerson</span><span class="RktMeta"></span></span></span>s—<wbr>and if users forget to
+create the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span>, then <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePerson</span><span class="RktMeta"></span></span></span> might simply break!
+</p>
+<p>
+So now we have a data type that we can manipulate correctly,
+but that doesn’t implement the interface the way we want it, and that isn’t pleasant
+to use!
+</p>
+<h5 class="heading">
+20.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Revising_our_data_structure__introducing_wrappers)"></a>Revising our data structure: introducing wrappers<span class="button-group"><a href="#(part._.Revising_our_data_structure__introducing_wrappers)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+If the problem is that we want to ensure that users of our data structure can’t mistakenly
+forget to create a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span>, perhaps we should create another class that manages the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span>
+for them.  We call this a <span class="emph">wrapper</span> class, since it wraps around the fiddly details
+of managing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span>s and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span>s and such.  A user merely has to create
+an instance of this wrapper class, and can then ignore the implementation details inside it.
+</p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+We’re introducing another extra object between what we have to manipulate (the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> object)
+and what we want to manipulate (the list overall).  This is adding another <span class="emph">layer of indirection</span>.
+Looks like we’re seeing another example of this much sooner than we thought!
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Introducing the idea of a wrapper is the second time we have encountered a data definition
+where not every part of the data definition is dedicated to the purpose of holding data.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+So our new, final class design for mutable person lists is:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">         +---------------------------------------+
+         | MutablePersonList                     |
+         +---------------------------------------+
+         | void removePerson(String name)        |
+         | void addPerson(String name, int num)  |
+ +-------- Sentinel sentinel                     |
+ |       +---------------------------------------+
+ |
+ |      +------------------------------------------------+
+ |      | APersonList                                    |
+ |      +------------------------------------------------+
+ |      | void removePersonHelp(String name, ANode prev) |
+ |      +------------------------------------------------+
+ |                  /_\              /_\
+ |                   |                |
+ |         +------------------+       |
+ |         | ANode            |       |
+ |         +------------------+       |
+ |         | APersonList rest |       |
+ |         +------------------+       |
+ |           /_\   /_\                |
+ |            |     |                 |
+ |   +--------+     |                 |
+ V   |              |                 |
++----------+    +--------------+  +------------+
+| Sentinel |    | ConsLoPerson |  | MtLoPerson |
++----------+    +--------------+  +------------+
++----------+    | Person first |  +------------+
+                +--------------+</pre>
+</div>
+<p></p>
+<p>
+Our users of this data type will construct a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MutablePersonList</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>.  Given that object,
+they can invoke <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">addPerson</span><span class="RktMeta"></span></span></span> to add new contacts by name and number.  And again given that
+object, they can invoke <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePerson</span><span class="RktMeta"></span></span></span> to remove a person by name.  We will implement
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePerson</span><span class="RktMeta"></span></span></span> to delegate to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span> in such a way that we will always
+take care of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> properly.  Let’s see how it all works.
+</p>
+<h5 class="heading">
+20.6.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Implementing_the_nodes_of_the_list)"></a>Implementing the nodes of the list<span class="button-group"><a href="#(part._.Implementing_the_nodes_of_the_list)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Represents a sentinel at the start, a node in the middle,
+</span><span class="ProfjComment">// or the empty end of a list
+</span><span class="ProfjKeyword">abstract</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">APersonList</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">abstract</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ANode</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prev</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">APersonList</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// nothing to do here
+</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Represents a node in a list that has some list after it
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ANode</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">APersonList</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">APersonList</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ANode</span><span class="ProfjKeyword">(</span><span class="ProfjType">APersonList</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rest</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Represents the empty end of the list
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">APersonList</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// nothing to do
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ANode</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prev</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsLoPerson</span><span class="RktMeta"></span></span></span> class is pretty much as we’ve seen it before;
+we only have to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span> on it, but we can assume
+that the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span> class will invoke this method properly:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Represents a data node in the list
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ANode</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Person</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">first</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ConsLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjType">Person</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">first</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">APersonList</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rest</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">super</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">rest</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">first</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ANode</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prev</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameName</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">prev</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> class is slightly funny, in that we have to implement
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span> (because otherwise we’d get a type error in the code
+above), but we know that we’ll never invoke this method (because it wouldn’t
+make any sense):
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Represents the dummy node before the first actual node of the list
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Sentinel</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ANode</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Sentinel</span><span class="ProfjKeyword">(</span><span class="ProfjType">APersonList</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rest</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">super</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">rest</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ANode</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prev</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">RuntimeException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Can't try to remove on a Sentinel!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+20.6.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Implementing_.Mutable.Person.List_itself)"></a>Implementing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span> itself<span class="button-group"><a href="#(part._.Implementing_.Mutable.Person.List_itself)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Now finally we have to implement the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span> class.  Since the purpose
+of this class is to hide the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> and other nodes, we’ll design a utility
+constructor that takes zero arguments, and sets up a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> and empty list for us:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MutablePersonList</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Sentinel</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">sentinel</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">MutablePersonList</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sentinel</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Sentinel</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtLoPerson</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+How should we implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePerson</span><span class="RktMeta"></span></span></span>?  We know that the first data item (if any)
+can be found at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sentinel</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span>.  So we invoke <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removePersonHelp</span><span class="RktMeta"></span></span></span>
+on <span class="emph">that</span> object, passing in the sentinel as the preceding node:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In MutablePersonList
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">removePerson</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sentinel</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removePersonHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sentinel</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+(It’s basically ok to use the field-of-field access pattern here, because
+we know exactly how <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sentinel</span><span class="RktMeta"></span></span></span> works, since the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span>
+class is the only place that we manipulate sentinels.)
+</p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Try implementing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">addPerson</span><span class="RktMeta"></span></span></span> that inserts a person with the given
+name and number onto the front of the list.  How does having a sentinel help here?
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+20.7
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Discussion)"></a>Discussion<span class="button-group"><a href="#(part._.Discussion)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Removing an item from a list is a surprisingly tricky operation.  There was only one case
+that our initial, simple attempt couldn’t handle: when the item to be removed was the first
+item of the list.  But handling that case gracefully is <span class="emph">hard</span>: we were forced to
+add a <span class="emph">sentinel</span> node to “make the first node not be first”, and then were driven
+to add a <span class="emph">wrapper</span> around that, to hide the details that were getting somewhat messy.
+But now that it’s done, we have a data structure that’s rather elegant: the methods available
+on it are precisely the ones we want, and none of the helper methods or helper classes are
+visible to users.
+</p>
+<p></p>
+<div class="SIntrapara">
+It is technically possible, now that we have the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span> wrapper class,
+to eliminate the sentinel class.  But doing so would clutter the code of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span>
+class, and require changing several other methods in the other classes.  Besides, now that
+we have identified a way to eliminate a special case in our code (handling the first item of the list),
+why would we want to go back to making it special and tricky again?
+</div>
+<div class="SIntrapara">
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Try eliminating the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Sentinel</span><span class="RktMeta"></span></span></span> class, while maintaining the method signatures
+for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span> exactly as they currently are.
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<h5 class="heading">
+20.8
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Generalizing_from_.Mutable.Person.Lists_to_mutable_lists_of_arbitrary_data)"></a>Generalizing from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span>s to mutable lists of arbitrary data<span class="button-group"><a href="#(part._.Generalizing_from_.Mutable.Person.Lists_to_mutable_lists_of_arbitrary_data)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+What is the analogue of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> here, now that we have a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">MutablePersonList</span><span class="RktMeta"></span></span></span>?
+It’s not merely enough to add more methods to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> —<wbr> that interface was
+used to define <span class="emph">immutable</span> lists.  Instead, we might want to define the following
+hypothetical interface:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IMutableList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// adds an item to the (front of) the list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">add</span><span class="ProfjKeyword">(</span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// removes an item from list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+But this interface is not flexible enough: how exactly does <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">remove</span><span class="RktMeta"></span></span></span>
+decide which item to remove?
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Which notion of equality—<wbr>extensional or intensional—<wbr>could we possibly
+use here that works on values of <span class="emph">arbitrary</span> type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">T</span><span class="RktMeta"></span></span></span>?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+And, why can we only add to the front of the list?  Why not the end?  Or in the middle?
+Now that we’ve separated the implementation details of the list from the interface we’d like
+to use, let’s actually think about the methods we’d <span class="emph">want</span> to use!
+Here is a more flexible version of this interface, one that’s closer to what we might want to use:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IMutableList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// adds an item to the (front of) the list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">addToFront</span><span class="ProfjKeyword">(</span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// adds an item to the end of the list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">addToEnd</span><span class="ProfjKeyword">(</span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// removes an item from list (uses intensional equality)
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// removes the first item from the list that passes the predicate
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjType">IPred</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">whichOne</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// gets the numbered item (starting at index 0) of the list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">index</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// sets (i.e. replaces) the numbered item (starting at index 0) with the given item
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">index</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// inserts the given item at the numbered position
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">insert</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">index</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// returns the length of the list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+As it turns out, we will not have to implement this interface ourselves.  Java defines
+several classes that implement (roughly) this interface for us.  In the next lecture,
+we’ll start to see how they work, and see how the index-based methods drive us towards
+yet another language feature in Java.
+</p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture19.html" title="backward to &quot;Lecture 19: Mutation, aliasing and testing&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture21.html" title="forward to &quot;Lecture 21: ArrayLists&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

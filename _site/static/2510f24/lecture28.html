@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          28.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Quicksort__a_usually_fast_way_to_sort%29" class="tocviewlink" data-pltdoc="x">Quicksort:<span class="mywbr"> &nbsp;</span> a usually fast way to sort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          28.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Mergesort__sorting_in_a_guaranteed_better_worst-case_time%29" class="tocviewlink" data-pltdoc="x">Mergesort:<span class="mywbr"> &nbsp;</span> sorting in a guaranteed better worst-<wbr>case time</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          28.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Divide-and-conquer_algorithms%29" class="tocviewlink" data-pltdoc="x">Divide-<wbr>and-<wbr>conquer algorithms</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          28.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Discussion%29" class="tocviewlink" data-pltdoc="x">Discussion</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">28.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Quicksort__a_usually_fast_way_to_sort%29" class="tocsubseclink" data-pltdoc="x">Quicksort:<span class="mywbr"> &nbsp;</span> a usually fast way to sort</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">28.1.1
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Quicksort_using_swapspace%29" class="tocsubseclink" data-pltdoc="x">Quicksort using swapspace</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">28.1.2
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Quicksort_in_place%29" class="tocsubseclink" data-pltdoc="x">Quicksort in place</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">28.1.3
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Runtime_analysis_of_quicksort%29" class="tocsubseclink" data-pltdoc="x">Runtime analysis of quicksort</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">28.2
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Mergesort__sorting_in_a_guaranteed_better_worst-case_time%29" class="tocsubseclink" data-pltdoc="x">Mergesort:<span class="mywbr"> &nbsp;</span> sorting in a guaranteed better worst-<wbr>case time</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">28.2.1
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Runtime_analysis_of_mergesort%29" class="tocsubseclink" data-pltdoc="x">Runtime analysis of mergesort</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">28.3
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Divide-and-conquer_algorithms%29" class="tocsubseclink" data-pltdoc="x">Divide-<wbr>and-<wbr>conquer algorithms</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">28.3.1
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.Time_space_tradeoffs%29" class="tocsubseclink" data-pltdoc="x">Time/<span class="mywbr"> &nbsp;</span>space tradeoffs</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">28.4
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._.Discussion%29" class="tocsubseclink" data-pltdoc="x">Discussion</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture27.html" title="backward to &quot;Lecture 27: Introduction to Big-O Analysis&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture29.html" title="forward to &quot;Lecture 29: Priority Queues and Heapsort&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+Divide-and-conquer algorithms and their big-O behaviors
+</p>
+<p>
+In the last lecture we considered two simple sorting algorithms: the natural insertion-sort algorithm for
+our standard <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>s, and the natural selection-sort for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s.  Both algorithms were
+straightforward applications of the design recipe to their respective data.  But unfortunately, the
+performance of those algorithms was not very good: in the worst case, they took <span class="emph">quadratic</span>
+amounts of time proportionate to the size of their inputs.
+</p>
+<p>
+Can we do better?  The problem with both algorithms is that they’re too “forgetful”: they will repeat work, e.g. comparing
+the same pairs of numbers many times, and they don’t take advantage of a key property about comparisons.  If we know that
+\(a &lt; b\) and \(b &lt; c\), then we <span class="emph">do not need to compare \(a\) and \(c\)</span>, because
+by transitivity we already know the answer.  Let’s see if we can use this fact to our advantage.
+</p>
+<h5 class="heading">
+28.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Quicksort__a_usually_fast_way_to_sort)"></a>Quicksort: a usually fast way to sort<span class="button-group"><a href="#(part._.Quicksort__a_usually_fast_way_to_sort)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Suppose we could guess the median value (the “middle-most” value, such that half the values are less than it, and half are greater)
+from a list of values.  We could use that fact to divide our data into a list of “small values” and a list of “big values”
+Once we’ve done that, <span class="emph">we never need to compare any “small” value to any “big” value ever again,</span> thereby cutting out a
+potentially huge number of wasteful comparisons!
+</p>
+<h5 class="heading">
+28.1.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Quicksort_using_swapspace)"></a>Quicksort using swapspace<span class="button-group"><a href="#(part._.Quicksort_using_swapspace)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+As our running example, let’s use the following list of strings, and say we want to sort them in increasing lexicographic order:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">Index:   0       1      2      3        4         5       6       7     8
+Data: [grape, cherry, apple, kiwi, watermelon, banana, honeydew, date, fig]</pre>
+</div>
+<div class="SIntrapara">
+We need to guess a median value, which we’ll call the <span class="emph">pivot</span> value.  We might as well
+use the very first value we find (in index 0), because it’s pretty likely for that value to be a “middle” value, and not
+a maximum or minimum.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Once we’ve identified a pivot value, we need to find all the values less than it and move them to the front
+of the list, find all the values greater than it and move them to the back, and then place the pivot between them.
+To do this, we’ll use a temporary array in which to rearrange the values:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">SOURCE:
+Index:   0       1      2      3        4         5       6       7     8
+Data: [grape, cherry, apple, kiwi, watermelon, banana, honeydew, date, fig]
+
+   == move all smaller values left, and all bigger values right ==&gt;
+TEMP:
+Index:   0       1      2      3    4      5     6       7           8
+Data: [cherry, apple, banana, fig, date, grape, kiwi, watermelon, honeydew]</pre>
+</div>
+<div class="SIntrapara">
+Now indices 0 through 4 of the temporary array contain values less than the pivot,
+indices 6 through 8 contain values greater than the pivot, and the pivot
+<span class="emph">is in its final, sorted position</span>.  Even better, we know that since indices 0 through 4
+contain values less than the pivot, we do not need to compare them to anything in indices 6 through 8.
+Essentially, we now have two smaller sub-lists which need sorting.  If only we had a technique to sort them...Of course: we’re writing one now!
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Let’s try to implement this algorithm.  We want to implement a method in our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayUtils</span><span class="RktMeta"></span></span></span> class with signature
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quicksortCopying</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+but this signature will not be general enough for our recursive calls.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Why not?  What helper method will be needed?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+We need to supply a temporary array to hold the temporary values, and we’ll need to supply the indices between which we are sorting:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In ArrayUtils
+</span><span class="ProfjComment">// EFFECT: Sorts the given ArrayList according to the given comparator
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quicksortCopying</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Create a temporary array
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Make sure the temporary array is exactly as big as the given array
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">for</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">add</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">quicksortCopyingHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quicksortCopyingHelp</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">                              </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+The helper method must:
+</div>
+<div class="SIntrapara">
+<ol>
+<li>
+<p>
+Select the pivot element,
+</p>
+</li>
+<li>
+<p>
+<span class="emph">Partition</span>: Copy all elements less than the pivot into the lower half of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> list,
+copy all elements greater than the pivot into the upper half of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> list,
+and place the pivot between them,
+</p>
+</li>
+<li>
+<p>
+Copy the entire list back from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">source</span><span class="RktMeta"></span></span></span>, and
+</p>
+</li>
+<li>
+<p>
+Sort the upper and lower halves of the list
+</p>
+</li>
+</ol>
+</div>
+<div class="SIntrapara">
+Step 3 is crucial, to ensure that the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">source</span><span class="RktMeta"></span></span></span> list ends up sorted, and not just the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> list!
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// EFFECT: sorts the source array according to comp, in the range of indices [loIdx, hiIdx)
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quicksortCopyingHelp</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">                              </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 0: check for completion
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">loIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// There are no items to sort
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 1: select pivot
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">loIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 2: partition items to lower or upper portions of the temp list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivotIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">partitionCopying</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 4: sort both halves of the list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">quicksortCopyingHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivotIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">quicksortCopyingHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivotIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// Returns the index where the pivot element ultimately ends up in the sorted source
+</span><span class="ProfjComment">// EFFECT: Modifies the source and comp lists in the range [loIdx, hiIdx) such that
+</span><span class="ProfjComment">//         all values to the left of the pivot are less than (or equal to) the pivot
+</span><span class="ProfjComment">//         and all values to the right of the pivot are greater than it
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">partitionCopying</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">                         </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Notice we skip the loIdx index, because that's where the pivot was
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">for</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">compare</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// lower
+</span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// advance the current lower index
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// upper
+</span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curHi</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// advance the current upper index
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// place the pivot in the remaining spot
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 3: copy all items back into the source
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">for</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+The interesting work happens in <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">partitionCopying</span><span class="RktMeta"></span></span></span>.  We maintain two indices, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>,
+that indicate where the next small value or next large value should be placed.  When we’re done,
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> equals <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>, and they both equal the index where the pivot should be placed.
+Finally, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">partitionCopying</span><span class="RktMeta"></span></span></span> also copies the items back from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> into <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">source</span><span class="RktMeta"></span></span></span> into their appropriate
+locations.
+</div>
+<p></p>
+<h5 class="heading">
+28.1.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Quicksort_in_place)"></a>Quicksort in place<span class="button-group"><a href="#(part._.Quicksort_in_place)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+All this copying back and forth seems wasteful.  Can we eliminate the extra <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>?
+The key idea is to use the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> indices more cleverly.  Let’s look again
+at our example:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">Index:   0       1      2      3        4         5       6       7     8
+Data: [grape, cherry, apple, kiwi, watermelon, banana, honeydew, date, fig]</pre>
+</div>
+<div class="SIntrapara">
+Once we select <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span> as our pivot, we can pretend that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span> has been removed from
+the list and we have a “hole” where it used to be:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">Index:   0       1      2      3        4         5       6       7     8
+Data: [-----, cherry, apple, kiwi, watermelon, banana, honeydew, date, fig]</pre>
+</div>
+<div class="SIntrapara">
+Remember that we need to move all the “large” values to the right, and all the “small” values to the left,
+but we don’t yet know where to place the pivot.  So let’s use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> to keep track of
+indices of “values we know to be lower than the pivot” and “values we know to be higher than the pivot”, and
+if we ever find a pair of values out of place, we swap them.  Concretely, we start <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">1</span><span class="RktMeta"></span></span></span>,
+and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">8</span><span class="RktMeta"></span></span></span>.
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">               curLo                                                  curHi
+                 v                                                      v
+Index:   0       1      2      3        4         5       6       7     8
+Data: [-----, cherry, apple, kiwi, watermelon, banana, honeydew, date, fig]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"cherry"</span><span class="RktMeta"></span></span></span> is less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we increase <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                      curLo                                           curHi
+                        v                                               v
+Index:   0       1      2      3        4         5       6       7     8
+Data: [-----, cherry, apple, kiwi, watermelon, banana, honeydew, date, fig]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"apple"</span><span class="RktMeta"></span></span></span> is less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we increase <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> again:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                             curLo                                    curHi
+                               v                                        v
+Index:   0       1      2      3        4         5       6       7     8
+Data: [-----, cherry, apple, kiwi, watermelon, banana, honeydew, date, fig]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"kiwi"</span><span class="RktMeta"></span></span></span> is not less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we stop, and turn our attenion to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>.
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"fig"</span><span class="RktMeta"></span></span></span> is not greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we stop.  We now know that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"kiwi"</span><span class="RktMeta"></span></span></span> belongs to the right of the pivot,
+wherever it winds up, and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"fig"</span><span class="RktMeta"></span></span></span> belongs to the left, so we swap them:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                            curLo                                     curHi
+                              v                                         v
+Index:   0       1      2     3        4         5       6       7      8
+Data: [-----, cherry, apple, fig, watermelon, banana, honeydew, date, kiwi]</pre>
+</div>
+<div class="SIntrapara">
+And now we resume.  Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"fig"</span><span class="RktMeta"></span></span></span> is less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"curLo"</span><span class="RktMeta"></span></span></span>.
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                                     curLo                            curHi
+                                       v                                v
+Index:   0       1      2     3        4         5       6       7      8
+Data: [-----, cherry, apple, fig, watermelon, banana, honeydew, date, kiwi]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"watermelon"</span><span class="RktMeta"></span></span></span> is not less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we stop, and turn our attention to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>.
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"kiwi"</span><span class="RktMeta"></span></span></span> is greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                                     curLo                     curHi
+                                       v                         v
+Index:   0       1      2     3        4         5       6       7      8
+Data: [-----, cherry, apple, fig, watermelon, banana, honeydew, date, kiwi]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"date"</span><span class="RktMeta"></span></span></span> is not greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we stop, and swap the two values at positions 4 and 7:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                                  curLo                     curHi
+                                    v                         v
+Index:   0       1      2     3     4      5       6          7         8
+Data: [-----, cherry, apple, fig, date, banana, honeydew, watermelon, kiwi]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"date"</span><span class="RktMeta"></span></span></span> is less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span>.  Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"banana"</span><span class="RktMeta"></span></span></span> is less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span>
+again:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                                                 curLo      curHi
+                                                   v          v
+Index:   0       1      2     3     4      5       6          7         8
+Data: [-----, cherry, apple, fig, date, banana, honeydew, watermelon, kiwi]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"honeydew"</span><span class="RktMeta"></span></span></span> is not less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we stop, and turn our attention to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>.
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"watermelon"</span><span class="RktMeta"></span></span></span> is greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>, we advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>.  Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"honeydew"</span><span class="RktMeta"></span></span></span> is greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>,
+we advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> again.
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                                         curHi   curLo
+                                           v       v
+Index:   0       1      2     3     4      5       6          7         8
+Data: [-----, cherry, apple, fig, date, banana, honeydew, watermelon, kiwi]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> is now less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span>, we must have found the crossover point.  We need to place <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span>
+at index <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>, which means we need to move <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"banana"</span><span class="RktMeta"></span></span></span> somewhere else.  Conveniently, there’s room for it at
+index <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">0</span><span class="RktMeta"></span></span></span>, where <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"grape"</span><span class="RktMeta"></span></span></span> used to be!
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Let’s see if we can implement this algorithm in Java.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What kind of loop should be used?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Since we do not know in advance how many times to run the loop, but we do know to stop the loop once <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> is greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span>,
+we should use a while loop:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// Returns the index where the pivot element ultimately ends up in the sorted source
+</span><span class="ProfjComment">// EFFECT: Modifies the source list in the range [loIdx, hiIdx) such that
+</span><span class="ProfjComment">//         all values to the left of the pivot are less than (or equal to) the pivot
+</span><span class="ProfjComment">//         and all values to the right of the pivot are greater than it
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">partition</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">                  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// Advance curLo until we find a too-big value (or overshoot the end of the list)
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">compare</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// Advance curHi until we find a too-small value (or undershoot the start of the list)
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">compare</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curHi</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">swap</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">swap</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// place the pivot in the remaining spot
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Now we can tweak our original <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">quicksort</span><span class="RktMeta"></span></span></span> method to use this, and avoid the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> list altogether:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In ArrayUtils
+</span><span class="ProfjComment">// EFFECT: Sorts the given ArrayList according to the given comparator
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quicksort</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">quicksortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// EFFECT: sorts the source array according to comp, in the range of indices [loIdx, hiIdx)
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quicksortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">                              </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 0: check for completion
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">loIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// There are no items to sort
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 1: select pivot
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">loIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 2: partition items to lower or upper portions of the temp list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivotIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">partition</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivot</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 3: sort both halves of the list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">quicksortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivotIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">quicksortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pivotIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+28.1.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Runtime_analysis_of_quicksort)"></a>Runtime analysis of quicksort<span class="button-group"><a href="#(part._.Runtime_analysis_of_quicksort)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+We’ve successfully avoided allocating any memory at all for quicksort, so we know for certain that \(M_{quicksort}(n) = 0\).  But what
+about the runtime?
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+The runtime for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">swap</span><span class="RktMeta"></span></span></span> is simple: it performs two reads and two writes, so \(T_{swap}(n) = 4\), regardless of the size of the input.
+</p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+The runtime for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">partition</span><span class="RktMeta"></span></span></span> depends on the size of the interval \(n = hiIdx - loIdx\).  It checks every item in that range against the pivot,
+      and potentially swaps all of them.  So
+</div>
+<div class="SIntrapara">
+<p type="math/tex" style="white-space: pre;" class="stt">
+\begin{equation*}\begin{aligned}
+T_{partition}^{best}(n) &amp;= n \\
+T_{partition}^{worst}(n) &amp;= 3n
+\end{aligned}\end{equation*}
+</p>
+</div>
+<div class="SIntrapara">
+In other words, the performance is always linear in the size of the interval.
+</div>
+<p></p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+The runtime for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">qucksortHelp</span><span class="RktMeta"></span></span></span> depends on the size of the interval \(n = hiIdx - loIdx\) as well.  But it has two recursive calls,
+      whose runtimes depend on how good of a pivot we chose.  In the best case, the pivot is very close to the median value, and divides the list
+      exactly in half:
+</div>
+<div class="SIntrapara">
+<p type="math/tex" style="white-space: pre;" class="stt">
+\begin{equation*}T_{quicksortHelp}^{best}(n) = T_{partition}^{best}(n) + 2T_{quicksortHelp}^{best}(n/2)\end{equation*}
+</p>
+</div>
+<div class="SIntrapara">
+In the worst case, the pivot is either the minimum or maximum, and divides the list into an empty piece and a nearly-complete piece:
+</div>
+<div class="SIntrapara">
+<p type="math/tex" style="white-space: pre;" class="stt">
+\begin{equation*}T_{quicksortHelp}^{worst}(n) = T_{partition}^{worst}(n) + T_{quicksortHelp}^{worst}(0) + T_{quicksortHelp}^{worst}(n-1)\end{equation*}
+</p>
+</div>
+<div class="SIntrapara">
+We’ve seen this latter recurrence before, when we determined the runtime of selection-sort: it’s \(O(n^2)\).  The former recurrence is a trickier one.
+      We can expand the recurrence a few times:
+</div>
+<div class="SIntrapara">
+<p type="math/tex" style="white-space: pre;" class="stt">
+\begin{equation*}\begin{aligned}
+T_{quicksortHelp}^{best}(n) &amp;= T_{partition}^{best}(n) + 2T_{quicksortHelp}^{best}(n/2) \\
+                            &amp;= n + 2(T_{partition}^{best}(n/2) + 2T_{quicksortHelp}^{best}(n/4)) \\
+                            &amp;= n + 2(n/2 + 2(T_{partition}^{best}(n/4) + 2T_{quicksortHelp}^{best}(n/8))) \\
+                            &amp;= n + 2(n/2) + 4(n/4) + 8(n/8) + \cdots + n(1)
+\end{aligned}\end{equation*}
+</p>
+</div>
+<div class="SIntrapara">
+How many terms are there in the final expanded line?  It’s however many times we can divide \(n\) in half before reaching one.
+      This is familiar: it’s \(\log_2 n\).  Accordingly, our runtime is \(T_{quicksortHelp}^{best}(n) = n\log_2 n\).
+</div>
+<p></p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+From the best and worst case results we can conclude that
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-weight: bold">Runtime for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">quicksort</span><span class="RktMeta"></span></span></span></span>
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+<span style="font-weight: bold">Best-case</span>
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+<span style="font-weight: bold">Worst-case</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+\(T_{quicksort}\)
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+\(\Omega(n \log_2 n)\)
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+\(O(n^2)\)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+\(M_{quicksort}\)
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+\(\Omega(1)\)
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+\(O(1)\)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What inputs produce the best and worst case behaviors of quicksort?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Almost all inputs produce nearly-best-case behavior for quicksort.  The edge case happens when the pivot that’s picked is
+repeatedly either the maximum or the minimum —<wbr> in such cases, the “partition” doesn’t split the list evenly at all.
+This occurs when the input list is already sorted (or reverse-sorted).
+</div>
+<p></p>
+<p>
+Can we do better?  Can we create a sorting algorithm that never has any bad cases?
+</p>
+<h5 class="heading">
+28.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Mergesort__sorting_in_a_guaranteed_better_worst-case_time)"></a>Mergesort: sorting in a guaranteed better worst-case time<span class="button-group"><a href="#(part._.Mergesort__sorting_in_a_guaranteed_better_worst-case_time)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+If we allow ourselves the luxury of a temporary <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> again, we can do even better.
+Recall the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">merge</span><span class="RktMeta"></span></span></span> method we implemented, that allows us to build up a larger sorted
+list from two smaller sorted lists.  We can implement a similar method for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s.  But how to use it?
+Let’s conceptually divide our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> exactly at the middle index, into a low-index half and a high-index half.
+If only we could sort those two halves, then we could use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">merge</span><span class="RktMeta"></span></span></span> to combine them into a sorted <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> containing
+the entire contents of the original <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>, and we’d be done!  How can we sort those two halves?  Well, we can
+divide <span class="emph">them</span> in half, at their middle indices, and magically sort their respective halves, and then <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">merge</span><span class="RktMeta"></span></span></span>
+their halves.  We can clearly repeat this process, but when does it stop?  Conveniently, a list containing at most one item
+is always sorted —<wbr> so we have a base case for our recursion.  This approach defines the <span class="emph">mergesort</span> algorithm.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// In ArrayUtils
+</span><span class="ProfjComment">// EFFECT: Sorts the provided list according to the given comparator
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">mergesort</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Create a temporary array
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Make sure the temporary array is exactly as big as the given array
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">for</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">add</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">mergesortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">arr</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// EFFECT: Sorts the provided list in the region [loIdx, hiIdx)
+</span><span class="ProfjWhiteSpace">           </span><span class="ProfjIdentifier">according</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">to</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">the</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">given</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comparator</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">//         Modifies both lists in the range [loIdx, hiIdx)
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">mergesortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">                       </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Our helper routine must:
+</div>
+<div class="SIntrapara">
+<ol>
+<li>
+<p>
+Find the middle index of the current range.  (If the range contains at most one item, stop.)
+</p>
+</li>
+<li>
+<p>
+Recursively sort the lower range, and the higher range.
+</p>
+</li>
+<li>
+<p>
+Merge the two ranges.
+</p>
+</li>
+</ol>
+</div>
+<div class="SIntrapara">
+Let’s elaborate this sketch into code:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">// EFFECT: Sorts the provided list in the region [loIdx, hiIdx)
+</span><span class="ProfjWhiteSpace">           </span><span class="ProfjIdentifier">according</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">to</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">the</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">given</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comparator</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjComment">//         Modifies both lists in the range [loIdx, hiIdx)
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">mergesortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">                       </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 0: stop when finished
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// nothing to sort
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 1: find the middle index
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">midIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">loIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">/</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 2: recursively sort both halves
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">mergesortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">midIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">mergesortHelp</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">midIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Step 3: merge the two sorted halves
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">merge</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">midIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Design the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">merge</span><span class="RktMeta"></span></span></span> helper method to complete the algorithm above.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Now all we need to do is define <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">merge</span><span class="RktMeta"></span></span></span>.  When we defined <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">merge</span><span class="RktMeta"></span></span></span> over <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>, we used
+dynamic dispatch to give us the first items of each of the two lists, as needed.  Here, we do not
+have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span> objects, so we must maintain two indices, and advance them as needed.  Recall our running example:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">Index:   0       1      2      3        4         5       6       7     8
+Data: [grape, cherry, apple, kiwi, watermelon, banana, honeydew, date, fig]</pre>
+</div>
+<div class="SIntrapara">
+And suppose that at the next-to-last stage, we had sorted indices 0 through 4, and indices 5 through 8:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">Index:   0       1      2      3      4           5      6    7      8
+Data: [apple, cherry, grape, kiwi, watermelon, banana, date, fig, honeydew]</pre>
+</div>
+<div class="SIntrapara">
+We now need to merge those two sub-lists.  We maintain <span class="emph">three</span> indices: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> keeps
+track of the next item in the lower half-list, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> keeps track of the next item in the upper half-list,
+and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curCopy</span><span class="RktMeta"></span></span></span> keeps track of where to insert into the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> storage.  We loop,
+until <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> runs off the end of the lower half-list and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> runs off the end of the upper half-list,
+and copy the smaller of the two current values into the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> storage, and advance the relevant index.  Concretely,
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> starts off at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">loIdx</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> starts off at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">midIdx</span><span class="RktMeta"></span></span></span>, and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curCopy</span><span class="RktMeta"></span></span></span> starts off at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">loIdx</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">       curLo                                     curHi
+SOURCE   v                                        v
+Index:   0       1      2      3       4          5      6    7      8
+Data: [apple, cherry, grape, kiwi, watermelon, banana, date, fig, honeydew]
+
+      curCopy
+TEMP     v
+Index:   0       1      2      3      4     5     6      7           8
+Data: [-----, ------, -----, -----, -----, ----, ----, ------, -----------]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"apple"</span><span class="RktMeta"></span></span></span> is less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"banana"</span><span class="RktMeta"></span></span></span>, we copy <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"apple"</span><span class="RktMeta"></span></span></span>, and advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curCopy</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">               curLo                            curHi
+SOURCE           v                                v
+Index:   0       1      2      3       4          5      6    7      8
+Data: [apple, cherry, grape, kiwi, watermelon, banana, date, fig, honeydew]
+
+              curCopy
+TEMP             v
+Index:   0       1      2      3      4     5     6      7           8
+Data: [apple, ------, -----, -----, -----, ----, ----, ------, -----------]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"cherry"</span><span class="RktMeta"></span></span></span> is greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"banana"</span><span class="RktMeta"></span></span></span>, we copy <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"banana"</span><span class="RktMeta"></span></span></span>, and advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curHi</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curCopy</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">               curLo                                   curHi
+SOURCE           v                                       v
+Index:   0       1      2      3      4           5      6    7      8
+Data: [apple, cherry, grape, kiwi, watermelon, banana, date, fig, honeydew]
+
+                      curCopy
+TEMP                     v
+Index:   0       1       2      3      4     5     6      7           8
+Data: [apple, banana, ------, -----, -----, ----, ----, ------, -----------]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"cherry"</span><span class="RktMeta"></span></span></span> is less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"date"</span><span class="RktMeta"></span></span></span>, we copy <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjString">"cherry"</span><span class="RktMeta"></span></span></span>, and advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curCopy</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                      curLo                            curHi
+SOURCE                  v                                v
+Index:   0       1      2      3       4          5      6    7      8
+Data: [apple, cherry, grape, kiwi, watermelon, banana, date, fig, honeydew]
+
+                             curCopy
+TEMP                            v
+Index:   0       1       2      3      4     5     6      7           8
+Data: [apple, banana, cherry, -----, -----, ----, ----, ------, -----------]</pre>
+</div>
+<div class="SIntrapara">
+Continuing in this manner, we eventually get to the following state:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                             curLo                                          curHi
+SOURCE                         v                                              v
+Index:   0       1      2      3       4          5      6    7      8
+Data: [apple, cherry, grape, kiwi, watermelon, banana, date, fig, honeydew]
+
+                                                         curCopy
+TEMP                                                        v
+Index:   0       1       2      3    4     5       6        7        8
+Data: [apple, banana, cherry, date, fig, grape, honeydew, ----, ----------]</pre>
+</div>
+<div class="SIntrapara">
+At this point, we have nothing left in the upper half-list, so we copy the remaining items from the
+lower half-list, because they are already sorted, and evidently are greater than everything in the upper half-list:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">                                                curLo                       curHi
+SOURCE                                            v                           v
+Index:   0       1      2      3       4          5      6    7      8
+Data: [apple, cherry, grape, kiwi, watermelon, banana, date, fig, honeydew]
+
+                                                                           curCopy
+TEMP                                                                          v
+Index:   0       1       2      3    4     5       6        7        8
+Data: [apple, banana, cherry, date, fig, grape, honeydew, kiwi, watermelon]</pre>
+</div>
+<div class="SIntrapara">
+Since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">curLo</span><span class="RktMeta"></span></span></span> now equals <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">midIdx</span><span class="RktMeta"></span></span></span> we’ve finished the lower half-list, and so we’re done.  All that
+remains is to copy everything <span class="emph">back</span> from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> into <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">source</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Merges the two sorted regions [loIdx, midIdx) and [midIdx, hiIdx) from source
+</span><span class="ProfjComment">// into a single sorted region according to the given comparator
+</span><span class="ProfjComment">// EFFECT: modifies the region [loIdx, hiIdx) in both source and temp
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">merge</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IComparator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">               </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">midIdx</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace">   </span><span class="ProfjComment">// where to start looking in the lower half-list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">midIdx</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// where to start looking in the upper half-list
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curCopy</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// where to start copying into the temp storage
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">midIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">comp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">compare</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curHi</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjComment">// the value at curLo is smaller, so it comes first
+</span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curCopy</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// advance the lower index
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjComment">// the value at curHi is smaller, so it comes first
+</span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curCopy</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curHi</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// advance the upper index
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">curCopy</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curCopy</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// advance the copying index
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// copy everything that's left -- at most one of the two half-lists still has items in it
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">midIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curCopy</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curLo</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curLo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">curCopy</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curCopy</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curCopy</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">curHi</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curHi</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">curCopy</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curCopy</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// copy everything back from temp into source
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">for</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loIdx</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hiIdx</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">i</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">set</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">temp</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">i</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<h5 class="heading">
+28.2.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Runtime_analysis_of_mergesort)"></a>Runtime analysis of mergesort<span class="button-group"><a href="#(part._.Runtime_analysis_of_mergesort)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What is the runtime of mergesort, in the best and worst cases?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+First let’s consider the runtime of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">merge</span><span class="RktMeta"></span></span></span>, as a function of the difference \(n = hiIdx - loIdx\).
+The three while loops together examine every item in the given range of indices and copy them exactly once into the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">temp</span><span class="RktMeta"></span></span></span> list.
+This takes \(O(n)\) time to complete.  The final counted-for loop again iterates over the given range of indices, and copies
+every item back into <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">source</span><span class="RktMeta"></span></span></span>; this takes another \(O(n)\) time to complete.  Therefore, \(T_{merge} \in O(n)\)
+in all cases —<wbr> there is no difference between best or worst-case behavior.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Next, let’s look at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">mergesortHelp</span><span class="RktMeta"></span></span></span>, again as a function of the difference \(n = hiIdx - loIdx\).  We can see from the code
+that it makes two recursive calls, followed by one call to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">merge</span><span class="RktMeta"></span></span></span>.  Crucially, the computation of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">midIdx</span><span class="RktMeta"></span></span></span> <span class="emph">guarantees</span>
+that both recursive calls are to subproblems that are at most half as big as the current one.  This yields a recurrence
+</div>
+<div class="SIntrapara">
+<p type="math/tex" style="white-space: pre;" class="stt">
+\begin{equation*}T_{mergesortHelp}(n) = 2T_{mergesortHelp}(n/2) + T_{merge}(n)\end{equation*}
+</p>
+</div>
+<div class="SIntrapara">
+This is the same recurrence as the best-case scenario for quicksort above, and by similar reasoning, we conclude
+that we can subdivide the list in half at most \(\log_2 n\) times before reaching a base case, so our total running time is
+</div>
+<div class="SIntrapara">
+<p type="math/tex" style="white-space: pre;" class="stt">
+\begin{equation*}T_{mergesortHelp}(n) = n\log_2 n\end{equation*}
+</p>
+</div>
+<div class="SIntrapara">
+There is no best or worst case to consider: all cases have the same performance.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Finally, we look at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">mergesort</span><span class="RktMeta"></span></span></span> itself.  It requires a temporary <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> of the same size as the input,
+and then makes one call to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">mergesortHelp</span><span class="RktMeta"></span></span></span>.  So we obtain
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-weight: bold">Runtime for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">mergesort</span><span class="RktMeta"></span></span></span></span>
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+<span style="font-weight: bold">Best-case</span>
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+<span style="font-weight: bold">Worst-case</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+\(T_{mergesort}\)
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+\(\Omega(n \log_2 n)\)
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+\(O(n\log_2 n)\)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+\(M_{mergesort}\)
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+\(\Omega(n)\)
+</p>
+</td>
+<td>
+<p>
+<span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</td>
+<td>
+<p>
+\(O(n)\)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+<h5 class="heading">
+28.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Divide-and-conquer_algorithms)"></a>Divide-and-conquer algorithms<span class="button-group"><a href="#(part._.Divide-and-conquer_algorithms)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The quicksort algorithm above is an example of what’s known as a <span class="emph">divide-and-conquer</span> algorithm.  By splitting the input
+into nearly equally-sized chunks and processing them independently, we can compute answers in much better performance than
+if we processed the inputs strictly via structural recursion.  Divide-and-conquer algorithms are an example of generative recursion:
+they require a leap of insight to figure out the best way to decompose the problem; once that insight is gained,
+the rest of the solution follows from the same design strategies we’ve been following all semester.
+</p>
+<p>
+How much better, really, is \(O(n \log_2 n)\) than \(O(n^2)\)?  For small values, there isn’t much difference.
+But when \(n = 256\), \(\log_2 n = 8\), which means \(O(n \log_2 n)\) is already <span class="emph">over 60 times better</span> than \(O(n^2)\).
+For \(n = 2^{10} = 1024\), that factor improves to over 100; for \(n = 2^{20} = 1048576\), that factor improves to over <span class="emph">50000</span>, and it keeps getting better.
+Conversely, for \(n = 2^{20}\), \(O(n \log_2 n)\) is only twenty times worse than \(O(n)\):
+</p>
+<p>
+<img style="vertical-align: 0px; margin: -3px -3px -3px -3px;" src="pict_11.png" alt="image" width="351" height="406">
+</p>
+<h5 class="heading">
+28.3.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Time_space_tradeoffs)"></a>Time/space tradeoffs<span class="button-group"><a href="#(part._.Time_space_tradeoffs)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Mergesort is another divide-and-conquer algorithm, and it gets a better worst-case behavior bound than quicksort.  But to
+accomplish this, it requires the use of \(O(n)\) additional memory.  This is a classic example of what’s known as
+a <span class="emph">time/space tradeoff</span>: frequently we can speed up algorithms by allowing them addtional space in which to store
+temporary results.  (Conversely, if we are constrained for space, we can sometimes improve our memory usage by recomputing
+results as needed instead of storing them.)  Many, many algorithms and their variations result from exploring this tradeoff
+in various ways; for more details, there are entire courses devoted to studying algorithms!
+</p>
+<p>
+In the next lecture, we will see one more sorting algorithm, that again achieves \(O(n\log_2 n)\) worst-case time performance,
+but uses <span class="emph">no</span> additional storage.  To accomplish this, we’ll make use of a novel data structure, which is of widespread
+utility (besides merely sorting efficiently!), and whose construction combines several of the data structures we’ve seen so far.
+</p>
+<h5 class="heading">
+28.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Discussion)"></a>Discussion<span class="button-group"><a href="#(part._.Discussion)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+At this point, after going through four sorting algorithms, several helper functions and even more recurrence relations, we might well
+ask, “Wait!  Do we really need to keep coming up with more algorithms?  Isn’t one of these good enough?”  In addition to using
+sorting algorithms to illustrate <span class="emph">how to analyze algorithms</span>, this sequence of four algorithms also illustrates
+<span class="emph">how to come up with improved algorithms</span> in the first place.
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+We arrived at insertion-sort pretty much by following the design recipe for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span> data type.
+</p>
+</li>
+<li>
+<p>
+We arrived at selection-sort by asking “could we improve things if only we allowed mutation?”
+The central insight for selection-sort was that we could build an <span class="emph">in-place</span> sorting algorithm
+that didn’t require reallocating so many intermediate results.
+</p>
+</li>
+<li>
+<p>
+We arrived at quicksort by looking at selection-sort’s worst case behavior and asking,
+“couldn’t we avoid doing all those comparisons?”  The central insight here is that because comparisons
+are transitive, we could pick a “middle-most value” and let it partition the data for us, and then we’d
+never have to compare any of the smaller numbers to any of the larger numbers.
+</p>
+</li>
+<li>
+<p>
+We arrived at mergesort by looking at quicksort’s worst case behavior and asking,
+“could we ensure we never make a bad choice, and always split the list cleanly in half?”  The central
+insight of mergesort was to do away with the pivot altogether, because the key to quicksort’s good behavior
+was the divide-and-conquer approach.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+In general, algorithm designers often look at the solutions we currently know to problems, and look at their worst
+cases and ask, “<span class="emph">why</span> is this the worst case?  What’s triggering it?”  The leap of intuition here is
+precisely the same as the leap needed to come up with a generatively recursive algorithm, and can be just as elusive
+at first.  By studying many related algorithms, and identifying their central insights, we actually can get some
+guidance as to <span class="emph">where</span> to keep looking for improvements.
+</div>
+<p></p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture27.html" title="backward to &quot;Lecture 27: Introduction to Big-O Analysis&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture29.html" title="forward to &quot;Lecture 29: Priority Queues and Heapsort&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

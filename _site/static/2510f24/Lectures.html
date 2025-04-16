@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.14</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="Texts.html" title="backward to &quot;Texts&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture1.html" title="forward to &quot;Lecture 1: Data Definitions in Java&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+   </div>
+   <h3 class="heading">
+    <a name="(part._.Lectures)"></a>Lectures<span class="button-group"><a href="#(part._.Lectures)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+   </h3>
+   <table cellspacing="0" cellpadding="0">
+    <tbody>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture1.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture2.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions: Unions</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture3.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture4.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture5.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-referential lists</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture6.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture7.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture8.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture9.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture10.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture11.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture12.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture13.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture14.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture15.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture16.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture17.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture18.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture19.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture20.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture21.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> ArrayLists</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture22.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> ArrayLists</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture23.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-each loops and Counted-for loops</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture24.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture25.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture26.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture27.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture28.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture29.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture30.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-first search and Depth-first search on graphs</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture31.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-source shortest paths</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture32.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <p>
+        <span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="lecture33.html" class="toclink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+       </p>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="Texts.html" title="backward to &quot;Texts&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture1.html" title="forward to &quot;Lecture 1: Data Definitions in Java&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

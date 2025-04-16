@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Overview%29" class="tocviewlink" data-pltdoc="x">Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Finding_the_younger_of_two_.I.A.Ts%29" class="tocviewlink" data-pltdoc="x">Finding the younger of two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>s</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Finding_the_youngest_grandparent%29" class="tocviewlink" data-pltdoc="x">Finding the youngest grandparent</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          7.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Potential_hazards_of_accumulator-style_methods%29" class="tocviewlink" data-pltdoc="x">Potential hazards of accumulator-<wbr>style methods</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Overview%29" class="tocsubseclink" data-pltdoc="x">Overview</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">7.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Finding_the_younger_of_two_.I.A.Ts%29" class="tocsubseclink" data-pltdoc="x">Finding the younger of two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>s</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">7.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Finding_the_youngest_grandparent%29" class="tocsubseclink" data-pltdoc="x">Finding the youngest grandparent</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">7.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Potential_hazards_of_accumulator-style_methods%29" class="tocsubseclink" data-pltdoc="x">Potential hazards of accumulator-<wbr>style methods</a>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+ <div class="versionbox">
+  <span class="version">8.14</span>
+ </div>
+ <div class="navsettop">
+  <span class="navleft">
+  <div class="nosearchform"></div>
+  &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+ </span>
+ <span class="navright">&nbsp;&nbsp;<a href="lecture6.html" title="backward to &quot;Lecture 6: Accumulator methods&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture8.html" title="forward to &quot;Lecture 8: Practice Design&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+ <a name="(part._)"></a><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+ Methods on trees, and
+accumulator-style methods on lists
+</p>
+<h5 class="heading">
+ <a name="(part._.Overview)"></a>Overview<span class="button-group"><a href="#(part._.Overview)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ We continue with our ancestry trees example from <a href="lecture6.html" data-pltdoc="x">Lecture 6</a>, working through two subtle examples
+with accumulators, and then ending with a brief discussion of how accumulators can behave in
+potentially unexpected ways.
+</p>
+<h5 class="heading">
+ 7.1
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Finding_the_younger_of_two_.I.A.Ts)"></a>Finding the younger of two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>s<span class="button-group"><a href="#(part._.Finding_the_younger_of_two_.I.A.Ts)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+ In the section below, we’re going to need to compare two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>s and find the younger of them.
+This is similar to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">bornInOrBefore</span><span class="RktMeta"></span></span></span> method, except we’re going to return an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>
+instead of a boolean.  We want a signature
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In IAT:
+</span><span class="ProfjComment">// To return the younger of this ancestor tree and the given ancestor tree
+</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+ Let’s work through the cases:
+</div>
+<div class="SIntrapara">
+ <ul>
+  <li>
+   <p>
+    If this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>, and the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>, return <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>.
+   </p>
+  </li>
+  <li>
+   <p>
+    If this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>, and the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>, return the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>.
+   </p>
+  </li>
+  <li>
+   <p>
+    If this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>, and the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>, return the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>.
+   </p>
+  </li>
+  <li>
+   <p>
+    If this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>, and the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>, return the younger of the two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>s.
+   </p>
+  </li>
+ </ul>
+</div>
+<div class="SIntrapara">
+ The first two cases are nice: if this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>, we just return the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>, regardless
+of what it is.
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Unknown:
+</span><span class="ProfjComment">// To return the younger of this Unknown and the given ancestor tree
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ But the other two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span> cases are harder, since the behavior depends on what the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> is.
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Person:
+</span><span class="ProfjComment">// To return the younger of this Person and the given ancestor tree
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjBlockComment">/* Template
+     * Fields:
+     * this.yob -- int
+     * ... others as before
+     * Methods:
+     * this.youngerIAT(IAT) -- IAT
+     * ... others as before
+     * Methods on fields
+     * ... others as before
+     * Parameters:
+     * other -- IAT
+     * Methods on parameters
+     * other.youngerIAT(IAT) -- IAT
+     */</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ Again, inside this method we can’t determine the age of the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>, since it might be <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>.  So
+we need a helper method that we invoke on the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> (like we invoked on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">mom</span><span class="RktMeta"></span></span></span> above) where we
+pass along this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>’s age:
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In IAT:
+</span><span class="ProfjComment">// To return the younger of this ancestor tree and the given ancestor tree
+</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// To return either this ancestor tree (if this ancestor tree is younger
+</span><span class="ProfjComment">// than the given yob) or the given ancestry tree
+</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIATHelp</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">otherYob</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Unknown:
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// To return either this Unknown (if this Unknown is younger than the
+</span><span class="ProfjComment">// given yob) or the given ancestry tree
+</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIATHelp</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">otherYob</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Person:
+</span><span class="ProfjComment">// To return the younger of this Person and the given ancestor tree
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjBlockComment">/* Template
+     * Fields:
+     * this.yob -- int
+     * ... others as before
+     * Methods:
+     * this.youngerIAT(IAT) -- IAT
+     * this.youngerIATHelp(IAT, int) -- IAT
+     * ... others as before
+     * Methods on fields
+     * ... others as before
+     * Parameters
+     * other -- IAT
+     * Methods on parameters
+     * other.youngerIAT(IAT) -- IAT
+     * other.youngerIATHelp(IAT, int) -- IAT
+     */</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">     </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngerIATHelp</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// To return either this Person (if this Person is younger than the
+</span><span class="ProfjComment">// given yob) or the given ancestry tree
+</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngerIATHelp</span><span class="ProfjKeyword">(</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">otherYob</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjBlockComment">/* same template as above */</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">otherYob</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ This implementation of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngerIAT</span><span class="RktMeta"></span></span></span> for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span> is quite strange at first sight.
+</div>
+<div class="SIntrapara">
+ <blockquote class="IncerciseBody">
+  <p></p>
+  <div class="SIntrapara">
+   <p class="Incercise">
+    Do Now!
+   </p>
+  </div>
+  <div class="SIntrapara">
+   Why should we pass both <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="RktMeta"></span></span></span>?  And why should
+invoking a method on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="RktMeta"></span></span></span> be of any help here?
+  </div>
+  <p></p>
+ </blockquote>
+</div>
+<div class="SIntrapara">
+ By invoking a method on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="RktMeta"></span></span></span>, we allow Java’s dynamic dispatch to determine whether
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="RktMeta"></span></span></span> is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span> or a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span> —<wbr> precisely the remaining question we
+had to figure out!  We pass <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="RktMeta"></span></span></span> along because it might be the desired result for the method.
+We pass <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="RktMeta"></span></span></span> because (like with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">bornInOrBefore</span><span class="RktMeta"></span></span></span>) without it, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngerIATHelp</span><span class="RktMeta"></span></span></span> would not
+be able to access the year of birth of the given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+<p>
+ (Look at the purpose statement for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngerIATHelp</span><span class="RktMeta"></span></span></span> very carefully, substituting “this” and “other”
+appropriately: If <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="RktMeta"></span></span></span> is an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>, then <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngerIATHelp</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> will return <span class="emph">this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span></span>.
+On the other hand, if <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="RktMeta"></span></span></span> is another <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>, then <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngerIATHelp</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> will return
+<span class="emph"><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="RktMeta"></span></span></span></span> if <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">other</span><span class="RktMeta"></span></span></span> is younger than <span class="emph">this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span></span>, or else <span class="emph">this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span></span>.)
+</p>
+<h5 class="heading">
+ 7.2
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Finding_the_youngest_grandparent)"></a>Finding the youngest grandparent<span class="button-group"><a href="#(part._.Finding_the_youngest_grandparent)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+ To determine the youngest grandparent of a given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>, let’s try a simpler method first: determine
+the youngest parent of a given <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>.
+</p>
+<p></p>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In IAT:
+</span><span class="ProfjComment">// To compute the youngest parent of this ancestry tree
+</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestParent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Unknown:
+</span><span class="ProfjComment">// To compute the youngest parent of this Unknown
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestParent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Unknown</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Person:
+</span><span class="ProfjComment">// To compute the youngest parent of this Person
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestParent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjBlockComment">/* Template:
+     * Fields:
+     * this.mom -- IAT
+     * this.dad -- IAT
+     * ... others as before
+     * Methods:
+     * this.youngestParent() -- IAT
+     * this.youngerIAT(IAT other) --- IAT
+     * this.youngerIATHelp(IAT other, int otherYob) --- IAT
+     * Methods of fields:
+     * this.mom.youngestParent() -- IAT
+     * this.mom.youngerIAT(IAT other) --- IAT
+     * this.mom.youngerIATHelp(IAT other, int otherYob) --- IAT
+     * this.dad.youngestParent() -- IAT
+     * this.dad.youngerIAT(IAT other) --- IAT
+     * this.dad.youngerIATHelp(IAT other, int otherYob) --- IAT
+     */</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ This is fairly straightforward: we have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">mom</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dad</span><span class="RktMeta"></span></span></span>, and we have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngerIAT</span><span class="RktMeta"></span></span></span> to return the younger of them:
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Person:
+</span><span class="ProfjComment">// To compute the youngest parent of this Person
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestParent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">mom</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dad</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+ Now to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngestGrandparent</span><span class="RktMeta"></span></span></span>, we can just return the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngerIAT</span><span class="RktMeta"></span></span></span> of a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>’s parents’ <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngestParent</span><span class="RktMeta"></span></span></span>s:
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In IAT:
+</span><span class="ProfjComment">// To compute the youngest grandparent of this ancestry tree
+</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestGrandparent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Unknown:
+</span><span class="ProfjComment">// To compute the youngest grandparent of this Unknown
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestGrandparent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Unknown</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Person:
+</span><span class="ProfjComment">// To compute the youngest grandparent of this Person
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestGrandparent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjBlockComment">/* Template:
+     * Fields:
+     * this.mom -- IAT
+     * this.dad -- IAT
+     * ... others as before
+     * Methods:
+     * this.youngestParent() -- IAT
+     * this.youngestGrandparent() -- IAT
+     * this.youngerIAT(IAT other) --- IAT
+     * this.youngerIATHelp(IAT other, int otherYob) --- IAT
+     * Methods of fields:
+     * this.mom.youngestParent() -- IAT
+     * this.mom.youngestGrandparent() -- IAT
+     * this.mom.youngerIAT(IAT other) --- IAT
+     * this.mom.youngerIATHelp(IAT other, int otherYob) --- IAT
+     * this.dad.youngestParent() -- IAT
+     * this.dad.youngestGrandparent() -- IAT
+     * this.dad.youngerIAT(IAT other) --- IAT
+     * this.dad.youngerIATHelp(IAT other, int otherYob) --- IAT
+     */</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">mom</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngestParent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dad</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngestParent</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<p></p>
+<p>
+ How can we generalize this to greatgrandparents and beyond?  Notice that the implementations of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngestParent</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngestGrandparent</span><span class="RktMeta"></span></span></span>
+are pretty similar: they both invoke <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngerIAT</span><span class="RktMeta"></span></span></span> on the youngest appropriate relative on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">mom</span><span class="RktMeta"></span></span></span>’s side and the youngest appropriate
+relative on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dad</span><span class="RktMeta"></span></span></span>’s side.
+</p>
+<p></p>
+<div class="SIntrapara">
+ We can simplify these methods with an accumulator, which keeps track of what number generation we’re examining:
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// this.andrew.youngestAncInGen(1) ==&gt; this.andrew.youngestParent()
+</span><span class="ProfjComment">// this.andrew.youngestAncInGen(2) ==&gt; this.andrew.youngestGrandparent()
+</span><span class="ProfjComment">// this.andrew.youngestAncInGen(3) ==&gt; this.andrew.youngestGreatGrandparent()
+</span><span class="ProfjComment">// this.andrew.youngestAncInGen(0) ==&gt; ?</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ The youngest <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> 1 generation away from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">andrew</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">andrew</span><span class="RktMeta"></span></span></span>’s youngest parent.
+The youngest <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> 2 generations away from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">andrew</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">andrew</span><span class="RktMeta"></span></span></span>’s youngest grandparent.
+The youngest <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> 0 generations away from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">andrew</span><span class="RktMeta"></span></span></span> is...<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">andrew</span><span class="RktMeta"></span></span></span>!
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+ Our code can then simplify to the following:
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In IAT:
+</span><span class="ProfjComment">// To compute the youngest ancestor in the given generation of this ancestry tree
+</span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestAncInGen</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">gen</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Unknown:
+</span><span class="ProfjComment">// To compute the youngest ancestor in the given generation of this Unknown
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestAncInGen</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">gen</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">gen</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Unknown</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<div class="SIntrapara">
+ <div class="JavaHighlightBlock">
+  <blockquote class="SCodeFlow">
+   <table cellspacing="0" cellpadding="0" class="RktBlk">
+    <tbody>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjComment">// In Person:
+</span><span class="ProfjComment">// To compute the youngest ancestor in the given generation of this Person
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">youngestAncInGen</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">gen</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjBlockComment">/* Template:
+     * Fields:
+     * this.mom -- IAT
+     * this.dad -- IAT
+     * ... others as before
+     * Methods:
+     * this.youngestAncInGen(int gen) -- IAT
+     * this.youngerIAT(IAT other) --- IAT
+     * this.youngerIATHelp(IAT other, int otherYob) --- IAT
+     * Methods of fields:
+     * this.mom.youngestAncInGen(int gen) -- IAT
+     * this.mom.youngerIAT(IAT other) --- IAT
+     * this.mom.youngerIATHelp(IAT other, int otherYob) --- IAT
+     * this.dad.youngestAncInGen(int gen) -- IAT
+     * this.dad.youngerIAT(IAT other) --- IAT
+     * this.dad.youngerIATHelp(IAT other, int otherYob) --- IAT
+     * Parameters:
+     * gen -- int
+     */</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">gen</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">==</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">        </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">mom</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngestAncInGen</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">gen</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngerIAT</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dad</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">youngestAncInGen</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">gen</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">-</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </blockquote>
+ </div>
+</div>
+<p></p>
+<blockquote class="IncerciseBody">
+ <p></p>
+ <div class="SIntrapara">
+  <p class="Incercise">
+   Do Now!
+  </p>
+ </div>
+ <div class="SIntrapara">
+  Complete the definition of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngestGrandparent</span><span class="RktMeta"></span></span></span>, now that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">youngestAncInGen</span><span class="RktMeta"></span></span></span> is defined.
+ </div>
+ <p></p>
+</blockquote>
+<p>
+ The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">gen</span><span class="RktMeta"></span></span></span> parameter is our accumulator, where this time it is “counting down” to decide at what depth to stop the recursion.
+</p>
+<h5 class="heading">
+ 7.3
+ <tt>
+  &nbsp;
+ </tt>
+ <a name="(part._.Potential_hazards_of_accumulator-style_methods)"></a>Potential hazards of accumulator-style methods<span class="button-group"><a href="#(part._.Potential_hazards_of_accumulator-style_methods)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<blockquote class="ExerciseBody">
+ <p></p>
+ <div class="SIntrapara">
+  <p class="Exercise">
+   Exercise
+  </p>
+ </div>
+ <div class="SIntrapara">
+  Design a method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">append</span><span class="RktMeta"></span></span></span> for lists of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span>s twice: first in direct style,
+and then again using an accumulator parameter.
+ </div>
+ <p></p>
+ <p>
+  Do you notice any differences in the output? (Did you write enough tests?)
+ </p>
+</blockquote>
+<div class="navsetbottom">
+ <span class="navleft">
+ <div class="nosearchform"></div>
+ &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture6.html" title="backward to &quot;Lecture 6: Accumulator methods&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture8.html" title="forward to &quot;Lecture 8: Practice Design&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

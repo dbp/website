@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Overview%29" class="tocviewlink" data-pltdoc="x">Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Unions__.Traveling_on_the_.T_in_.Boston%29" class="tocviewlink" data-pltdoc="x">Unions:<span class="mywbr"> &nbsp;</span> Traveling on the T in Boston</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Defining_.Examples_of_.Data%29" class="tocviewlink" data-pltdoc="x">Defining Examples of Data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Enter_the_.Tester%29" class="tocviewlink" data-pltdoc="x">Enter the Tester</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          2.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Self-referential_unions__.Ancestor_trees%29" class="tocviewlink" data-pltdoc="x">Self-<wbr>referential unions:<span class="mywbr"> &nbsp;</span> Ancestor trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Examples_of_.Ancestor_.Trees%29" class="tocviewlink" data-pltdoc="x">Examples of Ancestor Trees</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Overview%29" class="tocsubseclink" data-pltdoc="x">Overview</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">2.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Unions__.Traveling_on_the_.T_in_.Boston%29" class="tocsubseclink" data-pltdoc="x">Unions:<span class="mywbr"> &nbsp;</span> Traveling on the T in Boston</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">2.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Defining_.Examples_of_.Data%29" class="tocsubseclink" data-pltdoc="x">Defining Examples of Data</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">2.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Enter_the_.Tester%29" class="tocsubseclink" data-pltdoc="x">Enter the Tester</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">2.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Self-referential_unions__.Ancestor_trees%29" class="tocsubseclink" data-pltdoc="x">Self-<wbr>referential unions:<span class="mywbr"> &nbsp;</span> Ancestor trees</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber"></span><a href="#%28part._.Examples_of_.Ancestor_.Trees%29" class="tocsubseclink" data-pltdoc="x">Examples of Ancestor Trees</a>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+ <span class="version">8.14</span>
+</div>
+<div class="navsettop">
+ <span class="navleft">
+ <div class="nosearchform"></div>
+ &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture1.html" title="backward to &quot;Lecture 1: Data Definitions in Java&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture3.html" title="forward to &quot;Lecture 3: Methods for simple classes&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 2:</span> Data Definitions: Unions<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p>
+Design of classes that represent a disjoint union of sets of data.
+  Extending unions to represent self-referential data.
+</p>
+<div class="RelatedFiles">
+<blockquote>
+ <p class="boxed">
+  Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture2/files/lectures/lecture2/Unions.java">Unions.java</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture2/files/lectures/lecture2/AncestorsData.java">AncestorsData.java</a><span class="hspace">&nbsp;&nbsp;</span>
+ </p>
+</blockquote>
+</div>
+<h5 class="heading">
+<a name="(part._.Overview)"></a>Overview<span class="button-group"><a href="#(part._.Overview)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+In the last lecture, we saw how to represent primitive forms of data, and simple compound data:
+the equivalent of atomic data and structs in DrRacket.  In this lecture, we continue with more
+complex forms of data, namely unions of data and recursive data.
+</p>
+<h5 class="heading">
+2.1
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Unions__.Traveling_on_the_.T_in_.Boston)"></a>Unions: Traveling on the T in Boston<span class="button-group"><a href="#(part._.Unions__.Traveling_on_the_.T_in_.Boston)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Suppose we want to represent train stations for the subway
+and for the commuter lines. Each station has a <span class="emph">name</span>
+and the <span class="emph">name of the line</span> that serves it.
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+ <blockquote class="refcolumn">
+  <blockquote class="refcontent">
+   <p>
+    We’ll see in a few days
+how to represent stations like Downtown Crossing, with multiple train lines available.
+Much later, we may talk about the challenges of how to represent stations like Ruggles,
+that are both subway and commuter rail stations.
+   </p>
+  </blockquote>
+ </blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+A subway station also has a <span class="emph">price</span> it costs to get on the train.
+(This is a simplification: For the commuter rail the price also depends on the exit station,
+but for now we’ll assume that all commuter rail customers are traveling between their entry
+station and South Station, so the prices depend only on where they board.)
+Additionally, a station on the commuter line may be <span class="emph">skipped</span>
+by the express trains, so we need to record this information.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+<span class="emph">Examples:</span>
+</div>
+<div class="SIntrapara">
+<ul>
+ <li>
+  <p>
+   <span class="emph">Harvard</span> station on the <span class="emph">Red</span> line costs <span class="emph">$1.25</span> to enter
+  </p>
+ </li>
+ <li>
+  <p>
+   <span class="emph">Kenmore</span> station on the <span class="emph">Green</span> line costs <span class="emph">$1.25</span> to enter
+  </p>
+ </li>
+ <li>
+  <p>
+   <span class="emph">Riverside</span> station on the <span class="emph">Green</span> line costs <span class="emph">$2.50</span> to enter
+  </p>
+ </li>
+ <li>
+  <p>
+   <span class="emph">Back Bay</span> station on the <span class="emph">Framingham</span> line is an <span class="emph">express</span> stop
+  </p>
+ </li>
+ <li>
+  <p>
+   <span class="emph">West Newton</span> stop on the <span class="emph">Framingham</span> line is <span class="emph">not an express</span> stop
+  </p>
+ </li>
+ <li>
+  <p>
+   <span class="emph">Wellesley Hills</span> on the <span class="emph">Worcester</span> line is <span class="emph">not an express</span> stop
+  </p>
+ </li>
+</ul>
+</div>
+<p></p>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+ <p class="Incercise">
+  Do Now!
+ </p>
+</div>
+<div class="SIntrapara">
+ Represent this information in Racket definitions.
+</div>
+<p></p>
+</blockquote>
+<p></p>
+<div class="SIntrapara">
+One way to represent this information is as follows:
+</div>
+<div class="SIntrapara">
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">IStation</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">one</span><span class="hspace">&nbsp;</span><span class="RktCmt">of</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">T</span><span class="hspace">&nbsp;</span><span class="RktCmt">Stop</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">Commuter</span><span class="hspace">&nbsp;</span><span class="RktCmt">Station</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta">&nbsp;</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">T</span><span class="hspace">&nbsp;</span><span class="RktCmt">Stop</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-tstop</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">Number)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">tstop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">name</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">line</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">price</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta">&nbsp;</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">Commuter</span><span class="hspace">&nbsp;</span><span class="RktCmt">Station</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-commstation</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">Boolean)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">commstation</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">name</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">line</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">express</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta">&nbsp;</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">harvard</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-tstop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Harvard"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"red"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1.25</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">kenmore</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-tstop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Kenmore"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"green"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">1.25</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">riverside</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-tstop</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Riverside"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"green"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">2.50</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta">&nbsp;</span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">backbay</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-commstation</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Back</span><span class="hspace">&nbsp;</span><span class="RktVal">Bay"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Framingham"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">true</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">wnewton</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-commstation</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"West</span><span class="hspace">&nbsp;</span><span class="RktVal">Newton"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Framingham"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">false</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">wellhills</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-commstation</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Wellesley</span><span class="hspace">&nbsp;</span><span class="RktVal">Hills"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Worcester"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">false</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+</div>
+<p></p>
+<p>
+These data definitions can also be represented by the following class diagram:
+</p>
+<pre class="AsciiArt">             +----------+
+             | IStation |
+             +----------+
+             +----------+
+                   |
+                  / \
+                  ---
+                   |
+       -----------------------
+       |                     |
++--------------+    +-----------------+
+| TStop        |    | CommStation     |
++--------------+    +-----------------+
+| String name  |    | String name     |
+| String line  |    | String line     |
+| double price |    | boolean express |
++--------------+    +-----------------+</pre>
+<p>
+This diagram demonstrates two new concepts: first, it gives a common name to the data type that represents both
+kinds of station by defining an <span class="emph">interface</span> <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IStation</span><span class="RktMeta"></span></span></span>.  Second, it shows two
+classes that <span class="emph">implement</span> this interface, as indicated by the hollow-triangle arrow on the line connecting the classes to the interface.
+Colloquially, we say that “<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">TStop</span><span class="RktMeta"></span></span></span> is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IStation</span><span class="RktMeta"></span></span></span>, and so is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">CommStation</span><span class="RktMeta"></span></span></span>.”
+This is a key distinction: Contrast this with the v-shaped arrowheads in the diagram in <a href="lecture1.html" data-pltdoc="x">Lecture 1</a>, which were used
+to indicate that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> “has-a” <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> field.  Here, we are indicating that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">TStop</span><span class="RktMeta"></span></span></span> “is-a” <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IStation</span><span class="RktMeta"></span></span></span>.
+“Has-a” and “is-a” relationships are important organizing concepts for our data definitions, so our diagrams
+help us track this information.
+Interfaces are how we will inform Java about our union data types
+that (until now) had been described only in comments, and declaring that a class implements an interface is how
+we inform Java which classes are part of our union.
+</p>
+<p>
+The data definitions then become:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjComment">// to represent a train station
+</span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjComment">// to represent a subway station
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">TStop</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">line</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">TStop</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">line</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">name</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">line</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">line</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjComment">// to represent a stop on a commuter line
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CommStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">line</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">express</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">CommStation</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">line</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">express</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">name</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">line</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">line</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">express</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">express</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+</div>
+<p>
+The syntax for defining interfaces is to use the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="RktMeta"></span></span></span> keyword, followed
+by the name of the interface (which by convention will always start with an uppercase “I”), followed by braces.
+(You may have guessed from the fact that interfaces have a brace-delimited block that perhaps
+something can be written there, like the body of class definitions.  We will see in <a href="lecture4.html" data-pltdoc="x">Lecture 4</a>
+how to use this space.)
+</p>
+<p>
+The syntax for declaring that a class implements an interface is to add the keyword <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">implements</span><span class="RktMeta"></span></span></span> just after the class name,
+followed by the name of the interface.
+</p>
+<h5 class="heading">
+2.2
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Defining_.Examples_of_.Data)"></a>Defining Examples of Data<span class="button-group"><a href="#(part._.Defining_.Examples_of_.Data)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+As before, we define examples of data in a corresponding class
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ExamplesIStation</span><span class="RktMeta"></span></span></span>:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ExamplesIStation</span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ExamplesIStation</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/*
+   Harvard station on the Red line costs $1.25 to enter
+   Kenmore station on the Green line costs $1.25 to enter
+   Riverside station on the Green line costs $2.50 to enter
+&nbsp;
+   Back Bay station on the Framingham line is an express stop
+   West Newton stop on the Framingham line is not an express stop
+   Wellesely Hills on the Worcester line is not an express stop
+  */</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">harvard</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">TStop</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Harvard"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1.25</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">kenmore</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">TStop</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Kenmore"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"green"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1.25</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">riverside</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">TStop</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Riverside"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"green"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2.50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">backbay</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CommStation</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Back Bay"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Framingham"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">wnewton</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CommStation</span><span class="ProfjKeyword">(</span><span class="ProfjString">"West Newton"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Framingham"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IStation</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">wellhills</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CommStation</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Wellesley Hills"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Worcester"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+</div>
+<p>
+How do we use these examples?
+</p>
+<h5 class="heading">
+2.3
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Enter_the_.Tester)"></a>Enter the Tester<span class="button-group"><a href="#(part._.Enter_the_.Tester)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+<a href="lab1.html" data-pltdoc="x">Lab 1</a> introduces you the <span class="emph">Tester library</span>, which provides facilities for
+testing your code, much like you had in Fundies 1.  However, unlike Fundies 1, the test
+forms are not part of the language; in Java, we’ve had to write a tester library for you,
+and its functionality will be explained over the next few days.
+</p>
+<p>
+If you follow the instructions in <a href="lab1.html" data-pltdoc="x">Lab 1</a>, and then run the program above, the <span class="emph">tester</span> will
+automatically create an instance of our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ExamplesIStation</span><span class="RktMeta"></span></span></span> class for us, and display the data as follows:
+</p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="refpara">
+ <blockquote class="refcolumn">
+  <blockquote class="refcontent">
+   <p>
+    This “pseudosyntax” can be read as follows: strings, numbers and booleans are printed as you
+would write them in Java, but each object is written as “new <span class="emph">ClassName</span>:<span class="emph">number</span>(<span class="emph">fields</span>)”.
+The numbers are irrelevant for now, and can be ignored.  The fields are given as “this.<span class="emph">fieldName</span> = <span class="emph">value</span>”,
+and each value is itself printed as more pseudosyntax.  Finally, the line saying “No test methods found” implies
+we’re not taking full advantage of the Tester library yet; that will change after <a href="lecture3.html" data-pltdoc="x">Lecture 3</a>.
+   </p>
+  </blockquote>
+ </blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">---------------------------------</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">Tests for the class: ExamplesIStation</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">Tester Prima v.1.5.2.1</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">-----------------------------------</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">Tests defined in the class: ExamplesIStation:</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">---------------------------</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">ExamplesIStation:</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">---------------</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;</span><span class="stt">new ExamplesIStation:1(</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.harvard =</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new TStop:2(</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Harvard"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.line =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"red"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.price = 1.25)</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.kenmore =</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new TStop:3(</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Kenmore"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.line =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"green"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.price = 1.25)</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.riverside =</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new TStop:4(</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Riverside"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.line =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"green"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.price = 2.5)</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.backbay =</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new CommStation:5(</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Back Bay"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.line =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Framingham"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.express = true)</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.wnewton =</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new CommStation:6(</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"West Newton"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.line =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Framingham"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.express = false)</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.wellhills =</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new CommStation:7(</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Wellesley Hills"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.line =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Worcester"</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.express = false))</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">---------------</span>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     <span class="stt">No test methods found.</span>
+    </p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</div>
+<p></p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+ <p class="Exercise">
+  Exercise
+ </p>
+</div>
+<div class="SIntrapara">
+ What would need to be done to represents all stops
+on all bus lines, including the express bus lines?
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+2.4
+<tt>
+ &nbsp;
+</tt>
+<a name="(part._.Self-referential_unions__.Ancestor_trees)"></a>Self-referential unions: Ancestor trees<span class="button-group"><a href="#(part._.Self-referential_unions__.Ancestor_trees)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Suppose we want to represent an ancestry tree for a person,
+naming the ancestors as far as we can remember,
+and using “unknown” for those nobody can remember or trace.
+</p>
+<p>
+Here is the data definition in DrRacket:
+</p>
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+ <tbody>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">An</span><span class="hspace">&nbsp;</span><span class="RktCmt">Ancestor</span><span class="hspace">&nbsp;</span><span class="RktCmt">tree</span><span class="hspace">&nbsp;</span><span class="RktCmt">(AT)</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">one</span><span class="hspace">&nbsp;</span><span class="RktCmt">of</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">'unknown</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">--</span><span class="hspace">&nbsp;</span><span class="RktCmt">Person</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta">&nbsp;</span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktCmt">;;</span><span class="hspace">&nbsp;</span><span class="RktCmt">A</span><span class="hspace">&nbsp;</span><span class="RktCmt">Person</span><span class="hspace">&nbsp;</span><span class="RktCmt">is</span><span class="hspace">&nbsp;</span><span class="RktCmt">(make-person</span><span class="hspace">&nbsp;</span><span class="RktCmt">String</span><span class="hspace">&nbsp;</span><span class="RktCmt">AT</span><span class="hspace">&nbsp;</span><span class="RktCmt">AT)</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define-struct</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">name</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">mom</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">dad</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</blockquote>
+<p>
+and here are a few examples:
+</p>
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+ <tbody>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">mary</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Mary"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">unknown</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">unknown</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">robert</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Robert"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">unknown</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">unknown</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">john</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"John"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">unknown</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">'</span><span class="RktSym">unknown</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">jane</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Jane"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">mary</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">robert</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">define</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">dan</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktPn">(</span><span class="RktSym">make-person</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktVal">"Dan"</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">jane</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktSym">john</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</blockquote>
+<p>
+Two important skills you need to practice early are:
+</p>
+<ul>
+<li>
+ <p>
+  design a representation of the given information as data
+ </p>
+</li>
+<li>
+ <p>
+  interpret the given data as the information it represents
+ </p>
+</li>
+</ul>
+<p>
+So, here, to understand what the data shown above represents, we may
+want to draw the ancestor tree, so we can tell easily how the different
+people are related. The given data represents the following ancestor tree:
+</p>
+<pre class="AsciiArt">             Dan
+          /       \
+      Jane        John
+    /      \      /  \
+  Mary   Robert  ?    ?
+ /   \    /   \
+?     ?  ?     ?</pre>
+<p>
+(For brevity, we’re using the <span class="stt">?</span> for the “unknown” names.)
+The class diagram that represents this data definition
+looks like this:
+</p>
+<pre class="AsciiArt">             +------------------+
+             |  +-------------+ |
+             |  |             | |
+             v  v             | |
+           +-----+            | |
+           | IAT |            | |
+           +-----+            | |
+             / \              | |
+             ---              | |
+              |               | |
+      -----------------       | |
+      |               |       | |
++---------+   +-------------+ | |
+| Unknown |   | Person      | | |
++---------+   +-------------+ | |
++---------+   | String name | | |
+              | IAT mom     |-+ |
+              | IAT dad     |---+
+              +-------------+</pre>
+<p>
+We replaced <span class="RktMeta"></span><span class="RktSym">AT</span><span class="RktMeta"></span> with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> since in Java the union type will be
+represented as an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="RktMeta"></span></span></span>, and our naming convention tells us to
+start the names of interface types with the uppercase letter <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">I</span><span class="RktMeta"></span></span></span>.
+</p>
+<p>
+Note the two kinds of arrows here: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span> both implement
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>, while <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span> also has two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span> fields.
+</p>
+<p>
+The code below shows how this class diagram and our examples can be
+translated into a represetation as Java classes and interfaces
+(slightly misnamed as a <span class="emph">Java class hierarchy</span>):
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+ <table cellspacing="0" cellpadding="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjComment">// to represent an ancestor tree
+</span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjComment">// to represent an unknown member of an ancestor tree
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Unknown</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Unknown</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjComment">// to represent a person with the person's ancestor tree
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Person</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">mom</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">dad</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Person</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">mom</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">dad</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">name</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">name</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">mom</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">mom</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">dad</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">dad</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</blockquote>
+</div>
+<p></p>
+<div class="SIntrapara">
+Notice that we have defined a class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>, even though it
+does not yet contain any additional information (has no fields).  Its purpose
+for now is simply to be <span class="emph">different</span> from <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>, so we can tell
+them apart.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+ <p></p>
+ <div class="SIntrapara">
+  <p class="Incercise">
+   Do Now!
+  </p>
+ </div>
+ <div class="SIntrapara">
+  There is another subtle but crucial reason we need <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>.  What might that be?
+Hint: how might you build examples of ancestor trees without them?
+ </div>
+ <p></p>
+</blockquote>
+</div>
+<p></p>
+<p>
+As you may remember from last semester, we can define interesting behavior for unions, by
+defining functions that distinguish between the cases of the union and return
+different results in each case.  In <a href="lecture4.html" data-pltdoc="x">Lecture 4</a>,
+we will see how this works in Java, which will involve enhancing the definitions of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="RktMeta"></span></span></span>,
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>, and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>.
+</p>
+<h5 class="heading">
+<a name="(part._.Examples_of_.Ancestor_.Trees)"></a>Examples of Ancestor Trees<span class="button-group"><a href="#(part._.Examples_of_.Ancestor_.Trees)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+As before, we define examples of the data in the class named
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ExamplesAncestors</span><span class="RktMeta"></span></span></span>:
+</p>
+<p></p>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+ <blockquote class="SCodeFlow">
+  <table cellspacing="0" cellpadding="0" class="RktBlk">
+   <tbody>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjComment">// examples and tests for the class hierarchy that represents
+</span><span class="ProfjComment">// ancestor trees
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ExamplesAncestors</span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ExamplesAncestors</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">unknown</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Unknown</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">mary</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Person</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Mary"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">unknown</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">unknown</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">robert</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Person</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Robert"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">unknown</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">unknown</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">john</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Person</span><span class="ProfjKeyword">(</span><span class="ProfjString">"John"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">unknown</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">unknown</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">jane</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Person</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Jane"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">mary</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">robert</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IAT</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">dan</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Person</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Dan"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">jane</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">john</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+ <p></p>
+ <div class="SIntrapara">
+  <p class="Incercise">
+   Do Now!
+  </p>
+ </div>
+ <div class="SIntrapara">
+  Why do we declare the types of all of these identifiers to be <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>?
+Why not write <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">mary</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Person</span><span class="ProfjKeyword">(</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span></span></span> or <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Unknown</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">unknown</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Unknown</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span></span></span>?
+ </div>
+ <p></p>
+</blockquote>
+</div>
+<p></p>
+<p>
+At the time the program is checked for correctness by the compiler,
+the compiler knows that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">mary</span><span class="RktMeta"></span></span></span> is of the type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IAT</span><span class="RktMeta"></span></span></span>
+(also known as its <span class="emph">compile-time type</span>; when the program
+runs, it will also know that after the data definition has been made,
+the <span class="emph">run-time type</span> of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">mary</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Person</span><span class="RktMeta"></span></span></span>.
+</p>
+<p>
+We can see this when the Tester library displays our data:
+</p>
+<p></p>
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+ <tr>
+  <td>
+   <p>
+    <span class="stt">ExamplesAncestors:</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt">---------------</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;</span><span class="stt">new ExamplesAncestors:1(</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.unknown =</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new Unknown:2()</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.mary =</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new Person:3(</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Mary"</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.mom = Unknown:2</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.dad = Unknown:2)</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.robert =</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new Person:4(</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Robert"</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.mom = Unknown:2</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.dad = Unknown:2)</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.john =</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new Person:5(</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"John"</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.mom = Unknown:2</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.dad = Unknown:2)</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.jane =</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new Person:6(</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Jane"</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.mom = Person:3</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.dad = Person:4)</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">this.dan =</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">new Person:7(</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.name =</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">"Dan"</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.mom = Person:6</span>
+   </p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <p>
+    <span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">this.dad = Person:5))</span>
+   </p>
+  </td>
+ </tr>
+</tbody>
+</table>
+<p></p>
+<p>
+When designing a program, we must make sure that the
+<span class="emph">compile-time types</span> of all data items (identifiers and arguments)
+correspond to what the compiler can expect. (More about this later.)
+</p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture1.html" title="backward to &quot;Lecture 1: Data Definitions in Java&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture3.html" title="forward to &quot;Lecture 3: Methods for simple classes&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

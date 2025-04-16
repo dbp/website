@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Introduction%29" class="tocviewlink" data-pltdoc="x">Introduction</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          16.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Flawed_attempt_1__.Processing_shapes_with_existing_types_of_function_objects%29" class="tocviewlink" data-pltdoc="x">Flawed attempt 1:<span class="mywbr"> &nbsp;</span> Processing shapes with existing types of function objects</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          16.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Key_observation__we_ve_seen_this_problem_before%29" class="tocviewlink" data-pltdoc="x">Key observation:<span class="mywbr"> &nbsp;</span> we’ve seen this problem before</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          16.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Specific_functions_on_shapes%29" class="tocviewlink" data-pltdoc="x">Specific functions on shapes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          16.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Introducing_the_.Visitor_pattern%29" class="tocviewlink" data-pltdoc="x">Introducing the Visitor pattern</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          16.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Discussion%29" class="tocviewlink" data-pltdoc="x">Discussion</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          16.6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Wait_---_but_what_about_map___%29" class="tocviewlink" data-pltdoc="x">Wait —<wbr> but what about <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>?</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Introduction%29" class="tocsubseclink" data-pltdoc="x">Introduction</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">16.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Flawed_attempt_1__.Processing_shapes_with_existing_types_of_function_objects%29" class="tocsubseclink" data-pltdoc="x">Flawed attempt 1:<span class="mywbr"> &nbsp;</span> Processing shapes with existing types of function objects</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">16.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Key_observation__we_ve_seen_this_problem_before%29" class="tocsubseclink" data-pltdoc="x">Key observation:<span class="mywbr"> &nbsp;</span> we’ve seen this problem before</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">16.2.1
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Flawed_attempt_2__.Casting%29" class="tocsubseclink" data-pltdoc="x">Flawed attempt 2:<span class="mywbr"> &nbsp;</span> Casting</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">16.3
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Specific_functions_on_shapes%29" class="tocsubseclink" data-pltdoc="x">Specific functions on shapes</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">16.4
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Introducing_the_.Visitor_pattern%29" class="tocsubseclink" data-pltdoc="x">Introducing the Visitor pattern</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">16.5
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Discussion%29" class="tocsubseclink" data-pltdoc="x">Discussion</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">16.6
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Wait_---_but_what_about_map___%29" class="tocsubseclink" data-pltdoc="x">Wait —<wbr> but what about <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>?</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">16.6.1
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.One_last_refinement__extending_interfaces%29" class="tocsubseclink" data-pltdoc="x">One last refinement:<span class="mywbr"> &nbsp;</span> extending interfaces</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture15.html" title="backward to &quot;Lecture 15: Abstracting over types&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture17.html" title="forward to &quot;Lecture 17: Mutation&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 16:</span> Visitors<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+Visitors as generic function objects over union data
+</p>
+<h5 class="heading">
+<a name="(part._.Introduction)"></a>Introduction<span class="button-group"><a href="#(part._.Introduction)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Over the last few lectures, we have seen two powerful abstraction mechanisms:
+<span class="emph">function objects</span> allow us to abstract over behavior, giving us the flexibility of
+higher-order functions in an object-oriented setting, while
+<span class="emph">generics</span> allow us abstract over types, defining once-and-for-all families of related types like <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>.
+We can even combine the two, defining interfaces like <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">A</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> that describe all function objects
+that take an argument of type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">A</span><span class="RktMeta"></span></span></span> and return a result of type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">R</span><span class="RktMeta"></span></span></span>.  We saw examples of how
+to define function objects over simple data: for instance, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>
+is the interface for a function object whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">apply</span><span class="RktMeta"></span></span></span> method takes a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> and returns a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span>.
+We could then take those function objects and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> them across lists.  So far, so good.
+</p>
+<p>
+But now we have to ask, how well do these techniques work for more complex data types?  In particular,
+what happens if we try to write a function object that takes a value of a <span class="emph">union</span> data type?
+</p>
+<h5 class="heading">
+16.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Flawed_attempt_1__.Processing_shapes_with_existing_types_of_function_objects)"></a>Flawed attempt 1: Processing shapes with existing types of function objects<span class="button-group"><a href="#(part._.Flawed_attempt_1__.Processing_shapes_with_existing_types_of_function_objects)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Recall our example from <a href="lecture4.html" data-pltdoc="x">Lecture 4</a> of shapes.  Let’s simplify the definitions, though, by
+getting rid of all the methods for now, and let’s temporarily only include <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">w</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">w</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">w</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">h</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Suppose now we have an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>, and we want to obtain the list of areas of
+all the shapes in the list.  (Notice we got rid of all methods on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>, above!)  Recall the signature of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In IList&lt;T&gt;:
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">U</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">U</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">map</span><span class="ProfjKeyword">(</span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">U</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">func</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Accordingly, for our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> must take a function object argument
+of type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>.  But if we try to implement this function object,
+we are stuck:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// A function object that computes the area of IShapes
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">apply</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjBlockComment">/* Template:
+     * Fields:
+     * Methods:
+     * Methods of fields:
+     */</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> interface currently has no methods, and certainly has no fields!  So how can we
+implement this functionality?
+</div>
+<p></p>
+<h5 class="heading">
+16.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Key_observation__we_ve_seen_this_problem_before)"></a>Key observation: we’ve seen this problem before<span class="button-group"><a href="#(part._.Key_observation__we_ve_seen_this_problem_before)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The problem we’re running into in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ShapeArea</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">apply</span><span class="RktMeta"></span></span></span> method is we don’t
+know <span class="emph">which specific type of shape</span> we’re given as our argument.  As a result, our
+template is empty, and there’s nothing we can do.  We’ve encountered this problem before
+with shapes: when we tried to determine when two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShapes</span><span class="RktMeta"></span></span></span> were the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span>.
+In that setting, there were two techniques we could use: casting, and double-dispatch.
+</p>
+<h5 class="heading">
+16.2.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Flawed_attempt_2__.Casting)"></a>Flawed attempt 2: Casting<span class="button-group"><a href="#(part._.Flawed_attempt_2__.Casting)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Try writing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ShapeArea</span><span class="RktMeta"></span></span></span> using casting.  What works well in this approach, and what doesn’t?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+We might reason that since a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> is either a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> or a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>, the following code should work:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// A function object that computes the area of IShapes
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">apply</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">shape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">instanceof</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Math</span><span class="ProfjDefault">.</span><span class="ProfjConstant">PI</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjKeyword">)</span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+This code does indeed implement the formulas for the area of circles and rectangles.
+But it is quite ugly having all those casts cluttering up the code.
+And worse, it is badly brittle —<wbr> what happens when we add a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> class as another
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>?  Our code will still compile, but will crash at runtime with a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ClassCastException</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+<h5 class="heading">
+16.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Specific_functions_on_shapes)"></a>Specific functions on shapes<span class="button-group"><a href="#(part._.Specific_functions_on_shapes)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Let’s take a step back from making everything <span class="emph">too</span> generic, and let’s instead try to design a
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape2DoubleFunc</span><span class="RktMeta"></span></span></span> interface that represents a function that takes an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> and returns a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Double</span><span class="RktMeta"></span></span></span>.
+(There are <span class="emph">no</span> type parameters involved here, yet.)  Now we have the flexibility to change this interface
+as needed.
+</p>
+<p></p>
+<div class="SIntrapara">
+When we were working with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span>, we started by writing simpler methods like <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameCircle</span><span class="RktMeta"></span></span></span> or <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameRect</span><span class="RktMeta"></span></span></span>.
+Let’s try the same notion here: instead of having one <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">apply</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> method, we’ll have simpler helper methods.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// Represents a function object defined over Shapes that returns a Double
+</span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape2DoubleFunc</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">applyToCircle</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">circle</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">applyToRect</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rect</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Now each of these methods should be easier to implement, because we have arguments with specific types instead of
+the general <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> interface:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// Implements a function taking a Shape and returning a Double,
+</span><span class="ProfjComment">// that computes the area of the given shape
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape2DoubleFunc</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">applyToCircle</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">circle</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Math</span><span class="ProfjDefault">.</span><span class="ProfjConstant">PI</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">circle</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">circle</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">applyToRect</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rect</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rect</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">rect</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+The only remaining trick is to figure out how to <span class="emph">use</span> this object!  We manage this by adding one method
+to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> interface and implementing it on each shape class.  If the purpose of the methods in the
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape2DoubleFunc</span><span class="RktMeta"></span></span></span> is to “apply a function to a shape”, then the purpose of this new method in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>
+interface is to “be applied to by some function”:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// To return the result of applying the given function to this shape
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">beAppliedToBy</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape2Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">func</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Circle
+</span><span class="ProfjComment">// To return the result of applying the given function to this Circle
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">beAppliedToBy</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape2Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">func</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">func</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">applyToCircle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Rect
+</span><span class="ProfjComment">// To return the result of applying the given function to this Rect
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">beAppliedToBy</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape2Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">func</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">func</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">applyToRect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Compare this implementation to the implementation of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span>, and
+figure out what methods are the analogues of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameCircle</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameRect</span><span class="RktMeta"></span></span></span>,
+and what roles the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape2DoubleFunc</span><span class="RktMeta"></span></span></span> interfaces play.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Notice that this code is substantially cleaner than the version with casts above, and it cannot possibly fail
+at runtime with a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ClassCastException</span><span class="RktMeta"></span></span></span>.  Even better, if we need to add new kinds of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>s,
+our code will still not crash at runtime!  Instead, it will <span class="emph">fail to compile</span>, because we won’t have
+any way to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">beAppliedToBy</span><span class="RktMeta"></span></span></span> for the new class.  This is much better: it means that we’re
+using Java’s type system to prevent us from forgetting parts of our implementation.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Suppose we add the following class:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+ <tbody>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+What changes do you need to make to extend the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ShapeArea</span><span class="RktMeta"></span></span></span> class to handle this new case?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In IShape2DoubleFunc
+</span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">applyToSquare</span><span class="ProfjKeyword">(</span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">square</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ShapeArea
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">applyToSquare</span><span class="ProfjKeyword">(</span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">square</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">square</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">square</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Square
+</span><span class="ProfjComment">// To return the result of applying the given function to this Square
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">beAppliedToBy</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape2DoubleFunc</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">func</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">func</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">applyToSquare</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Do the same thing, this time trying to compute the perimeters of the shapes.
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+16.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Introducing_the_.Visitor_pattern)"></a>Introducing the Visitor pattern<span class="button-group"><a href="#(part._.Introducing_the_.Visitor_pattern)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Now, as with our initial implementation of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">sameShape</span><span class="RktMeta"></span></span></span> via double dispatch, the names of the methods
+above are not the typical names.  Also, we can take another look at where parameterizing our data types might be
+worthwhile.  Having a specialized set of methods for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>s seems like something we’ll need to keep,
+but the return type of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">double</span><span class="RktMeta"></span></span></span> seem like something that’s easily made generic.
+</p>
+<p></p>
+<div class="SIntrapara">
+The proper name for this pattern of double-dispatch with function objects is called the <span class="emph">visitor</span> pattern.
+Suppose we have an interface <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFoo</span><span class="RktMeta"></span></span></span>, and classes <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">X</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Y</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Z</span><span class="RktMeta"></span></span></span> that implement this interface.
+We define a <span class="emph">visitor</span> for this interface:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// To implement a function over Foo objects, returning a value of type R
+</span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IFooVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitX</span><span class="ProfjKeyword">(</span><span class="ProfjType">X</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">x</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitY</span><span class="ProfjKeyword">(</span><span class="ProfjType">Y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">y</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitZ</span><span class="ProfjKeyword">(</span><span class="ProfjType">Z</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">z</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+In the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFoo</span><span class="RktMeta"></span></span></span> interface, we need to add one method to <span class="emph">accept</span> the visitor:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In IFoo:
+</span><span class="ProfjComment">// To return the result of applying the given visitor to this Foo
+</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">accept</span><span class="ProfjKeyword">(</span><span class="ProfjType">IFooVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitor</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Finally, in each class, we implement this method in the “obvious” way by matching up names:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In X:
+</span><span class="ProfjComment">// To return the result of applying the given visitor to this X
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">accept</span><span class="ProfjKeyword">(</span><span class="ProfjType">IFooVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitor</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitor</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">visitX</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Y:
+</span><span class="ProfjComment">// To return the result of applying the given visitor to this Y
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">accept</span><span class="ProfjKeyword">(</span><span class="ProfjType">IFooVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitor</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitor</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">visitY</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Z:
+</span><span class="ProfjComment">// To return the result of applying the given visitor to this Z
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">accept</span><span class="ProfjKeyword">(</span><span class="ProfjType">IFooVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitor</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitor</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">visitZ</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Rewrite the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ShapeArea</span><span class="RktMeta"></span></span></span> class to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>, instead of
+the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape2Double</span><span class="RktMeta"></span></span></span> interface.
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+16.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Discussion)"></a>Discussion<span class="button-group"><a href="#(part._.Discussion)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Visitors are nothing more than the natural answer to the question, “how do we make function
+objects work with union data types?”  That answer combines double dispatch, generics, and function
+objects, which are all concepts we’ve seen already: this pattern is just a subtle, clever combination
+of those pieces.
+</p>
+<p>
+When would you need this pattern?  Whenever you are defining a union data type as part of a library,
+whose ultimate uses you can’t completely envision.  Suppose for example someone were designing a
+library for manipulating HTML content.  They’d have an interface <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IHTMLTag</span><span class="RktMeta"></span></span></span>, and roughly
+90 classes for each of the various tag types: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IATag</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IBrTag</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IDivTag</span><span class="RktMeta"></span></span></span>, etc.
+But the sheer variety of “ways to manipulate HTML” means that the library author cannot
+predict all those possibilities and implement them as methods himself!  Instead,
+he can supply the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">accept</span><span class="RktMeta"></span></span></span> method that takes an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IHTMLTagVisitor</span><span class="RktMeta"></span></span></span> —<wbr> and leaves
+this interface available for clients of the library to implement however they choose.
+One tiny method’s worth of advance planning by the library author —<wbr> the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">accept</span><span class="RktMeta"></span></span></span> method —<wbr> means
+the library is flexible and easy to use in ways the library author could not anticipate.
+</p>
+<h5 class="heading">
+16.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Wait_---_but_what_about_map___)"></a>Wait —<wbr> but what about <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>?<span class="button-group"><a href="#(part._.Wait_---_but_what_about_map___)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+At the beginning of this lecture, we wanted to implement a <span class="emph">function object</span> for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>s that we
+could successfully map across a list of shapes.  Instead we’ve created this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> interface,
+but that is not an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> that we can use with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="RktMeta"></span></span></span>!  Recall, we wanted this:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// A function object that computes the area of IShapes
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">apply</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+But the problem was we had nothing available in our template that would let us implement this method.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+At this point, we should take advantage of another feature of Java interfaces that we have not yet needed
+to explore: a class is permitted to implement <span class="emph">more than one interface</span>.  In particular, while we
+currently have
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// A shape-visitor that computes the area of shapes
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitCircle</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Math</span><span class="ProfjDefault">.</span><span class="ProfjConstant">PI</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitRect</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitSquare</span><span class="ProfjKeyword">(</span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+We can actually revise the class declaration to be
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// A shape-visitor AND a function object that computes the area of shapes
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+The meaning of this declaration is simply that the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ShapeArea</span><span class="RktMeta"></span></span></span> class promises to implement
+all the methods from all the interfaces it claims it <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">implements</span><span class="RktMeta"></span></span></span>.  We already have
+implementations for all the visitor methods; now we just need to add the methods for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// A shape-visitor AND a function object that computes the area of shapes
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">apply</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// what to do?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+But this is precisely the method we didn’t know how to implement earlier!
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Implement this method.  You should need only a single method call.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+If only there were a way to delegate to the visitor methods we have handy in this class... and now there is: that’s
+precisely the purpose of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">accept</span><span class="RktMeta"></span></span></span> method on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>!
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// A shape-visitor AND a function object that computes the area of shapes
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">apply</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shape</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">accept</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Think carefully through the types here.  <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ShapeArea</span><span class="RktMeta"></span></span></span> promises to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>,
+so it must have a method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">apply</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shape</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>.  <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>s know how to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">accept</span><span class="RktMeta"></span></span></span>
+a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> (for any <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">T</span><span class="RktMeta"></span></span></span>), and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ShapeArea</span><span class="RktMeta"></span></span></span> promises that it can be a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>, too.
+So the method call <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">shape</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">accept</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> will typecheck.  And so will passing a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ShapeArea</span><span class="RktMeta"></span></span></span> object to
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> over a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>, because of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="RktMeta"></span></span></span> promise.  And now we truly do have function objects over union data,
+as we claimed above.
+</div>
+<p></p>
+<h5 class="heading">
+16.6.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.One_last_refinement__extending_interfaces)"></a>One last refinement: extending interfaces<span class="button-group"><a href="#(part._.One_last_refinement__extending_interfaces)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+It is mildly annoying that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> are completely independent interfaces.  Because of that,
+it’s possible to design a class that implements <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> and forgets to <span class="emph">also</span> implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>.
+This is especially annoying because <span class="emph">every</span> visitor can implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="RktMeta"></span></span></span>; there’s really no reason not to implement them both.
+</p>
+<p>
+Remember that we’ve been saying that “a visitor is a function object for union data”.  Let’s add just a bit of emphasis to that statement:
+“a visitor <span class="emph">is-a</span> function object for union data”.  We have a mechanism for expressing when something is-a specialized kind of something else: the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">extends</span><span class="RktMeta"></span></span></span>
+keyword.  Java uses <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">extends</span><span class="RktMeta"></span></span></span> to express when one class is a subclass of another; it <span class="emph">also</span> allows us to express when one interface
+is an enhanced version of another interface.  Any class that promises to implement the derived interface implicitly promises to implement every method in that
+interface, <span class="emph">and also</span> every method from the base interface.  If we declare that our visitor interface <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">extends</span><span class="RktMeta"></span></span></span> the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="RktMeta"></span></span></span> interface,
+then there is no longer a way to implement just the visitor interface without also remembering to implement the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IFunc</span><span class="RktMeta"></span></span></span> interface.
+</p>
+<p></p>
+<div class="SIntrapara">
+So the final version of our code will be:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// An IShapeVisitor is a function over IShapes
+</span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IFunc</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IShape</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">R</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitCircle</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitSquare</span><span class="ProfjKeyword">(</span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">R</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitRect</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// ShapeArea is a function object over IShapes that computes their area
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ShapeArea</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShapeVisitor</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Double</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Everything from the IShapeVisitor interface:
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitCircle</span><span class="ProfjKeyword">(</span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Math</span><span class="ProfjDefault">.</span><span class="ProfjConstant">PI</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitSquare</span><span class="ProfjKeyword">(</span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">side</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">side</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">visitRect</span><span class="ProfjKeyword">(</span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">w</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">h</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Everything from the IFunc interface:
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">apply</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">accept</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture15.html" title="backward to &quot;Lecture 15: Abstracting over types&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture17.html" title="forward to &quot;Lecture 17: Mutation&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

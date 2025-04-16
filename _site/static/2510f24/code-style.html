@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublistonly" style="display: block;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="maincolumn">
+   <div class="main">
+    <div class="versionbox">
+     <span class="version">8.14</span>
+    </div>
+    <div class="navsettop">
+     <span class="navleft">
+     <div class="nosearchform"></div>
+     &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+    </span>
+    <span class="navright">&nbsp;&nbsp;<a href="Pair_Programming_Overview.html" title="backward to &quot;Pair Programming Overview&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Documentation.html" title="forward to &quot;Documentation&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+   </div>
+   <h3 class="heading">
+    <a name="(part._code-style)"></a>Code style<span class="button-group"><a href="#(part._code-style)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+   </h3>
+   <p></p>
+   <div class="SIntrapara">
+    To follow the proper coding style for this class, you should have Eclipse
+insert spaces for indentation instead of tabs. This ensures that the code looks
+the same in every editor, regardless of the tab width settings. To do so,
+follow these instructions:
+   </div>
+   <div class="SIntrapara">
+    <blockquote class="refpara">
+     <blockquote class="refcolumn">
+      <blockquote class="refcontent">
+       <p>
+        NOTE: This assumes you’re using the
+most recent version of Eclipse.  Older versions have slightly different user
+interfaces.
+       </p>
+      </blockquote>
+     </blockquote>
+    </blockquote>
+   </div>
+   <p></p>
+   <ul>
+    <li>
+     <p>
+      In <span style="font-weight: bold">Eclipse</span>, select <span class="emph">Preferences</span> in the <span class="emph">Window</span> menu.
+     </p>
+    </li>
+    <li>
+     <p>
+      In the navigation pane on the left side of the <span class="emph">Preferences</span> dialog,
+ drill down to <span class="emph">Java &gt; Code Style &gt; Formatter</span>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Click <span class="emph">Edit...</span>.
+     </p>
+    </li>
+    <li>
+     <p>
+      In the <span class="emph">Indentation</span> submenu, set the
+<span class="emph">Tab policy</span> to <span class="emph">Spaces only</span>.  Underneath that, set both the
+<span class="emph">Indentatation size</span> and <span class="emph">Tab size</span> to 2.
+     </p>
+    </li>
+    <li>
+     <p>
+      In the <span class="emph">New lines</span> submenu, in the <span class="emph">In control statements</span> subsection, select all four checkboxes that start with "Before".
+     </p>
+    </li>
+    <li>
+     <p>
+      In the <span class="emph">Line wrapping</span> submenu, set the <span class="emph">Maximum line width</span> to 100.
+     </p>
+    </li>
+    <li>
+     <p>
+      In the <span class="emph">Profile name</span> textbox at the top of the dialog, rename the
+profile to whatever you prefer and click <span class="emph">OK</span>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Back in the main Preferences dialog, make sure the active profile is set
+to the one you just named and click <span class="emph">Apply</span>.
+     </p>
+    </li>
+    <li>
+     <p>
+      Still in the main Preferences dialog, in the navigation pane on the left side,
+drill down to <span class="emph">General &gt; Editors &gt; Text Editors</span>,
+and check "Show line numbers" if it isn’t already.
+     </p>
+    </li>
+    <li>
+     <p>
+      Select <span class="emph">OK</span> to close the dialog.
+     </p>
+    </li>
+   </ul>
+   <div class="navsetbottom">
+    <span class="navleft">
+    <div class="nosearchform"></div>
+    &nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+   </span>
+   <span class="navright">&nbsp;&nbsp;<a href="Pair_Programming_Overview.html" title="backward to &quot;Pair Programming Overview&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Documentation.html" title="forward to &quot;Documentation&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+  </div>
+ </div>
+</div>
+<div id="contextindicator">
+ &nbsp;
+</div>
+</body>
+</html>

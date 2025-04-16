@@ -1,0 +1,161 @@
+<!doctype HTML>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="codemirror.js"></script>
+<script src="python.js"></script>
+<script src="runmode.js"></script>
+<script src="setup-page.js"></script>
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=0.8"/><title>General</title><link rel="stylesheet" type="text/css" href="scribble.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-style.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-racket.css" title="default"/><link rel="stylesheet" type="text/css" href="extra-styles.css" title="default"/><link rel="stylesheet" type="text/css" href="codemirror.css" title="default"/><script type="text/javascript" src="scribble-common.js"></script><script type="text/javascript" src="manual-racket.js"></script><!--[if IE 6]><style type="text/css">.SIEHidden { overflow: hidden; }</style><![endif]--></head><body id="scribble-racket-lang-org"><div class="tocset"><div class="tocview"><div class="tocviewlist tocviewlisttopspace"><div class="tocviewtitle"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">&#9660;</a></td><td></td><td><a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br/>
+Introduction to Class-<wbr></wbr>based Program Design</a></td></tr></table></div><div class="tocviewsublisttop" style="display: block;" id="tocview_0"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="" class="tocviewselflink" data-pltdoc="x">General</a></td></tr><tr><td align="right"></td><td><a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a></td></tr><tr><td align="right"></td><td><a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a></td></tr><tr><td align="right"></td><td><a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a></td></tr><tr><td align="right"></td><td><a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a></td></tr><tr><td align="right"></td><td><a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a></td></tr><tr><td align="right"></td><td><a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a></td></tr><tr><td align="right"></td><td><a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a></td></tr><tr><td align="right"></td><td><a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">&#9658;</a></td><td></td><td><a href="" class="tocviewselflink" data-pltdoc="x">General</a></td></tr></table><div class="tocviewsublistbottom" style="display: none;" id="tocview_1"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="#%28part._.Office_hours_%29" class="tocviewlink" data-pltdoc="x">Office hours:</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.People%29" class="tocviewlink" data-pltdoc="x">People</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.Communications%29" class="tocviewlink" data-pltdoc="x">Communications</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.General_.Policies%29" class="tocviewlink" data-pltdoc="x">General Policies</a></td></tr><tr><td align="right"></td><td><a href="#%28part._general-lectures%29" class="tocviewlink" data-pltdoc="x">Lectures</a></td></tr><tr><td align="right"></td><td><a href="#%28part._lab-info%29" class="tocviewlink" data-pltdoc="x">Labs</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.Computing_.Environment%29" class="tocviewlink" data-pltdoc="x">Computing Environment</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.Assignments._%28general%29%29" class="tocviewlink" data-pltdoc="x">Assignments</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.Pair_.Programming%29" class="tocviewlink" data-pltdoc="x">Pair Programming</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.Academic_.Integrity%29" class="tocviewlink" data-pltdoc="x">Academic Integrity</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.Exams%29" class="tocviewlink" data-pltdoc="x">Exams</a></td></tr><tr><td align="right"></td><td><a href="#%28part._.Grades%29" class="tocviewlink" data-pltdoc="x">Grades</a></td></tr></table></div></div></div><div class="tocsub"><div class="tocsubtitle">On this page:</div><table class="tocsublist" cellspacing="0"><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Office_hours_%29" class="tocsubseclink" data-pltdoc="x">Office hours:</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.People%29" class="tocsubseclink" data-pltdoc="x">People</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Communications%29" class="tocsubseclink" data-pltdoc="x">Communications</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.General_.Policies%29" class="tocsubseclink" data-pltdoc="x">General Policies</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._general-lectures%29" class="tocsubseclink" data-pltdoc="x">Lectures</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._lab-info%29" class="tocsubseclink" data-pltdoc="x">Labs</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Computing_.Environment%29" class="tocsubseclink" data-pltdoc="x">Computing Environment</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Assignments._%28general%29%29" class="tocsubseclink" data-pltdoc="x">Assignments</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Pair_.Programming%29" class="tocsubseclink" data-pltdoc="x">Pair Programming</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Academic_.Integrity%29" class="tocsubseclink" data-pltdoc="x">Academic Integrity</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Exams%29" class="tocsubseclink" data-pltdoc="x">Exams</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Grades%29" class="tocsubseclink" data-pltdoc="x">Grades</a></td></tr></table></div></div><div class="maincolumn"><div class="main"><div class="versionbox"><span class="version">8.14</span></div><div class="navsettop"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="index.html" title="backward to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x" rel="prev">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Texts.html" title="forward to &quot;Texts&quot;" data-pltdoc="x" rel="next">next &rarr;</a></span>&nbsp;</div><h3 class="heading"><a name="(part._.General)"></a>General<span class="button-group"><a href="#(part._.General)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h3><h4 class="heading"><a name="(part._.Office_hours_)"></a>Office hours:<span class="button-group"><a href="#(part._.Office_hours_)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p>Here is a calendar of all the office hours that the course staff offer. If
+you would like to speak to an instructor and you cannot make it to their
+office hours, send an email to set up a meeting. If you have a general question
+and cannot make it to anyone&rsquo;s office hours, post to Piazza (see below).</p><p>For the most part, staff members will
+have the same office hours every week. Before going to someone&rsquo;s hours, check where
+they will be on the calendar below. Should there be a change to someone&rsquo;s hours,
+there will be a post on Piazza and the calendar will be updated.</p><p><div class="SIntrapara">While some office hours will be in person, we will use the
+<a href="https://officehours.khoury.northeastern.edu/">Khoury Office Hours tool</a> for other office hours. Take these steps to join office hours:
+ </div><div class="SIntrapara"><ul><li><p>Log in with your Khoury account credentials.</p></li><li><p>Go to CS 2510 on the top left.</p></li><li><p>Add your name to the queue. Enter the question you wish to ask. Be as detailed as possible.</p></li><li><p>Log in to Microsoft Teams using your Northeastern credentials.
+When it is your turn, we will get in touch with you via Teams.</p></li></ul></div></p><p>For rooms of in-person office hours, check the Google calendar for location.</p><p><iframe src="https://calendar.google.com/calendar/embed?src=j5g86ktb97lkivj9bouuk678g4%40group.calendar.google.com&amp;ctz=America/New_York" width="100%" height="600" frameboarder="0" scrolling="no" style="border: 0"></iframe></p><h4 class="heading"><a name="(part._.People)"></a>People<span class="button-group"><a href="#(part._.People)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p><span style="font-weight: bold">Instructors:</span></p><p><table cellspacing="0" cellpadding="0" class="PaddedTable"><tr><td><blockquote class="SCentered"><p><img src="leena_razzaq_2.jpg" alt=""/><br/><a href="http://www.ccs.neu.edu/home/lrazzaq/" class="plainlink">Leena Razzaq</a><br/><span class="stt">l.razzaq@northeastern</span></p></blockquote></td><td><p></p></td><td><p></p></td></tr></table></p><p>Professor Razzaq&rsquo;s office hours will be in Meserve 329, Wednesdays 3:00pm&ndash;4:30pm and by appointment.</p><p><span style="font-weight: bold">TAs:</span></p><p><table cellspacing="0" cellpadding="0" class="PaddedTable"><tr><td><blockquote class="SCentered"><p><img src="bryan_baboolal.jpeg" alt=""/><br/>Bryan Baboolal<br/><span class="stt">baboolal.b@northeastern</span></p></blockquote></td><td><blockquote class="SCentered"><p><img src="Dave_Budhram.jpeg" alt=""/><br/>Dave Budhram<br/><span class="stt">budhram.d@northeastern</span></p></blockquote></td><td><blockquote class="SCentered"><p><img src="tej_chakravarthy.jpeg" alt=""/><br/>Tej Chakravarthy<br/><span class="stt">chakravarthy.t@northeastern</span></p></blockquote></td></tr><tr><td><blockquote class="SCentered"><p><img src="Manasa_M.jpeg" alt=""/><br/>Manasa M<br/><span class="stt">m.m@northeastern</span></p></blockquote></td><td><blockquote class="SCentered"><p><img src="maya_makonnen.jpeg" alt=""/><br/>Maya Makonnen<br/><span class="stt">makonnen.m@northeastern</span></p></blockquote></td><td><blockquote class="SCentered"><p><img src="Nolan_Mungovan.jpeg" alt=""/><br/>Nolan Mungovan<br/><span class="stt">mungovan.n@northeastern</span></p></blockquote></td></tr><tr><td><blockquote class="SCentered"><p><img src="Nicholas_Pfeiffer.jpeg" alt=""/><br/>Nicholas Pfeiffer<br/><span class="stt">pfeiffer.n@northeastern</span></p></blockquote></td><td><blockquote class="SCentered"><p><img src="Jessica_Salawu.jpeg" alt=""/><br/>Jessica Salawu<br/><span class="stt">salawu.j@northeastern</span></p></blockquote></td><td><blockquote class="SCentered"><p><img src="harrison_seeley.PNG" alt="" width="199" height="217"/><br/>Harrison Seeley<br/><span class="stt">seeley.h@northeastern</span></p></blockquote></td></tr><tr><td><blockquote class="SCentered"><p><img src="Malia_Wanderer.jpeg" alt=""/><br/>Malia Wanderer<br/><span class="stt">wanderer.m@northeastern</span></p></blockquote></td><td><blockquote class="SCentered"><p><img src="benjamin_weiss.jpeg" alt=""/><br/>Ben Weiss<br/><span class="stt">weiss.b@northeastern</span></p></blockquote></td><td><blockquote class="SCentered"><p><img src="kobe_zheng.jpeg" alt=""/><br/>Kobe Zheng<br/><span class="stt">zheng.ko@northeastern</span></p></blockquote></td></tr></table></p><p>Your TAs help run the labs, help grade the assignments and exams, and hold office
+hours.  In general, they are apprentice teachers and are here to learn how to
+run a course.  At the same time, though, they are your peers who have taken the
+course, and can see your problems from your perspective.</p><h4 class="heading"><a name="(part._.Communications)"></a>Communications<span class="button-group"><a href="#(part._.Communications)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p>If you need help, you may talk to the instructor or the TAs during their office hours.</p><p>Use Northeastern email (<span class="stt">@northeastern.edu</span>) to reach
+any of the course staff; usernames are given above.</p><p><a href="https://piazza.com/northeastern/fall2024/cs2510">Piazza</a> is an on-line forum for class
+discussions. Anybody can post a question and anybody else can reply. (Please do not post grading
+questions to Piazza. It&rsquo;s best to email the grader instead for those kinds of questions.)</p><p><span style="font-weight: bold">Before posting, check whether or not your question has already been asked.</span> If it already has
+been asked and has not yet been answered, provided the question is not more than a day old, it likely
+will be answered soon. <span style="font-weight: bold">Do not double post.</span></p><p><span style="color: red">Posting any parts of a solution to any parts of a homework assignment is considered
+cheating. <span style="font-weight: bold">You don&rsquo;t want to do this.</span></span> Limit your answers to other students to providing
+clarity when needed and hints when appropriate. This is good practice should you ever want to be a
+tutor :)</p><p><span style="font-weight: bold">Note:</span> anonymity on Piazza is implemented to make you anonymous to students (if you prefer) but not to staff
+members.</p><h4 class="heading"><a name="(part._.General_.Policies)"></a>General Policies<span class="button-group"><a href="#(part._.General_.Policies)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><ul><li><p><span style="font-weight: bold">Late assignment policy:</span> An assignment that is one fraction of a second late is automatically
+counted as late by the handin server. Late submissions will be accepted up to 24 hours late, with a 4%
+penalty per hour per submission. Speak to the professor in advance of a deadline if you have an extenuating
+circumstance that prevents you from completing an assignment on time.</p></li><li><p><span style="font-weight: bold">Feedback:</span> Sometimes mistakes can happen so if you are confused or concerned
+ about your feedback, don&#8217;t be afraid to reach out to a grader (by email) for further explanation.
+ You must submit any requests for clarification at most 7 days after the
+ homework/exam feedback was released. Note that asking us to regrade your work means that there is also a possiblility of
+losing points if a mistake was overlooked the first time.</p></li><li><p><span style="font-weight: bold">Academic honesty:</span> We will strictly enforce Northeastern&rsquo;s
+<a href="http://www.northeastern.edu/osccr/academic-integrity-policy" class="plainlink">academic
+integrity policy</a>.  You may discuss problems with other students, but you may
+not share or show code to anyone other than your assigned partner or the
+course staff.  Violations of academic integrity will be reported to OSCCR and
+will have a negative impact on your grade. (See below for more details on this important policy.)</p></li></ul><h4 class="heading"><a name="(part._general-lectures)"></a>Lectures<span class="button-group"><a href="#(part._general-lectures)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p><div class="SIntrapara"><blockquote><p>Sec 1: MWR at 9:15am&ndash;10:20am<br/><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>SH 105<span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Razzaq</p></blockquote></div><div class="SIntrapara"><blockquote><p>Sec 2: MWR at 10:30am&ndash;11:35am<br/><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>RI 458<span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Razzaq</p></blockquote></div></p><p><span style="font-weight: bold">Lectures policy:</span></p><p>You are required to read the lecture material for the given lecture before coming to class.
+During the lectures we will discuss the material covered in the required reading, answer
+questions, provide additional examples and applications. You will be required to participate
+in and submit class work occassionally.</p><p>It is OK if you do not understand everything when you first read it, but reading about
+the new concept ahead of the time will give you a chance to anticipate the questions
+you may have and allow you to follow better the details of explanation during the lectures.</p><h4 class="heading"><a name="(part._lab-info)"></a>Labs<span class="button-group"><a href="#(part._lab-info)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p><div class="SIntrapara">All labs meet once a week on Fridays.
+</div><div class="SIntrapara"><blockquote><ul><li><p>Section 2 (CRN: 10708): 9:50am-11:30am in WVH 210B <br/>
+<span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span> TAs: Kobe (lead), Bryan</p></li><li><p>Section 3 (CRN: 11549): 11:45am-1:25pm in WVH 210B <br/>
+<span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span> TAs: Harrison (lead), Maya</p></li><li><p>Section 4 (CRN: 11686): 11:45am-1:25pm in WVH 212 <br/>
+<span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span> TAs: Jessica (lead), Malia, Tej</p></li><li><p>Section 6 (CRN: 14558): 1:35pm-3:15pm in WVH 212 <br/>
+<span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span> TAs: Nicholas (lead), Manasa</p></li><li><p>Section 6 (CRN: 17219): 3:25pm-5:05pm in WVH 210B <br/>
+<span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span> TAs: Ben (lead), Nolan</p></li></ul></blockquote></div></p><p><span style="font-weight: bold">Labs policy</span></p><p>The goal of the labs is to see in practice problems that illustrate the concepts covered
+in the lectures, and to prepare you for the next programming assignment. Attendance is required.</p><p>There is a lot of technical detail related to running Java programs that will be covered
+in the early labs.  Later labs will focus more on design questions and on good Java programming practice.</p><p><span style="font-weight: bold">Lab work</span></p><p>Lab attendance is required.
+There will be a lab quiz or some lab work to be submitted which will be graded. You are responsible for making
+sure your submissions go through and that the correct file(s) are submitted within the alotted time.
+No makeups for lab work are allowed, but we will drop your two lowest lab quiz/work grades.
+The goal of lab work is to see that you are familiar with the most basic
+concepts covered during the recent lectures and prepare you to tackle the assignments.</p><p>If you have trouble completing lab work, it would be a good idea to meet with the instructor within the next week,
+to identify the problems you may have and to help you get back on track.</p><h4 class="heading"><a name="(part._.Computing_.Environment)"></a>Computing Environment<span class="button-group"><a href="#(part._.Computing_.Environment)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p>You will complete your assignments (other than the first
+one) using the <a href="http://www.eclipse.org/">Eclipse IDE</a>. Though, if you feel more comfortable,
+you may choose to use another IDE (e.g. NetBeans) or work
+directly from the command line, but you and your partner must both be comfortable with the
+chosen programming environment, and the staff may not be able to assist you with issues encountered in other
+environments.</p><p>You will use <a href="https://handins.ccs.neu.edu">the handin server</a> to submit your homework.
+You may submit as many times as you wish, though submitting too
+frequently may be detected and rate-limited, to ensure fairness for other students.
+Be aware that close to the deadline when everyone submits all at once, the server will become slower. Don&rsquo;t
+wait until the last minute to submit!</p><h4 class="heading"><a name="(part._.Assignments._(general))"></a>Assignments<span class="button-group"><a href="#(part._.Assignments._(general))" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p>There will be one or two problem sets each week. The problem sets often include finger exercises and
+practice problems, that you are strongly encouraged to look at and confirm that you can solve (but are not required).
+You are welcome to bring solutions to these problems to the course staff during the semester for
+informal feedback on how you&rsquo;re doing.</p><p>The graded problems are to be solved collaboratively with your partner when you are assigned one in
+the second half of the term.
+The problems will consist of structured programming assignments that may be based on the work done
+in previous weeks, and may also include more creative projects where you can practice your design skills.</p><p>Assignments may not be resubmitted 24 hours after their deadlines have passed. There is a late penalty for
+submissions that are submitted within 24 hours of a deadline.</p><p><span style="font-weight: bold">Due Dates: <span class="emph">Mondays and Thursdays at 9:00pm,</span></span> unless otherwise specified. See the late policy above.</p><p><span style="color: red"><span style="font-weight: bold">Note:</span></span> You will submit each problem <span class="emph">separately</span> on the handin server.
+This is for your benefit: the server
+will attempt to compile and run your program against automated test cases. Having separate
+submissions for each problem means that a syntax error in one
+problem won&rsquo;t immediately prevent your other problems from compiling also. Be careful to
+submit the correct answers to the correct problems. <span style="font-weight: bold">You are responsible for making
+sure your submissions go through and that the correct file(s) are submitted.</span></p><p><span style="font-weight: bold">Your last submission will
+be graded.</span> It is your job to make sure that your last submission is the one you want us to grade!</p><h4 class="heading"><a name="(part._.Pair_.Programming)"></a>Pair Programming<span class="button-group"><a href="#(part._.Pair_.Programming)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p>Although the homework problems can be solved individually, you must work on some of the problem sets in pairs in
+the second half of the term.
+You will get a partner from your lab section and you will work on labs together as well (although lab submissions
+are usually individual).</p><p><span style="font-weight: bold">Important</span>
+Pair programming means that you and your partner work on the problem sets jointly. You read them together and
+you work on the solutions together. One of the lab&rsquo;s purposes is to teach you how to work in pairs effectively;
+indeed, pairs are provably more effective than
+individuals in programming. The rough idea is this: One of you plays <span class="emph">pilot</span>, the other <span class="emph">co-pilot</span>.
+The pilot works on the keyboard and explains aloud what is going on; it is the co-pilot&rsquo;s responsibility to
+question everything. After a problem is solved to the satisfaction of both, you <span class="emph">must</span> switch roles.</p><p>Every partner must be able to solve every homework problem in the end. It is an <span style="font-weight: bold">academic integrity violation</span>
+to submit work under your name
+that you have not worked on. Doing so may result in earning a 0 on the work and a report to OSCCR. You may also lose the privelege of
+working with a partner. Therefore <span style="font-weight: bold">both</span> partners must make the effort to meet regularly and work together on
+every part of the assignments/labs.</p><p>If you are having difficulties working with your partner, please inform your lab TA or your instructor quickly:
+we cannot help if we don&rsquo;t know there&rsquo;s a problem. We will check in periodically to assess how the partnerships are going.</p><h4 class="heading"><a name="(part._.Academic_.Integrity)"></a>Academic Integrity<span class="button-group"><a href="#(part._.Academic_.Integrity)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p>Any and all submitted work must be your own. If an assignment/lab is to be completed individually, only you and
+the course staff are allowed to look at your code. If an assignment/lab is to be completed with a partner, only you,
+your partner and the course staff are allowed to look at your code (see above as well about working with a partner).
+<span style="font-weight: bold">Use of material from previous classes, solution manuals, material from the Internet or other sources (such as AI
+assisted tools like ChatGPT or sources such as parents, friends, siblings etc.) that directly bears on the answers
+is strictly prohibited.</span></p><p>You are allowed to discuss the problem sets with others, so long as you acknowledge (in comments, in your submitted files)
+whoever you discussed the problem with. Discussing the "what to solve" is OK, discussing "how to solve" is a slippery slope.
+Once you start discussing possible solutions, you may not realize when you have crossed the line. Ultimately we will judge
+you by the work you submit. If you think you are smart enough to use somebody&rsquo;s code and hide it well enough to deceive us,
+please channel that intelligence towards completing the assignment yourself! Doing the assignments yourself is essential
+for doing well on the exams which tend to be higher stakes than homework.</p><p><span style="font-weight: bold"><span style="color: red">NOTE:</span></span> Be aware that while <span class="emph">submitting</span> someone else&rsquo;s code is clearly a violation, so is <span class="emph">sharing
+your code with others</span>, even if you truly just mean to help. You will be doing your friend or peer a disservice by helping
+them this way. Please direct them to the course staff instead.</p><p>Outside an academic environment, sharing code with unauthorized parties can be a criminal offense and have severe and
+unanticipated consequences.</p><p>Submitting code that is not your own or sharing your code to unfairly help another student will be considered a violation
+of the University&rsquo;s Academic Integrity Policy (page 38 of the
+<a href="https://acrobat.adobe.com/link/track?uri=urn%3Aaaid%3Ascds%3AUS%3A60ce3617-169e-3ec8-97cb-7d8c1ef302da" class="plainlink">2022-2023 Undergraduate Student Handbook</a>).
+Violations of academic integrity will be reported to <a href="http://www.northeastern.edu/osccr/" class="plainlink">OSCCR</a>,
+and will have strong consequences on your grade, from an automatic zero on the assignment to failing the course.</p><p>If you are ever unsure of whether sharing is unacceptable or not, or you are struggling in the course, please contact one of
+the course staff. We are here to help.</p><h4 class="heading"><a name="(part._.Exams)"></a>Exams<span class="button-group"><a href="#(part._.Exams)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p>You may bring one sheet of notes to exams (may be typed or hand-written, one-sided or double-sided).</p><ul><li><p>Exam 1: Friday, October 11th </p></li><li><p>Exam 2: Friday, November 15th </p></li></ul><h4 class="heading"><a name="(part._.Grades)"></a>Grades<span class="button-group"><a href="#(part._.Grades)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p><div class="SIntrapara">Your final grade is composed of:
+</div><div class="SIntrapara"><ul><li><p><span style="font-weight: bold">37% homework</span>.  Most homeworks will be equally weighted, but
+larger projects that will take more time will be weighted more heavily.</p></li><li><p><span style="font-weight: bold">55% exams</span>, with exact proportions to be determined.</p></li><li><p><span style="font-weight: bold">5% lab work</span></p></li><li><p><span style="font-weight: bold">3% class work</span></p></li></ul></div></p><p>The same grade will be assigned for CS2510 and CS2511.
+You can use the handin server to see the current weights of each assignment, and your approximate grade
+in the course so far.  <span style="font-weight: bold">The exact
+weights of assignments, quizzes and exams may change during the semester, depending on exactly how many of each we have.
+We will try to keep weight changes as infrequent as possible.</span></p><p>The grades will be computed on an absolute basis: there will be no overall curving. The instructor may choose to curve an
+individual homework or exam, but please do not bank on such a chance.</p><p>The mapping of raw point totals to letter grades is given below. Please note that these grade boundaries may move slightly
+at the discretion of the instructor, but the grade boundary for A is unlikely to change. </p><pre class="AsciiArt">Range:          93%   90%   86%   83%   80%   76%   73%   70%   66%   63%   60%   0%
+Letter grade:   A     A-    B+    B     B-    C+    C     C-    D+    D     D-    F</pre><div class="navsetbottom"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="index.html" title="backward to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x" rel="prev">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;Fundamentals II
+
+
+Introduction to Class-based Program Design&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Texts.html" title="forward to &quot;Texts&quot;" data-pltdoc="x" rel="next">next &rarr;</a></span>&nbsp;</div></div></div><div id="contextindicator">&nbsp;</div></body></html>

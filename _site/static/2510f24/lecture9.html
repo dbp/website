@@ -1,0 +1,2667 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Outline%29" class="tocviewlink" data-pltdoc="x">Outline</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Design_recipe_for_abstractions%29" class="tocviewlink" data-pltdoc="x">Design recipe for abstractions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Lifting_fields%29" class="tocviewlink" data-pltdoc="x">Lifting fields</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Lifting_methods__abstract_methods%29" class="tocviewlink" data-pltdoc="x">Lifting methods:<span class="mywbr"> &nbsp;</span> abstract methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Concrete_methods_in_the_abstract_class%29" class="tocviewlink" data-pltdoc="x">Concrete methods in the abstract class</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Abstraction_by_defining_a_subclass%29" class="tocviewlink" data-pltdoc="x">Abstraction by defining a subclass</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          9.6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Common_interface_-_yes_or_no%29" class="tocviewlink" data-pltdoc="x">Common interface -<wbr> yes or no</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Outline%29" class="tocsubseclink" data-pltdoc="x">Outline</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">9.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Design_recipe_for_abstractions%29" class="tocsubseclink" data-pltdoc="x">Design recipe for abstractions</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">9.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Lifting_fields%29" class="tocsubseclink" data-pltdoc="x">Lifting fields</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">9.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Lifting_methods__abstract_methods%29" class="tocsubseclink" data-pltdoc="x">Lifting methods:<span class="mywbr"> &nbsp;</span> abstract methods</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">9.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Concrete_methods_in_the_abstract_class%29" class="tocsubseclink" data-pltdoc="x">Concrete methods in the abstract class</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">9.5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Abstraction_by_defining_a_subclass%29" class="tocsubseclink" data-pltdoc="x">Abstraction by defining a subclass</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">9.6
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Common_interface_-_yes_or_no%29" class="tocsubseclink" data-pltdoc="x">Common interface -<wbr> yes or no</a>
+ </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture8.html" title="backward to &quot;Lecture 8: Practice Design&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture10.html" title="forward to &quot;Lecture 10: Customizing constructors for correctness and convenience&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p></p>
+<div class="SIntrapara">
+<p class="boxed">
+Lifting common fields and methods, Inheritance
+</p>
+</div>
+<div class="SIntrapara">
+<div class="RelatedFiles">
+<blockquote>
+<p class="boxed">
+ Related files:<br><span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture9/files/lectures/lecture9/IShape.java">IShape.java</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture9/files/lectures/lecture9/AShapeData.java">AShapeData.java</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture9/files/lectures/lecture9/AShape.java">AShape.java</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/lectures/lecture9/files/lectures/lecture9/AShapeCombo.java">AShapeCombo.java</a><span class="hspace">&nbsp;&nbsp;</span>
+</p>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+<a name="(part._.Outline)"></a>Outline<span class="button-group"><a href="#(part._.Outline)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<ul>
+<li>
+<p>
+Design recipe for abstractions
+</p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+Designing abstract class
+</div>
+<div class="SIntrapara">
+<ul>
+ <li>
+  <p>
+   Lifting fields
+  </p>
+ </li>
+ <li>
+  <p>
+   Lifting methods: abstract methods
+  </p>
+ </li>
+ <li>
+  <p>
+   Lifting methods: concrete methods in an abstract class
+  </p>
+ </li>
+ <li>
+  <p>
+   Overriding concrete methods
+  </p>
+ </li>
+</ul>
+</div>
+<p></p>
+</li>
+<li>
+<p>
+Abstraction by defining a subclass
+</p>
+</li>
+<li>
+<p>
+Common interface - yes or no
+</p>
+</li>
+</ul>
+<h5 class="heading">
+9.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Design_recipe_for_abstractions)"></a>Design recipe for abstractions<span class="button-group"><a href="#(part._.Design_recipe_for_abstractions)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The complete code for this section is in the file <span class="stt">IShape.java</span>.
+</p>
+<p>
+Here are our two classes that represent shapes that we have defined to
+<span class="emph">implement</span> the common <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">interface</span><span class="RktMeta"></span></span></span> <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>.
+</p>
+<p>
+The class diagram below includes the five
+methods we have designed for these classes.
+</p>
+<pre class="AsciiArt">                    +---------------------------------+
+                    | IShape                          |
+                    +---------------------------------+
+                    +---------------------------------+
+                    | double area()                   |
+                    | double distTo0()                |
+                    | IShape grow(int inc)            |
+                    | boolean biggerThan(IShape that) |
+                    | boolean contains(CartPt pt)     |
+                    +---------------------------------+
+                                   |
+                                  / \
+                                  ---
+                                   |
+                 -------------------------------
+                 |                             |
+  +----------------------------+    +----------------------------+
+  | Circle                     |    | Square                     |
+  +----------------------------+    +----------------------------+
++-| CartPt center              |  +-| CartPt nw                  |
+| | int radius                 |  | | int size                   |
+| | String color               |  | | String color               |
+| +----------------------------+  | +----------------------------+
+| | double area()              |  | | double area()              |
+| | double distTo0()           |  | | double distTo0()           |
+| | IShape grow(int inc)       |  | | IShape grow(int inc)       |
+| | boolean biggerThan(IShape) |  | | boolean biggerThan(IShape) |
+| | boolean contains(CartPt)   |  | | boolean contains(CartPt)   |
+| +----------------------------+  | +----------------------------+
+|                                 |
++----+ +--------------------------+
+     | |
+     v v
+  +-----------------------+
+  | CartPt                |
+  +-----------------------+
+  | int x                 |
+  | int y                 |
+  +-----------------------+
+  | double distTo0()      |
+  | double distTo(CartPt) |
+  +-----------------------+</pre>
+<p>
+Our task now is to extend this class hierarchy with a new class, to represent rectangles.
+</p>
+<pre class="AsciiArt">                        +-----------+
+                        | IShape    |
+                        +-----------+
+                        | ...       |
+                        +-----------+
+                             |
+                            / \
+                            ---
+                             |
+             +----------------------------+
+             | Rect                       |
+             +----------------------------+
+    +------+-| CartPt nw                  |
+    |        | int width                  |
+    V        | int height                 |
++---------+  | String color               |
+| CartPt  |  +----------------------------+
++---------+  | double area()              |
+| ...     |  | double distTo0()           |
++---------+  | IShape grow(int inc)       |
+             | boolean biggerThan(IShape) |
+             | boolean contains(CartPt)   |
+             +----------------------------+</pre>
+<p>
+Since rectangles are rather like squares, it’s worthwhile to review the definition of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> class
+for initial design guidance:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a square
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* TEMPLATE
+    FIELDS
+    ... this.nw ...              -- CartPt
+    ... this.size ...            -- int
+    ... this.color ...           -- String
+    METHODS
+    ... this.area() ...                  -- double
+    ... this.distTo0() ...               -- double
+    ... this.grow(int inc) ...           -- IShape
+    ... this.biggerThan(IShape that) ... -- boolean
+    ... this.contains(CartPt pt) ...     -- boolean
+    METHODS FOR FIELDS:
+    ... this.nw.distTo0() ...        -- double
+    ... this.nw.distTo(CartPt) ...   -- double
+  */</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to compute the area of this shape
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to compute the distance form this shape to the origin
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to increase the size of this shape by the given increment
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// is the area of this shape is bigger than the area of the given shape?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// does this shape (including the boundary) contain the given point?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">pt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">           </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">pt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Generalizing from this definition to an appropriate definition of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> is straightforward.  We
+will skip the explicit details of the design recipe here, and just give the final definition of the
+new class:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a rectangle
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">width</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">height</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">width</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">height</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">width</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">width</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">height</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">height</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* TEMPLATE
+    FIELDS
+    ... this.nw ...              -- CartPt
+    ... this.width ...           -- int
+    ... this.height ...          -- int
+    ... this.color ...           -- String
+    METHODS
+    ... this.area() ...                  -- double
+    ... this.distTo0() ...               -- double
+    ... this.grow(int inc) ...           -- IShape
+    ... this.biggerThan(IShape that) ... -- boolean
+    ... this.contains(CartPt pt) ...     -- boolean
+    METHODS FOR FIELDS:
+    ... this.nw.distTo0() ...        -- double
+    ... this.nw.distTo(CartPt) ...   -- double
+  */</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to compute the area of this shape
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">width</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">*</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">height</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to compute the distance form this shape to the origin
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to increase the size of this shape by the given increment
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">width</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">height</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">                    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// is the area of this shape is bigger than the area of the given shape?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// does this shape (including the boundary) contain the given point?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">pt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">x</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">width</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">           </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">pt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">y</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">height</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+We do need to add examples, to ensure our methods are working properly:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">40</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">20</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">40</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">10</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"green"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// test the method area in the class Rect
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRectArea</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">600.0</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method distTo0 in the class Rect
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRectDistTo0</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">70.71</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r3</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">44.72</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method grow in the class Rect
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRectGrow</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method biggerThan in the class Rect
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRectBiggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r3</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method contains in the class Rect
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testRectContains</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">100</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">55</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">60</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Notice that a lot of code is repeated.  Moreover, every shape
+includes a location (a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">CartPt</span><span class="RktMeta"></span></span></span> value) and a color (a
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span>) as part of its definition. Such repetition should suggest
+that perhaps there is a way to <span class="emph">abstract</span> the common features of the code,
+to avoid these duplicate definitions.  Recall the <span style="font-weight: bold">Design Recipe for Abstractions</span>:
+</p>
+<ul>
+<li>
+<p>
+Compare two or more pieces of code that look very similar.
+</p>
+<p>
+Highlight the places where they differ.
+</p>
+</li>
+<li>
+<p>
+Replace the places where the code differs with parameters
+and rewrite the original code using their parameters.
+</p>
+</li>
+<li>
+<p>
+Rewrite the original tests in terms of the new <span class="emph">abstraction</span>
+by providing the appropriate values for the arguments.
+</p>
+</li>
+<li>
+<p>
+Now run the original tests and make sure all tests pass.
+</p>
+</li>
+</ul>
+<h5 class="heading">
+9.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Lifting_fields)"></a>Lifting fields<span class="button-group"><a href="#(part._.Lifting_fields)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The complete code for this section is in the file <span class="stt">AShapeData.java</span>
+</p>
+<p>
+We will start by working on the data definitions only, ignoring the methods defined
+in these classes.
+</p>
+<p></p>
+<div class="SIntrapara">
+All three classes contain a field of type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span> representing the shape’s color, and also
+a field of type <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">CartPt</span><span class="RktMeta"></span></span></span> representing the shape’s location.  Note that while the color field
+is named <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">color</span><span class="RktMeta"></span></span></span> in all three classes, the location field does not have the same name in all
+three classes.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+ Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+The location field is named <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">center</span><span class="RktMeta"></span></span></span> in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> class and represents the
+location of the center of the circle, but is named <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">nw</span><span class="RktMeta"></span></span></span> in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>
+classes, and represents the location of the north-west corner of the square or rectangle.  Does it
+make sense to consider these to be “the same” field?  Why or why not?
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<p>
+Java allows us to define an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">abstract</span><span class="RktMeta"></span></span></span> class to contain these common fields, and declare
+that each of our three shape classes <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">extends</span><span class="RktMeta"></span></span></span> this class.  As a naming convention, our
+abstract classes will have names starting with a capital ‘A’, much as our interfaces always
+start with a capital ‘I’.
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a geometric shape
+</span><span class="ProfjKeyword">abstract</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">AShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loc</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">AShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loc</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">loc</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loc</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p></p>
+<div class="SIntrapara">
+Just like class definitions we have seen already, this class defines a constructor to initialize its fields,
+and claims that it <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+ <p>
+  But we have not implemented any of the methods that the interface
+promises, and yet Java does not complain!  We’ll see why shortly.
+ </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+ Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Does it make sense to be able to construct an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span>?  What would that mean?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+We cannot plausibly construct an <span class="emph">abstract</span> shape—<wbr>we don’t have enough information about it—<wbr>and
+a <span class="emph">real</span> shape will have other fields to represent that additional information.
+</div>
+<p></p>
+<p>
+Each of the three classes will become a <span class="emph">subclass</span> of the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span> and
+will <span class="emph">inherit</span> all fields defined in its <span class="emph">super</span> class:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a circle
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">AShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">center</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">super</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">center</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">radius</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">radius</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a square
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">AShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">super</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a rectangle
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">AShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">width</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">height</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">width</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">height</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">super</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">width</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">width</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">height</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">height</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Even though we do not see the fields <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">loc</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">color</span><span class="RktMeta"></span></span></span> anywhere
+in the class definitions, the class definition starts with
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">AShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">AShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">AShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+declaring that this class will be a sub-class of the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span>
+and so it contains all fields defined in the super class.
+</p>
+<p>
+The constructor for each class starts with
+</p>
+<p>
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">super</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> (though we use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">ctr</span><span class="RktMeta"></span></span></span> for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> class).
+</p>
+<p>
+It invokes the constructor we have defined in the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span> and
+initializes the values of the fields <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">loc</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">color</span><span class="RktMeta"></span></span></span>.
+</p>
+<p>
+We have re-named the field that represents the current location of
+the shape to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">loc</span><span class="RktMeta"></span></span></span>, but that does not change any computations or
+examples. Indeed, we make sure that the original examples will work
+as they did before.
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">0</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">7</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">10</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">c3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Circle</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"blue"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">s3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">20</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">40</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">10</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"green"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">30</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">50</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">40</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"red"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">r3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">20</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">40</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">10</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">20</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"green"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Our new class diagram becomes:
+</p>
+<pre class="AsciiArt">              +--------+
+              | IShape |
+              +--------+
+                  |
+                 / \
+                 ---
+                  |
+            +--------------+
+            | AShape       |
+            +--------------+
++-----------| CartPt loc   |
+|           | String color |
+|           +--------------+
+|                  |
+|                 / \
+|                 ---
+|                  |
+|      --------------------------------
+|      |                |             |
+| +------------+  +----------+  +------------+
+| | Circle     |  | Square   |  | Rect       |
+| +------------+  +----------+  +------------+
+| | int radius |  | int size |  | int width  |
+| +------------+  +----------+  | int height |
+|                               +------------+
++----+
+     |
+     v
+  +--------+
+  | CartPt |
+  +--------+
+  | int x  |
+  | int y  |
+  +--------+</pre>
+<h5 class="heading">
+9.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Lifting_methods__abstract_methods)"></a>Lifting methods: abstract methods<span class="button-group"><a href="#(part._.Lifting_methods__abstract_methods)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The complete code for this section and the following section
+is in the file <span class="stt">AShape.java</span>
+</p>
+<p>
+We now look at what can be done with the method definitions.
+</p>
+<p>
+The <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">abstract</span><span class="RktMeta"></span></span></span> class does not have enough information about
+its constituent shapes to define the methods <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">area</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">grow</span><span class="RktMeta"></span></span></span>,
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">distTo0</span><span class="RktMeta"></span></span></span> (though we could do this for two out of the three classes),
+and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">contains</span><span class="RktMeta"></span></span></span>. But the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">biggerThan</span><span class="RktMeta"></span></span></span> leverages the fact that we already
+know how to compute the area and the method body is the same in all three
+classes.
+</p>
+<p>
+When we cannot define the methods in the abstract class, but want to make sure
+all <span class="emph">subclasses</span> implement the method, we define its header and declare
+the method to be <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">abstract</span><span class="RktMeta"></span></span></span>. So, to comply with the requirements of our
+original interface we start the abstract class as follows:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a geometric shape
+</span><span class="ProfjKeyword">abstract</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">AShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loc</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">AShape</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loc</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">loc</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">loc</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to compute the area of this shape
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">abstract</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to compute the distance form this shape to the origin
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">loc</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to increase the size of this shape by the given increment
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">abstract</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// is the area of this shape is bigger than the area of the given shape?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// does this shape (including the boundary) contain the given point?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">abstract</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+The definitions of the methods that are labeled <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">abstract</span><span class="RktMeta"></span></span></span> remains the same
+in all subclasses as they have been before (except for the change of the name of
+the field that represents the current location of this shape).
+</p>
+<h5 class="heading">
+9.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Concrete_methods_in_the_abstract_class)"></a>Concrete methods in the abstract class<span class="button-group"><a href="#(part._.Concrete_methods_in_the_abstract_class)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The class definition contains two <span class="emph">concrete</span> methods: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">distTo0</span><span class="RktMeta"></span></span></span>
+and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">biggerThan</span><span class="RktMeta"></span></span></span>. The second method’s body was the same in all three classes
+and so now it appears here without change. Every subclass of the class
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span> can invoke this method.
+</p>
+<p>
+We have made a small change in the method body for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">distTo0</span><span class="RktMeta"></span></span></span> —<wbr> we have changed the name
+of the field <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">nw</span><span class="RktMeta"></span></span></span> to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">loc</span><span class="RktMeta"></span></span></span>. Again, all three subclasses can now compute the
+distance to origin invoking this method.
+</p>
+<p>
+If we delete the method definitions for these methods from our original code
+and run our tests most of them will succeed. The only one that fails is the
+test for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">distTo0</span><span class="RktMeta"></span></span></span> in the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>, because there the computation
+has been different. Restoring the original method definition in the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>
+fixes the problem.
+</p>
+<p>
+We say that the method definition of the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">distTo0</span><span class="RktMeta"></span></span></span> in the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>
+<span style="font-weight: bold">overrides</span> the definition in its superclass <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span>. At runtime, Java looks
+for a method with the matching signature (matching header) first in the class where
+the current instance of the object has been defined. If the method is not found, it continues
+looking in its superclass. So, an instance of a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span> invoking the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">distTo0</span><span class="RktMeta"></span></span></span> method
+finds the definition in the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Circle</span><span class="RktMeta"></span></span></span>, but an instance of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> class
+will find the <span class="emph">concrete</span> method defined in the abstract class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span>.
+</p>
+<p>
+Of course, we run the tests again and make sure all of them pass.
+</p>
+<h5 class="heading">
+9.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Abstraction_by_defining_a_subclass)"></a>Abstraction by defining a subclass<span class="button-group"><a href="#(part._.Abstraction_by_defining_a_subclass)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Looking at the code for the classes <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> we see that they
+are also very similar. We know from geometry that every square is just a rectangle
+in which the width and the height are the same. So, we can further refine our design
+and define the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span> to be a subclass of the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>.
+Changing our design in this way means that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>
+will now have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">width</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">height</span><span class="RktMeta"></span></span></span> fields, and we do not want to permit
+these values to be different (or else it would be a badly-misshapen square!).  We
+can ensure these values are the same by customizing our constructor.  We’ll see
+in <a href="lecture10.html" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a> more sorts of validation we can enforce in our constructors.
+</p>
+<p>
+Here is our new definition of the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a square
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Rect</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">super</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">nw</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">size</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/*  TEMPLATE
+   Fields:
+   ... this.loc ...             -- CartPt
+   ... this.width ...           -- int
+   ... this.height ...          -- int
+   ... this.color ...           -- String
+   Methods:
+   ... this.area() ...                  -- double
+   ... this.distTo0() ...               -- double
+   ... this.grow(int) ...               -- IShape
+   ... this.biggerThan(IShape) ...      -- boolean
+   ... this.contains(CartPt) ...        -- boolean
+   Methods for fields:
+   ... this.loc.distTo0() ...           -- double
+   ... this.loc.distTo(CartPt) ...      -- double
+   */</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to increase the size of this shape by the given increment
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Square</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">loc</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">width</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">color</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+The constructor invokes the constructor in its superclass, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>.
+</p>
+<p>
+Furthermore, we only have one method definition here - the methods
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">distTo0</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">contains</span><span class="RktMeta"></span></span></span> as defined in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span> class do exactly
+what they are supposed to do for squares - the only method we need to
+<span class="emph">override</span> is the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">grow</span><span class="RktMeta"></span></span></span> as it needs to produce an instance
+of a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Square</span><span class="RktMeta"></span></span></span>, not of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Rect</span><span class="RktMeta"></span></span></span>.
+</p>
+<h5 class="heading">
+9.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Common_interface_-_yes_or_no)"></a>Common interface - yes or no<span class="button-group"><a href="#(part._.Common_interface_-_yes_or_no)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The complete code for this section
+is in the file <a href="AShapeCombo.java">AShapeCombo.java</a>
+</p>
+<p>
+It seems that defining both the interface <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span> and the abstract class
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span> just repeats the code and is <span class="emph">useless</span>. For the classes we
+have defined so far, it is indeed true. However, we would like to add
+to our collection of shapes a new shape that is composed from two existing shapes.
+The class diagram would be:
+</p>
+<pre class="AsciiArt">   +--------+
+   | IShape |
+   +--------+
+      / \
+      ---
+       |
++------------+
+| Combo      |
++------------+
+| IShape top |
+| IShape bot |
++------------+</pre>
+<p>
+Here are some examples of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Combo</span><span class="RktMeta"></span></span></span> shapes:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">cb1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Combo</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">c1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">cb2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Combo</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r2</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r3</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">cb3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Combo</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+leveraging the earlier examples of shapes.
+</p>
+<p>
+But the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Combo</span><span class="RktMeta"></span></span></span> shape does not have just one color, and its location
+is based on the location of the two contributing shapes. Still, we can
+compute the area of this shape (though, to simplify our work, we just
+compute the total area of the pieces of paper if one makes a collage
+by pasting the shapes onto a canvas). We can compute the distance to
+origin, and determine which shape has bigger area. Finally, we also
+can grow this shape.
+</p>
+<p>
+So, all methods defined earlier make sense for the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Combo</span><span class="RktMeta"></span></span></span> shape,
+yet the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Combo</span><span class="RktMeta"></span></span></span> shape cannot be a subclass of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span>. But if both
+the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">AShape</span><span class="RktMeta"></span></span></span> and the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Combo</span><span class="RktMeta"></span></span></span> implement the common
+interface <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IShape</span><span class="RktMeta"></span></span></span>, Java will be able to invoke these five methods
+for any kind of shape, whether simple or a complex one.
+</p>
+<p>
+Here is the definition of the class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Combo</span><span class="RktMeta"></span></span></span> —<wbr> we let you work
+out the details on your own:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// to represent a shape that combines two existing shapes
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Combo</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">top</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">bot</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Combo</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">top</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">bot</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">top</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">top</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">bot</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">bot</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjBlockComment">/* TEMPLATE
+  FIELDS
+  ... this.top ...           -- IShape
+  ... this.bot ...           -- IShape
+  METHODS
+  ... this.area() ...                  -- double
+  ... this.distTo0() ...               -- double
+  ... this.grow(int) ...               -- IShape
+  ... this.biggerThan(IShape) ...      -- boolean
+  ... this.contains(CartPt) ...        -- boolean
+  METHODS FOR FIELDS:
+  ... this.top.area() ...                  -- double
+  ... this.top.distTo0() ...               -- double
+  ... this.top.grow(int) ...               -- IShape
+  ... this.top.biggerThan(IShape) ...      -- boolean
+  ... this.top.contains(CartPt) ...        -- boolean
+&nbsp;
+  ... this.bot.area() ...                  -- double
+  ... this.bot.distTo0() ...               -- double
+  ... this.bot.grow(int) ...               -- IShape
+  ... this.bot.biggerThan(IShape) ...      -- boolean
+  ... this.bot.contains(CartPt) ...        -- boolean
+  */</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to compute the area of this shape
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">top</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">bot</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to compute the distance form this shape to the origin
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">double</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Math</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">min</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">top</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">bot</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// to increase the size of this shape by the given increment
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">inc</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Combo</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">top</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">inc</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">bot</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">inc</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// is the area of this shape is bigger than the area of the given shape?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjType">IShape</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">that</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// does this shape (including the boundary) contain the given point?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjType">CartPt</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">pt</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">top</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">pt</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">||</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">bot</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">pt</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+and here are the examples that involve the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Combo</span><span class="RktMeta"></span></span></span> shapes:
+</p>
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method area in the shape classes
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testShapeArea</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">914.15926</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2200.0</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb3</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">area</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">3114.15926</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method distTo0 in the shape classes
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testShapeDistTo0</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">60.71</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">44.72</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkInexact</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb3</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">distTo0</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">44.72</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0.01</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method grow in the shape classes
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testShapeGrow</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">grow</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">20</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Combo</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r2</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">c2</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method biggerThan in the shape classes
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testShapeBiggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">c1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">s2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r3</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">r2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">c1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">c3</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">s2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">s1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb3</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">biggerThan</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjComment">// test the method contains in the shape classes
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testShapeContains</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">100</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">false</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">cb2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">contains</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">CartPt</span><span class="ProfjKeyword">(</span><span class="ProfjLiteral">55</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">60</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+  </td>
+ </tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<p>
+Finally, here is the class diagram for the entire collection of
+classes and interfaces we have designed:
+</p>
+<pre class="AsciiArt">                                +----------------------------------------+
+                                |  +------------------------------------+|
+                                |  |                                    ||
+                                v  v                                    ||
+                    +----------------------------+                      ||
+                    | IShape                     |                      ||
+                    +----------------------------+                      ||
+                    | double area()              |                      ||
+                    | double distTo0()           |                      ||
+                    | IShape grow(int inc)       |                      ||
+                    | boolean biggerThan(IShape) |                      ||
+                    | boolean contains(CartPt)   |                      ||
+                    +----------------------------+                      ||
+                                   |                                    ||
+                                  / \                                   ||
+                                  ---                                   ||
+                                   |                                    ||
+               ---------------------------------------------            ||
+               |                                           |            ||
+   +-----------------------------------+ +----------------------------+ ||
+   | abstract AShape                   | | Combo                      | ||
+   +-----------------------------------+ +----------------------------+ ||
++--| CartPt loc                        | | IShape top                 |-+|
+|  | String color                      | | IShape bot                 |--+
+|  +-----------------------------------+ +----------------------------+
+|  | abstract double area()            | | double area()              |
+|  | double distTo0()                  | | double distTo0()           |
+|  | abstract IShape grow(int inc)     | | IShape grow(int inc)       |
+|  | boolean biggerThan(IShape)        | | boolean biggerThan(IShape) |
+|  | abstract boolean contains(CartPt) | | boolean contains(CartPt)   |
+|  +-----------------------------------+ +----------------------------+
+|                                  |
+|                                 / \
+|                                 ---
+|                                  |
+|                --------------------------------
+|                |                              |
+| +--------------------------+  +--------------------------+
+| | Circle                   |  | Rect                     |
+| +--------------------------+  +--------------------------+
+| | int radius               |  | int width                |
+| +--------------------------+  | int height               |
+| | double area()            |  +--------------------------+
+| | double distTo0()         |  | double area()            |
+| | IShape grow(int inc)     |  | IShape grow(int inc)     |
+| | boolean contains(CartPt) |  | boolean contains(CartPt) |
+| +--------------------------+  +--------------------------+
+|                                            / \
+|                                            ---
+|                                             |
+|                               +-----------------------------+
+|                               | Square                      |
+|                               +-----------------------------+
+|                               +-----------------------------+
+|                               | IShape grow(int inc)        |
+|                               +-----------------------------+
+|
++-------+
+        |
+        v
+  +-----------------------+
+  | CartPt                |
+  +-----------------------+
+  | int x                 |
+  | int y                 |
+  +-----------------------+
+  | double distTo0()      |
+  | double distTo(CartPt) |
+  +-----------------------+</pre>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture8.html" title="backward to &quot;Lecture 8: Practice Design&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture10.html" title="forward to &quot;Lecture 10: Customizing constructors for correctness and convenience&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

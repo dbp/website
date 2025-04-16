@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          25.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.How_do_for-each_loops_actually_work_%29" class="tocviewlink" data-pltdoc="x">How do for-<wbr>each loops actually work?</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          25.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Examples_of_.Iterators_for_different_data_types%29" class="tocviewlink" data-pltdoc="x">Examples of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for different data types</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">25.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.How_do_for-each_loops_actually_work_%29" class="tocsubseclink" data-pltdoc="x">How do for-<wbr>each loops actually work?</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">25.1.1
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Introducing_.Iterators%29" class="tocsubseclink" data-pltdoc="x">Introducing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">25.1.2
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Introducing_.Iterables%29" class="tocsubseclink" data-pltdoc="x">Introducing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterable</span><span class="RktMeta"></span></span></span>s</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">25.2
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Examples_of_.Iterators_for_different_data_types%29" class="tocsubseclink" data-pltdoc="x">Examples of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for different data types</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">25.2.1
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Iterators_for_.Array.Lists_---_counting_indices%29" class="tocsubseclink" data-pltdoc="x"><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Array<span class="mywbr"> &nbsp;</span>List</span><span class="RktMeta"></span></span></span>s —<wbr> counting indices</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">25.2.2
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Iterators_for_.I.Lists_---_following_links%29" class="tocsubseclink" data-pltdoc="x"><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>s —<wbr> following links</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">25.2.3
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Iteration_in_multiple_directions%29" class="tocsubseclink" data-pltdoc="x">Iteration in multiple directions</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">25.2.4
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.Iterators_for_.Fibonacci_numbers_---_computing_items_on_demand%29" class="tocsubseclink" data-pltdoc="x"><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for Fibonacci numbers —<wbr> computing items on demand</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">25.2.5
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._.Higher-order_.Iterators%29" class="tocsubseclink" data-pltdoc="x">Higher-<wbr>order <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">25.2.6
+<tt>
+&nbsp;
+</tt>
+</span>
+<a href="#%28part._.Iterators_over_tree-shaped_data%29" class="tocsubseclink" data-pltdoc="x"><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s over tree-<wbr>shaped data</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture24.html" title="backward to &quot;Lecture 24: While loops&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture26.html" title="forward to &quot;Lecture 26: Hashing and Equality&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 25:</span> Iterator and Iterable<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+How does a for-each loop actually work?
+</p>
+<p>
+We’ve discussed how the three loop forms in Java work to repeatedly execute some computation
+—<wbr> either once for each item in an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>, once for every value of an integer variable
+as it counts, or simply indefinitely many times while some condition remains true.
+But one of these loops should seem a bit oddly specific.  While-loops execute as long as some boolean condition—<wbr><span class="emph">any</span>
+boolean condition we want—<wbr>remains true.  Counted-for loops count, from whatever starting value we choose to whatever
+ending value we choose by whatever interval we choose.  But for-each loops seem to only work on <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s.  What makes
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> so special that it deserves its own special syntax in the language?  No other class we have seen
+gets such special treatment!
+</p>
+<p>
+In fact, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> is <span class="emph">not</span> special, and does not get its own syntax.  Instead, it is simply one
+particular example of a far more general notion, one that we can take advantage of for our own classes, too.
+</p>
+<h5 class="heading">
+25.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.How_do_for-each_loops_actually_work_)"></a>How do for-each loops actually work?<span class="button-group"><a href="#(part._.How_do_for-each_loops_actually_work_)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+A for-each loop looks like this:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">for</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">:</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">tList</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// Assume we have an ArrayList&lt;T&gt; named tList
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">body</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Recall that when we introduced for-each loops, they were a replacement for a recursive
+implementation of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">map</span><span class="RktMeta"></span></span></span> over <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s.  At the time, their main appeal
+was the ability to iterate over each item of the list, without having to mess about with
+manually counting indices.  But suppose Java didn’t include for-each loops, and we wanted to <span class="emph">reimplement</span> their behavior ourselves
+using a more general-purpose loop, and yet still <span class="emph">without</span> referring to indices as much as possible.  How could that
+be done?
+</div>
+<p></p>
+<h5 class="heading">
+25.1.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Introducing_.Iterators)"></a>Introducing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s<span class="button-group"><a href="#(part._.Introducing_.Iterators)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Clearly we need some form of loop.  We’re assuming for-each loops do not exist.  And we want to
+avoid counting indices.  That leaves just while loops as our only option.  Recall the skeleton of
+a while loop:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">setup</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">something</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">is</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">body</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">use</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">results</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+While loops are good for looping as long as necessary, while there’s more to be done.
+For-each loops essentially keep looping while there are more items to process.  So perhaps the essence of
+our for-each loop’s behavior, when expressed as a while loop, might look like this:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// First attempt
+</span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">hasMoreElements</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">tList</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nextItemOf</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">tList</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">body</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Except that can’t really work, because the hypothetical <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">hasMoreElements</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">nextItemOf</span><span class="RktMeta"></span></span></span> functions
+would have to keep track of additional state between calls —<wbr> or else they’d just give the same answers
+every time.  But these two functions seem like a clean, simple way to describe the process of iterating
+over data: while there’s more data, get the next item and process it, then repeat.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+So: we want to preserve these two functions, but we need to keep track of state to make them work properly.
+Accordingly, we need to create a new object, whose sole responsibility is to help us iterate over
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">tList</span><span class="RktMeta"></span></span></span>.  Moreover, when we phrase it this way, this behavior doesn’t sound very specific
+to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s; we might be able to iterate over almost anything!
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What kind of Java abstraction is most appropriate here?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+The while loop sketch above will work with any object that exposes these two functions as methods.  This is
+a promise to provide a certain set of behaviors, so we should accordingly define a new <span class="emph">interface</span>.
+This interface is called an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>, and it is provided for us by Java itself.  Its methods are slightly renamed from the sketch above:
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+According to our naming conventions, it really ought to be called <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IIterator</span><span class="RktMeta"></span></span></span>, but that’s a clumsy
+name.  At least it does start with a capital <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">I</span><span class="RktMeta"></span></span></span>!
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Represents the ability to produce a sequence of values
+</span><span class="ProfjComment">// of type T, one at a time
+</span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Does this sequence have at least one more value?
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Get the next value in this sequence
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// EFFECT: Advance the iterator to the subsequent value
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// EFFECT: Remove the item just returned by next()
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// NOTE: This method may not be supported by every iterator; ignore it for now
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+The job of an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span> is to keep track of whatever state is necessary to produce
+values one-at-a-time from a sequence, be it an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>, an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>, a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span>,
+or whatever else we choose.  We’ll see momentarily how to implement this interface; first let’s see
+how to use it.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+We can refine our while loop sketch above as follows:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Second attempt
+</span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">listIter</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayListIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">tList</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">listIter</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">listIter</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">body</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+As long as the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">listIter</span><span class="RktMeta"></span></span></span> claims it can produce another item, the loop will repeat and get the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>
+item.  Notice the protocol: we always check <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">hasNext</span><span class="RktMeta"></span></span></span> before calling <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>.  This ensures
+that we never overshoot the end of the list.
+</div>
+<p></p>
+<h5 class="heading">
+25.1.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Introducing_.Iterables)"></a>Introducing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterable</span><span class="RktMeta"></span></span></span>s<span class="button-group"><a href="#(part._.Introducing_.Iterables)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+So far, so good: we can describe the behavior of a for-each loop in terms of a while loop over an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>.
+But how does Java know <span class="emph">what kind</span> of iterator to construct?  After all, the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayListIterator</span><span class="RktMeta"></span></span></span> in the sketch
+above really is specific to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s; if we want our for-each loops to work over other kinds of things,
+we need another mechanism.  Let’s say that an object is <span class="emph">iterable</span> if there exists some <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span> implementation for it.
+That sounds like another interface, which is also defined for us by Java:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Represents anything that can be iterated over
+</span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterable</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Returns an iterator over this collection
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">iterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+In the actual Java implementation of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>, we see something like this:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterable</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">lots</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">of</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">other</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">details</span><span class="ProfjWhiteSpace"> </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">//
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">iterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayListIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Among many other details of the implementation, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> declares that it implements the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterable</span><span class="RktMeta"></span></span></span>
+interface, and therefore can be iterated over.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Now we can finally refine our while-loop sketch completely:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Final attempt: works for *any* Iterable
+</span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">iterator</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">anyIterable</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">iterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">iterator</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">iterator</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">body</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+This is far more general than just working over <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s —<wbr> <span class="emph">any</span> class
+that implements <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterable</span><span class="RktMeta"></span></span></span> can be used with a for-each loop.  This is yet another
+example of the power of good abstractions: by recognizing the common elements of iteration
+and being iterable, we can create a reusable notion that works wherever we choose to
+implement it.
+</p>
+<h5 class="heading">
+25.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Examples_of_.Iterators_for_different_data_types)"></a>Examples of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for different data types<span class="button-group"><a href="#(part._.Examples_of_.Iterators_for_different_data_types)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<h5 class="heading">
+25.2.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Iterators_for_.Array.Lists_---_counting_indices)"></a><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s —<wbr> counting indices<span class="button-group"><a href="#(part._.Iterators_for_.Array.Lists_---_counting_indices)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Let’s see how to implement an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span> for an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>.  Our initial
+skeleton will simply create a class that implements the desired interface, and contains
+a reference to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> to be iterated over:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ArrayListIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// the list of items that this iterator iterates over
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">items</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// the index of the next item to be returned
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">nextIdx</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Construct an iterator for a given ArrayList
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ArrayListIterator</span><span class="ProfjKeyword">(</span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">items</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">items</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">items</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nextIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">UnsupportedOperationException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Don't do this!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">hasNext</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Remember the the protocol: we always call <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">hasNext</span><span class="RktMeta"></span></span></span> before calling <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>, so the <span class="emph">first</span>
+call to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">hasNext</span><span class="RktMeta"></span></span></span> really means, “Does this sequence have at least one item?”, and the first call to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>
+means “Give me the first item”.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+(This may seem a bit confusing, and it is.  It is an example of the so-called “fencepost problem”: suppose
+you need to put up 60 feet of fencing, with a fencepost every 10 feet.  How many fenceposts are needed?  Answer: <span class="emph">seven</span>,
+because you need a fencepost before the very first section of fence:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">X----------X----------X----------X----------X----------X----------X</pre>
+</div>
+<div class="SIntrapara">
+Likewise, in our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span> protocol, there will be one more call to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">hasNext</span><span class="RktMeta"></span></span></span> than there will be to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>,
+because we call it before every call to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>, and then once more to find out there are no more items.)
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Accordingly, when we call <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">hasNext</span><span class="RktMeta"></span></span></span>, the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">nextIdx</span><span class="RktMeta"></span></span></span> field will refer to the index of the next item —<wbr> starting at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">0</span><span class="RktMeta"></span></span></span> —<wbr>
+to be returned.  Therefore, there is such an item if and only if <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">nextIdx</span><span class="RktMeta"></span></span></span> is a valid index of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ArrayListIterator
+</span><span class="ProfjComment">// Does this sequence (of items in the array list) have at least one more value?
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nextIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">items</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+In <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>, we need to get the next item, and advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">nextIdx</span><span class="RktMeta"></span></span></span> to the next index to be used:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In ArrayListIterator
+</span><span class="ProfjComment">// Get the next value in this sequence
+</span><span class="ProfjComment">// EFFECT: Advance the iterator to the subsequent value
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">NoSuchElementException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"there are no more items!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">items</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">get</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nextIdx</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nextIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">nextIdx</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+25.2.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Iterators_for_.I.Lists_---_following_links)"></a><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>s —<wbr> following links<span class="button-group"><a href="#(part._.Iterators_for_.I.Lists_---_following_links)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s don’t have to use indices as their state to step through the contents of an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>; we can use
+whatever state we want.  Let’s try implementing an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span> for our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Try to implement an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>.  What state should you store instead of indices?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+The only information in an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span> is the node itself, which is either a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span> or a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Empty</span><span class="RktMeta"></span></span></span>.  So
+our code will begin:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IListIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">items</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IListIterator</span><span class="ProfjKeyword">(</span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">items</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">items</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">items</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">UnsupportedOperationException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Don't do this!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+As with the previous iterator, we have a next item when we are currently pointing at a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span> node:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In IListIterator
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">items</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">isCons</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+And likewise we can return the item in the current <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span> for our next value.  To update the iterator,
+we advance <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">items</span><span class="RktMeta"></span></span></span> to refer to the current <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In IListIterator
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">NoSuchElementException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"there are no more items!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">ConsList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">itemsAsCons</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">items</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">asCons</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">itemsAsCons</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">items</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">itemsAsCons</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">rest</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Define the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">isCons</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">asCons</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> methods to complete this code.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<span class="emph">Note:</span> Yes, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">isCons</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">asCons</span><span class="RktMeta"></span></span></span> aren’t great methods from an
+object-oriented standpoint.  We know that double-dispatch would be a better
+design here.  In this case, double-dispatch is overkill, as we’d need two
+visitor classes —<wbr> one to implement <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">isCons</span><span class="RktMeta"></span></span></span> and one for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">asCons</span><span class="RktMeta"></span></span></span>
+—<wbr> which seems painfully heavyweight.  Besides, it is more useful to think of
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s as being tightly connected to the data they are iterating
+over: if the data definition changes, the iterator will have to change to
+match.  And so, just as we allowed function objects to see fields of their
+parameters despite that not being a normal part of the template, we allow
+iterators to determine what type their argument might be.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+We can make our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>s be <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterable</span><span class="RktMeta"></span></span></span>, too:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Declare that every IList is an Iterable:
+</span><span class="ProfjKeyword">interface</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">extends</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterable</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">everything</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">as</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">before</span><span class="ProfjWhiteSpace"> </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">everything</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">as</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">before</span><span class="ProfjWhiteSpace"> </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">iterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IListIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">everything</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">as</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">before</span><span class="ProfjWhiteSpace"> </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">iterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">IListIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+And with those last few definitions, we can now use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>s in for-each loops, exactly as we could
+with <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">for</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">item</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">:</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">myList</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// iterates forward through myList
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+25.2.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Iteration_in_multiple_directions)"></a>Iteration in multiple directions<span class="button-group"><a href="#(part._.Iteration_in_multiple_directions)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+The concept of an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span> is very flexible.  Let’s work through several examples, showing how varied
+they can be.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Define a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">DequeForwardIterator</span><span class="RktMeta"></span></span></span> that advances through a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span>, just as we did above with an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Define a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">DequeReverseIterator</span><span class="RktMeta"></span></span></span> that walks <span class="emph">backward</span> through a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span> from the last item to the first.  The code should
+be very nearly identical to the forward iterator.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Some data structures can meaningfully support iteration in multiple orders.  However, if we choose to make those
+data structures <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterable</span><span class="RktMeta"></span></span></span>, then we have to choose a default iteration order to be used with for-each loops,
+and construct that particular iterator in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">iterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> method.  For <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span>s, we probably would choose
+the forward iteration direction, as it is the “most natural”.  If we want to use the reverse iterator,
+we’d have to explicitly write the while-loop version ourselves:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Deque</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterable</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">iterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// Choose a forward iteration by default
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">DequeForwardIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sentinel</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// But...also provide a reverse iterator if needed
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">reverseIterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">DequeReverseIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sentinel</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">prev</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">for</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">item</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">:</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">myDeque</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// iterates forward through myDeque
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">revIter</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">myDeque</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">reverseIterator</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">while</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">revIter</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// iterates backward through myDeque
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">item</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">revIter</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+25.2.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Iterators_for_.Fibonacci_numbers_---_computing_items_on_demand)"></a><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s for Fibonacci numbers —<wbr> computing items on demand<span class="button-group"><a href="#(part._.Iterators_for_.Fibonacci_numbers_---_computing_items_on_demand)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Not every iterator needs to store an actual object from which it derives its data.  Iterators simply
+represent sequences of values, and those values might just be computed on demand.  Consider the following iterator:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">FibonacciIterator</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Integer</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">prevVal</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">curVal</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// There are always more Fibonacci numbers
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">true</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Compute the next Fibonacci number
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Integer</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">NoSuchElementException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"there are no more items!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">prevVal</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">curVal</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">prevVal</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">curVal</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">curVal</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">UnsupportedOperationException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Don't do this!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+This iterator can produce an infinitely long stream of Fibonacci numbers, without requiring
+an explicit list to store them all in: it just stores the two most recent values, and computes the
+next one as required.
+</div>
+<p></p>
+<h5 class="heading">
+25.2.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Higher-order_.Iterators)"></a>Higher-order <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s<span class="button-group"><a href="#(part._.Higher-order_.Iterators)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Much as we can have higher-order functions (as implemented in Java by higher-order function objects),
+we can have higher-order iterators, that use the sequence of values from one iterator and produce a different
+sequence of values.  For example, we can define an iterator to take every other value from an iterator:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// Represents the subsequence of the first, third, fifth, etc. items from a given sequence
+</span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">EveryOtherIter</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">EveryOtherIter</span><span class="ProfjKeyword">(</span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// this sequence has a next item if the source does
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">NoSuchElementException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"there are no more items!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// gets the answer, and advances the source
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// We need to have the source "skip" the next value
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// get the next value and ignore it
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">answer</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// We can remove an item if our source can remove the item
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// so just delegate to the source
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+We can also define an iterator that takes only the first \(n\) items from another iterator:
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Do this.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">TakeN</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">howMany</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">countSoFar</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">TakeN</span><span class="ProfjKeyword">(</span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">n</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">howMany</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">n</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">countSoFar</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// We can remove an item if our source can remove the item
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// so just delegate to the source
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+When does this <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">TakeN</span><span class="RktMeta"></span></span></span> iterator have a next item?  Only if we have taken fewer than \(n\)
+items, and the source iterator has a next item:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In TakeN:
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">countSoFar</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&lt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">howMany</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+To get the next item, we delegate to the source, but we also must increment the count of items
+returned so far:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjComment">// In TakeN:
+</span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">NoSuchElementException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"there are no more items!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">countSoFar</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">countSoFar</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">+</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">source</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Define a higher-order iterator that takes <span class="emph">two iterators</span> and alternates items from each of them.
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+25.2.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Iterators_over_tree-shaped_data)"></a><span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Iterator</span><span class="RktMeta"></span></span></span>s over tree-shaped data<span class="button-group"><a href="#(part._.Iterators_over_tree-shaped_data)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+We can even define iterators over tree-shaped data.  Let’s consider binary trees.  There are many plausible orders for
+traversing a tree.  For the following example tree (with data at the nodes, and nothing at the leaves):
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">      A
+     / \
+    /   \
+   B     C
+  / \   / \
+ D   E F   G
+/ \ /\/\  / \</pre>
+</div>
+<div class="SIntrapara">
+we have (at least) the following standard orders:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p></p>
+<div class="SIntrapara">
+A <span class="emph">breadth-first traversal</span>, which walks through
+ each level of the tree from top to bottom, left to right:
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+<tr>
+<td>
+ <p>
+  <span class="stt">A, B, C, D, E, F, G</span>
+ </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+A <span class="emph">post-order traversal</span>, which recursively produces all the children of a node before
+ producing the node itself:
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+<tr>
+<td>
+ <p>
+  <span class="stt">D, E, B, F, G, C, A</span>
+ </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+An <span class="emph">in-order traversal</span>, which recursively produces the left subtree of a node,
+ then the node, then recursively produces the right subtree:
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+<tr>
+<td>
+ <p>
+  <span class="stt">D, B, E, A, F, C, G</span>
+ </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+A <span class="emph">pre-order traversal</span> (or a <span class="emph">depth-first traversal</span>), which produces the node, then recursively produces the
+ left subtree of the node, then the right subtree:
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+<tr>
+<td>
+ <p>
+  <span class="stt">A, B, D, E, C, F, G</span>
+ </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+Every one of these can be implemented by a sufficiently clever iterator.  Let’s try the breadth-first traversal first. The key challenge in
+implementing any of these is determining what state information is needed.  Unlike with lists, once we process a node we have
+<span class="emph">two</span> nodes to process afterward, and we cannot get from one to the other.  So unlike list iterators, which can get away with
+storing just a single index or a single <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="RktMeta"></span></span></span> reference, we’ll have to store a whole <span class="emph">list</span> of references of items
+that we have yet to process.  This is usually referred to as making a <span class="emph">worklist</span>, and it’s a very common algorithmic technique.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+So, suppose we are given a reference to the node <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">A</span><span class="RktMeta"></span></span></span> above.  We know that we have a next item (because we’re not at a leaf),
+so we produce <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">A</span><span class="RktMeta"></span></span></span> as our next.  What should go on the worklist?  We need to process <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">B</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">C</span><span class="RktMeta"></span></span></span> (in that order), so we add them
+to our worklist.  On the subsequent call to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">next</span><span class="RktMeta"></span></span></span>, we need to process <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">B</span><span class="RktMeta"></span></span></span>, so we produce <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">B</span><span class="RktMeta"></span></span></span>, and need to process <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">D</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">E</span><span class="RktMeta"></span></span></span>.
+We still have to process <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">C</span><span class="RktMeta"></span></span></span> <span class="emph">before</span> we get to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">D</span><span class="RktMeta"></span></span></span> or <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">E</span><span class="RktMeta"></span></span></span> (because we are proceeding in breadth-first order), so we add
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">D</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">E</span><span class="RktMeta"></span></span></span> to the <span class="emph">back</span> of our worklist.  Our next item to process is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">C</span><span class="RktMeta"></span></span></span>, which is at the <span class="emph">front</span> of our
+worklist.  It looks like we need to be able to add items to the end of our list, and remove items from the front of our list.
+Fortunately, we have a data structure that’s perfectly capable of such operations: a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span>!  We’ll use the deque to
+store a list of binary-tree nodes, and process them one at a time.  Our implementation of a breadth-first traversal
+will look like this:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">BreadthFirstIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Deque</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IBinaryTree</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">worklist</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">BreadthFirstIterator</span><span class="ProfjKeyword">(</span><span class="ProfjType">IBinaryTree</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">worklist</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Deque</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IBinaryTree</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">addIfNotLeaf</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// EFFECT: only adds the given binary-tree if it's not a leaf
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">addIfNotLeaf</span><span class="ProfjKeyword">(</span><span class="ProfjType">IBinaryTree</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">bt</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">bt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">isNode</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">worklist</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">addAtTail</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">bt</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// we have a next item if the worklist isn't empty
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">worklist</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">NoSuchElementException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"there are no more items!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// Get (and remove) the first item on the worklist --
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// and we know it must be a BTNode
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjType">BTNode</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">node</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">worklist</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removeAtHead</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">asNode</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// Add the children of the node to the tail of the list
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">addIfNotLeaf</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">node</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">left</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">addIfNotLeaf</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">node</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">right</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// return the answer
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">node</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">data</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">UnsupportedOperationException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Don't do this!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+We are using our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span> as a <span class="emph">queue</span>, where items are added at the end of the queue and removed from the front.
+(Think of a queue as standing in line at the supermarket: people queue up at the end of the line, and exit from the front of the line.)
+</p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Try implementing a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">PreOrderIterator</span><span class="RktMeta"></span></span></span> for a tree.  The code is <span class="emph">very</span> similar to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">BreadthFirstIterator</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Following similar reasoning as above, suppose we are given a reference to the node <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">A</span><span class="RktMeta"></span></span></span>.  We’ll produce <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">A</span><span class="RktMeta"></span></span></span> as the first item,
+and then we need to process <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">B</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">C</span><span class="RktMeta"></span></span></span>.  Next we’ll produce <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">B</span><span class="RktMeta"></span></span></span>, and then need to process <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">D</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">E</span><span class="RktMeta"></span></span></span>...but
+we must process them <span class="emph">before</span> we get back to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">C</span><span class="RktMeta"></span></span></span>.  So instead of adding the items to the <span class="emph">tail</span> of our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span>,
+we’ll add them to the front:
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">PreOrderIterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">implements</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Iterator</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Deque</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IBinaryTree</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">worklist</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">PreOrderIterator</span><span class="ProfjKeyword">(</span><span class="ProfjType">IBinaryTree</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">source</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">worklist</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Deque</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">IBinaryTree</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">addIfNotLeaf</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">source</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// EFFECT: only adds the given binary-tree if it's not a leaf
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">addIfNotLeaf</span><span class="ProfjKeyword">(</span><span class="ProfjType">IBinaryTree</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">bt</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">bt</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">isNode</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">worklist</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">addAtHead</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">bt</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// DIFFERENT FROM ABOVE
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// we have a next item if the worklist isn't empty
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">worklist</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">size</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">0</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">T</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">next</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">hasNext</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">NoSuchElementException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"there are no more items!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// Get (and remove) the first item on the worklist --
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// and we know it must be a BTNode
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjType">BTNode</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">T</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">node</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">worklist</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">removeAtHead</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">asNode</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// Add the children of the node to the tail of the list
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">addIfNotLeaf</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">node</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">right</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// SWAPPED
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">addIfNotLeaf</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">node</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">left</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// FROM ABOVE
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// return the answer
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">node</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">data</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">public</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">remove</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">UnsupportedOperationException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Don't do this!"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+We are now using our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span> as a <span class="emph">stack</span>, where items are pushed onto the front of the stack and also removed from the front.
+(Think of a stack as a pile of dishes: they are piled on top of each other, and removed from the top; the bottommost dish was the
+first one to be added, and the last one to be removed.)  We have to swap the order of adding <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">node</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">right</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">node</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">left</span><span class="RktMeta"></span></span></span>
+because we need to preserve their order when we finally do remove them.
+</div>
+<p></p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Try implementing post-order and in-order traversals as iterators.  They are somewhat subtler than the two we have done so far;
+in particular, figuring out what to add to the worklist is tricky.
+</div>
+<p></p>
+</blockquote>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture24.html" title="backward to &quot;Lecture 24: While loops&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture26.html" title="forward to &quot;Lecture 26: Hashing and Equality&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

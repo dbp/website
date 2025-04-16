@@ -1,0 +1,76 @@
+<!doctype HTML>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="codemirror.js"></script>
+<script src="python.js"></script>
+<script src="runmode.js"></script>
+<script src="setup-page.js"></script>
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=0.8"/><title>Lab 4: Working with Abstract Classes, Problem Solving</title><link rel="stylesheet" type="text/css" href="scribble.css" title="default"/><link rel="stylesheet" type="text/css" href="racket.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-style.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-racket.css" title="default"/><link rel="stylesheet" type="text/css" href="extra-styles.css" title="default"/><link rel="stylesheet" type="text/css" href="codemirror.css" title="default"/><script type="text/javascript" src="scribble-common.js"></script><script type="text/javascript" src="manual-racket.js"></script><!--[if IE 6]><style type="text/css">.SIEHidden { overflow: hidden; }</style><![endif]--></head><body id="scribble-racket-lang-org"><div class="tocset"><div class="tocview"><div class="tocviewlist tocviewlisttopspace"><div class="tocviewtitle"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">&#9658;</a></td><td></td><td><a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br/>
+Introduction to Class-<wbr></wbr>based Program Design</a></td></tr></table></div><div class="tocviewsublisttop" style="display: none;" id="tocview_0"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="General.html" class="tocviewlink" data-pltdoc="x">General</a></td></tr><tr><td align="right"></td><td><a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a></td></tr><tr><td align="right"></td><td><a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a></td></tr><tr><td align="right"></td><td><a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a></td></tr><tr><td align="right"></td><td><a href="Lab_Materials.html" class="tocviewselflink" data-pltdoc="x">Lab Materials</a></td></tr><tr><td align="right"></td><td><a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a></td></tr><tr><td align="right"></td><td><a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a></td></tr><tr><td align="right"></td><td><a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a></td></tr><tr><td align="right"></td><td><a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">&#9660;</a></td><td></td><td><a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a></td></tr></table><div class="tocviewsublist" style="display: block;" id="tocview_1"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="lab1.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 1:</span> Introduction to Eclipse and Simple Data Definitions</a></td></tr><tr><td align="right"></td><td><a href="lab2.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 2:</span> Working with Self-<wbr></wbr>Referential Data</a></td></tr><tr><td align="right"></td><td><a href="lab3.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 3:</span> Working with the debugger</a></td></tr><tr><td align="right"></td><td><a href="" class="tocviewselflink" data-pltdoc="x"><span class="LabNum">Lab 4:</span> Working with Abstract Classes, Problem Solving</a></td></tr><tr><td align="right"></td><td><a href="lab5.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 5:</span> Higher-<wbr></wbr>order functions</a></td></tr><tr><td align="right"></td><td><a href="lab6.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 6:</span> Working with Cyclic Data</a></td></tr><tr><td align="right"></td><td><a href="lab7.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 7:</span> Sameness</a></td></tr><tr><td align="right"></td><td><a href="lab8.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 8:</span> Parametric data and visitors</a></td></tr><tr><td align="right"></td><td><a href="lab9.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 9:</span> Working with Array<span class="mywbr"> &nbsp;</span>Lists and Loops</a></td></tr><tr><td align="right"></td><td><a href="lab10.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 10:</span> An Introduction to the JUnit testing library</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">&#9658;</a></td><td></td><td><a href="" class="tocviewselflink" data-pltdoc="x"><span class="LabNum">Lab 4:</span> Working with Abstract Classes, Problem Solving</a></td></tr></table><div class="tocviewsublistbottom" style="display: none;" id="tocview_2"><table cellspacing="0" cellpadding="0"><tr><td align="right">Problem 1:&nbsp;</td><td><a href="#%28part._.Books_and_abstraction%29" class="tocviewlink" data-pltdoc="x">Books and abstraction</a></td></tr></table></div></div></div><div class="tocsub"><div class="tocsubtitle">On this page:</div><table class="tocsublist" cellspacing="0"><tr><td><span class="tocsublinknumber">Problem 1:<tt>&nbsp;</tt></span><a href="#%28part._.Books_and_abstraction%29" class="tocsubseclink" data-pltdoc="x">Books and abstraction</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Abstraction%29" class="tocsubseclink" data-pltdoc="x">Abstraction</a></td></tr><tr><td><span class="tocsublinknumber"></span><a href="#%28part._.Problem_2__.Problem_.Solving_.Practice%29" class="tocsubseclink" data-pltdoc="x">Problem 2:<span class="mywbr"> &nbsp;</span> Problem Solving Practice</a></td></tr></table></div></div><div class="maincolumn"><div class="main"><div class="versionbox"><span class="version">8.14</span></div><div class="navsettop"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="lab3.html" title="backward to &quot;Lab 3: Working with the debugger&quot;" data-pltdoc="x" rel="prev">&larr; prev</a>&nbsp;&nbsp;<a href="Lab_Materials.html" title="up to &quot;Lab Materials&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab5.html" title="forward to &quot;Lab 5: Higher-order functions&quot;" data-pltdoc="x" rel="next">next &rarr;</a></span>&nbsp;</div><h4 class="heading"><a name="(part._)"></a><span class="LabNum">Lab 4:</span> Working with Abstract Classes, Problem Solving<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p><span style="font-weight: bold">Goals:</span> The goals of this lab are to learn how to design and use abstract classes,
+and to solve problems with the use of accumulators.</p><p><span style="font-weight: bold">Submission: </span> Complete the lab 4 questions in
+<a href="https://handins.ccs.neu.edu/courses/224/assignments/4888">handins</a>
+and submit your solutions to Problem 1 before leaving lab. This is due by the end of your lab and
+will be graded on correctness.</p><h3 class="heading">Problem 1:<tt>&nbsp;</tt><a name="(part._.Books_and_abstraction)"></a>Books and abstraction<span class="button-group"><a href="#(part._.Books_and_abstraction)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h3><h5 class="heading"><a name="(part._.Abstraction)"></a>Abstraction<span class="button-group"><a href="#(part._.Abstraction)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h5><p><span style="font-weight: bold">Submission:</span> You will submit your solution to this problem in handins. To earn full credit on this, your solution must
+be well-designed and a good attempt.</p><p>The following class diagram represents a library system that records the books
+that have been borrowed. There are three kinds of books: regular books, reference
+books, and audio books.</p><p>Reference books can be taken out for just two days, while other kinds of books may be borrowed for two weeks.
+The overdue fees are 10 cents per day for reference books and regular books,
+and 20 cents per day for audio books.</p><p>Audio books and regular books have both authors and titles; reference books only have titles.</p><p>The day when the book is taken out and the day due are counted as days since
+the library opened on New Year&rsquo;s Day in 2001. So, for example, an audio book taken out recently would be
+recorded as taken out on the day
+8746 with due date on the day
+8760.</p><pre class="AsciiArt">               +-------+
+               | IBook |
+               +-------+
+                  / \
+                  ---
+                   |
+       ---------------------------------------
+       |                  |                  |
++---------------+  +---------------+  +---------------+
+| Book          |  | RefBook       |  | AudioBook     |
++---------------+  +---------------+  +---------------+
+| String title  |  | String title  |  | String title  |
+| String author |  | int dayTaken  |  | String author |
+| int dayTaken  |  +---------------+  | int dayTaken  |
++---------------+                     +---------------+</pre><ul><li><p>Design the interfaces and classes that represent the library
+borrowing system.</p><p>Define the abstract class <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ABook</span><span class="RktMeta"></span></span></span> and lift those fields that can
+be lifted to this class.</p></li><li><p>Design the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">daysOverdue</span><span class="RktMeta"></span></span></span> that consumes the number
+that represents today in the library date-recording system and
+produces the number of days this book is overdue. If the number
+is negative, the book can still be out for that many days.</p></li><li><p>Design the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">isOverdue</span><span class="RktMeta"></span></span></span> that produces a boolean value
+that informs us whether the book is overdue on the given day.</p></li><li><p>Design the method <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">computeFine</span><span class="RktMeta"></span></span></span>  that computes the fine for
+this book, if the book is returned on the given day.</p></li></ul><p>For all methods, think carefully whether they should be designed being
+implemented solely in the abstract class, implemented solely
+in the concrete classes, or implemented in the abstract
+class and then overridden in some of the concrete classes.</p><h5 class="heading"><a name="(part._.Problem_2__.Problem_.Solving_.Practice)"></a>Problem 2: Problem Solving Practice<span class="button-group"><a href="#(part._.Problem_2__.Problem_.Solving_.Practice)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h5><p>The rest of the lab will be dedicated to strengthening problem solving skills,
+in particular the use of accumulators. It will require you to create new classes
+as well as determine what helper methods would be appropriate.</p><ul><li><p>Design a method on a list of integers which produces
+the integer (or throws an exception if the list was empty) that appears
+in the longest consecutive sublist. For example, the list of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">1</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">1</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjLiteral">4</span><span class="RktMeta"></span></span></span>
+would produce <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">5</span><span class="RktMeta"></span></span></span> (note that ties are broken by  the sublist that appears earlier
+in the list).</p></li></ul><div class="navsetbottom"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="lab3.html" title="backward to &quot;Lab 3: Working with the debugger&quot;" data-pltdoc="x" rel="prev">&larr; prev</a>&nbsp;&nbsp;<a href="Lab_Materials.html" title="up to &quot;Lab Materials&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab5.html" title="forward to &quot;Lab 5: Higher-order functions&quot;" data-pltdoc="x" rel="next">next &rarr;</a></span>&nbsp;</div></div></div><div id="contextindicator">&nbsp;</div></body></html>

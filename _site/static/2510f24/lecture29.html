@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture18.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="#%28part._.Motivation%29" class="tocviewlink" data-pltdoc="x">Motivation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          29.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Priority_.Queues%29" class="tocviewlink" data-pltdoc="x">Priority Queues</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          29.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Using_lists_to_implement_priority_queues__too_slow%29" class="tocviewlink" data-pltdoc="x">Using lists to implement priority queues:<span class="mywbr"> &nbsp;</span> too slow</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          29.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Choosing_a_better_data_structure_for_the_task%29" class="tocviewlink" data-pltdoc="x">Choosing a better data structure for the task</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          29.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Heaps_and_invariants%29" class="tocviewlink" data-pltdoc="x">Heaps and invariants</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          29.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Designing_a_priority_queue%29" class="tocviewlink" data-pltdoc="x">Designing a priority queue</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          29.6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Implementing_a_priority_queue%29" class="tocviewlink" data-pltdoc="x">Implementing a priority queue</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          29.7&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Heapsort%29" class="tocviewlink" data-pltdoc="x">Heapsort</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber"></span><a href="#%28part._.Motivation%29" class="tocsubseclink" data-pltdoc="x">Motivation</a>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">29.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Priority_.Queues%29" class="tocsubseclink" data-pltdoc="x">Priority Queues</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">29.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Using_lists_to_implement_priority_queues__too_slow%29" class="tocsubseclink" data-pltdoc="x">Using lists to implement priority queues:<span class="mywbr"> &nbsp;</span> too slow</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">29.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Choosing_a_better_data_structure_for_the_task%29" class="tocsubseclink" data-pltdoc="x">Choosing a better data structure for the task</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">29.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Heaps_and_invariants%29" class="tocsubseclink" data-pltdoc="x">Heaps and invariants</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">29.5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.Designing_a_priority_queue%29" class="tocsubseclink" data-pltdoc="x">Designing a priority queue</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">29.5.1
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Adding_items_to_a_heap%29" class="tocsubseclink" data-pltdoc="x">Adding items to a heap</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">29.5.2
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Removing_the_maximum_item_from_a_heap%29" class="tocsubseclink" data-pltdoc="x">Removing the maximum item from a heap</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">29.6
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.Implementing_a_priority_queue%29" class="tocsubseclink" data-pltdoc="x">Implementing a priority queue</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="tocsublinknumber">29.7
+<tt>
+ &nbsp;
+</tt>
+</span>
+<a href="#%28part._.Heapsort%29" class="tocsubseclink" data-pltdoc="x">Heapsort</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture28.html" title="backward to &quot;Lecture 28: Quicksort and Mergesort&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture30.html" title="forward to &quot;Lecture 30: Breadth-first search and Depth-first search on graphs&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+Introducing the priority queue structure; using a priority queue to
+conveniently implement a sorting algorithm
+</p>
+<h5 class="heading">
+<a name="(part._.Motivation)"></a>Motivation<span class="button-group"><a href="#(part._.Motivation)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+In real life, we often encounter scenarios that involve queuing, such as standing in line
+at a grocery store or at the movies, or waiting for a haircut.  In these “first come, first served” situations,
+the first person to arrive is the first person served.  We can represent this kind
+of situation with a <span class="emph">queue</span>, where we add items to the back of the queue, and remove them
+from the front.
+</p>
+<p>
+However, there are other scenarios where the first person to arrive is <span class="emph">not</span> the first
+person served: when boarding an airplane, even if you are the first on line, the first-class
+passengers will board before you.  Or consider patients in an emergency room: if someone
+arrives early with a comparatively minor injury, and another patient arrives with a more
+serious problem, the second patient will be treated first.  Here, the scenario is more of a
+“first come, most-important served” situation.  How might we represent this data?
+</p>
+<h5 class="heading">
+29.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Priority_.Queues)"></a>Priority Queues<span class="button-group"><a href="#(part._.Priority_.Queues)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+The second scenario above differs from the first because incoming items (patients)
+are not treated equally: some are more important, or higher-priority, than others.  We need
+to express these priorities somehow in our representation.
+Armed with our new appreciation for big-O notation and algorithmic efficiency, we want to
+design a datatype that is tailored to support the following three operations as efficiently as possible:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Add an item, with a given priority, into the data structure
+</p>
+</li>
+<li>
+<p>
+Remove the most important item from the data structure
+</p>
+</li>
+<li>
+<p>
+Get the number of items in the data structure
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+That’s it —<wbr> nothing else must be supported.  (We may be able to support other items later,
+but for now, we don’t need to.)  This structure is very similar to the queue we discussed before,
+but has been enhanced with priorities.  It is therefore, unsurprisingly, known as a <span class="emph">priority queue</span>.
+</div>
+<p></p>
+<p>
+In the rest of this lecture, we are going to make the following simplification: rather than focusing on
+adding <span class="emph">an item paired with a priority</span>, we are going to instead just consider adding <span class="emph">a given priority</span>.
+(We can add the item data as well if we just construct a custom <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IComparator</span><span class="RktMeta"></span></span></span> object that ranks items
+based on priorities.)  Further, we will choose to represent priorities simply as integers, though any
+type that can be sorted by a comparator will suffice.
+</p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+After completing this lecture, try adapting the data types here to store arbitrary data with priorities,
+instead of just priorities.
+</div>
+<p></p>
+</blockquote>
+<h5 class="heading">
+29.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Using_lists_to_implement_priority_queues__too_slow)"></a>Using lists to implement priority queues: too slow<span class="button-group"><a href="#(part._.Using_lists_to_implement_priority_queues__too_slow)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+We might imagine that since a priority queue is “like a queue, but with priorities”, we should
+be able to implement it using a simple list or <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Integer</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>.  We can indeed manage this: we just need to maintain our list
+in decreasing sorted order.  Then the maximum value (i.e., the highest-priority item) will be the first
+item of the list, and so is readily available in constant (i.e. \(O(1)\)) time.  But adding
+an item to a sorted list is expensive: in the worst case, we constantly add a low-priority item,
+and so for a priority queue already containing \(n\) elements, we would have to walk the entire
+list to find the right place to insert the item, which takes linear (i.e. \(O(n)\)) time.
+</p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Would using an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Integer</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> instead of a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Integer</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> or <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Integer</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> be any more efficient?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s do not support efficiently inserting an item into the middle of the list (since they have to shove all the subsequent items
+over by one index), so even though we could use binary search to find the appropriate index at which to insert,
+the insertion itself is still \(O(n)\).  Conversely, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Deque</span><span class="RktMeta"></span></span></span>s support constant-time insertion (since we just have to fix up
+four links), but they don’t support binary search, so finding the place to insert costs \(O(n)\) time.
+</div>
+<p></p>
+<p>
+Can we do better?
+</p>
+<h5 class="heading">
+29.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Choosing_a_better_data_structure_for_the_task)"></a>Choosing a better data structure for the task<span class="button-group"><a href="#(part._.Choosing_a_better_data_structure_for_the_task)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+The downside to using a standard linked list is that accessing items near the end of the list is too expensive, so
+inserting items near the end of the list is too expensive.  Conversely, the downside to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>s is that
+they don’t support inserting items into the middle of the list efficiently.  Both data structures efficiently support
+finding the <span class="emph">first</span> item of the list, though.  So we can ask the following:
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Is there another data structure we have seen where accessing one particular value is extremely efficient (i.e., constant time),
+and accessing <span class="emph">any</span> item is still more efficient than \(O(n)\)?
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<p>
+One compelling possibility is to use a binary tree: accessing the root of the tree takes constant time, and accessing any item
+in the tree takes \(O(\mathit{depth\ of\ tree})\).  But using an <span class="emph">arbitrary</span> binary tree is not enough: <span class="emph">technically</span>, the
+following tree is a binary tree:
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_12.png" alt="image" width="146.0" height="186.0">
+</p>
+<p>
+Every level of the tree (except the first) contains two items, so this kind of tree of height \(h\) contains only \(2h\) items.
+Said another way, accessing item \(n\) takes \(n/2\) steps, or \(O(n)\) or linear time.
+</p>
+<p></p>
+<div class="SIntrapara">
+Of course, this is a pathologically bad binary tree —<wbr> it’s not taking much advantage of the tree shape.  Suppose we considered
+a binary tree that contains <span class="emph">as many nodes as possible for its height</span>:
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_13.png" alt="image" width="226.0" height="126.0">
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+For a binary tree of height \(h\), what is the maximum number of nodes that can be present?  Conversely, for a tree with \(n\)
+nodes, what is the minimum tree height needed to fit them all?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Since the number of nodes in each level of a binary tree doubles from one level to the next, the maximum number of nodes
+in a binary tree of height \(h\) is \(2^h - 1\).  Conversely, a tree of \(n\) nodes requires at least \(\log_2 n\)
+levels to fit them all.  This is encouraging: if we somehow enforce that our tree be “as full as possible”, then we ensure that it is as short as possible, too.
+</div>
+<p></p>
+<p>
+In fact, let’s elevate this goal to a definition: a <span style="font-weight: bold">full binary tree</span> is a binary tree where every level (except possibly the last)
+is completely full, and the last level of the tree is filled from left to right.  Accordingly:
+</p>
+<p>
+<img style="vertical-align: 0px; margin: -3px -3px -3px -3px;" src="pict_14.png" alt="image" width="316.0" height="130.1328125">
+</p>
+<p>
+We can now successfully access any item in the tree in logarithmic time, and the root of the tree in constant time.
+Now if only we can ensure that the root of the tree always contains the maximum value, we’d be very nearly done!
+How can we do that?
+</p>
+<h5 class="heading">
+29.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Heaps_and_invariants)"></a>Heaps and invariants<span class="button-group"><a href="#(part._.Heaps_and_invariants)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Recall for a moment the definition of a <span class="emph">binary search tree</span>: it is a binary tree on which
+we enforce a particular property:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Every value in the left subtree of a node must be less than or equal to
+the value at the node,
+</p>
+</li>
+<li>
+<p>
+Every value in the right subtree of a node must be greater than or equal to the value
+at the node, and
+</p>
+</li>
+<li>
+<p>
+Both the left and right subtrees must themselves be valid binary search trees.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+This property is called an <span style="font-weight: bold">invariant</span>: we ensure that it is true throughout our program’s usage of the
+data structure, and can therefore rely on and take advantage of it being true whenever we need to.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+What invariants might we want for our priority queue?  We want the maximum value to be at the root, certainly,
+but let’s think ahead: once we remove the maximum value, where should the next-largest value be?  It seems
+reasonable to want the next-largest item be as close to the top as possible.  So we codify this idea as the
+following invariant, known as the <span style="font-weight: bold">heap invariant</span>:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Every value in the both the left and right subtrees of a node must be less than or equal to
+the value at the node, and
+</p>
+</li>
+<li>
+<p>
+Both the left and right subtrees must themselves be valid heaps.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+(Notice how similar in spirit the heap invariant is to the binary search tree invariant: it asserts an ordering
+on the value of a node compared to the values in the subtrees, and asserts the property recursively on all subtrees.)
+Therefore:
+</div>
+<p></p>
+<p>
+<img style="vertical-align: 0px; margin: -3px -3px -3px -3px;" src="pict_15.png" alt="image" width="304.255859375" height="130.1328125">
+</p>
+<p>
+In particular, the left tree is a valid heap, even though the values in the lowest level are not sorted —<wbr> because we’re not
+trying to sort our data!  The right tree is not a valid heap, because <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">5</span><span class="RktMeta"></span></span></span> has a child <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">6</span><span class="RktMeta"></span></span></span>, which is not in the correct heap order.
+</p>
+<p>
+We now have two different invariants: a <span class="emph">structural</span> one (fullness) that ensures our trees will be conveniently short,
+and a <span class="emph">logical</span> one (heap-ordering) that ensures the values are ordered conveniently for our purposes.  How can we exploit this?
+</p>
+<h5 class="heading">
+29.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Designing_a_priority_queue)"></a>Designing a priority queue<span class="button-group"><a href="#(part._.Designing_a_priority_queue)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Let’s now figure out how to define the operations <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">add</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removeMax</span><span class="RktMeta"></span></span></span>.  (In the next section, we’ll see how
+to represent this design and implement it conveniently.)  We’ll start by asserting that our priority queue will be
+represented by a heap, that is, a full binary tree that obeys the heap-ordering property.  Here is an example of a valid heap:
+</p>
+<p></p>
+<div class="SIntrapara">
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_16.png" alt="image" width="226.0" height="126.0">
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Confirm that this tree is full and that it obeys the heap-ordering property.
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<h5 class="heading">
+29.5.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Adding_items_to_a_heap)"></a>Adding items to a heap<span class="button-group"><a href="#(part._.Adding_items_to_a_heap)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Let’s try to add <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> to this heap.  Where should we add it?  We have to ensure that we preserve
+both invariants, but no matter where we put <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span>, it looks like we’ll violate at least one of them:
+if we add it next to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">15</span><span class="RktMeta"></span></span></span>, then it violates the heap-ordering property (because it is greater than its parent),
+and if we add it anywhere else, we violate the fullness property.  What to do?
+</p>
+<p></p>
+<div class="SIntrapara">
+Since adding <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> next to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">15</span><span class="RktMeta"></span></span></span> at least preserves the fullness property, perhaps we can start with that
+and then “fix up” the tree to restore the heap-ordering invariant.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+If we add <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> next to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">15</span><span class="RktMeta"></span></span></span>, what should we do to restore the heap-ordering property?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Insert the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> in the next available space, to preserve the fullness property:
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_17.png" alt="image" width="645.80078125" height="126.0">
+</p>
+</li>
+<li>
+<p>
+Notice that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span>, on its own, is a valid heap.  But unfortunately, since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> is greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span>,
+the subtree starting at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span> is not.  But we can fix that, if we just <span class="emph">swap</span> the two values:
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_18.png" alt="image" width="651.09765625" height="126.0">
+Now the subtree starting at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> is a valid heap.  Progress!
+</p>
+</li>
+<li>
+<p>
+We just ensured that the subtree starting at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> is a valid heap, but since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> is greater than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">60</span><span class="RktMeta"></span></span></span>,
+the subtree starting at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">60</span><span class="RktMeta"></span></span></span> is not.  But we can fix that, by swapping again:
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_19.png" alt="image" width="651.09765625" height="126.0">
+</p>
+<p>
+Again, the subtree starting at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> is a valid heap.  More progress!
+</p>
+</li>
+<li>
+<p>
+We just ensured that the subtree starting at <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> is a valid heap.  And in fact, since <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">70</span><span class="RktMeta"></span></span></span> is less than <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">80</span><span class="RktMeta"></span></span></span>,
+the entire tree is now a valid heap again.  Done!
+</p>
+</li>
+</ul>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+We can codify the procedure above as follows: To <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">add</span><span class="RktMeta"></span></span></span> an item into a heap,
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Insert the item in the next available space, maintaining the fullness property.
+</p>
+</li>
+<li>
+<p>
+While the item is greater than its parent, swap it with its parent. (This step is often known as the “upheap” operation.)
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Insert <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">90</span><span class="RktMeta"></span></span></span> into the final heap above.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Insert <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">90</span><span class="RktMeta"></span></span></span> into the next available space:
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_20.png" alt="image" width="685.80078125" height="126.0">
+</p>
+</li>
+<li>
+<p>
+While <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">90</span><span class="RktMeta"></span></span></span> is greater than its parent, swap it with its parent:
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_21.png" alt="image" width="731.09765625" height="126.0">
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_22.png" alt="image" width="731.09765625" height="126.0">
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_23.png" alt="image" width="731.09765625" height="126.0">
+</p>
+</li>
+</ul>
+</div>
+<p></p>
+<p>
+We now have a procedure that seems to work to insert an item into a heap.  Does it always work, and does
+it always terminate?  We know that it preserves the fullness property, because <span class="emph">by construction</span>, we
+always insert the item into the next available location.  And the whole point of swapping the item with
+its parent is to restore the heap-ordering property.  Further, every time we swap the inserted item with
+its parent, we get closer and closer to the root, so eventually we must reach the root and terminate.  At that
+point, we have preserved the fullness property and restored the heap-ordering property, so this does work in all cases.
+</p>
+<p>
+Next, how efficient is it?  <span class="emph">Assuming</span> we can easily (as in, constant-time) find the next available spot to insert the item,
+the fullness property ensures that our tree has height \(O(\log_2 n)\), so the upheap operation takes at most \(O(\log_2 n)\)
+time.  Therefore, our insertion operation happens in logarithmic time —<wbr> much better than linear.  (Of course, there’s a big
+assumption here, that we can easily find the spot at which to insert...and to see that we can do this efficiently, we’ll
+need one clever implementation choice, which we’ll address in the next section.)
+</p>
+<h5 class="heading">
+29.5.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Removing_the_maximum_item_from_a_heap)"></a>Removing the maximum item from a heap<span class="button-group"><a href="#(part._.Removing_the_maximum_item_from_a_heap)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The maximum item of the heap is easily available: it’s sitting right at the root.  If we just blindly “remove” the root,
+we have a hole in our tree, which breaks the tree in half.  How can we fix this?  It’s tempting to try to “undo”
+the upheap operation, but it’s much harder to figure out how to (efficiently) get from the root to the end of the tree than it
+is to figure out how to get from the end of the tree to the root.  (Without examining the entirety of the tree, there’s no way to know whether to
+swap the root downwards to the right or to the left.)
+</p>
+<p></p>
+<div class="SIntrapara">
+The key insight in inserting an item was to preserve the fullness property at all costs, and then to fix up the heap-ordering property
+afterward.  Can we do something similar here?
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Remove <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">90</span><span class="RktMeta"></span></span></span> from the root:
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_24.png" alt="image" width="744.873046875" height="126.0">
+</p>
+</li>
+<li>
+<p>
+We can try simply <span class="emph">moving</span> the <span class="emph">last</span> item in the tree up into the root,
+which will ensure the fullness property stays true, but violates the heap-ordering property:
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_25.png" alt="image" width="692.755859375" height="126.0">
+</p>
+</li>
+<li>
+<p>
+Notice that every node in this tree obeys the heap-ordering property except for the root itself.
+      If we swap the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">40</span><span class="RktMeta"></span></span></span> with one of its kids, we can push the problem down a level.  We have to
+      choose the <span class="emph">larger</span> of the two children, or else we’d create another heap-ordering violation:
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_26.png" alt="image" width="659.904296875" height="126.0">
+</p>
+</li>
+<li>
+<p>
+Again, every node in this tree obeys the heap-ordering property except for the node containing <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">40</span><span class="RktMeta"></span></span></span>
+      itself.  So again, we swap it with its largest child:
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_27.png" alt="image" width="659.904296875" height="126.0">
+</p>
+</li>
+<li>
+<p>
+Now <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">40</span><span class="RktMeta"></span></span></span> is a leaf, so there is no more heap-ordering violation.  Done!
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+We can codify the procedure above as follows: to <span class="emph">remove the maximum item</span>,
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Remove the root, and replace it with the <span class="emph">last</span> leaf of the tree,
+maintaining the fullness property.
+</p>
+</li>
+<li>
+<p>
+While the item is greater than either of its children, swap it with
+the largest of its children. (This step is often known as the “downheap” operation.)
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Remove the next maximum value from the heap above.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+Remove the root, and replace it with the <span class="emph">last</span> leaf of the tree:
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_28.png" alt="image" width="664.873046875" height="126.0">
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_29.png" alt="image" width="652.755859375" height="126.0">
+</p>
+</li>
+<li>
+<p>
+While <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">50</span><span class="RktMeta"></span></span></span> is greater than either of its children, swap it with the largest of its children.
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_30.png" alt="image" width="659.904296875" height="126.0">
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_31.png" alt="image" width="659.904296875" height="126.0">
+</p>
+</li>
+</ul>
+</div>
+<p></p>
+<p>
+Again we have to ask, does this procedure always work, and how efficient is it?  Since we replace the
+root with the last item, we preserve the fullness property by construction.  And the whole point of the
+downheap operation is to restore the heap-ordering property.  Since every time we swap the item downward, we
+come closer to the leaves of the tree, we can only swap a finite number of times before terminating.
+</p>
+<p>
+Again assuming we can find the last item efficiently, moving it to the root takes constant time, and the downheap operation
+runs in time proportional to the height of the tree, which, thanks to the fullness property, is logarithmic
+in the size of tree.  Perfect.
+</p>
+<h5 class="heading">
+29.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Implementing_a_priority_queue)"></a>Implementing a priority queue<span class="button-group"><a href="#(part._.Implementing_a_priority_queue)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Now we come to the clever implementation trick that makes heaps so efficient to implement. Let’s <span class="emph">index</span>
+each of the nodes in our tree, starting at the root and moving left to right in each level.  Here, the indices
+of each node are shown colored and in brackets:
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_32.png" alt="image" width="397.251953125" height="90.796875">
+</p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Find a formula to compute the index of the <span class="emph">left child</span> of a node given the index of a node.
+Find a similar formula to compute the index of the <span class="emph">right child</span> of a node given the index of a node.
+Finally, find a formula to compute the index of the <span class="emph">parent</span> of a node given the index of a node.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Remembering that every level is twice as big as the previous one, and with a little experimentation, we’re led to the following formulas:
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+\(leftChild(idx) = 2 * idx + 1\)
+</p>
+</li>
+<li>
+<p>
+\(rightChild(idx) = 2 * idx + 2\)
+</p>
+</li>
+<li>
+<p>
+\(parent(idx) = floor((idx - 1) / 2)\)
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+This is terribly convenient: this means that we don’t have to <span class="emph">explicitly</span> store the links between nodes
+in the tree, if we simply store the items in each node at appropriately numbered indices in some other data structure...
+</div>
+<p></p>
+<p>
+Let’s represent the tree above <span class="emph">as an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Integer</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span></span>.  The root will be at index <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">0</span><span class="RktMeta"></span></span></span>,
+and the children of each node will be at their appropriate indices.  Now we can see why the fullness
+property insists that the last layer of the tree be filled from left to right: a <span class="emph">full</span> tree
+containing \(n\) nodes will simply be stored in indices \(0\) through \(n-1\) of an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>, with no gaps!
+And even better, we now can see that finding the next available location in the tree is trivial: it’s simply the
+next index in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>.
+</p>
+<p>
+So our initial heap example,
+</p>
+<p>
+<img style="vertical-align: -0.0px; margin: -3px -3px -3px -3px;" src="pict_33.png" alt="image" width="226.0" height="126.0">
+</p>
+<p></p>
+<div class="SIntrapara">
+can be represented by the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Integer</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">Index:   0    1    2    3    4    5    6    7    8    9
+Data: [ 80 | 60 | 50 | 30 | 50 | 40 | 20 | 10 | 20 | 15 ]</pre>
+</div>
+<div class="SIntrapara">
+Let’s recap the two insertions and the two removals that we did on the trees above, using this new
+representation.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+<ul>
+<li>
+<p></p>
+<div class="SIntrapara">
+Inserting 70:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">   0    1    2    3    4    5    6    7    8    9
+[ 80 | 60 | 50 | 30 | 50 | 40 | 20 | 10 | 20 | 15 ]
+     ===Add 70 to end of ArrayList===&gt;
+   0    1    2    3    4    5    6    7    8    9   10
+[ 80 | 60 | 50 | 30 | 50 | 40 | 20 | 10 | 20 | 15 | 70 ]
+     ===Swap 70 (at index 10) with parent (at index (10-1)/2 = 4)==&gt;
+   0    1    2    3    4    5    6    7    8    9   10
+[ 80 | 60 | 50 | 30 | 70 | 40 | 20 | 10 | 20 | 15 | 50 ]
+     ===Swap 70 (at index 4) with parent (at index (4-1)/2 = 1)===&gt;
+   0    1    2    3    4    5    6    7    8    9   10
+[ 80 | 70 | 50 | 30 | 60 | 40 | 20 | 10 | 20 | 15 | 50 ]</pre>
+</div>
+<p></p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+Inserting 90:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">   0    1    2    3    4    5    6    7    8    9   10
+[ 80 | 70 | 50 | 30 | 60 | 40 | 20 | 10 | 20 | 15 | 50 ]
+     ===Add 90 to end of ArrayList===&gt;
+   0    1    2    3    4    5    6    7    8    9   10   11
+[ 80 | 70 | 50 | 30 | 60 | 40 | 20 | 10 | 20 | 15 | 50 | 90 ]
+     ===Swap 90 (at index 11) with parent (at index (11-1)/2 = 5)==&gt;
+   0    1    2    3    4    5    6    7    8    9   10   11
+[ 80 | 70 | 50 | 30 | 60 | 90 | 20 | 10 | 20 | 15 | 50 | 40 ]
+     ===Swap 90 (at index 5) with parent (at index (5-1)/2 = 2)===&gt;
+   0    1    2    3    4    5    6    7    8    9   10   11
+[ 80 | 70 | 90 | 30 | 60 | 50 | 20 | 10 | 20 | 15 | 50 | 40 ]
+     ===Swap 90 (at index 2) with parent (at index (2-1)/2 = 0)===&gt;
+   0    1    2    3    4    5    6    7    8    9   10   11
+[ 90 | 70 | 80 | 30 | 60 | 50 | 20 | 10 | 20 | 15 | 50 | 40 ]</pre>
+</div>
+<p></p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Confirm that these operations correspond exactly to the tree diagrams above.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+To remove an item, we’ll be a little bit clever: instead of outright removing the root item and
+replacing it with the last item, we’ll <span class="emph">swap</span> them instead.  (We might as well,
+since we need to keep track of the item we’re removing, and we conveniently have space available
+once we move the last item into the root position!)
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p></p>
+<div class="SIntrapara">
+Removing maximum:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">   0    1    2    3    4    5    6    7    8    9   10   11
+[ 90 | 70 | 80 | 30 | 60 | 50 | 20 | 10 | 20 | 15 | 50 | 40 ]
+     ===Swap root item with last item in heap===&gt;
+   0    1    2    3    4    5    6    7    8    9   10 ||| 11
+[ 40 | 70 | 80 | 30 | 60 | 50 | 20 | 10 | 20 | 15 | 50 ||| 90 ]
+     ===Swap 40 (at index 0) with larger of children (indices 1 and 2)===&gt;
+   0    1    2    3    4    5    6    7    8    9   10 ||| 11
+[ 80 | 70 | 40 | 30 | 60 | 50 | 20 | 10 | 20 | 15 | 50 ||| 90 ]
+     ===Swap 40 (at index 2) with larger of children (indices 5 and 6)===&gt;
+   0    1    2    3    4    5    6    7    8    9   10 ||| 11
+[ 80 | 70 | 50 | 30 | 60 | 40 | 20 | 10 | 20 | 15 | 50 ||| 90 ]</pre>
+</div>
+<div class="SIntrapara">
+Notice that even though index 5’s left child should be at index 11, we have to remember
+that we’ve <span class="emph">removed</span> <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">90</span><span class="RktMeta"></span></span></span> from the heap, so index 11 is no longer part of our heap (which we
+denote with extra vertical bars).
+</div>
+<p></p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+Removing maximum:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">   0    1    2    3    4    5    6    7    8    9   10 ||| 11
+[ 80 | 70 | 50 | 30 | 60 | 40 | 20 | 10 | 20 | 15 | 50 ||| 90 ]
+     ===Swap root item with last item in heap===&gt;
+   0    1    2    3    4    5    6    7    8    9 ||| 10   11
+[ 50 | 70 | 50 | 30 | 60 | 40 | 20 | 10 | 20 | 15 ||| 80 | 90 ]
+     ===Swap 50 (at index 0) with larger of children (indices 1 and 2)===&gt;
+   0    1    2    3    4    5    6    7    8    9 ||| 10   11
+[ 70 | 50 | 50 | 30 | 60 | 40 | 20 | 10 | 20 | 15 ||| 80 | 90 ]
+     ===Swap 50 (at index 1) with larger of children (indices 3 and 4)===&gt;
+   0    1    2    3    4    5    6    7    8    9 ||| 10   11
+[ 70 | 60 | 50 | 30 | 50 | 40 | 20 | 10 | 20 | 15 ||| 80 | 90 ]
+     ===Swap 50 (at index 4) with larger of children (index 9)===&gt;
+   0    1    2    3    4    5    6    7    8    9 ||| 10   11
+[ 70 | 60 | 50 | 30 | 50 | 40 | 20 | 10 | 20 | 15 ||| 80 | 90 ]</pre>
+</div>
+<p></p>
+</li>
+<li>
+<p></p>
+<div class="SIntrapara">
+Let’s remove the maximum one more time, just for practice:
+</div>
+<div class="SIntrapara">
+<pre class="AsciiArt">   0    1    2    3    4    5    6    7    8    9 ||| 10   11
+[ 70 | 60 | 50 | 30 | 50 | 40 | 20 | 10 | 20 | 15 ||| 80 | 90 ]
+     ===Swap root item with last item in heap===&gt;
+   0    1    2    3    4    5    6    7    8 |||  9   10   11
+[ 15 | 60 | 50 | 30 | 50 | 40 | 20 | 10 | 20 ||| 70 | 80 | 90 ]
+     ===Swap 15 (at index 0) with larger of children (indices 1 and 2)===&gt;
+   0    1    2    3    4    5    6    7    8 |||  9   10   11
+[ 60 | 15 | 50 | 30 | 50 | 40 | 20 | 10 | 20 ||| 70 | 80 | 90 ]
+     ===Swap 15 (at index 1) with larger of children (indices 3 and 4)===&gt;
+   0    1    2    3    4    5    6    7    8 |||  9   10   11
+[ 60 | 50 | 50 | 30 | 15 | 40 | 20 | 10 | 20 ||| 70 | 80 | 90 ]</pre>
+</div>
+<p></p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+What’s accumulating in the tail of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>, after each removal?
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<h5 class="heading">
+29.7
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Heapsort)"></a>Heapsort<span class="button-group"><a href="#(part._.Heapsort)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+As a convenient side-effect of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">removeMax</span><span class="RktMeta"></span></span></span> procedure, the tail of our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>
+accumulates the elements of our list in sorted order.  In other words, if we remove every item from
+our heap, we’ll wind up with a sorted list!  This suggests a particularly efficient, and amazingly simple, algorithm for sorting:
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+<tr>
+<td>
+<p>
+<span class="stt">To heapsort a list:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">Build a heap from all the items in the list.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">Remove all the items from the heap.</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="SIntrapara">
+How do we build a heap?  Well, we start with an empty heap, and add items into it one by one.  Suppose we have an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> of data.
+We can represent the empty heap as just the first zero items of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span>.  We can add the first item of data (at index <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">0</span><span class="RktMeta"></span></span></span>)
+to the empty heap easily enough —<wbr> there’s nothing to do.  To add the next item of data (at index <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">1</span><span class="RktMeta"></span></span></span>) to the heap, we need to add it to the end
+of the heap (i.e., put it at index <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">1</span><span class="RktMeta"></span></span></span>, where it already is), and then run <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">upheap</span><span class="RktMeta"></span></span></span> on it.  In general,
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+<tr>
+<td>
+<p>
+<span class="stt">To build a heap from an ArrayList:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">For each i from 1 to the size of the ArrayList,</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">upheap(i)</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt">To upheap at index idx:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">Let parentIdx = floor((idx - 1) / 2)</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">If the item at index idx is greater than the item at index parentIdx:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">Swap items at indices idx and parentIdx</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">upheap(parentIdx)</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt">To remove the maximum item:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">Swap the item at index 0 with the item at the index of the last heap item</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">downheap(0)</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt">To downheap at index idx:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">Let leftIdx = 2 * idx + 1</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">Let rightIdx = 2 * idx + 2</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">If the item at index idx is less than either of the items at leftIdx or rightIdx:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">Let biggestIdx = index of the largest of the items at leftIdx or rightIdx</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">Swap items at indices idx and biggestIdx</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">downheap(biggestIdx)</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+<p>
+How efficient is heapsort?  Building the heap inserts \(n\) items, and each insertion costs \(O(\log_2 n)\) work,
+so building takes \(O(n\log_2 n)\).  Removing all the items removes \(n\) items, and each removal costs \(O(\log_2 n)\) work,
+so all the removals together take \(O(n\log_2 n)\) work also...so the entire algorithm takes \(O(n\log_2 n)\) work.
+Notice that unlike quicksort, there is no bad worst-case behavior, and unlike merge-sort, there’s no need for any additional
+storage.  Heapsort is an efficient, in-place sorting algorithm.
+</p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Implement all the algorithms sketched above in Java.
+</div>
+<p></p>
+</blockquote>
+<p></p>
+<div class="SIntrapara">
+There is another way to build a heap, which in practice is slightly more efficient than the upheap-based solution above:
+</div>
+<div class="SIntrapara">
+<table cellspacing="0" cellpadding="0" class="SVerbatim">
+<tbody>
+<tr>
+<td>
+<p>
+<span class="stt">To build a heap from an ArrayList:</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">For each i from the (size of the array list - 1) / 2 down to 0,</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">downheap(i)</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="SIntrapara">
+Why does this work?  The last \(n/2\) items in the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ArrayList</span><span class="RktMeta"></span></span></span> are all leaves of the tree (why?), and therefore
+are already valid heaps of size 1 (again, why?).  Therefore, if we look at the heaps starting <span class="emph">at their parents</span>,
+the only place the heap-ordering property could be violated is at the parents themselves, and we have <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">downheap</span><span class="RktMeta"></span></span></span> to
+restore the heap-ordering property when the parent is out of order.  And since we count from the middle of the list down to the
+front, by the time we get to the front items of the list, we’ll already have fixed up their children to be valid heaps,
+so again the only place the heap-ordering property could be violated is at those front items, so again <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">downheap</span><span class="RktMeta"></span></span></span> will
+fix up any problems.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Try working through both versions of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">buildHeap</span><span class="RktMeta"></span></span></span>, using the data <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">[</span><span class="ProfjLiteral">1</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">6</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">7</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">8</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">9</span><span class="ProfjKeyword">]</span><span class="RktMeta"></span></span></span>.
+Do you wind up with the same heaps?  If not, do you nevertheless wind up with two valid heaps?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Try finishing the heapsort algorithm on the two heaps you just obtained.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Try working through heapsort on the data <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">[</span><span class="ProfjLiteral">9</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">8</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">7</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">6</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">5</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">4</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjKeyword">]</span><span class="RktMeta"></span></span></span>.  (Hint: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">buildHeap</span><span class="RktMeta"></span></span></span>
+should be particularly easy!)
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture28.html" title="backward to &quot;Lecture 28: Quicksort and Mergesort&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture30.html" title="forward to &quot;Lecture 30: Breadth-first search and Depth-first search on graphs&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

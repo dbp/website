@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script src="codemirror.js"></script>
+  <script src="python.js"></script>
+  <script src="runmode.js"></script>
+  <script src="setup-page.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>
+   dbp.io
+  </title>
+  <link rel="stylesheet" type="text/css" href="scribble.css" title="default">
+  <link rel="stylesheet" type="text/css" href="racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-style.css" title="default">
+  <link rel="stylesheet" type="text/css" href="manual-racket.css" title="default">
+  <link rel="stylesheet" type="text/css" href="extra-styles.css" title="default">
+  <link rel="stylesheet" type="text/css" href="codemirror.css" title="default">
+  <script type="text/javascript" src="scribble-common.js"></script>
+  <script type="text/javascript" src="manual-racket.js"></script>
+ </head>
+ <body id="scribble-racket-lang-org">
+  <div class="tocset">
+   <div class="tocview">
+    <div class="tocviewlist tocviewlisttopspace">
+     <div class="tocviewtitle">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td style="width: 1em;">
+          <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">►</a>
+         </td>
+         <td></td>
+         <td>
+          <a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br>
+Introduction to Class-<wbr>based Program Design</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="tocviewsublisttop" style="display: none;" id="tocview_0">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="General.html" class="tocviewlink" data-pltdoc="x">General</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lectures.html" class="tocviewselflink" data-pltdoc="x">Lectures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublist" style="display: block;" id="tocview_1">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture1.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 1:</span> Data Definitions in Java</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture2.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 2:</span> Data Definitions:<span class="mywbr"> &nbsp;</span> Unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture3.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 3:</span> Methods for simple classes</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture4.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 4:</span> Methods for unions</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture5.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 5:</span> Methods for self-<wbr>referential lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture6.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 6:</span> Accumulator methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture7.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 7:</span> Accumulator methods, continued</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture8.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 8:</span> Practice Design</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture9.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 9:</span> Abstract classes and inheritance</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture10.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 10:</span> Customizing constructors for correctness and convenience</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture11.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 11:</span> Defining sameness for complex data, part 1</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture12.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 12:</span> Defining sameness for complex data, part 2</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture13.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 13:</span> Abstracting over behavior</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture14.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 14:</span> Abstractions over more than one argument</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture15.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 15:</span> Abstracting over types</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture16.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 16:</span> Visitors</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture17.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 17:</span> Mutation</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture19.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 19:</span> Mutation, aliasing and testing</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture20.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 20:</span> Mutable data structures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture21.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 21:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture22.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 22:</span> Array<span class="mywbr"> &nbsp;</span>Lists</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture23.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 23:</span> For-<wbr>each loops and Counted-<wbr>for loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture24.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 24:</span> While loops</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture25.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 25:</span> Iterator and Iterable</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture26.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 26:</span> Hashing and Equality</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture27.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 27:</span> Introduction to Big-<span style="font-style: italic">O</span> Analysis</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture28.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 28:</span> Quicksort and Mergesort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture29.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 29:</span> Priority Queues and Heapsort</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture30.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 30:</span> Breadth-<wbr>first search and Depth-<wbr>first search on graphs</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture31.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 31:</span> Dijkstra’s Algorithm for single-<wbr>source shortest paths</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture32.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 32:</span> Minimum Spanning Trees</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right"></td>
+         <td>
+          <a href="lecture33.html" class="tocviewlink" data-pltdoc="x"><span class="LectureNum">Lecture 33:</span> Implementing Objects</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="tocviewlist">
+     <table cellspacing="0" cellpadding="0">
+      <tbody>
+       <tr>
+        <td style="width: 1em;">
+         <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">►</a>
+        </td>
+        <td></td>
+        <td>
+         <a href="" class="tocviewselflink" data-pltdoc="x"><span class="LectureNum">Lecture 18:</span> Mutation inside structures</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <div class="tocviewsublistbottom" style="display: none;" id="tocview_2">
+      <table cellspacing="0" cellpadding="0">
+       <tbody>
+        <tr>
+         <td align="right">
+          18.1&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Keeping_mutation_contained_in_the_class_where_it_matters%29" class="tocviewlink" data-pltdoc="x">Keeping mutation contained in the class where it matters</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          18.2&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Testing_methods_with_side_effects__test_fixtures%29" class="tocviewlink" data-pltdoc="x">Testing methods with side effects:<span class="mywbr"> &nbsp;</span> test fixtures</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          18.3&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Subtleties_of_mutable_data%29" class="tocviewlink" data-pltdoc="x">Subtleties of mutable data</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          18.4&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Interlude__.Using_void_for_test_methods%29" class="tocviewlink" data-pltdoc="x">Interlude:<span class="mywbr"> &nbsp;</span> Using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span> for test methods</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          18.5&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.More_error_handling__.Books_written_by_the_wrong_.Authors%29" class="tocviewlink" data-pltdoc="x">More error handling:<span class="mywbr"> &nbsp;</span> <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s written by the wrong <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          18.6&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Automatically_creating_the_cycles%29" class="tocviewlink" data-pltdoc="x">Automatically creating the cycles</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          18.7&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Indirect_cycles%29" class="tocviewlink" data-pltdoc="x">Indirect cycles</a>
+         </td>
+        </tr>
+        <tr>
+         <td align="right">
+          18.8&nbsp;
+         </td>
+         <td>
+          <a href="#%28part._.Discussion%29" class="tocviewlink" data-pltdoc="x">Discussion</a>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="tocsub">
+    <div class="tocsubtitle">
+     On this page:
+    </div>
+    <table class="tocsublist" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+        <span class="tocsublinknumber">18.1
+        <tt>
+         &nbsp;
+        </tt>
+       </span>
+       <a href="#%28part._.Keeping_mutation_contained_in_the_class_where_it_matters%29" class="tocsubseclink" data-pltdoc="x">Keeping mutation contained in the class where it matters</a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <span class="tocsublinknumber">18.2
+       <tt>
+        &nbsp;
+       </tt>
+      </span>
+      <a href="#%28part._.Testing_methods_with_side_effects__test_fixtures%29" class="tocsubseclink" data-pltdoc="x">Testing methods with side effects:<span class="mywbr"> &nbsp;</span> test fixtures</a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <span class="tocsublinknumber">18.3
+      <tt>
+       &nbsp;
+      </tt>
+     </span>
+     <a href="#%28part._.Subtleties_of_mutable_data%29" class="tocsubseclink" data-pltdoc="x">Subtleties of mutable data</a>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <span class="tocsublinknumber">18.4
+     <tt>
+      &nbsp;
+     </tt>
+    </span>
+    <a href="#%28part._.Interlude__.Using_void_for_test_methods%29" class="tocsubseclink" data-pltdoc="x">Interlude:<span class="mywbr"> &nbsp;</span> Using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span> for test methods</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <span class="tocsublinknumber">18.5
+    <tt>
+     &nbsp;
+    </tt>
+   </span>
+   <a href="#%28part._.More_error_handling__.Books_written_by_the_wrong_.Authors%29" class="tocsubseclink" data-pltdoc="x">More error handling:<span class="mywbr"> &nbsp;</span> <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s written by the wrong <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s</a>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="tocsublinknumber">18.6
+   <tt>
+    &nbsp;
+   </tt>
+  </span>
+  <a href="#%28part._.Automatically_creating_the_cycles%29" class="tocsubseclink" data-pltdoc="x">Automatically creating the cycles</a>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="tocsublinknumber">18.7
+  <tt>
+   &nbsp;
+  </tt>
+ </span>
+ <a href="#%28part._.Indirect_cycles%29" class="tocsubseclink" data-pltdoc="x">Indirect cycles</a>
+</td>
+</tr>
+<tr>
+<td>
+ <span class="tocsublinknumber">18.8
+ <tt>
+  &nbsp;
+ </tt>
+</span>
+<a href="#%28part._.Discussion%29" class="tocsubseclink" data-pltdoc="x">Discussion</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="maincolumn">
+<div class="main">
+<div class="versionbox">
+<span class="version">8.14</span>
+</div>
+<div class="navsettop">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture17.html" title="backward to &quot;Lecture 17: Mutation&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture19.html" title="forward to &quot;Lecture 19: Mutation, aliasing and testing&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+<h4 class="heading">
+<a name="(part._)"></a><span class="LectureNum">Lecture 18:</span> Mutation inside structures<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h4>
+<p class="boxed">
+Designing methods to modify objects, testing mutation methods, and indirect cycles
+</p>
+<p>
+In the <a href="lecture17.html" data-pltdoc="x">last lecture</a>, we successfully constructed a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> and an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> that referred to each other
+directly, creating a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">cyclic</span><span class="RktMeta"></span></span></span> data structure.  But we only managed to construct that cycle in the
+examples class, which isn’t particularly useful if we want to use these cyclic data structures anywhere else in our
+program.   In this lecture, we’ll see a better way to construct these cycles that is more reusable, more testable,
+and less error-prone.
+</p>
+<h5 class="heading">
+18.1
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Keeping_mutation_contained_in_the_class_where_it_matters)"></a>Keeping mutation contained in the class where it matters<span class="button-group"><a href="#(part._.Keeping_mutation_contained_in_the_class_where_it_matters)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Let’s revisit the test we wrote in the last lecture, that created our first cycle between
+a book and an author:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExamplesClass
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testBookAuthorCycle</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">knuth</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Donald"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Knuth"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1938</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">taocp</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"The Art of Computer Programming (volume 1)"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">taocp</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+But Knuth has written many books, not just one.  So we’ll need to reuse our example objects:
+it makes sense to change them to be defined as fields of the examples class, rather than local variables.
+(Implicitly, this is why we’ve been defining our example data as fields of the examples classes all along,
+so that they would be available and in scope for all of our tester methods.)  So our examples class
+might look something like this:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ExampleBooks</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">knuth</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Donald"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Knuth"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1938</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// no books yet
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">taocp1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"The Art of Computer Programming (volume 1)"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">taocp2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"The Art of Computer Programming (volume 2)"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp1</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp2</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="ProfjDefault">.</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Since we’ve lifted our definitions out of the test methods, there’s very little code that’s
+needed in the test methods themselves:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExampleBooks
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp1</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp2</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Even this little bit of code is clearly repetitive, though.  Worse, it’s not particularly
+clear <span class="emph">why</span> we have these assignment statements: because we’ve lifted the definitions
+of the data out of the method, the assignment statements are no longer adjacent to the declarations
+of the data they are modifying, so it’s no longer “obvious” that we’re trying to create a cycle.
+We should abstract these assignments into a helper method whose purpose is more explicit.
+</div>
+<p></p>
+<p>
+The first question we have to address is, what should this helper method do?  We want it
+to modify the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> to update its <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> field.  Second, where should this
+method be defined?  It isn’t really a method that belongs in the examples class; it applies
+to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s and we want to be able to use it throughout
+our program, so the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> class seems the most appropriate.
+</p>
+<p>
+Third, what value should this method return?  We have the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> object we want to modify.
+We know what <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> we want to use.  Unlike every single method we have defined so far,
+we really don’t need this method to construct a new value for us.  All we want it to do is
+to have the side effect of modifying the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> —<wbr> we don’t really want a return value at all!
+To accommodate this situation, Java defines a new keyword, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span>, which can be used to
+indicate that a method does not return any value.  This type tells the reader of the code
+that the method’s purpose must be solely to have side effects —<wbr> after all, if a method had no side
+effects and returned no value, of what use would it be?
+</p>
+<p></p>
+<div class="SIntrapara">
+When we design methods with side effects, we need to change how we phrase our purpose statement.
+Instead of saying what the method <span class="emph">computes as a result</span>,
+we’ll specify what the method’s <span class="emph">side effects</span> are:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Author
+</span><span class="ProfjComment">// EFFECT: modifies this Author's book field to refer to the given Book
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">b</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">b</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Now we can rewrite our two test methods to use this helper instead of directly
+writing assignment statements:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExampleBooks
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp1</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp2</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+Notice that the method invocation <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span> is just standing by itself on a
+line of its own.  We are treating this method call <span class="emph">as a statement</span>, something that runs
+and computes no value —<wbr> which makes sense, since we just defined this method not to return
+a value.
+</p>
+<p>
+These tests are now much better-written code, in that we know (by looking at the effect
+statement for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span>) what we expect the tests to accomplish.
+But are these tests good enough?
+</p>
+<h5 class="heading">
+18.2
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Testing_methods_with_side_effects__test_fixtures)"></a>Testing methods with side effects: test fixtures<span class="button-group"><a href="#(part._.Testing_methods_with_side_effects__test_fixtures)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+The tests above only check that after calling <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span>, there is a cycle
+from the author to its book back to the author.  But how do we know that the cycle
+was actually created by <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span>?  Perhaps the cycle was already there
+(created at some earlier point in our program’s execution), and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span>
+actually did nothing?  How can we be certain that the side effect we wanted to happen
+actually did happen?
+</p>
+<p></p>
+<div class="SIntrapara">
+The only way to be sure that a particular piece of code is responsible for causing
+a particular side effect to happen is to write tests <span class="emph">both before and after</span>
+running the code being tested.  Each test must be treated like a carefully controlled
+experiment: we must
+</div>
+<div class="SIntrapara">
+<ul>
+<li>
+<p>
+First, ensure the initial conditions of the test are in a known state,
+</p>
+</li>
+<li>
+<p>
+Second, run the code being tested and let it modify those initial conditions, and
+</p>
+</li>
+<li>
+<p>
+Last, test that the expected changes to the state of the program have occurred.
+</p>
+</li>
+</ul>
+</div>
+<div class="SIntrapara">
+In our case, we need to be sure that <span class="emph">before</span> invoking <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span>, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>’s
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> was <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">null</span><span class="RktMeta"></span></span></span>, and <span class="emph">after</span> running it, that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span>
+was the intended one and that there is now a cycle:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExampleBooks
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp1</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// 1. Check that the initial conditions are as expected
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">initialConditions</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// 2. Modify them
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// 3. Check that the expected changes have occurred
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">finalConditions</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">initialConditions</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">finalConditions</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="refpara">
+<blockquote class="refcolumn">
+<blockquote class="refcontent">
+<p>
+It’s still not thorough enough: to <span class="emph">really</span> be complete,
+we ought to test that nothing else in the program has changed.
+That’s impractical, though, so we use our judgement and the purpose
+and effect statements of the code being tested to guide us in writing
+effective tests.
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+<div class="SIntrapara">
+This test is far more thorough than our earlier one.  Let’s write the second test for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span>:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExampleBooks
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp2</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// 1. Check that the initial conditions are as expected
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">initialConditions</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// 2. Modify them
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// 3. Check that the expected changes have occurred
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">finalConditions</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">initialConditions</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">finalConditions</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+Bizarrely, if we run these tests in Eclipse it reports test failures.  Even weirder, if we run
+the tests repeatedly, it might report <span class="emph">different</span> failures each time!  What’s happening?
+</p>
+<p>
+The tester library creates an instance of our examples class, and then runs our test methods one after another.
+When the examples instance is created, our code creates the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> object and the two <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> objects.
+Suppose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">testTaocp1</span><span class="RktMeta"></span></span></span> runs first.  It checks that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">null</span><span class="RktMeta"></span></span></span> (which it is),
+then updates it and checks that the update happened correctly (which it does).  Then <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">testTaocp2</span><span class="RktMeta"></span></span></span> runs.
+When it checks the initial conditions, we see that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> is not <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">null</span><span class="RktMeta"></span></span></span>: it’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp1</span><span class="RktMeta"></span></span></span>,
+just as we set it in the previous test method!  Moreover, because the tester library (deliberately) does
+not guarantee what order it runs our test methods in, we might see that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">testTaocp2</span><span class="RktMeta"></span></span></span> runs first, and so
+the test failure happens in <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">testTaocp1</span><span class="RktMeta"></span></span></span>.
+</p>
+<p></p>
+<div class="SIntrapara">
+To fix this, we cannot merely <span class="emph">check</span> that the initial conditions of our test are good: we have to
+actually <span class="emph">ensure</span> that they are.  In particular, we need to “reset” our examples before each test
+of a method with side effects, to make sure that we’re testing the side effects of just that method and
+not the cumulative side effects of preceding tests.  But writing the code to re-initialize every
+example at the start of every test is tedious and repetitive.  Instead, we should abstract that initialization
+into a helper method, which we invoke at the start of every test method:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ExampleBooks</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">taocp1</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">taocp2</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjError">&nbsp;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// EFFECT: Sets up the initial conditions for our tests, by re-initializing
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// knuth, taocp1 and taocp2
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">initTestConditions</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjString">"Donald"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Knuth"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1938</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"The Art of Computer Programming (volume 1)"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">100</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">2</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"The Art of Computer Programming (volume 2)"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">120</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">3</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp1</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// 1. Set up the initial conditions
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initTestConditions</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// 2. Modify them
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// 3. Check that the expected changes have occurred
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTaocp2</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// 1. Set up the initial conditions
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initTestConditions</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// 2. Modify them
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// 3. Check that the expected changes have occurred
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">return</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">      </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Now all tests pass, regardless of the order in which they run.  Setting up a fixed reference point
+against which to test methods with side effects is called creating a <span class="emph">test fixture</span>, and it is
+an essential step in writing consistent, reproducible test cases.
+</div>
+<p></p>
+<h5 class="heading">
+18.3
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Subtleties_of_mutable_data)"></a>Subtleties of mutable data<span class="button-group"><a href="#(part._.Subtleties_of_mutable_data)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+In our current model of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s, each <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> can
+only write one book —<wbr> there isn’t any place in our data type definitions to
+include additional books.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+How could we revise our data types to accommodate more prolific authors?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+As a result, we might set ourselves up for a particularly subtle form of bug.
+Consider the following test, where we try to have one author write two books:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExampleBooks
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testTwoBooks</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initTestConditions</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 1: check that knuth hasn't written any books yet
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Modify knuth to know about volume 1
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 2: check that knuth's book was written by knuth
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Modify knuth to know about volume 2
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 3: check that knuth's new book was written by knuth
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 4: check that both books' authors wrote those books
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test4</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test4</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Which of these tests pass, and which of these tests fail?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+When we initialize the test conditions, the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> field of the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span> object is indeed initialized
+to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">null</span><span class="RktMeta"></span></span></span>, so test 1 definitely passes.  Both <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Books</span><span class="RktMeta"></span></span></span> are created with
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span> as their <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">author</span><span class="RktMeta"></span></span></span>.  And after the first call to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span>,
+it is definitely the case that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp1</span><span class="RktMeta"></span></span></span>, so
+test 2 passes.  After the second call, test 3 ought to pass by the
+same reasoning.  Unfortunately, test 4 fails.  We know that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">author</span><span class="RktMeta"></span></span></span>
+is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>, and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> is currently <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span>, so the second
+part of test 4 passes.  But <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp1</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">author</span><span class="RktMeta"></span></span></span> is also <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>,
+and we just determined that <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> is currently <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span>,
+so the first part of test 4 fails.
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+It would be nice if we could prevent this sort of data corruption bug from happening,
+perhaps by detecting if an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> field has already been initialized,
+and if so throw an error.  Since we have a helper method that we use every time we want
+to modify an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> field, we can simply change our implementation
+of that method:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Author
+</span><span class="ProfjComment">// EFFECT: modifies this Author's book field to refer to the given Book
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">b</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">!=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">RuntimeException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"trying to add second book to an author"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">b</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+Now we can rewrite our tests above to invoke this new method instead of assigning directly:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExampleBooks
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testBookAuthors</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initTestConditions</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 1: check that knuth hasn't written any books yet
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Modify knuth to refer to volume 1
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 2: check that knuth's book was written by knuth
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Try to modify knuth to refer to volume 2
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjComment">// Crashes with an exception
+</span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p></p>
+<div class="SIntrapara">
+That’s better: now instead of corrupting our data, our program signals an error.
+We just have to check for that exception, using the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkException</span><span class="RktMeta"></span></span></span> method
+(which is much like the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkConstructorException</span><span class="RktMeta"></span></span></span> method we used in <a href="lecture10.html" data-pltdoc="x">Lecture 10</a>):
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExampleBooks
+</span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testBookAuthors</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initTestConditions</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 1: check that knuth hasn't written any books yet
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Modify knuth to refer to volume 1
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 2: check that knuth's book was written by knuth
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 3: check that modifying knuth to refer to volume 2 fails with exception
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkException</span><span class="ProfjKeyword">(</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">RuntimeException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"trying to add second book to an author"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"updateBook"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 4: check that knuth has not been modified
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">boolean</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test4</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">return</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test1</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test2</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test3</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">&amp;&amp;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">test4</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+18.4
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Interlude__.Using_void_for_test_methods)"></a>Interlude: Using <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span> for test methods<span class="button-group"><a href="#(part._.Interlude__.Using_void_for_test_methods)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+All along, our test methods have been returning <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="RktMeta"></span></span></span>s, but we’ve never
+actually been particularly interested in the actual return values —<wbr> they just get
+passed back to the tester library.  These last few examples have somewhat highlighted
+the awkwardness of it: since we have to return a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="RktMeta"></span></span></span>, we have to define
+all these rather contrived <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">test</span><span class="ProfjError">#</span><span class="RktMeta"></span></span></span> variables to hold the results of invoking
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkExpect</span><span class="RktMeta"></span></span></span>, so that we can return their result at the end...
+But the tester framework clearly is doing a lot more for us than looking at a simple <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="RktMeta"></span></span></span>
+value: it records the line number of the tests that failed and the values of the arguments, it
+counts how many tests passed or failed, etc.  (In other words, the tester library must be using
+side effects internally to keep track of all this extra information, since the one thing it
+<span class="emph">doesn’t</span> bother to keep track of is that pesky <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="RktMeta"></span></span></span> result!)
+</p>
+<p></p>
+<div class="SIntrapara">
+Now that we have introduced <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span>, we can clean this up substantially.  The tester
+library will happily run any test methods we define that return <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span> instead of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">boolean</span><span class="RktMeta"></span></span></span>.
+So we can eliminate all those <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">test</span><span class="ProfjError">#</span><span class="RktMeta"></span></span></span> variables, and just invoke the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">checkExpect</span><span class="RktMeta"></span></span></span>
+methods as statements, which run the tests for the sole purpose of recording their pass/failure
+as a side effect:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In ExampleBooks
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testBookAuthors</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initTestConditions</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 1: check that knuth hasn't written any books yet
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Modify knuth to refer to volume 1
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 2: check that knuth's book was written by knuth
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 3: check that modifying knuth to refer to volume 2 fails with exception
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkException</span><span class="ProfjKeyword">(</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">RuntimeException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"trying to add second book to an author"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"updateBook"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp2</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 4: check that knuth has not been modified
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<h5 class="heading">
+18.5
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.More_error_handling__.Books_written_by_the_wrong_.Authors)"></a>More error handling: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s written by the wrong <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s<span class="button-group"><a href="#(part._.More_error_handling__.Books_written_by_the_wrong_.Authors)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+Suppose in addition to Knuth’s books we also created an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> and a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>
+representing Shakespeare’s play <span class="emph">The Comedy of Errors</span>.  We would like to prevent
+setting <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">shakespeare</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp1</span><span class="RktMeta"></span></span></span> —<wbr> it’s not his book!  In other words,
+we’d like this test to succeed:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In examples class
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">testBookAuthors</span><span class="ProfjKeyword">(</span><span class="ProfjType">Tester</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">t</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">initTestConditions</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shakespeare</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjString">"William"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"Shakespeare"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1564</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">tcoe</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjString">"The Comedy of Errors"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">42</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">1</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">shakespeare</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 1: check that neither knuth nor shakespeare have written any books yet
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">knuth</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkExpect</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">shakespeare</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjComment">// Test 2: check that setting shakespeare's book to taocp fails
+</span><span class="ProfjWhiteSpace">  </span><span class="ProfjIdentifier">t</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">checkException</span><span class="ProfjKeyword">(</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">RuntimeException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"book was not written by this author"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">,</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjIdentifier">shakespeare</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjString">"updateBook"</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">taocp1</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+Fortunately, we’ve already designed the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span> helper method, so
+we know precisely where in our code to add the handling of this new error case:
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Try to modify <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span> yourself to detect this mistake and throw the appropriate error.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Author
+</span><span class="ProfjComment">// EFFECT: modifies this Author's book field to refer to the given Book
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">b</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">!=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjLiteral">null</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">RuntimeException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"trying to add second book to an author"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjIdentifier">b</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">RuntimeException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"book was not written by this author"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">b</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<p></p>
+<p>
+Once again, defining helper methods has unexpected benefits: by being the one and only place
+in our code where we actually do the mutation, we therefore only have one place to fix
+if we decide to change how that mutation should be done.
+</p>
+<h5 class="heading">
+18.6
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Automatically_creating_the_cycles)"></a>Automatically creating the cycles<span class="button-group"><a href="#(part._.Automatically_creating_the_cycles)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+It’s somewhat silly for us to have to keep specifying <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">null</span><span class="RktMeta"></span></span></span> as an argument to the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>
+constructor, since it’s <span class="emph">always</span> going to be <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">null</span><span class="RktMeta"></span></span></span>.  And it’s annoying and error-prone
+for us to construct a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> and then have to remember to immediately call <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span>
+on the relevant author.  Both of these issues seem like design flaws in how we’ve written our
+constructors, and we can fix that mistake easily enough.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Revise the constructor for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> so that it does not take a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> parameter,
+but still initializes the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> field to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">null</span><span class="RktMeta"></span></span></span>.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+The constructor for <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s does not need to change its signature: it should still
+take an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> as an argument.  But it should fix up the author’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> field
+automatically for us: once we’ve created a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>, we’ll therefore know that the
+relevant <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> is in a consistent state.  Conveniently for us, we have a helper
+method to update the book of an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>...but what <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> should we use?
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quantity</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Book</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quantity</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">ath</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">title</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">title</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">price</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">price</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">quantity</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">quantity</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">ath</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjComment">// NEW! Fix up the author for us, using *this* newly-constructed Book
+</span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">updateBook</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+If we change our constructor to include this improvement, what of our earlier
+example code breaks?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+Now we can’t even construct <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span>, because when the constructor tries to update
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> via <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span>, we’ll get an exception.
+</div>
+<p></p>
+<h5 class="heading">
+18.7
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Indirect_cycles)"></a>Indirect cycles<span class="button-group"><a href="#(part._.Indirect_cycles)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p></p>
+<div class="SIntrapara">
+The solution, it seems, is to allow <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s to have multiple <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s to their
+name.  (We can also modify <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s to be written by multiple <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span>s.)
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Revise the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> class to have an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> field instead of merely
+a single <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> field.  In your constructor, what value should you use instead of
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjLiteral">null</span><span class="RktMeta"></span></span></span> to initialize this new <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span> field?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+At birth, an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Author</span><span class="RktMeta"></span></span></span> has not yet written any <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s.  But we have a perfectly
+good value to represent a list of no <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span>s: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="RktMeta"></span></span></span>.
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">class</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">Author</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">first</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">last</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">books</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjType">Author</span><span class="ProfjKeyword">(</span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">fst</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">String</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">lst</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjPrimType">int</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">first</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">fst</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">last</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">lst</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">yob</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">yob</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">books</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">MtList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Revise <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span> to be a new method, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">addBook</span><span class="RktMeta"></span></span></span>, that adds the new book to the list of books.
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+The reason we changed the <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">book</span><span class="RktMeta"></span></span></span> field into an <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">IList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span> field
+was to permit multiple books per author, so “adding a second book” should no longer throw an error,
+but we still have to check for books written by the wrong author.  The assignment statement
+now becomes slightly more subtle:
+</div>
+<div class="SIntrapara">
+<div class="JavaHighlightBlock">
+<blockquote class="SCodeFlow">
+<table cellspacing="0" cellpadding="0" class="RktBlk">
+<tbody>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjComment">// In Author
+</span><span class="ProfjComment">// EFFECT: modifies this Author's book field to refer to the given Book
+</span><span class="ProfjKeyword">void</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">addBook</span><span class="ProfjKeyword">(</span><span class="ProfjType">Book</span><span class="ProfjWhiteSpace"> </span><span class="ProfjIdentifier">b</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">if</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">!</span><span class="ProfjIdentifier">b</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">author</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">sameAuthor</span><span class="ProfjKeyword">(</span><span class="ProfjKeyword">this</span><span class="ProfjKeyword">)</span><span class="ProfjKeyword">)</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">throw</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">RuntimeException</span><span class="ProfjKeyword">(</span><span class="ProfjString">"book was not written by this author"</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">else</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">{</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">    </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">books</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">=</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">new</span><span class="ProfjWhiteSpace"> </span><span class="ProfjType">ConsList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="ProfjKeyword">(</span><span class="ProfjIdentifier">b</span><span class="ProfjDefault">,</span><span class="ProfjWhiteSpace"> </span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">books</span><span class="ProfjKeyword">)</span><span class="ProfjDefault">;</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjWhiteSpace">  </span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+<tr>
+ <td>
+  <span class="RktMeta"></span><span class="ProfjKeyword">}</span><span class="RktMeta"></span>
+ </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+At first glance, it might look like we are creating a cycle in the book list itself:
+it seems like we’re creating a new <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span> whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span> is the given book,
+and whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span> is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span>, which is a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span> whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span>
+is the given book, and whose rest is <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span>, ...
+What’s wrong with this reasoning?
+</div>
+<p></p>
+</blockquote>
+</div>
+<div class="SIntrapara">
+This assignment statement only makes sense if we remember the rules from last lecture about
+how assignment statements work: they evaluate the right hand sides completely,
+and only then do they modify their left hand sides.  So this assignment statement
+creates a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span> object whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span> is the given book, and whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span>
+is <span class="emph">the current list of books by this author</span>, and then sets <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span>
+to this new <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Cons</span><span class="RktMeta"></span></span></span> object.  In other words, we’ve modified <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">this</span><span class="ProfjDefault">.</span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span>
+to include the given book at the front of the list.
+</div>
+<p></p>
+<p>
+We can now use <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">addBook</span><span class="RktMeta"></span></span></span> in the constructor of <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">Book</span><span class="RktMeta"></span></span></span> (instead of our now-defunct <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">updateBook</span><span class="RktMeta"></span></span></span> method),
+and now our <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">initTestConditions</span><span class="RktMeta"></span></span></span> method can successfully create <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp1</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span>.
+</p>
+<p></p>
+<div class="SIntrapara">
+Notice that this new data definition still creates cycles in our data, but it’s now
+<span class="emph">indirect</span>: after adding both <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp1</span><span class="RktMeta"></span></span></span> and <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span> to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span> field,
+we’ve actually created two cycles: <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span>’s <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">author</span><span class="RktMeta"></span></span></span> refers to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>, whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span>
+field refers to a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> object, whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span> field refers to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp2</span><span class="RktMeta"></span></span></span> again.  Also, <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp1</span><span class="RktMeta"></span></span></span>’s
+<span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">author</span><span class="RktMeta"></span></span></span> field refers to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">knuth</span><span class="RktMeta"></span></span></span>, whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">books</span><span class="RktMeta"></span></span></span> field refers to a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> object, whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">rest</span><span class="RktMeta"></span></span></span>
+field refers to a second <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjType">ConsList</span><span class="ProfjKeyword">&lt;</span><span class="ProfjType">Book</span><span class="ProfjKeyword">&gt;</span><span class="RktMeta"></span></span></span> object, whose <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">first</span><span class="RktMeta"></span></span></span> field refers back to <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjIdentifier">taocp1</span><span class="RktMeta"></span></span></span>.
+</div>
+<div class="SIntrapara">
+<blockquote class="IncerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Incercise">
+Do Now!
+</p>
+</div>
+<div class="SIntrapara">
+Draw the object diagram that’s described above.
+</div>
+<p></p>
+</blockquote>
+</div>
+<p></p>
+<h5 class="heading">
+18.8
+<tt>
+&nbsp;
+</tt>
+<a name="(part._.Discussion)"></a>Discussion<span class="button-group"><a href="#(part._.Discussion)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span>
+</h5>
+<p>
+Using mutation well can be a subtle and error-prone process.  We’ve seen how how to define helper methods
+whose reason for existence is their side effects, i.e., they return nothing (a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjKeyword">void</span><span class="RktMeta"></span></span></span> return type) and
+mutate some object.  Defining these methods then requires testing them, and testing methods with side effects
+requires test fixtures to provide consistent initial conditions for the test to be reliable.  Finally,
+having our mutations abstracted away into these helper methods makes it far easier to revise our data definitions
+as our design requirements change.
+</p>
+<blockquote class="ExerciseBody">
+<p></p>
+<div class="SIntrapara">
+<p class="Exercise">
+Exercise
+</p>
+</div>
+<div class="SIntrapara">
+Design a data representation for your registrar’s office. Information about a course includes a department name
+(a <span class="RktBlk"><span class="JavaHighlight"><span class="RktMeta"></span><span class="ProfjPrimType">String</span><span class="RktMeta"></span></span></span>), a course number, an instructor, and an enrollment, which you should represent with a list of students.
+For a student, the registrar keeps track of the first and last name and the list of courses for which the student has enrolled.
+For an instructor, the registrar also keeps track of the first and last name as well as a list of currently assigned courses.
+Construct examples of at least three courses, at least two professors (one of whom teaches more than one course) and at least
+four students (at least one of whom is enrolled in more than one class).
+</div>
+<p></p>
+</blockquote>
+<p>
+In the next lecture, we’ll see some additional consequences of having mutation present as an operation in our language,
+and see that one concept we had thought we’d covered is in fact more subtle than we’d thought.
+</p>
+<div class="navsetbottom">
+<span class="navleft">
+<div class="nosearchform"></div>
+&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span>
+</span>
+<span class="navright">&nbsp;&nbsp;<a href="lecture17.html" title="backward to &quot;Lecture 17: Mutation&quot;" data-pltdoc="x" rel="prev">← prev</a>&nbsp;&nbsp;<a href="Lectures.html" title="up to &quot;Lectures&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lecture19.html" title="forward to &quot;Lecture 19: Mutation, aliasing and testing&quot;" data-pltdoc="x" rel="next">next →</a></span>&nbsp;
+</div>
+</div>
+</div>
+<div id="contextindicator">
+&nbsp;
+</div>
+</body>
+</html>

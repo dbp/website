@@ -1,0 +1,66 @@
+<!doctype HTML>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+    displayMath: [ ["$$","$$"], 
+                   ["\\[","\\]"], 
+                   ["\\begin{equation}","\\end{equation}"], 
+                   ["\\begin{equation*}","\\end{equation*}"] ],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|JavaHighlightBlock|JavaHighlight"
+  },
+  "HTML-CSS": {
+    availableFonts: [],
+    webFont: "Asana-Math",
+    preferredFont: "Asana-Math",
+    imageFont: null,
+    mtexFontInherit: true
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="codemirror.js"></script>
+<script src="python.js"></script>
+<script src="runmode.js"></script>
+<script src="setup-page.js"></script>
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=0.8"/><title>Lab 2: Working with Self-Referential Data</title><link rel="stylesheet" type="text/css" href="scribble.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-style.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-racket.css" title="default"/><link rel="stylesheet" type="text/css" href="extra-styles.css" title="default"/><link rel="stylesheet" type="text/css" href="codemirror.css" title="default"/><script type="text/javascript" src="scribble-common.js"></script><script type="text/javascript" src="manual-racket.js"></script><!--[if IE 6]><style type="text/css">.SIEHidden { overflow: hidden; }</style><![endif]--></head><body id="scribble-racket-lang-org"><div class="tocset"><div class="tocview"><div class="tocviewlist tocviewlisttopspace"><div class="tocviewtitle"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">&#9658;</a></td><td></td><td><a href="index.html" class="tocviewlink" data-pltdoc="x">Fundamentals II
+<br/>
+Introduction to Class-<wbr></wbr>based Program Design</a></td></tr></table></div><div class="tocviewsublisttop" style="display: none;" id="tocview_0"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="General.html" class="tocviewlink" data-pltdoc="x">General</a></td></tr><tr><td align="right"></td><td><a href="Texts.html" class="tocviewlink" data-pltdoc="x">Texts</a></td></tr><tr><td align="right"></td><td><a href="Lectures.html" class="tocviewlink" data-pltdoc="x">Lectures</a></td></tr><tr><td align="right"></td><td><a href="Syllabus.html" class="tocviewlink" data-pltdoc="x">Syllabus</a></td></tr><tr><td align="right"></td><td><a href="Lab_Materials.html" class="tocviewselflink" data-pltdoc="x">Lab Materials</a></td></tr><tr><td align="right"></td><td><a href="Assignments.html" class="tocviewlink" data-pltdoc="x">Assignments</a></td></tr><tr><td align="right"></td><td><a href="Pair_Programming_Overview.html" class="tocviewlink" data-pltdoc="x">Pair Programming Overview</a></td></tr><tr><td align="right"></td><td><a href="code-style.html" class="tocviewlink" data-pltdoc="x">Code style</a></td></tr><tr><td align="right"></td><td><a href="Documentation.html" class="tocviewlink" data-pltdoc="x">Documentation</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">&#9660;</a></td><td></td><td><a href="Lab_Materials.html" class="tocviewlink" data-pltdoc="x">Lab Materials</a></td></tr></table><div class="tocviewsublist" style="display: block;" id="tocview_1"><table cellspacing="0" cellpadding="0"><tr><td align="right"></td><td><a href="lab1.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 1:</span> Introduction to Eclipse and Simple Data Definitions</a></td></tr><tr><td align="right"></td><td><a href="" class="tocviewselflink" data-pltdoc="x"><span class="LabNum">Lab 2:</span> Working with Self-<wbr></wbr>Referential Data</a></td></tr><tr><td align="right"></td><td><a href="lab3.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 3:</span> Working with the debugger</a></td></tr><tr><td align="right"></td><td><a href="lab4.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 4:</span> Working with Abstract Classes, Problem Solving</a></td></tr><tr><td align="right"></td><td><a href="lab5.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 5:</span> Higher-<wbr></wbr>order functions</a></td></tr><tr><td align="right"></td><td><a href="lab6.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 6:</span> Working with Cyclic Data</a></td></tr><tr><td align="right"></td><td><a href="lab7.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 7:</span> Sameness</a></td></tr><tr><td align="right"></td><td><a href="lab8.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 8:</span> Parametric data and visitors</a></td></tr><tr><td align="right"></td><td><a href="lab9.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 9:</span> Working with Array<span class="mywbr"> &nbsp;</span>Lists and Loops</a></td></tr><tr><td align="right"></td><td><a href="lab10.html" class="tocviewlink" data-pltdoc="x"><span class="LabNum">Lab 10:</span> An Introduction to the JUnit testing library</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_2&quot;);">&#9658;</a></td><td></td><td><a href="" class="tocviewselflink" data-pltdoc="x"><span class="LabNum">Lab 2:</span> Working with Self-<wbr></wbr>Referential Data</a></td></tr></table><div class="tocviewsublistbottom" style="display: none;" id="tocview_2"><table cellspacing="0" cellpadding="0"><tr><td align="right">2.1&nbsp;</td><td><a href="#%28part._.Initial_scenario%29" class="tocviewlink" data-pltdoc="x">Initial scenario</a></td></tr></table></div></div></div><div class="tocsub"><div class="tocsubtitle">On this page:</div><table class="tocsublist" cellspacing="0"><tr><td><span class="tocsublinknumber">2.1<tt>&nbsp;</tt></span><a href="#%28part._.Initial_scenario%29" class="tocsubseclink" data-pltdoc="x">Initial scenario</a></td></tr><tr><td><span class="tocsublinknumber">2.1.1<tt>&nbsp;</tt></span><a href="#%28part._.World_programs%29" class="tocsubseclink" data-pltdoc="x">World programs</a></td></tr></table></div></div><div class="maincolumn"><div class="main"><div class="versionbox"><span class="version">8.14</span></div><div class="navsettop"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="lab1.html" title="backward to &quot;Lab 1: Introduction to Eclipse and Simple Data Definitions&quot;" data-pltdoc="x" rel="prev">&larr; prev</a>&nbsp;&nbsp;<a href="Lab_Materials.html" title="up to &quot;Lab Materials&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab3.html" title="forward to &quot;Lab 3: Working with the debugger&quot;" data-pltdoc="x" rel="next">next &rarr;</a></span>&nbsp;</div><h4 class="heading"><a name="(part._)"></a><span class="LabNum">Lab 2:</span> Working with Self-Referential Data<span class="button-group"><a href="#(part._)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h4><p><span style="font-weight: bold">Goals:</span> The goals of this lab are to review data definitions and
+practice designing self-referential classes and data, then design
+methods for a variety of class herarchies using delegation.</p><div class="RelatedFiles"><blockquote><p class="boxed">Related files:<br/><span class="hspace">&nbsp;&nbsp;</span><a href="files/files/tester.jar">tester.jar</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/files/javalib.jar">javalib.jar</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/labs/R-LAB-mot-delegation/files/labs/R-LAB-mot-delegation/TaskStarter.java">TaskStarter.java</a><span class="hspace">&nbsp;&nbsp;</span> <span class="hspace">&nbsp;&nbsp;</span><a href="files/labs/R-LAB-mot-delegation/files/labs/R-LAB-mot-delegation/TaskManager.java">TaskManager.java</a><span class="hspace">&nbsp;&nbsp;</span> </p></blockquote></div><p><span style="font-weight: bold">Submission:</span> <span style="font-weight: bold">(Due by the end of your lab period)</span> Submit your implementations for
+the methods in the Group class (as well
+as any helpers needed). This will be graded on effort and good design.</p><h5 class="heading">2.1<tt>&nbsp;</tt><a name="(part._.Initial_scenario)"></a>Initial scenario<span class="button-group"><a href="#(part._.Initial_scenario)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h5><p>You are designing a reminders program, which
+ allows you to keep track of all the tasks in
+ your busy life.</p><p>In this program, a Group is an organizational unit
+ that has a title (such as "Today") and a list of tasks.
+ Each Task has its own descriptive name (such as
+ "Submit Assignment 1") as well as an indication of whether
+ the task has been completed or not.</p><p>When you run reminders, you supply it a group; the
+ program should then show you the group&rsquo;s title and
+ the first task (including its description and some
+ way of indicating whether it has been completed or not);
+ if the task list is empty, a friendly congratulations
+ might be in order.</p><p>Pressing the right arrow key on the keyboard should
+ allow you to scroll through the tasks in order - it should
+ cycle such that after seeing the last task, you come back to
+ the first. When viewing a task, pressing space bar toggles
+ whether the task is complete or not.</p><p>The starter code given contains the code for running a
+ world program in Java. Your job is to complete the methods
+ in Group (shown as stubs) as well as designing any helpers
+ that you need to delegate tasks to other classes/interfaces.
+ (The code for drawing the world is given although it does not currently show
+ the Group title. You may edit the drawing methods to add this if you have time.)
+ <span style="font-weight: bold">Remember to follow the design recipe for every method you need.</span>
+ Start by adding templates to all of the classes.</p><p>After completing the methods, create a run configuration
+ and run the program!</p><h5 class="heading">2.1.1<tt>&nbsp;</tt><a name="(part._.World_programs)"></a>World programs<span class="button-group"><a href="#(part._.World_programs)" class="heading-anchor" title="Link to here">🔗</a><span style="visibility: hidden"> </span></span></h5><p>Consider the given code for running a world program. World programs
+(or interactive programs)
+should be familiar to you from fundies 1.</p><p><div class="SIntrapara">At a high level, implementing World Programs requires two main ideas:
+</div><div class="SIntrapara"><ul><li><p><span style="font-weight: bold">World State:</span> the data that changes during the lifetime of the program</p></li><li><p><span style="font-weight: bold">Event Handlers:</span> the functions that respond to such events as user interaction,
+  the passage of time, and needing to visualize the world state.</p></li></ul></div></p><p>Look through the documentation for the  <a href="image-doc.html" data-pltdoc="x">Image Library</a> to
+see what other event handlers it supports. We will see World programs in a future
+assignment so it is a good idea to become familiar with how they work.</p><div class="navsetbottom"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;<span class="tocsettoggle">&nbsp;&nbsp;<a href="javascript:void(0);" title="show/hide table of contents" onclick="TocsetToggle();">contents</a></span></span><span class="navright">&nbsp;&nbsp;<a href="lab1.html" title="backward to &quot;Lab 1: Introduction to Eclipse and Simple Data Definitions&quot;" data-pltdoc="x" rel="prev">&larr; prev</a>&nbsp;&nbsp;<a href="Lab_Materials.html" title="up to &quot;Lab Materials&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="lab3.html" title="forward to &quot;Lab 3: Working with the debugger&quot;" data-pltdoc="x" rel="next">next &rarr;</a></span>&nbsp;</div></div></div><div id="contextindicator">&nbsp;</div></body></html>
