@@ -21,11 +21,13 @@ You're welcome to come talk to me about anything (related to what I'm teaching,
 research I've done, or really, anything else), though students who are currently
 enrolled in classes I'm teaching will get preference.
 
-**Fall 2024**, I'll have *in-person* drop-in hours, **Mondays 1:30-2:30pm** and **Wednesdays 3:00pm-4:00pm**, at my office, **317 Meserve Hall**.
+**Summer 2025**, I do not have regularly scheduled *in-person* drop-in hours.
 
-If you are unable to make that time, or would like to meet virtually, reach out via email.
+If you would like to meet, in person or virtually, reach out via email.
 
 ### Teaching
+
+**Spring 2025: ** [CS2800: Logic & Computation](https://course.ccs.neu.edu/cs2800sp25/)
 
 **Fall 2024: ** [CS2500: Fundamentals of Computer Science](https://pages.github.khoury.northeastern.edu/2500/2024F/)
 
@@ -51,6 +53,12 @@ If you are unable to make that time, or would like to meet virtually, reach out 
 
 ### Publications
 <div class="pubs">
+
+[**Equity-Guided Tutoring: a Scalable, TA-Run Approach.**](/pubs/2025/equity-tutoring.pdf)
+<div class="desc">Daniel Patterson, Josh Torre, Zoey Guo, Thomas McBride. <br/> _ITiCSE 2025_. [PDF](/pubs/2025/equity-tutoring.pdf).</div>
+
+[**FEEDBOT: Formative Design Feedback on Programming Assignments.**](/pubs/2025/feedbot.pdf)
+<div class="desc">Elaine Zhu, Smaran Teja, Chris Coombes, Daniel Patterson. <br/> _ITiCSE 2025_. [PDF](/pubs/2025/feedbot.pdf).</div>
 
 [**Semantic Encapsulation using Linking Types.**](/pubs/2023/lt.pdf)
 <div class="desc">Daniel Patterson, Andrew Wagner, Amal Ahmed. <br/> _TyDE 2023_. [PDF](/pubs/2023/lt.pdf), [appendix](/pubs/2023/lt-tr.pdf), and [video](https://www.youtube.com/watch?v=Uoj9rVFlOQs&list=PLyrlk8Xaylp4YYkJKQZ8gO9RK8GCqmFzk).</div>

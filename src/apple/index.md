@@ -33,7 +33,7 @@ Plywood | 6 sheets
 
 ## About the Campion Apple 16
 
-The Apple 16 is a 15ft 10in lug-yawl designed by Tom Dunderdale of [Campion Boats](http://www.campionboats.co.uk/). The [official webpage](http://www.campionboats.co.uk/details.html) has quite a bit of information about the Apple 16, but it's sometimes hard to follow (particularly, there are many links that are not styled as links! And other links that are only images...).
+The Apple 16 is a 15ft 10in lug-yawl designed by Tom Dunderdale of [Campion Boats](http://www.campionboats.co.uk/). The [official webpage](https://www.campionboats.co.uk/apple16.html) is a bit spare.
 
 To buy plans, email Tom: [td@campionboats.co.uk](mailto:td@campionboats.co.uk), you can find the current plan prices here: [http://www.campionboats.co.uk/prices.html](http://www.campionboats.co.uk/prices.html). Tom is very responsive over email, so getting the plans is very easy (note the three options: the plain Apple 16, as described on this website, is the Apple AHL there; the Apple 16 plan set is the regular Apple includes plans for the gaff cutter, and the Swedish Apple has more planks).
 
