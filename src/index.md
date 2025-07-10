@@ -3,7 +3,7 @@
 <div class="credit">photo by <a target="_blank" href="https://elainezhu.myportfolio.com/">Elaine Zhu</a></div>
 </div>
 I'm
-an Assistant Teaching Professor at [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/) at Northeastern University. 
+an Assistant Teaching Professor at [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/) at Northeastern University. I'm primarily interested in **how students learn to reason about software, formally and informally**, and that's reflected in the courses that I teach, the tools that I build, and the research projects that I'm involved in. 
 
 I got my PhD at the [PRL Lab](http://prl.ccs.neu.edu/), studying programming languages with [Amal
 Ahmed](http://www.ccs.neu.edu/home/amal/). My [dissertation](/pubs/2022/dbp-dissertation.pdf) was about the
@@ -54,6 +54,9 @@ If you would like to meet, in person or virtually, reach out via email.
 ### Publications
 <div class="pubs">
 
+[**Teaching Software Specification (Experience Report)**](/pubs/2025/lsl.pdf)
+<div class="desc">Cameron Moy, Daniel Patterson. <br/> _ICFP 2025_. [PDF](/pubs/2025/lsl.pdf)</div>
+
 [**Equity-Guided Tutoring: a Scalable, TA-Run Approach.**](/pubs/2025/equity-tutoring.pdf)
 <div class="desc">Daniel Patterson, Josh Torre, Zoey Guo, Thomas McBride. <br/> _ITiCSE 2025_. [PDF](/pubs/2025/equity-tutoring.pdf).</div>
 
@@ -92,7 +95,7 @@ If you would like to meet, in person or virtually, reach out via email.
 <div class="desc">Joe Gibbs Politz, Daniel Patterson, Kathi Fisler, and Shriram Krishnamurthi. <br/>_ITiCSE 2014_. [PDF](/pubs/2014/captainteach-iticse.pdf).</div>
 
 [**Python: The Full Monty―A Tested Semantics for the Python Programming Language.**](/pubs/2013/lambda-py-oopsla.pdf)
-<div class="desc">Joe Gibbs Politz, Alejandro Martinez, Matthew Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. <br/>_OOPSLA 2013_. [PDF](/pubs/2013/lambda-py-oopsla.pdf), [appendix](/pubs/2013/lambda-py-appendix-oopsla.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).</div>
+<div class="desc">Joe Gibbs Politz, Alejandro Martinez, Mae Milano, Sumner Warren, Daniel Patterson, Junsong Li, Anand Chitipothu, and Shriram Krishnamurthi. <br/>_OOPSLA 2013_. [PDF](/pubs/2013/lambda-py-oopsla.pdf), [appendix](/pubs/2013/lambda-py-appendix-oopsla.pdf) and [code](http://cs.brown.edu/research/plt/dl/lambda-py/ae/).</div>
 </div>
 
 
