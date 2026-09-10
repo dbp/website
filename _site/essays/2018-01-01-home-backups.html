@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -296,8 +296,8 @@ automatically. I can see them manually by running
 <code>sudo btrfs device stats /mntpoint</code> (which I do
 periodically). When this shows that a drive is failing (i.e., read/write
 errors), add a new drive to the spare enclosure, format it, and then run
-<code>sudo btrfs replace start -f N /dev/sdX /mntpoint</code> where N is
-the number of the device that is failing (when you run
+<code>sudo   btrfs replace start -f N /dev/sdX /mntpoint</code> where N
+is the number of the device that is failing (when you run
 <code>sudo btrfs fi show /mntpoint</code>) and <code>/dev/sdX</code> is
 the new drive. To check for and correct errors in the file system (not
 the underlying drive), run
@@ -312,7 +312,7 @@ job.
      <p>
       If you want to expand the capacity of the disks, replace the
 drives as if they failed (see previous bullet) and then run
-<code>sudo btrfs fi resize N:max /mntpoint</code> for each
+<code>sudo btrfs fi resize N:max   /mntpoint</code> for each
 <code>N</code> (run <code>sudo btrfs fi show</code> to see what your dev
 ids are). When you replace them, they stay at the same capacity – this
 resize expands the filesystem to the full device. As I mentioned

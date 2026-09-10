@@ -3,7 +3,7 @@
 <div class="credit">photo by <a target="_blank" href="https://elainezhu.myportfolio.com/">Elaine Zhu</a></div>
 </div>
 I'm
-an Assistant Teaching Professor at [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/) at Northeastern University. I'm primarily interested in **how students learn to reason about software, formally and informally**, and that's reflected in the courses that I teach, the tools that I build, and the research projects that I'm involved in. 
+an Associate Teaching Professor at [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/) at Northeastern University. I'm primarily interested in **how students learn to think and reason about software, formally and informally**, and that's reflected in the courses that I teach, the tools that I build, and the research projects that I'm involved in. 
 
 I got my PhD at the [PRL Lab](http://prl.ccs.neu.edu/), studying programming languages with [Amal
 Ahmed](http://www.ccs.neu.edu/home/amal/). My [dissertation](/pubs/2022/dbp-dissertation.pdf) was about the
@@ -21,11 +21,15 @@ You're welcome to come talk to me about anything (related to what I'm teaching,
 research I've done, or really, anything else), though students who are currently
 enrolled in classes I'm teaching will get preference.
 
-**Summer 2025**, I do not have regularly scheduled *in-person* drop-in hours.
+**Fall 2026**, I have drop-in hours **Mondays 9-10am** (as of 9/14), and **Wednesdays 3-4pm** (as of 9/23).
 
 If you would like to meet, in person or virtually, reach out via email.
 
 ### Teaching
+
+**Fall 2026: ** [CS2000: Introduction to Program Design and Implementation](https://neu-pdi.github.io/cs2000-public-resources/)
+
+**Fall 2025: ** [CS2000: Introduction to Program Design and Implementation](https://neu-pdi.github.io/cs2000-public-resources/)
 
 **Spring 2025: ** [CS2800: Logic & Computation](https://course.ccs.neu.edu/cs2800sp25/)
 
@@ -53,6 +57,9 @@ If you would like to meet, in person or virtually, reach out via email.
 
 ### Publications
 <div class="pubs">
+
+[**What's in a Specification? Exploring Student Conceptions of Formal Specifications**](/pubs/2026/specs.pdf)
+<div class="desc">Harrison Goldstein, Cameron Moy, Daniel Patterson. <br/> _PLATEAU 2026_. [PDF](/pubs/2026/specs.pdf)</div>
 
 [**Teaching Software Specification (Experience Report)**](/pubs/2025/lsl.pdf)
 <div class="desc">Cameron Moy, Daniel Patterson. <br/> _ICFP 2025_. [PDF](/pubs/2025/lsl.pdf)</div>
