@@ -23,7 +23,7 @@ enrolled in classes I'm teaching will get preference.
 
 **Fall 2026**, I have drop-in hours **Mondays 9-10am** (as of 9/14), and **Wednesdays 3-4pm** (as of 9/23).
 
-If you would like to meet, in person or virtually, reach out via email.
+If you would like to meet at another time, in person or virtually, reach out via email.
 
 ### Teaching
 
