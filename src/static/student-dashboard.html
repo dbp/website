@@ -1,0 +1,1837 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student dashboard mockup · CS 2000</title>
+<style>
+/* The pairing app's colors and type, so the two can become one site, with
+   status colors added: green for counted or met, amber for approaching,
+   red for missed or not met, blue for waiting. Every status also has a
+   word and a symbol, never color alone. */
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --text: #1d1d1b;
+  --muted: #5f5f5a;
+  --line: #deded8;
+  --accent: #b3261e;
+  --accent-text: #ffffff;
+  --focus: #1d5fbf;
+  --warn-bg: #fdf1d6;
+
+  --good: #1d6b36;
+  --good-bg: #e4f2e6;
+  --good-line: #a9d1b1;
+  --mid: #7a5300;
+  --mid-bg: #fcf0d3;
+  --mid-line: #e7c57f;
+  --bad: #a3271e;
+  --bad-bg: #f9e4e2;
+  --bad-line: #e8aea9;
+  --wait: #2b5282;
+  --wait-bg: #e6eef8;
+  --wait-line: #b0c6e4;
+
+  /* The small squares in the summary tiles. */
+  --dot-good: #3e9a59;
+  --dot-mid: #e0a62c;
+  --dot-bad: #d0564b;
+  --dot-wait: #5b88c7;
+
+  /* Crit bands, as Assignment Crits draws them. */
+  --band: #2b5fab;
+  --track: #dcd8d2;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171716;
+    --surface: #212120;
+    --text: #ececea;
+    --muted: #a6a6a0;
+    --line: #3a3a37;
+    --accent: #e0645b;
+    --accent-text: #171716;
+    --focus: #7fb0ff;
+    --warn-bg: #463a17;
+
+    --good: #93d4a2;
+    --good-bg: #1c3323;
+    --good-line: #305b3b;
+    --mid: #f0c873;
+    --mid-bg: #3a3015;
+    --mid-line: #6b5726;
+    --bad: #f3a59e;
+    --bad-bg: #40211f;
+    --bad-line: #723a35;
+    --wait: #a9c6f0;
+    --wait-bg: #1d2a3d;
+    --wait-line: #36517b;
+
+    --dot-good: #56b872;
+    --dot-mid: #e3b043;
+    --dot-bad: #e06a5f;
+    --dot-wait: #6f9be0;
+
+    --band: #7aa7ec;
+    --track: #4a4f57;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+h1 { font-size: 1.6rem; line-height: 1.2; margin: 4px 0 6px; letter-spacing: -0.01em; }
+h2 { font-size: 1.2rem; margin: 0; }
+p.lead { color: var(--muted); margin: 0 0 16px; }
+.muted { color: var(--muted); }
+.nowrap { white-space: nowrap; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- frame */
+
+.demo-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  padding: 6px 16px; background: #2d2d2b; color: #f4f4f2; font-size: 13px;
+}
+.demo-bar a { color: #f4f4f2; }
+.demo-bar select, .demo-bar button {
+  font: inherit; padding: 2px 6px; border-radius: 4px; border: 1px solid #5f5f5a;
+  background: #3a3a37; color: #f4f4f2;
+}
+.demo-tag {
+  background: #f2c94c; color: #1d1d1b; border-radius: 4px; padding: 0 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+}
+
+.banner {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px;
+  padding: 8px 16px; background: var(--warn-bg); border-bottom: 1px solid var(--line);
+}
+
+header.top {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px;
+  padding: 10px 16px; background: var(--surface); border-bottom: 1px solid var(--line);
+}
+header .brand { font-weight: 700; font-size: 1.05rem; text-decoration: none; }
+header nav { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+header nav a { color: var(--muted); text-decoration: none; }
+header nav a:hover, header nav a.here { color: var(--text); text-decoration: underline; }
+header .who { display: flex; align-items: center; gap: 12px; margin-left: auto; color: var(--muted); }
+header .who form { margin: 0; }
+
+main { max-width: 1040px; margin: 0 auto; padding: 20px 16px 48px; }
+
+/* -------------------------------------------------------------- controls */
+
+button, .button {
+  display: inline-block; padding: 6px 12px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  font: inherit; text-decoration: none; white-space: nowrap;
+}
+button:hover, .button:hover { border-color: var(--muted); }
+button.primary, .button.primary {
+  background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 600;
+}
+button.link { border: 0; background: none; padding: 0; color: inherit; text-decoration: underline; }
+.button.big { padding: 10px 18px; font-size: 1.05rem; }
+
+input, select, textarea {
+  font: inherit; color: var(--text); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; max-width: 100%;
+}
+textarea { width: 100%; }
+
+.msg { padding: 8px 12px; border-radius: 8px; background: var(--good-bg); border: 1px solid var(--good-line); margin: 0 0 14px; }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 14px 16px; margin: 16px 0;
+}
+
+.tag {
+  display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600;
+  background: var(--bg); border: 1px solid var(--line); text-decoration: none; white-space: nowrap;
+}
+.tag.warn { background: var(--mid-bg); border-color: var(--mid-line); color: var(--mid); }
+
+/* A skill result: a pill with a symbol and a word. */
+.mark {
+  display: inline-flex; align-items: center; gap: 5px; padding: 1px 9px;
+  border-radius: 999px; border: 1px solid transparent;
+  font-size: 13px; font-weight: 600; white-space: nowrap;
+}
+.mark .sym { font-weight: 700; }
+.mark.meets { color: var(--good); background: var(--good-bg); border-color: var(--good-line); }
+.mark.approaching { color: var(--mid); background: var(--mid-bg); border-color: var(--mid-line); }
+.mark.doesnt { color: var(--bad); background: var(--bad-bg); border-color: var(--bad-line); }
+.mark.waiting { color: var(--wait); background: var(--wait-bg); border-color: var(--wait-line); }
+.mark.untried { color: var(--muted); border: 1px dashed var(--muted); }
+
+/* ------------------------------------------------------------ dashboard */
+
+.hello { margin-bottom: 4px; }
+
+.coming { margin-top: 8px; }
+.coming h2 { font-size: 1rem; margin-bottom: 4px; }
+.agenda { list-style: none; margin: 0; padding: 0; }
+.agenda li {
+  display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 2px 16px;
+  padding: 8px 0; border-top: 1px solid var(--line);
+}
+.agenda li:first-child { border-top: 0; }
+.agenda .when { font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.agenda .what { font-weight: 600; }
+.agenda .detail { display: block; font-weight: 400; color: var(--muted); }
+.agenda li.urgent .when, .agenda li.urgent .what a { color: var(--accent); }
+
+.tiles {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;
+  margin: 16px 0 8px;
+}
+.tile {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  padding: 12px 14px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; text-decoration: none;
+}
+.tile:hover { border-color: var(--muted); }
+.tile.urgent { border-color: var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
+.tile-label { font-size: 13px; font-weight: 600; color: var(--muted); }
+.tile-value { font-size: 1.75rem; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.tile-value small { font-size: 0.85rem; font-weight: 500; color: var(--muted); }
+.tile-note { font-size: 13px; color: var(--muted); }
+.tile.urgent .tile-note { color: var(--accent); font-weight: 600; }
+
+.strip { display: flex; flex-wrap: wrap; gap: 2px; }
+.strip i { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--line); }
+.strip i.meets, .strip i.came { background: var(--dot-good); border-color: var(--dot-good); }
+.strip i.approaching { background: var(--dot-mid); border-color: var(--dot-mid); }
+.strip i.doesnt, .strip i.missed { background: var(--dot-bad); border-color: var(--dot-bad); }
+.strip i.waiting, .strip i.booked { background: var(--dot-wait); border-color: var(--dot-wait); }
+.strip i.untried { border: 1px dashed var(--muted); }
+.strip i.notopen { background: var(--track); border-color: var(--track); opacity: 0.6; }
+
+/* A box for each miss the bonus allows; a used one is crossed. */
+.boxes { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.boxes i {
+  position: relative; width: 15px; height: 15px; border-radius: 3px;
+  border: 1.5px solid var(--muted); background: var(--surface);
+}
+.boxes i.used { border-color: var(--bad); background: var(--bad-bg); }
+/* Present at a crit, or a pairing session done: attendance only, so gray,
+   never the green that skill results use. */
+.boxes i.present { border-color: var(--muted); background: var(--muted); }
+.boxes i.used::after {
+  content: "✕"; position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: 10px; font-style: normal; font-weight: 700; line-height: 1; color: var(--bad);
+}
+.boxes b { font-size: 13px; color: var(--bad); }
+
+.section { margin: 36px 0; scroll-margin-top: 12px; }
+.section-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px;
+  padding-bottom: 6px; margin-bottom: 8px; border-bottom: 2px solid var(--text);
+}
+.counts { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; color: var(--muted); }
+.note { color: var(--muted); margin: 6px 0 12px; max-width: 75ch; }
+
+/* Skills: a row each, with every attempt. */
+ol.skills { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.skill {
+  display: grid; grid-template-columns: minmax(0, 1.6fr) 10.5rem minmax(0, 2fr) 9.5rem;
+  grid-template-areas: "name best attempts window";
+  gap: 8px 16px; align-items: center; padding: 10px 14px; border-top: 1px solid var(--line);
+  scroll-margin-top: 12px;
+}
+.skill:first-child { border-top: 0; }
+.skill:target { outline: 2px solid var(--focus); outline-offset: -2px; }
+.skill-name { grid-area: name; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.skill-best { grid-area: best; }
+.skill-attempts { grid-area: attempts; }
+.skill-window { grid-area: window; font-size: 13px; color: var(--muted); text-align: right; }
+.skill.open .skill-window { color: var(--text); font-weight: 600; }
+.skill.notopen .skill-name > span:last-child { color: var(--muted); font-weight: 500; }
+.badge {
+  flex: none; display: inline-grid; place-items: center; min-width: 1.8em; height: 1.8em; padding: 0 0.3em;
+  border-radius: 6px; background: var(--skill); color: #000; font-weight: 800;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+/* A skill named in a sentence: the same badge, sized to the text. */
+.badge.in-text { min-width: 1.5em; height: 1.5em; padding: 0 0.25em; border-radius: 4px; font-size: 0.85em; line-height: 1; }
+ol.attempts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.attempt {
+  display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px;
+  border-radius: 6px; border: 1px solid var(--line); background: var(--bg); font-size: 13px;
+}
+.attempt time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.attempt .code { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 12px; }
+.attempt .result { display: inline-flex; gap: 3px; font-weight: 600; }
+.attempt.meets .result { color: var(--good); }
+.attempt.approaching .result { color: var(--mid); }
+.attempt.doesnt .result { color: var(--bad); }
+.attempt.waiting { border-style: dashed; }
+.attempt.waiting .result { color: var(--wait); }
+
+/* Crits: a row each, with Assignment Crits' three-segment bars. */
+table.crits {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+}
+table.crits th, table.crits td { padding: 10px 14px; text-align: left; vertical-align: middle; border-top: 1px solid var(--line); }
+table.crits thead th { border-top: 0; font-size: 13px; font-weight: 600; color: var(--muted); }
+table.crits tbody th { font-weight: 600; }
+table.crits tbody th small { display: block; font-weight: 400; color: var(--muted); }
+table.crits tr.upcoming th { color: var(--muted); }
+table.crits td.wide .mark { margin-right: 8px; }
+.band { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+.segs { display: inline-flex; gap: 2px; }
+.segs i { width: 16px; height: 7px; border-radius: 2px; background: var(--track); }
+.segs i.on { background: var(--band); }
+
+/* The grade section: every grade, the best within reach, and a card with
+   what still has to happen for it. */
+.ladder { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 12px; padding: 0; list-style: none; }
+.ladder li { min-width: 2.2rem; padding: 2px 6px; text-align: center; font-size: 13px; font-weight: 700; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); }
+.ladder li.gone { color: var(--muted); text-decoration: line-through; opacity: 0.55; background: transparent; }
+.ladder li.here { background: var(--text); border-color: var(--text); color: var(--surface); }
+
+.grade-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.grade-top { display: flex; align-items: center; gap: 16px; margin-bottom: 4px; }
+.grade-big { flex: none; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 12px; background: var(--text); color: var(--surface); font-size: 2rem; font-weight: 800; }
+.grade-title { margin: 0; font-size: 1.15rem; font-weight: 700; }
+.grade-sub { margin: 2px 0 0; color: var(--muted); }
+
+ul.reqs { list-style: none; margin: 8px 0 0; padding: 0; }
+.req { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 4px 16px; padding: 14px 0 12px; border-top: 1px solid var(--line); }
+.req.first { border-top: 0; padding-top: 10px; }
+.req.first .req-what { font-size: 1.02rem; }
+.req-label { padding-top: 2px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.req-what { margin: 0 0 8px; font-weight: 600; }
+.req-what:last-child { margin-bottom: 0; }
+.req-what + .chips + .req-what, .req-note + .req-what { margin-top: 12px; }
+.req-note { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+.lost-note { color: var(--muted); }
+
+/* A skill that still has to be met (or retaken), with when it can be. */
+ul.chips { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.skill-chip { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 4.4rem; padding: 7px 6px 5px; border: 2px solid var(--text); border-radius: 9px; }
+.skill-chip .badge { margin: 0; }
+.skill-chip small { font-size: 11px; line-height: 1.2; color: var(--muted); white-space: nowrap; }
+.skill-chip.future { border-style: dashed; border-color: var(--muted); }
+.skill-chip .flag { color: var(--wait); font-weight: 600; }
+.skill-chip.retake { border-color: var(--mid-line); background: var(--mid-bg); }
+
+/* Each category's drops still unused in the crits to come, then the lows
+   that can count, on one grid so the boxes and notes line up. */
+.parts { display: grid; grid-template-columns: 8.5rem auto minmax(0, 1fr); align-items: center; gap: 6px 12px; }
+.part { display: contents; }
+.part small { font-size: 13px; color: var(--muted); }
+.parts-rule { grid-column: 1 / -1; margin: 2px 0; border-top: 1px dashed var(--line); }
+
+/* A key under the pairing sessions, set off from them. */
+.key { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 12px; margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 12px; color: var(--muted); }
+.key .key-label { padding-top: 1px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.key-items { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.key-items > span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* A pairing session still to come: the least it needs, and the most it
+   can earn. */
+.sessions { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.session { padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--bg); }
+.session b { display: block; }
+.session > small { display: block; color: var(--muted); }
+.meter { position: relative; height: 10px; margin: 18px 0 6px; border-radius: 5px; background: var(--track); }
+.meter .zone { position: absolute; top: 0; bottom: 0; border-radius: 5px; background: color-mix(in srgb, var(--band) 45%, transparent); }
+.meter .beyond { position: absolute; top: 0; bottom: 0; right: 0; border-radius: 0 5px 5px 0; background: repeating-linear-gradient(135deg, var(--track) 0 4px, var(--surface) 4px 7px); }
+.meter .need { position: absolute; top: -6px; bottom: -6px; width: 3px; margin-left: -1.5px; border-radius: 2px; background: var(--text); }
+.meter .need::before { content: attr(data-label); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 1px; font-size: 11px; font-weight: 700; white-space: nowrap; color: var(--text); }
+.scale { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; color: var(--muted); }
+.scale span:last-child { text-align: right; }
+.meter-key i { display: inline-block; width: 18px; height: 8px; border-radius: 3px; }
+.meter-key .k-zone { background: color-mix(in srgb, var(--band) 45%, transparent); }
+.meter-key .k-beyond { background: repeating-linear-gradient(135deg, var(--track) 0 4px, var(--surface) 4px 7px); }
+
+/* The classes and practice labs still to come. */
+.att { display: grid; gap: 8px; }
+.att-row { display: grid; grid-template-columns: 7rem auto minmax(0, 1fr); align-items: center; gap: 12px; }
+.att-row small { font-size: 13px; color: var(--muted); }
+.lab-chip { display: flex; flex-direction: column; padding: 6px 10px; border: 2px solid var(--text); border-radius: 9px; font-size: 13px; }
+.lab-chip small { color: var(--muted); }
+.lab-chip.may { border-style: dashed; border-color: var(--muted); }
+
+.safe { margin: 4px 0 0; padding-top: 10px; border-top: 1px solid var(--line); color: var(--good); font-weight: 600; }
+.safe span { color: var(--muted); font-weight: 400; }
+
+/* Each grade below, folded away inside the one above it. */
+details.slip { margin: 10px 0 0; }
+details.slip > summary {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 10px 14px; cursor: pointer;
+  list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+}
+details.slip > summary::-webkit-details-marker { display: none; }
+details.slip > summary::before { content: "▸"; color: var(--muted); }
+details.slip[open] > summary::before { content: "▾"; }
+details.slip[open] > summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.slip-q { color: var(--muted); }
+.slip-grade { display: inline-grid; place-items: center; min-width: 2.4rem; height: 1.9rem; padding: 0 6px; border-radius: 7px; border: 2px solid var(--text); font-weight: 800; }
+.slip-gist { display: flex; flex-wrap: wrap; gap: 6px; }
+.slip-gist span { padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--bg); border: 1px solid var(--line); }
+details.slip > .grade-card { border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+details.slip .grade-big { width: 48px; height: 48px; font-size: 1.5rem; background: transparent; color: var(--text); border: 2px solid var(--text); }
+.easier { margin-left: 6px; padding: 0 7px; border-radius: 999px; font-size: 11px; font-weight: 700; background: var(--wait-bg); color: var(--wait); border: 1px solid var(--wait-line); }
+
+/* Pairing: a row per session, with the two skills it tests. */
+ol.phases { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.phase {
+  display: grid; grid-template-columns: 10.5rem minmax(0, 1fr) auto; gap: 6px 16px; align-items: center;
+  grid-template-areas: "name state action" ". tests tests";
+  padding: 12px 14px; border-top: 1px solid var(--line);
+}
+.phase-name { grid-area: name; }
+.phase-state { grid-area: state; }
+.phase-action { grid-area: action; }
+.phase-tests { grid-area: tests; padding: 8px 12px; background: var(--bg); border-radius: 8px; }
+.tests-label { margin: 0 0 4px; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+ul.tested { list-style: none; margin: 0; padding: 0; }
+ul.tested li {
+  display: grid; grid-template-columns: minmax(0, 1fr) 16rem minmax(0, 0.8fr); gap: 4px 12px; align-items: center;
+  padding: 4px 0;
+}
+.tested-skill { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.tested-skill .badge { font-size: 13px; }
+.tested-result { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.tested-note { font-size: 13px; color: var(--muted); }
+.max { margin: 6px 0 0; }
+.phase:first-child { border-top: 0; }
+.phase-name { font-weight: 700; }
+.phase-name small, .phase-state span { display: block; font-weight: 400; color: var(--muted); }
+.phase-name small { white-space: nowrap; }
+.phase.done .phase-state strong { color: var(--good); }
+.phase.missed .phase-state strong, .phase.closed .phase-state strong { color: var(--bad); }
+.phase.urgent { box-shadow: inset 4px 0 0 var(--accent); }
+.phase.urgent .phase-state strong { color: var(--accent); }
+
+/* Attendance: the bonus, and a tile per class or lab. */
+.bonus {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px 14px; margin: 8px 0 14px;
+}
+.bonus p { margin: 0 0 8px; }
+.bonus p:last-child { margin: 0; }
+.bonus.earned { background: var(--good-bg); border-color: var(--good-line); }
+.bonus.last { background: var(--mid-bg); border-color: var(--mid-line); }
+.bonus.lost-all { background: var(--mid-bg); border-color: var(--mid-line); }
+.allowance { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+
+ol.days {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(74px, 1fr)); gap: 6px;
+}
+.day {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; min-height: 52px;
+  padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+  text-decoration: none;
+}
+.day-num { font-weight: 700; font-size: 1.05rem; line-height: 1.1; }
+.day-date { grid-column: 1; font-size: 12px; color: var(--muted); }
+.day-mark { grid-column: 2; grid-row: 1 / span 2; font-size: 1.1rem; font-weight: 700; }
+.day.came { background: var(--good-bg); border-color: var(--good-line); }
+.day.came .day-mark { color: var(--good); }
+.day.missed { background: var(--bad-bg); border-color: var(--bad-line); }
+.day.missed .day-mark { color: var(--bad); }
+.day.waiting { background: var(--wait-bg); border-color: var(--wait-line); }
+.day.waiting .day-mark { color: var(--wait); }
+.day.today { border: 2px solid var(--text); }
+.day.upcoming { border-style: dashed; border-color: var(--muted); }
+.day.upcoming .day-num { font-weight: 500; color: var(--muted); }
+a.day:hover { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+.legend { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.legend .day { display: inline-grid; place-items: center; width: 22px; height: 22px; min-height: 0; padding: 0; font-size: 12px; font-weight: 700; }
+.legend .day.came { color: var(--good); }
+.legend .day.missed { color: var(--bad); }
+.legend .day.waiting { color: var(--wait); }
+
+ol.labs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 8px; }
+.lab {
+  display: flex; flex-direction: column; gap: 2px; padding: 8px 10px;
+  border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+}
+.lab-name { font-weight: 700; }
+.lab-name small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
+.lab-date { font-size: 12px; color: var(--muted); }
+.lab-state { display: inline-flex; gap: 4px; font-size: 13px; font-weight: 600; }
+.lab.came { background: var(--good-bg); border-color: var(--good-line); }
+.lab.came .lab-state { color: var(--good); }
+.lab.missed { background: var(--bad-bg); border-color: var(--bad-line); }
+.lab.missed .lab-state { color: var(--bad); }
+.lab.upcoming { border-style: dashed; border-color: var(--muted); }
+.lab.upcoming .lab-state, .lab.today .lab-state { color: var(--muted); }
+.lab.today { border: 2px solid var(--text); }
+
+.foot { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+/* ------------------------------------------------------- a class's sheet */
+
+.back { margin: 0 0 10px; }
+.status-box { margin: 8px 0 18px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); max-width: 75ch; }
+.status-box p { margin: 0 0 6px; }
+.status-box p:last-child { margin: 0; }
+.status-box.came { background: var(--good-bg); border-color: var(--good-line); }
+.status-box.missed { background: var(--bad-bg); border-color: var(--bad-line); }
+.status-box.waiting { background: var(--wait-bg); border-color: var(--wait-line); }
+.scans { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); gap: 16px; }
+.scan { margin: 0; }
+.scan img {
+  display: block; width: 100%; height: auto; background: #fff;
+  border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.scan figcaption { margin-top: 4px; font-size: 13px; color: var(--muted); }
+.not-mine { margin-top: 20px; }
+.not-mine summary { cursor: pointer; color: var(--muted); }
+.not-mine form {
+  max-width: 60ch; margin-top: 8px; padding: 12px 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+}
+.not-mine form p { margin: 0 0 10px; }
+
+.signin { max-width: 30rem; margin: 10vh auto; text-align: center; }
+
+/* ------------------------------------------------------------------ staff */
+
+.scroll { overflow-x: auto; }
+table.list { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); }
+table.list th, table.list td { padding: 8px 10px; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--line); }
+table.list thead th { font-size: 13px; font-weight: 600; color: var(--muted); }
+table.list tbody th small { display: block; font-weight: 400; color: var(--muted); }
+table.worksheets tr.checking > *, table.worksheets tr.not-uploaded > * { background: var(--warn-bg); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0; }
+.stats p { margin: 0; padding: 10px 12px; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.stats strong { display: block; font-size: 1.5rem; color: var(--text); }
+.stats .warn { background: var(--mid-bg); border-color: var(--mid-line); }
+
+.check-head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 18px; }
+.check-head > a { display: block; max-width: 100%; }
+.crop { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; }
+.read p { margin: 0 0 4px; }
+.hint { padding-left: 8px; border-left: 3px solid var(--good-line); }
+.choices { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 8px; }
+.choices button {
+  display: flex; flex-direction: column; align-items: flex-start; text-align: left; white-space: normal; padding: 8px 12px;
+}
+.choices button small { font-weight: 400; opacity: 0.85; }
+.other { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.later { margin: 14px 0; }
+.later summary { padding: 6px 0; font-weight: 600; cursor: pointer; }
+.names { columns: 3 12rem; padding-left: 18px; }
+.search { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 12px; }
+.upload p { margin: 0 0 10px; }
+ul.plain { list-style: none; margin: 6px 0; padding: 0; }
+
+.msg.warn, .hint.warn { background: var(--mid-bg); border-color: var(--mid-line); }
+.hint.warn { padding: 4px 8px; border-left: 3px solid var(--mid-line); border-radius: 4px; }
+.dev-login { text-align: left; max-width: 26rem; margin: 24px auto; }
+.dev-login p { margin: 0 0 10px; }
+.dev-login select { width: 100%; }
+.demo-bar form { margin: 0; }
+form.inline { display: inline; margin: 0 0 0 6px; }
+ul.uploads li, ul.marked li { padding: 4px 0; }
+tr.dropped > * { color: var(--muted); }
+ul.roll { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+ul.roll li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 8px 14px; border-top: 1px solid var(--line); scroll-margin-top: 80px; }
+ul.roll li:first-child { border-top: 0; }
+ul.roll li.came { background: var(--good-bg); }
+ul.roll form.inline { display: inline-flex; align-items: center; gap: 10px; }
+
+/* ------------------------------------------------------------------ phones */
+
+@media (max-width: 900px) {
+  ul.tested li { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "skill skill" "result note"; }
+  .tested-skill { grid-area: skill; }
+  .tested-result { grid-area: result; }
+  .tested-note { grid-area: note; }
+}
+
+@media (max-width: 760px) {
+  .skill { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name best" "attempts attempts" "window window"; }
+  .skill-window { text-align: left; }
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 1.4rem; }
+  .agenda li { grid-template-columns: minmax(0, 1fr); }
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .tile { padding: 10px 12px; }
+  .tile-value { font-size: 1.5rem; }
+
+  table.crits thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  table.crits, table.crits tbody, table.crits tr, table.crits th, table.crits td { display: block; }
+  table.crits tbody tr { border-top: 1px solid var(--line); padding: 8px 0; }
+  table.crits tbody tr:first-child { border-top: 0; }
+  table.crits tbody th, table.crits td { border-top: 0; padding: 3px 14px; }
+  table.crits td[data-label] { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  table.crits td[data-label]::before { content: attr(data-label); font-size: 13px; color: var(--muted); }
+
+  .phase { grid-template-columns: minmax(0, 1fr); grid-template-areas: "name" "state" "tests" "action"; }
+
+  .grade-card { padding: 14px; }
+  .grade-big { width: 52px; height: 52px; font-size: 1.6rem; }
+  .req { grid-template-columns: minmax(0, 1fr); }
+  .parts { grid-template-columns: 8.5rem auto; row-gap: 2px; }
+  .part small { grid-column: 1 / -1; margin-bottom: 6px; }
+  .att-row { grid-template-columns: 6.5rem minmax(0, 1fr); }
+  .att-row small, .att-row .chips { grid-column: 1 / -1; }
+  .att-row small { margin-top: -4px; }
+  .ladder { gap: 3px; }
+  .ladder li { min-width: 1.75rem; padding: 2px 3px; font-size: 12px; }
+  .phase .button { justify-self: start; }
+  ul.tested li { grid-template-columns: minmax(0, 1fr); grid-template-areas: "skill" "result" "note"; gap: 2px; padding: 6px 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-bar" role="note"><strong class="demo-tag">Mockup</strong> <span>Jordan Lindqvist is a made-up student, and everything here is made-up demo data, as the dashboard shows it on Wednesday, March 17 (week 9). Links to other pages are turned off.</span></div>
+
+
+<header class="top">
+  <span class="brand">CS 2000</span>
+  
+  
+  <div class="who">
+    <span>Jordan Lindqvist</span>
+  </div>
+  
+</header>
+<main>
+  
+  
+<div class="hello">
+  <h1>Hi, Jordan</h1>
+  <p class="lead">Your CS 2000 record for Spring 2027, as of Wednesday, March 17.</p>
+</div>
+
+
+<section class="card coming" aria-labelledby="coming-h">
+  <h2 id="coming-h">Coming up</h2>
+  <ul class="agenda">
+    
+    <li>
+      <span class="when"><time datetime="2027-03-17">Today</time></span>
+      <span class="what">Class 21: Conditional data<span class="detail">You can miss only one more class and keep the attendance bonus.</span></span>
+    </li>
+    
+    <li>
+      <span class="when"><time datetime="2027-03-19">Fri Mar 19</time></span>
+      <span class="what">Lab 4: Conditional Data<span class="detail">You've missed the one practice lab the bonus allows.</span></span>
+    </li>
+    
+    <li>
+      <span class="when"><time datetime="2027-03-26">Until Fri Mar 26</time></span>
+      <span class="what"><a href="#skill-6">Skill <span class="badge in-text" style="--skill: #F7DC6F">6</span>: Iteration: Lists</a><span class="detail">Best so far: doesn't meet, with an attempt waiting to be graded. Pairing session 2 covers it.</span></span>
+    </li>
+    
+    <li>
+      <span class="when"><time datetime="2027-03-26">Fri Mar 26</time></span>
+      <span class="what">Crit on Homework 4<span class="detail">In your lab. It's the homework's deadline: you present your project.</span></span>
+    </li>
+    
+    <li>
+      <span class="when">By Fri Apr 2</span>
+      <span class="what"><a href="#pairing">Book pairing session 2</a><span class="detail">Your week is Mar 29–Apr 2. Get Skill <span class="badge in-text" style="--skill: #F7DC6F">6</span> to at least approaching by Fri Mar 26, when it closes: full credit needs both its skills at approaching or better.</span></span>
+    </li>
+    
+    <li>
+      <span class="when"><time datetime="2027-04-02">Until Fri Apr 2</time></span>
+      <span class="what"><a href="#skill-7">Skill <span class="badge in-text" style="--skill: #BB8FCE">7</span>: Variable Scope</a><span class="detail">Not tried yet.</span></span>
+    </li>
+    
+  </ul>
+</section>
+
+
+<nav class="tiles" aria-label="Summary">
+  
+  <a class="tile" href="#grade">
+    <span class="tile-label">Grade</span>
+    <span class="tile-value">A<small> within reach</small></span>
+    <span class="tile-note">If you keep coming to class and labs</span>
+  </a>
+  
+  <a class="tile" href="#skills">
+    <span class="tile-label">Skills</span>
+    <span class="tile-value">4<small> of 13 met</small></span>
+    <span class="strip" aria-hidden="true"><i class="meets"></i><i class="meets"></i><i class="meets"></i><i class="approaching"></i><i class="approaching"></i><i class="meets"></i><i class="doesnt"></i><i class="untried"></i><i class="notopen"></i><i class="notopen"></i><i class="notopen"></i><i class="notopen"></i><i class="notopen"></i></span>
+    <span class="tile-note">2 open now</span>
+  </a>
+  <a class="tile" href="#crits">
+    <span class="tile-label">Assignment crits</span>
+    <span class="tile-value">3<small> of 6 held</small></span>
+    <span class="boxes" aria-hidden="true"><i class="present"></i><i class="used"></i><i class="present"></i><i></i><i></i><i></i></span>
+    <span class="tile-note">Next: Fri Mar 26</span>
+  </a>
+  <a class="tile" href="#pairing">
+    <span class="tile-label">Pairing sessions</span>
+    <span class="tile-value">1<small> of 3 done</small></span>
+    <span class="boxes" aria-hidden="true"><i class="present"></i><i></i><i></i></span>
+    <span class="tile-note">Book session 2, for Mar 29–Apr 2</span>
+  </a>
+  <a class="tile" href="#classes">
+    <span class="tile-label">Classes</span>
+    <span class="tile-value">14<small> of 20 so far</small></span>
+    
+<span class="boxes" aria-hidden="true"><i class="used"></i><i class="used"></i><i class="used"></i><i class="used"></i><i class="used"></i><i></i></span>
+
+    <span class="tile-note">Can miss 1 more for the bonus</span>
+  </a>
+  <a class="tile" href="#labs">
+    <span class="tile-label">Practice labs</span>
+    <span class="tile-value">3<small> of 4 so far</small></span>
+    
+<span class="boxes" aria-hidden="true"><i class="used"></i></span>
+
+    <span class="tile-note">No more misses for the bonus</span>
+  </a>
+</nav>
+
+
+<section id="grade" class="section" aria-labelledby="grade-h">
+  <div class="section-head">
+    <h2 id="grade-h">Your grade</h2>
+  </div>
+  <ol class="ladder" aria-label="Every grade">
+    <li class="here">A<span class="visually-hidden"> (the best within reach)</span></li><li>A-</li><li>B+</li><li>B</li><li>B-</li><li>C+</li><li>C</li><li>C-</li><li>D+</li><li>D</li>
+  </ol>
+  
+  
+  <div class="grade-card">
+    <div class="grade-top">
+      <span class="grade-big">A</span>
+      <div>
+        
+        <p class="grade-title">An A is still within reach.</p>
+        <p class="grade-sub">Here's everything that still has to happen for it.</p>
+        
+      </div>
+    </div>
+    <ul class="reqs">
+      <li class="req first">
+        <span class="req-label">Attendance</span>
+        <div>
+          
+          <p class="req-what">Keep coming to class and to practice labs</p>
+          <div class="att">
+            
+            <div class="att-row"><span>Classes</span><span class="boxes" aria-hidden="true"><i></i></span><small>miss at most 1 more of the 12 left</small></div>
+            
+            
+            <div class="att-row"><span>Practice labs</span><ul class="chips"><li class="lab-chip"><b>Lab 4</b><small>Fri Mar 19</small></li><li class="lab-chip"><b>Lab 5</b><small>Fri Apr 2</small></li><li class="lab-chip"><b>Lab 6</b><small>Fri Apr 16</small></li></ul><small>come to all 3 left</small></div>
+            
+          </div>
+          
+          
+          <p class="req-note">Everything below counts on the bonuses that earns you: the lab bonus moves your grade up a step, and the attendance bonus lowers what your pairing sessions need.</p>
+          
+        </div>
+      </li>
+      
+<li class="req">
+  <span class="req-label">Skills</span>
+  <div>
+    
+    <p class="req-what">Meet all 7 skills still to come</p>
+    <ul class="chips" aria-label="Skills still to come">
+      <li class="skill-chip"><span class="badge" style="--skill: #F7DC6F"><span class="visually-hidden">Skill </span>6</span><small>until Mar 26</small><small class="flag">being graded</small></li><li class="skill-chip"><span class="badge" style="--skill: #BB8FCE"><span class="visually-hidden">Skill </span>7</span><small>until Apr 2</small></li><li class="skill-chip future"><span class="badge" style="--skill: #85C1E2"><span class="visually-hidden">Skill </span>8</span><small>from Mar 22</small></li><li class="skill-chip future"><span class="badge" style="--skill: #F8B739"><span class="visually-hidden">Skill </span>9</span><small>from Mar 22</small></li><li class="skill-chip future"><span class="badge" style="--skill: #52BE80"><span class="visually-hidden">Skill </span>10</span><small>from Mar 29</small></li><li class="skill-chip future"><span class="badge" style="--skill: #EC7063"><span class="visually-hidden">Skill </span>11</span><small>from Apr 5</small></li><li class="skill-chip future"><span class="badge" style="--skill: #5DADE2"><span class="visually-hidden">Skill </span>12</span><small>from Apr 12</small></li>
+    </ul>
+    
+    
+    
+    <p class="req-what">and get one of these to meets, in a retake in the final exam period</p>
+    <ul class="chips" aria-label="Skills a retake could change">
+      <li class="skill-chip retake"><span class="badge" style="--skill: #45B7D1"><span class="visually-hidden">Skill </span>3</span><small>approaching</small></li><li class="skill-chip retake"><span class="badge" style="--skill: #FFA07A"><span class="visually-hidden">Skill </span>4</span><small>approaching</small></li>
+    </ul>
+    <p class="req-note">The other can stay at approaching.</p>
+    
+    
+  </div>
+</li>
+
+      
+<li class="req">
+  <span class="req-label">Crits</span>
+  <div>
+    
+    <p class="req-what">In the 3 crits left (Homework 4, 5 and 6):</p>
+    <div class="parts">
+      
+      <div class="part"><span>Presentation</span><span class="boxes" aria-hidden="true"><i></i><i></i></span><small>the next 2 lows are dropped</small></div>
+      
+      <div class="part"><span>Questions</span><span class="boxes" aria-hidden="true"><i></i></span><small>the next low is dropped</small></div>
+      
+      <div class="part"><span>Your ratings</span><span class="boxes" aria-hidden="true"><i></i></span><small>the next low is dropped</small></div>
+      
+      <span class="parts-rule" aria-hidden="true"></span>
+      <div class="part"><span>Lows that count</span><span class="boxes" aria-hidden="true"><i></i></span><small>an A allows 1, in any category; none count yet</small></div>
+    </div>
+    <p class="req-note">Each category drops its 3 lowest of the 6 crits. Any other low counts.</p>
+    
+  </div>
+</li>
+
+      
+<li class="req">
+  <span class="req-label">Pairing</span>
+  <div>
+    <p class="req-what">Average 32.5% or more in sessions 2 and 3</p>
+    <div class="sessions">
+      
+      <div class="session"><b>Session 2</b><small>Your week: Mar 29–Apr 2 · not booked yet</small>
+        <div class="meter" aria-hidden="true"><span class="zone" style="left: 32.5%; width: 67.5%"></span><span class="need" style="left: 32.5%" data-label="32.5%"></span></div>
+        <div class="scale"><span aria-hidden="true">0</span><span>full credit needs Skill <span class="badge in-text" style="--skill: #F7DC6F">6</span> at approaching or better first</span></div>
+      </div>
+      
+      <div class="session"><b>Session 3</b><small>Your week: Apr 12–16</small>
+        <div class="meter" aria-hidden="true"><span class="zone" style="left: 32.5%; width: 67.5%"></span><span class="need" style="left: 32.5%" data-label="32.5%"></span></div>
+        <div class="scale"><span aria-hidden="true">0</span><span>full credit needs Skills <span class="badge in-text" style="--skill: #F8B739">9</span> and <span class="badge in-text" style="--skill: #52BE80">10</span> at approaching or better first</span></div>
+      </div>
+      
+    </div>
+    <div class="key meter-key" aria-hidden="true"><span class="key-label">Key</span><span class="key-items"><span><i class="k-zone"></i>where the average has to land</span></span></div>
+    <p class="req-note">Session 1 scored 100%.</p>
+  </div>
+</li>
+
+    </ul>
+    
+  </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen:</span><span class="slip-grade">A-</span><span class="slip-gist"><span>6 of the 7 skills</span><span>no retake</span><span>pairing 17.5%</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">A-</span>
+        <div><p class="grade-title">An A- needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+<li class="req">
+  <span class="req-label">Skills</span>
+  <div>
+    
+    <p class="req-what">Meet 6 of these 7 <span class="easier">easier</span></p>
+    <ul class="chips" aria-label="Skills still to come">
+      <li class="skill-chip"><span class="badge" style="--skill: #F7DC6F"><span class="visually-hidden">Skill </span>6</span><small>until Mar 26</small><small class="flag">being graded</small></li><li class="skill-chip"><span class="badge" style="--skill: #BB8FCE"><span class="visually-hidden">Skill </span>7</span><small>until Apr 2</small></li><li class="skill-chip future"><span class="badge" style="--skill: #85C1E2"><span class="visually-hidden">Skill </span>8</span><small>from Mar 22</small></li><li class="skill-chip future"><span class="badge" style="--skill: #F8B739"><span class="visually-hidden">Skill </span>9</span><small>from Mar 22</small></li><li class="skill-chip future"><span class="badge" style="--skill: #52BE80"><span class="visually-hidden">Skill </span>10</span><small>from Mar 29</small></li><li class="skill-chip future"><span class="badge" style="--skill: #EC7063"><span class="visually-hidden">Skill </span>11</span><small>from Apr 5</small></li><li class="skill-chip future"><span class="badge" style="--skill: #5DADE2"><span class="visually-hidden">Skill </span>12</span><small>from Apr 12</small></li>
+    </ul>
+    <p class="req-note">The other one needs at least approaching.</p>
+    
+    
+    <p class="req-note">Skills <span class="badge in-text" style="--skill: #45B7D1">3</span> and <span class="badge in-text" style="--skill: #FFA07A">4</span> can stay at approaching.</p>
+  </div>
+</li>
+
+        
+        
+<li class="req">
+  <span class="req-label">Pairing</span>
+  <div>
+    <p class="req-what">Average 17.5% or more in sessions 2 and 3 <span class="easier">easier</span></p>
+    <div class="sessions">
+      
+      <div class="session"><b>Session 2</b><small>Your week: Mar 29–Apr 2 · not booked yet</small>
+        <div class="meter" aria-hidden="true"><span class="zone" style="left: 17.5%; width: 82.5%"></span><span class="need" style="left: 17.5%" data-label="17.5%"></span></div>
+        
+      </div>
+      
+      <div class="session"><b>Session 3</b><small>Your week: Apr 12–16</small>
+        <div class="meter" aria-hidden="true"><span class="zone" style="left: 17.5%; width: 82.5%"></span><span class="need" style="left: 17.5%" data-label="17.5%"></span></div>
+        
+      </div>
+      
+    </div>
+    
+    <p class="req-note">Session 1 scored 100%.</p>
+  </div>
+</li>
+
+        
+        <li class="req"><span class="req-label">The rest</span><div><p class="req-what">Attendance and crits: the same as for the A</p></div></li>
+        
+      </ul>
+      
+    </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen either:</span><span class="slip-grade">B+</span><span class="slip-gist"><span>crits: 1 more low allowed</span><span>pairing 10%</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">B+</span>
+        <div><p class="grade-title">A B+ needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+        
+<li class="req">
+  <span class="req-label">Crits</span>
+  <div>
+    
+    <p class="req-what">Up to 2 lows can count, after the same drops <span class="easier">easier</span></p>
+    <div class="parts">
+      <div class="part"><span>Lows that count</span><span class="boxes" aria-hidden="true"><i></i><i></i></span><small>none count yet</small></div>
+    </div>
+    
+  </div>
+</li>
+
+        
+<li class="req">
+  <span class="req-label">Pairing</span>
+  <div>
+    <p class="req-what">Average 10% or more in sessions 2 and 3 <span class="easier">easier</span></p>
+    <div class="sessions">
+      
+      <div class="session"><b>Session 2</b><small>Your week: Mar 29–Apr 2 · not booked yet</small>
+        <div class="meter" aria-hidden="true"><span class="zone" style="left: 10.0%; width: 90.0%"></span><span class="need" style="left: 10.0%" data-label="10%"></span></div>
+        
+      </div>
+      
+      <div class="session"><b>Session 3</b><small>Your week: Apr 12–16</small>
+        <div class="meter" aria-hidden="true"><span class="zone" style="left: 10.0%; width: 90.0%"></span><span class="need" style="left: 10.0%" data-label="10%"></span></div>
+        
+      </div>
+      
+    </div>
+    
+    <p class="req-note">Session 1 scored 100%.</p>
+  </div>
+</li>
+
+        
+        <li class="req"><span class="req-label">The rest</span><div><p class="req-what">Attendance and skills: the same as for the A-</p></div></li>
+        
+      </ul>
+      
+    </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen either:</span><span class="slip-grade">B</span><span class="slip-gist"><span>crits: 1 more low allowed</span><span>pairing: enough already</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">B</span>
+        <div><p class="grade-title">A B needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+        
+<li class="req">
+  <span class="req-label">Crits</span>
+  <div>
+    
+    <p class="req-what">Up to 3 lows can count, after the same drops <span class="easier">easier</span></p>
+    <div class="parts">
+      <div class="part"><span>Lows that count</span><span class="boxes" aria-hidden="true"><i></i><i></i><i></i></span><small>none count yet</small></div>
+    </div>
+    
+  </div>
+</li>
+
+        
+        
+        <li class="req"><span class="req-label">The rest</span><div><p class="req-what">Attendance and skills: the same as for the B+</p></div></li>
+        
+      </ul>
+      <p class="safe">✓ Already safe: pairing <span>(nothing still to come there can cost you the B)</span></p>
+    </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen either:</span><span class="slip-grade">B-</span><span class="slip-gist"><span>4 of the 7 skills</span><span>crits: 1 more low allowed</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">B-</span>
+        <div><p class="grade-title">A B- needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+<li class="req">
+  <span class="req-label">Skills</span>
+  <div>
+    
+    <p class="req-what">Meet 4 of these 7 <span class="easier">easier</span></p>
+    <ul class="chips" aria-label="Skills still to come">
+      <li class="skill-chip"><span class="badge" style="--skill: #F7DC6F"><span class="visually-hidden">Skill </span>6</span><small>until Mar 26</small><small class="flag">being graded</small></li><li class="skill-chip"><span class="badge" style="--skill: #BB8FCE"><span class="visually-hidden">Skill </span>7</span><small>until Apr 2</small></li><li class="skill-chip future"><span class="badge" style="--skill: #85C1E2"><span class="visually-hidden">Skill </span>8</span><small>from Mar 22</small></li><li class="skill-chip future"><span class="badge" style="--skill: #F8B739"><span class="visually-hidden">Skill </span>9</span><small>from Mar 22</small></li><li class="skill-chip future"><span class="badge" style="--skill: #52BE80"><span class="visually-hidden">Skill </span>10</span><small>from Mar 29</small></li><li class="skill-chip future"><span class="badge" style="--skill: #EC7063"><span class="visually-hidden">Skill </span>11</span><small>from Apr 5</small></li><li class="skill-chip future"><span class="badge" style="--skill: #5DADE2"><span class="visually-hidden">Skill </span>12</span><small>from Apr 12</small></li>
+    </ul>
+    <p class="req-note">Of the others, two need at least approaching.</p>
+    
+    
+    <p class="req-note">Skills <span class="badge in-text" style="--skill: #45B7D1">3</span> and <span class="badge in-text" style="--skill: #FFA07A">4</span> can stay at approaching.</p>
+  </div>
+</li>
+
+        
+<li class="req">
+  <span class="req-label">Crits</span>
+  <div>
+    
+    <p class="req-what">Up to 4 lows can count, after the same drops <span class="easier">easier</span></p>
+    <div class="parts">
+      <div class="part"><span>Lows that count</span><span class="boxes" aria-hidden="true"><i></i><i></i><i></i><i></i></span><small>none count yet</small></div>
+    </div>
+    
+  </div>
+</li>
+
+        
+        
+        <li class="req"><span class="req-label">The rest</span><div><p class="req-what">Attendance and pairing: the same as for the B</p></div></li>
+        
+      </ul>
+      
+    </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen either:</span><span class="slip-grade">C+</span><span class="slip-gist"><span>crits: any results</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">C+</span>
+        <div><p class="grade-title">A C+ needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+        
+        
+        
+        <li class="req"><span class="req-label">The rest</span><div><p class="req-what">Attendance, skills and pairing: the same as for the B-</p></div></li>
+        
+      </ul>
+      <p class="safe">✓ Already safe: crits <span>(nothing still to come there can cost you the C+)</span></p>
+    </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen either:</span><span class="slip-grade">C</span><span class="slip-gist"><span>the same as the C+</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">C</span>
+        <div><p class="grade-title">A C needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+        
+        
+        
+        <li class="req"><span class="req-label">Everything</span><div><p class="req-what">The same as for the C+: nothing is easier</p></div></li>
+        
+      </ul>
+      
+    </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen either:</span><span class="slip-grade">C-</span><span class="slip-gist"><span>3 of the 7 skills to approaching</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">C-</span>
+        <div><p class="grade-title">A C- needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+<li class="req">
+  <span class="req-label">Skills</span>
+  <div>
+    
+    <p class="req-what">Get at least three of these 7 to approaching or better <span class="easier">easier</span></p>
+    <ul class="chips" aria-label="Skills still to come">
+      <li class="skill-chip"><span class="badge" style="--skill: #F7DC6F"><span class="visually-hidden">Skill </span>6</span><small>until Mar 26</small><small class="flag">being graded</small></li><li class="skill-chip"><span class="badge" style="--skill: #BB8FCE"><span class="visually-hidden">Skill </span>7</span><small>until Apr 2</small></li><li class="skill-chip future"><span class="badge" style="--skill: #85C1E2"><span class="visually-hidden">Skill </span>8</span><small>from Mar 22</small></li><li class="skill-chip future"><span class="badge" style="--skill: #F8B739"><span class="visually-hidden">Skill </span>9</span><small>from Mar 22</small></li><li class="skill-chip future"><span class="badge" style="--skill: #52BE80"><span class="visually-hidden">Skill </span>10</span><small>from Mar 29</small></li><li class="skill-chip future"><span class="badge" style="--skill: #EC7063"><span class="visually-hidden">Skill </span>11</span><small>from Apr 5</small></li><li class="skill-chip future"><span class="badge" style="--skill: #5DADE2"><span class="visually-hidden">Skill </span>12</span><small>from Apr 12</small></li>
+    </ul>
+    
+    
+    
+    <p class="req-note">Skills <span class="badge in-text" style="--skill: #45B7D1">3</span> and <span class="badge in-text" style="--skill: #FFA07A">4</span> can stay at approaching.</p>
+  </div>
+</li>
+
+        
+        
+        
+        <li class="req"><span class="req-label">The rest</span><div><p class="req-what">Attendance, crits and pairing: the same as for the C</p></div></li>
+        
+      </ul>
+      
+    </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen either:</span><span class="slip-grade">D+</span><span class="slip-gist"><span>the same as the C-</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">D+</span>
+        <div><p class="grade-title">A D+ needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+        
+        
+        
+        <li class="req"><span class="req-label">Everything</span><div><p class="req-what">The same as for the C-: nothing is easier</p></div></li>
+        
+      </ul>
+      
+    </div>
+  
+  <details class="slip">
+    <summary><span class="slip-q">If that doesn't all happen either:</span><span class="slip-grade">D</span><span class="slip-gist"><span>the same as the D+</span></span></summary>
+    <div class="grade-card">
+      <div class="grade-top">
+        <span class="grade-big">D</span>
+        <div><p class="grade-title">A D needs:</p></div>
+      </div>
+      <ul class="reqs">
+        
+        
+        
+        
+        <li class="req"><span class="req-label">Everything</span><div><p class="req-what">The same as for the D+: nothing is easier</p></div></li>
+        
+      </ul>
+      
+    </div>
+  
+  </details></details></details></details></details></details></details></details></details>
+  
+  
+</section>
+
+
+<section id="skills" class="section" aria-labelledby="skills-h">
+  <div class="section-head">
+    <h2 id="skills-h">Skills</h2>
+    <p class="counts">
+      <span class="mark meets"><span class="sym" aria-hidden="true">✓</span>4 met</span>
+      <span class="mark approaching"><span class="sym" aria-hidden="true">~</span>2 approaching</span>
+      <span class="mark doesnt"><span class="sym" aria-hidden="true">✗</span>1 not met</span>
+      
+      <span class="mark untried">1 not tried</span>
+    </p>
+  </div>
+  <p class="note">Your best attempt at each skill counts. Take a skill in Assessment Hours, or on a Skill Day, while it's open; in the final exam period you can retake up to 2 skills you haven't met. Each attempt shows its variant, so you know which ones you've done.</p>
+  <ol class="skills">
+    
+    <li class="skill meets" id="skill-0">
+      <div class="skill-name"><span class="badge" style="--skill: #D946EF">0</span><span>Design function signatures, docs, tests</span></div>
+      <div class="skill-best">
+<span class="mark meets"><span class="sym" aria-hidden="true">✓</span>Meets</span>
+</div>
+      <div class="skill-attempts">
+        
+        <ol class="attempts" aria-label="Your attempts at Skill 0">
+          
+          <li class="attempt doesnt"><time datetime="2027-01-28">Jan 28</time><span class="code">0-B</span><span class="result"><span class="sym" aria-hidden="true">✗</span>Doesn't meet</span></li>
+          
+          <li class="attempt approaching"><time datetime="2027-02-01">Feb 1</time><span class="code">0-G</span><span class="result"><span class="sym" aria-hidden="true">~</span>Approaching</span></li>
+          
+          <li class="attempt meets"><time datetime="2027-02-09">Feb 9</time><span class="code">0-K</span><span class="result"><span class="sym" aria-hidden="true">✓</span>Meets</span></li>
+          
+        </ol>
+        
+      </div>
+      <div class="skill-window">Closed Feb 12</div>
+    </li>
+    
+    <li class="skill meets" id="skill-1">
+      <div class="skill-name"><span class="badge" style="--skill: #FF6B6B">1</span><span>Implement basic functions</span></div>
+      <div class="skill-best">
+<span class="mark meets"><span class="sym" aria-hidden="true">✓</span>Meets</span>
+</div>
+      <div class="skill-attempts">
+        
+        <ol class="attempts" aria-label="Your attempts at Skill 1">
+          
+          <li class="attempt approaching"><time datetime="2027-02-04">Feb 4</time><span class="code">1-D</span><span class="result"><span class="sym" aria-hidden="true">~</span>Approaching</span></li>
+          
+          <li class="attempt meets"><time datetime="2027-02-11">Feb 11</time><span class="code">1-J</span><span class="result"><span class="sym" aria-hidden="true">✓</span>Meets</span></li>
+          
+        </ol>
+        
+      </div>
+      <div class="skill-window">Closed Feb 19</div>
+    </li>
+    
+    <li class="skill meets" id="skill-2">
+      <div class="skill-name"><span class="badge" style="--skill: #4ECDC4">2</span><span>Identifying Privacy Issues in Problem Formulation</span></div>
+      <div class="skill-best">
+<span class="mark meets"><span class="sym" aria-hidden="true">✓</span>Meets</span>
+</div>
+      <div class="skill-attempts">
+        
+        <ol class="attempts" aria-label="Your attempts at Skill 2">
+          
+          <li class="attempt meets"><time datetime="2027-02-16">Feb 16</time><span class="code">2-A</span><span class="result"><span class="sym" aria-hidden="true">✓</span>Meets</span></li>
+          
+        </ol>
+        
+      </div>
+      <div class="skill-window">Closed Feb 26</div>
+    </li>
+    
+    <li class="skill approaching" id="skill-3">
+      <div class="skill-name"><span class="badge" style="--skill: #45B7D1">3</span><span>Identifying Stakeholders in Problem Formulation</span></div>
+      <div class="skill-best">
+<span class="mark approaching"><span class="sym" aria-hidden="true">~</span>Approaching</span>
+</div>
+      <div class="skill-attempts">
+        
+        <ol class="attempts" aria-label="Your attempts at Skill 3">
+          
+          <li class="attempt approaching"><time datetime="2027-02-24">Feb 24</time><span class="code">3-F</span><span class="result"><span class="sym" aria-hidden="true">~</span>Approaching</span></li>
+          
+        </ol>
+        
+      </div>
+      <div class="skill-window">Closed Feb 26</div>
+    </li>
+    
+    <li class="skill approaching" id="skill-4">
+      <div class="skill-name"><span class="badge" style="--skill: #FFA07A">4</span><span>Function composition</span></div>
+      <div class="skill-best">
+<span class="mark approaching"><span class="sym" aria-hidden="true">~</span>Approaching</span>
+</div>
+      <div class="skill-attempts">
+        
+        <ol class="attempts" aria-label="Your attempts at Skill 4">
+          
+          <li class="attempt doesnt"><time datetime="2027-02-22">Feb 22</time><span class="code">4-C</span><span class="result"><span class="sym" aria-hidden="true">✗</span>Doesn't meet</span></li>
+          
+          <li class="attempt approaching"><time datetime="2027-03-01">Mar 1</time><span class="code">4-M</span><span class="result"><span class="sym" aria-hidden="true">~</span>Approaching</span></li>
+          
+        </ol>
+        
+      </div>
+      <div class="skill-window">Closed Mar 5</div>
+    </li>
+    
+    <li class="skill meets" id="skill-5">
+      <div class="skill-name"><span class="badge" style="--skill: #98D8C8">5</span><span>Construct / Transform Tables</span></div>
+      <div class="skill-best">
+<span class="mark meets"><span class="sym" aria-hidden="true">✓</span>Meets</span>
+</div>
+      <div class="skill-attempts">
+        
+        <ol class="attempts" aria-label="Your attempts at Skill 5">
+          
+          <li class="attempt approaching"><time datetime="2027-02-18">Feb 18</time><span class="code">5-B</span><span class="result"><span class="sym" aria-hidden="true">~</span>Approaching</span></li>
+          
+          <li class="attempt meets"><time datetime="2027-03-04">Mar 4</time><span class="code">5-E</span><span class="result"><span class="sym" aria-hidden="true">✓</span>Meets</span></li>
+          
+        </ol>
+        
+      </div>
+      <div class="skill-window">Closed Mar 5</div>
+    </li>
+    
+    <li class="skill open doesnt" id="skill-6">
+      <div class="skill-name"><span class="badge" style="--skill: #F7DC6F">6</span><span>Iteration: Lists</span></div>
+      <div class="skill-best">
+<span class="mark doesnt"><span class="sym" aria-hidden="true">✗</span>Doesn't meet</span>
+</div>
+      <div class="skill-attempts">
+        
+        <ol class="attempts" aria-label="Your attempts at Skill 6">
+          
+          <li class="attempt doesnt"><time datetime="2027-03-02">Mar 2</time><span class="code">6-H</span><span class="result"><span class="sym" aria-hidden="true">✗</span>Doesn't meet</span></li>
+          
+          <li class="attempt waiting"><time datetime="2027-03-15">Mar 15</time><span class="code">6-D</span><span class="result"><span class="sym" aria-hidden="true">…</span>Waiting to be graded</span></li>
+          
+        </ol>
+        
+      </div>
+      <div class="skill-window">Open until Fri Mar 26</div>
+    </li>
+    
+    <li class="skill open untried" id="skill-7">
+      <div class="skill-name"><span class="badge" style="--skill: #BB8FCE">7</span><span>Variable Scope</span></div>
+      <div class="skill-best">
+<span class="mark untried">Not tried</span>
+</div>
+      <div class="skill-attempts">
+        
+      </div>
+      <div class="skill-window">Open until Fri Apr 2</div>
+    </li>
+    
+    <li class="skill notopen" id="skill-8">
+      <div class="skill-name"><span class="badge" style="--skill: #85C1E2">8</span><span>Structured &amp; Conditional Data</span></div>
+      <div class="skill-best"></div>
+      <div class="skill-attempts">
+        
+      </div>
+      <div class="skill-window">Opens Mon Mar 22</div>
+    </li>
+    
+    <li class="skill notopen" id="skill-9">
+      <div class="skill-name"><span class="badge" style="--skill: #F8B739">9</span><span>Recursion: Lists</span></div>
+      <div class="skill-best"></div>
+      <div class="skill-attempts">
+        
+      </div>
+      <div class="skill-window">Opens Mon Mar 22</div>
+    </li>
+    
+    <li class="skill notopen" id="skill-10">
+      <div class="skill-name"><span class="badge" style="--skill: #52BE80">10</span><span>Recursion: Trees</span></div>
+      <div class="skill-best"></div>
+      <div class="skill-attempts">
+        
+      </div>
+      <div class="skill-window">Opens Mon Mar 29</div>
+    </li>
+    
+    <li class="skill notopen" id="skill-11">
+      <div class="skill-name"><span class="badge" style="--skill: #EC7063">11</span><span>Designing Abstractions</span></div>
+      <div class="skill-best"></div>
+      <div class="skill-attempts">
+        
+      </div>
+      <div class="skill-window">Opens Mon Apr 5</div>
+    </li>
+    
+    <li class="skill notopen" id="skill-12">
+      <div class="skill-name"><span class="badge" style="--skill: #5DADE2">12</span><span>Aliasing &amp; Mutation</span></div>
+      <div class="skill-best"></div>
+      <div class="skill-attempts">
+        
+      </div>
+      <div class="skill-window">Opens Mon Apr 12</div>
+    </li>
+    
+  </ol>
+</section>
+
+<section id="crits" class="section" aria-labelledby="crits-h">
+  <div class="section-head">
+    <h2 id="crits-h">Assignment crits</h2>
+    <p class="counts">3 of 6 held</p>
+  </div>
+  <p class="note">Each crit gives you three results, each low, medium or high: your presentation and your questions, as your panels rated them, and your own ratings, by how closely they followed the rest of the panels'. In each of the three, your 3 lowest crits are dropped. <a href="#crits">Your notes for each crit</a> and <a href="#crits">how crit results work</a> are in Assignment Crits.</p>
+  <table class="crits">
+    <thead>
+      <tr><th scope="col">Crit</th><th scope="col">Presentation</th><th scope="col">Questions</th><th scope="col">Your ratings</th></tr>
+    </thead>
+    <tbody>
+      
+      <tr class="">
+        <th scope="row">Homework 1<small><time datetime="2027-02-05">Fri Feb 5</time> · Project 1: Drawn from Data</small></th>
+        
+        <td data-label="Presentation">
+<span class="band"><span class="segs" aria-hidden="true"><i></i><i class="on"></i><i></i></span>medium</span>
+</td>
+        <td data-label="Questions">
+<span class="band"><span class="segs" aria-hidden="true"><i class="on"></i><i></i><i></i></span>low</span>
+</td>
+        <td data-label="Your ratings">
+<span class="band"><span class="segs" aria-hidden="true"><i></i><i class="on"></i><i></i></span>medium</span>
+</td>
+        
+      </tr>
+      
+      <tr class="absent">
+        <th scope="row">Homework 2<small><time datetime="2027-02-19">Fri Feb 19</time> · Project 1: Drawn from Data</small></th>
+        
+        <td colspan="3" class="wide"><span class="mark doesnt"><span class="sym" aria-hidden="true">✗</span>Not marked present</span> Nothing in this crit counts: it is low in all three.</td>
+        
+      </tr>
+      
+      <tr class="">
+        <th scope="row">Homework 3<small><time datetime="2027-03-05">Fri Mar 5</time> · Project 2: Press Any Key</small></th>
+        
+        <td data-label="Presentation">
+<span class="band"><span class="segs" aria-hidden="true"><i></i><i class="on"></i><i></i></span>medium</span>
+</td>
+        <td data-label="Questions">
+<span class="band"><span class="segs" aria-hidden="true"><i></i><i class="on"></i><i></i></span>medium</span>
+</td>
+        <td data-label="Your ratings">
+<span class="band"><span class="segs" aria-hidden="true"><i class="on"></i><i></i><i></i></span>low</span>
+</td>
+        
+      </tr>
+      
+      <tr class="upcoming">
+        <th scope="row">Homework 4<small><time datetime="2027-03-26">Fri Mar 26</time> · Project 2: Press Any Key</small></th>
+        
+        <td colspan="3" class="wide muted">The next crit, in your lab. Homework 4 is due then.</td>
+        
+      </tr>
+      
+      <tr class="upcoming">
+        <th scope="row">Homework 5<small><time datetime="2027-04-09">Fri Apr 9</time> · Project 3: Talk Me Through It</small></th>
+        
+        <td colspan="3" class="wide muted">In your lab.</td>
+        
+      </tr>
+      
+      <tr class="upcoming">
+        <th scope="row">Homework 6<small><time datetime="2027-04-23">Fri Apr 23</time> · Project 3: Talk Me Through It</small></th>
+        
+        <td colspan="3" class="wide muted">In your lab.</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
+
+<section id="pairing" class="section" aria-labelledby="pairing-h">
+  <div class="section-head">
+    <h2 id="pairing-h">Pairing sessions</h2>
+    <p class="counts">Group A · 1 of 3 done</p>
+  </div>
+  <p class="note">Three one-hour sessions with a TA, booked in the <a href="#pairing">pairing app</a> during your group's week. Each session covers the skills shown with it, and its problem comes in parts, each in two versions. Your results on a part's skills when the session starts decide which version you get, and so the most that part can earn: 100% if you meet or approach expectations on all of them, and 75% otherwise. So attempt a session's skills before it: full credit is only possible once you're at least approaching on all of them. An attempt counts once it's graded. If you sign up with a classmate, the lower of your two results counts, so you both need at least approaching on all of them for full credit.</p>
+  <ol class="phases">
+    
+    <li class="phase done">
+      <div class="phase-name">Session 1<small>Your week: Feb 8–12</small></div>
+      <div class="phase-state"><strong>Done · Tue Feb 9</strong><span>With Robin Asante. It scored 100%.</span></div>
+      
+      
+      <div class="phase-tests">
+        <p class="tests-label">Its skills when it started</p>
+        <ul class="tested">
+          
+          <li>
+            <span class="tested-skill"><span class="badge" style="--skill: #D946EF">0</span>Design function signatures, docs, tests</span>
+            <span class="tested-result">
+<span class="mark approaching"><span class="sym" aria-hidden="true">~</span>Approaching</span>
+</span>
+            
+          </li>
+          
+          <li>
+            <span class="tested-skill"><span class="badge" style="--skill: #FF6B6B">1</span>Implement basic functions</span>
+            <span class="tested-result">
+<span class="mark approaching"><span class="sym" aria-hidden="true">~</span>Approaching</span>
+</span>
+            
+          </li>
+          
+        </ul>
+        
+      </div>
+      
+    </li>
+    
+    <li class="phase book">
+      <div class="phase-name">Session 2<small>Your week: Mar 29–Apr 2</small></div>
+      <div class="phase-state"><strong>Not booked yet</strong><span>Book any open time in your week, Mar 29–Apr 2.</span></div>
+      <a class="button phase-action primary" href="#pairing">Book a time</a>
+      
+      <div class="phase-tests">
+        <p class="tests-label">Its skills now</p>
+        <ul class="tested">
+          
+          <li>
+            <span class="tested-skill"><span class="badge" style="--skill: #98D8C8">5</span>Construct / Transform Tables</span>
+            <span class="tested-result">
+<span class="mark meets"><span class="sym" aria-hidden="true">✓</span>Meets</span>
+</span>
+            
+          </li>
+          
+          <li>
+            <span class="tested-skill"><span class="badge" style="--skill: #F7DC6F">6</span>Iteration: Lists</span>
+            <span class="tested-result">
+<span class="mark doesnt"><span class="sym" aria-hidden="true">✗</span>Doesn't meet</span>
+</span>
+            <span class="tested-note">Open until Fri Mar 26 · an attempt is being graded</span>
+          </li>
+          
+        </ul>
+        <p class="max">Get Skill <span class="badge in-text" style="--skill: #F7DC6F">6</span> to at least approaching by Fri Mar 26, when it closes: full credit needs both its skills at approaching or better.</p>
+      </div>
+      
+    </li>
+    
+    <li class="phase soon">
+      <div class="phase-name">Session 3<small>Your week: Apr 12–16</small></div>
+      <div class="phase-state"><strong>Booking opens Mon Mar 29</strong><span>Your week is Apr 12–16.</span></div>
+      
+      
+      <div class="phase-tests">
+        <p class="tests-label">Its skills now</p>
+        <ul class="tested">
+          
+          <li>
+            <span class="tested-skill"><span class="badge" style="--skill: #F8B739">9</span>Recursion: Lists</span>
+            <span class="tested-result"></span>
+            <span class="tested-note">Opens Mon Mar 22</span>
+          </li>
+          
+          <li>
+            <span class="tested-skill"><span class="badge" style="--skill: #52BE80">10</span>Recursion: Trees</span>
+            <span class="tested-result"></span>
+            <span class="tested-note">Opens Mon Mar 29</span>
+          </li>
+          
+        </ul>
+        <p class="max">Get Skill <span class="badge in-text" style="--skill: #F8B739">9</span> to at least approaching by Fri Apr 9, when it closes, and Skill <span class="badge in-text" style="--skill: #52BE80">10</span> before your session: full credit needs both its skills at approaching or better.</p>
+      </div>
+      
+    </li>
+    
+  </ol>
+</section>
+
+<section id="classes" class="section" aria-labelledby="classes-h">
+  <div class="section-head">
+    <h2 id="classes-h">Classes</h2>
+    <p class="counts">14 attended of 20 so far</p>
+  </div>
+  <div class="bonus ok">
+    <p><strong>Attendance bonus:</strong> come to at least 26 of the 32 classes, handing in the class's sheet, for a bonus on your crit and pairing grades. You can miss up to 6.</p>
+    <p class="allowance">
+<span class="boxes" aria-hidden="true"><i class="used"></i><i class="used"></i><i class="used"></i><i class="used"></i><i class="used"></i><i></i></span>
+<span>You've missed 5 of the 6 classes the bonus allows, so you can miss 1 more.</span></p>
+  </div>
+  <ol class="days" aria-label="Classes">
+    
+    <li>
+      <span class="day came" title="Numbers" aria-label="Class 1, Wednesday, January 13: Marked present">
+        <span class="day-num">1</span>
+        <span class="day-date">Jan 13</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Strings &amp; Images" aria-label="Class 2, Thursday, January 14: Sheet received">
+        <span class="day-num">2</span>
+        <span class="day-date">Jan 14</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day missed" title="Definitions" aria-label="Class 3, Wednesday, January 20: No sheet from you">
+        <span class="day-num">3</span>
+        <span class="day-date">Jan 20</span>
+        <span class="day-mark" aria-hidden="true">✗</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Functions" aria-label="Class 4, Thursday, January 21: Sheet received">
+        <span class="day-num">4</span>
+        <span class="day-date">Jan 21</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Conditionals, Tests, and print" aria-label="Class 5, Monday, January 25: Sheet received">
+        <span class="day-num">5</span>
+        <span class="day-date">Jan 25</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Ethics &amp; Stakeholder Analysis" aria-label="Class 6, Wednesday, January 27: Sheet received">
+        <span class="day-num">6</span>
+        <span class="day-date">Jan 27</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Introduction to tables" aria-label="Class 7, Thursday, January 28: Sheet received">
+        <span class="day-num">7</span>
+        <span class="day-date">Jan 28</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Functions over rows" aria-label="Class 8, Monday, February 1: Sheet received">
+        <span class="day-num">8</span>
+        <span class="day-date">Feb 1</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day missed" title="Adding columns" aria-label="Class 9, Wednesday, February 3: No sheet from you">
+        <span class="day-num">9</span>
+        <span class="day-date">Feb 3</span>
+        <span class="day-mark" aria-hidden="true">✗</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Tests for tables &amp; privacy analysis" aria-label="Class 10, Thursday, February 4: Sheet received">
+        <span class="day-num">10</span>
+        <span class="day-date">Feb 4</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Cleaning data" aria-label="Class 11, Monday, February 8: Sheet received">
+        <span class="day-num">11</span>
+        <span class="day-date">Feb 8</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Task planning &amp; visualization" aria-label="Class 12, Wednesday, February 10: Sheet received">
+        <span class="day-num">12</span>
+        <span class="day-date">Feb 10</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day missed" title="Extracting columns" aria-label="Class 13, Wednesday, February 17: No sheet from you">
+        <span class="day-num">13</span>
+        <span class="day-date">Feb 17</span>
+        <span class="day-mark" aria-hidden="true">✗</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Operating on Lists" aria-label="Class 14, Thursday, February 18: Sheet received">
+        <span class="day-num">14</span>
+        <span class="day-date">Feb 18</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Reactors" aria-label="Class 15, Monday, February 22: Sheet received">
+        <span class="day-num">15</span>
+        <span class="day-date">Feb 22</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day missed" title="Variables and loops" aria-label="Class 16, Wednesday, February 24: No sheet from you">
+        <span class="day-num">16</span>
+        <span class="day-date">Feb 24</span>
+        <span class="day-mark" aria-hidden="true">✗</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Working with Lists &amp; accumulators" aria-label="Class 17, Thursday, February 25: Sheet received">
+        <span class="day-num">17</span>
+        <span class="day-date">Feb 25</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day came" title="Testing and variables that change" aria-label="Class 18, Monday, March 1: Marked present">
+        <span class="day-num">18</span>
+        <span class="day-date">Mar 1</span>
+        <span class="day-mark" aria-hidden="true">✓</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day missed" title="Scoping in Python" aria-label="Class 19, Wednesday, March 3: No sheet from you">
+        <span class="day-num">19</span>
+        <span class="day-date">Mar 3</span>
+        <span class="day-mark" aria-hidden="true">✗</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day waiting" title="Structured data" aria-label="Class 20, Monday, March 15: Being checked">
+        <span class="day-num">20</span>
+        <span class="day-date">Mar 15</span>
+        <span class="day-mark" aria-hidden="true">…</span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day today" title="Conditional data">
+        <span class="day-num">21</span>
+        <span class="day-date">Today</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Self-referential data">
+        <span class="day-num">22</span>
+        <span class="day-date">Mar 18</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="The design recipe for lists">
+        <span class="day-num">23</span>
+        <span class="day-date">Mar 22</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Polymorphism">
+        <span class="day-num">24</span>
+        <span class="day-date">Mar 24</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Intro to trees &amp; Trees as recursive data">
+        <span class="day-num">25</span>
+        <span class="day-date">Mar 25</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="More trees">
+        <span class="day-num">26</span>
+        <span class="day-date">Mar 29</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Designing abstractions">
+        <span class="day-num">27</span>
+        <span class="day-date">Mar 31</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Abstractions from templates">
+        <span class="day-num">28</span>
+        <span class="day-date">Apr 5</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Mutable data">
+        <span class="day-num">29</span>
+        <span class="day-date">Apr 7</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Aliasing &amp; the heap">
+        <span class="day-num">30</span>
+        <span class="day-date">Apr 8</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Accumulators in recursion">
+        <span class="day-num">31</span>
+        <span class="day-date">Apr 12</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+    <li>
+      <span class="day upcoming" title="Accumulators on trees">
+        <span class="day-num">32</span>
+        <span class="day-date">Apr 14</span>
+        <span class="day-mark" aria-hidden="true"></span>
+      </span>
+    </li>
+    
+  </ol>
+  <ul class="legend" aria-label="Key">
+    <li><span class="day came" aria-hidden="true">✓</span>Counted: tap to see your sheet</li>
+    <li><span class="day missed" aria-hidden="true">✗</span>No sheet from you</li>
+    <li><span class="day waiting" aria-hidden="true">…</span>Sheets not all matched yet</li>
+    <li><span class="day upcoming" aria-hidden="true"></span>Still to come</li>
+  </ul>
+  <p class="note">Missed a class you were at? Your sheet may not have matched your name. Tell a TA or your instructor which class it was, and they'll look for it.</p>
+</section>
+
+<section id="labs" class="section" aria-labelledby="labs-h">
+  <div class="section-head">
+    <h2 id="labs-h">Practice labs</h2>
+    <p class="counts">3 attended of 4 so far</p>
+  </div>
+  <div class="bonus last">
+    <p><strong>Lab bonus:</strong> come to all but one of the 7 practice labs, and your grade moves up one row of the grading table.</p>
+    <p class="allowance">
+<span class="boxes" aria-hidden="true"><i class="used"></i></span>
+<span>You've missed the one practice lab the bonus allows: missing another means no bonus.</span></p>
+  </div>
+  <ol class="labs">
+    
+    <li class="lab came">
+      <span class="lab-name">Lab 0<small>Python Setup</small></span>
+      <span class="lab-date">Jan 15</span>
+      <span class="lab-state"><span class="sym" aria-hidden="true">✓</span>Attended</span>
+    </li>
+    
+    <li class="lab came">
+      <span class="lab-name">Lab 1<small>Functions</small></span>
+      <span class="lab-date">Jan 29</span>
+      <span class="lab-state"><span class="sym" aria-hidden="true">✓</span>Attended</span>
+    </li>
+    
+    <li class="lab missed">
+      <span class="lab-name">Lab 2<small>Tables</small></span>
+      <span class="lab-date">Feb 12</span>
+      <span class="lab-state"><span class="sym" aria-hidden="true">✗</span>Missed</span>
+    </li>
+    
+    <li class="lab came">
+      <span class="lab-name">Lab 3<small>Lists</small></span>
+      <span class="lab-date">Feb 26</span>
+      <span class="lab-state"><span class="sym" aria-hidden="true">✓</span>Attended</span>
+    </li>
+    
+    <li class="lab upcoming">
+      <span class="lab-name">Lab 4<small>Conditional Data</small></span>
+      <span class="lab-date">Mar 19</span>
+      <span class="lab-state">Upcoming</span>
+    </li>
+    
+    <li class="lab upcoming">
+      <span class="lab-name">Lab 5<small>Trees</small></span>
+      <span class="lab-date">Apr 2</span>
+      <span class="lab-state">Upcoming</span>
+    </li>
+    
+    <li class="lab upcoming">
+      <span class="lab-name">Lab 6<small>Accumulators &amp; Abstraction</small></span>
+      <span class="lab-date">Apr 16</span>
+      <span class="lab-state">Upcoming</span>
+    </li>
+    
+  </ol>
+  <p class="note">Crit labs, every other Friday, are under Assignment crits.</p>
+</section>
+
+<footer class="foot">
+  <p>Something here looks wrong? Ask a TA, or post on Discord. The <a href="https://neu-pdi.github.io/cs2000-public-resources/syllabus#grading">syllabus</a> has how all of this makes up your grade.</p>
+</footer>
+
+</main>
+
+</body></html>

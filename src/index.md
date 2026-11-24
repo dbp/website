@@ -29,7 +29,7 @@ If you would like to meet at another time, in person or virtually, reach out via
 
 **Fall 2026: ** [CS2000: Introduction to Program Design and Implementation](https://neu-pdi.github.io/cs2000-public-resources/)
 
-**Fall 2025: ** [CS2000: Introduction to Program Design and Implementation](https://neu-pdi.github.io/cs2000-public-resources/)
+**Fall 2025: ** [CS2000: Introduction to Program Design and Implementation](https://neu-pdi.github.io/cs2000-public-resources/fall2025/)
 
 **Spring 2025: ** [CS2800: Logic & Computation](https://course.ccs.neu.edu/cs2800sp25/)
 
@@ -69,6 +69,10 @@ If you would like to meet at another time, in person or virtually, reach out via
 
 [**FEEDBOT: Formative Design Feedback on Programming Assignments.**](/pubs/2025/feedbot.pdf)
 <div class="desc">Elaine Zhu, Smaran Teja, Chris Coombes, Daniel Patterson. <br/> _ITiCSE 2025_. [PDF](/pubs/2025/feedbot.pdf).</div>
+
+[**DRAFT: Programming with Non-algorithmic Specifications: Extracting Correctness from LLMs.**](/pubs/2024/draft-synth.pdf)
+<div class="desc">Daniel Patterson, Smaran Teja, Lukas Tegge, Rachel Chen. <br/> _UNPUBLISHED 2024_. [PDF](/pubs/2024/draft-synth.pdf).</div>
+
 
 [**Semantic Encapsulation using Linking Types.**](/pubs/2023/lt.pdf)
 <div class="desc">Daniel Patterson, Andrew Wagner, Amal Ahmed. <br/> _TyDE 2023_. [PDF](/pubs/2023/lt.pdf), [appendix](/pubs/2023/lt-tr.pdf), and [video](https://www.youtube.com/watch?v=Uoj9rVFlOQs&list=PLyrlk8Xaylp4YYkJKQZ8gO9RK8GCqmFzk).</div>
